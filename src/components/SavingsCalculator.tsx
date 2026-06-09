@@ -17,10 +17,10 @@ export function SavingsCalculator() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">
-            Bereken uw Return on Investment
+            Hoeveel tijd kost jou één dossier vandaag?
           </h2>
           <p className="text-lg text-slate-600">
-            Ontdek direct hoeveel tijd en geld u bespaart door handmatig werk te elimineren.
+            Schuif naar jouw aantal offertes per maand en zie direct wat EnerCalculatie jou oplevert.
           </p>
         </div>
 

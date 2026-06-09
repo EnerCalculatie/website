@@ -24,7 +24,7 @@ export function Technology() {
     {
       icon: <Cpu size={24} />,
       title: 'AI OCR Gateway',
-      description: 'Ondersteund door geavanceerde AI (Google Gemini) voor vlekkeloze data-extractie uit complexe pdf\'s en afbeeldingen, zonder handmatige correcties.',
+      description: 'Ondersteund door geavanceerde AI voor vlekkeloze data-extractie uit complexe pdf\'s en afbeeldingen, zonder handmatige correcties.',
       color: 'bg-orange-500/10 text-orange-400',
     },
     {
@@ -67,9 +67,9 @@ export function Technology() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-tight"
           >
-            Enterprise-grade techniek, <br className="hidden md:block"/>
+            Nederlandse data. Veilige architectuur.<br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-400">
-              gebouwd voor integratie.
+              Klaar voor jouw werkomgeving.
             </span>
           </motion.h2>
           
@@ -80,7 +80,7 @@ export function Technology() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            Een robuust platform met Nederlandse data-opslag, ijzersterke beveiliging en een open API om naadloos in uw bestaande IT-landschap te passen.
+            Alle klantdossiers staan op Nederlandse servers, volledig AVG-compliant. EnerCalculatie past naadloos in je bestaande werkwijze via open API en standaard integraties.
           </motion.p>
         </div>
 

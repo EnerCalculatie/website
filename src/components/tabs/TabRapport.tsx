@@ -51,7 +51,7 @@ export function TabRapport() {
              </button>
            </div>
            <p className="text-sm text-slate-500 italic">
-             Klik hierboven op 'Schrijf AI Samenvatting' om door de Gemini AI-adviseur een gepersonaliseerde brief te laten formuleren op basis van de verbruiksgegevens en netcongestie risks.
+           Klik hierboven op 'Schrijf AI Samenvatting' om door de AI-adviseur een gepersonaliseerde brief te laten formuleren op basis van de verbruiksgegevens en netcongestie risks.
            </p>
         </div>
 

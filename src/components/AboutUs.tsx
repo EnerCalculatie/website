@@ -59,6 +59,7 @@ export function AboutUs() {
                 <img 
                   src={member.image} 
                   alt={member.name} 
+                  loading="lazy"
                   className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>

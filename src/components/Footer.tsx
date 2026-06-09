@@ -12,18 +12,18 @@ export function Footer() {
       <div className="bg-[#00a669] relative overflow-hidden">
         <div className="absolute inset-0 bg-[#008f5a] opacity-50 radial-gradient-circle" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6">
-            Klaar om uw offerteproces te versnellen?
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            Klaar om de geloofwaardigste adviseur in de kamer te zijn?
           </h2>
           <p className="text-emerald-50 text-lg mb-8 max-w-2xl mx-auto font-medium">
-            Sluit u aan bij de vooruitstrevende installateurs in Nederland. Neem contact op om de mogelijkheden te bespreken of boek direct een demo.
+            Boek een livedemo en zie in 20 minuten hoe een echte casus eruitziet in EnerCalculatie — van energierekening tot adviesrapport.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#contact" className="bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center">
               Boek een Live Demo
             </a>
-            <a href="#contact" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
-              Neem contact op
+            <a href="#calculator" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
+              Bereken mijn tijdsbesparing
             </a>
           </div>
         </div>
@@ -37,6 +37,7 @@ export function Footer() {
                 <img 
                   src="/logo.png" 
                   alt="EnerCalculatie Logo" 
+                  loading="lazy"
                   className="h-10 w-auto" 
                   onError={() => setImageError(true)} 
                 />

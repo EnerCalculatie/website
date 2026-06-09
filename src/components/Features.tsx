@@ -10,10 +10,10 @@ export function Features() {
             Onze Core Features
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            De slimste toolkit voor installateurs
+            Alles wat je nodig hebt voor een onweerlegbaar adviesgesprek
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Ontworpen voor en door vakmensen uit de verduurzamingssector.
+            Gebouwd op praktijkervaring in de installatietechniek. Niet door marketeers, maar door iemand die weet hoe een schouw eruitziet.
           </p>
         </div>
 

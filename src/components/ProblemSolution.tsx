@@ -20,11 +20,11 @@ export function ProblemSolution() {
     <section id="oplossing" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Waarom installateurs voor Enercalculatie kiezen
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+            Jij verkoopt vertrouwen. <br/> Wij leveren de onderbouwing.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Het traditionele handmatige adviesproces kost geld, tijd en leidt tot fouten. Wij automatiseren het zware rekenwerk.
+            De installateur die zijn klant een foutloos, actueel adviesrapport kan geven wint de deal. Wij zorgen dat jij die installateur bent.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export function ProblemSolution() {
               <div className="w-10 h-10 rounded-xl bg-emerald-400/10 flex items-center justify-center">
                 <CheckCircle size={24} className="text-emerald-400" />
               </div>
-              <h3 className="text-xl font-bold text-white">De Enercalculatie manier</h3>
+              <h3 className="text-xl font-bold text-white">De EnerCalculatie manier</h3>
             </div>
             <ul className="space-y-5 relative z-10">
               {solutions.map((sol, idx) => (

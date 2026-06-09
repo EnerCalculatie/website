@@ -26,15 +26,15 @@ export function Hero() {
             Platform voor de Nederlandse installatiebranche
           </span>
           
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 leading-[1.1] mb-6">
-            Van klantinname tot verkoopklaar advies.{' '}
-            <span className="text-brand-primary">
-              In minder dan 5 minuten.
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 leading-tight mb-6">
+            Jij doet het gesprek.
+            <span className="block text-brand-primary">
+              Wij doen het rekenwerk.
             </span>
           </h1>
           
           <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            De AI-gedreven SaaS-applicatie voor Nederlandse installateurs van zonnepanelen en thuisbatterijen. Elimineer handmatig typewerk, verhoog uw conversie met 15% en reduceer calculatiefouten naar 0%.
+            Van energierekening tot onderbouwd verduurzamingsadvies — voor zonnepanelen, thuisbatterijen en warmtepompen. Geen Excel, geen typfouten, geen gemiste wetgeving. Alleen een adviesrapport waar jouw klant ja tegen zegt.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
@@ -48,8 +48,9 @@ export function Hero() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500 font-medium">
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> Direct toegang</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> AVG-proof in Nederland</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> AVG-proof</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> Nederlandse servers</span>
+            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> Deterministische berekeningen</span>
           </div>
         </motion.div>
 

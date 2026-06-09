@@ -85,7 +85,7 @@ export function DashboardMockup() {
             </button>
             <div className="bg-slate-50/50 rounded-xl p-3 flex gap-2 border border-slate-100 items-center">
               <div className="text-purple-500"><Scan size={16} /></div>
-              <span className="text-xs text-slate-500">Gemini AI is geladen &<br/>gekoppeld.</span>
+              <span className="text-xs text-slate-500">AI OCR is geladen &<br/>gekoppeld.</span>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@ export function DashboardMockup() {
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-slate-900">AI Scan & OCR Document</h2>
-                  <p className="text-sm text-slate-500">Upload documenten voor automatische gegevensextractie via Gemini.</p>
+                  <p className="text-sm text-slate-500">Upload documenten voor automatische gegevensextractie via AI.</p>
                 </div>
               </div>
             )}
