@@ -1,0 +1,167 @@
+import { motion } from 'motion/react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+
+export function Contact() {
+  return (
+    <section id="contact" className="py-24 bg-slate-50 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-100 rounded-full px-4 py-2 mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse"></span>
+            <span className="text-sm font-bold text-brand-primary tracking-wide uppercase">Contact</span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
+          >
+            Hoe kunnen we je helpen?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto"
+          >
+            Ons team staat voor je klaar. Neem contact op voor ondersteuning, demo's of technische vragen.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col gap-8"
+          >
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+              <h3 className="text-2xl font-bold text-slate-800 mb-6">Contactgegevens</h3>
+              
+              <div className="flex flex-col gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-lg mb-1">E-mail</h4>
+                    <p className="text-slate-600 mb-1">Voor algemene vragen en support.</p>
+                    <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-lg mb-1">Telefoon</h4>
+                    <p className="text-slate-600 mb-1">We zijn bereikbaar van 08:30 tot 17:30.</p>
+                    <a href="tel:+310201234567" className="text-brand-primary font-medium hover:underline">020 - 123 45 67</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-lg mb-1">Kantoor</h4>
+                    <p className="text-slate-600">
+                      Fictiestraat 42<br />
+                      1234 AB Zonnestad<br />
+                      Nederland
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"
+          >
+            <h3 className="text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
+            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">Voornaam</label>
+                  <input 
+                    type="text" 
+                    id="firstName" 
+                    className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                    placeholder="Jan" 
+                  />
+                </div>
+                <div>
+                  <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-2">Achternaam</label>
+                  <input 
+                    type="text" 
+                    id="lastName" 
+                    className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                    placeholder="Voorbeeld" 
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">E-mailadres *</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  required
+                  className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                  placeholder="jan@installatiebedrijf.nl" 
+                />
+              </div>
+
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">Bedrijfsnaam</label>
+                <input 
+                  type="text" 
+                  id="company" 
+                  className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                  placeholder="Installatiebedrijf BV" 
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">Bericht *</label>
+                <textarea 
+                  id="message" 
+                  rows={4} 
+                  required
+                  className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none"
+                  placeholder="Hoe kunnen we je helpen?" 
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                className="w-full bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group"
+              >
+                <span>Verstuur bericht</span>
+                <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

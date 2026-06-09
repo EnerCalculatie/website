@@ -1,0 +1,146 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Settings, Check, X } from 'lucide-react';
+
+export function CookieBanner() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  
+  const [preferences, setPreferences] = useState({
+    functional: true, // Always true and disabled
+    analytical: false,
+    marketing: false,
+  });
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookie-consent');
+    if (!consent) {
+      setIsVisible(true);
+    }
+  }, []);
+
+  const handleAcceptAll = () => {
+    localStorage.setItem('cookie-consent', JSON.stringify({ functional: true, analytical: true, marketing: true }));
+    setIsVisible(false);
+  };
+
+  const handleRejectAll = () => {
+    localStorage.setItem('cookie-consent', JSON.stringify({ functional: true, analytical: false, marketing: false }));
+    setIsVisible(false);
+  };
+
+  const handleSavePreferences = () => {
+    localStorage.setItem('cookie-consent', JSON.stringify(preferences));
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 100, opacity: 0 }}
+        className="fixed bottom-0 left-0 w-full z-50 p-4"
+      >
+        <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+          
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">Wij respecteren uw privacy</h3>
+            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+              Om onze website optimaal te laten functioneren, maken wij gebruik van cookies. Bepaal zelf welke cookies u toestaat. Volgens de AVG-richtlijnen kunt u tracking cookies eenvoudig weigeren of accepteren.
+            </p>
+            
+            <button 
+              onClick={() => setShowDetails(!showDetails)}
+              className="text-brand-primary text-sm font-medium flex items-center gap-2 hover:underline focus:outline-none"
+            >
+              <Settings size={16} />
+              Zelf instellen
+            </button>
+
+            {showDetails && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                className="mt-6 flex flex-col gap-4 border-t border-slate-100 pt-4"
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm">Noodzakelijk</h4>
+                    <p className="text-xs text-slate-500">Om de basisfuncties van de site te laten werken.</p>
+                  </div>
+                  <div className="bg-brand-primary/20 text-brand-primary px-3 py-1 rounded text-xs font-bold">
+                    Altijd aan
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm">Analytisch</h4>
+                    <p className="text-xs text-slate-500">Om het gebruik van de site anoniem te meten.</p>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      className="sr-only peer"
+                      checked={preferences.analytical}
+                      onChange={(e) => setPreferences({...preferences, analytical: e.target.checked})}
+                    />
+                    <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-brand-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-primary"></div>
+                  </label>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-sm">Marketing</h4>
+                    <p className="text-xs text-slate-500">Om content en advertenties te personaliseren.</p>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      className="sr-only peer"
+                      checked={preferences.marketing}
+                      onChange={(e) => setPreferences({...preferences, marketing: e.target.checked})}
+                    />
+                    <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-brand-primary rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-primary"></div>
+                  </label>
+                </div>
+
+                <div className="mt-2">
+                  <button 
+                    onClick={handleSavePreferences}
+                    className="w-full sm:w-auto bg-slate-800 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-slate-700 transition"
+                  >
+                    Voorkeuren opslaan
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          {!showDetails && (
+            <div className="flex flex-col sm:flex-row gap-3 min-w-[280px]">
+              <button 
+                onClick={handleRejectAll}
+                className="flex-1 border border-slate-300 text-slate-700 hover:bg-slate-50 px-6 py-3 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2"
+              >
+                <X size={16} />
+                Weigeren
+              </button>
+              <button 
+                onClick={handleAcceptAll}
+                className="flex-1 bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl text-sm font-bold transition shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2"
+              >
+                <Check size={16} />
+                Accepteren
+              </button>
+            </div>
+          )}
+
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
