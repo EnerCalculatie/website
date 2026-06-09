@@ -3,23 +3,26 @@ import { XCircle, CheckCircle } from 'lucide-react';
 
 export function ProblemSolution() {
   const problems = [
-    "Trage Leadkwalificatie: Uren weggooitijd aan leads met daken in de schaduw of ongeschikte meterkasten.",
-    "Handmatige Invoer: Het overtypen van piek- en daltarieven uit complexe pdf's is enorm foutgevoelig.",
-    "Complexe Berekeningen: Door wisselende salderingsregels en terugleverboetes is de ROI niet uit te rekenen op een bierviltje.",
-    "Gefragmenteerde Tools: Continu wisselen tussen Google Maps, Excel, Word en e-mail per klant.",
+    "Verlies van autoriteit: Klanten prikken door een verkooppraatje heen en eisen een keiharde financiële onderbouwing.",
+    "Foutgevoelig handwerk: Tarieven overtypen in Excel leidt snel tot rekenfouten, wat het vertrouwen direct schaadt.",
+    "Complexe regels: Door wisselende salderingsregels en terugleverkosten verlies je overtuigingskracht als de ROI onduidelijk is.",
+    "Geïmproviseerde offertes: Losse Word-documentjes en bijgevoegde screenshots maken een rommelige indruk aan de keukentafel.",
   ];
 
   const solutions = [
-    "Directe Kwalificatie: Binnen 5 minuten een complete pandregistratie en betrouwbare haalbaarheidscheck.",
-    "AI Document Extractie: Energierekeningen worden automatisch gelezen, exact en zonder één enkele typefout.",
-    "Deterministische ROI Engine: Combineert accuraat zonnepanelen, batterijen en actuele wetgeving (incl. BTW).",
-    "Eén Platform: Van de property intake tot een verkoopklaar, gepersonaliseerd adviesrapport als PDF.",
+    "Onweerlegbare cijfers: Geef de klant zekerheid met een deterministische berekening die elke kritische vraag feilloos beantwoordt.",
+    "Foutloze data-extractie: Energierekeningen worden via AI exact uitgelezen. Geen typefouten, alleen kloppende feiten.",
+    "Altijd actueel: De ROI-engine rekent automatisch met de nieuwste regels rondom salderen, terugleverkosten en batterijen.",
+    "Onderscheidend rapport: Lever direct een prachtig, overzichtelijk adviesrapport af dat pure professionaliteit uitstraalt.",
   ];
 
   return (
     <section id="oplossing" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+          <span className="text-brand-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">
+            Waarom installateurs kiezen voor EnerCalculatie
+          </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
             Jij verkoopt vertrouwen. <br/> Wij leveren de onderbouwing.
           </h2>

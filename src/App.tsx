@@ -4,8 +4,9 @@ import { Hero } from './components/Hero';
 import { HowItWorks } from './components/HowItWorks';
 import { ProblemSolution } from './components/ProblemSolution';
 import { ComparisonTable } from './components/ComparisonTable';
+import { Integrations } from './components/Integrations';
 import { Features } from './components/Features';
-import { SavingsCalculator } from './components/SavingsCalculator';
+import { PricingCalculator } from './components/PricingCalculator';
 import { Technology } from './components/Technology';
 import { ReportExample } from './components/ReportExample';
 import { Pricing } from './components/Pricing';
@@ -35,7 +36,8 @@ function App() {
 
         {/* Product Depth */}
         <Features />
-        <SavingsCalculator />
+        <Integrations />
+        <PricingCalculator />
         <Technology />
 
         {/* Conversion & Proof */}

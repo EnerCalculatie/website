@@ -4,47 +4,49 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: "Doet de AI het financiële rekenwerk?",
-    answer: "Nee. De AI wordt uitsluitend gebruikt voor het extraheren van ongestructureerde data (zoals OCR via jaarnota's). De daadwerkelijke fysica, ROI berekeningen en financiële business rules zijn 100% deterministisch gecodeerd. Dit voorkomt 'hallucinaties' en garandeert wiskundig perfecte offertes."
+    question: "Is mijn klantdata veilig?",
+    answer: "Alle dossiers staan op Nederlandse servers, volledig AVG-compliant en end-to-end versleuteld. Jij bent eigenaar van jouw data — altijd exporteerbaar, nooit gedeeld."
   },
   {
-    question: "Is mijn klantdata veilig en AVG-proof?",
-    answer: "Zeker. Alle dossiers en projectgegevens staan op Nederlandse servers, volledig AVG-compliant en end-to-end versleuteld. Jij blijft eigenaar van jouw data — deze is altijd exporteerbaar en wordt nooit met derden gedeeld."
+    question: "Werkt het met mijn huidige systemen?",
+    answer: "EnerCalculatie integreert via REST API met Exact Online, Teamleader en Afas. Gebruik je iets anders? We kijken samen wat mogelijk is."
   },
   {
-    question: "Werkt EnerCalculatie met mijn huidige CRM of boekhoudpakket?",
-    answer: "EnerCalculatie integreert via een moderne REST API met systemen zoals Exact Online, Teamleader en Afas. Staat jouw pakket er niet tussen? Neem contact op, we kijken graag samen naar een maatwerkkoppeling."
+    question: "Wat als ik vastloop?",
+    answer: "Elke klant krijgt persoonlijke onboarding. Daarna ben je bereikbaar via e-mail (reactie binnen 24 uur) of telefoon (Business-pakket: binnen 4 uur)."
   },
   {
-    question: "Welke ondersteuning krijg ik bij de start?",
-    answer: "Elke nieuwe klant krijgt een persoonlijke onboarding om de software direct goed in te richten. Daarna kun je altijd bij ons terecht: we reageren binnen 24 uur op e-mails, en klanten met een Business-pakket hebben directe telefonische support met een reactietijd van 4 uur."
-  },
-  {
-    question: "Verdien ik de investering in de software wel terug?",
-    answer: "Gemiddeld bespaar je 2,5 uur per dossier. Bij een volume van slechts 10 dossiers per maand verdien je de maandelijkse kosten meestal al in de eerste week terug. Gebruik onze ROI-calculator hierboven om je eigen scenario te berekenen."
-  },
-  {
-    question: "Kan ik mijn eigen hardware inkoopprijzen en marges invoeren?",
-    answer: "Ja, in het 'Tarievenbeheer' paneel kunt u zelf uw merken, inkoopprijzen, opslagen, en installatietarieven beheren. De engine gebruikt altijd uw up-to-date catalogus voor de berekeningen."
-  },
-  {
-    question: "Hoe accuraat is de hybride warmtepomp vs panelen verdeling?",
-    answer: "Het model is specifiek gebouwd om dubbeltellingen te voorkomen. Eerst berekent de engine het gasverbruik weg (b.v. GAS_KWH_PER_M3 = 8.79) maal het tapwater/verwarmingsefficiëntie. Pas daarna berekent het hoeveel extra zonnepanelen nodig zijn, rekening houdend met actuele salderingsregels en variabele tarieven."
+    question: "Kost dit me meer tijd dan het oplevert?",
+    answer: "Gebruik de ROI-calculator op deze pagina. Bij 10 dossiers per maand verdien je de kosten terug in de eerste week."
   }
 ];
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
     <section id="faq" className="py-24 bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">
-            Technische & Compliance FAQ
+            Nog twijfels over de overstap?
           </h2>
           <p className="text-lg text-slate-600">
-            Transparantie is cruciaal. Lees hier hoe onze techniek achter de schermen werkt.
+            We snappen dat nieuwe software een grote stap is. We nemen je bezwaren graag weg.
           </p>
         </div>
 

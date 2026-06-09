@@ -19,7 +19,7 @@ export function NavBar() {
   const navLinks = [
     { name: 'Oplossing', href: '#oplossing' },
     { name: 'Functies', href: '#functies' },
-    { name: 'ROI Calculator', href: '#calculator' },
+    { name: 'ROI Calculator', href: '#pricing-calculator' },
     { name: 'Prijzen', href: '#prijzen' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Wie zijn wij', href: '#over-ons' },

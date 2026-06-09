@@ -1,7 +1,44 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    try {
+      // PAS DEZE URL AAN naar je eigen Supabase Edge Function (of andere backend API)
+      const response = await fetch('https://jouw-project-id.supabase.co/functions/v1/send-contact-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) throw new Error('Fout bij verzenden');
+
+      setStatus('success');
+      setFormData({ firstName: '', lastName: '', email: '', company: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5000); // Reset de status na 5 seconden
+    } catch (error) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 5000);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
   return (
     <section id="contact" className="py-24 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -97,13 +134,15 @@ export function Contact() {
             className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"
           >
             <h3 className="text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
-            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">Voornaam</label>
                   <input 
                     type="text" 
                     id="firstName" 
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
                     placeholder="Jan" 
                   />
@@ -113,6 +152,8 @@ export function Contact() {
                   <input 
                     type="text" 
                     id="lastName" 
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
                     placeholder="Voorbeeld" 
                   />
@@ -125,6 +166,8 @@ export function Contact() {
                   type="email" 
                   id="email" 
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
                   placeholder="jan@installatiebedrijf.nl" 
                 />
@@ -135,6 +178,8 @@ export function Contact() {
                 <input 
                   type="text" 
                   id="company" 
+                  value={formData.company}
+                  onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
                   placeholder="Installatiebedrijf BV" 
                 />
@@ -146,17 +191,47 @@ export function Contact() {
                   id="message" 
                   rows={4} 
                   required
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none"
                   placeholder="Hoe kunnen we je helpen?" 
                 ></textarea>
               </div>
 
+              {status === 'error' && (
+                <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium">
+                  Er ging iets mis met het verzenden. Probeer het later nog eens.
+                </div>
+              )}
+
+              {status === 'success' && (
+                <div className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-sm font-medium flex items-center gap-2">
+                  <CheckCircle2 size={20} />
+                  Bericht verzonden! We nemen snel contact op.
+                </div>
+              )}
+
               <button 
                 type="submit" 
-                className="w-full bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group"
+                disabled={status === 'submitting' || status === 'success'}
+                className="w-full bg-brand-primary hover:bg-[#008f5a] disabled:bg-slate-300 disabled:cursor-not-allowed text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group"
               >
-                <span>Verstuur bericht</span>
-                <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                {status === 'submitting' ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    <span>Bezig met verzenden...</span>
+                  </>
+                ) : status === 'success' ? (
+                  <>
+                    <CheckCircle2 size={18} />
+                    <span>Verzonden</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Verstuur bericht</span>
+                    <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

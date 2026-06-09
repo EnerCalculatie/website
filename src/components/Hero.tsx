@@ -1,61 +1,92 @@
 import { motion } from 'motion/react';
-import { ArrowRight, PlayCircle, CheckCircle2 } from 'lucide-react';
-import { DashboardMockup } from './DashboardMockup';
+import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-brand-secondary/10 blur-[120px]" />
-        <div className="absolute top-[40%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-primary/5 blur-[100px]" />
+    <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
+      {/* Achtergrond decoratie voor visuele diepte */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-primary/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-4xl"
-        >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary font-medium text-sm mb-6 border border-brand-primary/20">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
-            </span>
-            Platform voor de Nederlandse installatiebranche
-          </span>
-          
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 leading-tight mb-6">
-            Jij doet het gesprek.
-            <span className="block text-brand-primary">
-              Wij doen het rekenwerk.
-            </span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Van energierekening tot onderbouwd verduurzamingsadvies — voor zonnepanelen, thuisbatterijen en warmtepompen. Geen Excel, geen typfouten, geen gemiste wetgeving. Alleen een adviesrapport waar jouw klant ja tegen zegt.
-          </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-4xl mx-auto">
+          {/* Praktijk-focus indicator (Story LP.4) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-[#00a669] font-bold text-xs uppercase tracking-wider mb-8"
+          >
+            <Zap size={14} className="fill-[#00a669]" />
+            Ontwikkeld voor de praktijk
+          </motion.div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-brand-primary hover:bg-[#008f5a] text-white px-8 py-4 rounded-xl text-base font-semibold transition-all shadow-xl shadow-brand-primary/20 hover:scale-105 active:scale-95 group">
-              Boek een demo
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="#contact" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-xl text-base font-medium transition-all shadow-sm hover:shadow active:scale-95 group">
-              Neem contact op
-            </a>
-          </div>
+          {/* Hoofdtitel (Story LP.1) */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8"
+          >
+            De slimste rekenhulp voor de <span className="text-brand-primary">verduurzamingsinstallateur.</span>
+            <br className="hidden md:block" />
+            <span className="text-slate-500">Jij het gesprek, wij het rekenwerk.</span>
+          </motion.h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-500 font-medium">
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> AVG-proof</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> Nederlandse servers</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 size={16} className="text-green-500" /> Deterministische berekeningen</span>
-          </div>
-        </motion.div>
+          {/* Subtitel met focus op resultaat en betrouwbaarheid */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10"
+          >
+            Van energierekening tot onderbouwd verduurzamingsadvies — voor zonnepanelen, thuisbatterijen én warmtepomp. 
+            Geen Excel, geen typfouten, geen gemiste wetgeving. Alleen een adviesrapport waar jouw klant ja tegen zegt.
+          </motion.p>
 
-        {/* Dashboard Preview Mockup */}
-        <DashboardMockup />
+          {/* Call to Actions (Story LP.3 & LP.5) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col items-center justify-center mb-16"
+          >
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
+              <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg hover:bg-brand-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
+                Boek een demo <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="#pricing-calculator" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center">
+                Bereken mijn tijdsbesparing
+              </a>
+            </div>
+            {/* No-risk / garantie formulering (Story LP.13) */}
+            <p className="text-sm font-medium text-slate-500">
+              14 dagen gratis · Geen creditcard vereist · Opzegbaar per maand
+            </p>
+          </motion.div>
+
+          {/* Trust Badges (Story LP.1) */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4"
+          >
+            <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
+              <ShieldCheck size={18} className="text-[#00a669]" />
+              AVG-proof
+            </div>
+            <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
+              <Database size={18} className="text-[#00a669]" />
+              Nederlandse servers
+            </div>
+            <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
+              <CheckCircle2 size={18} className="text-[#00a669]" />
+              Deterministische berekeningen
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

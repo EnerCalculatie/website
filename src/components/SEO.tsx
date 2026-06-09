@@ -15,6 +15,14 @@ export function SEO({
   type = 'website',
   name = 'EnerCalculatie'
 }: SEOProps) {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EnerCalculatie",
+    "url": "https://enercalculatie.nl",
+    "logo": "https://enercalculatie.nl/logo.png"
+  };
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -34,6 +42,10 @@ export function SEO({
       <meta property="twitter:description" content={description} />
       
       <link rel="canonical" href={canonical} />
+
+      <script type="application/ld+json">
+        {JSON.stringify(orgSchema)}
+      </script>
     </Helmet>
   );
 }

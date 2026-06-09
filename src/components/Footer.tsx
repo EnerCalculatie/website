@@ -22,7 +22,7 @@ export function Footer() {
             <a href="#contact" className="bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center">
               Boek een Live Demo
             </a>
-            <a href="#calculator" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
+            <a href="#pricing-calculator" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
               Bereken mijn tijdsbesparing
             </a>
           </div>
@@ -57,7 +57,7 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="#functies" className="hover:text-white transition-colors">Functies</a></li>
-              <li><a href="#calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
+              <li><a href="#pricing-calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
               <li><a href="#prijzen" className="hover:text-white transition-colors">Prijzen</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Releasenotes</a></li>
             </ul>
