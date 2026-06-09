@@ -48,8 +48,8 @@ export function Footer() {
             <p className="text-sm text-slate-400 mb-6">
               De intelligente verduurzamingsengine voor Nederlandse installateurs.
             </p>
-            <a href="mailto:info@voorbeeldklant.nl" className="text-brand-primary hover:text-white transition-colors text-sm font-medium">
-              info@voorbeeldklant.nl
+            <a href="mailto:info@enercalculatie.nl" className="text-brand-primary hover:text-white transition-colors text-sm font-medium">
+              info@enercalculatie.nl
             </a>
           </div>
 
