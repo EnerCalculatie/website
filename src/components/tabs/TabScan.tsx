@@ -16,7 +16,7 @@ export function TabScan() {
          </div>
          <h2 className="text-2xl font-bold text-slate-900 mb-2">Intelligente AI Document Scan</h2>
          <p className="text-slate-500 mb-8 max-w-lg mx-auto">
-           Upload een energierekening of slimme meter uitdraai. De Gemini AI extraheert direct het historische verbruik en de huidige tarieven.
+           Upload een energierekening of slimme meter uitdraai. Onze AI extraheert direct het historische verbruik en de huidige tarieven.
          </p>
 
          <button className="bg-purple-600 text-white font-bold px-6 py-3 rounded-xl hover:bg-purple-700 transition-colors inline-flex items-center gap-2">
