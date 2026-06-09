@@ -1,7 +1,11 @@
-import { motion } from 'motion/react';
-import { Home } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Home, AlertTriangle } from 'lucide-react';
 
 export function TabPand() {
+  const [bouwjaar, setBouwjaar] = useState(2021);
+  const [label, setLabel] = useState('G');
+
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.98 }}
@@ -44,15 +48,44 @@ export function TabPand() {
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-600 mb-2">Bouwjaar</label>
-            <input type="text" value="2000" readOnly className="w-full border border-slate-200 rounded-lg py-2.5 px-3 text-sm font-medium text-slate-900 bg-white" />
+            <input 
+              type="number" 
+              value={bouwjaar} 
+              onChange={(e) => setBouwjaar(parseInt(e.target.value))}
+              className="w-full border border-slate-200 rounded-lg py-2.5 px-3 text-sm font-medium text-slate-900 bg-white" 
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-600 mb-2">Energielabel</label>
-            <select className="w-full border border-slate-200 rounded-lg py-2.5 px-3 text-sm font-medium text-slate-900 bg-white disabled">
+            <select 
+              value={label}
+              onChange={(e) => setLabel(e.target.value)}
+              className="w-full border border-slate-200 rounded-lg py-2.5 px-3 text-sm font-medium text-slate-900 bg-white"
+            >
+              <option value="A++++">A++++</option>
+              <option value="A">A</option>
+              <option value="C">C</option>
+              <option value="E">E</option>
               <option>G</option>
             </select>
           </div>
         </div>
+
+        <AnimatePresence>
+          {bouwjaar > 2010 && label === 'G' && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3"
+            >
+              <AlertTriangle className="text-amber-500 shrink-0" size={18} />
+              <p className="text-sm text-amber-800">
+                <strong>Onwaarschijnlijke combinatie:</strong> Een woning uit {bouwjaar} heeft zelden energielabel G. Controleer of de gegevens correct zijn overgenomen.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.div>
   );

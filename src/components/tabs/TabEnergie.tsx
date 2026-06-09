@@ -1,5 +1,6 @@
-import { motion } from 'motion/react';
-import { Zap, Flame, Scan } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Zap, Flame, Scan, AlertTriangle } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 const energyData = [
@@ -18,6 +19,8 @@ const energyData = [
 ];
 
 export function TabEnergie() {
+  const [verbruik, setVerbruik] = useState(350);
+
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.98 }}
@@ -36,7 +39,12 @@ export function TabEnergie() {
               <span className="text-xs text-slate-400">Jaarlijks</span>
             </div>
             <div className="relative">
-               <input type="text" value="3500" readOnly className="w-full border border-slate-200 rounded-lg py-2.5 px-3 text-sm font-medium text-slate-900 bg-white" />
+               <input 
+                 type="number" 
+                 value={verbruik} 
+                 onChange={(e) => setVerbruik(parseInt(e.target.value))}
+                 className={`w-full border rounded-lg py-2.5 px-3 text-sm font-medium text-slate-900 bg-white ${verbruik < 500 ? 'border-amber-400 ring-1 ring-amber-400' : 'border-slate-200'}`} 
+               />
                <span className="absolute right-3 top-2.5 text-sm text-slate-500">kWh</span>
             </div>
           </div>
@@ -62,6 +70,22 @@ export function TabEnergie() {
             </select>
           </div>
         </div>
+
+        <AnimatePresence>
+          {verbruik < 500 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3"
+            >
+              <AlertTriangle className="text-amber-500 shrink-0" size={18} />
+              <p className="text-xs text-amber-800">
+                Jaarverbruik &lt; 500 kWh is onwaarschijnlijk laag voor een gemiddeld huishouden. Controleer of dit een nul-op-de-meter woning betreft.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="bg-amber-50/50 rounded-2xl border border-amber-100 p-6">
           <h4 className="text-sm font-bold text-amber-800 mb-2 flex items-center gap-2">Salderingsregeling (NL afbouw)</h4>

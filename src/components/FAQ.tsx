@@ -8,8 +8,20 @@ const faqs = [
     answer: "Nee. De AI wordt uitsluitend gebruikt voor het extraheren van ongestructureerde data (zoals OCR via jaarnota's). De daadwerkelijke fysica, ROI berekeningen en financiële business rules zijn 100% deterministisch gecodeerd. Dit voorkomt 'hallucinaties' en garandeert wiskundig perfecte offertes."
   },
   {
-    question: "Is het platform AVG (GDPR) proof?",
-    answer: "Absoluut. Alle project- en persoonsgegevens rusten binnen beveiligde Europese (EU) datacenters. We hanteren stricte Row Level Security (RLS) voor data-isolatie per installateur (tenant) en logs worden geautomatiseerd geschoond van Personally Identifiable Information (PII)."
+    question: "Is mijn klantdata veilig en AVG-proof?",
+    answer: "Zeker. Alle dossiers en projectgegevens staan op Nederlandse servers, volledig AVG-compliant en end-to-end versleuteld. Jij blijft eigenaar van jouw data — deze is altijd exporteerbaar en wordt nooit met derden gedeeld."
+  },
+  {
+    question: "Werkt EnerCalculatie met mijn huidige CRM of boekhoudpakket?",
+    answer: "EnerCalculatie integreert via een moderne REST API met systemen zoals Exact Online, Teamleader en Afas. Staat jouw pakket er niet tussen? Neem contact op, we kijken graag samen naar een maatwerkkoppeling."
+  },
+  {
+    question: "Welke ondersteuning krijg ik bij de start?",
+    answer: "Elke nieuwe klant krijgt een persoonlijke onboarding om de software direct goed in te richten. Daarna kun je altijd bij ons terecht: we reageren binnen 24 uur op e-mails, en klanten met een Business-pakket hebben directe telefonische support met een reactietijd van 4 uur."
+  },
+  {
+    question: "Verdien ik de investering in de software wel terug?",
+    answer: "Gemiddeld bespaar je 2,5 uur per dossier. Bij een volume van slechts 10 dossiers per maand verdien je de maandelijkse kosten meestal al in de eerste week terug. Gebruik onze ROI-calculator hierboven om je eigen scenario te berekenen."
   },
   {
     question: "Kan ik mijn eigen hardware inkoopprijzen en marges invoeren?",

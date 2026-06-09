@@ -1,7 +1,10 @@
-import { motion } from 'motion/react';
-import { Settings, CheckCircle2, ChevronRight, CheckSquare, Sun } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Settings, CheckCircle2, ChevronRight, Sun, AlertTriangle } from 'lucide-react';
 
 export function TabZon() {
+  const [aantal, setAantal] = useState(0);
+
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.98 }}
@@ -29,9 +32,19 @@ export function TabZon() {
           <div className="flex-1">
             <label className="block text-sm font-medium text-slate-600 mb-2">Aantal Zonnepanelen</label>
             <div className="flex items-center border border-slate-200 rounded-lg overflow-hidden h-11">
-              <button className="px-3 bg-slate-50 text-slate-500 font-bold hover:bg-slate-100 h-full border-r border-slate-200">-2</button>
-              <input type="text" value="16" readOnly className="w-full text-center font-semibold text-slate-900 outline-none" />
-              <button className="px-3 bg-slate-50 text-slate-500 font-bold hover:bg-slate-100 h-full border-l border-slate-200">+2</button>
+              <button 
+                onClick={() => setAantal(Math.max(0, aantal - 2))}
+                className="px-3 bg-slate-50 text-slate-500 font-bold hover:bg-slate-100 h-full border-r border-slate-200"
+              >
+                -2
+              </button>
+              <input type="text" value={aantal} readOnly className="w-full text-center font-semibold text-slate-900 outline-none" />
+              <button 
+                onClick={() => setAantal(aantal + 2)}
+                className="px-3 bg-slate-50 text-slate-500 font-bold hover:bg-slate-100 h-full border-l border-slate-200"
+              >
+                +2
+              </button>
             </div>
           </div>
           <div className="flex-1">
@@ -41,6 +54,21 @@ export function TabZon() {
             </select>
           </div>
         </div>
+
+        <AnimatePresence>
+          {aantal === 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3 mb-6"
+            >
+              <AlertTriangle className="text-amber-500 shrink-0" size={18} />
+              <p className="text-sm text-amber-800">
+                <strong>Waarschuwing:</strong> Er zijn 0 panelen geselecteerd. De ROI-berekening zal geen besparing tonen in het rapport.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className="mb-6">
           <label className="block text-sm font-medium text-slate-600 mb-2">Handmatig paneelvermogen (Wp)</label>
