@@ -1,0 +1,73 @@
+// server.ts
+import "dotenv/config";
+import express from "express";
+
+// contact.ts
+import { Router } from "express";
+import { Resend } from "resend";
+var resend = new Resend(process.env.RESEND_API_KEY);
+var router = Router();
+router.post("/contact", async (req, res) => {
+  const { firstName, lastName, email, company, message, subject } = req.body || {};
+  console.log("Received contact form submission:", { firstName, lastName, email, company, message, subject });
+  if (subject) {
+    return res.status(200).json({ message: "Bericht succesvol verzonden." });
+  }
+  const missingFields = [];
+  if (!firstName) missingFields.push("firstName");
+  if (!lastName) missingFields.push("lastName");
+  if (!email) missingFields.push("email");
+  if (!message) missingFields.push("message");
+  if (missingFields.length > 0) {
+    console.error("Validation Error: Missing required fields:", missingFields);
+    return res.status(400).json({ error: `Niet alle verplichte velden zijn ingevuld: ${missingFields.join(", ")}.` });
+  }
+  try {
+    const { data, error } = await resend.emails.send({
+      // BELANGRIJK: Vervang 'info@enercalculatie.nl' door het e-mailadres waar je de aanvragen wilt ontvangen.
+      to: ["info@enercalculatie.nl"],
+      // BELANGRIJK: Vervang 'website@enercalculatie.nl' door een geverifieerd domein in Resend.
+      // Voor testen kun je 'onboarding@resend.dev' gebruiken.
+      from: "EnerCalculatie Website <website@enercalculatie.nl>",
+      subject: "Aanvraag via website",
+      reply_to: email,
+      html: `
+        <h1>Nieuwe contactaanvraag</h1>
+        <p><strong>Naam:</strong> ${firstName} ${lastName}</p>
+        <p><strong>E-mail:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Bedrijf:</strong> ${company || "Niet opgegeven"}</p>
+        <hr>
+        <p><strong>Bericht:</strong></p>
+        <p>${message.replace(/\n/g, "<br>")}</p>
+      `
+    });
+    if (error) return res.status(400).json(error);
+    res.status(200).json(data);
+  } catch (exception) {
+    res.status(500).json({ error: "Er is een onverwachte fout opgetreden." });
+  }
+});
+var contact_default = router;
+
+// server.ts
+import path from "path";
+import { fileURLToPath } from "url";
+var __filename = fileURLToPath(import.meta.url);
+var __dirname = path.dirname(__filename);
+var app = express();
+app.use(express.json());
+app.use("/api", contact_default);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("\u2705 EnerCalculatie Backend API draait succesvol! Open http://localhost:3000 in je browser om de website te bekijken.");
+  });
+}
+var port = process.env.PORT || 3001;
+app.listen(port, () => {
+  console.log(`\u2705 Backend server luistert op http://localhost:${port}`);
+});

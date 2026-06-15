@@ -34,7 +34,7 @@ export function NavBar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 print:hidden ${
         isScrolled
           ? 'bg-white/80 backdrop-blur-md shadow-sm py-3'
           : 'bg-transparent py-5'

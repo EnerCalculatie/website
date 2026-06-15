@@ -42,7 +42,7 @@ export function CookieBanner() {
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
-        className="fixed bottom-0 left-0 w-full z-50 p-4"
+        className="fixed bottom-0 left-0 w-full z-50 p-4 print:hidden"
       >
         <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
           

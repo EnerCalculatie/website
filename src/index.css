@@ -10,7 +10,10 @@
   --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-brand-bg text-[#1a202c] antialiased;
 }
-

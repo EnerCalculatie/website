@@ -6,7 +6,7 @@ export function Footer() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-slate-900 text-slate-300 print:hidden">
       {/* Final CTA Block */}
       <div className="bg-[#00a669] relative overflow-hidden">
         <div className="absolute inset-0 bg-[#008f5a] opacity-50 radial-gradient-circle" />
@@ -59,6 +59,7 @@ export function Footer() {
                 06 - 30 36 61 89
               </a>
               <p className="text-slate-500 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
+              <p className="text-slate-500 text-xs mt-1">KVK: 12345678 • BTW: NL001234567B01</p>
             </div>
           </div>
 

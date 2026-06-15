@@ -156,6 +156,10 @@ export function Contact() {
                       1363 RJ Almere<br />
                       Nederland
                     </p>
+                    <p className="text-slate-500 text-sm mt-3 pt-3 border-t border-slate-100">
+                      <span className="font-semibold text-slate-700">KVK:</span> 12345678<br />
+                      <span className="font-semibold text-slate-700">BTW:</span> NL001234567B01
+                    </p>
                   </div>
                 </div>
               </div>
