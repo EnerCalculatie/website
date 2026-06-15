@@ -41,7 +41,15 @@ export function DashboardMockup() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ 
+        opacity: 1, 
+        y: [40, 0],
+      }}
+      whileInView={{
+        y: [0, -12, 0],
+        transition: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+      }}
+      viewport={{ once: false }}
       transition={{ duration: 0.8, delay: 0.2 }}
       className="mt-20 mx-auto max-w-6xl relative"
     >

@@ -1,9 +1,16 @@
 import { motion } from 'motion/react';
+import { SEO } from './SEO';
 
 export function Privacy() {
   return (
-    <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
+    <>
+      <SEO 
+        title="Privacy Statement - EnerCalculatie"
+        description="Lees hoe EnerCalculatie omgaat met uw data en de privacy van uw eindklanten. Volledig AVG-compliant advies voor installateurs."
+        canonical="https://enercalculatie.nl/privacy"
+      />
+      <div className="pt-32 pb-24 bg-slate-50 min-h-screen">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="prose prose-slate max-w-none">
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">Privacy Statement</h1>
           <p className="text-slate-600 mb-8">Laatst gewijzigd: 15 juni 2026</p>
@@ -59,6 +66,6 @@ export function Privacy() {
           </p>
         </motion.div>
       </div>
-    </div>
+    </>
   );
 }

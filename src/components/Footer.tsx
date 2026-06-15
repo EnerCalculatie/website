@@ -31,7 +31,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4 bg-white px-2 py-1.5 rounded-xl w-fit">
+            <a 
+              href="/" 
+              className="flex items-center gap-2 mb-4 bg-white px-2 py-1.5 rounded-xl w-fit block transition-transform hover:scale-105"
+              aria-label="EnerCalculatie - Terug naar boven"
+            >
               {!imageError ? (
                 <img 
                   src="/logo.png" 
@@ -43,7 +47,7 @@ export function Footer() {
               ) : (
                 <FallbackLogo className="h-10 w-auto" />
               )}
-            </div>
+            </a>
             <p className="text-sm text-slate-400 mb-6">
               De betrouwbare rekenhulp voor Nederlandse installateurs.
             </p>
@@ -61,10 +65,10 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#functies" className="hover:text-white transition-colors">Functies</a></li>
-              <li><a href="#demo-video" className="hover:text-white transition-colors">App Video</a></li>
-              <li><a href="#pricing-calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
-              <li><a href="#prijzen" className="hover:text-white transition-colors">Prijzen</a></li>
+              <li><a href="/#functies" className="hover:text-white transition-colors">Functies</a></li>
+              <li><a href="/#demo-video" className="hover:text-white transition-colors">App Video</a></li>
+              <li><a href="/#pricing-calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
+              <li><a href="/#prijzen" className="hover:text-white transition-colors">Prijzen</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Releasenotes</a></li>
             </ul>
           </div>
@@ -82,9 +86,9 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Juridisch</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#" className="hover:text-white transition-colors">Algemene Voorwaarden</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacybeleid (AVG)</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Verwerkersovereenkomst</a></li>
+              <li><a href="/voorwaarden" className="hover:text-white transition-colors">Algemene Voorwaarden</a></li>
+              <li><a href="/privacy" className="hover:text-white transition-colors">Privacybeleid (AVG)</a></li>
+              <li><a href="/verwerkersovereenkomst" className="hover:text-white transition-colors">Verwerkersovereenkomst</a></li>
             </ul>
           </div>
         </div>

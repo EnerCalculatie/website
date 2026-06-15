@@ -1,29 +1,35 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useLocation } from 'react-router-dom';
 import { FallbackLogo } from './FallbackLogo';
 
 export function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const { hash } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Oplossing', href: '#oplossing' },
-    { name: 'Functies', href: '#functies' },
-    { name: 'Video', href: '#demo-video' },
-    { name: 'Bespaarcalculator', href: '#pricing-calculator' },
-    { name: 'Prijzen', href: '#prijzen' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Oplossing', href: '/#oplossing' },
+    { name: 'Functies', href: '/#functies' },
+    { name: 'Video', href: '/#demo-video' },
+    { name: 'Bespaarcalculator', href: '/#pricing-calculator' },
+    { name: 'Prijzen', href: '/#prijzen' },
+    { name: 'FAQ', href: '/#faq' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -34,9 +40,15 @@ export function NavBar() {
           : 'bg-transparent py-5'
       }`}
     >
+      {/* Scroll Progress Bar */}
+      <div 
+        className="absolute bottom-0 left-0 h-[2px] bg-brand-primary transition-all duration-150 ease-out" 
+        style={{ width: `${scrollProgress}%` }} 
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2" aria-label="EnerCalculatie - Terug naar boven">
             {!imageError ? (
               <img 
                 src="/logo.png" 
@@ -47,7 +59,7 @@ export function NavBar() {
             ) : (
               <FallbackLogo className="h-10 sm:h-12 lg:h-14 w-auto drop-shadow-sm" />
             )}
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -55,7 +67,11 @@ export function NavBar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-brand-primary transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  hash === link.href.replace('/', '') 
+                    ? 'text-brand-primary' 
+                    : 'text-slate-600 hover:text-brand-primary'
+                }`}
               >
                 {link.name}
               </a>
