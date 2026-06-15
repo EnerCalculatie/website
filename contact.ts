@@ -10,14 +10,23 @@ router.post('/contact', async (req, res) => {
   // Fallback naar een leeg object voor het geval req.body niet goed geparsed wordt
   const { firstName, lastName, email, company, message, subject } = req.body || {};
 
+  // Log de ontvangen data voor debugging op Railway
+  console.log('Received contact form submission:', { firstName, lastName, email, company, message, subject });
+
   // Honeypot check: if the hidden 'subject' field is filled, it's likely a bot.
   if (subject) {
     // Silently succeed to trick the bot.
     return res.status(200).json({ message: 'Bericht succesvol verzonden.' });
   }
 
-  if (!firstName || !lastName || !email || !message) {
-    return res.status(400).json({ error: 'Niet alle verplichte velden zijn ingevuld.' });
+  const missingFields = [];
+  if (!firstName) missingFields.push('firstName');
+  if (!lastName) missingFields.push('lastName');
+  if (!email) missingFields.push('email');
+  if (!message) missingFields.push('message');
+  if (missingFields.length > 0) {
+    console.error('Validation Error: Missing required fields:', missingFields); // Log de fout op de server
+    return res.status(400).json({ error: `Niet alle verplichte velden zijn ingevuld: ${missingFields.join(', ')}.` });
   }
 
   try {
