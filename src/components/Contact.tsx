@@ -1,24 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    company: '',
-    message: ''
+  const [formData, setFormData] = useState(() => {
+    try {
+      const savedData = sessionStorage.getItem('contactFormData');
+      return savedData ? JSON.parse(savedData) : {
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        message: '',
+        subject: '' // Honeypot field
+      };
+    } catch (error) {
+      // Als het parsen van JSON mislukt, start met een leeg formulier.
+      return { firstName: '', lastName: '', email: '', company: '', message: '', subject: '' };
+    }
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  // Sla de data op in sessionStorage bij elke wijziging.
+  useEffect(() => {
+    // We slaan het honeypot veld niet op, die moet altijd leeg zijn bij een nieuwe sessie.
+    const dataToSave = { ...formData, subject: '' };
+    sessionStorage.setItem('contactFormData', JSON.stringify(dataToSave));
+  }, [formData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
 
     try {
-      // PAS DEZE URL AAN naar je eigen Supabase Edge Function (of andere backend API)
-      const response = await fetch('https://jouw-project-id.supabase.co/functions/v1/send-contact-email', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -27,7 +42,8 @@ export function Contact() {
       if (!response.ok) throw new Error('Fout bij verzenden');
 
       setStatus('success');
-      setFormData({ firstName: '', lastName: '', email: '', company: '', message: '' });
+      setFormData({ firstName: '', lastName: '', email: '', company: '', message: '', subject: '' });
+      sessionStorage.removeItem('contactFormData'); // Ruim op na succesvolle verzending
       setTimeout(() => setStatus('idle'), 5000); // Reset de status na 5 seconden
     } catch (error) {
       setStatus('error');
@@ -135,6 +151,20 @@ export function Contact() {
           >
             <h3 className="text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
             <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              {/* Honeypot field for spam prevention. Should be visually hidden. */}
+              <div className="absolute left-[-5000px]" aria-hidden="true">
+                <label htmlFor="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">Voornaam</label>
