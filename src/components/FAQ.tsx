@@ -5,19 +5,19 @@ import { ChevronDown } from 'lucide-react';
 const faqs = [
   {
     question: "Is mijn klantdata veilig?",
-    answer: "Alle dossiers staan op Nederlandse servers, volledig AVG-compliant en end-to-end versleuteld. Jij bent eigenaar van jouw data — altijd exporteerbaar, nooit gedeeld."
+    answer: "Alle dossiers staan op Nederlandse servers, zijn volledig AVG-compliant en end-to-end versleuteld. U bent eigenaar van uw data — altijd exporteerbaar, nooit gedeeld."
   },
   {
-    question: "Werkt het met mijn huidige systemen?",
-    answer: "EnerCalculatie integreert via REST API met Exact Online, Teamleader en Afas. Gebruik je iets anders? We kijken samen wat mogelijk is."
+    question: "Werkt het met mijn huidige software?",
+    answer: "EnerCalculatie integreert veilig met Exact Online, Teamleader en Afas. Gebruikt u andere software? Wij kijken graag samen naar de mogelijkheden."
   },
   {
     question: "Wat als ik vastloop?",
-    answer: "Elke klant krijgt persoonlijke onboarding. Daarna ben je bereikbaar via e-mail (reactie binnen 24 uur) of telefoon (Business-pakket: binnen 4 uur)."
+    answer: "Elke klant krijgt een persoonlijke onboarding. Daarna kunt u ons altijd bereiken via e-mail (reactie binnen 24 uur) of telefonisch (vanaf het Pro-pakket: binnen 4 uur)."
   },
   {
-    question: "Kost dit me meer tijd dan het oplevert?",
-    answer: "Gebruik de ROI-calculator op deze pagina. Bij 10 dossiers per maand verdien je de kosten terug in de eerste week."
+    question: "Kost de overstap mij meer tijd dan het oplevert?",
+    answer: "Gebruik de ROI-calculator op deze pagina. Bij 10 dossiers per maand verdient u de abonnementskosten vaak al in de eerste week terug."
   }
 ];
 
@@ -43,10 +43,10 @@ export function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">
-            Nog twijfels over de overstap?
+            Heeft u nog vragen over de overstap?
           </h2>
           <p className="text-lg text-slate-600">
-            We snappen dat nieuwe software een grote stap is. We nemen je bezwaren graag weg.
+            Wij begrijpen dat de overstap naar nieuwe software een belangrijke beslissing is. We nemen eventuele twijfels graag voor u weg.
           </p>
         </div>
 

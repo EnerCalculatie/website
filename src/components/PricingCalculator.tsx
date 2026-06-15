@@ -12,13 +12,14 @@ const HOURS_SAVED_PER_DOSSIER = 2.5;
 const HOURLY_RATE = 75;
 
 const TIERS = {
-  standard: { name: 'Standaard', price: 149 },
-  business: { name: 'Business', price: 249 },
+  solo: { name: 'Solo', price: 99 },
+  pro: { name: 'Pro', price: 179 },
+  complete: { name: 'Complete', price: 299 },
 };
 
 export function PricingCalculator() {
   const [dossiers, setDossiers] = useState(20);
-  const [activeTier, setActiveTier] = useState<keyof typeof TIERS>('standard');
+  const [activeTier, setActiveTier] = useState<keyof typeof TIERS>('pro');
 
   const subscriptionPrice = TIERS[activeTier].price;
   const timeSaved = dossiers * HOURS_SAVED_PER_DOSSIER;
@@ -46,10 +47,10 @@ export function PricingCalculator() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Bereken je ROI & Besparing
+            Bereken uw ROI & besparing
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Zie direct hoe snel EnerCalculatie zichzelf terugbetaalt op basis van jouw maandelijkse volume.
+            Zie direct hoe snel EnerCalculatie zichzelf terugbetaalt op basis van uw maandelijkse volume.
           </p>
         </div>
 
@@ -84,8 +85,8 @@ export function PricingCalculator() {
             </div>
 
             <div>
-              <label className="text-lg font-bold text-slate-900 mb-6 block">Kies je pakket</label>
-              <div className="grid grid-cols-2 gap-4">
+              <label className="text-lg font-bold text-slate-900 mb-6 block">Kies uw pakket</label>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {(Object.keys(TIERS) as Array<keyof typeof TIERS>).map((key) => (
                   <button
                     key={key}
@@ -150,7 +151,7 @@ export function PricingCalculator() {
 
             <div className="mt-10 pt-8 border-t border-white/10 text-center">
               <p className="text-sm leading-relaxed text-slate-300 mb-6">
-                Je verdient het abonnement al terug na <span className="text-white font-bold">{dossiersToPayback} dossiers</span> per maand.
+                U verdient het abonnement al terug na <span className="text-white font-bold">{dossiersToPayback} dossiers</span> per maand.
               </p>
               <button 
                 onClick={handleStartBesparenClick}

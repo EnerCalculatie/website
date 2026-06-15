@@ -11,32 +11,32 @@ export function Technology() {
     },
     {
       icon: <Webhook size={24} />,
-      title: 'REST API & Integraties',
-      description: 'Koppel EnerCalculatie naadloos aan uw bestaande werkomgeving. Synchroniseer relaties en projecten automatisch met uw eigen CRM- of ERP-pakket via onze voorspelbare REST API.',
+      title: 'Naadloze Integraties',
+      description: 'Koppel EnerCalculatie aan uw bestaande werkomgeving. Synchroniseer relaties en projecten automatisch met uw eigen CRM- of ERP-pakket via onze veilige koppelingen.',
       color: 'bg-purple-500/10 text-purple-400',
     },
     {
       icon: <Shield size={24} />,
-      title: 'Multi-Tenant Security & RLS',
-      description: 'Uw database is strict gescheiden van andere installateurs (Row Level Security). Een Zero-Trust architectuur garandeert dat alleen u bij uw eigen klantgegevens kunt.',
+      title: 'Strikte Datascheiding',
+      description: 'Uw klantgegevens zijn strikt gescheiden van andere installateurs. Onze architectuur garandeert dat alleen u en uw medewerkers bij uw eigen dossiers kunnen.',
       color: 'bg-emerald-500/10 text-emerald-400',
     },
     {
       icon: <Cpu size={24} />,
-      title: 'AI OCR Gateway',
-      description: 'Ondersteund door geavanceerde AI voor vlekkeloze data-extractie uit complexe pdf\'s en afbeeldingen, zonder handmatige correcties.',
+      title: 'Slimme Documentherkenning',
+      description: 'Facturen en energierekeningen worden automatisch en foutloos uitgelezen. U hoeft geen gegevens meer handmatig over te typen of te corrigeren.',
       color: 'bg-orange-500/10 text-orange-400',
     },
     {
       icon: <Database size={24} />,
-      title: 'PITR Back-ups & Herstel',
-      description: 'Door Point-In-Time-Recovery (PITR) is data tot op de seconde veiliggesteld en te herstellen. Uw organisatie-instellingen worden continu geback-upt.',
+      title: 'Altijd een veilige back-up',
+      description: 'Uw gegevens worden continu en tot op de seconde veiliggesteld. Zo raakt u nooit belangrijke klantgegevens of gemaakte berekeningen kwijt.',
       color: 'bg-sky-500/10 text-sky-400',
     },
     {
       icon: <Lock size={24} />,
-      title: 'Enterprise Edge Security',
-      description: 'Standaard uitgerust met automatische DDoS-bescherming, stricte SSL (HTTPS) transport encryptie en slimme rate-limiting op alle gevoelige eindpunten.',
+      title: 'Hoogste Veiligheidsstandaarden',
+      description: 'Standaard beschermd tegen cyberaanvallen en voorzien van de strengste versleuteling. U kunt met een gerust hart werken, wetende dat uw data veilig is.',
       color: 'bg-rose-500/10 text-rose-400',
     }
   ];
@@ -69,7 +69,7 @@ export function Technology() {
           >
             Nederlandse data. Veilige architectuur.<br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-400">
-              Klaar voor jouw werkomgeving.
+              Klaar voor uw werkomgeving.
             </span>
           </motion.h2>
           
@@ -80,7 +80,7 @@ export function Technology() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            Alle klantdossiers staan op Nederlandse servers, volledig AVG-compliant. EnerCalculatie past naadloos in je bestaande werkwijze via open API en standaard integraties.
+            Alle klantdossiers staan op Nederlandse servers, volledig AVG-compliant. EnerCalculatie past naadloos in uw bestaande werkwijze via slimme koppelingen.
           </motion.p>
         </div>
 

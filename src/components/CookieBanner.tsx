@@ -48,15 +48,15 @@ export function CookieBanner() {
           
           <div className="flex-1">
             <h3 className="text-xl font-bold text-slate-900 mb-2">Wij respecteren uw privacy</h3>
-            <p className="text-slate-600 text-sm leading-relaxed mb-4">
-              Om onze website optimaal te laten functioneren, maken wij gebruik van cookies. Bepaal zelf welke cookies u toestaat. Volgens de AVG-richtlijnen kunt u tracking cookies eenvoudig weigeren of accepteren.
+            <p className="text-slate-600 text-base leading-relaxed mb-4">
+              EnerCalculatie maakt standaard alleen gebruik van functionele cookies om de applicatie goed te laten werken. Om onze website te verbeteren, vragen we uw toestemming voor analytische cookies. U kunt dit hieronder zelf bepalen.
             </p>
             
             <button 
               onClick={() => setShowDetails(!showDetails)}
-              className="text-brand-primary text-sm font-medium flex items-center gap-2 hover:underline focus:outline-none"
+              className="text-brand-primary text-base font-medium flex items-center gap-2 hover:underline focus:outline-none min-h-[48px]"
             >
-              <Settings size={16} />
+              <Settings size={18} />
               Zelf instellen
             </button>
 
@@ -111,7 +111,7 @@ export function CookieBanner() {
                 <div className="mt-2">
                   <button 
                     onClick={handleSavePreferences}
-                    className="w-full sm:w-auto bg-slate-800 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-slate-700 transition"
+                    className="w-full sm:w-auto bg-slate-800 text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-slate-700 transition min-h-[48px]"
                   >
                     Voorkeuren opslaan
                   </button>
@@ -124,16 +124,16 @@ export function CookieBanner() {
             <div className="flex flex-col sm:flex-row gap-3 min-w-[280px]">
               <button 
                 onClick={handleRejectAll}
-                className="flex-1 border border-slate-300 text-slate-700 hover:bg-slate-50 px-6 py-3 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2"
+                className="flex-1 border border-slate-300 text-slate-700 hover:bg-slate-50 px-6 py-3 rounded-xl text-base font-bold transition flex items-center justify-center gap-2 min-h-[48px]"
               >
-                <X size={16} />
+                <X size={18} />
                 Weigeren
               </button>
               <button 
                 onClick={handleAcceptAll}
-                className="flex-1 bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl text-sm font-bold transition shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2"
+                className="flex-1 bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl text-base font-bold transition shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2 min-h-[48px]"
               >
-                <Check size={16} />
+                <Check size={18} />
                 Accepteren
               </button>
             </div>

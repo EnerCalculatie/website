@@ -19,10 +19,13 @@ export function NavBar() {
   const navLinks = [
     { name: 'Oplossing', href: '#oplossing' },
     { name: 'Functies', href: '#functies' },
+    { name: 'Video', href: '#demo-video' },
+    { name: 'Klantcases', href: '#klantcases' },
+    { name: 'Kennisbank', href: '#kennisbank' },
+    { name: 'Overstapservice', href: '#overstapservice' },
     { name: 'ROI Calculator', href: '#pricing-calculator' },
     { name: 'Prijzen', href: '#prijzen' },
     { name: 'FAQ', href: '#faq' },
-    { name: 'Wie zijn wij', href: '#over-ons' },
     { name: 'Contact', href: '#contact' },
   ];
 

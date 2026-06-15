@@ -58,7 +58,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
           >
-            Hoe kunnen we je helpen?
+            Hoe kunnen we u helpen?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export function Contact() {
             transition={{ delay: 0.1 }}
             className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto"
           >
-            Ons team staat voor je klaar. Neem contact op voor ondersteuning, demo's of technische vragen.
+            Ons team staat voor u klaar. Neem contact op voor ondersteuning, demo's of technische vragen.
           </motion.p>
         </div>
 
@@ -194,7 +194,7 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none"
-                  placeholder="Hoe kunnen we je helpen?" 
+                  placeholder="Hoe kunnen we u helpen?" 
                 ></textarea>
               </div>
 
@@ -207,7 +207,7 @@ export function Contact() {
               {status === 'success' && (
                 <div className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-sm font-medium flex items-center gap-2">
                   <CheckCircle2 size={20} />
-                  Bericht verzonden! We nemen snel contact op.
+                  Bericht verzonden! Wij nemen snel contact met u op.
                 </div>
               )}
 

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap, Play } from 'lucide-react';
 
 export function Hero() {
   return (
@@ -31,7 +31,7 @@ export function Hero() {
           >
             De slimste rekenhulp voor de <span className="text-brand-primary">verduurzamingsinstallateur.</span>
             <br className="hidden md:block" />
-            <span className="text-slate-500">Jij het gesprek, wij het rekenwerk.</span>
+            <span className="text-slate-500">U voert het gesprek, wij doen het rekenwerk.</span>
           </motion.h1>
 
           {/* Subtitel met focus op resultaat en betrouwbaarheid */}
@@ -42,7 +42,7 @@ export function Hero() {
             className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10"
           >
             Van energierekening tot onderbouwd verduurzamingsadvies — voor zonnepanelen, thuisbatterijen én warmtepomp. 
-            Geen Excel, geen typfouten, geen gemiste wetgeving. Alleen een adviesrapport waar jouw klant ja tegen zegt.
+            Geen Excel, geen typfouten, geen gemiste wetgeving. Alleen een adviesrapport waar uw klant met een gerust hart ja tegen zegt.
           </motion.p>
 
           {/* Call to Actions (Story LP.3 & LP.5) */}
@@ -56,13 +56,13 @@ export function Hero() {
               <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg hover:bg-brand-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
                 Boek een demo <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#pricing-calculator" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center">
-                Bereken mijn tijdsbesparing
+              <a href="#demo-video" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center gap-2">
+                <Play size={20} className="text-brand-primary fill-brand-primary/20" /> Bekijk hoe het werkt
               </a>
             </div>
             {/* No-risk / garantie formulering (Story LP.13) */}
             <p className="text-sm font-medium text-slate-500">
-              14 dagen gratis · Geen creditcard vereist · Opzegbaar per maand
+              14 dagen gratis · Opzegbaar per maand
             </p>
           </motion.div>
 
@@ -83,7 +83,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
               <CheckCircle2 size={18} className="text-[#00a669]" />
-              Deterministische berekeningen
+              100% kloppende berekeningen
             </div>
           </motion.div>
         </div>

@@ -7,21 +7,21 @@ export function HowItWorks() {
       number: "1",
       icon: <Home size={32} className="text-blue-600" />,
       title: "Pand registreren",
-      description: "Voer het adres in. PDOK-luchtfoto's en het actuele energieprofiel laden automatisch. Geen handmatig opzoekwerk.",
+      description: "Voer het adres in. Kadaster-luchtfoto's en het actuele energieprofiel worden direct ingeladen. U hoeft niets meer handmatig op te zoeken.",
       color: "bg-blue-50 border-blue-100"
     },
     {
       number: "2",
       icon: <Upload size={32} className="text-purple-600" />,
       title: "Energierekening uploaden",
-      description: "Upload de pdf van de energierekening. Onze AI leest piek- en daltarieven en het gasverbruik exact uit. 0% typfouten.",
+      description: "Upload een pdf van de energierekening. Ons systeem leest piek- en daltarieven en het gasverbruik exact uit. Voorkom rekenfouten door handmatig overtypen.",
       color: "bg-purple-50 border-purple-100"
     },
     {
       number: "3",
       icon: <FileCheck size={32} className="text-emerald-600" />,
       title: "Adviesrapport downloaden",
-      description: "EnerCalculatie berekent het optimale systeem en genereert een professioneel adviesrapport. Klaar voor de klant — in minder dan 5 minuten.",
+      description: "EnerCalculatie berekent het optimale systeem en genereert een professioneel adviesrapport. Klaar voor uw klant — in minder dan 5 minuten.",
       color: "bg-emerald-50 border-emerald-100"
     }
   ];
@@ -34,7 +34,7 @@ export function HowItWorks() {
             Zo werkt het — in 3 stappen
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Van eerste inname tot getekende offerte. Wij automatiseren de complexe stappen.
+            Van eerste woningopname tot getekende offerte. Wij automatiseren het complexe rekenwerk voor u.
           </p>
         </div>
 

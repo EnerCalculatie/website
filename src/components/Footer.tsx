@@ -13,17 +13,17 @@ export function Footer() {
         <div className="absolute inset-0 bg-[#008f5a] opacity-50 radial-gradient-circle" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 text-center">
           <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Klaar om de geloofwaardigste adviseur in de kamer te zijn?
+            Zelf ervaren hoeveel tijd EnerCalculatie u bespaart?
           </h2>
           <p className="text-emerald-50 text-lg mb-8 max-w-2xl mx-auto font-medium">
-            Boek een livedemo en zie in 20 minuten hoe een echte casus eruitziet in EnerCalculatie — van energierekening tot adviesrapport.
+            Plan een korte demo en zie in 20 minuten precies hoe het werkt — van energierekening tot compleet adviesrapport.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#contact" className="bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center">
-              Boek een Live Demo
+              Boek een demo
             </a>
             <a href="#pricing-calculator" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
-              Bereken mijn tijdsbesparing
+              Bereken uw tijdsbesparing
             </a>
           </div>
         </div>
@@ -46,7 +46,7 @@ export function Footer() {
               )}
             </div>
             <p className="text-sm text-slate-400 mb-6">
-              De intelligente verduurzamingsengine voor Nederlandse installateurs.
+              De betrouwbare rekenhulp voor Nederlandse installateurs.
             </p>
             <a href="mailto:info@enercalculatie.nl" className="text-brand-primary hover:text-white transition-colors text-sm font-medium">
               info@enercalculatie.nl
@@ -57,6 +57,10 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="#functies" className="hover:text-white transition-colors">Functies</a></li>
+              <li><a href="#demo-video" className="hover:text-white transition-colors">App Video</a></li>
+              <li><a href="#klantcases" className="hover:text-white transition-colors">Klantcases</a></li>
+              <li><a href="#kennisbank" className="hover:text-white transition-colors">Kennisbank</a></li>
+              <li><a href="#overstapservice" className="hover:text-white transition-colors">Overstapservice</a></li>
               <li><a href="#pricing-calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
               <li><a href="#prijzen" className="hover:text-white transition-colors">Prijzen</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Releasenotes</a></li>
