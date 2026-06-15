@@ -49,7 +49,13 @@ export function Privacy() {
 
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">7. Contact</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
-            Voor vragen over dit privacy statement of privacy-gerelateerde verzoeken kunt u contact opnemen via <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a>.
+            Voor vragen over dit privacy statement of privacy-gerelateerde verzoeken kunt u contact opnemen met:
+            <br /><br />
+            <strong>EnerCalculatie</strong><br />
+            Toenzalstraat 16<br />
+            1363 RJ Almere<br />
+            E-mail: <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a><br />
+            Tel: <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
           </p>
         </motion.div>
       </div>

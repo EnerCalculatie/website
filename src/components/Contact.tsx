@@ -141,7 +141,7 @@ export function Contact() {
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg mb-1">Telefoon</h4>
                     <p className="text-slate-600 mb-1">We zijn bereikbaar van 08:30 tot 17:30.</p>
-                    <a href="tel:+310201234567" className="text-brand-primary font-medium hover:underline">020 - 123 45 67</a>
+                    <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
                   </div>
                 </div>
 
@@ -152,8 +152,8 @@ export function Contact() {
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg mb-1">Kantoor</h4>
                     <p className="text-slate-600">
-                      Fictiestraat 42<br />
-                      1234 AB Zonnestad<br />
+                      Toenzalstraat 16<br />
+                      1363 RJ Almere<br />
                       Nederland
                     </p>
                   </div>

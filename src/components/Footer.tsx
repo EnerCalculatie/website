@@ -47,9 +47,15 @@ export function Footer() {
             <p className="text-sm text-slate-400 mb-6">
               De betrouwbare rekenhulp voor Nederlandse installateurs.
             </p>
-            <a href="mailto:info@enercalculatie.nl" className="text-brand-primary hover:text-white transition-colors text-sm font-medium">
-              info@enercalculatie.nl
-            </a>
+            <div className="flex flex-col gap-2 text-sm">
+              <a href="mailto:info@enercalculatie.nl" className="text-brand-primary hover:text-white transition-colors font-medium">
+                info@enercalculatie.nl
+              </a>
+              <a href="tel:+31630366189" className="text-slate-400 hover:text-white transition-colors">
+                06 - 30 36 61 89
+              </a>
+              <p className="text-slate-500 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
+            </div>
           </div>
 
           <div>
