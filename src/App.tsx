@@ -6,13 +6,11 @@ import { ProblemSolution } from './components/ProblemSolution';
 import { ComparisonTable } from './components/ComparisonTable';
 import { Integrations } from './components/Integrations';
 import { Features } from './components/Features';
+import { AppDemoVideo } from './components/AppDemoVideo';
 import { PricingCalculator } from './components/PricingCalculator';
 import { Technology } from './components/Technology';
-import { ReportExample } from './components/ReportExample';
 import { Pricing } from './components/Pricing';
-import { KnowledgeBase } from './components/KnowledgeBase';
 import { FAQ } from './components/FAQ';
-import { AboutUs } from './components/AboutUs';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
@@ -34,6 +32,7 @@ function App() {
         <HowItWorks />
         <ProblemSolution />
         <ComparisonTable />
+        <AppDemoVideo />
 
         {/* Product Depth */}
         <Features />
@@ -42,11 +41,8 @@ function App() {
         <Technology />
 
         {/* Conversion & Proof */}
-        <ReportExample />
         <Pricing />
-        <KnowledgeBase />
         <FAQ />
-        <AboutUs />
         <Contact />
       </main>
 

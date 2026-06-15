@@ -1,4 +1,3 @@
-import { Zap } from 'lucide-react';
 import { useState } from 'react';
 import { FallbackLogo } from './FallbackLogo';
 
@@ -58,7 +57,6 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li><a href="#functies" className="hover:text-white transition-colors">Functies</a></li>
               <li><a href="#demo-video" className="hover:text-white transition-colors">App Video</a></li>
-              <li><a href="#kennisbank" className="hover:text-white transition-colors">Kennisbank</a></li>
               <li><a href="#pricing-calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
               <li><a href="#prijzen" className="hover:text-white transition-colors">Prijzen</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Releasenotes</a></li>

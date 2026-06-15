@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FallbackLogo } from './FallbackLogo';
 
@@ -20,7 +20,6 @@ export function NavBar() {
     { name: 'Oplossing', href: '#oplossing' },
     { name: 'Functies', href: '#functies' },
     { name: 'Video', href: '#demo-video' },
-    { name: 'Kennisbank', href: '#kennisbank' },
     { name: 'Bespaarcalculator', href: '#pricing-calculator' },
     { name: 'Prijzen', href: '#prijzen' },
     { name: 'FAQ', href: '#faq' },

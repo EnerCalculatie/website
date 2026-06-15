@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap, Play } from 'lucide-react';
+import { DashboardMockup } from './DashboardMockup';
 
 export function Hero() {
   return (
@@ -87,6 +88,9 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
+
+      {/* Visuele preview van het dashboard */}
+      <DashboardMockup />
       </div>
     </section>
   );
