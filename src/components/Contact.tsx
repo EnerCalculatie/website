@@ -20,6 +20,7 @@ export function Contact() {
     }
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [serverError, setServerError] = useState<string | null>(null);
 
   // Sla de data op in sessionStorage bij elke wijziging.
   useEffect(() => {
@@ -31,6 +32,7 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
+    setServerError(null);
 
     try {
       const response = await fetch('/api/contact', {
@@ -39,13 +41,19 @@ export function Contact() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('Fout bij verzenden');
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Er is een fout opgetreden bij het verzenden.');
+      }
 
       setStatus('success');
       setFormData({ firstName: '', lastName: '', email: '', company: '', message: '', subject: '' });
       sessionStorage.removeItem('contactFormData'); // Ruim op na succesvolle verzending
       setTimeout(() => setStatus('idle'), 5000); // Reset de status na 5 seconden
     } catch (error) {
+      console.error('Form submission error:', error);
+      setServerError(error instanceof Error ? error.message : 'Er ging iets mis.');
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     }
@@ -167,10 +175,11 @@ export function Contact() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">Voornaam</label>
+                  <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">Voornaam *</label>
                   <input 
                     type="text" 
                     id="firstName" 
+                    required
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
@@ -178,10 +187,11 @@ export function Contact() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-2">Achternaam</label>
+                  <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-2">Achternaam *</label>
                   <input 
                     type="text" 
                     id="lastName" 
+                    required
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
@@ -230,7 +240,7 @@ export function Contact() {
 
               {status === 'error' && (
                 <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium">
-                  Er ging iets mis met het verzenden. Probeer het later nog eens.
+                  {serverError || 'Er ging iets mis met het verzenden. Probeer het later nog eens.'}
                 </div>
               )}
 
