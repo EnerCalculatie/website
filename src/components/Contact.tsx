@@ -20,6 +20,7 @@ export function Contact() {
     }
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [clientError, setClientError] = useState<string | null>(null); // New state for client-side errors
   const [serverError, setServerError] = useState<string | null>(null);
 
   // Sla de data op in sessionStorage bij elke wijziging.
@@ -29,8 +30,17 @@ export function Contact() {
     sessionStorage.setItem('contactFormData', JSON.stringify(dataToSave));
   }, [formData]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => { // Specify HTMLFormElement
     e.preventDefault();
+    setClientError(null); // Clear any previous client-side errors
+
+    // Client-side validation
+    if (!e.currentTarget.checkValidity()) {
+      setClientError('Vul alstublieft alle verplichte velden in.');
+      setStatus('error'); // Set status to error to display the clientError
+      setTimeout(() => setStatus('idle'), 5000);
+      return;
+    }
     setStatus('submitting');
     setServerError(null);
 
@@ -61,6 +71,11 @@ export function Contact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+    // Clear client-side error when user starts typing again
+    if (clientError) {
+      setClientError(null);
+      setStatus('idle');
+    }
   };
 
   return (
@@ -155,10 +170,10 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"
+            className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"            
           >
             <h3 className="text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
-            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate> {/* Add noValidate to prevent default browser validation messages */}
               {/* Honeypot field for spam prevention. Should be visually hidden. */}
               <div className="absolute left-[-5000px]" aria-hidden="true">
                 <label htmlFor="subject">Subject</label>
@@ -238,9 +253,10 @@ export function Contact() {
                 ></textarea>
               </div>
 
-              {status === 'error' && (
+              {/* Display client-side error if present, otherwise server-side error */}
+              {status === 'error' && (clientError || serverError) && (
                 <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium">
-                  {serverError || 'Er ging iets mis met het verzenden. Probeer het later nog eens.'}
+                  {clientError || serverError || 'Er ging iets mis met het verzenden. Probeer het later nog eens.'}
                 </div>
               )}
 
