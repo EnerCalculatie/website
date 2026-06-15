@@ -1,7 +1,25 @@
 import { motion } from 'motion/react';
-import { FileSearch, Map, Calculator, Battery, CheckSquare, Send, ThermometerSun, ClipboardCheck, Image as ImageIcon } from 'lucide-react';
+import { FileSearch, Map, Calculator, Battery, CheckSquare, Send, ThermometerSun, ClipboardCheck, Image as ImageIcon, Wind, Car, PiggyBank } from 'lucide-react';
 
 export function Features() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 }
+    }
+  };
+
   return (
     <section id="functies" className="py-24 bg-brand-bg border-y border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,12 +35,16 @@ export function Features() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+        >
           {/* Feature 1 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -38,10 +60,7 @@ export function Features() {
 
           {/* Feature 2 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -57,10 +76,7 @@ export function Features() {
 
           {/* Feature 3 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -76,10 +92,7 @@ export function Features() {
 
           {/* Feature 4 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-[#1e293b] rounded-[20px] p-8 shadow-lg text-white transition-all group overflow-hidden relative border border-slate-700"
           >
@@ -95,10 +108,7 @@ export function Features() {
 
           {/* Feature 5 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -114,10 +124,7 @@ export function Features() {
 
           {/* Feature 6 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -133,10 +140,7 @@ export function Features() {
 
           {/* Feature 7 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -152,10 +156,7 @@ export function Features() {
 
           {/* Feature 8 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.7 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -171,10 +172,7 @@ export function Features() {
 
           {/* Feature 9 */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.8 }}
+            variants={itemVariants}
             whileHover={{ y: -5 }}
             className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
           >
@@ -188,7 +186,55 @@ export function Features() {
             </p>
           </motion.div>
 
-        </div>
+          {/* Feature 10 */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
+          >
+            <div className="absolute -right-6 -top-6 w-24 h-24 bg-cyan-500/5 rounded-full group-hover:scale-150 transition-transform duration-500" />
+            <div className="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center mb-6 relative z-10">
+              <Wind size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Airco Dimensionering</h3>
+            <p className="text-slate-600 leading-relaxed relative z-10">
+              Bied een compleet klimaatadvies. Bereken eenvoudig het benodigde koelvermogen per ruimte en voeg het extra stroomverbruik naadloos toe aan het verwachte totale energieprofiel.
+            </p>
+          </motion.div>
+
+          {/* Feature 11 */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
+          >
+            <div className="absolute -right-6 -top-6 w-24 h-24 bg-emerald-500/5 rounded-full group-hover:scale-150 transition-transform duration-500" />
+            <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 relative z-10">
+              <Car size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Laadpaal (EV) Configuratie</h3>
+            <p className="text-slate-600 leading-relaxed relative z-10">
+              Integreer elektrisch rijden in uw advies. Maak het specifieke laadprofiel inzichtelijk voor de klant en controleer direct de impact op de maximale capaciteit van de netaansluiting.
+            </p>
+          </motion.div>
+
+          {/* Feature 12 */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ y: -5 }}
+            className="bg-white rounded-[20px] p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all group overflow-hidden relative"
+          >
+            <div className="absolute -right-6 -top-6 w-24 h-24 bg-pink-500/5 rounded-full group-hover:scale-150 transition-transform duration-500" />
+            <div className="w-12 h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6 relative z-10">
+              <PiggyBank size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Subsidie (ISDE) Inzicht</h3>
+            <p className="text-slate-600 leading-relaxed relative z-10">
+              Neem automatisch de geldende ISDE-subsidies voor warmtepompen mee in uw berekening. Zo ziet de klant direct de lagere netto investering en stijgt uw conversie.
+            </p>
+          </motion.div>
+
+        </motion.div>
       </div>
     </section>
   );

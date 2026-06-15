@@ -10,6 +10,7 @@ import { PricingCalculator } from './components/PricingCalculator';
 import { Technology } from './components/Technology';
 import { ReportExample } from './components/ReportExample';
 import { Pricing } from './components/Pricing';
+import { KnowledgeBase } from './components/KnowledgeBase';
 import { FAQ } from './components/FAQ';
 import { AboutUs } from './components/AboutUs';
 import { Contact } from './components/Contact';
@@ -43,6 +44,7 @@ function App() {
         {/* Conversion & Proof */}
         <ReportExample />
         <Pricing />
+        <KnowledgeBase />
         <FAQ />
         <AboutUs />
         <Contact />

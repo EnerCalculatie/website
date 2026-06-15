@@ -21,6 +21,24 @@ const integrations = [
 ];
 
 export function Integrations() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    show: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { type: "spring", stiffness: 100, damping: 15 }
+    }
+  };
+
   return (
     <section id="integraties" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,14 +60,17 @@ export function Integrations() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {integrations.map((integration, index) => (
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {integrations.map((integration) => (
             <motion.div
               key={integration.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={itemVariants}
               className="bg-slate-50/50 rounded-2xl p-6 text-center border border-slate-100 hover:border-slate-200 hover:bg-white hover:shadow-sm transition-all"
             >
               <div className="flex justify-center mb-6 h-16 items-center">
@@ -62,7 +83,7 @@ export function Integrations() {
               <p className="text-sm text-slate-500 h-20">{integration.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="text-center mt-16">
           <p className="text-slate-600">

@@ -47,7 +47,7 @@ export function PricingCalculator() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Bereken uw ROI & besparing
+            Bereken uw exacte tijdsbesparing
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Zie direct hoe snel EnerCalculatie zichzelf terugbetaalt op basis van uw maandelijkse volume.
@@ -133,8 +133,8 @@ export function PricingCalculator() {
                   <TrendingUp size={20} className="text-brand-primary" />
                 </div>
                 <div>
-                  <div className="text-slate-400 text-sm">ROI Factor</div>
-                  <div className="text-2xl font-bold text-brand-primary">{roi}x</div>
+                  <div className="text-slate-400 text-sm">Rendement</div>
+                  <div className="text-2xl font-bold text-brand-primary">{roi}x terugverdiend</div>
                 </div>
               </div>
 
@@ -143,7 +143,7 @@ export function PricingCalculator() {
                   <Euro size={20} className="text-brand-primary" />
                 </div>
                 <div>
-                  <div className="text-slate-400 text-sm">Vrijgekomen waarde</div>
+                  <div className="text-slate-400 text-sm">Bespaarde uren in euro's</div>
                   <div className="text-2xl font-bold">€{netProfit.toLocaleString('nl-NL')}</div>
                 </div>
               </div>

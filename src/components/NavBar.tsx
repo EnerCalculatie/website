@@ -20,10 +20,8 @@ export function NavBar() {
     { name: 'Oplossing', href: '#oplossing' },
     { name: 'Functies', href: '#functies' },
     { name: 'Video', href: '#demo-video' },
-    { name: 'Klantcases', href: '#klantcases' },
     { name: 'Kennisbank', href: '#kennisbank' },
-    { name: 'Overstapservice', href: '#overstapservice' },
-    { name: 'ROI Calculator', href: '#pricing-calculator' },
+    { name: 'Bespaarcalculator', href: '#pricing-calculator' },
     { name: 'Prijzen', href: '#prijzen' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
@@ -67,7 +65,7 @@ export function NavBar() {
 
           <div className="hidden md:flex items-center gap-4">
             <a href="#contact" className="bg-brand-primary hover:bg-[#008f5a] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md hover:shadow-lg inline-block text-center">
-              Boek een demo
+              Plan een rondleiding
             </a>
           </div>
 
@@ -103,7 +101,7 @@ export function NavBar() {
               ))}
               <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-3">
                 <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="w-full bg-brand-primary hover:bg-[#008f5a] text-white px-4 py-3 rounded-lg font-medium text-center transition-colors">
-                  Boek een demo
+                  Plan een rondleiding
                 </a>
               </div>
             </div>
