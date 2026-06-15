@@ -23,7 +23,8 @@ export function ProcessorAgreement() {
             </button>
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-8">Verwerkersovereenkomst (AVG Art. 28)</h1>
-          <p className="text-slate-600 mb-8 italic">Deze overeenkomst maakt integraal onderdeel uit van de Algemene Voorwaarden en de overeenkomst tussen EnerCalculatie (Verwerker) en de Gebruiker (Verwerkingsverantwoordelijke).</p>
+          <p className="text-slate-600 mb-4">Laatst gewijzigd: 15 juni 2026</p>
+          <p className="text-slate-600 mb-8 italic text-sm">Deze overeenkomst maakt integraal onderdeel uit van de Algemene Voorwaarden en de overeenkomst tussen EnerCalculatie (Verwerker) en de Gebruiker (Verwerkingsverantwoordelijke).</p>
 
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">1. Doel en aard van de verwerking</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
@@ -68,14 +69,12 @@ export function ProcessorAgreement() {
           </p>
 
           <div className="mt-12 pt-8 border-t border-slate-100">
-            <p className="text-slate-700 font-bold">EnerCalculatie</p>
+            <p className="text-slate-700 font-bold">EnerCalculatie (Pascal van Eijden)</p>
             <p className="text-slate-600">
               Toenzalstraat 16<br />
               1363 RJ Almere<br />
               E-mail: <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a><br />
-              Tel: <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a><br />
-              KVK: 12345678<br />
-              BTW: NL001234567B01
+              Tel: <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
             </p>
           </div>
         </motion.div>

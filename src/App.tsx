@@ -17,6 +17,7 @@ import { Contact } from './components/Contact';
 import { Privacy } from './components/Privacy';
 import { Terms } from './components/Terms';
 import { ProcessorAgreement } from './components/ProcessorAgreement';
+import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
 
@@ -67,6 +68,7 @@ function App() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/voorwaarden" element={<Terms />} />
           <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
 
         <Footer />

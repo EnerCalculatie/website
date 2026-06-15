@@ -59,7 +59,6 @@ export function Footer() {
                 06 - 30 36 61 89
               </a>
               <p className="text-slate-500 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
-              <p className="text-slate-500 text-xs mt-1">KVK: 12345678 • BTW: NL001234567B01</p>
             </div>
           </div>
 
@@ -70,7 +69,6 @@ export function Footer() {
               <li><a href="/#demo-video" className="hover:text-white transition-colors">App Video</a></li>
               <li><a href="/#pricing-calculator" className="hover:text-white transition-colors">ROI Calculator</a></li>
               <li><a href="/#prijzen" className="hover:text-white transition-colors">Prijzen</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Releasenotes</a></li>
             </ul>
           </div>
 
@@ -95,10 +93,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
-          <p>&copy; {currentYear !== 2026 ? '2026' : currentYear} EnerCalculatie. Alle rechten voorbehouden.</p>
-          <div className="flex gap-4">
-            <span className="cursor-pointer hover:text-slate-300">Gemaakt in Nederland</span>
-          </div>
+          <p>&copy; {currentYear} EnerCalculatie. Alle rechten voorbehouden.</p>
         </div>
       </div>
     </footer>
