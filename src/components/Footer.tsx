@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FallbackLogo } from './FallbackLogo';
+import { MessageCircle } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -96,6 +97,20 @@ export function Footer() {
           <p>&copy; {currentYear} EnerCalculatie. Alle rechten voorbehouden.</p>
         </div>
       </div>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/31630366189?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-xl transition-transform hover:scale-110 flex items-center justify-center group print:hidden"
+        aria-label="Stuur ons een bericht via WhatsApp"
+      >
+        <MessageCircle size={28} />
+        <span className="absolute right-full mr-4 bg-slate-900 text-white text-sm font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          App ons voor vragen
+        </span>
+      </a>
     </footer>
   );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
 
 export function Contact() {
   const [formData, setFormData] = useState(() => {
@@ -142,6 +142,17 @@ export function Contact() {
                     <h4 className="font-bold text-slate-800 text-lg mb-1">Telefoon</h4>
                     <p className="text-slate-600 mb-1">We zijn bereikbaar van 08:30 tot 17:30.</p>
                     <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] shrink-0">
+                    <MessageCircle size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-lg mb-1">WhatsApp</h4>
+                    <p className="text-slate-600 mb-1">Snel antwoord via een kort berichtje.</p>
+                    <a href="https://wa.me/31630366189?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..." target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium hover:underline">06 - 30 36 61 89</a>
                   </div>
                 </div>
 

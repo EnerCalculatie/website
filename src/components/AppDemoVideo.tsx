@@ -212,7 +212,7 @@ export function AppDemoVideo() {
                 <button
                   key={step.id}
                   onClick={() => handleStepClick(i)}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 group ${
+                  className={`w-full flex items-center gap-3 px-3 min-h-[48px] rounded-xl text-left transition-all duration-200 group ${
                     i === activeIndex
                       ? 'bg-brand-primary text-white font-semibold'
                       : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
@@ -310,24 +310,26 @@ export function AppDemoVideo() {
                 <button
                   onClick={() => setIsPlaying(p => !p)}
                   aria-label={isPlaying ? 'Pauzeren' : 'Afspelen'}
-                  className="w-9 h-9 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
+                  className="w-12 h-12 shrink-0 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
                 >
-                  {isPlaying ? <Pause size={15} /> : <Play size={15} className="ml-0.5" />}
+                  {isPlaying ? <Pause size={20} /> : <Play size={20} className="ml-0.5" />}
                 </button>
               </div>
             </div>
 
             {/* Stap-dots */}
-            <div className="flex items-center gap-1.5 flex-wrap">
+            <div className="flex items-center flex-wrap -ml-3 mt-1">
               {steps.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => handleStepClick(i)}
                   aria-label={`Stap ${i + 1}`}
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    i === activeIndex ? 'w-6 bg-brand-primary' : 'w-1.5 bg-white/20 hover:bg-white/40'
-                  }`}
-                />
+                  className="min-w-[48px] min-h-[48px] flex items-center justify-center group"
+                >
+                  <span className={`block h-1 rounded-full transition-all duration-300 ${
+                    i === activeIndex ? 'w-6 bg-brand-primary' : 'w-1.5 bg-white/20 group-hover:bg-white/40'
+                  }`} />
+                </button>
               ))}
             </div>
           </div>
