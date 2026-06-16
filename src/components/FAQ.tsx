@@ -11,7 +11,7 @@ const faqs = [
   {
     question: 'Werkt het met mijn huidige software?',
     answer:
-      'PDOK Kadaster is nu al ingebouwd en live beschikbaar. Koppelingen met Exact Online, Teamleader en AFAS zijn in ontwikkeling en komen later dit jaar beschikbaar. Gebruikt u andere software? Neem contact op — wij kijken graag samen naar de mogelijkheden.',
+      'PDOK Kadaster is nu al ingebouwd en live beschikbaar. Let op: Integraties met andere externe systemen (zoals Exact Online, Teamleader en AFAS) zijn momenteel nog volop in ontwikkeling en komen later dit jaar beschikbaar. Gebruikt u andere software? Neem contact op — wij kijken graag samen naar de mogelijkheden.',
   },
   {
     question: 'Wat als ik vastloop?',
@@ -47,6 +47,11 @@ const faqs = [
     question: 'Hoe actueel zijn de energieprijzen in de berekeningen?',
     answer:
       'U voert de actuele energieprijzen uit de energierekening van de klant in — EnerCalculatie leest deze automatisch uit via slimme documentherkenning. Zo werkt u altijd met de werkelijke situatie van uw klant, niet met een gemiddelde schatting.',
+  },
+  {
+    question: 'Hoe werkt het opzeggen van een abonnement?',
+    answer:
+      'EnerCalculatie is flexibel en maandelijks opzegbaar. U zit niet vast aan langlopende contracten. Zodra u opzegt, stopt de facturering automatisch aan het einde van uw huidige betaalperiode. U kunt uw abonnement eenvoudig zelf stopzetten of wijzigen via uw accountinstellingen, of door ons een e-mail te sturen naar info@enercalculatie.nl.',
   },
 ];
 
