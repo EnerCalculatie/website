@@ -37,15 +37,16 @@ export function Hero() {
             <span className="text-slate-500">U voert het gesprek, wij doen het rekenwerk.</span>
           </motion.h1>
 
-          {/* Subtitel met focus op resultaat en betrouwbaarheid */}
+          {/* Doelgroep + resultaat */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10"
           >
-            Van energierekening tot onderbouwd verduurzamingsadvies — voor zonnepanelen, thuisbatterijen én warmtepomp. 
-            Geen Excel, geen typfouten, geen gemiste wetgeving. Alleen een adviesrapport waar uw klant met een gerust hart ja tegen zegt.
+            Speciaal voor MKB-installateurs met 1–15 medewerkers, actief in zonnepanelen, warmtepompen en laadpalen.
+            Van energierekening tot onderbouwd verduurzamingsadvies — geen Excel, geen typfouten, geen gemiste wetgeving.
+            Alleen een rapport waar uw klant met een gerust hart ja tegen zegt.
           </motion.p>
 
           {/* Call to Actions (Story LP.3 & LP.5) */}
@@ -86,7 +87,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
               <CheckCircle2 size={18} className="text-[#00a669]" />
-              100% kloppende berekeningen
+              Deterministisch berekend
             </div>
           </motion.div>
         </div>

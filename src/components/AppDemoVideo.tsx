@@ -61,7 +61,7 @@ const steps: DemoStep[] = [
     label: 'Zonnepanelen',
     icon: <Sun size={16} />,
     screenshot: imgZonnepanelen,
-    description: 'Ontwerp het legplan en bereken deterministisch de verwachte jaaropbrengst op basis van oriëntatie en vermogen.'
+    description: 'Ontwerp het legplan en bereken nauwkeurig de verwachte jaaropbrengst op basis van oriëntatie en vermogen.'
   },
   {
     id: 'thuisbatterij',
@@ -96,7 +96,7 @@ const steps: DemoStep[] = [
     label: 'Rendement & ROI',
     icon: <TrendingUp size={16} />,
     screenshot: imgRoi,
-    description: 'Volledig deterministische doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
+    description: 'Volledig gevalideerde doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
   },
   {
     id: 'schouw',
@@ -190,7 +190,7 @@ export function AppDemoVideo() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400 max-w-2xl mx-auto"
           >
-            Van dossier aanmaken tot adviesrapport — ontdek de complete DDD-workflow in één doorklik.
+            Van dossier aanmaken tot adviesrapport — ontdek de complete adviesworkflow in één doorklik.
           </motion.p>
         </div>
 
@@ -331,6 +331,26 @@ export function AppDemoVideo() {
               ))}
             </div>
           </div>
+        </motion.div>
+
+        {/* CTA strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
+        >
+          <p className="text-slate-300 text-lg font-medium">
+            Enthousiast geworden?
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-primary/25 group"
+          >
+            Boek een live demo met een van onze specialisten
+            <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
+          </a>
         </motion.div>
       </div>
     </section>

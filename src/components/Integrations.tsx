@@ -1,42 +1,50 @@
 import { motion } from 'motion/react';
-import { Link } from 'lucide-react';
+import type { Variants } from 'motion/react';
+import { Link, Clock } from 'lucide-react';
 
-const integrations = [
+const liveIntegrations = [
+  {
+    name: 'PDOK Kadaster',
+    description: "Luchtfoto's en panddata direct ingeladen via het officiële Kadaster. Beschikbaar in alle pakketten.",
+    available: true,
+    logo: (
+      <svg viewBox="0 0 120 40" className="h-10 w-auto" aria-label="PDOK Kadaster">
+        <rect width="120" height="40" rx="6" fill="#154273" />
+        <text x="8" y="27" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="18" fill="#ffffff">PDOK</text>
+      </svg>
+    ),
+  },
+];
+
+const comingSoonIntegrations = [
   {
     name: 'Exact Online',
-    description: 'Synchroniseer klanten en projecten automatisch met uw boekhouding.',
+    description: 'Klanten en projecten automatisch synchroniseren met uw boekhouding.',
   },
   {
     name: 'Teamleader',
-    description: 'Koppel dossiers aan uw CRM en agenda voor een naadloze workflow.',
+    description: 'Dossiers koppelen aan uw CRM en agenda voor een naadloze workflow.',
   },
   {
-    name: 'Afas',
-    description: 'Exporteer naar uw administratie zonder handmatig overtypen.',
-  },
-  {
-    name: 'PDOK Kadaster',
-    description: 'Luchtfoto\'s en panddata direct en veilig ingeladen via het officiële Kadaster.',
+    name: 'AFAS',
+    description: 'Exporteren naar uw administratie zonder handmatig overtypen.',
   },
 ];
 
 export function Integrations() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
+    show: {
+      opacity: 1,
+      y: 0,
       scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 15 }
-    }
+      transition: { type: 'spring', stiffness: 100, damping: 15 },
+    },
   };
 
   return (
@@ -53,41 +61,73 @@ export function Integrations() {
             <span className="text-sm font-bold text-brand-primary tracking-wide uppercase">Integraties</span>
           </motion.div>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Werkt naadloos samen met uw bestaande software
+            Werkt samen met uw bestaande software
           </h2>
           <p className="text-lg text-slate-600">
-            Koppel EnerCalculatie aan de systemen die u al gebruikt en voorkom dubbel invoerwerk.
+            PDOK Kadaster is vandaag beschikbaar. Koppelingen met boekhoud- en CRM-software volgen later dit jaar.
           </p>
         </div>
 
-        <motion.div 
+        {/* Live integratie */}
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          viewport={{ once: true, margin: '-50px' }}
+          className="flex justify-center mb-12"
         >
-          {integrations.map((integration) => (
+          {liveIntegrations.map((integration) => (
             <motion.div
               key={integration.name}
               variants={itemVariants}
-              className="bg-slate-50/50 rounded-2xl p-6 text-center border border-slate-100 hover:border-slate-200 hover:bg-white hover:shadow-sm transition-all"
+              className="bg-slate-50/50 rounded-2xl p-8 border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white hover:shadow-sm transition-all max-w-xs w-full text-center"
             >
-              <div className="flex justify-center mb-6 h-16 items-center">
-                {/* BELANGRIJK: Vervang deze div door de daadwerkelijke <img /> met het SVG-logo */}
-                <div className="h-16 w-full flex items-center justify-center bg-slate-200/60 rounded-lg text-slate-500 font-bold p-2 text-center">
-                  {integration.name}
-                </div>
+              <div className="flex justify-center mb-5 h-12 items-center">
+                {integration.logo}
               </div>
+              <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-100 mb-3">
+                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                Beschikbaar
+              </span>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{integration.name}</h3>
-              <p className="text-sm text-slate-500 h-20">{integration.description}</p>
+              <p className="text-sm text-slate-500">{integration.description}</p>
             </motion.div>
           ))}
         </motion.div>
 
-        <div className="text-center mt-16">
+        {/* Binnenkort */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
+        >
+          {comingSoonIntegrations.map((integration) => (
+            <motion.div
+              key={integration.name}
+              variants={itemVariants}
+              className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 opacity-70"
+            >
+              <div className="flex justify-center mb-4">
+                <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-500 text-xs font-bold px-3 py-1 rounded-full border border-slate-200">
+                  <Clock size={12} />
+                  Binnenkort
+                </span>
+              </div>
+              <h3 className="text-base font-bold text-slate-700 mb-1">{integration.name}</h3>
+              <p className="text-xs text-slate-400">{integration.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="text-center mt-12">
           <p className="text-slate-600">
-            Staat uw softwarepakket er niet bij? <a href="#contact" className="font-bold text-brand-primary hover:underline">Neem contact op</a> — wij denken graag met u mee.
+            Staat uw softwarepakket er niet bij?{' '}
+            <a href="#contact" className="font-bold text-brand-primary hover:underline">
+              Neem contact op
+            </a>{' '}
+            — wij denken graag met u mee.
           </p>
         </div>
       </div>

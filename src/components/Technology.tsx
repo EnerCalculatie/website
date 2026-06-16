@@ -24,7 +24,7 @@ export function Technology() {
     {
       icon: <Cpu size={24} />,
       title: 'Slimme Documentherkenning',
-      description: 'Facturen en energierekeningen worden automatisch en foutloos uitgelezen. U hoeft geen gegevens meer handmatig over te typen of te corrigeren.',
+      description: 'Facturen en energierekeningen worden automatisch en nauwkeurig uitgelezen. U hoeft geen gegevens meer handmatig over te typen of te corrigeren.',
       color: 'bg-orange-500/10 text-orange-400',
     },
     {

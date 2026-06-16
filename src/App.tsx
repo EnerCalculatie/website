@@ -11,6 +11,7 @@ import { Features } from './components/Features';
 import { AppDemoVideo } from './components/AppDemoVideo';
 import { PricingCalculator } from './components/PricingCalculator';
 import { Technology } from './components/Technology';
+import { Testimonials } from './components/Testimonials';
 import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
@@ -60,6 +61,7 @@ function App() {
               <Technology />
 
               {/* Conversion & Proof */}
+              <Testimonials />
               <Pricing />
               <FAQ />
               <Contact />

@@ -10,8 +10,8 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = 'EnerCalculatie - Dé software voor installateurs',
-  description = 'Bespaar uren per dossier met de slimste rekenhulp voor verduurzamingsinstallateurs. Van energierekening tot foutloos adviesrapport in minder dan 5 minuten.',
+  title = 'EnerCalculatie - Dé slimste rekenhulp voor installateurs',
+  description = 'Bespaar uren per dossier met de slimste rekenhulp voor verduurzamingsinstallateurs. Van energierekening tot gevalideerd adviesrapport in minder dan 5 minuten.',
   canonical = 'https://enercalculatie.nl',
   type = 'website',
   name = 'EnerCalculatie',
@@ -25,6 +25,19 @@ export function SEO({
     "name": "EnerCalculatie",
     "url": "https://enercalculatie.nl",
     "logo": "https://enercalculatie.nl/logo.png"
+  };
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "EnerCalculatie",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "WebBrowser",
+    "offers": {
+      "@type": "Offer",
+      "price": "99.00",
+      "priceCurrency": "EUR"
+    }
   };
 
   const breadcrumbItems = [
@@ -75,6 +88,9 @@ export function SEO({
 
       <script type="application/ld+json">
         {JSON.stringify(orgSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(softwareSchema)}
       </script>
       <script type="application/ld+json">
         {JSON.stringify(breadcrumbSchema)}

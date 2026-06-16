@@ -29,3 +29,31 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 ## Veiligheid
 - Alle formulieren moeten beschermd zijn met een (onzichtbare) 'honeypot' tegen bots.
 - Gegevens in contactformulieren tijdelijk veiligstellen in `sessionStorage` voorkomt frustratie bij per ongeluk herladen.
+
+## SEO & Metadata Regels
+- **Titel-sync:** De `<title>` in `index.html` en de default `title` prop in `SEO.tsx` moeten altijd identiek zijn. Google indexeert de server-rendered title in index.html totdat React geladen is.
+- **Canonical:** Alle inner routes (privacy, voorwaarden) moeten hun eigen canonical URL meekrijgen via de `canonical` prop van `<SEO />` — niet de homepage-canonical hergebruiken.
+- **Schema:** `SEO.tsx` bevat Organization + BreadcrumbList schema. Voeg per pagina-type aanvullende schema's toe (SoftwareApplication voor de homepage, FAQPage in FAQ.tsx).
+- **Geen absolute claims in copy of meta:** "foutloos", "altijd correct", "0% foutmarge" zijn juridisch riskant. Gebruik "gevalideerd", "deterministisch berekend" of "kloppend".
+- **Publieke bestanden vereist:** `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt` en `public/pricing.md` moeten aanwezig zijn. Zie de open-taken backlog in memory.
+
+## Integraties & Claims
+- **Alleen bevestigde integraties tonen als "Beschikbaar":** Op dit moment is alleen PDOK Kadaster live. Exact Online, Teamleader en AFAS zijn in ontwikkeling — toon als "Binnenkort" in `Integrations.tsx`.
+- **Testimonials:** Gebruik uitsluitend echte klantquotes met toestemming. Geen placeholder-namen.
+
+## Framer Motion TypeScript
+- Gebruik `import type { Variants } from 'motion/react'` en typeer variant-objecten expliciet: `const myVariants: Variants = { ... }`. Dit voorkomt TS2322-fouten bij `type: 'spring'` in transition-objecten.
+
+## Observability & Systeem Schema's
+- **Health Endpoint (`GET /api/health`):**
+  Het endpoint retouneert altijd een 200 OK response (zodat monitortools de JSON kunnen parsen) en bevat nooit PII of secrets. 
+  ```json
+  {
+    "status": "ok" | "degraded" | "down",
+    "db": { "ok": boolean, "latencyMs": number },
+    "auth": { "ok": boolean },
+    "ai": { "ok": boolean, "provider": string, "model": string },
+    "system": { "uptime": number, "memoryMb": number, "env": string, "commit": string }
+  }
+  ```
+  *Regel:* De status aggregatie logt naar `system_logs` uitsluitend wanneer er een wijziging in de globale status optreedt (bijv. ok → degraded).

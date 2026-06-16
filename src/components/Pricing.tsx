@@ -43,7 +43,7 @@ const PRICING_TIERS: PricingTier[] = [
     setupFee: 199,
     description: 'Voor de all-round installateur inclusief warmtepompen en technische opname.',
     includedFeatures: [
-      'Alles uit Starter',
+      'Alles uit Solo',
       'Warmtepomp',
       'Technische opname'
     ],
@@ -85,7 +85,7 @@ export function Pricing() {
             Eerlijke prijzen. Geen verrassingen.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Vaste maandprijs, onbeperkt dossiers. Geen setup fee, geen per-project kosten.
+            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Solo heeft geen setup fee — Pro en Complete rekenen een eenmalige onboarding.
           </p>
         </div>
 
@@ -193,7 +193,7 @@ export function Pricing() {
                 </a>
                 <div className="mt-4 text-center">
                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-                    Opzegbaar per maand
+                    Maandelijks opzegbaar · Geen verborgen kosten
                   </p>
                 </div>
               </div>
