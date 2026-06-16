@@ -27,7 +27,7 @@ export function Terms() {
 
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">1. Toepasselijkheid</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
-            Deze algemene voorwaarden zijn van toepassing op elk gebruik van het platform EnerCalculatie en op alle diensten die door EnerCalculatie (geëxploiteerd door Pascal van Eijden) worden aangeboden aan installateurs.
+            Deze algemene voorwaarden zijn van toepassing op elk gebruik van het platform EnerCalculatie en op alle diensten die door EnerCalculatie worden aangeboden aan installateurs.
           </p>
 
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">2. Gebruik van het Platform</h2>
@@ -59,7 +59,7 @@ export function Terms() {
           <p className="text-slate-700 leading-relaxed mb-4">
             Voor vragen over deze voorwaarden kunt u contact opnemen met:
             <br /><br />
-            <strong>EnerCalculatie (Pascal van Eijden)</strong><br />
+            <strong>EnerCalculatie</strong><br />
             Toenzalstraat 16<br />
             1363 RJ Almere<br />
             E-mail: <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a><br />

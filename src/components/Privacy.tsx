@@ -28,7 +28,7 @@ export function Privacy() {
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">1. Rol van EnerCalculatie</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
             Binnen het platform van EnerCalculatie is de <strong>installateur</strong> de verwerkingsverantwoordelijke. 
-            EnerCalculatie (geëxploiteerd door Pascal van Eijden) treedt op als <strong>verwerker</strong>. 
+            EnerCalculatie treedt op als <strong>verwerker</strong>. 
             Dit betekent dat wij de gegevens van uw eindklanten uitsluitend verwerken in uw opdracht en ten behoeve van het genereren van energieberekeningen en rapportages.
           </p>
 
@@ -61,14 +61,14 @@ export function Privacy() {
           </p>
           <ul className="list-disc pl-6 mb-6 text-slate-700">
             <li><strong>Supabase (Frankfurt, EER)</strong> - Database, opslag en authenticatie.</li>
-            <li><strong>Railway (EER)</strong> - Hosting van de applicatieservers.</li>
+            <li><strong>Railway (Amsterdam, EER)</strong> - Hosting van de applicatieservers.</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">7. Contact</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
             Voor vragen over dit privacy statement of privacy-gerelateerde verzoeken kunt u contact opnemen met:
             <br /><br />
-            <strong>EnerCalculatie (Pascal van Eijden)</strong><br />
+            <strong>EnerCalculatie</strong><br />
             Toenzalstraat 16<br />
             1363 RJ Almere<br />
             E-mail: <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a><br />

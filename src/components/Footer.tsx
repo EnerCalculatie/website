@@ -76,10 +76,10 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Integraties</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><span className="hover:text-white transition-colors cursor-pointer">Exact Online</span></li>
-              <li><span className="hover:text-white transition-colors cursor-pointer">Teamleader</span></li>
-              <li><span className="hover:text-white transition-colors cursor-pointer">Afas</span></li>
-              <li><span className="hover:text-white transition-colors cursor-pointer">PDOK Kadaster</span></li>
+              <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Exact Online</a></li>
+              <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Teamleader</a></li>
+              <li><a href="https://www.afas.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">AFAS</a></li>
+              <li><a href="https://www.pdok.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">PDOK Kadaster</a></li>
             </ul>
           </div>
 

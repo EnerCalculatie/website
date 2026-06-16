@@ -40,7 +40,7 @@ export function ProcessorAgreement() {
           <p className="text-slate-700 leading-relaxed mb-4">Verwerkingsverantwoordelijke verleent hierbij een algemene toestemming voor het inschakelen van sub-verwerkers. Verwerker zal Verwerkingsverantwoordelijke informeren over voorgenomen wijzigingen. De huidige sub-verwerkers zijn:</p>
           <ul className="list-disc pl-6 mb-6 text-slate-700">
             <li><strong>Supabase (Frankfurt, EER)</strong> - Database, opslag en authenticatie.</li>
-            <li><strong>Railway (EER)</strong> - Hosting van applicatieservers.</li>
+            <li><strong>Railway (Amsterdam, EER)</strong> - Hosting van applicatieservers.</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-slate-800 mt-8 mb-4">4. Beveiligingsmaatregelen</h2>
@@ -69,7 +69,7 @@ export function ProcessorAgreement() {
           </p>
 
           <div className="mt-12 pt-8 border-t border-slate-100">
-            <p className="text-slate-700 font-bold">EnerCalculatie (Pascal van Eijden)</p>
+            <p className="text-slate-700 font-bold">EnerCalculatie</p>
             <p className="text-slate-600">
               Toenzalstraat 16<br />
               1363 RJ Almere<br />

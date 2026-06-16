@@ -6,7 +6,7 @@ export function Technology() {
     {
       icon: <Server size={24} />,
       title: 'Nederlandse Servers & AVG',
-      description: 'Alle klantdossiers en offertes worden veilig opgeslagen op streng beveiligde Europese en Nederlandse servers. Volledig AVG-compliant met end-to-end encryptie.',
+      description: 'Alle klantdossiers en offertes worden veilig opgeslagen op streng beveiligde servers in Amsterdam en Frankfurt. Volledig AVG-compliant met end-to-end encryptie.',
       color: 'bg-blue-500/10 text-blue-400',
     },
     {
@@ -80,7 +80,7 @@ export function Technology() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            Alle klantdossiers staan op Nederlandse servers, volledig AVG-compliant. EnerCalculatie past naadloos in uw bestaande werkwijze via slimme koppelingen.
+            Alle klantdossiers staan op streng beveiligde servers in onder andere Amsterdam, volledig AVG-compliant. EnerCalculatie past naadloos in uw bestaande werkwijze via slimme koppelingen.
           </motion.p>
         </div>
 
