@@ -237,25 +237,21 @@ export function AppDemoVideo() {
               </div>
 
               {/* Screenshot area */}
-              <div className="relative aspect-[16/9] bg-slate-800 overflow-hidden">
+              <div className="relative bg-slate-800 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeStep.screenshot}
                     src={activeStep.screenshot}
                     alt={activeStep.label}
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.35, ease: 'easeInOut' }}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="w-full h-auto block"
                   />
                 </AnimatePresence>
 
-                {/* Overlay onderkant fade voor naadloze look */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-900/40 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-900/30 to-transparent pointer-events-none" />
               </div>
 
               {/* Progress bar */}
