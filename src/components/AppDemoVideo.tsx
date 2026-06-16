@@ -5,6 +5,20 @@ import {
   TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight
 } from 'lucide-react';
 
+import imgDossier from '../assets/screenshots/dossier-overzicht.png';
+import imgPandgegevens from '../assets/screenshots/pandgegevens.png';
+import imgAiScan from '../assets/screenshots/ai-scan-ocr.png';
+import imgEnergieprofiel from '../assets/screenshots/energieprofiel.png';
+import imgZonnepanelen from '../assets/screenshots/zonnepanelen.png';
+import imgThuisbatterij from '../assets/screenshots/thuisbatterij.png';
+import imgWarmtepomp from '../assets/screenshots/warmtepomp.png';
+import imgAirco from '../assets/screenshots/airco.png';
+import imgLaadpalen from '../assets/screenshots/laadpalen.png';
+import imgRoi from '../assets/screenshots/rendement-roi.png';
+import imgSchouw from '../assets/screenshots/schouw-overzicht.png';
+import imgRapport from '../assets/screenshots/adviesrapport.png';
+import imgWerkvoorbereiding from '../assets/screenshots/werkvoorbereiding.png';
+
 interface DemoStep {
   id: string;
   label: string;
@@ -18,91 +32,91 @@ const steps: DemoStep[] = [
     id: 'dossier',
     label: 'Dossier Overzicht',
     icon: <Home size={16} />,
-    screenshot: '/screenshots/dossier-overzicht.png',
+    screenshot: imgDossier,
     description: 'Al uw klantdossiers in één overzicht. Zoek, filter en beheer actieve en gearchiveerde dossiers.'
   },
   {
     id: 'pandgegevens',
     label: 'Pandgegevens',
     icon: <Home size={16} />,
-    screenshot: '/screenshots/pandgegevens.png',
+    screenshot: imgPandgegevens,
     description: 'Registreer klant- en pandgegevens als vertrekpunt voor alle dimensionerings- en opbrengstmodellen.'
   },
   {
     id: 'ai-scan',
     label: 'AI Scan & OCR',
     icon: <Cpu size={16} />,
-    screenshot: '/screenshots/ai-scan-ocr.png',
+    screenshot: imgAiScan,
     description: 'Upload energienota\'s of foto\'s. Het AI-model leest ze direct uit naar gestructureerde verbruiksdata.'
   },
   {
     id: 'energieprofiel',
     label: 'Energieprofiel',
     icon: <Zap size={16} />,
-    screenshot: '/screenshots/energieprofiel.png',
+    screenshot: imgEnergieprofiel,
     description: 'Stel historisch verbruik en energiekosten in als referentie voor alle besparing- en ROI-berekeningen.'
   },
   {
     id: 'zonnepanelen',
     label: 'Zonnepanelen',
     icon: <Sun size={16} />,
-    screenshot: '/screenshots/zonnepanelen.png',
+    screenshot: imgZonnepanelen,
     description: 'Ontwerp het legplan en bereken deterministisch de verwachte jaaropbrengst op basis van oriëntatie en vermogen.'
   },
   {
     id: 'thuisbatterij',
     label: 'Thuisbatterij',
     icon: <Battery size={16} />,
-    screenshot: '/screenshots/thuisbatterij.png',
+    screenshot: imgThuisbatterij,
     description: 'Configureer energieopslag en zie direct de impact op zelfconsumptie en terugverdientijd.'
   },
   {
     id: 'warmtepomp',
     label: 'Warmtepomp',
     icon: <Flame size={16} />,
-    screenshot: '/screenshots/warmtepomp.png',
+    screenshot: imgWarmtepomp,
     description: 'Bereken de impact van een warmtepomp op gasverbruik, stroomverbruik en financieel rendement.'
   },
   {
     id: 'airco',
     label: 'Airco',
     icon: <Wind size={16} />,
-    screenshot: '/screenshots/airco.png',
+    screenshot: imgAirco,
     description: 'Configureer actieve koeling en efficiënte bijverwarming per ruimte met SCOP-berekeningen.'
   },
   {
     id: 'laadpalen',
     label: 'Laadpalen',
     icon: <Car size={16} />,
-    screenshot: '/screenshots/laadpalen.png',
+    screenshot: imgLaadpalen,
     description: 'Configureer een EV-laadstation inclusief load balancing, laadvermogen en installatie-eisen.'
   },
   {
     id: 'roi',
     label: 'Rendement & ROI',
     icon: <TrendingUp size={16} />,
-    screenshot: '/screenshots/rendement-roi.png',
+    screenshot: imgRoi,
     description: 'Volledig deterministische doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
   },
   {
     id: 'schouw',
     label: 'Schouw Overzicht',
     icon: <ClipboardList size={16} />,
-    screenshot: '/screenshots/schouw-overzicht.png',
+    screenshot: imgSchouw,
     description: 'Samenvatting van alle opnamevelden — pand, logistiek en groepenkast in één oogopslag.'
   },
   {
     id: 'rapport',
     label: 'Adviesrapport',
     icon: <FileText size={16} />,
-    screenshot: '/screenshots/adviesrapport.png',
+    screenshot: imgRapport,
     description: 'Genereer een professioneel adviesrapport met AI-samenvatting, klaar voor het keukentafelgesprek.'
   },
   {
     id: 'werkvoorbereiding',
     label: 'Werkvoorbereiding',
     icon: <HardHat size={16} />,
-    screenshot: '/screenshots/werkvoorbereiding.png',
+    screenshot: imgWerkvoorbereiding,
     description: 'Bill of Materials en logistieke instructies voor de monteur — direct vanuit het adviestraject.'
   },
 ];
