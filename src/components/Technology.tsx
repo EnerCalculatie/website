@@ -42,7 +42,7 @@ export function Technology() {
   ];
 
   return (
-    <section id="technologie" className="py-24 bg-slate-900 relative overflow-hidden">
+    <section id="technologie" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
       <div className="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-brand-primary/10 blur-3xl pointer-events-none"></div>
@@ -65,7 +65,7 @@ export function Technology() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-display font-bold text-white mb-6 leading-tight"
+            className="text-2xl md:text-5xl font-display font-bold text-white mb-6 leading-tight"
           >
             Nederlandse data. Veilige architectuur.<br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-400">

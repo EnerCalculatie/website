@@ -78,10 +78,10 @@ export function Pricing() {
   const [isTableOpen, setIsTableOpen] = useState(false);
 
   return (
-    <section id="prijzen" className="py-24 bg-brand-bg">
+    <section id="prijzen" className="py-16 md:py-24 bg-brand-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
             Eerlijke prijzen. Geen verrassingen.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -93,7 +93,7 @@ export function Pricing() {
           <div className="bg-slate-200/50 p-1.5 rounded-full inline-flex relative shadow-inner">
             <button
               onClick={() => setIsYearly(false)}
-              className={`relative px-6 py-2.5 rounded-full text-sm font-bold z-10 transition-colors ${
+              className={`relative px-6 py-3 rounded-full text-base font-bold z-10 transition-colors min-h-[48px] ${
                 !isYearly ? 'bg-white shadow text-slate-900' : 'text-slate-500 hover:text-slate-900'
               }`}
             >
@@ -101,7 +101,7 @@ export function Pricing() {
             </button>
             <button
               onClick={() => setIsYearly(true)}
-              className={`relative px-6 py-2.5 rounded-full text-sm font-bold z-10 transition-colors flex items-center gap-2 ${
+              className={`relative px-6 py-3 rounded-full text-base font-bold z-10 transition-colors flex items-center gap-2 min-h-[48px] ${
                 isYearly ? 'bg-brand-primary text-white shadow' : 'text-slate-500 hover:text-slate-900'
               }`}
             >

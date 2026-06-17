@@ -23,13 +23,12 @@ export function NavBar() {
   }, []);
 
   const navLinks = [
-    { name: 'Oplossing', href: '/#oplossing' },
     { name: 'Functies', href: '/#functies' },
-    { name: 'Video', href: '/#demo-video' },
-    { name: 'Bespaarcalculator', href: '/#pricing-calculator' },
+    { name: 'Demo', href: '/#demo-video' },
+    { name: 'Integraties', href: '/#integraties' },
+    { name: 'Calculator', href: '/#pricing-calculator' },
     { name: 'Prijzen', href: '/#prijzen' },
     { name: 'FAQ', href: '/#faq' },
-    { name: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -67,7 +66,7 @@ export function NavBar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-base font-medium transition-colors p-2 hover:bg-slate-50 rounded-lg ${
                   hash === link.href.replace('/', '') 
                     ? 'text-brand-primary' 
                     : 'text-slate-600 hover:text-brand-primary'
@@ -79,15 +78,16 @@ export function NavBar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="#contact" className="bg-brand-primary hover:bg-[#008f5a] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md hover:shadow-lg inline-block text-center">
+            <a href="#contact" className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-lg text-base font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]">
               Plan een rondleiding
             </a>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-slate-600"
+            className="md:hidden p-3 -mr-2 text-slate-600 flex items-center justify-center min-h-[48px] min-w-[48px]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Menu sluiten" : "Menu openen"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

@@ -1,10 +1,9 @@
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap, Play } from 'lucide-react';
-import { DashboardMockup } from './DashboardMockup';
 
 export function Hero() {
   return (
-    <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
+    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
       {/* Achtergrond decoratie voor visuele diepte */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full opacity-60" />
@@ -30,7 +29,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8"
           >
             De slimste rekenhulp voor de <span className="text-brand-primary">verduurzamingsinstallateur.</span>
             <br className="hidden md:block" />
@@ -44,7 +43,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10"
           >
-            Speciaal voor MKB-installateurs met 1–15 medewerkers, actief in zonnepanelen, warmtepompen en laadpalen.
+            Speciaal voor kleine en middelgrote installatiebedrijven, actief in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
             Van energierekening tot onderbouwd verduurzamingsadvies — geen Excel, geen typfouten, geen gemiste wetgeving.
             Alleen een rapport waar uw klant met een gerust hart ja tegen zegt.
           </motion.p>
@@ -54,7 +53,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col items-center justify-center mb-16"
+            className="flex flex-col items-center justify-center mb-12"
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
               <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg hover:bg-brand-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
@@ -91,9 +90,6 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
-
-      {/* Visuele preview van het dashboard */}
-      <DashboardMockup />
       </div>
     </section>
   );

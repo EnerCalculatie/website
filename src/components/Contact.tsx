@@ -79,7 +79,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-50 relative">
+    <section id="contact" className="py-16 md:py-24 bg-slate-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
@@ -95,7 +95,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
+            className="text-2xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
           >
             Hoe kunnen we u helpen?
           </motion.h2>
@@ -120,7 +120,7 @@ export function Contact() {
             className="flex flex-col gap-8"
           >
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">Contactgegevens</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-6">Contactgegevens</h3>
               
               <div className="flex flex-col gap-6">
                 <div className="flex items-start gap-4">
@@ -183,7 +183,7 @@ export function Contact() {
             transition={{ delay: 0.3 }}
             className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm"            
           >
-            <h3 className="text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
             <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate> {/* Add noValidate to prevent default browser validation messages */}
               {/* Honeypot field for spam prevention. Should be visually hidden. */}
               <div className="absolute left-[-5000px]" aria-hidden="true">
@@ -201,78 +201,78 @@ export function Contact() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">Voornaam *</label>
+                  <label htmlFor="firstName" className="block text-base font-medium text-slate-700 mb-2">Voornaam *</label>
                   <input 
                     type="text" 
                     id="firstName" 
                     required
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                    className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
                     placeholder="Jan" 
                   />
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-2">Achternaam *</label>
+                  <label htmlFor="lastName" className="block text-base font-medium text-slate-700 mb-2">Achternaam *</label>
                   <input 
                     type="text" 
                     id="lastName" 
                     required
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                    className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
                     placeholder="Voorbeeld" 
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">E-mailadres *</label>
+                <label htmlFor="email" className="block text-base font-medium text-slate-700 mb-2">E-mailadres *</label>
                 <input 
                   type="email" 
                   id="email" 
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                  className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
                   placeholder="jan@installatiebedrijf.nl" 
                 />
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">Bedrijfsnaam</label>
+                <label htmlFor="company" className="block text-base font-medium text-slate-700 mb-2">Bedrijfsnaam</label>
                 <input 
                   type="text" 
                   id="company" 
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all"
+                  className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
                   placeholder="Installatiebedrijf BV" 
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">Bericht *</label>
+                <label htmlFor="message" className="block text-base font-medium text-slate-700 mb-2">Bericht *</label>
                 <textarea 
                   id="message" 
                   rows={4} 
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none"
+                  className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none min-h-[48px]"
                   placeholder="Hoe kunnen we u helpen?" 
                 ></textarea>
               </div>
 
               {/* Display client-side error if present, otherwise server-side error */}
               {status === 'error' && (clientError || serverError) && (
-                <div className="p-4 bg-red-50 text-red-600 rounded-xl text-sm font-medium">
+                <div className="p-4 bg-red-50 text-red-600 rounded-xl text-base font-medium">
                   {clientError || serverError || 'Er ging iets mis met het verzenden. Probeer het later nog eens.'}
                 </div>
               )}
 
               {status === 'success' && (
-                <div className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-sm font-medium flex items-center gap-2">
+                <div className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-base font-medium flex items-center gap-2">
                   <CheckCircle2 size={20} />
                   Bericht verzonden! Wij nemen snel contact met u op.
                 </div>
@@ -281,7 +281,7 @@ export function Contact() {
               <button 
                 type="submit" 
                 disabled={status === 'submitting' || status === 'success'}
-                className="w-full bg-brand-primary hover:bg-[#008f5a] disabled:bg-slate-300 disabled:cursor-not-allowed text-white px-6 py-4 rounded-xl font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group"
+                className="w-full bg-brand-primary hover:bg-[#008f5a] disabled:bg-slate-300 disabled:cursor-not-allowed text-white px-6 py-4 rounded-xl text-base font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group min-h-[48px]"
               >
                 {status === 'submitting' ? (
                   <>

@@ -17,13 +17,13 @@ export function ProblemSolution() {
   ];
 
   return (
-    <section id="oplossing" className="py-24 bg-white relative">
+    <section id="oplossing" className="pt-16 pb-8 md:pt-24 md:pb-12 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-brand-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">
             Waarom installateurs kiezen voor EnerCalculatie
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+          <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
             U levert het vakmanschap. <br/> Wij verzorgen de financiële onderbouwing.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">

@@ -157,7 +157,7 @@ export function AppDemoVideo() {
   const activeStep = steps[activeIndex];
 
   return (
-    <section id="demo-video" className="py-24 bg-slate-900 relative overflow-hidden">
+    <section id="demo-video" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       {/* Achtergrond glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
@@ -179,7 +179,7 @@ export function AppDemoVideo() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-display font-bold text-white mb-6"
+            className="text-2xl md:text-5xl font-display font-bold text-white mb-6"
           >
             Kijk binnen in de app
           </motion.h2>
@@ -221,7 +221,7 @@ export function AppDemoVideo() {
                   <span className={`shrink-0 ${i === activeIndex ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'}`}>
                     {step.icon}
                   </span>
-                  <span className="text-sm truncate">{step.label}</span>
+                  <span className="text-base truncate">{step.label}</span>
                   {i === activeIndex && (
                     <ChevronRight size={14} className="ml-auto shrink-0" />
                   )}

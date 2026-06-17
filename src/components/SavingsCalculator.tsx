@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp, Clock, EuroIcon } from 'lucide-react';
+import { TrendingUp, Clock } from 'lucide-react';
 
 export function SavingsCalculator() {
   const [dossiers, setDossiers] = useState<number>(30);
@@ -13,10 +13,10 @@ export function SavingsCalculator() {
   const totalFinancialValue = totalHoursSaved * HOURLY_RATE;
 
   return (
-    <section id="calculator" className="py-24 bg-white">
+    <section id="calculator" className="py-16 md:py-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Hoeveel tijd kost u één dossier vandaag?
           </h2>
           <p className="text-lg text-slate-600">
@@ -82,7 +82,7 @@ export function SavingsCalculator() {
             <p className="text-slate-300 text-sm font-medium text-center sm:text-left">
               * Gebaseerd op gemiddeld 3 uur handwerk per traditioneel dossier.
             </p>
-            <button className="whitespace-nowrap bg-brand-primary hover:bg-[#008f5a] text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-colors">
+            <button className="whitespace-nowrap bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl text-base font-bold transition-colors min-h-[48px]">
               Start besparen
             </button>
           </div>

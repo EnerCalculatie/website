@@ -21,7 +21,7 @@ export function OnboardingGuarantee() {
   ];
 
   return (
-    <section id="overstapservice" className="py-24 bg-brand-primary/5">
+    <section id="overstapservice" className="py-16 md:py-24 bg-brand-primary/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-brand-primary/20 shadow-xl overflow-hidden relative">
           {/* Decoratieve achtergrond */}
@@ -32,7 +32,7 @@ export function OnboardingGuarantee() {
               <span className="inline-flex items-center gap-2 bg-emerald-50 text-brand-primary font-bold px-4 py-2 rounded-full text-sm uppercase tracking-wider mb-6">
                 <CheckCircle2 size={18} /> Zorgeloze overstap
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+              <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-6">
                 Geen tijd om nieuwe software in te regelen? Wij doen het voor u.
               </h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">

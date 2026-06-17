@@ -24,9 +24,14 @@ const faqs = [
       'Gebruik de ROI-calculator op deze pagina. Bij 10 dossiers per maand verdient u de abonnementskosten vaak al in de eerste week terug.',
   },
   {
-    question: 'Hoe werkt de salderingsregeling in 2025 en 2026?',
+    question: 'Hoe gaat de software om met de aankomende afschaffing van de salderingsregeling?',
     answer:
-      'De salderingsregeling wordt stapsgewijs afgebouwd. In 2025 mag u nog 64% van uw teruggeleverde stroom salderen; in 2026 daalt dit naar 46%. EnerCalculatie verwerkt deze percentages automatisch in elke berekening, zodat u uw klant altijd een eerlijk en actueel rendement toont — zonder zelf de wetgeving bij te hoeven houden.',
+      'De politieke plannen zijn recent gewijzigd: de afbouw is van de baan, het huidige plan is om de regeling per 1 januari 2027 in één keer volledig af te schaffen. EnerCalculatie volgt de actuele wetgeving op de voet. Onze rendementsberekeningen (over 10 of 25 jaar) houden deterministisch rekening met dit 2027-scenario, zodat u uw klant een eerlijk en realistisch beeld geeft.',
+  },
+  {
+    question: 'Kan de software rekenen met de terugleverkosten (heffingen) van energieleveranciers?',
+    answer:
+      'Ja, absoluut. Vrijwel alle energieleveranciers brengen tegenwoordig kosten in rekening voor het terugleveren van zonnestroom. Binnen EnerCalculatie kunt u deze specifieke (schaal)heffingen van de klant invoeren. Het rekenmodel toont exact de financiële impact, en laat direct zien hoe rendabel een thuisbatterij is om deze kosten te omzeilen.',
   },
   {
     question: 'Wat is de BTW-regeling voor zonnepanelen op woningen?',
@@ -39,9 +44,9 @@ const faqs = [
       'De berekening is gebaseerd op Nederlandse standaardaannames: 8,79 kWh per m³ gas, 90% ketelrendement en een warmwateraandeel van 20%. Voor hybride systemen blijft het warmwaterdeel en de bijstook op de bestaande gasketel staan. Alle aannames zijn transparant inzichtelijk in het gegenereerde rapport.',
   },
   {
-    question: 'Voldoet een EnerCalculatie-rapport aan de eisen van subsidie-aanvragen (ISDE, Saldering)?',
+    question: 'Voldoet een EnerCalculatie-rapport aan de eisen voor de ISDE-subsidie?',
     answer:
-      'De rapporten bevatten alle benodigde technische specificaties en rendementsberekeningen die subsidieverstrekkers zoals RVO vragen bij ISDE-aanvragen voor warmtepompen. Voor de officiële aanvraag heeft u daarnaast altijd een erkend installatiebedrijf nodig — EnerCalculatie ondersteunt het adviestraject daarvóór.',
+      'De rapporten bevatten alle benodigde technische specificaties, vermogens en berekeningen die de RVO vraagt bij ISDE-aanvragen voor warmtepompen (waaronder ondersteuning voor meldcodes). Voor de daadwerkelijke aanvraag heeft de eindklant altijd een installatie- en betaalbewijs van uw erkende installatiebedrijf nodig — EnerCalculatie levert de perfecte projectonderbouwing in het traject daarvóór.',
   },
   {
     question: 'Hoe actueel zijn de energieprijzen in de berekeningen?',
@@ -72,14 +77,14 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-16 md:py-24 bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl font-bold text-slate-900 mb-4">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4">
             Veelgestelde vragen
           </h2>
           <p className="text-lg text-slate-600">

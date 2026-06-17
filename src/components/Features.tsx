@@ -1,8 +1,9 @@
 import { motion } from 'motion/react';
+import type { Variants } from 'motion/react';
 import { FileSearch, Map, Calculator, Battery, CheckSquare, Send, ThermometerSun, ClipboardCheck, Image as ImageIcon, Wind, Car, PiggyBank } from 'lucide-react';
 
 export function Features() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -10,7 +11,7 @@ export function Features() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
     show: { 
       opacity: 1, 
@@ -21,13 +22,13 @@ export function Features() {
   };
 
   return (
-    <section id="functies" className="py-24 bg-brand-bg border-y border-slate-200/60">
+    <section id="functies" className="py-16 md:py-24 bg-brand-bg border-y border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-brand-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">
             Belangrijkste functionaliteiten
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
             Alles wat u nodig heeft voor een onweerlegbaar adviesgesprek
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">

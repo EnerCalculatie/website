@@ -10,7 +10,7 @@ export function NotFound() {
         title="404 - Pagina niet gevonden - EnerCalculatie"
         description="De opgevraagde pagina kon helaas niet worden gevonden."
       />
-      <div className="pt-32 pb-24 min-h-[70vh] flex items-center justify-center px-4">
+      <div className="pt-24 md:pt-32 pb-16 md:pb-24 min-h-[70vh] flex items-center justify-center px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export function NotFound() {
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-50 text-red-500 mb-8">
             <AlertCircle size={40} />
           </div>
-          <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">Pagina niet gevonden</h1>
+          <h1 className="text-2xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">Pagina niet gevonden</h1>
           <p className="text-lg text-slate-600 mb-10 leading-relaxed">
             Oeps! De pagina die u zoekt lijkt niet te bestaan of is verplaatst naar een andere URL.
           </p>
