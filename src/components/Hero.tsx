@@ -57,7 +57,7 @@ export function Hero() {
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
               <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg hover:bg-brand-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
-                Boek een demo <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Plan een demo (15 min) <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="#demo-video" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center gap-2">
                 <Play size={20} className="text-brand-primary fill-brand-primary/20" /> Bekijk hoe het werkt
@@ -86,7 +86,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
               <CheckCircle2 size={18} className="text-[#00a669]" />
-              Deterministisch berekend
+              Zelfde invoer, zelfde uitkomst
             </div>
           </motion.div>
         </div>

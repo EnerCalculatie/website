@@ -20,7 +20,7 @@ export function Footer() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#contact" className="bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center">
-              Boek een demo
+              Plan mijn demo (20 min)
             </a>
             <a href="#pricing-calculator" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
               Bereken uw tijdsbesparing

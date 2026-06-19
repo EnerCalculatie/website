@@ -68,7 +68,7 @@ const PRICING_TIERS: PricingTier[] = [
     ],
     excludedFeatures: [
     ],
-    cta: 'Boek een demo',
+    cta: 'Plan een adviesgesprek',
     mostPopular: false
   }
 ];
