@@ -35,7 +35,7 @@ router.post('/contact', async (req, res) => {
       from: 'EnerCalculatie Website <website@enercalculatie.nl>',
 
       subject: 'Aanvraag via website',
-      reply_to: email,
+      replyTo: email,
       html: `
         <h1>Nieuwe contactaanvraag</h1>
         <p><strong>Naam:</strong> ${firstName} ${lastName}</p>
