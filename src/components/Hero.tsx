@@ -64,8 +64,13 @@ export function Hero() {
               </a>
             </div>
             {/* No-risk / garantie formulering (Story LP.13) */}
-            <p className="text-sm font-medium text-slate-500">
+            <p className="text-sm font-medium text-slate-500 mb-2">
               14 dagen gratis · Opzegbaar per maand
+            </p>
+
+            {/* Early adopter urgentie-signaal (geen klantenteller — pre-launch fase) */}
+            <p className="text-sm font-semibold text-brand-primary">
+              Sluit u nu aan als één van de eerste installateurs en denk mee over nieuwe functionaliteiten
             </p>
           </motion.div>
 
