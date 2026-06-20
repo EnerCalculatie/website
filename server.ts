@@ -27,13 +27,13 @@ app.use('/api', formLimiter, leadMagnetRouter);
  
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {
-  // Dwing https + non-www af richting de canonical host, tegen duplicate-content via twee URL-varianten.
+  // Dwing alleen https af. Geen www/non-www herschrijving hier: enercalculatie.nl
+  // (zonder www) heeft momenteel geen DNS-record, alleen www.enercalculatie.nl
+  // resolvet. Een host-redirect zou bezoekers naar een niet-bestaand domein sturen.
   app.use((req, res, next) => {
     const isHttps = req.header('x-forwarded-proto') === 'https';
-    const host = req.header('host') || '';
-    const canonicalHost = host.replace(/^www\./, '');
-    if (!isHttps || host !== canonicalHost) {
-      return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
+    if (!isHttps) {
+      return res.redirect(301, `https://${req.header('host')}${req.originalUrl}`);
     }
     next();
   });
