@@ -14,7 +14,7 @@ export function Contact() {
         message: '',
         subject: '' // Honeypot field
       };
-    } catch (error) {
+    } catch (_error) {
       // Als het parsen van JSON mislukt, start met een leeg formulier.
       return { firstName: '', lastName: '', email: '', company: '', message: '', subject: '' };
     }

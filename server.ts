@@ -1,6 +1,7 @@
 import 'dotenv/config'; // Dit laadt de .env direct in tijdens de import-fase
 
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import contactRouter from './contact';
 import leadMagnetRouter from './leadMagnet';
 import path from 'path';
@@ -12,9 +13,17 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json());
 
+// Begrens formulier-inzendingen tegen spam/misbruik (beide endpoints versturen e-mail via Resend).
+const formLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Gebruik de contact en lead-magnet routers voor alle /api routes
-app.use('/api', contactRouter);
-app.use('/api', leadMagnetRouter);
+app.use('/api', formLimiter, contactRouter);
+app.use('/api', formLimiter, leadMagnetRouter);
  
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {

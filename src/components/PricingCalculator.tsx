@@ -4,7 +4,7 @@ import { Calculator, Clock, Euro, TrendingUp, ArrowRight } from 'lucide-react';
 
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer: Record<string, unknown>[];
   }
 }
 

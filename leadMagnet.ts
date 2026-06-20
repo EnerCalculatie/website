@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { Resend } from 'resend';
+import { escapeHtml } from './emailUtils';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -26,13 +27,13 @@ router.post('/lead-magnet', async (req, res) => {
       replyTo: email,
       html: `
         <h1>Nieuwe aanmelding ROI-gids voor installateurs</h1>
-        <p><strong>E-mail:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
       `,
     });
 
     if (error) return res.status(400).json(error);
     res.status(200).json(data);
-  } catch (exception) {
+  } catch (_exception) {
     res.status(500).json({ error: 'Er is een onverwachte fout opgetreden.' });
   }
 });

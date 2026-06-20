@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { Resend } from 'resend';
+import { escapeHtml } from './emailUtils';
 
 // Initialiseer Resend met je API key (deze moet in je .env bestand staan)
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -38,18 +39,18 @@ router.post('/contact', async (req, res) => {
       replyTo: email,
       html: `
         <h1>Nieuwe contactaanvraag</h1>
-        <p><strong>Naam:</strong> ${firstName} ${lastName}</p>
-        <p><strong>E-mail:</strong> <a href="mailto:${email}">${email}</a></p>
-        <p><strong>Bedrijf:</strong> ${company || 'Niet opgegeven'}</p>
+        <p><strong>Naam:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
+        <p><strong>E-mail:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+        <p><strong>Bedrijf:</strong> ${company ? escapeHtml(company) : 'Niet opgegeven'}</p>
         <hr>
         <p><strong>Bericht:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
       `,
     });
 
     if (error) return res.status(400).json(error);
     res.status(200).json(data);
-  } catch (exception) {
+  } catch (_exception) {
     res.status(500).json({ error: 'Er is een onverwachte fout opgetreden.' });
   }
 });
