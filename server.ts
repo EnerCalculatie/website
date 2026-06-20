@@ -19,9 +19,21 @@ if (process.env.NODE_ENV === 'production') {
   // Serveer de statische bestanden uit de 'dist' map
   app.use(express.static(path.join(__dirname, 'dist')));
  
-  // Voor alle andere requests, stuur de index.html terug (voor client-side routing)
+  // Elke bekende client-side route heeft een eigen voorgerenderde HTML
+  // (met de juiste title/meta/canonical/schema al ingebakken — zie scripts/prerender.mjs).
+  const prerenderedRoutes: Record<string, string> = {
+    '/': 'index.html',
+    '/privacy': 'privacy.html',
+    '/voorwaarden': 'voorwaarden.html',
+    '/verwerkersovereenkomst': 'verwerkersovereenkomst.html',
+  };
+
+  // Voor alle andere requests: serveer de voorgerenderde 404-pagina
+  // met een echte 404-status, zodat crawlers geen soft-404 zien.
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    const file = prerenderedRoutes[req.path] ?? '404.html';
+    const status = prerenderedRoutes[req.path] ? 200 : 404;
+    res.status(status).sendFile(path.join(__dirname, 'dist', file));
   });
 } else {
   // Simpele welkomstpagina voor de backend in development

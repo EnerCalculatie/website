@@ -9,7 +9,6 @@ var resend = new Resend(process.env.RESEND_API_KEY);
 var router = Router();
 router.post("/contact", async (req, res) => {
   const { firstName, lastName, email, company, message, subject } = req.body || {};
-  console.log("Received contact form submission:", { firstName, lastName, email, company, message, subject });
   if (subject) {
     return res.status(200).json({ message: "Bericht succesvol verzonden." });
   }
@@ -19,7 +18,6 @@ router.post("/contact", async (req, res) => {
   if (!email) missingFields.push("email");
   if (!message) missingFields.push("message");
   if (missingFields.length > 0) {
-    console.error("Validation Error: Missing required fields:", missingFields);
     return res.status(400).json({ error: `Niet alle verplichte velden zijn ingevuld: ${missingFields.join(", ")}.` });
   }
   try {
@@ -59,8 +57,16 @@ app.use(express.json());
 app.use("/api", contact_default);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "dist")));
+  const prerenderedRoutes = {
+    "/": "index.html",
+    "/privacy": "privacy.html",
+    "/voorwaarden": "voorwaarden.html",
+    "/verwerkersovereenkomst": "verwerkersovereenkomst.html"
+  };
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "dist", "index.html"));
+    const file = prerenderedRoutes[req.path] ?? "404.html";
+    const status = prerenderedRoutes[req.path] ? 200 : 404;
+    res.status(status).sendFile(path.join(__dirname, "dist", file));
   });
 } else {
   app.get("/", (req, res) => {

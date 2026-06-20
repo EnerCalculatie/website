@@ -49,11 +49,11 @@ export function NavBar() {
         <div className="flex items-center justify-between">
           <a href="/" className="flex items-center gap-2" aria-label="EnerCalculatie - Terug naar boven">
             {!imageError ? (
-              <img 
-                src="/logo.png" 
-                alt="EnerCalculatie Logo" 
-                className="h-10 sm:h-12 lg:h-14 w-auto drop-shadow-sm" 
-                onError={() => setImageError(true)} 
+              <img
+                src="/logo.svg"
+                alt="EnerCalculatie Logo"
+                className="h-10 sm:h-12 lg:h-14 w-auto drop-shadow-sm"
+                onError={() => setImageError(true)}
               />
             ) : (
               <FallbackLogo className="h-10 sm:h-12 lg:h-14 w-auto drop-shadow-sm" />

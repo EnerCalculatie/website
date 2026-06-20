@@ -31,20 +31,22 @@ function ScrollToTop() {
   return null;
 }
 
-function App() {
+// Router-onafhankelijke content, herbruikt door zowel de browser-entry (BrowserRouter)
+// als de server-entry (StaticRouter) voor prerendering.
+export function AppContent() {
   return (
-    <Router>
+    <>
       <ScrollToTop />
       <div className="min-h-screen bg-white">
-        {/* SEO & Meta Tags */}
-        <SEO />
-
         {/* Navigation */}
         <NavBar />
 
         <Routes>
           <Route path="/" element={
             <main>
+              {/* SEO & Meta Tags (default homepage-metadata) */}
+              <SEO />
+
               {/* Hero Section with Dashboard Mockup */}
               <Hero />
 
@@ -76,6 +78,14 @@ function App() {
         <Footer />
         <CookieBanner />
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 }

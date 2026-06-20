@@ -38,12 +38,12 @@ export function Footer() {
               aria-label="EnerCalculatie - Terug naar boven"
             >
               {!imageError ? (
-                <img 
-                  src="/logo.png" 
-                  alt="EnerCalculatie Logo" 
+                <img
+                  src="/logo.svg"
+                  alt="EnerCalculatie Logo"
                   loading="lazy"
-                  className="h-10 w-auto" 
-                  onError={() => setImageError(true)} 
+                  className="h-10 w-auto"
+                  onError={() => setImageError(true)}
                 />
               ) : (
                 <FallbackLogo className="h-10 w-auto" />
