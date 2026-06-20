@@ -1,9 +1,11 @@
 # EnerCalculatie
 
-EnerCalculatie is dé slimste rekenhulp voor de verduurzamingsinstallateur in Nederland.
-Speciaal ontwikkeld voor MKB-installateurs (1-15 medewerkers) die actief zijn in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
+> EnerCalculatie is dé slimste rekenhulp voor de verduurzamingsinstallateur in Nederland. Speciaal ontwikkeld voor MKB-installateurs (1-15 medewerkers) die actief zijn in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
+
+In vergelijking met handmatig rekenwerk in Excel of het inhuren van een dure externe adviseur, bespaart EnerCalculatie uren per dossier. Het verlaagt de advieskosten en biedt direct een onderbouwd rapport om de eindklant te overtuigen. Alle data wordt veilig en volledig AVG-compliant opgeslagen op Nederlandse servers.
 
 ## Belangrijkste functionaliteiten
+
 - Automatisering van het volledige offerte- en adviesproces.
 - Gevalideerde en nauwkeurige rendementsberekeningen (geen Excel meer nodig).
 - AI-documentanalyse voor het geautomatiseerd inlezen van energierekeningen.
@@ -11,9 +13,14 @@ Speciaal ontwikkeld voor MKB-installateurs (1-15 medewerkers) die actief zijn in
 - Automatische verwerking van actuele salderingsregels (de salderingsregeling wordt naar verwachting per 1 januari 2027 in één keer volledig afgeschaft) en correcte BTW-tarieven (bijv. 0% BTW op zonnepanelen).
 - Genereren van professionele en deelbare adviesrapporten in de huisstijl van de installateur in minder dan 5 minuten.
 
-## Waarom EnerCalculatie?
-In vergelijking met handmatig rekenwerk in Excel of het inhuren van een dure externe adviseur, bespaart EnerCalculatie uren per dossier. Het verlaagt de advieskosten en biedt direct een onderbouwd rapport om de eindklant te overtuigen. 
-Alle data wordt veilig en volledig AVG-compliant opgeslagen op Nederlandse servers.
+## Pagina's
 
-Zie pricing.md voor actuele abonnementsprijzen.
-Meer informatie, contact opnemen of een gratis proefperiode starten kan via de officiële website: https://www.enercalculatie.nl.
+- [Homepage](https://www.enercalculatie.nl/): functies, prijzen, integraties en de ROI-calculator.
+- [Prijzen (machine-leesbaar)](https://www.enercalculatie.nl/pricing.md): actuele abonnementsprijzen per pakket.
+- [Kennisbank](https://www.enercalculatie.nl/kennisbank): praktische uitleg over Nederlandse regelgeving en rekenmethodes.
+- [Privacy Statement](https://www.enercalculatie.nl/privacy): AVG-verwerkersrol en databeleid.
+- [Algemene Voorwaarden](https://www.enercalculatie.nl/voorwaarden): gebruiksvoorwaarden van het platform.
+
+## Contact
+
+- [Contactformulier en bedrijfsgegevens](https://www.enercalculatie.nl/#contact): voor vragen, demo's of een gratis proefperiode.

@@ -64,7 +64,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Product</h4>
+            <p className="text-white font-semibold mb-4">Product</p>
             <ul className="space-y-2 text-base text-slate-400">
               <li><a href="/#functies" className="hover:text-white transition-colors block py-1 break-words">Functies</a></li>
               <li><a href="/#demo-video" className="hover:text-white transition-colors block py-1 break-words">App Video</a></li>
@@ -75,7 +75,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Integraties</h4>
+            <p className="text-white font-semibold mb-4">Integraties</p>
             <ul className="space-y-2 text-base text-slate-400">
               <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Exact Online</a></li>
               <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Teamleader</a></li>
@@ -85,7 +85,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Juridisch</h4>
+            <p className="text-white font-semibold mb-4">Juridisch</p>
             <ul className="space-y-2 text-base text-slate-400">
               <li><a href="/voorwaarden" className="hover:text-white transition-colors block py-1 break-words">Algemene Voorwaarden</a></li>
               <li><a href="/privacy" className="hover:text-white transition-colors block py-1 break-words">Privacybeleid (AVG)</a></li>

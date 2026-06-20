@@ -64,12 +64,13 @@ export function PricingCalculator() {
           >
             <div className="mb-10">
               <div className="flex justify-between items-center mb-6">
-                <label className="text-lg font-bold text-slate-900">Aantal dossiers per maand</label>
+                <label htmlFor="dossiers-per-maand" className="text-lg font-bold text-slate-900">Aantal dossiers per maand</label>
                 <span className="bg-brand-primary/10 text-brand-primary px-4 py-1 rounded-full font-bold text-xl">
                   {dossiers}
                 </span>
               </div>
               <input
+                id="dossiers-per-maand"
                 type="range"
                 min="5"
                 max="100"
