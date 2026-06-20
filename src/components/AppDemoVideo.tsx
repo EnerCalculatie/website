@@ -5,19 +5,19 @@ import {
   TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight
 } from 'lucide-react';
 
-import imgDossier from '../assets/screenshots/dossier-overzicht.png';
-import imgPandgegevens from '../assets/screenshots/pandgegevens.png';
-import imgAiScan from '../assets/screenshots/ai-scan-ocr.png';
-import imgEnergieprofiel from '../assets/screenshots/energieprofiel.png';
-import imgZonnepanelen from '../assets/screenshots/zonnepanelen.png';
-import imgThuisbatterij from '../assets/screenshots/thuisbatterij.png';
-import imgWarmtepomp from '../assets/screenshots/warmtepomp.png';
-import imgAirco from '../assets/screenshots/airco.png';
-import imgLaadpalen from '../assets/screenshots/laadpalen.png';
-import imgRoi from '../assets/screenshots/rendement-roi.png';
-import imgSchouw from '../assets/screenshots/schouw-overzicht.png';
-import imgRapport from '../assets/screenshots/adviesrapport.png';
-import imgWerkvoorbereiding from '../assets/screenshots/werkvoorbereiding.png';
+import imgDossier from '../assets/screenshots/dossier-overzicht.webp';
+import imgPandgegevens from '../assets/screenshots/pandgegevens.webp';
+import imgAiScan from '../assets/screenshots/ai-scan-ocr.webp';
+import imgEnergieprofiel from '../assets/screenshots/energieprofiel.webp';
+import imgZonnepanelen from '../assets/screenshots/zonnepanelen.webp';
+import imgThuisbatterij from '../assets/screenshots/thuisbatterij.webp';
+import imgWarmtepomp from '../assets/screenshots/warmtepomp.webp';
+import imgAirco from '../assets/screenshots/airco.webp';
+import imgLaadpalen from '../assets/screenshots/laadpalen.webp';
+import imgRoi from '../assets/screenshots/rendement-roi.webp';
+import imgSchouw from '../assets/screenshots/schouw-overzicht.webp';
+import imgRapport from '../assets/screenshots/adviesrapport.webp';
+import imgWerkvoorbereiding from '../assets/screenshots/werkvoorbereiding.webp';
 
 interface DemoStep {
   id: string;

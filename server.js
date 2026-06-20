@@ -47,6 +47,39 @@ router.post("/contact", async (req, res) => {
 });
 var contact_default = router;
 
+// leadMagnet.ts
+import { Router as Router2 } from "express";
+import { Resend as Resend2 } from "resend";
+var resend2 = new Resend2(process.env.RESEND_API_KEY);
+var router2 = Router2();
+router2.post("/lead-magnet", async (req, res) => {
+  const { email, company } = req.body || {};
+  if (company) {
+    return res.status(200).json({ message: "Aanmelding succesvol verwerkt." });
+  }
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || !emailPattern.test(email)) {
+    return res.status(400).json({ error: "Vul een geldig e-mailadres in." });
+  }
+  try {
+    const { data, error } = await resend2.emails.send({
+      to: ["info@enercalculatie.nl"],
+      from: "EnerCalculatie Website <website@enercalculatie.nl>",
+      subject: "Nieuwe aanmelding ROI-gids",
+      replyTo: email,
+      html: `
+        <h1>Nieuwe aanmelding ROI-gids voor installateurs</h1>
+        <p><strong>E-mail:</strong> <a href="mailto:${email}">${email}</a></p>
+      `
+    });
+    if (error) return res.status(400).json(error);
+    res.status(200).json(data);
+  } catch (exception) {
+    res.status(500).json({ error: "Er is een onverwachte fout opgetreden." });
+  }
+});
+var leadMagnet_default = router2;
+
 // server.ts
 import path from "path";
 import { fileURLToPath } from "url";
@@ -55,6 +88,7 @@ var __dirname = path.dirname(__filename);
 var app = express();
 app.use(express.json());
 app.use("/api", contact_default);
+app.use("/api", leadMagnet_default);
 if (process.env.NODE_ENV === "production") {
   app.use((req, res, next) => {
     const isHttps = req.header("x-forwarded-proto") === "https";
@@ -70,7 +104,9 @@ if (process.env.NODE_ENV === "production") {
     "/": "index.html",
     "/privacy": "privacy.html",
     "/voorwaarden": "voorwaarden.html",
-    "/verwerkersovereenkomst": "verwerkersovereenkomst.html"
+    "/verwerkersovereenkomst": "verwerkersovereenkomst.html",
+    "/kennisbank": "kennisbank.html",
+    "/kennisbank/salderingsregeling-2027": "kennisbank-salderingsregeling-2027.html"
   };
   app.get("*", (req, res) => {
     const file = prerenderedRoutes[req.path] ?? "404.html";

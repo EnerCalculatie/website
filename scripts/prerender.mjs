@@ -22,6 +22,8 @@ const routes = [
   { url: '/privacy', outFile: 'privacy.html' },
   { url: '/voorwaarden', outFile: 'voorwaarden.html' },
   { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html' },
+  { url: '/kennisbank', outFile: 'kennisbank.html' },
+  { url: '/kennisbank/salderingsregeling-2027', outFile: 'kennisbank-salderingsregeling-2027.html' },
   { url: '/__not-found__', outFile: '404.html' },
 ];
 

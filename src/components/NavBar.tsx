@@ -29,6 +29,7 @@ export function NavBar() {
     { name: 'Calculator', href: '/#pricing-calculator' },
     { name: 'Prijzen', href: '/#prijzen' },
     { name: 'FAQ', href: '/#faq' },
+    { name: 'Kennisbank', href: '/kennisbank' },
   ];
 
   return (

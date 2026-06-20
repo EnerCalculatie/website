@@ -2,6 +2,7 @@ import 'dotenv/config'; // Dit laadt de .env direct in tijdens de import-fase
 
 import express from 'express';
 import contactRouter from './contact';
+import leadMagnetRouter from './leadMagnet';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -11,8 +12,9 @@ const __dirname = path.dirname(__filename);
 const app = express();
 app.use(express.json());
 
-// Gebruik de contact router voor alle /api routes
+// Gebruik de contact en lead-magnet routers voor alle /api routes
 app.use('/api', contactRouter);
+app.use('/api', leadMagnetRouter);
  
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {
@@ -37,6 +39,8 @@ if (process.env.NODE_ENV === 'production') {
     '/privacy': 'privacy.html',
     '/voorwaarden': 'voorwaarden.html',
     '/verwerkersovereenkomst': 'verwerkersovereenkomst.html',
+    '/kennisbank': 'kennisbank.html',
+    '/kennisbank/salderingsregeling-2027': 'kennisbank-salderingsregeling-2027.html',
   };
 
   // Voor alle andere requests: serveer de voorgerenderde 404-pagina

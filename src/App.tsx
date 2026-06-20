@@ -18,6 +18,8 @@ import { Contact } from './components/Contact';
 import { Privacy } from './components/Privacy';
 import { Terms } from './components/Terms';
 import { ProcessorAgreement } from './components/ProcessorAgreement';
+import { BlogIndex } from './components/blog/BlogIndex';
+import { SalderingsregelingArticle } from './components/blog/SalderingsregelingArticle';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
@@ -72,6 +74,8 @@ export function AppContent() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/voorwaarden" element={<Terms />} />
           <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
+          <Route path="/kennisbank" element={<BlogIndex />} />
+          <Route path="/kennisbank/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

@@ -70,6 +70,7 @@ export function Footer() {
               <li><a href="/#demo-video" className="hover:text-white transition-colors block py-1">App Video</a></li>
               <li><a href="/#pricing-calculator" className="hover:text-white transition-colors block py-1">ROI Calculator</a></li>
               <li><a href="/#prijzen" className="hover:text-white transition-colors block py-1">Prijzen</a></li>
+              <li><a href="/kennisbank" className="hover:text-white transition-colors block py-1">Kennisbank</a></li>
             </ul>
           </div>
 
