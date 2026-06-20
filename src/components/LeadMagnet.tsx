@@ -54,7 +54,7 @@ export function LeadMagnet() {
         </p>
 
         {status === 'success' ? (
-          <div className="flex items-center gap-2 text-brand-primary font-semibold">
+          <div role="status" aria-live="polite" className="flex items-center gap-2 text-brand-primary font-semibold">
             <CheckCircle2 size={20} /> Bedankt! U ontvangt de gids zodra deze beschikbaar is.
           </div>
         ) : (
@@ -70,8 +70,15 @@ export function LeadMagnet() {
               autoComplete="off"
               aria-hidden="true"
             />
+            <label htmlFor="lead-magnet-email" className="sr-only">E-mailadres</label>
             <input
               type="email"
+              id="lead-magnet-email"
+              name="email"
+              autoComplete="email"
+              inputMode="email"
+              autoCapitalize="off"
+              autoCorrect="off"
               required
               placeholder="uw@bedrijf.nl"
               value={email}
@@ -81,14 +88,14 @@ export function LeadMagnet() {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="px-6 py-3.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 min-h-[48px] disabled:opacity-60"
+              className="px-6 py-3.5 bg-brand-primary-text hover:opacity-90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 min-h-[48px] disabled:opacity-60"
             >
               {status === 'submitting' ? <Loader2 size={18} className="animate-spin" /> : 'Meld u aan'}
             </button>
           </form>
         )}
         {status === 'error' && errorMessage && (
-          <p className="text-red-400 text-sm mt-3">{errorMessage}</p>
+          <p role="alert" aria-live="assertive" className="text-red-400 text-sm mt-3">{errorMessage}</p>
         )}
       </div>
     </motion.div>
