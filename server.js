@@ -56,6 +56,15 @@ var app = express();
 app.use(express.json());
 app.use("/api", contact_default);
 if (process.env.NODE_ENV === "production") {
+  app.use((req, res, next) => {
+    const isHttps = req.header("x-forwarded-proto") === "https";
+    const host = req.header("host") || "";
+    const canonicalHost = host.replace(/^www\./, "");
+    if (!isHttps || host !== canonicalHost) {
+      return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
+    }
+    next();
+  });
   app.use(express.static(path.join(__dirname, "dist")));
   const prerenderedRoutes = {
     "/": "index.html",

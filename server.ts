@@ -16,6 +16,17 @@ app.use('/api', contactRouter);
  
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {
+  // Dwing https + non-www af richting de canonical host, tegen duplicate-content via twee URL-varianten.
+  app.use((req, res, next) => {
+    const isHttps = req.header('x-forwarded-proto') === 'https';
+    const host = req.header('host') || '';
+    const canonicalHost = host.replace(/^www\./, '');
+    if (!isHttps || host !== canonicalHost) {
+      return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
+    }
+    next();
+  });
+
   // Serveer de statische bestanden uit de 'dist' map
   app.use(express.static(path.join(__dirname, 'dist')));
  
