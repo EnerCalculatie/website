@@ -107,7 +107,7 @@ export function FAQ() {
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                 >
                   <span
-                    className={`font-semibold text-lg ${isOpen ? 'text-brand-primary' : 'text-slate-800'}`}
+                    className={`font-semibold text-lg ${isOpen ? 'text-brand-primary-text' : 'text-slate-800'}`}
                   >
                     {faq.question}
                   </span>

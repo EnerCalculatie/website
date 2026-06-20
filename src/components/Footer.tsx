@@ -9,13 +9,13 @@ export function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300 print:hidden">
       {/* Final CTA Block */}
-      <div className="bg-[#00a669] relative overflow-hidden">
+      <div className="bg-[#006b45] relative overflow-hidden">
         <div className="absolute inset-0 bg-[#008f5a] opacity-50 radial-gradient-circle" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10 text-center">
           <h2 className="font-display text-2xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Zelf ervaren hoeveel tijd EnerCalculatie u bespaart?
           </h2>
-          <p className="text-emerald-50 text-lg mb-8 max-w-2xl mx-auto font-medium">
+          <p className="text-white text-lg mb-8 max-w-2xl mx-auto font-medium">
             Plan een korte demo en zie in 20 minuten precies hoe het werkt — van energierekening tot compleet adviesrapport.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -59,7 +59,7 @@ export function Footer() {
               <a href="tel:+31630366189" className="text-slate-400 hover:text-white transition-colors">
                 06 - 30 36 61 89
               </a>
-              <p className="text-slate-500 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
+              <p className="text-slate-400 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
             </div>
           </div>
 
@@ -94,7 +94,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
           <p>&copy; {currentYear} EnerCalculatie. Alle rechten voorbehouden.</p>
         </div>
       </div>

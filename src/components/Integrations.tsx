@@ -123,7 +123,7 @@ export function Integrations() {
         <div className="text-center mt-12">
           <p className="text-slate-600">
             Staat uw softwarepakket er niet bij?{' '}
-            <a href="#contact" className="font-bold text-brand-primary hover:underline">
+            <a href="#contact" className="font-bold text-brand-primary-text hover:underline">
               Neem contact op
             </a>{' '}
             — wij denken graag met u mee.

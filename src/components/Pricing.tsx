@@ -94,7 +94,7 @@ export function Pricing() {
             <button
               onClick={() => setIsYearly(false)}
               className={`relative px-6 py-3 rounded-full text-base font-bold z-10 transition-colors min-h-[48px] ${
-                !isYearly ? 'bg-white shadow text-slate-900' : 'text-slate-500 hover:text-slate-900'
+                !isYearly ? 'bg-white shadow text-slate-900' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Maand
@@ -102,12 +102,12 @@ export function Pricing() {
             <button
               onClick={() => setIsYearly(true)}
               className={`relative px-6 py-3 rounded-full text-base font-bold z-10 transition-colors flex items-center gap-2 min-h-[48px] ${
-                isYearly ? 'bg-brand-primary text-white shadow' : 'text-slate-500 hover:text-slate-900'
+                isYearly ? 'bg-brand-primary-text text-white shadow' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Jaar
               <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-bold ${
-                isYearly ? 'bg-white text-brand-primary' : 'bg-brand-primary text-white'
+                isYearly ? 'bg-white text-brand-primary-text' : 'bg-brand-primary-text text-white'
               }`}>
                 2 maanden gratis
               </span>

@@ -54,7 +54,7 @@ export function CookieBanner() {
             
             <button 
               onClick={() => setShowDetails(!showDetails)}
-              className="text-brand-primary text-base font-medium flex items-center gap-2 hover:underline focus:outline-none min-h-[48px]"
+              className="text-brand-primary-text text-base font-medium flex items-center gap-2 hover:underline focus:outline-none min-h-[48px]"
             >
               <Settings size={18} />
               Zelf instellen
@@ -131,7 +131,7 @@ export function CookieBanner() {
               </button>
               <button 
                 onClick={handleAcceptAll}
-                className="flex-1 bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl text-base font-bold transition shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2 min-h-[48px]"
+                className="flex-1 bg-brand-primary-text hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl text-base font-bold transition shadow-lg shadow-brand-primary/20 flex items-center justify-center gap-2 min-h-[48px]"
               >
                 <Check size={18} />
                 Accepteren

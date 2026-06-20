@@ -17,7 +17,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-[#00a669] font-bold text-xs uppercase tracking-wider mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-brand-primary-text font-bold text-xs uppercase tracking-wider mb-8"
           >
             <Zap size={14} className="fill-[#00a669]" />
             Ontwikkeld voor de praktijk
@@ -55,7 +55,7 @@ export function Hero() {
             className="flex flex-col items-center justify-center mb-12"
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
-              <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-brand-primary text-white rounded-xl font-bold text-lg hover:bg-brand-primary/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
+              <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-brand-primary-text text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
                 Plan een demo (15 min) <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="#demo-video" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center gap-2">
@@ -68,7 +68,7 @@ export function Hero() {
             </p>
 
             {/* Early adopter urgentie-signaal (geen klantenteller — pre-launch fase) */}
-            <p className="text-sm font-semibold text-brand-primary">
+            <p className="text-sm font-semibold text-brand-primary-text">
               Sluit u nu aan als een van de eerste installateurs en denk mee over nieuwe functionaliteiten
             </p>
           </motion.div>
