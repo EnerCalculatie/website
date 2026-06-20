@@ -27,13 +27,16 @@ app.use('/api', formLimiter, leadMagnetRouter);
  
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {
-  // Dwing alleen https af. Geen www/non-www herschrijving hier: enercalculatie.nl
-  // (zonder www) heeft momenteel geen DNS-record, alleen www.enercalculatie.nl
-  // resolvet. Een host-redirect zou bezoekers naar een niet-bestaand domein sturen.
+  // Dwing https af, en op het eigen domein ook www (www.enercalculatie.nl is canonical,
+  // zie SEO.tsx/sitemap.xml/robots.txt: enercalculatie.nl zonder www heeft geen DNS-record).
+  // Alleen voor enercalculatie.nl zelf — niet voor de Railway-fallback-host, anders breekt die.
   app.use((req, res, next) => {
     const isHttps = req.header('x-forwarded-proto') === 'https';
-    if (!isHttps) {
-      return res.redirect(301, `https://${req.header('host')}${req.originalUrl}`);
+    const host = req.header('host') || '';
+    const isOwnDomain = host === 'enercalculatie.nl' || host === 'www.enercalculatie.nl';
+    const canonicalHost = isOwnDomain && !host.startsWith('www.') ? `www.${host}` : host;
+    if (!isHttps || host !== canonicalHost) {
+      return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
     }
     next();
   });

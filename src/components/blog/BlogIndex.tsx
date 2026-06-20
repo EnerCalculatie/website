@@ -10,7 +10,7 @@ export function BlogIndex() {
       <SEO
         title="Kennisbank | EnerCalculatie"
         description="Praktische uitleg over Nederlandse regelgeving en rekenmethodes voor verduurzamingsinstallateurs: salderingsregeling, BTW-tarieven, ISDE-subsidie en meer."
-        canonical="https://enercalculatie.nl/kennisbank"
+        canonical="https://www.enercalculatie.nl/kennisbank"
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

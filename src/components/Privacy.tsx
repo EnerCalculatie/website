@@ -8,7 +8,7 @@ export function Privacy() {
       <SEO 
         title="Privacy Statement & AVG | EnerCalculatie Software"
         description="Bekijk het privacy statement van EnerCalculatie. Ontdek hoe wij als verwerker veilig en AVG-compliant omgaan met de data van uw installatiebedrijf en uw eindklanten."
-        canonical="https://enercalculatie.nl/privacy"
+        canonical="https://www.enercalculatie.nl/privacy"
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">

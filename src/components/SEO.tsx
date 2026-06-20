@@ -12,19 +12,19 @@ interface SEOProps {
 export function SEO({
   title = 'EnerCalculatie - Dé slimste rekenhulp voor installateurs',
   description = 'Bespaar uren per dossier met de slimste rekenhulp voor verduurzamingsinstallateurs. Van energierekening tot gevalideerd adviesrapport in minder dan 5 minuten.',
-  canonical = 'https://enercalculatie.nl',
+  canonical = 'https://www.enercalculatie.nl',
   type = 'website',
   name = 'EnerCalculatie',
   image = '/og-image.png'
 }: SEOProps) {
-  const baseUrl = 'https://enercalculatie.nl';
+  const baseUrl = 'https://www.enercalculatie.nl';
   const imageUrl = `${baseUrl}${image}`;
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "EnerCalculatie",
-    "url": "https://enercalculatie.nl",
-    "logo": "https://enercalculatie.nl/logo.svg"
+    "url": "https://www.enercalculatie.nl",
+    "logo": "https://www.enercalculatie.nl/logo.svg"
   };
 
   const softwareSchema = {
@@ -48,11 +48,11 @@ export function SEO({
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://enercalculatie.nl"
+      "item": "https://www.enercalculatie.nl"
     }
   ];
 
-  if (canonical !== "https://enercalculatie.nl") {
+  if (canonical !== "https://www.enercalculatie.nl") {
     breadcrumbItems.push({
       "@type": "ListItem",
       "position": 2,

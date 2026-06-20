@@ -8,7 +8,7 @@ export function ProcessorAgreement() {
       <SEO 
         title="Verwerkersovereenkomst AVG | EnerCalculatie"
         description="Bekijk de verwerkersovereenkomst (AVG Art. 28) van EnerCalculatie. Lees hoe onze calculatie- en adviessoftware de privacy van uw installatiebedrijf en eindklanten waarborgt."
-        canonical="https://enercalculatie.nl/verwerkersovereenkomst"
+        canonical="https://www.enercalculatie.nl/verwerkersovereenkomst"
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">

@@ -106,8 +106,11 @@ app.use("/api", formLimiter, leadMagnet_default);
 if (process.env.NODE_ENV === "production") {
   app.use((req, res, next) => {
     const isHttps = req.header("x-forwarded-proto") === "https";
-    if (!isHttps) {
-      return res.redirect(301, `https://${req.header("host")}${req.originalUrl}`);
+    const host = req.header("host") || "";
+    const isOwnDomain = host === "enercalculatie.nl" || host === "www.enercalculatie.nl";
+    const canonicalHost = isOwnDomain && !host.startsWith("www.") ? `www.${host}` : host;
+    if (!isHttps || host !== canonicalHost) {
+      return res.redirect(301, `https://${canonicalHost}${req.originalUrl}`);
     }
     next();
   });

@@ -16,4 +16,4 @@ In vergelijking met handmatig rekenwerk in Excel of het inhuren van een dure ext
 Alle data wordt veilig en volledig AVG-compliant opgeslagen op Nederlandse servers.
 
 Zie pricing.md voor actuele abonnementsprijzen.
-Meer informatie, contact opnemen of een gratis proefperiode starten kan via de officiële website: https://enercalculatie.nl.
+Meer informatie, contact opnemen of een gratis proefperiode starten kan via de officiële website: https://www.enercalculatie.nl.
