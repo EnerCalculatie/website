@@ -121,7 +121,8 @@ if (process.env.NODE_ENV === "production") {
     "/voorwaarden": "voorwaarden.html",
     "/verwerkersovereenkomst": "verwerkersovereenkomst.html",
     "/kennisbank": "kennisbank.html",
-    "/kennisbank/salderingsregeling-2027": "kennisbank-salderingsregeling-2027.html"
+    "/kennisbank/salderingsregeling-2027": "kennisbank-salderingsregeling-2027.html",
+    "/kennisbank/btw-zonnepanelen": "kennisbank-btw-zonnepanelen.html"
   };
   app.get("*", (req, res) => {
     const file = prerenderedRoutes[req.path] ?? "404.html";

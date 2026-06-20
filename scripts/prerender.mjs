@@ -24,6 +24,7 @@ const routes = [
   { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html' },
   { url: '/kennisbank', outFile: 'kennisbank.html' },
   { url: '/kennisbank/salderingsregeling-2027', outFile: 'kennisbank-salderingsregeling-2027.html' },
+  { url: '/kennisbank/btw-zonnepanelen', outFile: 'kennisbank-btw-zonnepanelen.html' },
   { url: '/__not-found__', outFile: '404.html' },
 ];
 
