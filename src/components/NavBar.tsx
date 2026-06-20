@@ -48,28 +48,28 @@ export function NavBar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2" aria-label="EnerCalculatie - Terug naar boven">
+          <a href="/" className="flex items-center gap-2 shrink-0" aria-label="EnerCalculatie - Terug naar boven">
             {!imageError ? (
               <img
                 src="/logo.svg"
                 alt="EnerCalculatie Logo"
-                className="h-10 sm:h-12 lg:h-14 w-auto drop-shadow-sm"
+                className="h-9 sm:h-10 lg:h-11 w-auto drop-shadow-sm"
                 onError={() => setImageError(true)}
               />
             ) : (
-              <FallbackLogo className="h-10 sm:h-12 lg:h-14 w-auto drop-shadow-sm" />
+              <FallbackLogo className="h-9 sm:h-10 lg:h-11 w-auto drop-shadow-sm" />
             )}
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden xl:flex items-center gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-base font-medium transition-colors p-2 hover:bg-slate-50 rounded-lg ${
-                  hash === link.href.replace('/', '') 
-                    ? 'text-brand-primary' 
+                className={`text-base font-medium transition-colors p-2 whitespace-nowrap hover:bg-slate-50 rounded-lg ${
+                  hash === link.href.replace('/', '')
+                    ? 'text-brand-primary'
                     : 'text-slate-600 hover:text-brand-primary'
                 }`}
               >
@@ -78,15 +78,15 @@ export function NavBar() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
-            <a href="#contact" className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-lg text-base font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]">
-              Plan een rondleiding
+          <div className="hidden xl:flex items-center gap-4 shrink-0">
+            <a href="#contact" className="bg-brand-primary hover:bg-[#008f5a] text-white px-5 py-3 rounded-lg text-base font-semibold whitespace-nowrap transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]">
+              Plan rondleiding
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile/tablet menu button */}
           <button
-            className="md:hidden p-3 -mr-2 text-slate-600 flex items-center justify-center min-h-[48px] min-w-[48px]"
+            className="xl:hidden p-3 -mr-2 text-slate-600 flex items-center justify-center min-h-[48px] min-w-[48px]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? "Menu sluiten" : "Menu openen"}
           >
@@ -95,14 +95,14 @@ export function NavBar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile/tablet Navigation */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-slate-100"
+            className="xl:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-slate-100 max-h-[80vh] overflow-y-auto"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (

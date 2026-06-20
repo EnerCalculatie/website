@@ -12,8 +12,10 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   @apply bg-brand-bg text-[#1a202c] antialiased;
+  overflow-x: hidden;
 }

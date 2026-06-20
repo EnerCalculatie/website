@@ -186,7 +186,7 @@ export function Contact() {
             <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-6">Stuur een bericht</h3>
             <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate> {/* Add noValidate to prevent default browser validation messages */}
               {/* Honeypot field for spam prevention. Should be visually hidden. */}
-              <div className="absolute left-[-5000px]" aria-hidden="true">
+              <div className="hidden" aria-hidden="true">
                 <label htmlFor="subject">Subject</label>
                 <input
                   type="text"

@@ -160,7 +160,6 @@ export function AppDemoVideo() {
     <section id="demo-video" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       {/* Achtergrond glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -202,8 +201,9 @@ export function AppDemoVideo() {
           transition={{ delay: 0.3, duration: 0.7 }}
           className="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-6 items-start"
         >
-          {/* Stappen zijbalk */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm">
+          {/* Stappen zijbalk: op mobiel/tablet ná het scherm (order-2), zodat bezoekers niet eerst
+              langs 12 stapknoppen moeten scrollen voordat ze de daadwerkelijke demo zien */}
+          <div className="order-2 lg:order-none bg-white/5 border border-white/10 rounded-2xl p-3 backdrop-blur-sm">
             <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-widest px-2 pt-1 pb-3">
               Advies Stappen
             </p>
@@ -231,7 +231,7 @@ export function AppDemoVideo() {
           </div>
 
           {/* Scherm met browser chrome */}
-          <div className="flex flex-col gap-4">
+          <div className="order-1 lg:order-none flex flex-col gap-4">
             {/* Browser chrome */}
             <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm">
               {/* Titelbalk */}

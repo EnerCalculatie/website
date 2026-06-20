@@ -151,7 +151,7 @@ export function PricingCalculator() {
 
             <div className="mt-10 pt-8 border-t border-white/10 text-center">
               <p className="text-sm leading-relaxed text-slate-300 mb-6">
-                U verdient het abonnement al terug na <span className="text-white font-bold">{dossiersToPayback} dossiers</span> per maand.
+                U verdient het abonnement al terug na <span className="text-white font-bold">{dossiersToPayback} {dossiersToPayback === 1 ? 'dossier' : 'dossiers'}</span> per maand.
               </p>
               <button 
                 onClick={handleStartBesparenClick}

@@ -66,30 +66,30 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-base text-slate-400">
-              <li><a href="/#functies" className="hover:text-white transition-colors block py-1">Functies</a></li>
-              <li><a href="/#demo-video" className="hover:text-white transition-colors block py-1">App Video</a></li>
-              <li><a href="/#pricing-calculator" className="hover:text-white transition-colors block py-1">ROI Calculator</a></li>
-              <li><a href="/#prijzen" className="hover:text-white transition-colors block py-1">Prijzen</a></li>
-              <li><a href="/kennisbank" className="hover:text-white transition-colors block py-1">Kennisbank</a></li>
+              <li><a href="/#functies" className="hover:text-white transition-colors block py-1 break-words">Functies</a></li>
+              <li><a href="/#demo-video" className="hover:text-white transition-colors block py-1 break-words">App Video</a></li>
+              <li><a href="/#pricing-calculator" className="hover:text-white transition-colors block py-1 break-words">ROI Calculator</a></li>
+              <li><a href="/#prijzen" className="hover:text-white transition-colors block py-1 break-words">Prijzen</a></li>
+              <li><a href="/kennisbank" className="hover:text-white transition-colors block py-1 break-words">Kennisbank</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-semibold mb-4">Integraties</h4>
             <ul className="space-y-2 text-base text-slate-400">
-              <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1">Exact Online</a></li>
-              <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1">Teamleader</a></li>
-              <li><a href="https://www.afas.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1">AFAS</a></li>
-              <li><a href="https://www.pdok.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1">PDOK Kadaster</a></li>
+              <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Exact Online</a></li>
+              <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Teamleader</a></li>
+              <li><a href="https://www.afas.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">AFAS</a></li>
+              <li><a href="https://www.pdok.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">PDOK Kadaster</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-semibold mb-4">Juridisch</h4>
             <ul className="space-y-2 text-base text-slate-400">
-              <li><a href="/voorwaarden" className="hover:text-white transition-colors block py-1">Algemene Voorwaarden</a></li>
-              <li><a href="/privacy" className="hover:text-white transition-colors block py-1">Privacybeleid (AVG)</a></li>
-              <li><a href="/verwerkersovereenkomst" className="hover:text-white transition-colors block py-1">Verwerkersovereenkomst</a></li>
+              <li><a href="/voorwaarden" className="hover:text-white transition-colors block py-1 break-words">Algemene Voorwaarden</a></li>
+              <li><a href="/privacy" className="hover:text-white transition-colors block py-1 break-words">Privacybeleid (AVG)</a></li>
+              <li><a href="/verwerkersovereenkomst" className="hover:text-white transition-colors block py-1 break-words">Verwerkersovereenkomst</a></li>
             </ul>
           </div>
         </div>
