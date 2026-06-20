@@ -202,86 +202,101 @@ export function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-base font-medium text-slate-700 mb-2">Voornaam *</label>
-                  <input 
-                    type="text" 
-                    id="firstName" 
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    autoComplete="given-name"
+                    autoCapitalize="words"
                     required
                     value={formData.firstName}
                     onChange={handleChange}
                     className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
-                    placeholder="Jan" 
+                    placeholder="Jan"
                   />
                 </div>
                 <div>
                   <label htmlFor="lastName" className="block text-base font-medium text-slate-700 mb-2">Achternaam *</label>
-                  <input 
-                    type="text" 
-                    id="lastName" 
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    autoComplete="family-name"
+                    autoCapitalize="words"
                     required
                     value={formData.lastName}
                     onChange={handleChange}
                     className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
-                    placeholder="Voorbeeld" 
+                    placeholder="Voorbeeld"
                   />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-base font-medium text-slate-700 mb-2">E-mailadres *</label>
-                <input 
-                  type="email" 
-                  id="email" 
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  autoCapitalize="off"
+                  autoCorrect="off"
                   required
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
-                  placeholder="jan@installatiebedrijf.nl" 
+                  placeholder="jan@installatiebedrijf.nl"
                 />
               </div>
 
               <div>
                 <label htmlFor="company" className="block text-base font-medium text-slate-700 mb-2">Bedrijfsnaam</label>
-                <input 
-                  type="text" 
-                  id="company" 
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  autoComplete="organization"
+                  autoCapitalize="words"
                   value={formData.company}
                   onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
-                  placeholder="Installatiebedrijf BV" 
+                  placeholder="Installatiebedrijf BV"
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-base font-medium text-slate-700 mb-2">Bericht *</label>
-                <textarea 
-                  id="message" 
-                  rows={4} 
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
                   required
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none min-h-[48px]"
-                  placeholder="Hoe kunnen we u helpen?" 
+                  placeholder="Hoe kunnen we u helpen?"
                 ></textarea>
               </div>
 
               {/* Display client-side error if present, otherwise server-side error */}
               {status === 'error' && (clientError || serverError) && (
-                <div className="p-4 bg-red-50 text-red-600 rounded-xl text-base font-medium">
+                <div role="alert" aria-live="assertive" className="p-4 bg-red-50 text-red-600 rounded-xl text-base font-medium">
                   {clientError || serverError || 'Er ging iets mis met het verzenden. Probeer het later nog eens.'}
                 </div>
               )}
 
               {status === 'success' && (
-                <div className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-base font-medium flex items-center gap-2">
+                <div role="status" aria-live="polite" className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-base font-medium flex items-center gap-2">
                   <CheckCircle2 size={20} />
                   Bericht verzonden! Wij nemen snel contact met u op.
                 </div>
               )}
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={status === 'submitting' || status === 'success'}
-                className="w-full bg-brand-primary hover:bg-[#008f5a] disabled:bg-slate-300 disabled:cursor-not-allowed text-white px-6 py-4 rounded-xl text-base font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group min-h-[48px]"
+                className="w-full bg-brand-primary-text hover:bg-[#008f5a] disabled:bg-slate-300 disabled:cursor-not-allowed text-white px-6 py-4 rounded-xl text-base font-bold transition-all shadow-md mt-2 flex items-center justify-center gap-2 group min-h-[48px]"
               >
                 {status === 'submitting' ? (
                   <>
