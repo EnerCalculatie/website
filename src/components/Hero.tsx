@@ -69,7 +69,7 @@ export function Hero() {
 
             {/* Early adopter urgentie-signaal (geen klantenteller — pre-launch fase) */}
             <p className="text-sm font-semibold text-brand-primary">
-              Sluit u nu aan als één van de eerste installateurs en denk mee over nieuwe functionaliteiten
+              Sluit u nu aan als een van de eerste installateurs en denk mee over nieuwe functionaliteiten
             </p>
           </motion.div>
 

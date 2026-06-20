@@ -37,7 +37,7 @@ export function Privacy() {
           <ul className="list-disc pl-6 mb-6 text-slate-700">
             <li>Adresgegevens (straat, huisnummer, postcode, woonplaats) t.b.v. PDOK Kadaster integraties.</li>
             <li>Energieverbruiksdata (stroom en gas) op basis van handmatige invoer of geüploade documenten.</li>
-            <li>Pand-eigenschappen (zoals dakoriëntatie en bouwkundige staat).</li>
+            <li>Pandeigenschappen (zoals dakoriëntatie en bouwkundige staat).</li>
           </ul>
 
           <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">3. Grondslag van de verwerking</h2>

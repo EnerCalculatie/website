@@ -18,7 +18,7 @@ export function Testimonials() {
           </span>
           
           <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-6 relative z-10">
-            Word één van onze eerste succesverhalen
+            Word een van onze eerste succesverhalen
           </h2>
           
           <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed relative z-10">

@@ -7,8 +7,8 @@ Speciaal ontwikkeld voor MKB-installateurs (1-15 medewerkers) die actief zijn in
 - Automatisering van het volledige offerte- en adviesproces.
 - Gevalideerde en nauwkeurige rendementsberekeningen (geen Excel meer nodig).
 - AI-documentanalyse voor het geautomatiseerd inlezen van energierekeningen.
-- Direct inladen van pandgegevens en luchtfoto's via de officiële PDOK Kadaster integratie.
-- Automatische verwerking van actuele salderingsregels (afbouw 2025/2026) en correcte BTW-tarieven (bijv. 0% BTW op zonnepanelen).
+- Direct inladen van pandgegevens en luchtfoto's via de officiële PDOK Kadaster-integratie.
+- Automatische verwerking van actuele salderingsregels (de salderingsregeling wordt naar verwachting per 1 januari 2027 in één keer volledig afgeschaft) en correcte BTW-tarieven (bijv. 0% BTW op zonnepanelen).
 - Genereren van professionele en deelbare adviesrapporten in de huisstijl van de installateur in minder dan 5 minuten.
 
 ## Waarom EnerCalculatie?

@@ -289,7 +289,7 @@ export function Pricing() {
                     </table>
                   </div>
                   <p className="mt-6 text-sm text-slate-500 text-center font-medium">
-                    Geen verborgen kosten, geen per-project afrekening. Jij weet elke maand exact wat je betaalt.
+                    Geen verborgen kosten, geen per-project afrekening. U weet elke maand exact wat u betaalt.
                   </p>
                 </div>
               </motion.div>
