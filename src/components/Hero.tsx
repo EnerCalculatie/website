@@ -11,7 +11,7 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-5xl mx-auto">
           {/* Praktijk-focus indicator (Story LP.4) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -28,9 +28,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8 break-words"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8 break-words"
           >
-            De slimste rekenhulp voor de <span className="text-brand-primary">verduurzamingsinstallateur.</span>
+            De slimste rekenhulp voor de <span className="text-brand-primary">verduurzamingsinstallateur.</span>{' '}
             <br className="hidden md:block" />
             <span className="text-slate-500">U voert het gesprek, wij doen het rekenwerk.</span>
           </motion.h1>

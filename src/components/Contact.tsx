@@ -95,7 +95,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
+            className="font-display text-2xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
           >
             Hoe kunnen we u helpen?
           </motion.h2>
