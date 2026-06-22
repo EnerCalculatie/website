@@ -3,6 +3,11 @@ export interface ServiceFeature {
   description: string;
 }
 
+export interface ServiceFaq {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceMeta {
   slug: string;
   title: string;
@@ -10,16 +15,18 @@ export interface ServiceMeta {
   badge: string;
   headline: string;
   intro: string;
+  serviceType: string;
   features: ServiceFeature[];
   pricingTier: string;
+  faqs: ServiceFaq[];
   relatedBlogSlug?: string;
   relatedBlogLabel?: string;
 }
 
 // Metadata voor de long-tail rekentool-landingspagina's, één per dienst/module.
-// Content is direct afgeleid uit reeds goedgekeurde copy in Features.tsx en
-// Pricing.tsx — geen nieuwe claims, alleen herschikt voor een eigen URL per
-// dienst (long-tail zoekverkeer, zie [[marketing_seo_advies_2026_06_22]]).
+// Content is direct afgeleid uit reeds goedgekeurde copy in Features.tsx,
+// Pricing.tsx en FAQ.tsx — geen nieuwe claims, alleen herschikt voor een
+// eigen URL per dienst (long-tail zoekverkeer, zie [[marketing_seo_advies_2026_06_22]]).
 export const services: ServiceMeta[] = [
   {
     slug: 'zonnepanelen',
@@ -30,6 +37,7 @@ export const services: ServiceMeta[] = [
     headline: 'Offertes voor zonnepanelen, automatisch onderbouwd',
     intro:
       'Van dakoriëntatie tot rendementsberekening: EnerCalculatie berekent het optimale aantal panelen, het piekvermogen (Wp) en de jaaropbrengst, en houdt daarbij rekening met het 0%-btw-tarief en de aankomende afschaffing van de salderingsregeling per 2027.',
+    serviceType: 'Offerte- en adviessoftware voor zonnepanelen',
     features: [
       {
         title: 'Rekenmodel zonnepanelen',
@@ -48,6 +56,17 @@ export const services: ServiceMeta[] = [
       },
     ],
     pricingTier: 'Beschikbaar vanaf het Solo-pakket.',
+    faqs: [
+      {
+        question: 'Houdt de rekentool rekening met de salderingsregeling en het 0%-btw-tarief?',
+        answer:
+          'Ja. Het rekenmodel houdt rekening met de afbouw van de salderingsregeling (volledige afschaffing per 1 januari 2027) en past het 0%-btw-tarief op zonnepanelen automatisch toe in de offerte.',
+      },
+      {
+        question: 'Vanaf welk pakket is de zonnepanelen-rekentool beschikbaar?',
+        answer: 'De zonnepanelen-module is beschikbaar vanaf het Solo-pakket, het instappakket van EnerCalculatie.',
+      },
+    ],
     relatedBlogSlug: 'btw-zonnepanelen',
     relatedBlogLabel: '0% btw op zonnepanelen: wanneer geldt het nultarief?',
   },
@@ -60,6 +79,7 @@ export const services: ServiceMeta[] = [
     headline: 'Thuisbatterij-advies onderbouwd met het werkelijke opwekprofiel',
     intro:
       'EnerCalculatie dimensioneert thuisbatterijen aan de hand van het berekende opwekoverschot van de zonnepanelen, en toont direct wat de stijging van de zelfconsumptie oplevert — inclusief de impact op terugleverkosten.',
+    serviceType: 'Adviessoftware voor thuisbatterijen',
     features: [
       {
         title: 'Rekenmodel thuisbatterijen',
@@ -78,6 +98,18 @@ export const services: ServiceMeta[] = [
       },
     ],
     pricingTier: 'Beschikbaar vanaf het Solo-pakket.',
+    faqs: [
+      {
+        question: 'Hoe wordt een thuisbatterij gedimensioneerd?',
+        answer:
+          'Op basis van het berekende opwekoverschot van de zonnepanelen-installatie, zodat de batterijcapaciteit aansluit op het werkelijke verbruiksprofiel van de klant.',
+      },
+      {
+        question: 'Houdt de berekening rekening met terugleverkosten van de energieleverancier?',
+        answer:
+          'Ja, de impact van teruglevering — en de besparing die een thuisbatterij hierop oplevert — wordt meegenomen in de rendementsberekening.',
+      },
+    ],
     relatedBlogSlug: 'terugleverkosten-thuisbatterij',
     relatedBlogLabel: 'Terugleverkosten: hoe rekent u ze door naar uw klant?',
   },
@@ -90,6 +122,7 @@ export const services: ServiceMeta[] = [
     headline: 'Warmtepomp-rendement en ISDE-onderbouwing in één rapport',
     intro:
       'Ondersteun uw adviesgesprek met een hybride of all-electric warmtepompberekening. EnerCalculatie neemt de extra stroomvraag mee in het totale energieprofiel, en de geldende ISDE-subsidie in de netto investering.',
+    serviceType: 'Adviessoftware voor warmtepompen en ISDE-onderbouwing',
     features: [
       {
         title: 'Warmtepomp-configuratie',
@@ -108,6 +141,18 @@ export const services: ServiceMeta[] = [
       },
     ],
     pricingTier: 'Beschikbaar vanaf het Pro-pakket.',
+    faqs: [
+      {
+        question: 'Wat is het verschil tussen een hybride en een all-electric warmtepomp in de berekening?',
+        answer:
+          'Bij een hybride warmtepomp blijven het warmwaterdeel en de bijstook op koude dagen op de bestaande gasketel staan; de besparing wordt dan alleen berekend over het deel van het verbruik dat de warmtepomp overneemt. Bij een all-electric systeem wordt het volledige verbruik (exclusief warmwater) meegenomen.',
+      },
+      {
+        question: 'Welke onderbouwing levert de rekentool voor een ISDE-aanvraag?',
+        answer:
+          'Het adviesrapport bevat de technische specificaties, vermogens en meldcodes die de RVO bij een ISDE-aanvraag voor warmtepompen vraagt. De daadwerkelijke aanvraag, inclusief installatie- en betaalbewijs, blijft een aparte stap die de klant na installatie zelf doorloopt.',
+      },
+    ],
     relatedBlogSlug: 'isde-subsidie-warmtepompen',
     relatedBlogLabel: 'ISDE-subsidie voor warmtepompen: welke onderbouwing heeft de RVO nodig?',
   },
@@ -120,6 +165,7 @@ export const services: ServiceMeta[] = [
     headline: 'Compleet klimaatadvies, inclusief energieprofiel',
     intro:
       'Bied een compleet klimaatadvies naast zonnepanelen, batterij en warmtepomp. EnerCalculatie berekent het benodigde koelvermogen per ruimte en voegt het extra stroomverbruik naadloos toe aan het totale energieprofiel.',
+    serviceType: 'Adviessoftware voor airco-dimensionering',
     features: [
       {
         title: 'Airco-dimensionering',
@@ -138,6 +184,17 @@ export const services: ServiceMeta[] = [
       },
     ],
     pricingTier: 'Beschikbaar vanaf het Complete-pakket.',
+    faqs: [
+      {
+        question: 'Wat berekent de airco-rekentool precies?',
+        answer:
+          'Het benodigde koelvermogen per ruimte, en de impact van het extra stroomverbruik op het totale energieprofiel van de woning — inclusief de overige verduurzamingsmaatregelen in hetzelfde dossier.',
+      },
+      {
+        question: 'Vanaf welk pakket is de airco-module beschikbaar?',
+        answer: 'De airco-module is beschikbaar vanaf het Complete-pakket.',
+      },
+    ],
   },
   {
     slug: 'laadpaal',
@@ -148,6 +205,7 @@ export const services: ServiceMeta[] = [
     headline: 'Laadpaal-advies met directe capaciteitscontrole',
     intro:
       'Integreer elektrisch rijden in het verduurzamingsadvies. EnerCalculatie maakt het specifieke laadprofiel inzichtelijk voor de klant en controleert direct de impact op de maximale capaciteit van de netaansluiting.',
+    serviceType: 'Adviessoftware voor laadpalen (EV)',
     features: [
       {
         title: 'Laadpaal (EV) configuratie',
@@ -166,5 +224,16 @@ export const services: ServiceMeta[] = [
       },
     ],
     pricingTier: 'Beschikbaar vanaf het Complete-pakket.',
+    faqs: [
+      {
+        question: 'Houdt de rekentool rekening met de capaciteit van de netaansluiting?',
+        answer:
+          'Ja, de impact van het laadprofiel op de maximale capaciteit van de netaansluiting wordt direct gecontroleerd en inzichtelijk gemaakt voor de klant.',
+      },
+      {
+        question: 'Vanaf welk pakket is de laadpaal-module beschikbaar?',
+        answer: 'De laadpaal-module is beschikbaar vanaf het Complete-pakket.',
+      },
+    ],
   },
 ];

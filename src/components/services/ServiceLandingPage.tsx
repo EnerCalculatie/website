@@ -10,14 +10,48 @@ interface ServiceLandingPageProps {
 
 export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
   const service = services.find((s) => s.slug === slug)!;
+  const canonical = `https://www.enercalculatie.nl/rekentool-${service.slug}`;
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    serviceType: service.serviceType,
+    description: service.metaDescription,
+    provider: {
+      '@type': 'Organization',
+      name: 'EnerCalculatie',
+      url: 'https://www.enercalculatie.nl',
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Nederland',
+    },
+    url: canonical,
+  };
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: service.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <>
       <SEO
         title={service.title}
         description={service.metaDescription}
-        canonical={`https://www.enercalculatie.nl/rekentool-${service.slug}`}
+        canonical={canonical}
       />
+      <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+      <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
 
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,6 +112,18 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
               <ArrowRight className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform" size={24} />
             </a>
           )}
+
+          <div className="mt-12 mb-12">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">Veelgestelde vragen</h2>
+            <div className="space-y-4">
+              {service.faqs.map((faq) => (
+                <div key={faq.question} className="bg-white p-6 rounded-2xl border border-slate-200">
+                  <h3 className="font-semibold text-slate-900 mb-2">{faq.question}</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
           <LeadMagnet />
         </div>
