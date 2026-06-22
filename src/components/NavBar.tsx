@@ -79,6 +79,12 @@ export function NavBar() {
           </nav>
 
           <div className="hidden xl:flex items-center gap-4 shrink-0">
+            <a
+              href="https://app.enercalculatie.nl/"
+              className="text-base font-medium text-slate-600 hover:text-brand-primary transition-colors p-2 whitespace-nowrap"
+            >
+              Inloggen
+            </a>
             <a href="#contact" className="bg-brand-primary hover:bg-[#008f5a] text-white px-5 py-3 rounded-lg text-base font-semibold whitespace-nowrap transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]">
               Plan rondleiding
             </a>
@@ -118,6 +124,13 @@ export function NavBar() {
               <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-3">
                 <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="w-full bg-brand-primary hover:bg-[#008f5a] text-white px-4 py-3 rounded-lg font-medium text-center transition-colors">
                   Plan een rondleiding
+                </a>
+                <a
+                  href="https://app.enercalculatie.nl/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full border border-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium text-center hover:bg-slate-50 transition-colors"
+                >
+                  Inloggen
                 </a>
               </div>
             </div>
