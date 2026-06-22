@@ -24,7 +24,7 @@ export function SEO({
     "@type": "Organization",
     "name": "EnerCalculatie",
     "url": "https://www.enercalculatie.nl",
-    "logo": "https://www.enercalculatie.nl/logo.svg"
+    "logo": "https://www.enercalculatie.nl/logo.png"
   };
 
   const softwareSchema = {
