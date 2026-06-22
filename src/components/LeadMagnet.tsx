@@ -44,18 +44,18 @@ export function LeadMagnet() {
       <div className="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand-primary/20 rounded-full blur-3xl pointer-events-none" />
       <div className="relative z-10 max-w-xl">
         <div className="inline-flex items-center gap-2 bg-white/10 text-brand-primary font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wider mb-4">
-          <Mail size={16} /> Binnenkort beschikbaar
+          <Mail size={16} /> Gratis PDF
         </div>
         <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
           Ontvang de ROI-gids voor installateurs
         </h3>
         <p className="text-slate-300 leading-relaxed mb-6">
-          Een praktische gids met rekenvoorbeelden voor de terugverdientijd van zonnepanelen, thuisbatterijen en warmtepompen. Meld u aan en wij sturen u de gids zodra deze gereed is.
+          Een praktische gids met rekenmethodes en voorbeeldberekeningen voor de terugverdientijd van zonnepanelen, thuisbatterijen en warmtepompen. Meld u aan en ontvang de PDF direct in uw inbox.
         </p>
 
         {status === 'success' ? (
           <div role="status" aria-live="polite" className="flex items-center gap-2 text-brand-primary font-semibold">
-            <CheckCircle2 size={20} /> Bedankt! U ontvangt de gids zodra deze beschikbaar is.
+            <CheckCircle2 size={20} /> Bedankt! De gids staat in uw inbox.
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">

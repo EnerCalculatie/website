@@ -20,6 +20,25 @@ router.post('/lead-magnet', async (req, res) => {
   }
 
   try {
+    const { error: leadError } = await resend.emails.send({
+      to: [email],
+      from: 'EnerCalculatie <info@enercalculatie.nl>',
+      subject: 'Uw ROI-gids voor installateurs',
+      html: `
+        <h1>Bedankt voor uw aanmelding</h1>
+        <p>Hierbij de ROI-gids met rekenmethodes en voorbeeldberekeningen voor de terugverdientijd van zonnepanelen, thuisbatterijen en warmtepompen — als bijlage bij deze e-mail.</p>
+        <p>Vragen over een specifiek dossier? Antwoord gerust op deze e-mail.</p>
+      `,
+      attachments: [
+        {
+          filename: 'EnerCalculatie-ROI-gids.pdf',
+          path: 'https://www.enercalculatie.nl/roi-gids.pdf',
+        },
+      ],
+    });
+
+    if (leadError) return res.status(400).json(leadError);
+
     const { data, error } = await resend.emails.send({
       to: ['info@enercalculatie.nl'],
       from: 'EnerCalculatie Website <website@enercalculatie.nl>',
