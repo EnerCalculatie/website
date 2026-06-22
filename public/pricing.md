@@ -22,4 +22,4 @@ EnerCalculatie werkt met een vaste abonnementsprijs per maand of jaar. Er geldt 
 - **Doelgroep:** Het complete pakket voor volledige verduurzaming.
 - **Inbegrepen modules:** Alles uit Pro, Airco, Laadpaal, Volledige verduurzaming.
 
-Alle abonnementen zijn inclusief een 14 dagen gratis proefperiode en zijn maandelijks opzegbaar. Prijzen zijn exclusief BTW.
+Alle abonnementen zijn inclusief een 30 dagen gratis proefperiode en zijn maandelijks opzegbaar. Prijzen zijn exclusief BTW.

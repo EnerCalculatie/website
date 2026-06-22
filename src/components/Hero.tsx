@@ -64,7 +64,7 @@ export function Hero() {
             </div>
             {/* No-risk / garantie formulering (Story LP.13) */}
             <p className="text-sm font-medium text-slate-500 mb-2">
-              14 dagen gratis · Opzegbaar per maand
+              30 dagen gratis · Opzegbaar per maand
             </p>
 
             {/* Early adopter urgentie-signaal (geen klantenteller — pre-launch fase) */}
