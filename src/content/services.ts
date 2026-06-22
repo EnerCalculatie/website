@@ -55,7 +55,7 @@ export const services: ServiceMeta[] = [
           'Upload een pdf van de energierekening. Het systeem leest direct het actuele gasverbruik en de stroomvraag in piek/daltarief uit — geen rekenfouten door handmatig overtypen.',
       },
     ],
-    pricingTier: 'Beschikbaar vanaf het Solo-pakket.',
+    pricingTier: 'Beschikbaar vanaf het Business-pakket.',
     faqs: [
       {
         question: 'Houdt de rekentool rekening met de salderingsregeling en het 0%-btw-tarief?',
@@ -64,7 +64,7 @@ export const services: ServiceMeta[] = [
       },
       {
         question: 'Vanaf welk pakket is de zonnepanelen-rekentool beschikbaar?',
-        answer: 'De zonnepanelen-module is beschikbaar vanaf het Solo-pakket, het instappakket van EnerCalculatie.',
+        answer: 'De zonnepanelen-module is beschikbaar vanaf het Business-pakket, het instappakket van EnerCalculatie.',
       },
     ],
     relatedBlogSlug: 'btw-zonnepanelen',
@@ -97,7 +97,7 @@ export const services: ServiceMeta[] = [
           'De terugverdientijd van een thuisbatterij wordt berekend over 10 en 25 jaar, met de salderingsregeling en terugleverkosten als onderliggende variabelen.',
       },
     ],
-    pricingTier: 'Beschikbaar vanaf het Solo-pakket.',
+    pricingTier: 'Beschikbaar vanaf het Business-pakket.',
     faqs: [
       {
         question: 'Hoe wordt een thuisbatterij gedimensioneerd?',

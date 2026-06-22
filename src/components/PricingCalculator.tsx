@@ -12,7 +12,7 @@ const HOURS_SAVED_PER_DOSSIER = 2.5;
 const HOURLY_RATE = 75;
 
 const TIERS = {
-  solo: { name: 'Solo', price: 99 },
+  solo: { name: 'Business', price: 99 },
   pro: { name: 'Pro', price: 179 },
   complete: { name: 'Complete', price: 299 },
 };

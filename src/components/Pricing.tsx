@@ -16,7 +16,7 @@ type PricingTier = {
 
 const PRICING_TIERS: PricingTier[] = [
   {
-    name: 'Solo',
+    name: 'Business',
     priceMonthly: 99,
     priceYearly: 990,
     setupFee: 0,
@@ -43,7 +43,7 @@ const PRICING_TIERS: PricingTier[] = [
     setupFee: 199,
     description: 'Voor de all-round installateur inclusief warmtepompen en technische opname.',
     includedFeatures: [
-      'Alles uit Solo',
+      'Alles uit Business',
       'Warmtepomp',
       'Technische opname'
     ],
@@ -85,7 +85,7 @@ export function Pricing() {
             Eerlijke prijzen. Geen verrassingen.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Solo heeft geen setup fee — Pro en Complete rekenen een eenmalige onboarding.
+            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Business heeft geen setup fee — Pro en Complete rekenen een eenmalige onboarding.
           </p>
         </div>
 
@@ -225,7 +225,7 @@ export function Pricing() {
                       <thead>
                         <tr className="border-b border-slate-200">
                           <th className="py-4 px-4 font-bold text-slate-900 w-1/4">Module / Functie</th>
-                          <th className="py-4 px-4 font-bold text-slate-600 w-1/4">Solo</th>
+                          <th className="py-4 px-4 font-bold text-slate-600 w-1/4">Business</th>
                           <th className="py-4 px-4 font-bold text-brand-primary w-1/4">Pro</th>
                           <th className="py-4 px-4 font-bold text-slate-600 w-1/4">Complete</th>
                         </tr>
