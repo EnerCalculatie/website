@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { SEO } from '../SEO';
+import { LeadMagnet } from '../LeadMagnet';
 import { services } from '../../content/services';
 
 interface ServiceLandingPageProps {
@@ -77,6 +78,8 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
               <ArrowRight className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform" size={24} />
             </a>
           )}
+
+          <LeadMagnet />
         </div>
       </div>
     </>

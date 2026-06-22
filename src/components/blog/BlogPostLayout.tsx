@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowLeft, Printer } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { BlogPostMeta } from '../../content/blogPosts';
+import { LeadMagnet } from '../LeadMagnet';
 
 interface BlogPostLayoutProps {
   post: BlogPostMeta;
@@ -33,6 +34,10 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
 
           {children}
         </motion.div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">
+        <LeadMagnet />
       </div>
     </div>
   );
