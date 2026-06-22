@@ -21,6 +21,7 @@ import { ProcessorAgreement } from './components/ProcessorAgreement';
 import { BlogIndex } from './components/blog/BlogIndex';
 import { SalderingsregelingArticle } from './components/blog/SalderingsregelingArticle';
 import { BtwZonnepanelenArticle } from './components/blog/BtwZonnepanelenArticle';
+import { TerugleverkostenThuisbatterijArticle } from './components/blog/TerugleverkostenThuisbatterijArticle';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
@@ -78,6 +79,7 @@ export function AppContent() {
           <Route path="/kennisbank" element={<BlogIndex />} />
           <Route path="/kennisbank/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
           <Route path="/kennisbank/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
+          <Route path="/kennisbank/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

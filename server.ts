@@ -54,6 +54,7 @@ if (process.env.NODE_ENV === 'production') {
     '/kennisbank': 'kennisbank.html',
     '/kennisbank/salderingsregeling-2027': 'kennisbank-salderingsregeling-2027.html',
     '/kennisbank/btw-zonnepanelen': 'kennisbank-btw-zonnepanelen.html',
+    '/kennisbank/terugleverkosten-thuisbatterij': 'kennisbank-terugleverkosten-thuisbatterij.html',
   };
 
   // Voor alle andere requests: serveer de voorgerenderde 404-pagina

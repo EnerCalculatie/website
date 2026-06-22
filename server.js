@@ -122,7 +122,8 @@ if (process.env.NODE_ENV === "production") {
     "/verwerkersovereenkomst": "verwerkersovereenkomst.html",
     "/kennisbank": "kennisbank.html",
     "/kennisbank/salderingsregeling-2027": "kennisbank-salderingsregeling-2027.html",
-    "/kennisbank/btw-zonnepanelen": "kennisbank-btw-zonnepanelen.html"
+    "/kennisbank/btw-zonnepanelen": "kennisbank-btw-zonnepanelen.html",
+    "/kennisbank/terugleverkosten-thuisbatterij": "kennisbank-terugleverkosten-thuisbatterij.html"
   };
   app.get("*", (req, res) => {
     const file = prerenderedRoutes[req.path] ?? "404.html";

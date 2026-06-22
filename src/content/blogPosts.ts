@@ -29,4 +29,13 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Het 0%-btw-tarief op zonnepanelen scheelt uw klant direct geld op de offerte — maar alleen als aan de juiste voorwaarden is voldaan. Wanneer geldt het nultarief wel, en wanneer toch 21%?',
   },
+  {
+    slug: 'terugleverkosten-thuisbatterij',
+    title: 'Terugleverkosten: hoe rekent u ze door, en hoe compenseert een thuisbatterij dit voor uw klant?',
+    description:
+      'Energieleveranciers rekenen terugleverkosten door aan huishoudens met zonnepanelen. Lees hoe deze kosten worden berekend, wat de ACM hierover heeft vastgesteld, en hoe een thuisbatterij de teruglevering — en daarmee de kosten — verlaagt.',
+    date: '2026-06-22',
+    excerpt:
+      'Terugleverkosten knagen aan het rendement van zonnepanelen, en de manier waarop leveranciers ze berekenen verschilt sterk. Hoe legt u dit uit aan uw klant, en welke rol speelt een thuisbatterij hierin?',
+  },
 ];

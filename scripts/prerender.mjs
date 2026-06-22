@@ -25,6 +25,7 @@ const routes = [
   { url: '/kennisbank', outFile: 'kennisbank.html' },
   { url: '/kennisbank/salderingsregeling-2027', outFile: 'kennisbank-salderingsregeling-2027.html' },
   { url: '/kennisbank/btw-zonnepanelen', outFile: 'kennisbank-btw-zonnepanelen.html' },
+  { url: '/kennisbank/terugleverkosten-thuisbatterij', outFile: 'kennisbank-terugleverkosten-thuisbatterij.html' },
   { url: '/__not-found__', outFile: '404.html' },
 ];
 
