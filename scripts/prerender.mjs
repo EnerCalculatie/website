@@ -26,6 +26,7 @@ const routes = [
   { url: '/blog/salderingsregeling-2027', outFile: 'blog-salderingsregeling-2027.html' },
   { url: '/blog/btw-zonnepanelen', outFile: 'blog-btw-zonnepanelen.html' },
   { url: '/blog/terugleverkosten-thuisbatterij', outFile: 'blog-terugleverkosten-thuisbatterij.html' },
+  { url: '/blog/isde-subsidie-warmtepompen', outFile: 'blog-isde-subsidie-warmtepompen.html' },
   { url: '/__not-found__', outFile: '404.html' },
 ];
 

@@ -83,7 +83,11 @@ export function TerugleverkostenThuisbatterijArticle() {
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          In EnerCalculatie wordt de impact van teruglevering gevalideerd en deterministisch berekend op basis van het opwek- en verbruiksprofiel van de klant, zodat u in één adviesrapport laat zien wat een thuisbatterij oplevert op het gebied van zelfconsumptie, teruglevering en de daaraan gekoppelde kosten. Zo onderbouwt u het advies voor een thuisbatterij niet alleen met de situatie na de afschaffing van de salderingsregeling, maar ook met de terugleverkosten die uw klant vandaag al op de energierekening ziet.
+          In EnerCalculatie wordt de impact van teruglevering gevalideerd en deterministisch berekend op basis van het opwek- en verbruiksprofiel van de klant, zodat u in één adviesrapport laat zien wat een thuisbatterij oplevert op het gebied van zelfconsumptie, teruglevering en de daaraan gekoppelde kosten. Zo onderbouwt u het advies voor een thuisbatterij niet alleen met de situatie na{' '}
+          <a href="/blog/salderingsregeling-2027" className="text-brand-primary-text font-semibold hover:underline">
+            de afschaffing van de salderingsregeling in 2027
+          </a>
+          , maar ook met de terugleverkosten die uw klant vandaag al op de energierekening ziet.
         </p>
       </BlogPostLayout>
     </>

@@ -77,7 +77,11 @@ export function BtwZonnepanelenArticle() {
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          In EnerCalculatie worden offerteposten per onderdeel ingevoerd, zodat het toepasselijke btw-tarief per regel gevalideerd en deterministisch berekend wordt — ook bij gecombineerde projecten met bijvoorbeeld een thuisbatterij of laadpaal naast de zonnepanelen. Dit voorkomt dat het nultarief per ongeluk op de verkeerde post wordt toegepast, en geeft uw klant direct een kloppend overzicht van het btw-voordeel binnen de totale offerte.
+          In EnerCalculatie worden offerteposten per onderdeel ingevoerd, zodat het toepasselijke btw-tarief per regel gevalideerd en deterministisch berekend wordt — ook bij gecombineerde projecten met bijvoorbeeld een thuisbatterij of laadpaal naast de zonnepanelen. Dit voorkomt dat het nultarief per ongeluk op de verkeerde post wordt toegepast, en geeft uw klant direct een kloppend overzicht van het btw-voordeel binnen de totale offerte. Wilt u zien hoeveel tijd dit u per offerte bespaart ten opzichte van handmatig rekenwerk?{' '}
+          <a href="/#pricing-calculator" className="text-brand-primary-text font-semibold hover:underline">
+            Bereken uw tijdsbesparing
+          </a>
+          .
         </p>
       </BlogPostLayout>
     </>

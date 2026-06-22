@@ -38,4 +38,13 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Terugleverkosten knagen aan het rendement van zonnepanelen, en de manier waarop leveranciers ze berekenen verschilt sterk. Hoe legt u dit uit aan uw klant, en welke rol speelt een thuisbatterij hierin?',
   },
+  {
+    slug: 'isde-subsidie-warmtepompen',
+    title: 'ISDE-subsidie voor warmtepompen: welke onderbouwing heeft de RVO nodig?',
+    description:
+      'De RVO beoordeelt ISDE-aanvragen voor warmtepompen op specifieke technische onderbouwing en meldcodes. Lees wat uw adviesrapport moet bevatten, en waar de grens ligt tussen advies en aanvraag.',
+    date: '2026-06-22',
+    excerpt:
+      'Een onvolledig onderbouwd adviesrapport kan uw klant tijd of subsidie kosten. Welke technische specificaties en meldcodes vraagt de RVO precies, en wat is uw rol als installateur daarin?',
+  },
 ];

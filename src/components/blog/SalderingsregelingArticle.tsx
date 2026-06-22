@@ -64,7 +64,11 @@ export function SalderingsregelingArticle() {
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          De rendementsberekeningen in EnerCalculatie houden rekening met dit 2027-scenario in de berekening over 10 of 25 jaar, zodat u uw klant een realistisch beeld geeft van de jaren vóór en na de afschaffing. Zodra de wetgeving wijzigt, wordt dit in de rekenmodellen bijgewerkt.
+          De rendementsberekeningen in EnerCalculatie houden rekening met dit 2027-scenario in de berekening over 10 of 25 jaar, zodat u uw klant een realistisch beeld geeft van de jaren vóór en na de afschaffing. Zodra de wetgeving wijzigt, wordt dit in de rekenmodellen bijgewerkt. Naast de salderingsregeling speelt vandaag ook{' '}
+          <a href="/blog/terugleverkosten-thuisbatterij" className="text-brand-primary-text font-semibold hover:underline">
+            de terugleverkosten van energieleveranciers
+          </a>
+          {' '}al een rol in het rendement — en in beide gevallen vergroot een thuisbatterij de zelfconsumptie van uw klant.
         </p>
       </BlogPostLayout>
     </>

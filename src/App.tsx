@@ -22,6 +22,7 @@ import { BlogIndex } from './components/blog/BlogIndex';
 import { SalderingsregelingArticle } from './components/blog/SalderingsregelingArticle';
 import { BtwZonnepanelenArticle } from './components/blog/BtwZonnepanelenArticle';
 import { TerugleverkostenThuisbatterijArticle } from './components/blog/TerugleverkostenThuisbatterijArticle';
+import { IsdeWarmtepompenArticle } from './components/blog/IsdeWarmtepompenArticle';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
@@ -80,6 +81,7 @@ export function AppContent() {
           <Route path="/blog/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
           <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
           <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
+          <Route path="/blog/isde-subsidie-warmtepompen" element={<IsdeWarmtepompenArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

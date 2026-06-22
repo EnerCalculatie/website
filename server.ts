@@ -55,6 +55,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/salderingsregeling-2027': 'blog-salderingsregeling-2027.html',
     '/blog/btw-zonnepanelen': 'blog-btw-zonnepanelen.html',
     '/blog/terugleverkosten-thuisbatterij': 'blog-terugleverkosten-thuisbatterij.html',
+    '/blog/isde-subsidie-warmtepompen': 'blog-isde-subsidie-warmtepompen.html',
   };
 
   // Permanente redirects van de oude /kennisbank-URL's naar /blog (URL-rename, behoud SEO-waarde).
