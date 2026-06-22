@@ -56,6 +56,11 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/btw-zonnepanelen': 'blog-btw-zonnepanelen.html',
     '/blog/terugleverkosten-thuisbatterij': 'blog-terugleverkosten-thuisbatterij.html',
     '/blog/isde-subsidie-warmtepompen': 'blog-isde-subsidie-warmtepompen.html',
+    '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
+    '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
+    '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',
+    '/rekentool-airco': 'rekentool-airco.html',
+    '/rekentool-laadpaal': 'rekentool-laadpaal.html',
   };
 
   // Permanente redirects van de oude /kennisbank-URL's naar /blog (URL-rename, behoud SEO-waarde).

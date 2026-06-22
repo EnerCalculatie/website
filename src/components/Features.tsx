@@ -102,9 +102,12 @@ export function Features() {
               <Calculator size={24} />
             </div>
             <h3 className="text-xl font-bold text-white mb-3 relative z-10">Rekenmodel Zonnepanelen</h3>
-            <p className="text-slate-300 leading-relaxed relative z-10 text-sm">
+            <p className="text-slate-300 leading-relaxed relative z-10 text-sm mb-3">
               Invoer van dakoriëntatie en beschikbare ruimte voedt direct ons rekenmodel. Wij berekenen exact het optimale aantal panelen, het piekvermogen (Wp) en de jaaropbrengst.
             </p>
+            <a href="/rekentool-zonnepanelen" className="relative z-10 text-emerald-400 text-sm font-semibold hover:underline">
+              Meer over deze rekentool →
+            </a>
           </motion.div>
 
           {/* Feature 5 */}
@@ -118,9 +121,12 @@ export function Features() {
               <Battery size={24} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Rekenmodel Thuisbatterijen</h3>
-            <p className="text-slate-600 leading-relaxed relative z-10">
+            <p className="text-slate-600 leading-relaxed relative z-10 mb-3">
               Optimaliseer en dimensioneer batterijen aan de hand van het berekende opwekoverschot. Direct inzicht in de stijging van het eigen verbruik ter ondervanging van terugleverboetes.
             </p>
+            <a href="/rekentool-thuisbatterij" className="relative z-10 text-brand-primary-text text-sm font-semibold hover:underline">
+              Meer over deze rekentool →
+            </a>
           </motion.div>
 
           {/* Feature 6 */}
@@ -134,9 +140,12 @@ export function Features() {
               <ThermometerSun size={24} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Warmtepomp Configuratie</h3>
-            <p className="text-slate-600 leading-relaxed relative z-10">
+            <p className="text-slate-600 leading-relaxed relative z-10 mb-3">
               Ondersteun uw adviesgesprek met een hybride of all-electric warmtepompberekening. Ons model neemt de extra stroomvraag direct mee in het totale energieprofiel ter voorkoming van dubbeltellingen.
             </p>
+            <a href="/rekentool-warmtepomp" className="relative z-10 text-rose-600 text-sm font-semibold hover:underline">
+              Meer over deze rekentool →
+            </a>
           </motion.div>
 
           {/* Feature 7 */}
@@ -198,9 +207,12 @@ export function Features() {
               <Wind size={24} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Airco Dimensionering</h3>
-            <p className="text-slate-600 leading-relaxed relative z-10">
+            <p className="text-slate-600 leading-relaxed relative z-10 mb-3">
               Bied een compleet klimaatadvies. Bereken eenvoudig het benodigde koelvermogen per ruimte en voeg het extra stroomverbruik naadloos toe aan het verwachte totale energieprofiel.
             </p>
+            <a href="/rekentool-airco" className="relative z-10 text-cyan-600 text-sm font-semibold hover:underline">
+              Meer over deze rekentool →
+            </a>
           </motion.div>
 
           {/* Feature 11 */}
@@ -214,9 +226,12 @@ export function Features() {
               <Car size={24} />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Laadpaal (EV) Configuratie</h3>
-            <p className="text-slate-600 leading-relaxed relative z-10">
+            <p className="text-slate-600 leading-relaxed relative z-10 mb-3">
               Integreer elektrisch rijden in uw advies. Maak het specifieke laadprofiel inzichtelijk voor de klant en controleer direct de impact op de maximale capaciteit van de netaansluiting.
             </p>
+            <a href="/rekentool-laadpaal" className="relative z-10 text-emerald-600 text-sm font-semibold hover:underline">
+              Meer over deze rekentool →
+            </a>
           </motion.div>
 
           {/* Feature 12 */}

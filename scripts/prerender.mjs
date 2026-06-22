@@ -27,6 +27,11 @@ const routes = [
   { url: '/blog/btw-zonnepanelen', outFile: 'blog-btw-zonnepanelen.html' },
   { url: '/blog/terugleverkosten-thuisbatterij', outFile: 'blog-terugleverkosten-thuisbatterij.html' },
   { url: '/blog/isde-subsidie-warmtepompen', outFile: 'blog-isde-subsidie-warmtepompen.html' },
+  { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html' },
+  { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html' },
+  { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html' },
+  { url: '/rekentool-airco', outFile: 'rekentool-airco.html' },
+  { url: '/rekentool-laadpaal', outFile: 'rekentool-laadpaal.html' },
   { url: '/__not-found__', outFile: '404.html' },
 ];
 

@@ -30,7 +30,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="col-span-1 md:col-span-1">
             <a 
               href="/" 
@@ -72,6 +72,17 @@ export function Footer() {
               <li><a href="/#prijzen" className="hover:text-white transition-colors block py-1 break-words">Prijzen</a></li>
               <li><a href="/blog" className="hover:text-white transition-colors block py-1 break-words">Blog</a></li>
               <li><a href="https://app.enercalculatie.nl/" className="hover:text-white transition-colors block py-1 break-words">Inloggen</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-white font-semibold mb-4">Diensten</p>
+            <ul className="space-y-2 text-base text-slate-400">
+              <li><a href="/rekentool-zonnepanelen" className="hover:text-white transition-colors block py-1 break-words">Zonnepanelen</a></li>
+              <li><a href="/rekentool-thuisbatterij" className="hover:text-white transition-colors block py-1 break-words">Thuisbatterij</a></li>
+              <li><a href="/rekentool-warmtepomp" className="hover:text-white transition-colors block py-1 break-words">Warmtepomp</a></li>
+              <li><a href="/rekentool-airco" className="hover:text-white transition-colors block py-1 break-words">Airco</a></li>
+              <li><a href="/rekentool-laadpaal" className="hover:text-white transition-colors block py-1 break-words">Laadpaal</a></li>
             </ul>
           </div>
 

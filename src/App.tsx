@@ -23,6 +23,7 @@ import { SalderingsregelingArticle } from './components/blog/SalderingsregelingA
 import { BtwZonnepanelenArticle } from './components/blog/BtwZonnepanelenArticle';
 import { TerugleverkostenThuisbatterijArticle } from './components/blog/TerugleverkostenThuisbatterijArticle';
 import { IsdeWarmtepompenArticle } from './components/blog/IsdeWarmtepompenArticle';
+import { ServiceLandingPage } from './components/services/ServiceLandingPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
@@ -82,6 +83,11 @@ export function AppContent() {
           <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
           <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
           <Route path="/blog/isde-subsidie-warmtepompen" element={<IsdeWarmtepompenArticle />} />
+          <Route path="/rekentool-zonnepanelen" element={<ServiceLandingPage slug="zonnepanelen" />} />
+          <Route path="/rekentool-thuisbatterij" element={<ServiceLandingPage slug="thuisbatterij" />} />
+          <Route path="/rekentool-warmtepomp" element={<ServiceLandingPage slug="warmtepomp" />} />
+          <Route path="/rekentool-airco" element={<ServiceLandingPage slug="airco" />} />
+          <Route path="/rekentool-laadpaal" element={<ServiceLandingPage slug="laadpaal" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
