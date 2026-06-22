@@ -5,7 +5,7 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 ## Tech Stack
 - **Frontend:** React 19, Vite, Tailwind CSS v4, Lucide React, Framer Motion (`motion/react`).
 - **Backend:** Node.js, Express, TypeScript (via `tsx` in dev, `esbuild` voor productie).
-- **Diensten:** Resend (E-mail API), Railway (Hosting).
+- **Diensten:** Resend (E-mail API contact/lead-magnet), Brevo (nieuwsbrief, double opt-in), Railway (Hosting).
 
 ## Commando's & Scripts
 - `npm run start:dev` - Start beide servers lokaal (Frontend op :3000, Backend op :3001).
@@ -16,8 +16,9 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 
 ## Architectuur & Flow
 1. **API Communicatie:** De frontend communiceert altijd via `/api/...` (bijv. `/api/contact`). Lokaal vangt de Vite proxy dit af en stuurt het naar poort 3001. In productie handelt de Express server dit direct af.
-2. **Geheimen:** Gebruik áltijd `.env` voor keys (zoals `RESEND_API_KEY`). Plaats geen keys of credentials in de code.
-3. **Productie Routing:** In `NODE_ENV=production` serveert de Express server de frontend vanuit de `/dist` map en fallbackt onbekende routes naar `index.html`.
+2. **Geheimen:** Gebruik áltijd `.env` voor keys (zoals `RESEND_API_KEY`, `BREVO_API_KEY`, `BREVO_LIST_ID`, `BREVO_TEMPLATE_ID`). Plaats geen keys of credentials in de code.
+3. **Nieuwsbrief (Brevo):** `/api/newsletter` (`newsletter.ts`) registreert e-mailadressen via Brevo's `doubleOptinConfirmation`-endpoint — geen directe inschrijving, de abonnee moet eerst een bevestigingsmail (Brevo-template) accepteren. De lijst/template wordt beheerd in het Brevo-dashboard, niet in code.
+4. **Productie Routing:** In `NODE_ENV=production` serveert de Express server de frontend vanuit de `/dist` map en fallbackt onbekende routes naar `index.html`.
 
 ## Design & Code Regels
 - **Tablet/Mobile-First:** Raakvlakken (buttons, links) moeten minimaal 48px hoog/breed zijn. Tekst minimaal 16px voor leesbaarheid. Gebruik `aria-label` op icon-knoppen.

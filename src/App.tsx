@@ -9,6 +9,7 @@ import { ComparisonTable } from './components/ComparisonTable';
 import { Integrations } from './components/Integrations';
 import { Features } from './components/Features';
 import { LeadMagnet } from './components/LeadMagnet';
+import { NewsletterSignup } from './components/NewsletterSignup';
 import { AppDemoVideo } from './components/AppDemoVideo';
 import { PricingCalculator } from './components/PricingCalculator';
 import { Technology } from './components/Technology';
@@ -78,6 +79,11 @@ export function AppContent() {
               <Testimonials />
               <Pricing />
               <FAQ />
+              <section className="py-4 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <NewsletterSignup />
+                </div>
+              </section>
               <Contact />
             </main>
           } />

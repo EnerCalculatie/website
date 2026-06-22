@@ -4,6 +4,7 @@ import express from 'express';
 import rateLimit from 'express-rate-limit';
 import contactRouter from './contact';
 import leadMagnetRouter from './leadMagnet';
+import newsletterRouter from './newsletter';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -21,9 +22,10 @@ const formLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-// Gebruik de contact en lead-magnet routers voor alle /api routes
+// Gebruik de contact, lead-magnet en nieuwsbrief routers voor alle /api routes
 app.use('/api', formLimiter, contactRouter);
 app.use('/api', formLimiter, leadMagnetRouter);
+app.use('/api', formLimiter, newsletterRouter);
  
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {

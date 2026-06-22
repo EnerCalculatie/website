@@ -1,0 +1,103 @@
+import { useState } from 'react';
+import { motion } from 'motion/react';
+import { Newspaper, CheckCircle2, Loader2 } from 'lucide-react';
+
+export function NewsletterSignup() {
+  const [email, setEmail] = useState('');
+  const [company, setCompany] = useState(''); // Honeypot-veld, moet altijd leeg blijven
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    setStatus('submitting');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, company }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Er is een fout opgetreden bij het inschrijven.');
+      }
+
+      setStatus('success');
+      setEmail('');
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'Er is een onverwachte fout opgetreden.');
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-3xl p-8 sm:p-10 mt-12 border border-slate-200 relative overflow-hidden"
+    >
+      <div className="absolute top-0 right-0 -mt-16 -mr-16 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative z-10 max-w-xl">
+        <div className="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary-text font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wider mb-4">
+          <Newspaper size={16} /> Nieuwsbrief
+        </div>
+        <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3">
+          Blijf op de hoogte van regelgeving en nieuwe functies
+        </h3>
+        <p className="text-slate-600 leading-relaxed mb-6">
+          Een korte update over wijzigingen in saldering, btw-tarieven en ISDE-subsidie, en nieuwe functionaliteit in EnerCalculatie. Geen spam, op te zeggen wanneer u wilt.
+        </p>
+
+        {status === 'success' ? (
+          <div role="status" aria-live="polite" className="flex items-center gap-2 text-brand-primary-text font-semibold">
+            <CheckCircle2 size={20} /> Check uw inbox om de inschrijving te bevestigen.
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+            {/* Honeypot-veld, onzichtbaar voor mensen, vangt bots */}
+            <input
+              type="text"
+              name="company"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              className="hidden"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+            <label htmlFor="newsletter-email" className="sr-only">E-mailadres</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              name="email"
+              autoComplete="email"
+              inputMode="email"
+              autoCapitalize="off"
+              autoCorrect="off"
+              required
+              placeholder="uw@bedrijf.nl"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-primary min-h-[48px]"
+            />
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className="px-6 py-3.5 bg-brand-primary-text hover:opacity-90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 min-h-[48px] disabled:opacity-60"
+            >
+              {status === 'submitting' ? <Loader2 size={18} className="animate-spin" /> : 'Inschrijven'}
+            </button>
+          </form>
+        )}
+        {status === 'error' && errorMessage && (
+          <p role="alert" aria-live="assertive" className="text-red-600 text-sm mt-3">{errorMessage}</p>
+        )}
+      </div>
+    </motion.div>
+  );
+}

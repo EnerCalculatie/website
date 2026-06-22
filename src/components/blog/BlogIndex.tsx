@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { SEO } from '../SEO';
 import { LeadMagnet } from '../LeadMagnet';
+import { NewsletterSignup } from '../NewsletterSignup';
 import { blogPosts } from '../../content/blogPosts';
 
 export function BlogIndex() {
@@ -49,6 +50,7 @@ export function BlogIndex() {
           </div>
 
           <LeadMagnet />
+          <NewsletterSignup />
         </div>
       </div>
     </>
