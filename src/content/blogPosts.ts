@@ -6,7 +6,7 @@ export interface BlogPostMeta {
   excerpt: string;
 }
 
-// Metadata van alle kennisbank-artikelen. Wordt gebruikt door de BlogIndex
+// Metadata van alle blogartikelen. Wordt gebruikt door de BlogIndex
 // voor de overzichtskaarten, en door elk artikel zelf voor SEO/schema.
 // Nieuw artikel toevoegen = hier een entry toevoegen + een eigen component
 // in src/components/blog/, en de route registreren in App.tsx.

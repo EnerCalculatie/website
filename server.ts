@@ -51,11 +51,22 @@ if (process.env.NODE_ENV === 'production') {
     '/privacy': 'privacy.html',
     '/voorwaarden': 'voorwaarden.html',
     '/verwerkersovereenkomst': 'verwerkersovereenkomst.html',
-    '/kennisbank': 'kennisbank.html',
-    '/kennisbank/salderingsregeling-2027': 'kennisbank-salderingsregeling-2027.html',
-    '/kennisbank/btw-zonnepanelen': 'kennisbank-btw-zonnepanelen.html',
-    '/kennisbank/terugleverkosten-thuisbatterij': 'kennisbank-terugleverkosten-thuisbatterij.html',
+    '/blog': 'blog.html',
+    '/blog/salderingsregeling-2027': 'blog-salderingsregeling-2027.html',
+    '/blog/btw-zonnepanelen': 'blog-btw-zonnepanelen.html',
+    '/blog/terugleverkosten-thuisbatterij': 'blog-terugleverkosten-thuisbatterij.html',
   };
+
+  // Permanente redirects van de oude /kennisbank-URL's naar /blog (URL-rename, behoud SEO-waarde).
+  const legacyRedirects: Record<string, string> = {
+    '/kennisbank': '/blog',
+    '/kennisbank/salderingsregeling-2027': '/blog/salderingsregeling-2027',
+    '/kennisbank/btw-zonnepanelen': '/blog/btw-zonnepanelen',
+    '/kennisbank/terugleverkosten-thuisbatterij': '/blog/terugleverkosten-thuisbatterij',
+  };
+  app.get(Object.keys(legacyRedirects), (req, res) => {
+    res.redirect(301, legacyRedirects[req.path]);
+  });
 
   // Voor alle andere requests: serveer de voorgerenderde 404-pagina
   // met een echte 404-status, zodat crawlers geen soft-404 zien.

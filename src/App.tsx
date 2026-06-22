@@ -76,10 +76,10 @@ export function AppContent() {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/voorwaarden" element={<Terms />} />
           <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
-          <Route path="/kennisbank" element={<BlogIndex />} />
-          <Route path="/kennisbank/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
-          <Route path="/kennisbank/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
-          <Route path="/kennisbank/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
+          <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
+          <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 

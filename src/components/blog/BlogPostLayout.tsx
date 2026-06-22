@@ -14,8 +14,8 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="prose prose-slate max-w-none">
           <div className="flex items-center justify-between mb-6 print:hidden">
-            <a href="/kennisbank" className="flex items-center gap-2 text-slate-500 hover:text-brand-primary text-sm font-semibold transition-colors">
-              <ArrowLeft size={16} /> Terug naar kennisbank
+            <a href="/blog" className="flex items-center gap-2 text-slate-500 hover:text-brand-primary text-sm font-semibold transition-colors">
+              <ArrowLeft size={16} /> Terug naar blog
             </a>
             <button
               onClick={() => window.print()}

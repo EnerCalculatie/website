@@ -22,10 +22,10 @@ const routes = [
   { url: '/privacy', outFile: 'privacy.html' },
   { url: '/voorwaarden', outFile: 'voorwaarden.html' },
   { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html' },
-  { url: '/kennisbank', outFile: 'kennisbank.html' },
-  { url: '/kennisbank/salderingsregeling-2027', outFile: 'kennisbank-salderingsregeling-2027.html' },
-  { url: '/kennisbank/btw-zonnepanelen', outFile: 'kennisbank-btw-zonnepanelen.html' },
-  { url: '/kennisbank/terugleverkosten-thuisbatterij', outFile: 'kennisbank-terugleverkosten-thuisbatterij.html' },
+  { url: '/blog', outFile: 'blog.html' },
+  { url: '/blog/salderingsregeling-2027', outFile: 'blog-salderingsregeling-2027.html' },
+  { url: '/blog/btw-zonnepanelen', outFile: 'blog-btw-zonnepanelen.html' },
+  { url: '/blog/terugleverkosten-thuisbatterij', outFile: 'blog-terugleverkosten-thuisbatterij.html' },
   { url: '/__not-found__', outFile: '404.html' },
 ];
 

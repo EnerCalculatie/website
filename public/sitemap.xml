@@ -25,25 +25,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.enercalculatie.nl/kennisbank</loc>
-    <lastmod>2026-06-20</lastmod>
+    <loc>https://www.enercalculatie.nl/blog</loc>
+    <lastmod>2026-06-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.enercalculatie.nl/kennisbank/salderingsregeling-2027</loc>
+    <loc>https://www.enercalculatie.nl/blog/salderingsregeling-2027</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.enercalculatie.nl/kennisbank/btw-zonnepanelen</loc>
+    <loc>https://www.enercalculatie.nl/blog/btw-zonnepanelen</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.enercalculatie.nl/kennisbank/terugleverkosten-thuisbatterij</loc>
+    <loc>https://www.enercalculatie.nl/blog/terugleverkosten-thuisbatterij</loc>
     <lastmod>2026-06-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

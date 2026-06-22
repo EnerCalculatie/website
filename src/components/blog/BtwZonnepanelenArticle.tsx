@@ -24,7 +24,7 @@ export function BtwZonnepanelenArticle() {
         url: 'https://www.enercalculatie.nl/logo.svg',
       },
     },
-    mainEntityOfPage: `https://www.enercalculatie.nl/kennisbank/${post.slug}`,
+    mainEntityOfPage: `https://www.enercalculatie.nl/blog/${post.slug}`,
   };
 
   return (
@@ -32,7 +32,7 @@ export function BtwZonnepanelenArticle() {
       <SEO
         title={`${post.title} | EnerCalculatie`}
         description={post.description}
-        canonical={`https://www.enercalculatie.nl/kennisbank/${post.slug}`}
+        canonical={`https://www.enercalculatie.nl/blog/${post.slug}`}
       />
       <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
 

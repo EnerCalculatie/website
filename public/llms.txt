@@ -17,7 +17,7 @@ In vergelijking met handmatig rekenwerk in Excel of het inhuren van een dure ext
 
 - [Homepage](https://www.enercalculatie.nl/): functies, prijzen, integraties en de ROI-calculator.
 - [Prijzen (machine-leesbaar)](https://www.enercalculatie.nl/pricing.md): actuele abonnementsprijzen per pakket.
-- [Kennisbank](https://www.enercalculatie.nl/kennisbank): praktische uitleg over Nederlandse regelgeving en rekenmethodes.
+- [Blog](https://www.enercalculatie.nl/blog): praktische uitleg over Nederlandse regelgeving en rekenmethodes.
 - [Privacy Statement](https://www.enercalculatie.nl/privacy): AVG-verwerkersrol en databeleid.
 - [Algemene Voorwaarden](https://www.enercalculatie.nl/voorwaarden): gebruiksvoorwaarden van het platform.
 
