@@ -13,8 +13,8 @@ const HOURLY_RATE = 75;
 
 const TIERS = {
   solo: { name: 'Business', price: 99 },
-  pro: { name: 'Pro', price: 179 },
-  complete: { name: 'Complete', price: 299 },
+  pro: { name: 'Business PRO', price: 179 },
+  complete: { name: 'Compleet', price: 299 },
 };
 
 export function PricingCalculator() {

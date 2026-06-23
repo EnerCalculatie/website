@@ -37,7 +37,7 @@ const PRICING_TIERS: PricingTier[] = [
     mostPopular: false
   },
   {
-    name: 'Pro',
+    name: 'Business PRO',
     priceMonthly: 179,
     priceYearly: 1790,
     setupFee: 199,
@@ -55,13 +55,13 @@ const PRICING_TIERS: PricingTier[] = [
     mostPopular: true
   },
   {
-    name: 'Complete',
+    name: 'Compleet',
     priceMonthly: 299,
     priceYearly: 2990,
     setupFee: 299,
     description: 'Het complete pakket voor volledige verduurzaming.',
     includedFeatures: [
-      'Alles uit Pro',
+      'Alles uit Business PRO',
       'Airco',
       'Laadpaal',
       'Volledige verduurzaming'
@@ -85,7 +85,7 @@ export function Pricing() {
             Eerlijke prijzen. Geen verrassingen.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Business heeft geen setup fee — Pro en Complete rekenen een eenmalige onboarding.
+            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Business heeft geen setup fee — Business PRO en Compleet rekenen een eenmalige onboarding.
           </p>
         </div>
 
@@ -226,8 +226,8 @@ export function Pricing() {
                         <tr className="border-b border-slate-200">
                           <th className="py-4 px-4 font-bold text-slate-900 w-1/4">Module / Functie</th>
                           <th className="py-4 px-4 font-bold text-slate-600 w-1/4">Business</th>
-                          <th className="py-4 px-4 font-bold text-brand-primary w-1/4">Pro</th>
-                          <th className="py-4 px-4 font-bold text-slate-600 w-1/4">Complete</th>
+                          <th className="py-4 px-4 font-bold text-brand-primary w-1/4">Business PRO</th>
+                          <th className="py-4 px-4 font-bold text-slate-600 w-1/4">Compleet</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-100 text-slate-700">

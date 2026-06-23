@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'Wat als ik vastloop?',
     answer:
-      'Elke klant krijgt een persoonlijke onboarding. Daarna kunt u ons altijd bereiken via e-mail (reactie binnen 24 uur) of telefonisch (vanaf het Pro-pakket: binnen 4 uur).',
+      'Elke klant krijgt een persoonlijke onboarding. Daarna kunt u ons altijd bereiken via e-mail (reactie binnen 24 uur) of telefonisch (vanaf het Business PRO-pakket: binnen 4 uur).',
   },
   {
     question: 'Kost de overstap mij meer tijd dan het oplevert?',

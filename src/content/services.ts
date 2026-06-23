@@ -140,7 +140,7 @@ export const services: ServiceMeta[] = [
           'Verwerk tijdens of direct na de inspectie alle technische specificaties die de RVO bij een ISDE-aanvraag vraagt, in een strak werkvoorbereidingsrapport.',
       },
     ],
-    pricingTier: 'Beschikbaar vanaf het Pro-pakket.',
+    pricingTier: 'Beschikbaar vanaf het Business PRO-pakket.',
     faqs: [
       {
         question: 'Wat is het verschil tussen een hybride en een all-electric warmtepomp in de berekening?',
@@ -183,7 +183,7 @@ export const services: ServiceMeta[] = [
           'Genereer een Nederlandstalig digitaal adviesrapport waarin airco samen met de overige maatregelen wordt gepresenteerd aan de klant.',
       },
     ],
-    pricingTier: 'Beschikbaar vanaf het Complete-pakket.',
+    pricingTier: 'Beschikbaar vanaf het Compleet-pakket.',
     faqs: [
       {
         question: 'Wat berekent de airco-rekentool precies?',
@@ -192,7 +192,7 @@ export const services: ServiceMeta[] = [
       },
       {
         question: 'Vanaf welk pakket is de airco-module beschikbaar?',
-        answer: 'De airco-module is beschikbaar vanaf het Complete-pakket.',
+        answer: 'De airco-module is beschikbaar vanaf het Compleet-pakket.',
       },
     ],
   },
@@ -223,7 +223,7 @@ export const services: ServiceMeta[] = [
           'Genereer een Nederlandstalig digitaal adviesrapport waarin de laadpaal samen met de overige maatregelen wordt gepresenteerd aan de klant.',
       },
     ],
-    pricingTier: 'Beschikbaar vanaf het Complete-pakket.',
+    pricingTier: 'Beschikbaar vanaf het Compleet-pakket.',
     faqs: [
       {
         question: 'Houdt de rekentool rekening met de capaciteit van de netaansluiting?',
@@ -232,7 +232,7 @@ export const services: ServiceMeta[] = [
       },
       {
         question: 'Vanaf welk pakket is de laadpaal-module beschikbaar?',
-        answer: 'De laadpaal-module is beschikbaar vanaf het Complete-pakket.',
+        answer: 'De laadpaal-module is beschikbaar vanaf het Compleet-pakket.',
       },
     ],
   },
