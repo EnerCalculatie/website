@@ -17,12 +17,16 @@ const app = express();
 app.set('trust proxy', 1);
 app.use(express.json());
 
-// Begrens formulier-inzendingen tegen spam/misbruik (beide endpoints versturen e-mail via Resend).
+// Begrens formulier-inzendingen tegen spam/misbruik (contact, lead-magnet en nieuwsbrief delen dit quotum).
 const formLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 5,
+  limit: 20,
   standardHeaders: true,
   legacyHeaders: false,
+  // Default-handler stuurt plain text, terwijl de frontend altijd response.json() parsed.
+  handler: (_req, res) => {
+    res.status(429).json({ error: 'Te veel aanvragen. Probeer het over een paar minuten opnieuw.' });
+  },
 });
 
 // Gebruik de contact, lead-magnet en nieuwsbrief routers voor alle /api routes
