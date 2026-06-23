@@ -18,6 +18,7 @@ import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { Privacy } from './components/Privacy';
+import { NewsletterConfirmed } from './components/NewsletterConfirmed';
 import { Terms } from './components/Terms';
 import { ProcessorAgreement } from './components/ProcessorAgreement';
 import { BlogIndex } from './components/blog/BlogIndex';
@@ -88,6 +89,7 @@ export function AppContent() {
             </main>
           } />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/nieuwsbrief-bevestigd" element={<NewsletterConfirmed />} />
           <Route path="/voorwaarden" element={<Terms />} />
           <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
           <Route path="/blog" element={<BlogIndex />} />

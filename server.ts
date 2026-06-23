@@ -58,6 +58,7 @@ if (process.env.NODE_ENV === 'production') {
   const prerenderedRoutes: Record<string, string> = {
     '/': 'index.html',
     '/privacy': 'privacy.html',
+    '/nieuwsbrief-bevestigd': 'nieuwsbrief-bevestigd.html',
     '/voorwaarden': 'voorwaarden.html',
     '/verwerkersovereenkomst': 'verwerkersovereenkomst.html',
     '/blog': 'blog.html',

@@ -35,7 +35,7 @@ router.post('/newsletter', async (req, res) => {
         email,
         includeListIds: [Number(listId)],
         templateId: Number(templateId),
-        redirectionUrl: 'https://www.enercalculatie.nl/blog',
+        redirectionUrl: 'https://www.enercalculatie.nl/nieuwsbrief-bevestigd',
       }),
     });
 

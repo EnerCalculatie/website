@@ -20,6 +20,7 @@ const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
 const routes = [
   { url: '/', outFile: 'index.html' },
   { url: '/privacy', outFile: 'privacy.html' },
+  { url: '/nieuwsbrief-bevestigd', outFile: 'nieuwsbrief-bevestigd.html' },
   { url: '/voorwaarden', outFile: 'voorwaarden.html' },
   { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html' },
   { url: '/blog', outFile: 'blog.html' },
