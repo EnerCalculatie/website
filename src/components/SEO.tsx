@@ -11,7 +11,7 @@ interface SEOProps {
 
 export function SEO({
   title = 'EnerCalculatie - Dé slimste rekenhulp voor installateurs',
-  description = 'Bespaar uren per dossier met de slimste rekenhulp voor verduurzamingsinstallateurs. Van energierekening tot gevalideerd adviesrapport in minder dan 5 minuten.',
+  description = 'Offertesoftware en calculatiesoftware voor verduurzamingsinstallateurs. Van energierekening tot gevalideerd adviesrapport in minder dan 5 minuten.',
   canonical = 'https://www.enercalculatie.nl',
   type = 'website',
   name = 'EnerCalculatie',
@@ -31,7 +31,8 @@ export function SEO({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "EnerCalculatie",
-    "description": "Rekenhulp voor verduurzamingsinstallateurs: automatiseer offertes en adviesrapporten voor zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.",
+    "alternateName": ["Offertesoftware zonnepanelen", "Calculatiesoftware verduurzaming", "Adviessoftware verduurzaming"],
+    "description": "Offerte- en calculatiesoftware voor installatiebedrijven: automatiseer offertes en adviesrapporten voor zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "WebBrowser",
     "offers": {

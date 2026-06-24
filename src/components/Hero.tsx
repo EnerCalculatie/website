@@ -42,7 +42,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10"
           >
-            Speciaal voor kleine en middelgrote installatiebedrijven, actief in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
+            Dé offerte- en calculatiesoftware voor zzp'ers en kleine en middelgrote installatiebedrijven, actief in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
             Van energierekening tot onderbouwd verduurzamingsadvies — geen Excel, geen typfouten, geen gemiste wetgeving.
             Alleen een rapport waar uw klant met een gerust hart ja tegen zegt.
           </motion.p>

@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
+    question: 'Is EnerCalculatie offertesoftware of calculatiesoftware?',
+    answer:
+      'Allebei. EnerCalculatie is offerte- en calculatiesoftware voor verduurzamingsinstallateurs in één: van de calculatie en configuratie van zonnepanelen, thuisbatterij, warmtepomp, airco en laadpaal tot een afgerond adviesrapport. U vervangt losse Excel-bestanden en een externe adviseur door één verduurzamingssoftware.',
+  },
+  {
+    question: 'Is dit geschikt als software voor een zzp-installateur of klein installatiebedrijf?',
+    answer:
+      'Ja. EnerCalculatie is juist ontworpen als betaalbare software voor installatiebedrijven van zzp\'er tot middelgroot. U betaalt per maand, zegt maandelijks op en heeft geen eigen IT nodig — u werkt direct in de browser. Zo krijgt een klein installatiebedrijf dezelfde professionele offertes en adviesrapporten als de grote spelers.',
+  },
+  {
     question: 'Is mijn klantdata veilig?',
     answer:
       'Alle dossiers worden opgeslagen op servers in Nederland, zijn volledig AVG-compliant en end-to-end versleuteld. U bent eigenaar van uw data — altijd exporteerbaar, nooit gedeeld met derden.',

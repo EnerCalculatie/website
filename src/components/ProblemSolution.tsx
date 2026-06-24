@@ -27,7 +27,7 @@ export function ProblemSolution() {
             U levert het vakmanschap. <br/> Wij verzorgen de financiële onderbouwing.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            De installateur die zijn klant een foutloos en begrijpelijk advies geeft, wint de opdracht. Wij zorgen dat u die installateur bent.
+            Met adviessoftware voor verduurzaming geeft u uw klant een helder, kloppend advies — en wint u de opdracht. Wij zorgen dat u die installateur bent.
           </p>
         </div>
 

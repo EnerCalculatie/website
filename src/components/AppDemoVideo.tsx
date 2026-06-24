@@ -256,7 +256,7 @@ export function AppDemoVideo() {
                   <motion.img
                     key={activeStep.screenshot}
                     src={activeStep.screenshot}
-                    alt={activeStep.label}
+                    alt={`${activeStep.label} in EnerCalculatie – calculatiesoftware voor verduurzamingsinstallateurs`}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

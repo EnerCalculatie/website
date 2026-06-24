@@ -32,7 +32,7 @@ export function Features() {
             Alles wat u nodig heeft voor een onweerlegbaar adviesgesprek
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Gebouwd op praktijkervaring in de installatietechniek. Niet door marketeers, maar door iemand die weet hoe een schouw eruitziet.
+            Eén verduurzamingssoftware die offertesoftware, calculatiesoftware en configuratortool voor zonnepanelen combineert. Gebouwd op praktijkervaring in de installatietechniek — niet door marketeers, maar door iemand die weet hoe een schouw eruitziet.
           </p>
         </div>
 
