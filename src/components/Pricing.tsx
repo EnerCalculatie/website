@@ -123,17 +123,8 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`relative bg-white rounded-3xl p-8 flex flex-col ${
-                tier.mostPopular 
-                  ? 'border-2 border-brand-primary shadow-lg md:-translate-y-4 z-10' 
-                  : 'border border-slate-200 shadow-sm'
-              }`}
+              className="relative bg-white rounded-3xl p-8 flex flex-col border border-slate-200 shadow-sm"
             >
-              {tier.mostPopular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-primary text-white px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-sm">
-                  Meest Gekozen
-                </div>
-              )}
               <div className="mb-8">
                 <h3 className="text-xl font-bold text-slate-900 mb-2">{tier.name}</h3>
                 <p className="text-slate-500 text-sm h-10">{tier.description}</p>
