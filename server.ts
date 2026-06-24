@@ -66,6 +66,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/btw-zonnepanelen': 'blog-btw-zonnepanelen.html',
     '/blog/terugleverkosten-thuisbatterij': 'blog-terugleverkosten-thuisbatterij.html',
     '/blog/isde-subsidie-warmtepompen': 'blog-isde-subsidie-warmtepompen.html',
+    '/blog/warmtepomp-rendement-aannames': 'blog-warmtepomp-rendement-aannames.html',
     '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
     '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
     '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',

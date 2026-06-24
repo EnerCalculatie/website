@@ -26,6 +26,7 @@ import { SalderingsregelingArticle } from './components/blog/SalderingsregelingA
 import { BtwZonnepanelenArticle } from './components/blog/BtwZonnepanelenArticle';
 import { TerugleverkostenThuisbatterijArticle } from './components/blog/TerugleverkostenThuisbatterijArticle';
 import { IsdeWarmtepompenArticle } from './components/blog/IsdeWarmtepompenArticle';
+import { WarmtepompRendementArticle } from './components/blog/WarmtepompRendementArticle';
 import { ServiceLandingPage } from './components/services/ServiceLandingPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
@@ -97,6 +98,7 @@ export function AppContent() {
           <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
           <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
           <Route path="/blog/isde-subsidie-warmtepompen" element={<IsdeWarmtepompenArticle />} />
+          <Route path="/blog/warmtepomp-rendement-aannames" element={<WarmtepompRendementArticle />} />
           <Route path="/rekentool-zonnepanelen" element={<ServiceLandingPage slug="zonnepanelen" />} />
           <Route path="/rekentool-thuisbatterij" element={<ServiceLandingPage slug="thuisbatterij" />} />
           <Route path="/rekentool-warmtepomp" element={<ServiceLandingPage slug="warmtepomp" />} />

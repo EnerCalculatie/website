@@ -2,7 +2,7 @@ import { SEO } from '../SEO';
 import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 
-const post = blogPosts.find((p) => p.slug === 'warmtepomp-rendement-berekenen')!;
+const post = blogPosts.find((p) => p.slug === 'warmtepomp-rendement-aannames')!;
 
 export function WarmtepompRendementArticle() {
   const articleSchema = {

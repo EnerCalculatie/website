@@ -47,4 +47,13 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een onvolledig onderbouwd adviesrapport kan uw klant tijd of subsidie kosten. Welke technische specificaties en meldcodes vraagt de RVO precies, en wat is uw rol als installateur daarin?',
   },
+  {
+    slug: 'warmtepomp-rendement-aannames',
+    title: 'Warmtepomp-rendement: de Nederlandse standaardaannames die uw berekening onderbouwen',
+    description:
+      'Een warmtepomp-besparing wordt berekend op basis van drie vaste aannames over gasverbruik, ketelrendement en warmwaterverbruik. Lees welke dat zijn, hoe een hybride systeem de berekening verandert, en waarom transparantie hierover uw verkoopargument is.',
+    date: '2026-06-24',
+    excerpt:
+      'Een klant die het getal achter de besparing niet begrijpt, vertrouwt het minder. Welke standaardaannames liggen aan een warmtepomp-rendementsberekening ten grondslag, en hoe legt u dit uit?',
+  },
 ];
