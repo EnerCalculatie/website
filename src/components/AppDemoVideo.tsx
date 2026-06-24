@@ -250,8 +250,8 @@ export function AppDemoVideo() {
                 <div className="w-16" />
               </div>
 
-              {/* Screenshot area — aspect ratio matches screenshots (2556×1166) */}
-              <div className="relative bg-slate-800 overflow-hidden" style={{ aspectRatio: '2556/1166' }}>
+              {/* Screenshot area — aspect ratio matches screenshots (~1230×810) */}
+              <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '1230/810' }}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeStep.screenshot}
@@ -261,13 +261,11 @@ export function AppDemoVideo() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-contain"
                     loading="eager"
                     decoding="async"
                   />
                 </AnimatePresence>
-
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-900/30 to-transparent pointer-events-none" />
               </div>
 
               {/* Progress bar */}
