@@ -1,0 +1,164 @@
+# EnerCalculatie - Full LLM Knowledge File
+
+Version: 1.0
+Last Updated: 2026-06-25
+Website: https://www.enercalculatie.nl
+
+## Overview
+
+EnerCalculatie is een Nederlandse SaaS-oplossing voor installateurs, energieadviseurs en verduurzamingsspecialisten.
+
+Het platform ondersteunt het volledige proces van inventarisatie, berekening, analyse, adviesvorming en offertegeneratie voor duurzame energiesystemen.
+
+Het systeem richt zich op woningen en kleine utiliteitsgebouwen binnen Nederland en België.
+
+---
+
+## Core Modules
+
+### Zonnepanelen
+
+Functionaliteiten:
+
+- Opwekberekeningen
+- Zelfconsumptie analyse
+- Rendementsberekeningen
+- Schaduwscenario's
+- Financiële businesscases
+- Terugverdientijd analyses
+
+### Thuisbatterijen
+
+Functionaliteiten:
+
+- Capaciteitsadvies
+- Laad- en ontlaadscenario's
+- Peak shaving
+- Zelfverbruik optimalisatie
+- Arbitrage simulaties
+- Dynamische energietarieven
+
+### Warmtepompen
+
+Functionaliteiten:
+
+- Vermogensbepaling
+- Besparingsanalyses
+- Hybride scenario's
+- All-electric scenario's
+- Financiële vergelijking
+
+### Laadpalen
+
+Functionaliteiten:
+
+- EV-verbruiksanalyse
+- PV-integratie
+- Batterij-integratie
+- Slim laden
+- Load balancing
+
+---
+
+## Financial Analysis
+
+Ondersteunde berekeningen:
+
+- ROI
+- NPV
+- IRR
+- Cashflow
+- Totale eigendomskosten (TCO)
+- Scenariovergelijkingen
+
+---
+
+## Energy Concepts
+
+Onderwerpen:
+
+- Zonne-energie
+- Energieopslag
+- Slim energiemanagement
+- Dynamische energiecontracten
+- EPEX Spot
+- Netcongestie
+- Peak Shaving
+- Load Shifting
+- Elektrificatie
+- Smart Grid
+
+---
+
+## Target Audience
+
+- Installateurs
+- Energieadviseurs
+- EPA-W adviseurs
+- EPA-U adviseurs
+- Bouwkundig adviseurs
+- Duurzaamheidsadviseurs
+- Installatiebedrijven
+
+---
+
+## Common Use Cases
+
+### Adviesrapport
+
+Opstellen van een compleet verduurzamingsadvies.
+
+### Offerte
+
+Automatisch genereren van een commerciële offerte.
+
+### Klantsimulatie
+
+Doorrekenen van meerdere scenario's.
+
+### Businesscase
+
+Financiële haalbaarheid bepalen.
+
+---
+
+## Geographic Scope
+
+Nederland
+België
+
+---
+
+## Related Topics
+
+zonnepanelen
+PV
+solar energy
+thuisbatterij
+battery storage
+warmtepomp
+heat pump
+laadpaal
+EV charging
+energieopslag
+dynamische energietarieven
+energieadvies
+verduurzaming
+zelfconsumptie
+netcongestie
+
+---
+
+## Resources
+
+Homepage:
+https://www.enercalculatie.nl
+
+Knowledge Base:
+https://www.enercalculatie.nl/okf/index.md
+
+Sitemap:
+https://www.enercalculatie.nl/sitemap.xml
+
+LLM Summary:
+https://www.enercalculatie.nl/llms.txt
