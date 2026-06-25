@@ -2,8 +2,6 @@ import 'dotenv/config'; // Dit laadt de .env direct in tijdens de import-fase
 
 import express from 'express';
 import rateLimit from 'express-rate-limit';
-import contactRouter from './contact';
-import healthRouter from './health';
 import leadMagnetRouter from './leadMagnet';
 import newsletterRouter from './newsletter';
 import path from 'path';
@@ -31,7 +29,6 @@ const formLimiter = rateLimit({
 });
 
 // Gebruik de contact, lead-magnet en nieuwsbrief routers voor alle /api routes
-app.use('/api', healthRouter);
 app.use('/api', formLimiter, contactRouter);
 app.use('/api', formLimiter, leadMagnetRouter);
 app.use('/api', formLimiter, newsletterRouter);

@@ -51,13 +51,8 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
   Het endpoint retouneert altijd een 200 OK response (zodat monitortools de JSON kunnen parsen) en bevat nooit PII of secrets. 
   ```json
   {
-    "status": "ok" | "degraded" | "down",
-    "db": { "ok": boolean, "latencyMs": number },
-    "email": {
-      "resend": { "ok": boolean },
-      "brevo": { "ok": boolean }
-    },
-    "system": { "uptime": number, "memoryMb": number, "env": string, "commit": string }
+    "status": "ok",
+    "message": "Backend API is running."
   }
   ```
   *Regel:* De status aggregatie logt naar `system_logs` uitsluitend wanneer er een wijziging in de globale status optreedt (bijv. ok → degraded).

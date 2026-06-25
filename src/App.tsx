@@ -32,12 +32,6 @@ import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
 
-// Superadmin sectie
-import { SuperadminProtectedRoute } from './components/auth/SuperadminProtectedRoute';
-import { SuperadminLayout } from './components/admin/SuperadminLayout';
-import { InfrastructuurPage } from './components/admin/InfrastructuurPage';
-import { SuperadminDashboardPage } from './components/admin/SuperadminDashboardPage';
-
 // Helper om de scrollpositie te resetten bij het wisselen van pagina
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -110,18 +104,6 @@ export function AppContent() {
           <Route path="/rekentool-warmtepomp" element={<ServiceLandingPage slug="warmtepomp" />} />
           <Route path="/rekentool-airco" element={<ServiceLandingPage slug="airco" />} />
           <Route path="/rekentool-laadpaal" element={<ServiceLandingPage slug="laadpaal" />} />
-
-          {/* Superadmin Routes */}
-          <Route
-            element={
-              <SuperadminProtectedRoute>
-                <SuperadminLayout />
-              </SuperadminProtectedRoute>
-            }
-          >
-            <Route path="/superadmin" element={<SuperadminDashboardPage />} />
-            <Route path="/superadmin/infrastructuur" element={<InfrastructuurPage />} />
-          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Routes>
