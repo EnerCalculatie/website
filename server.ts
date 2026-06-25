@@ -2,6 +2,7 @@ import 'dotenv/config'; // Dit laadt de .env direct in tijdens de import-fase
 
 import express from 'express';
 import rateLimit from 'express-rate-limit';
+import contactRouter from './contact';
 import leadMagnetRouter from './leadMagnet';
 import newsletterRouter from './newsletter';
 import path from 'path';
