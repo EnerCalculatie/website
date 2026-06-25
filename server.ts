@@ -34,6 +34,11 @@ app.use('/api', formLimiter, contactRouter);
 app.use('/api', formLimiter, leadMagnetRouter);
 app.use('/api', formLimiter, newsletterRouter);
  
+// Serveer llms.txt vanuit de project root, vóór de static middleware voor productie.
+app.get('/llms.txt', (_req, res) => {
+  res.sendFile(path.join(process.cwd(), 'llms.txt'));
+});
+
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {
   // Dwing https af, en op het eigen domein ook www (www.enercalculatie.nl is canonical,
@@ -98,14 +103,6 @@ if (process.env.NODE_ENV === 'production') {
     res.send('✅ EnerCalculatie Backend API draait succesvol! Open http://localhost:3000 in je browser om de website te bekijken.');
   });
 }
-
-import path from 'path';
-
-// Plaats dit vlak boven je app.listen
-app.get('/llms.txt', (req, res) => {
-    res.sendFile(path.join(process.cwd(), 'llms.txt'));
-});
-
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
