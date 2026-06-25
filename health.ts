@@ -30,12 +30,18 @@ const resend = {
       return { ok: false, error: 'RESEND_API_KEY not set' };
     }
     // We doen een lichte, geauthenticeerde call om connectiviteit te testen.
-    const url = 'https://api.resend.com/v1/domains'; // Een lichtgewicht endpoint
+    // Gebruik /v1/keys in plaats van /v1/domains, omdat GET op /v1/domains een 405 kan geven.
+    const url = 'https://api.resend.com/v1/keys'; // Een lichtgewicht endpoint om API-sleutels te controleren
     const options = { headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` } };
     const response = await fetchWithTimeout(url, options);
     if (!response.ok) {
       const errorBody = await response.text();
-      return { ok: false, error: `Resend API: HTTP ${response.status} - ${errorBody.substring(0, 100)}` };
+      try { // Probeer de foutmelding te parsen als JSON voor meer details
+        const errorJson = JSON.parse(errorBody);
+        return { ok: false, error: `Resend API: HTTP ${response.status} - ${errorJson.message || errorBody.substring(0, 100)}` };
+      } catch (e) {
+        return { ok: false, error: `Resend API: HTTP ${response.status} - ${errorBody.substring(0, 100)}` };
+      }
     }
     return { ok: true };
   },
