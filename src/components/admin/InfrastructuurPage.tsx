@@ -5,7 +5,6 @@ import { RefreshCw, AlertTriangle } from 'lucide-react';
 interface HealthStatus {
   status: 'ok' | 'degraded' | 'down';
   db: { ok: boolean; latencyMs: number; error?: string };
-  auth: { ok: boolean; error?: string };
   email: {
     resend: { ok: boolean; error?: string };
     brevo: { ok: boolean; error?: string };
@@ -99,59 +98,56 @@ export function InfrastructuurPage() {
       : 'bg-red-100 text-red-800';
 
   return (
-    <div className="p-4 md:p-8 bg-slate-50 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold text-slate-900">Infrastructuur Status</h1>
-          <div className="flex items-center gap-4">
-            <span className={`px-3 py-1 text-sm font-bold rounded-full ${overallStatusColor}`}>
-              {health.status.toUpperCase()}
-            </span>
-            <button
-              onClick={fetchHealth}
-              className="p-2 text-slate-500 hover:text-brand-primary-text hover:bg-slate-100 rounded-full transition"
-              aria-label="Refresh status"
-            >
-              <RefreshCw className="w-5 h-5" />
-            </button>
-          </div>
+    <div className="max-w-4xl mx-auto">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold text-slate-900">Infrastructuur Status</h1>
+        <div className="flex items-center gap-4">
+          <span className={`px-3 py-1 text-sm font-bold rounded-full ${overallStatusColor}`}>
+            {health.status.toUpperCase()}
+          </span>
+          <button
+            onClick={fetchHealth}
+            className="p-2 text-slate-500 hover:text-brand-primary-text hover:bg-slate-100 rounded-full transition"
+            aria-label="Refresh status"
+          >
+            <RefreshCw className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Services */}
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-slate-600">Services</h2>
+          <StatusIndicator status={health.db.ok} label="Database" value={`${health.db.latencyMs.toFixed(0)}ms`} error={health.db.error} />
+          <StatusIndicator status={health.email.resend.ok} label="E-mail (Resend)" error={health.email.resend.error} />
+          <StatusIndicator status={health.email.brevo.ok} label="Nieuwsbrief (Brevo)" error={health.email.brevo.error} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Services */}
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-600">Services</h2>
-            <StatusIndicator status={health.db.ok} label="Database" value={`${health.db.latencyMs.toFixed(0)}ms`} error={health.db.error} />
-            <StatusIndicator status={health.auth.ok} label="Authentication" error={health.auth.error} />
-            <StatusIndicator status={health.email.resend.ok} label="E-mail (Resend)" error={health.email.resend.error} />
-            <StatusIndicator status={health.email.brevo.ok} label="Nieuwsbrief (Brevo)" error={health.email.brevo.error} />
-          </div>
-
-          {/* System */}
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-slate-600">Systeem</h2>
-            <div className="p-4 bg-white rounded-lg shadow-sm">
-              <div className="flex justify-between items-center text-sm mb-2">
-                <span className="text-slate-500">Uptime</span>
-                <span className="font-mono">{formatUptime(health.system.uptime)}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm mb-2">
-                <span className="text-slate-500">Memory</span>
-                <span className="font-mono">{health.system.memoryMb} MB</span>
-              </div>
-              <div className="flex justify-between items-center text-sm mb-2">
-                <span className="text-slate-500">Environment</span>
-                <span className="font-mono">{health.system.env}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-slate-500">Commit</span>
-                <span className="font-mono">{health.system.commit.substring(0, 7)}</span>
-              </div>
+        {/* System */}
+        <div className="space-y-4">
+          <h2 className="text-lg font-semibold text-slate-600">Systeem</h2>
+          <div className="p-4 bg-white rounded-lg shadow-sm">
+            <div className="flex justify-between items-center text-sm mb-2">
+              <span className="text-slate-500">Uptime</span>
+              <span className="font-mono">{formatUptime(health.system.uptime)}</span>
             </div>
-            <a href="https://uptimerobot.com/" target="_blank" rel="noopener noreferrer" className="block p-4 bg-white rounded-lg shadow-sm text-center font-semibold text-brand-primary-text hover:bg-slate-50 transition">
-              Bekijk UptimeRobot
-            </a>
+            <div className="flex justify-between items-center text-sm mb-2">
+              <span className="text-slate-500">Memory</span>
+              <span className="font-mono">{health.system.memoryMb} MB</span>
+            </div>
+            <div className="flex justify-between items-center text-sm mb-2">
+              <span className="text-slate-500">Environment</span>
+              <span className="font-mono">{health.system.env}</span>
+            </div>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-slate-500">Commit</span>
+              <span className="font-mono">{health.system.commit.substring(0, 7)}</span>
+            </div>
           </div>
+          <a href="https://uptimerobot.com/" target="_blank" rel="noopener noreferrer" className="block p-4 bg-white rounded-lg shadow-sm text-center font-semibold text-brand-primary-text hover:bg-slate-50 transition">
+            Bekijk UptimeRobot
+          </a>
         </div>
       </div>
     </div>

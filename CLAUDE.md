@@ -53,7 +53,6 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
   {
     "status": "ok" | "degraded" | "down",
     "db": { "ok": boolean, "latencyMs": number },
-    "auth": { "ok": boolean },
     "email": {
       "resend": { "ok": boolean },
       "brevo": { "ok": boolean }

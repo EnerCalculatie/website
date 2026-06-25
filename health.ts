@@ -54,27 +54,13 @@ const checkTimeout = <T>(promise: Promise<T>, timeout = 2000): Promise<T> => {
 };
 
 router.get('/health', async (_req, res) => {
-  const [dbResult, authResult, resendResult, brevoResult] = await Promise.allSettled([
+  const [dbResult, resendResult, brevoResult] = await Promise.allSettled([
     checkTimeout(db.ping()),
-    checkTimeout(fetch(`${process.env.SUPABASE_URL}/auth/v1/health`)),
     checkTimeout(resend.ping()),
     checkTimeout(brevo.ping()),
   ]);
 
-  const dbStatus =
-    dbResult.status === 'fulfilled' ? dbResult.value : { ok: false, latencyMs: -1, error: 'timeout' };
-
-  let authStatus: { ok: boolean; error?: string };
-  if (authResult.status === 'fulfilled') {
-    const response = authResult.value as Response;
-    authStatus = { ok: response.ok };
-    if (!response.ok) {
-      authStatus.error = `HTTP ${response.status}`;
-    }
-  } else {
-    authStatus = { ok: false, error: 'timeout' };
-  }
-
+  const dbStatus = dbResult.status === 'fulfilled' ? dbResult.value : { ok: false, latencyMs: -1, error: 'timeout' };
   const resendStatus =
     resendResult.status === 'fulfilled' ? resendResult.value : { ok: false, error: 'timeout' };
   const brevoStatus = brevoResult.status === 'fulfilled' ? brevoResult.value : { ok: false, error: 'timeout' };
@@ -87,16 +73,13 @@ router.get('/health', async (_req, res) => {
   };
 
   let overallStatus: 'ok' | 'degraded' | 'down' = 'ok';
-  if (!dbStatus.ok) {
-    overallStatus = 'down';
-  } else if (!authStatus.ok || !resendStatus.ok || !brevoStatus.ok) {
+  if (!dbStatus.ok || !resendStatus.ok || !brevoStatus.ok) {
     overallStatus = 'degraded';
   }
 
   res.status(200).json({
     status: overallStatus,
     db: dbStatus,
-    auth: authStatus,
     email: {
       resend: resendStatus,
       brevo: brevoStatus,
