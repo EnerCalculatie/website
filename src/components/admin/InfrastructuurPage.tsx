@@ -4,8 +4,8 @@ import { RefreshCw, AlertTriangle } from 'lucide-react';
 // Definieer het type voor de health check response, gebaseerd op health.ts
 interface HealthStatus {
   status: 'ok' | 'degraded' | 'down';
-  db: { ok: boolean; latencyMs: number };
-  auth: { ok: boolean };
+  db: { ok: boolean; latencyMs: number; error?: string };
+  auth: { ok: boolean; error?: string };
   email: {
     resend: { ok: boolean; error?: string };
     brevo: { ok: boolean; error?: string };
@@ -28,14 +28,14 @@ const formatUptime = (seconds: number) => {
 };
 
 // Status indicator component
-const StatusIndicator = ({ status, label, value }: { status: boolean; label: string; value?: string }) => (
+const StatusIndicator = ({ status, label, value, error }: { status: boolean; label: string; value?: string; error?: string }) => (
   <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
     <div className="flex items-center">
       <div className={`w-3 h-3 rounded-full mr-3 shrink-0 ${status ? 'bg-green-500' : 'bg-red-500'}`}></div>
       <span className="font-semibold text-slate-700">{label}</span>
     </div>
     <span className={`font-mono text-sm ${status ? 'text-slate-500' : 'text-red-600'}`}>
-      {value ?? (status ? 'OK' : 'FAIL')}
+      {status ? (value ?? 'OK') : (error || 'FAIL')}
     </span>
   </div>
 );
@@ -121,10 +121,10 @@ export function InfrastructuurPage() {
           {/* Services */}
           <div className="space-y-4">
             <h2 className="text-lg font-semibold text-slate-600">Services</h2>
-            <StatusIndicator status={health.db.ok} label="Database" value={`${health.db.latencyMs.toFixed(0)}ms`} />
-            <StatusIndicator status={health.auth.ok} label="Authentication" />
-            <StatusIndicator status={health.email.resend.ok} label="E-mail (Resend)" />
-            <StatusIndicator status={health.email.brevo.ok} label="Nieuwsbrief (Brevo)" />
+            <StatusIndicator status={health.db.ok} label="Database" value={`${health.db.latencyMs.toFixed(0)}ms`} error={health.db.error} />
+            <StatusIndicator status={health.auth.ok} label="Authentication" error={health.auth.error} />
+            <StatusIndicator status={health.email.resend.ok} label="E-mail (Resend)" error={health.email.resend.error} />
+            <StatusIndicator status={health.email.brevo.ok} label="Nieuwsbrief (Brevo)" error={health.email.brevo.error} />
           </div>
 
           {/* System */}

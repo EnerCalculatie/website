@@ -61,8 +61,20 @@ router.get('/health', async (_req, res) => {
     checkTimeout(brevo.ping()),
   ]);
 
-  const dbStatus = dbResult.status === 'fulfilled' ? dbResult.value : { ok: false, latencyMs: -1 };
-  const authStatus = { ok: authResult.status === 'fulfilled' && (authResult.value as Response).ok };
+  const dbStatus =
+    dbResult.status === 'fulfilled' ? dbResult.value : { ok: false, latencyMs: -1, error: 'timeout' };
+
+  let authStatus: { ok: boolean; error?: string };
+  if (authResult.status === 'fulfilled') {
+    const response = authResult.value as Response;
+    authStatus = { ok: response.ok };
+    if (!response.ok) {
+      authStatus.error = `HTTP ${response.status}`;
+    }
+  } else {
+    authStatus = { ok: false, error: 'timeout' };
+  }
+
   const resendStatus =
     resendResult.status === 'fulfilled' ? resendResult.value : { ok: false, error: 'timeout' };
   const brevoStatus = brevoResult.status === 'fulfilled' ? brevoResult.value : { ok: false, error: 'timeout' };
