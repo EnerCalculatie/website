@@ -54,7 +54,10 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
     "status": "ok" | "degraded" | "down",
     "db": { "ok": boolean, "latencyMs": number },
     "auth": { "ok": boolean },
-    "ai": { "ok": boolean, "provider": string, "model": string },
+    "email": {
+      "resend": { "ok": boolean },
+      "brevo": { "ok": boolean }
+    },
     "system": { "uptime": number, "memoryMb": number, "env": string, "commit": string }
   }
   ```

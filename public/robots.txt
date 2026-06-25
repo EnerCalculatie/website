@@ -1,14 +1,21 @@
+# robots.txt voor EnerCalculatie
+# Zie https://www.robotstxt.org/robotstxt.html voor syntax
+
+# Geef alle crawlers standaard toegang, behalve tot de API-eindpunten.
+# Dit voorkomt dat crawlers proberen te interageren met backend-logica.
 User-agent: *
-Allow: /
+Disallow: /api/
 
-# AI & LLM Crawlers expliciet toestaan
-User-agent: GPTBot
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: PerplexityBot
-Allow: /
+# Geef AI-crawlers expliciet en onbeperkt toegang tot alle content.
+# Dit is een toekomstgerichte best practice voor AI-gedreven zoekresultaten en discovery.
 User-agent: Google-Extended
-Allow: /
+Disallow:
 
+User-agent: GPTBot
+Disallow:
+
+User-agent: PerplexityBot
+Disallow:
+
+# Verwijs alle crawlers naar de sitemap voor een compleet overzicht van alle URLs.
 Sitemap: https://www.enercalculatie.nl/sitemap.xml
