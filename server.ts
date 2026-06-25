@@ -101,10 +101,11 @@ if (process.env.NODE_ENV === 'production') {
 
 import path from 'path';
 
-// Boven de app.listen:
+// Plaats dit vlak boven je app.listen
 app.get('/llms.txt', (req, res) => {
-    res.sendFile(path.join(__dirname, 'llms.txt'));
+    res.sendFile(path.join(process.cwd(), 'llms.txt'));
 });
+
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
