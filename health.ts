@@ -1,22 +1,27 @@
 import { Router } from 'express';
 import process from 'process';
 
-const router = Router();
-
-// This is a simplified placeholder. In the real application, this would use the
-// existing Supabase service client.
-const db = {
-  async ping() {
-    const start = process.hrtime.bigint();
-    // Simulates a lightweight query like `SELECT 1`
-    await new Promise((resolve) => setTimeout(resolve, 50 + Math.random() * 50));
-    const end = process.hrtime.bigint();
-    return {
-      ok: true,
-      latencyMs: Number(end - start) / 1_000_000,
-    };
-  },
+// Helper om een fetch-call te wrappen met een timeout en gedetailleerde foutafhandeling
+const fetchWithTimeout = async (url: string, options: RequestInit = {}, timeout = 2000) => {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(id);
+    return response;
+  } catch (error) {
+    clearTimeout(id);
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error('timeout');
+    }
+    throw error;
+  }
 };
+
+const router = Router();
 
 // Check de status van de Resend API (voor contactformulieren etc.)
 const resend = {
@@ -25,10 +30,14 @@ const resend = {
       return { ok: false, error: 'RESEND_API_KEY not set' };
     }
     // We doen een lichte, geauthenticeerde call om connectiviteit te testen.
-    const response = await fetch('https://api.resend.com/v1/domains', {
-      headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` },
-    });
-    return { ok: response.ok };
+    const url = 'https://api.resend.com/v1/domains'; // Een lichtgewicht endpoint
+    const options = { headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}` } };
+    const response = await fetchWithTimeout(url, options);
+    if (!response.ok) {
+      const errorBody = await response.text();
+      return { ok: false, error: `Resend API: HTTP ${response.status} - ${errorBody.substring(0, 100)}` };
+    }
+    return { ok: true };
   },
 };
 
@@ -38,29 +47,27 @@ const brevo = {
     if (!process.env.BREVO_API_KEY) {
       return { ok: false, error: 'BREVO_API_KEY not set' };
     }
-    // De /account endpoint is een lichte, geauthenticeerde call.
-    const response = await fetch('https://api.brevo.com/v3/account', {
-      headers: { 'api-key': process.env.BREVO_API_KEY },
-    });
-    return { ok: response.ok };
+    const url = 'https://api.brevo.com/v3/account'; // Een lichtgewicht, geauthenticeerd endpoint
+    const options = { headers: { 'api-key': process.env.BREVO_API_KEY } };
+    const response = await fetchWithTimeout(url, options);
+    if (!response.ok) {
+      const errorBody = await response.text();
+      return { ok: false, error: `Brevo API: HTTP ${response.status} - ${errorBody.substring(0, 100)}` };
+    }
+    return { ok: true };
   },
 };
 
-const checkTimeout = <T>(promise: Promise<T>, timeout = 2000): Promise<T> => {
-  return Promise.race([
-    promise,
-    new Promise<T>((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout)),
-  ]);
-};
-
 router.get('/health', async (_req, res) => {
-  const [dbResult, resendResult, brevoResult] = await Promise.allSettled([
-    checkTimeout(db.ping()),
-    checkTimeout(resend.ping()),
-    checkTimeout(brevo.ping()),
+  const [resendResult, brevoResult] = await Promise.allSettled([
+    resend.ping().catch((e) => ({ ok: false, error: e.message || 'unknown error' })),
+    brevo.ping().catch((e) => ({ ok: false, error: e.message || 'unknown error' })),
   ]);
 
-  const dbStatus = dbResult.status === 'fulfilled' ? dbResult.value : { ok: false, latencyMs: -1, error: 'timeout' };
+  // De health check voor de database is verwijderd omdat deze website geen eigen database heeft.
+  // De 'db' check was een placeholder en veroorzaakte verwarring.
+  const dbStatus = { ok: true, latencyMs: 0, error: undefined }; // Altijd OK, want geen DB
+
   const resendStatus =
     resendResult.status === 'fulfilled' ? resendResult.value : { ok: false, error: 'timeout' };
   const brevoStatus = brevoResult.status === 'fulfilled' ? brevoResult.value : { ok: false, error: 'timeout' };
@@ -73,9 +80,7 @@ router.get('/health', async (_req, res) => {
   };
 
   let overallStatus: 'ok' | 'degraded' | 'down' = 'ok';
-  if (!dbStatus.ok || !resendStatus.ok || !brevoStatus.ok) {
-    overallStatus = 'degraded';
-  }
+  if (!resendStatus.ok || !brevoStatus.ok) overallStatus = 'degraded';
 
   res.status(200).json({
     status: overallStatus,

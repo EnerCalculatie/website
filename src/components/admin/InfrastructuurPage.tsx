@@ -98,10 +98,9 @@ export function InfrastructuurPage() {
       : 'bg-red-100 text-red-800';
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto"> {/* Verwijderde p-4 md:p-8 bg-slate-50 min-h-screen */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-slate-900">Infrastructuur Status</h1>
-        <div className="flex items-center gap-4">
           <span className={`px-3 py-1 text-sm font-bold rounded-full ${overallStatusColor}`}>
             {health.status.toUpperCase()}
           </span>
@@ -112,14 +111,12 @@ export function InfrastructuurPage() {
           >
             <RefreshCw className="w-5 h-5" />
           </button>
-        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Services */}
         <div className="space-y-4">
           <h2 className="text-lg font-semibold text-slate-600">Services</h2>
-          <StatusIndicator status={health.db.ok} label="Database" value={`${health.db.latencyMs.toFixed(0)}ms`} error={health.db.error} />
           <StatusIndicator status={health.email.resend.ok} label="E-mail (Resend)" error={health.email.resend.error} />
           <StatusIndicator status={health.email.brevo.ok} label="Nieuwsbrief (Brevo)" error={health.email.brevo.error} />
         </div>
