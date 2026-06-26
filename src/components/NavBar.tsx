@@ -30,6 +30,7 @@ export function NavBar() {
     { name: 'Prijzen', href: '/#prijzen' },
     { name: 'FAQ', href: '/#faq' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   return (

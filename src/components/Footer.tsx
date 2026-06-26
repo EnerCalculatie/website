@@ -71,6 +71,7 @@ export function Footer() {
               <li><a href="/#pricing-calculator" className="hover:text-white transition-colors block py-1 break-words">ROI Calculator</a></li>
               <li><a href="/#prijzen" className="hover:text-white transition-colors block py-1 break-words">Prijzen</a></li>
               <li><a href="/blog" className="hover:text-white transition-colors block py-1 break-words">Blog</a></li>
+              <li><a href="/#contact" className="hover:text-white transition-colors block py-1 break-words">Contact</a></li>
               <li><a href="https://app.enercalculatie.nl/" className="hover:text-white transition-colors block py-1 break-words">Inloggen</a></li>
             </ul>
           </div>
