@@ -5,6 +5,7 @@ import rateLimit from 'express-rate-limit';
 import contactRouter from './contact';
 import leadMagnetRouter from './leadMagnet';
 import newsletterRouter from './newsletter';
+import healthRouter from './health';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -33,6 +34,9 @@ const formLimiter = rateLimit({
 app.use('/api', formLimiter, contactRouter);
 app.use('/api', formLimiter, leadMagnetRouter);
 app.use('/api', formLimiter, newsletterRouter);
+// Geen formLimiter op /api/health: monitortools pollen dit endpoint regelmatig
+// en zouden anders zelf het formulier-quotum opmaken.
+app.use('/api', healthRouter);
  
 // Serveer llms.txt vanuit de project root, vóór de static middleware voor productie.
 app.get('/llms.txt', (_req, res) => {

@@ -47,12 +47,16 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 - Gebruik `import type { Variants } from 'motion/react'` en typeer variant-objecten expliciet: `const myVariants: Variants = { ... }`. Dit voorkomt TS2322-fouten bij `type: 'spring'` in transition-objecten.
 
 ## Observability & Systeem Schema's
-- **Health Endpoint (`GET /api/health`):**
-  Het endpoint retouneert altijd een 200 OK response (zodat monitortools de JSON kunnen parsen) en bevat nooit PII of secrets. 
+- **Health Endpoint (`GET /api/health`, `health.ts`):**
+  Het endpoint retourneert altijd een 200 OK response (zodat monitortools de JSON kunnen parsen) en bevat nooit PII of secrets. Het checkt Resend (`/api-keys`, niet `/v1/keys` of `/v1/domains` — die geven een 405 op GET) en Brevo (`/v3/account`) met een 2s timeout per call.
   ```json
   {
-    "status": "ok",
-    "message": "Backend API is running."
+    "status": "ok" | "degraded",
+    "message": "Backend API is running.",
+    "email": {
+      "resend": { "ok": boolean, "error"?: string },
+      "brevo": { "ok": boolean, "error"?: string }
+    }
   }
   ```
-  *Regel:* De status aggregatie logt naar `system_logs` uitsluitend wanneer er een wijziging in de globale status optreedt (bijv. ok → degraded).
+  *Regel:* `status` wordt `degraded` als Resend of Brevo niet bereikbaar is. Dit endpoint loopt buiten de `formLimiter` in `server.ts` — monitortools pollen het regelmatig en zouden anders het formulier-quotum opmaken. Er is geen los admin-dashboard of login meer voor deze data (die superadmin-aanpak is teruggedraaid, zie git-historie rond `597032b`); roep de URL direct aan of koppel een externe uptime-monitor erop.
