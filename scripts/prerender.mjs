@@ -29,6 +29,7 @@ const routes = [
   { url: '/blog/terugleverkosten-thuisbatterij', outFile: 'blog-terugleverkosten-thuisbatterij.html' },
   { url: '/blog/isde-subsidie-warmtepompen', outFile: 'blog-isde-subsidie-warmtepompen.html' },
   { url: '/blog/warmtepomp-rendement-aannames', outFile: 'blog-warmtepomp-rendement-aannames.html' },
+  { url: '/blog/van-excel-naar-geautomatiseerd-advies', outFile: 'blog-van-excel-naar-geautomatiseerd-advies.html' },
   { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html' },
   { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html' },
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html' },

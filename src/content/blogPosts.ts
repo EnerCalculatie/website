@@ -56,4 +56,13 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een klant die het getal achter de besparing niet begrijpt, vertrouwt het minder. Welke standaardaannames liggen aan een warmtepomp-rendementsberekening ten grondslag, en hoe legt u dit uit?',
   },
+  {
+    slug: 'van-excel-naar-geautomatiseerd-advies',
+    title: 'Van Excel naar geautomatiseerd advies: wat verandert er in uw werkdag?',
+    description:
+      'Een eigen Excel-rekenmodel voor zonnepanelen, thuisbatterijen of warmtepompen werkt — tot een tarief wijzigt of een collega het overneemt. Lees wat er verandert in uw werkdag bij een overstap naar een geautomatiseerd adviestraject.',
+    date: '2026-06-26',
+    excerpt:
+      'Een Excel-rekenmodel werkt, tot het moment dat een tarief wijzigt of een nieuwe medewerker het moet overnemen. Wat verandert er in uw werkdag bij een overstap naar een gestructureerd, geautomatiseerd adviestraject?',
+  },
 ];

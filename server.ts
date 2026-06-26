@@ -72,6 +72,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/terugleverkosten-thuisbatterij': 'blog-terugleverkosten-thuisbatterij.html',
     '/blog/isde-subsidie-warmtepompen': 'blog-isde-subsidie-warmtepompen.html',
     '/blog/warmtepomp-rendement-aannames': 'blog-warmtepomp-rendement-aannames.html',
+    '/blog/van-excel-naar-geautomatiseerd-advies': 'blog-van-excel-naar-geautomatiseerd-advies.html',
     '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
     '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
     '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',
