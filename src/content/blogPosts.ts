@@ -20,7 +20,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: '2026-06-20',
     excerpt:
       'De afbouw is van de baan — in plaats daarvan verdwijnt de salderingsregeling per 1 januari 2027 in één keer volledig. Wat betekent dit voor de rendementsberekening die u uw klant voorlegt?',
-    tags: ['Salderingsregeling', 'Zonnepanelen', 'EnergieAdvies'],
+    tags: ['Salderingsregeling', 'Zonnepanelen', 'EnergieAdvies', 'Installatiebranche'],
   },
   {
     slug: 'btw-zonnepanelen',
@@ -30,7 +30,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: '2026-06-20',
     excerpt:
       'Het 0%-btw-tarief op zonnepanelen scheelt uw klant direct geld op de offerte — maar alleen als aan de juiste voorwaarden is voldaan. Wanneer geldt het nultarief wel, en wanneer toch 21%?',
-    tags: ['Zonnepanelen', 'BTW', 'Installateurs'],
+    tags: ['Zonnepanelen', 'BTW', 'Installatiebranche'],
   },
   {
     slug: 'terugleverkosten-thuisbatterij',
@@ -40,7 +40,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: '2026-06-22',
     excerpt:
       'Terugleverkosten knagen aan het rendement van zonnepanelen, en de manier waarop leveranciers ze berekenen verschilt sterk. Hoe legt u dit uit aan uw klant, en welke rol speelt een thuisbatterij hierin?',
-    tags: ['Terugleverkosten', 'Thuisbatterij', 'Zonnepanelen'],
+    tags: ['Terugleverkosten', 'Thuisbatterij', 'Zonnepanelen', 'Installatiebranche'],
   },
   {
     slug: 'isde-subsidie-warmtepompen',
@@ -50,7 +50,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: '2026-06-22',
     excerpt:
       'Een onvolledig onderbouwd adviesrapport kan uw klant tijd of subsidie kosten. Welke technische specificaties en meldcodes vraagt de RVO precies, en wat is uw rol als installateur daarin?',
-    tags: ['ISDE', 'Warmtepomp', 'Subsidie'],
+    tags: ['ISDE', 'Warmtepomp', 'Subsidie', 'Installatiebranche'],
   },
   {
     slug: 'warmtepomp-rendement-aannames',
@@ -60,7 +60,7 @@ export const blogPosts: BlogPostMeta[] = [
     date: '2026-06-24',
     excerpt:
       'Een klant die het getal achter de besparing niet begrijpt, vertrouwt het minder. Welke standaardaannames liggen aan een warmtepomp-rendementsberekening ten grondslag, en hoe legt u dit uit?',
-    tags: ['Warmtepomp', 'EnergieAdvies', 'Duurzaamheid'],
+    tags: ['Warmtepomp', 'EnergieAdvies', 'Duurzaamheid', 'Installatiebranche'],
   },
   {
     slug: 'van-excel-naar-geautomatiseerd-advies',
@@ -70,6 +70,6 @@ export const blogPosts: BlogPostMeta[] = [
     date: '2026-06-26',
     excerpt:
       'Een Excel-rekenmodel werkt, tot het moment dat een tarief wijzigt of een nieuwe medewerker het moet overnemen. Wat verandert er in uw werkdag bij een overstap naar een gestructureerd, geautomatiseerd adviestraject?',
-    tags: ['EnergieAdvies', 'Automatisering', 'Excel'],
+    tags: ['EnergieAdvies', 'Automatisering', 'Excel', 'Installatiebranche'],
   },
 ];
