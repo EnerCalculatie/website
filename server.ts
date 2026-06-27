@@ -6,6 +6,7 @@ import contactRouter from './contact';
 import leadMagnetRouter from './leadMagnet';
 import newsletterRouter from './newsletter';
 import healthRouter from './health';
+import rssRouter from './rss';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -37,7 +38,10 @@ app.use('/api', formLimiter, newsletterRouter);
 // Geen formLimiter op /api/health: monitortools pollen dit endpoint regelmatig
 // en zouden anders zelf het formulier-quotum opmaken.
 app.use('/api', healthRouter);
- 
+// Geen formLimiter op de RSS-feed: Zapier pollt dit regelmatig voor de LinkedIn-automatisering
+// en zou anders zelf het formulier-quotum opmaken.
+app.use(rssRouter);
+
 // Serveer llms.txt vanuit de project root, vóór de static middleware voor productie.
 app.get('/llms.txt', (_req, res) => {
   res.sendFile(path.join(process.cwd(), 'llms.txt'));
