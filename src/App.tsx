@@ -28,6 +28,7 @@ import { TerugleverkostenThuisbatterijArticle } from './components/blog/Teruglev
 import { IsdeWarmtepompenArticle } from './components/blog/IsdeWarmtepompenArticle';
 import { WarmtepompRendementArticle } from './components/blog/WarmtepompRendementArticle';
 import { ExcelNaarAdviesArticle } from './components/blog/ExcelNaarAdviesArticle';
+import { LaadpaalAdviesArticle } from './components/blog/LaadpaalAdviesArticle';
 import { ServiceLandingPage } from './components/services/ServiceLandingPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
@@ -101,6 +102,7 @@ export function AppContent() {
           <Route path="/blog/isde-subsidie-warmtepompen" element={<IsdeWarmtepompenArticle />} />
           <Route path="/blog/warmtepomp-rendement-aannames" element={<WarmtepompRendementArticle />} />
           <Route path="/blog/van-excel-naar-geautomatiseerd-advies" element={<ExcelNaarAdviesArticle />} />
+          <Route path="/blog/laadpaal-advies-thuis" element={<LaadpaalAdviesArticle />} />
           <Route path="/rekentool-zonnepanelen" element={<ServiceLandingPage slug="zonnepanelen" />} />
           <Route path="/rekentool-thuisbatterij" element={<ServiceLandingPage slug="thuisbatterij" />} />
           <Route path="/rekentool-warmtepomp" element={<ServiceLandingPage slug="warmtepomp" />} />

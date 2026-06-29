@@ -72,4 +72,14 @@ export const blogPosts: BlogPostMeta[] = [
       'Een Excel-rekenmodel werkt, tot het moment dat een tarief wijzigt of een nieuwe medewerker het moet overnemen. Wat verandert er in uw werkdag bij een overstap naar een gestructureerd, geautomatiseerd adviestraject?',
     tags: ['EnergieAdvies', 'Automatisering', 'Excel', 'Installatiebranche'],
   },
+  {
+    slug: 'laadpaal-advies-thuis',
+    title: 'Laadpaal-advies: welke factoren bepalen de juiste configuratie voor uw klant?',
+    description:
+      'Laadvermogen, load balancing en de capaciteit van de groepenkast bepalen samen welke laadpaal-configuratie bij een woning past. Lees hoe u dit technisch onderbouwt én uitlegt aan een klant die elektrisch rijden overweegt.',
+    date: '2026-06-29',
+    excerpt:
+      'Een laadpaal-advies is meer dan een stekker aan de gevel: laadvermogen, load balancing en de resterende capaciteit van de groepenkast bepalen samen de juiste configuratie. Hoe legt u dit onderbouwd uit aan uw klant?',
+    tags: ['Laadpaal', 'ElektrischRijden', 'EnergieAdvies', 'Installatiebranche'],
+  },
 ];

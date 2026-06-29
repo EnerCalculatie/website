@@ -235,5 +235,7 @@ export const services: ServiceMeta[] = [
         answer: 'De laadpaal-module is beschikbaar vanaf het Compleet-pakket.',
       },
     ],
+    relatedBlogSlug: 'laadpaal-advies-thuis',
+    relatedBlogLabel: 'Laadpaal-advies: welke factoren bepalen de juiste configuratie?',
   },
 ];
