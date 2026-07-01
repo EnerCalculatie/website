@@ -109,6 +109,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
           <p>&copy; {currentYear} EnerCalculatie. Alle rechten voorbehouden.</p>
+          <p>KvK: 42102840</p>
         </div>
       </div>
 
