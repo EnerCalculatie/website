@@ -82,6 +82,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/warmtepomp-rendement-aannames': 'blog-warmtepomp-rendement-aannames.html',
     '/blog/van-excel-naar-geautomatiseerd-advies': 'blog-van-excel-naar-geautomatiseerd-advies.html',
     '/blog/laadpaal-advies-thuis': 'blog-laadpaal-advies-thuis.html',
+    '/blog/airco-vs-warmtepomp': 'blog-airco-vs-warmtepomp.html',
     '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
     '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
     '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',

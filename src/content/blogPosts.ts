@@ -82,4 +82,14 @@ export const blogPosts: BlogPostMeta[] = [
       'Een laadpaal-advies is meer dan een stekker aan de gevel: laadvermogen, load balancing en de resterende capaciteit van de groepenkast bepalen samen de juiste configuratie. Hoe legt u dit onderbouwd uit aan uw klant?',
     tags: ['Laadpaal', 'ElektrischRijden', 'EnergieAdvies', 'Installatiebranche'],
   },
+  {
+    slug: 'airco-vs-warmtepomp',
+    title: 'Airco of (hybride) warmtepomp: wanneer is welke keuze de juiste verkoopargumentatie?',
+    description:
+      'Airco, hybride warmtepomp of volledig elektrische warmtepomp: de keuze hangt af van de bouwkundige situatie, het verwarmingssysteem en de wens van de klant. Lees hoe u de SCOP-norm gebruikt als verkoopargument en wanneer welke oplossing het beste past.',
+    date: '2026-07-01',
+    excerpt:
+      'Airco of warmtepomp — voor veel klanten lijken het inwisselbare keuzes, maar de argumentatie verschilt sterk. Welke situatie vraagt om een lucht-lucht-airco, en wanneer is een (hybride) warmtepomp de betere keuze? De SCOP-norm maakt het verschil inzichtelijk.',
+    tags: ['Airco', 'Warmtepomp', 'SCOP', 'EnergieAdvies', 'Installatiebranche'],
+  },
 ];

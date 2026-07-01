@@ -31,6 +31,7 @@ const routes = [
   { url: '/blog/warmtepomp-rendement-aannames', outFile: 'blog-warmtepomp-rendement-aannames.html' },
   { url: '/blog/van-excel-naar-geautomatiseerd-advies', outFile: 'blog-van-excel-naar-geautomatiseerd-advies.html' },
   { url: '/blog/laadpaal-advies-thuis', outFile: 'blog-laadpaal-advies-thuis.html' },
+  { url: '/blog/airco-vs-warmtepomp', outFile: 'blog-airco-vs-warmtepomp.html' },
   { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html' },
   { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html' },
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html' },
