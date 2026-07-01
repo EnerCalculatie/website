@@ -60,6 +60,7 @@ export function Footer() {
                 06 - 30 36 61 89
               </a>
               <p className="text-slate-400 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
+              <p className="text-slate-400">KvK: 42102840</p>
             </div>
           </div>
 
@@ -109,7 +110,6 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
           <p>&copy; {currentYear} EnerCalculatie. Alle rechten voorbehouden.</p>
-          <p>KvK: 42102840</p>
         </div>
       </div>
 
