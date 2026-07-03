@@ -92,4 +92,14 @@ export const blogPosts: BlogPostMeta[] = [
       'Airco of warmtepomp — voor veel klanten lijken het inwisselbare keuzes, maar de argumentatie verschilt sterk. Welke situatie vraagt om een lucht-lucht-airco, en wanneer is een (hybride) warmtepomp de betere keuze? De SCOP-norm maakt het verschil inzichtelijk.',
     tags: ['Airco', 'Warmtepomp', 'SCOP', 'EnergieAdvies', 'Installatiebranche'],
   },
+  {
+    slug: 'trends-verduurzaming-2026',
+    title: 'Verduurzamingsmarkt 2026: trends in subsidies, regelgeving en marktvraag voor installateurs',
+    description:
+      'De Nederlandse verduurzamingsmarkt verandert in 2026: gewijzigde ISDE-bedragen voor warmtepompen, explosieve groei van thuisbatterijen, het nieuwe netcongestie-prioriteringskader en de naderende afschaffing van de salderingsregeling. Lees wat dit betekent voor uw adviesgesprek.',
+    date: '2026-07-03',
+    excerpt:
+      'Gewijzigde ISDE-subsidies, een thuisbatterijmarkt die in 2025 met 140% groeide, een nieuw prioriteringskader voor netcongestie en de salderingsregeling die in 2027 verdwijnt: de verduurzamingsmarkt vraagt in 2026 om een bijgesteld advies. Wat zijn de belangrijkste ontwikkelingen?',
+    tags: ['Verduurzaming', 'Trends', 'ISDE', 'Thuisbatterij', 'Netcongestie', 'Installatiebranche'],
+  },
 ];
