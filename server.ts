@@ -86,6 +86,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/trends-verduurzaming-2026': 'blog-trends-verduurzaming-2026.html',
     '/blog/thuisbatterij-capaciteit-kiezen': 'blog-thuisbatterij-capaciteit-kiezen.html',
     '/blog/dakorientatie-zonnepanelen-opbrengst': 'blog-dakorientatie-zonnepanelen-opbrengst.html',
+    '/blog/netcongestie-wachtlijst-zakelijk-2026': 'blog-netcongestie-wachtlijst-zakelijk-2026.html',
     '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
     '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
     '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',
