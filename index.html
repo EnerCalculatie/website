@@ -10,40 +10,37 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- Google Tag Manager — uitgesteld geladen: gtm.js is 70+ KB ongebruikte JS
-         tijdens de kritieke laadfase. dataLayer + gtm.start staan wel direct
-         klaar; het script zelf laadt bij eerste interactie of kort na window.load,
-         wat het eerst gebeurt. Pageviews en events blijven gewoon binnenkomen. -->
+    <!-- Google tag (gtag.js) — GA4, uitgestelde laadstrategie:
+         config staat direct klaar in dataLayer, gtag.js laadt bij eerste
+         interactie of kort na window.load om de kritieke laadfase vrij te houden. -->
     <script>
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-627EB4SHYL');
     (function () {
       var loaded = false;
-      function loadGtm() {
+      function loadGtag() {
         if (loaded) return;
         loaded = true;
         var j = document.createElement('script');
         j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-5584TTFK';
+        j.src = 'https://www.googletagmanager.com/gtag/js?id=G-627EB4SHYL';
         document.head.appendChild(j);
       }
       ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
-        window.addEventListener(evt, loadGtm, { once: true, passive: true });
+        window.addEventListener(evt, loadGtag, { once: true, passive: true });
       });
       if (document.readyState === 'complete') {
-        setTimeout(loadGtm, 1500);
+        setTimeout(loadGtag, 1500);
       } else {
-        window.addEventListener('load', function () { setTimeout(loadGtm, 1500); });
+        window.addEventListener('load', function () { setTimeout(loadGtag, 1500); });
       }
     })();
     </script>
-    <!-- End Google Tag Manager -->
+    <!-- End Google tag (gtag.js) -->
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5584TTFK"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
