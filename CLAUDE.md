@@ -39,6 +39,16 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 - **Geen absolute claims in copy of meta:** "foutloos", "altijd correct", "0% foutmarge" zijn juridisch riskant. Gebruik "gevalideerd", "deterministisch berekend" of "kloppend".
 - **Publieke bestanden vereist:** `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt` en `public/pricing.md` moeten aanwezig zijn. Zie de open-taken backlog in memory.
 
+## Nieuw Blogartikel — Verplichte Checklist
+Een nieuw blogartikel vereist wijzigingen op ál deze plekken. Sla je er één over, dan is het artikel kapot op productie (bijv. een 404 ondanks werkende prerender):
+1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent.
+2. `src/content/blogPosts.ts` — metadata-entry (slug/title/description/excerpt/tags).
+3. `src/App.tsx` — import + `<Route>`.
+4. `scripts/prerender.mjs` — route in de prerenderlijst.
+5. `server.ts` — entry in `prerenderedRoutes` (**meest vergeten stap**: zonder deze mapping geeft de productieserver een 404 op de artikel-URL).
+6. `public/sitemap.xml` — URL-entry met lastmod.
+7. `public/blog-index.md` én een nieuw `public/blog-<slug>.md` — agent-leesbare samenvatting (frontmatter met `type: Article`, excerpt, link naar de website; volg het formaat van bestaande `blog-*.md` bestanden).
+
 ## Integraties & Claims
 - **Alleen bevestigde integraties tonen als "Beschikbaar":** Op dit moment is alleen PDOK Kadaster live. Exact Online, Teamleader en AFAS zijn in ontwikkeling — toon als "Binnenkort" in `Integrations.tsx`.
 - **Testimonials:** Gebruik uitsluitend echte klantquotes met toestemming. Geen placeholder-namen.
