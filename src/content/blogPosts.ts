@@ -11,6 +11,12 @@ export interface BlogPostMeta {
   /** Absolute of root-relatieve afbeeldings-URL voor het BlogPosting-schema
    *  (rich results / social cards). Leeg = valt terug op /og-image.png. */
   image?: string;
+  /** Zet op true om het artikel in de 'Meest gelezen'-strip te tonen (redactioneel
+   *  gekozen, max 4 worden getoond). Pas dit aan naar wat je wilt uitlichten. */
+  popular?: boolean;
+  /** 3-4 korte kernpunten (TL;DR). Getoond in een 'Kernpunten'-blok bovenaan het
+   *  artikel — direct, citeerbaar antwoord voor lezers én AI-engines (GEO). */
+  keyPoints?: string[];
 }
 
 // Metadata van alle blogartikelen. Wordt gebruikt door de BlogIndex
@@ -27,6 +33,7 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'De afbouw is van de baan — in plaats daarvan verdwijnt de salderingsregeling per 1 januari 2027 in één keer volledig. Wat betekent dit voor de rendementsberekening die u uw klant voorlegt?',
     tags: ['Salderingsregeling', 'Zonnepanelen', 'EnergieAdvies', 'Installatiebranche'],
+    popular: true,
   },
   {
     slug: 'btw-zonnepanelen',
@@ -57,6 +64,7 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een onvolledig onderbouwd adviesrapport kan uw klant tijd of subsidie kosten. Welke technische specificaties en meldcodes vraagt de RVO precies, en wat is uw rol als installateur daarin?',
     tags: ['ISDE', 'Warmtepomp', 'Subsidie', 'Installatiebranche'],
+    popular: true,
   },
   {
     slug: 'warmtepomp-rendement-aannames',
@@ -117,6 +125,13 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een thuisbatterij van 5 kWh of toch 10 kWh? Te kleine capaciteit mist opbrengst, te grote capaciteit betaalt zichzelf niet terug. Welke factoren bepalen de juiste dimensionering, en hoe legt u dat onderbouwd uit aan uw klant?',
     tags: ['Thuisbatterij', 'Zonnepanelen', 'EnergieAdvies', 'Installatiebranche'],
+    popular: true,
+    keyPoints: [
+      'De juiste capaciteit volgt uit het zelfconsumptieprofiel, de installatiegrootte en het financiële doel — niet uit "goedkoopste" of "grootste".',
+      'Vuistregel: circa 1 kWh batterij per geïnstalleerde kWp zonnepanelen; boven 1,5 kWh/kWp daalt de jaargemiddelde benuttingsgraad.',
+      '8–10 kWh is de gangbare keuze voor een doorsnee woning met 6–10 kWp zonnepanelen.',
+      'Na afschaffing van de saldering (2027) wordt zelfconsumptie waardevoller, wat de terugverdientijd verkort.',
+    ],
   },
   {
     slug: 'dakorientatie-zonnepanelen-opbrengst',

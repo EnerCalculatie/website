@@ -1,8 +1,35 @@
-import { ArrowLeft, Printer, Linkedin } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Linkedin, Check } from 'lucide-react';
 import type { ReactNode } from 'react';
-import type { BlogPostMeta } from '../../content/blogPosts';
+import { blogPosts, type BlogPostMeta } from '../../content/blogPosts';
+import { author } from '../../content/author';
 import { buildBlogPostingSchema } from '../../content/blogSchema';
 import { LeadMagnet } from '../LeadMagnet';
+
+// Te generieke tags tellen niet mee voor 'verwantschap' bij Lees ook.
+const GENERIC_TAGS = ['Installatiebranche', 'EnergieAdvies'];
+const MAX_RELATED = 3;
+
+// Gerelateerde artikelen: meeste gedeelde (niet-generieke) tags eerst, daarna
+// nieuwste. Aangevuld met recente artikelen als er te weinig overlap is.
+function relatedPosts(post: BlogPostMeta): BlogPostMeta[] {
+  const others = blogPosts.filter((p) => p.slug !== post.slug);
+  const scored = others
+    .map((p) => ({
+      p,
+      score: p.tags.filter((t) => !GENERIC_TAGS.includes(t) && post.tags.includes(t)).length,
+    }))
+    .sort((a, b) => b.score - a.score || b.p.date.localeCompare(a.p.date));
+
+  const related = scored.filter((x) => x.score > 0).map((x) => x.p);
+  if (related.length < MAX_RELATED) {
+    const fillers = scored
+      .filter((x) => x.score === 0)
+      .map((x) => x.p)
+      .filter((p) => !related.includes(p));
+    related.push(...fillers);
+  }
+  return related.slice(0, MAX_RELATED);
+}
 
 interface BlogPostLayoutProps {
   post: BlogPostMeta;
@@ -12,6 +39,9 @@ interface BlogPostLayoutProps {
 export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
   const articleUrl = `https://www.enercalculatie.nl/blog/${post.slug}`;
   const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`;
+  const related = relatedPosts(post);
+  const formatDate = (date: string) =>
+    new Date(date).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
     <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
@@ -37,24 +67,64 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
                 <Linkedin size={18} />
                 Deel op LinkedIn
               </a>
-              <button
-                onClick={() => window.print()}
-                className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-bold transition-colors cursor-pointer"
-              >
-                <Printer size={18} />
-                Sla op als PDF / Printen
-              </button>
             </div>
           </div>
 
           <h1 className="text-2xl md:text-4xl font-black text-slate-900 mb-4">{post.title}</h1>
           <p className="text-slate-500 mb-8">
-            {new Date(post.date).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
+            Door{' '}
+            <a href="/over-ons" className="font-semibold text-slate-600 hover:text-brand-primary transition-colors">
+              {author.name}
+            </a>
+            {' · '}
+            {formatDate(post.date)}
+            {post.updated && post.updated !== post.date && (
+              <> · bijgewerkt {formatDate(post.updated)}</>
+            )}
           </p>
+
+          {/* Kernpunten (TL;DR) — direct, citeerbaar antwoord bovenaan (GEO). */}
+          {post.keyPoints && post.keyPoints.length > 0 && (
+            <div className="not-prose mb-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+              <p className="text-sm font-bold uppercase tracking-wide text-brand-primary-text mb-3">Kernpunten</p>
+              <ul className="space-y-2">
+                {post.keyPoints.map((point) => (
+                  <li key={point} className="flex gap-2 text-slate-700 leading-relaxed">
+                    <Check size={18} className="shrink-0 mt-0.5 text-brand-primary" aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {children}
         </div>
       </div>
+
+      {/* Lees ook — gerelateerde artikelen (interne linking + engagement). */}
+      {related.length > 0 && (
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">
+          <h2 className="text-lg font-black text-slate-900 mb-4">Lees ook</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {related.map((p) => (
+              <a
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="flex flex-col bg-white p-5 rounded-2xl border border-slate-200 hover:border-brand-primary/40 hover:shadow-md transition-all group"
+              >
+                <p className="text-xs text-slate-500 mb-2">{formatDate(p.date)}</p>
+                <h3 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-brand-primary transition-colors line-clamp-3">
+                  {p.title}
+                </h3>
+                <span className="mt-auto pt-3 inline-flex items-center gap-1.5 text-brand-primary font-semibold text-sm">
+                  Lees verder <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">
         <LeadMagnet />
