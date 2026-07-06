@@ -1,4 +1,3 @@
-import { Printer } from 'lucide-react';
 import { SEO } from './SEO';
 
 export function ProcessorAgreement() {
@@ -12,15 +11,6 @@ export function ProcessorAgreement() {
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
         <div className="animate-fade-up prose prose-slate max-w-none">
-          <div className="flex justify-end mb-6 print:hidden">
-            <button 
-              onClick={() => window.print()}
-              className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-bold transition-colors cursor-pointer"
-            >
-              <Printer size={18} />
-              Sla op als PDF / Printen
-            </button>
-          </div>
           <h1 className="text-2xl md:text-4xl font-black text-slate-900 mb-8">Verwerkersovereenkomst (AVG Art. 28) - EnerCalculatie</h1>
           <p className="text-slate-600 mb-4">Laatst gewijzigd: 15 juni 2026</p>
           <p className="text-slate-600 mb-8 italic text-sm">Deze overeenkomst maakt integraal onderdeel uit van de <a href="/voorwaarden" className="text-brand-primary font-medium hover:underline">Algemene Voorwaarden</a> en de overeenkomst tussen EnerCalculatie (Verwerker) en de Gebruiker (Verwerkingsverantwoordelijke).</p>
