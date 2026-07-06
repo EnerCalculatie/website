@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Settings, Check, X } from 'lucide-react';
 
 export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(
-    () => typeof window !== 'undefined' && !localStorage.getItem('cookie-consent')
-  );
+  // Zichtbaarheid pas na mount bepalen: de server rendert de banner nooit
+  // (geen localStorage), dus als de client 'm bij de eerste render wél toont
+  // ontstaat een hydration mismatch (React #418) en gooit React de volledige
+  // geprerenderde DOM weg om client-side opnieuw te renderen.
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    if (!localStorage.getItem('cookie-consent')) setIsVisible(true);
+  }, []);
   const [showDetails, setShowDetails] = useState(false);
 
   const [preferences, setPreferences] = useState({

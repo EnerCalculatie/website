@@ -3,22 +3,27 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
 
 export function Contact() {
-  const [formData, setFormData] = useState(() => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    company: '',
+    message: '',
+    subject: '' // Honeypot field
+  });
+
+  // Herstel opgeslagen formulierdata pas ná mount: de server rendert altijd
+  // een leeg formulier, dus een gevulde eerste client-render zou een hydration
+  // mismatch geven. Deze effect staat vóór de save-effect zodat de opgeslagen
+  // data gelezen is voordat die overschreven kan worden.
+  useEffect(() => {
     try {
       const savedData = sessionStorage.getItem('contactFormData');
-      return savedData ? JSON.parse(savedData) : {
-        firstName: '',
-        lastName: '',
-        email: '',
-        company: '',
-        message: '',
-        subject: '' // Honeypot field
-      };
+      if (savedData) setFormData(JSON.parse(savedData));
     } catch (_error) {
-      // Als het parsen van JSON mislukt, start met een leeg formulier.
-      return { firstName: '', lastName: '', email: '', company: '', message: '', subject: '' };
+      // Corrupte JSON: start met een leeg formulier.
     }
-  });
+  }, []);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [clientError, setClientError] = useState<string | null>(null); // New state for client-side errors
   const [serverError, setServerError] = useState<string | null>(null);

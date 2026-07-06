@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'motion/react';
 import {
   Home, Cpu, Zap, Sun, Battery, Flame, Wind, Car,
   TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight
@@ -126,37 +126,33 @@ const AUTO_ADVANCE_INTERVAL = 4000;
 export function AppDemoVideo() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  // Alleen auto-advancen als de sectie in beeld is: voorkomt dat de carousel
+  // offscreen alle 13 screenshots (~600 KB) binnentrekt en CPU verstookt.
+  const inView = useInView(sectionRef, { amount: 0.2 });
+  const autoPlaying = isPlaying && inView;
 
   const advance = useCallback(() => {
     setActiveIndex(prev => (prev + 1) % steps.length);
-    setProgress(0);
   }, []);
 
+  // Eén timeout per stap in plaats van een 100ms-interval met state-updates:
+  // de voortgangsbalk loopt via een CSS-animatie mee, zonder re-renders.
   useEffect(() => {
-    if (!isPlaying) return;
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          advance();
-          return 0;
-        }
-        return prev + (100 / (AUTO_ADVANCE_INTERVAL / 100));
-      });
-    }, 100);
-    return () => clearInterval(interval);
-  }, [isPlaying, activeIndex, advance]);
+    if (!autoPlaying) return;
+    const timeout = setTimeout(advance, AUTO_ADVANCE_INTERVAL);
+    return () => clearTimeout(timeout);
+  }, [autoPlaying, activeIndex, advance]);
 
   const handleStepClick = (index: number) => {
     setActiveIndex(index);
-    setProgress(0);
     setIsPlaying(false);
   };
 
   const activeStep = steps[activeIndex];
 
   return (
-    <section id="demo-video" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
+    <section ref={sectionRef} id="demo-video" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
       {/* Achtergrond glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none" />
 
@@ -267,12 +263,15 @@ export function AppDemoVideo() {
                 </AnimatePresence>
               </div>
 
-              {/* Progress bar */}
+              {/* Progress bar — CSS-animatie, herstart per stap via de key */}
               <div className="h-0.5 bg-white/5">
-                <motion.div
-                  className="h-full bg-brand-primary"
-                  style={{ width: `${progress}%` }}
-                  transition={{ duration: 0.1, ease: 'linear' }}
+                <div
+                  key={activeIndex}
+                  className="h-full bg-brand-primary animate-progress-grow"
+                  style={{
+                    animationDuration: `${AUTO_ADVANCE_INTERVAL}ms`,
+                    animationPlayState: autoPlaying ? 'running' : 'paused',
+                  }}
                 />
               </div>
             </div>
@@ -305,7 +304,7 @@ export function AppDemoVideo() {
                   {activeIndex + 1} / {steps.length}
                 </span>
                 <button
-                  onClick={() => { if (!isPlaying) setProgress(0); setIsPlaying(p => !p); }}
+                  onClick={() => setIsPlaying(p => !p)}
                   aria-label={isPlaying ? 'Pauzeren' : 'Afspelen'}
                   className="w-12 h-12 shrink-0 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
                 >

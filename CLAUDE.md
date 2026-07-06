@@ -23,6 +23,7 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 ## Design & Code Regels
 - **Tablet/Mobile-First:** Raakvlakken (buttons, links) moeten minimaal 48px hoog/breed zijn. Tekst minimaal 16px voor leesbaarheid. Gebruik `aria-label` op icon-knoppen.
 - **Animaties:** Houd animaties professioneel en subtiel. Gebruik `staggerChildren` en `spring` overgangen voor lijsten en grids via Framer Motion.
+- **Geen Framer Motion mount-animaties above the fold (Hero/NavBar):** `initial={{ opacity: 0 }}` wordt mee-geprerenderd, waardoor de content onzichtbaar blijft tot de volledige JS-bundle geladen en gehydrateerd is (LCP-killer op mobiel). Gebruik daar de CSS-klassen `.animate-fade-up` + `.anim-delay-*` uit `index.css`. Framer Motion + `whileInView` is prima voor secties onder de vouw.
 - **Console Logs:** Laat geen `console.log()` achter in productiecode. Vang errors netjes af in `try/catch` blokken en geef betekenisvolle UI feedback aan de gebruiker.
 - **TypeScript:** Vermijd het gebruik van `any`. Definieer interfaces voor props en state.
 - **Mock-data:** Plaats geen tijdelijke/mock-data of test-credentials in de uiteindelijke code.
@@ -43,7 +44,7 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 Een nieuw blogartikel vereist wijzigingen op precies drie plekken:
 1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent.
 2. `src/content/blogPosts.ts` — metadata-entry (slug/title/description/excerpt/tags/date).
-3. `src/App.tsx` — import + `<Route path="/blog/<slug>">`.
+3. `src/App.tsx` — `lazyRoute('/blog/<slug>', () => import(...))`-declaratie + `<Route path="/blog/<slug>">`. Gebruik ALTIJD `lazyRoute` (niet een statische import): dat houdt de artikelcode uit de initiële bundle én registreert het pad in `routePreloads`, waarop `entry-server.tsx` (prerender) en `main.tsx` (hydration zonder content-flash) vertrouwen.
 
 Al het overige wordt bij de build **gegenereerd uit `blogPosts.ts`** (single source of truth) door `scripts/prerender.mjs` en `server.ts`: prerender-route, server-routemapping, `sitemap.xml`, `blog-index.md`, `blog-<slug>.md` en de blogsectie in `llms.txt`. Voeg die dus NIET handmatig toe — geen entries in `server.ts`/`prerender.mjs`, geen bestanden in `public/`. De slug in `blogPosts.ts` moet exact overeenkomen met het `<Route>`-pad in `App.tsx`, anders prerendert de build een pagina die de router niet kent.
 

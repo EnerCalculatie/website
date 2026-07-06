@@ -2,6 +2,7 @@ import {StrictMode} from 'react';
 import {createRoot, hydrateRoot} from 'react-dom/client';
 import {HelmetProvider} from 'react-helmet-async';
 import App from './App.tsx';
+import {routePreloads} from './routePreloads';
 import './index.css';
 
 const rootElement = document.getElementById('root')!;
@@ -14,10 +15,25 @@ const app = (
   </StrictMode>
 );
 
-if (rootElement.hasChildNodes()) {
-  // Als er al HTML is (geleverd door de prerenderer), hydrateer deze dan voor optimale performance.
-  hydrateRoot(rootElement, app);
-} else {
-  // Fallback voor development mode of als prerendering faalt.
-  createRoot(rootElement).render(app);
+async function start() {
+  if (rootElement.hasChildNodes()) {
+    // Prerenderde HTML aanwezig: laad eerst de lazy module van de huidige
+    // route, anders vervangt de Suspense-fallback de al zichtbare content
+    // tijdens hydration (flash naar blanco pagina).
+    const preload = routePreloads[window.location.pathname.replace(/\/+$/, '') || '/'];
+    if (preload) {
+      try {
+        await preload();
+      } catch {
+        // Module laden mislukt (bv. offline of oude chunk-hash na deploy):
+        // hydrateer alsnog; Suspense haalt de module daarna zelf op.
+      }
+    }
+    hydrateRoot(rootElement, app);
+  } else {
+    // Fallback voor development mode of als prerendering faalt.
+    createRoot(rootElement).render(app);
+  }
 }
+
+void start();

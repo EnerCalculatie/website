@@ -98,7 +98,7 @@ function buildHtml(template, html) {
 }
 
 for (const route of routes) {
-  const { html } = render(route.url);
+  const { html } = await render(route.url);
   const finalHtml = buildHtml(template, html);
   fs.writeFileSync(path.join(distDir, route.outFile), finalHtml, 'utf-8');
   console.log(`✅ Prerendered ${route.url} -> dist/${route.outFile}`);
