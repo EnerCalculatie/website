@@ -31,6 +31,7 @@ import { ExcelNaarAdviesArticle } from './components/blog/ExcelNaarAdviesArticle
 import { LaadpaalAdviesArticle } from './components/blog/LaadpaalAdviesArticle';
 import { AircoVsWarmtepompArticle } from './components/blog/AircoVsWarmtepompArticle';
 import { TrendsVerduurzaming2026Article } from './components/blog/TrendsVerduurzaming2026Article';
+import { NetcongestieWachtlijstZakelijkArticle } from './components/blog/NetcongestieWachtlijstZakelijkArticle';
 import { ServiceLandingPage } from './components/services/ServiceLandingPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
@@ -107,6 +108,10 @@ export function AppContent() {
           <Route path="/blog/laadpaal-advies-thuis" element={<LaadpaalAdviesArticle />} />
           <Route path="/blog/airco-vs-warmtepomp" element={<AircoVsWarmtepompArticle />} />
           <Route path="/blog/trends-verduurzaming-2026" element={<TrendsVerduurzaming2026Article />} />
+          <Route
+            path="/blog/netcongestie-wachtlijst-zakelijk-2026"
+            element={<NetcongestieWachtlijstZakelijkArticle />}
+          />
           <Route path="/rekentool-zonnepanelen" element={<ServiceLandingPage slug="zonnepanelen" />} />
           <Route path="/rekentool-thuisbatterij" element={<ServiceLandingPage slug="thuisbatterij" />} />
           <Route path="/rekentool-warmtepomp" element={<ServiceLandingPage slug="warmtepomp" />} />

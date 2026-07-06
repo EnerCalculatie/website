@@ -102,4 +102,15 @@ export const blogPosts: BlogPostMeta[] = [
       'Gewijzigde ISDE-subsidies, een thuisbatterijmarkt die in 2025 met 140% groeide, een nieuw prioriteringskader voor netcongestie en de salderingsregeling die in 2027 verdwijnt: de verduurzamingsmarkt vraagt in 2026 om een bijgesteld advies. Wat zijn de belangrijkste ontwikkelingen?',
     tags: ['Verduurzaming', 'Trends', 'ISDE', 'Thuisbatterij', 'Netcongestie', 'Installatiebranche'],
   },
+  {
+    slug: 'netcongestie-wachtlijst-zakelijk-2026',
+    title:
+      'Netcongestie 2026: wat betekent de wachtlijst voor kleinverbruikers vanaf 1 juli voor uw zakelijke klant?',
+    description:
+      'Vanaf 1 juli 2026 komen ook kleinverbruikers op de netcongestie-wachtlijst voor een nieuwe of zwaardere aansluiting. Lees wat dit betekent voor het aansluitadvies aan uw zakelijke klant, en welke alternatieven zoals een capaciteitsbeperkend contract en batterijopslag u kunt inzetten.',
+    date: '2026-07-06',
+    excerpt:
+      'Ruim 15.000 grootverbruikers staan al op de wachtlijst voor netcapaciteit, en vanaf 1 juli 2026 komen kleinverbruikers daar in congestiegebieden bij. Wat betekent dit voor het aansluitadvies aan uw zakelijke klant, en welke alternatieven overbruggen de wachttijd?',
+    tags: ['Netcongestie', 'Zakelijk', 'Batterijopslag', 'Installatiebranche'],
+  },
 ];

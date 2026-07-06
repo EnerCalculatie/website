@@ -33,6 +33,10 @@ const routes = [
   { url: '/blog/laadpaal-advies-thuis', outFile: 'blog-laadpaal-advies-thuis.html' },
   { url: '/blog/airco-vs-warmtepomp', outFile: 'blog-airco-vs-warmtepomp.html' },
   { url: '/blog/trends-verduurzaming-2026', outFile: 'blog-trends-verduurzaming-2026.html' },
+  {
+    url: '/blog/netcongestie-wachtlijst-zakelijk-2026',
+    outFile: 'blog-netcongestie-wachtlijst-zakelijk-2026.html',
+  },
   { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html' },
   { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html' },
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html' },
