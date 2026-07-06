@@ -135,7 +135,6 @@ export function AppDemoVideo() {
 
   useEffect(() => {
     if (!isPlaying) return;
-    setProgress(0);
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) {
@@ -306,7 +305,7 @@ export function AppDemoVideo() {
                   {activeIndex + 1} / {steps.length}
                 </span>
                 <button
-                  onClick={() => setIsPlaying(p => !p)}
+                  onClick={() => { if (!isPlaying) setProgress(0); setIsPlaying(p => !p); }}
                   aria-label={isPlaying ? 'Pauzeren' : 'Afspelen'}
                   className="w-12 h-12 shrink-0 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
                 >
