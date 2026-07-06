@@ -14,3 +14,5 @@ Het intelligente platform voor Nederlandse installateurs om het offerte- en scho
 2. Configureer je environment variabelen in `.env.local`
 3. Start de development server:
    `npm run dev`
+
+Beheerd door EnerCalculatie B.V.
