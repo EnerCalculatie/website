@@ -4,6 +4,10 @@ import { StaticRouter } from 'react-router';
 import { HelmetProvider, type HelmetServerState } from 'react-helmet-async';
 import { AppContent } from './App';
 
+// Geëxporteerd zodat scripts/prerender.mjs de blogdata uit dezelfde bron leest
+// als de app zelf (single source of truth voor routes, sitemap en agent-bestanden).
+export { blogPosts } from './content/blogPosts';
+
 export function render(url: string) {
   const helmetContext: { helmet?: HelmetServerState } = {};
 

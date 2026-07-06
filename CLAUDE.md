@@ -37,17 +37,15 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 - **Canonical:** Alle inner routes (privacy, voorwaarden) moeten hun eigen canonical URL meekrijgen via de `canonical` prop van `<SEO />` — niet de homepage-canonical hergebruiken.
 - **Schema:** `SEO.tsx` bevat Organization + BreadcrumbList schema. Voeg per pagina-type aanvullende schema's toe (SoftwareApplication voor de homepage, FAQPage in FAQ.tsx).
 - **Geen absolute claims in copy of meta:** "foutloos", "altijd correct", "0% foutmarge" zijn juridisch riskant. Gebruik "gevalideerd", "deterministisch berekend" of "kloppend".
-- **Publieke bestanden vereist:** `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt` en `public/pricing.md` moeten aanwezig zijn. Zie de open-taken backlog in memory.
+- **Publieke bestanden vereist:** `public/robots.txt`, `public/llms.txt`, `public/llms-full.txt` en `public/pricing.md` moeten aanwezig zijn. `sitemap.xml`, `blog-index.md` en `blog-<slug>.md` staan NIET in `public/` — die genereert `scripts/prerender.mjs` bij de build in `dist/` uit `blogPosts.ts`. De blogsectie van `llms.txt` wordt eveneens bij de build aangevuld; het bestand in `public/` is de basis zonder bloglijst.
 
 ## Nieuw Blogartikel — Verplichte Checklist
-Een nieuw blogartikel vereist wijzigingen op ál deze plekken. Sla je er één over, dan is het artikel kapot op productie (bijv. een 404 ondanks werkende prerender):
+Een nieuw blogartikel vereist wijzigingen op precies drie plekken:
 1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent.
-2. `src/content/blogPosts.ts` — metadata-entry (slug/title/description/excerpt/tags).
-3. `src/App.tsx` — import + `<Route>`.
-4. `scripts/prerender.mjs` — route in de prerenderlijst.
-5. `server.ts` — entry in `prerenderedRoutes` (**meest vergeten stap**: zonder deze mapping geeft de productieserver een 404 op de artikel-URL).
-6. `public/sitemap.xml` — URL-entry met lastmod.
-7. `public/blog-index.md` én een nieuw `public/blog-<slug>.md` — agent-leesbare samenvatting (frontmatter met `type: Article`, excerpt, link naar de website; volg het formaat van bestaande `blog-*.md` bestanden).
+2. `src/content/blogPosts.ts` — metadata-entry (slug/title/description/excerpt/tags/date).
+3. `src/App.tsx` — import + `<Route path="/blog/<slug>">`.
+
+Al het overige wordt bij de build **gegenereerd uit `blogPosts.ts`** (single source of truth) door `scripts/prerender.mjs` en `server.ts`: prerender-route, server-routemapping, `sitemap.xml`, `blog-index.md`, `blog-<slug>.md` en de blogsectie in `llms.txt`. Voeg die dus NIET handmatig toe — geen entries in `server.ts`/`prerender.mjs`, geen bestanden in `public/`. De slug in `blogPosts.ts` moet exact overeenkomen met het `<Route>`-pad in `App.tsx`, anders prerendert de build een pagina die de router niet kent.
 
 ## Integraties & Claims
 - **Alleen bevestigde integraties tonen als "Beschikbaar":** Op dit moment is alleen PDOK Kadaster live. Exact Online, Teamleader en AFAS zijn in ontwikkeling — toon als "Binnenkort" in `Integrations.tsx`.

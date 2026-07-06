@@ -127,7 +127,7 @@ Website:
 https://www.enercalculatie.nl
 
 Kennisbank:
-https://www.enercalculatie.nl/okf/index.md
+https://www.enercalculatie.nl/blog-index.md
 
 ## Unique Capabilities
 
@@ -139,6 +139,3 @@ https://www.enercalculatie.nl/okf/index.md
 - Offerteondersteuning
 - Verduurzamingsadvies in één platform
 
-## Laatste update
-
-2026-06-25

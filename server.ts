@@ -7,6 +7,7 @@ import leadMagnetRouter from './leadMagnet';
 import newsletterRouter from './newsletter';
 import healthRouter from './health';
 import rssRouter from './rss';
+import { blogPosts } from './src/content/blogPosts';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -42,10 +43,8 @@ app.use('/api', healthRouter);
 // en zou anders zelf het formulier-quotum opmaken.
 app.use(rssRouter);
 
-// Serveer llms.txt vanuit de project root, vóór de static middleware voor productie.
-app.get('/llms.txt', (_req, res) => {
-  res.sendFile(path.join(process.cwd(), 'llms.txt'));
-});
+// llms.txt heeft geen eigen route meer: het basisbestand staat in public/, de
+// prerender-stap vult het aan met de bloglijst en de static middleware serveert het.
 
 // Serveer de frontend in productie
 if (process.env.NODE_ENV === 'production') {
@@ -68,6 +67,7 @@ if (process.env.NODE_ENV === 'production') {
  
   // Elke bekende client-side route heeft een eigen voorgerenderde HTML
   // (met de juiste title/meta/canonical/schema al ingebakken — zie scripts/prerender.mjs).
+  // Blogroutes worden afgeleid uit blogPosts.ts, dezelfde bron als prerender en sitemap.
   const prerenderedRoutes: Record<string, string> = {
     '/': 'index.html',
     '/privacy': 'privacy.html',
@@ -75,18 +75,7 @@ if (process.env.NODE_ENV === 'production') {
     '/voorwaarden': 'voorwaarden.html',
     '/verwerkersovereenkomst': 'verwerkersovereenkomst.html',
     '/blog': 'blog.html',
-    '/blog/salderingsregeling-2027': 'blog-salderingsregeling-2027.html',
-    '/blog/btw-zonnepanelen': 'blog-btw-zonnepanelen.html',
-    '/blog/terugleverkosten-thuisbatterij': 'blog-terugleverkosten-thuisbatterij.html',
-    '/blog/isde-subsidie-warmtepompen': 'blog-isde-subsidie-warmtepompen.html',
-    '/blog/warmtepomp-rendement-aannames': 'blog-warmtepomp-rendement-aannames.html',
-    '/blog/van-excel-naar-geautomatiseerd-advies': 'blog-van-excel-naar-geautomatiseerd-advies.html',
-    '/blog/laadpaal-advies-thuis': 'blog-laadpaal-advies-thuis.html',
-    '/blog/airco-vs-warmtepomp': 'blog-airco-vs-warmtepomp.html',
-    '/blog/trends-verduurzaming-2026': 'blog-trends-verduurzaming-2026.html',
-    '/blog/thuisbatterij-capaciteit-kiezen': 'blog-thuisbatterij-capaciteit-kiezen.html',
-    '/blog/dakorientatie-zonnepanelen-opbrengst': 'blog-dakorientatie-zonnepanelen-opbrengst.html',
-    '/blog/netcongestie-wachtlijst-zakelijk-2026': 'blog-netcongestie-wachtlijst-zakelijk-2026.html',
+    ...Object.fromEntries(blogPosts.map((p) => [`/blog/${p.slug}`, `blog-${p.slug}.html`])),
     '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
     '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
     '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',
@@ -121,5 +110,5 @@ if (process.env.NODE_ENV === 'production') {
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
-  console.log(`✅ Backend server luistert op http://localhost:${port}`);
+  console.info(`✅ Backend server luistert op http://localhost:${port}`);
 });
