@@ -31,7 +31,9 @@ export function AboutUs() {
             <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-2">{author.name}</h2>
             <p className="text-slate-500 font-semibold mb-6">{author.jobTitle}</p>
 
-            <p className="text-slate-700 leading-relaxed mb-8">{author.description}</p>
+            {author.description && (
+              <p className="text-slate-700 leading-relaxed mb-8">{author.description}</p>
+            )}
 
             <h3 className="text-lg font-bold text-slate-800 mt-8 mb-4">Expertise</h3>
             <ul className="list-disc pl-6 mb-8 text-slate-700">

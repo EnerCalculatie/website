@@ -24,7 +24,7 @@ export function buildBlogPostingSchema(post: BlogPostMeta) {
       name: 'EnerCalculatie',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE}/logo.svg`,
+        url: `${SITE}/logo.png`,
       },
     },
     mainEntityOfPage: {
@@ -57,7 +57,7 @@ export function buildBlogListingSchema() {
       name: 'EnerCalculatie',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE}/logo.svg`,
+        url: `${SITE}/logo.png`,
       },
     },
     blogPost: posts.map((post) => ({

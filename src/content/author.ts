@@ -22,10 +22,11 @@ export interface AuthorSchema {
 
 export const author: AuthorSchema = {
   '@type': 'Person',
-  name: 'TODO: volledige naam oprichter',
+  name: 'Pascal van Eijden',
   jobTitle: 'Oprichter & ontwikkelaar, EnerCalculatie',
-  description:
-    'TODO: technische achtergrond — bv. "Ontwikkelaar met X jaar ervaring in energieberekeningen en software voor de verduurzamingsbranche; bouwde het rekenmodel achter EnerCalculatie op basis van de Nederlandse ISDE-, salderings- en netcongestieregelgeving."',
+  // TODO: 1–2 zinnen technische achtergrond die de expertise onderbouwt. Leeg =
+  // wordt weggelaten uit schema én /over-ons-pagina (geen zichtbare placeholder).
+  description: '',
   url: 'https://www.enercalculatie.nl/over-ons', // pas aan of zet op '' als er geen about-pagina is
   knowsAbout: [
     'Salderingsregeling',
@@ -36,7 +37,7 @@ export const author: AuthorSchema = {
     'Netcongestie',
   ],
   sameAs: [
-    // 'https://www.linkedin.com/in/...', // LinkedIn-profiel toevoegen versterkt E-E-A-T
+    'https://www.linkedin.com/in/pascalvaneijden/',
   ],
 };
 
@@ -46,9 +47,10 @@ export const author: AuthorSchema = {
  * schema (author) en de /over-ons ProfilePage (mainEntity).
  */
 export function authorPerson() {
-  const { url, sameAs, ...rest } = author;
+  const { url, sameAs, description, ...rest } = author;
   return {
     ...rest,
+    ...(description ? { description } : {}),
     ...(url ? { url } : {}),
     ...(sameAs.length ? { sameAs } : {}),
   };

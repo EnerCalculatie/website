@@ -16,7 +16,7 @@ export function ThuisbatterijCapaciteitArticle() {
 
       <BlogPostLayout post={post}>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Een thuisbatterij is geen standaardproduct waarbij u de goedkoopste of grootste optie kiest. De juiste capaciteit hangt af van het zelfconsumtieprofiel van uw klant, de grootte van de zonnepaneelinstallatie en het financiële doel dat achter de investering zit. Te kleine capaciteit betekent gemiste opbrengst; te grote capaciteit betekent onnodige kosten en een langere terugverdientijd. In dit artikel leest u welke vuistregels en berekeningen u helpen om onderbouwd advies te geven.
+          Een thuisbatterij is geen standaardproduct waarbij u de goedkoopste of grootste optie kiest. De juiste capaciteit hangt af van het zelfconsumptieprofiel van uw klant, de grootte van de zonnepaneelinstallatie en het financiële doel dat achter de investering zit. Te kleine capaciteit betekent gemiste opbrengst; te grote capaciteit betekent onnodige kosten en een langere terugverdientijd. In dit artikel leest u welke vuistregels en berekeningen u helpen om onderbouwd advies te geven.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Capaciteit (kWh) versus vermogen (kW): het verschil dat telt</h2>
@@ -36,7 +36,7 @@ export function ThuisbatterijCapaciteitArticle() {
           De kernvraag bij dimensionering is: hoeveel zonne-energie levert een huishouden op het moment van productie zelf terug aan het net, en wat zou het verbruiken als die energie beschikbaar was? Een thuisbatterij overbrugt de kloof tussen productie overdag en verbruik 's avonds en 's nachts.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Een gemiddeld Nederlands huishouden verbruikt circa 3.000 tot 4.000 kWh per jaar. Op een zomerse dag met 12 zonnuren en een installatie van 6 kWp kan de productie oplopen tot 30–40 kWh; het daadwerkelijke verbruik overdag ligt in een tweepersoonshuis doorgaans op 4–8 kWh. Het surplus dat op een dergelijke dag wordt teruggeleverd, loopt dus op tot 20–35 kWh — meer dan welke thuisbatterij in de woningmarkt ook kan opslaan. Een battery van 10 kWh voegt voor zo'n dag al het maximum toe dat zinvol is.
+          Een gemiddeld Nederlands huishouden verbruikt circa 3.000 tot 4.000 kWh per jaar. Op een zomerse dag met 12 zonnuren en een installatie van 6 kWp kan de productie oplopen tot 30–40 kWh; het daadwerkelijke verbruik overdag ligt in een tweepersoonshuis doorgaans op 4–8 kWh. Het surplus dat op een dergelijke dag wordt teruggeleverd, loopt dus op tot 20–35 kWh — meer dan welke thuisbatterij in de woningmarkt ook kan opslaan. Een batterij van 10 kWh voegt voor zo'n dag al het maximum toe dat zinvol is.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
           In de herfst en winter is de situatie anders: de productie daalt sterk, en het dagelijkse surplus is op veel dagen kleiner dan de batterijcapaciteit. De jaargemiddelde zelfconsumptie — het aandeel van de zonne-energie dat direct of via de batterij door het huishouden zelf wordt verbruikt — stijgt door een thuisbatterij in een typische Nederlandse situatie met 6 kWp van circa 35% naar 60–70%, afhankelijk van het profiel.
