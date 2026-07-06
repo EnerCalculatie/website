@@ -91,7 +91,7 @@ const staticRoutes = [
   { url: '/rekentool-laadpaal', outFile: 'rekentool-laadpaal.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
 ];
 
-const newestPostDate = blogPosts.map((p) => p.date).sort().at(-1);
+const newestPostDate = blogPosts.map((p) => p.updated ?? p.date).sort().at(-1);
 
 const blogListingRoute = {
   url: '/blog',
@@ -104,7 +104,7 @@ const blogListingRoute = {
 const blogRoutes = blogPosts.map((p) => ({
   url: `/blog/${p.slug}`,
   outFile: `blog-${p.slug}.html`,
-  lastmod: p.date,
+  lastmod: p.updated ?? p.date,
   changefreq: 'monthly',
   priority: '0.6',
 }));

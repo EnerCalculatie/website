@@ -6,6 +6,13 @@ import { authorPerson } from './author';
 import { blogPosts, type BlogPostMeta } from './blogPosts';
 
 const SITE = 'https://www.enercalculatie.nl';
+const DEFAULT_IMAGE = `${SITE}/og-image.png`;
+
+/** Maakt een root-relatieve afbeelding absoluut; laat volledige URL's ongemoeid. */
+function absoluteImage(image?: string): string {
+  if (!image) return DEFAULT_IMAGE;
+  return image.startsWith('http') ? image : `${SITE}${image}`;
+}
 
 export function buildBlogPostingSchema(post: BlogPostMeta) {
   const pageUrl = `${SITE}/blog/${post.slug}`;
@@ -14,8 +21,9 @@ export function buildBlogPostingSchema(post: BlogPostMeta) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
+    image: absoluteImage(post.image),
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     keywords: post.tags.join(', '),
     inLanguage: 'nl-NL',
     author: authorPerson(),
@@ -64,7 +72,9 @@ export function buildBlogListingSchema() {
       '@type': 'BlogPosting',
       headline: post.title,
       description: post.description,
+      image: absoluteImage(post.image),
       datePublished: post.date,
+      dateModified: post.updated ?? post.date,
       author: authorPerson(),
       url: `${SITE}/blog/${post.slug}`,
     })),

@@ -2,9 +2,15 @@ export interface BlogPostMeta {
   slug: string;
   title: string;
   description: string;
-  date: string; // ISO 8601
+  date: string; // ISO 8601 — publicatiedatum (datePublished)
   excerpt: string;
   tags: string[]; // gebruikt door de RSS-feed (rss.ts) als <category>, bv. voor LinkedIn-hashtags via Zapier
+  /** ISO 8601 — laatste inhoudelijke update. Vul in bij een herziening: voedt
+   *  dateModified (schema) en lastmod (sitemap). Leeg = valt terug op `date`. */
+  updated?: string;
+  /** Absolute of root-relatieve afbeeldings-URL voor het BlogPosting-schema
+   *  (rich results / social cards). Leeg = valt terug op /og-image.png. */
+  image?: string;
 }
 
 // Metadata van alle blogartikelen. Wordt gebruikt door de BlogIndex
