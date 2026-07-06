@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Send, Loader2, CheckCircle2, MessageCircle } from 'lucide-react';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -161,19 +161,6 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary shrink-0">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800 text-lg mb-1">Kantoor</h4>
-                    <p className="text-slate-600">
-                      Toenzalstraat 16<br />
-                      1363 RJ Almere<br />
-                      Nederland
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
