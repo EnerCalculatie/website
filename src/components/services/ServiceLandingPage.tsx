@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { SEO } from '../SEO';
 import { LeadMagnet } from '../LeadMagnet';
@@ -55,7 +54,9 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
 
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          {/* CSS-animatie i.p.v. Motion: initial opacity 0 wordt mee-geprerenderd
+              en houdt de hero onzichtbaar tot hydration (LCP-killer). */}
+          <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary-text font-bold px-4 py-1.5 rounded-full text-sm uppercase tracking-wider mb-4">
               {service.badge}
             </div>
@@ -75,7 +76,7 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
                 Bereken uw tijdsbesparing
               </a>
             </div>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {service.features.map((feature) => (

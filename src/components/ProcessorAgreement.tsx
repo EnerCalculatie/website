@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { Printer } from 'lucide-react';
 import { SEO } from './SEO';
 
@@ -12,7 +11,7 @@ export function ProcessorAgreement() {
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="prose prose-slate max-w-none">
+        <div className="animate-fade-up prose prose-slate max-w-none">
           <div className="flex justify-end mb-6 print:hidden">
             <button 
               onClick={() => window.print()}
@@ -82,7 +81,7 @@ export function ProcessorAgreement() {
               Tel: <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
       </div>
     </>

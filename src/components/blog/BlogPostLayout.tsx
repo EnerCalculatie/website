@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { ArrowLeft, Printer, Linkedin } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { BlogPostMeta } from '../../content/blogPosts';
@@ -16,7 +15,9 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
   return (
     <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="prose prose-slate max-w-none">
+        {/* CSS-animatie i.p.v. Motion: initial opacity 0 wordt mee-geprerenderd
+            en houdt het hele artikel onzichtbaar tot hydration (LCP-killer). */}
+        <div className="animate-fade-up prose prose-slate max-w-none">
           <div className="flex items-center justify-between gap-3 mb-6 print:hidden flex-wrap">
             <a href="/blog" className="flex items-center gap-2 text-slate-500 hover:text-brand-primary text-sm font-semibold transition-colors">
               <ArrowLeft size={16} /> Terug naar blog
@@ -48,7 +49,7 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
           </p>
 
           {children}
-        </motion.div>
+        </div>
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">

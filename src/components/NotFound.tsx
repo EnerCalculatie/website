@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Home, AlertCircle } from 'lucide-react';
 import { SEO } from './SEO';
@@ -11,11 +10,7 @@ export function NotFound() {
         description="De opgevraagde pagina kon helaas niet worden gevonden."
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 min-h-[70vh] flex items-center justify-center px-4">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-md"
-        >
+        <div className="animate-fade-up text-center max-w-md">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-50 text-red-500 mb-8">
             <AlertCircle size={40} />
           </div>
@@ -30,7 +25,7 @@ export function NotFound() {
             <Home size={20} />
             Terug naar de homepagina
           </Link>
-        </motion.div>
+        </div>
       </div>
     </>
   );
