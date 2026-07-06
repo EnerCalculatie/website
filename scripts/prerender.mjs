@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import Beasties from 'beasties';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
@@ -25,7 +26,52 @@ const { render, blogPosts } = await import(
   pathToFileURL(path.join(root, 'dist-ssr', 'entry-server.js')).href
 );
 
-const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
+let template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
+
+// Prerender is niet idempotent: route '/' overschrijft dist/index.html met de
+// geprerenderde homepage. Een tweede losse run zou die output als template
+// gebruiken en de homepage in élke pagina bakken. Vereis een schone template.
+if (!template.includes('<div id="root"></div>')) {
+  throw new Error(
+    'dist/index.html is geen schone Vite-template (root-div is niet leeg). ' +
+    'Draai eerst `npm run build:frontend` — prerender kan niet op zijn eigen output draaien.'
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Font-preloads: de meest gebruikte gewichten (Inter 400 bodytekst, Inter 700
+// koppen, Space Grotesk 700 display-koppen) alvast laden, parallel aan de CSS.
+// De bestandsnamen zijn gehasht, dus we zoeken ze op in dist/assets.
+// ---------------------------------------------------------------------------
+
+const assetFiles = fs.readdirSync(path.join(distDir, 'assets'));
+const preloadFonts = ['inter-latin-400-normal', 'inter-latin-700-normal', 'space-grotesk-latin-700-normal']
+  .map((base) => assetFiles.find((f) => f.startsWith(base) && f.endsWith('.woff2')))
+  .filter(Boolean);
+if (preloadFonts.length !== 3) {
+  throw new Error(`Verwachtte 3 woff2-preloadfonts in dist/assets, vond ${preloadFonts.length} — zijn de @fontsource-imports in index.css gewijzigd?`);
+}
+const fontPreloadTags = preloadFonts
+  .map((f) => `<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/${f}" />`)
+  .join('\n    ');
+template = template.replace('</head>', `  ${fontPreloadTags}\n  </head>`);
+
+// ---------------------------------------------------------------------------
+// Critical CSS: Beasties inlinet per pagina de boven-de-vouw-regels en laadt
+// de volledige stylesheet async (media="print" + onload-swap, met noscript-
+// fallback). Daardoor blokkeert de 64 KB stylesheet de first paint niet meer.
+// inlineFonts zet de gebruikte @font-face-declaraties mee in de kritieke CSS,
+// zodat de gepreloade fonts direct toegepast kunnen worden (minder verschuiving).
+// ---------------------------------------------------------------------------
+
+const beasties = new Beasties({
+  path: distDir,
+  preload: 'media',
+  inlineFonts: true,
+  preloadFonts: false, // preloads staan hierboven al expliciet in de template
+  pruneSource: false,
+  logLevel: 'warn',
+});
 
 // ---------------------------------------------------------------------------
 // Routes: statische pagina's handmatig, blogroutes afgeleid uit blogPosts.ts.
@@ -99,7 +145,7 @@ function buildHtml(template, html) {
 
 for (const route of routes) {
   const { html } = await render(route.url);
-  const finalHtml = buildHtml(template, html);
+  const finalHtml = await beasties.process(buildHtml(template, html));
   fs.writeFileSync(path.join(distDir, route.outFile), finalHtml, 'utf-8');
   console.log(`✅ Prerendered ${route.url} -> dist/${route.outFile}`);
 }
