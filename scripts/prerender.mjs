@@ -7,13 +7,14 @@
 // metadata alsnog statisch zien.
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const distDir = path.join(root, 'dist');
 
-const { render } = await import(path.join(root, 'dist-ssr', 'entry-server.js'));
+// pathToFileURL: een kaal Windows-pad (c:\...) is geen geldige ESM-specifier
+const { render } = await import(pathToFileURL(path.join(root, 'dist-ssr', 'entry-server.js')).href);
 
 const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
 
@@ -35,6 +36,7 @@ const routes = [
   { url: '/blog/trends-verduurzaming-2026', outFile: 'blog-trends-verduurzaming-2026.html' },
   { url: '/blog/thuisbatterij-capaciteit-kiezen', outFile: 'blog-thuisbatterij-capaciteit-kiezen.html' },
   { url: '/blog/dakorientatie-zonnepanelen-opbrengst', outFile: 'blog-dakorientatie-zonnepanelen-opbrengst.html' },
+  { url: '/blog/netcongestie-wachtlijst-zakelijk-2026', outFile: 'blog-netcongestie-wachtlijst-zakelijk-2026.html' },
   { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html' },
   { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html' },
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html' },

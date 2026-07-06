@@ -33,6 +33,7 @@ import { AircoVsWarmtepompArticle } from './components/blog/AircoVsWarmtepompArt
 import { TrendsVerduurzaming2026Article } from './components/blog/TrendsVerduurzaming2026Article';
 import { ThuisbatterijCapaciteitArticle } from './components/blog/ThuisbatterijCapaciteitArticle';
 import { DakorientatieZonnepanelenArticle } from './components/blog/DakorientatieZonnepanelenArticle';
+import { NetcongestieWachtlijstZakelijkArticle } from './components/blog/NetcongestieWachtlijstZakelijkArticle';
 import { ServiceLandingPage } from './components/services/ServiceLandingPage';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
@@ -111,6 +112,7 @@ export function AppContent() {
           <Route path="/blog/trends-verduurzaming-2026" element={<TrendsVerduurzaming2026Article />} />
           <Route path="/blog/thuisbatterij-capaciteit-kiezen" element={<ThuisbatterijCapaciteitArticle />} />
           <Route path="/blog/dakorientatie-zonnepanelen-opbrengst" element={<DakorientatieZonnepanelenArticle />} />
+          <Route path="/blog/netcongestie-wachtlijst-zakelijk-2026" element={<NetcongestieWachtlijstZakelijkArticle />} />
           <Route path="/rekentool-zonnepanelen" element={<ServiceLandingPage slug="zonnepanelen" />} />
           <Route path="/rekentool-thuisbatterij" element={<ServiceLandingPage slug="thuisbatterij" />} />
           <Route path="/rekentool-warmtepomp" element={<ServiceLandingPage slug="warmtepomp" />} />

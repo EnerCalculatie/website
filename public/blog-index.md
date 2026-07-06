@@ -16,3 +16,4 @@ Een overzicht van onze artikelen over de energiemarkt, Nederlandse wetgeving en 
 * [Terugleverkosten: hoe rekent u ze door, en hoe compenseert een thuisbatterij dit voor uw klant?](blog-terugleverkosten-thuisbatterij.md)
 * [ISDE-subsidie voor warmtepompen: welke onderbouwing heeft de RVO nodig?](blog-isde-subsidie-warmtepompen.md)
 * [Warmtepomp-rendement: de Nederlandse standaardaannames die uw berekening onderbouwen](blog-warmtepomp-rendement-aannames.md)
+* [Netcongestie 2026: wat betekent de wachtlijst voor kleinverbruikers vanaf 1 juli voor uw zakelijke klant?](blog-netcongestie-wachtlijst-zakelijk-2026.md)
