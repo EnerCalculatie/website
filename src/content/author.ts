@@ -24,9 +24,8 @@ export const author: AuthorSchema = {
   '@type': 'Person',
   name: 'Pascal van Eijden',
   jobTitle: 'Oprichter & ontwikkelaar, EnerCalculatie',
-  // TODO: 1–2 zinnen technische achtergrond die de expertise onderbouwt. Leeg =
-  // wordt weggelaten uit schema én /over-ons-pagina (geen zichtbare placeholder).
-  description: '',
+  description:
+    'Pascal is oprichter en ontwikkelaar van EnerCalculatie. Hij bouwde het rekenmodel achter de software, dat verduurzamingsadvies onderbouwt op basis van de Nederlandse regelgeving rond saldering, ISDE-subsidie en netcongestie.',
   url: 'https://www.enercalculatie.nl/over-ons', // pas aan of zet op '' als er geen about-pagina is
   knowsAbout: [
     'Salderingsregeling',
