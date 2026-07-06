@@ -55,6 +55,7 @@ function lazyRoute(
 }
 
 const Privacy = lazyRoute('/privacy', () => import('./components/Privacy').then(m => ({ default: m.Privacy })));
+const AboutUs = lazyRoute('/over-ons', () => import('./components/AboutUs').then(m => ({ default: m.AboutUs })));
 const NewsletterConfirmed = lazyRoute('/nieuwsbrief-bevestigd', () => import('./components/NewsletterConfirmed').then(m => ({ default: m.NewsletterConfirmed })));
 const Terms = lazyRoute('/voorwaarden', () => import('./components/Terms').then(m => ({ default: m.Terms })));
 const ProcessorAgreement = lazyRoute('/verwerkersovereenkomst', () => import('./components/ProcessorAgreement').then(m => ({ default: m.ProcessorAgreement })));
@@ -146,6 +147,7 @@ export function AppContent() {
               </main>
             } />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/over-ons" element={<AboutUs />} />
             <Route path="/nieuwsbrief-bevestigd" element={<NewsletterConfirmed />} />
             <Route path="/voorwaarden" element={<Terms />} />
             <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />

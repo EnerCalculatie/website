@@ -80,6 +80,7 @@ const beasties = new Beasties({
 const staticRoutes = [
   { url: '/', outFile: 'index.html', lastmod: '2026-06-20', changefreq: 'weekly', priority: '1.0' },
   { url: '/privacy', outFile: 'privacy.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
+  { url: '/over-ons', outFile: 'over-ons.html', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.6' },
   { url: '/nieuwsbrief-bevestigd', outFile: 'nieuwsbrief-bevestigd.html', sitemap: false },
   { url: '/voorwaarden', outFile: 'voorwaarden.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
   { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },

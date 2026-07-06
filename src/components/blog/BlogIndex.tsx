@@ -3,6 +3,7 @@ import { SEO } from '../SEO';
 import { LeadMagnet } from '../LeadMagnet';
 import { NewsletterSignup } from '../NewsletterSignup';
 import { blogPosts } from '../../content/blogPosts';
+import { buildBlogListingSchema } from '../../content/blogSchema';
 
 export function BlogIndex() {
   const sortedPosts = [...blogPosts].sort(
@@ -16,6 +17,8 @@ export function BlogIndex() {
         description="Praktische uitleg over Nederlandse regelgeving en rekenmethodes voor verduurzamingsinstallateurs: salderingsregeling, BTW-tarieven, ISDE-subsidie en meer."
         canonical="https://www.enercalculatie.nl/blog"
       />
+      {/* Blog-listingschema (JSON-LD) centraal uit blogSchema.ts. */}
+      <script type="application/ld+json">{JSON.stringify(buildBlogListingSchema())}</script>
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* CSS-animatie i.p.v. Motion: initial opacity 0 wordt mee-geprerenderd

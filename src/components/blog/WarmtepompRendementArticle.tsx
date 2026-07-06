@@ -5,27 +5,6 @@ import { blogPosts } from '../../content/blogPosts';
 const post = blogPosts.find((p) => p.slug === 'warmtepomp-rendement-aannames')!;
 
 export function WarmtepompRendementArticle() {
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      '@type': 'Organization',
-      name: 'EnerCalculatie',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'EnerCalculatie',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.enercalculatie.nl/logo.svg',
-      },
-    },
-    mainEntityOfPage: `https://www.enercalculatie.nl/blog/${post.slug}`,
-  };
 
   return (
     <>
@@ -34,7 +13,6 @@ export function WarmtepompRendementArticle() {
         description={post.description}
         canonical={`https://www.enercalculatie.nl/blog/${post.slug}`}
       />
-      <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
 
       <BlogPostLayout post={post}>
         <p className="text-slate-700 leading-relaxed mb-4">

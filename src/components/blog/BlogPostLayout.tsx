@@ -1,6 +1,7 @@
 import { ArrowLeft, Printer, Linkedin } from 'lucide-react';
 import type { ReactNode } from 'react';
 import type { BlogPostMeta } from '../../content/blogPosts';
+import { buildBlogPostingSchema } from '../../content/blogSchema';
 import { LeadMagnet } from '../LeadMagnet';
 
 interface BlogPostLayoutProps {
@@ -14,6 +15,9 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
 
   return (
     <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
+      {/* BlogPosting-schema (JSON-LD) centraal uit blogSchema.ts — auteur = Person
+          voor E-E-A-T. Elk artikel erft dit automatisch; geen inline schema meer. */}
+      <script type="application/ld+json">{JSON.stringify(buildBlogPostingSchema(post))}</script>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
         {/* CSS-animatie i.p.v. Motion: initial opacity 0 wordt mee-geprerenderd
             en houdt het hele artikel onzichtbaar tot hydration (LCP-killer). */}
