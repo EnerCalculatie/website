@@ -45,7 +45,7 @@ export function IsdeWarmtepompenArticle() {
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>
         <p className="text-slate-700 leading-relaxed mb-4">
           De adviesrapporten van EnerCalculatie bevatten de technische specificaties, vermogens en berekeningen die de RVO vraagt bij ISDE-aanvragen voor warmtepompen, met ondersteuning voor meldcodes. Hoe het verwachte rendement van een warmtepomp precies wordt berekend — inclusief de Nederlandse standaardaannames die hierbij gebruikt worden — leest u in{' '}
-          <a href="/blog/warmtepomp-rendement-berekenen" className="text-brand-primary-text font-semibold hover:underline">
+          <a href="/blog/warmtepomp-rendement-aannames" className="text-brand-primary-text font-semibold hover:underline">
             ons artikel over warmtepomp-rendement
           </a>
           . Zo levert u de onderbouwing in het traject vóór de aanvraag, en weet uw klant precies wat hij bij de RVO kan indienen zodra de installatie is afgerond.

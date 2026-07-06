@@ -34,6 +34,12 @@ export const blogPosts: BlogPostMeta[] = [
       'De afbouw is van de baan — in plaats daarvan verdwijnt de salderingsregeling per 1 januari 2027 in één keer volledig. Wat betekent dit voor de rendementsberekening die u uw klant voorlegt?',
     tags: ['Salderingsregeling', 'Zonnepanelen', 'EnergieAdvies', 'Installatiebranche'],
     popular: true,
+    keyPoints: [
+      'De geleidelijke afbouw is van de baan: de salderingsregeling wordt per 1 januari 2027 in één keer volledig afgeschaft.',
+      'Tot 2027 blijft teruggeleverde stroom verrekend tegen het leveringstarief; daarna geldt het lagere terugleveringstarief.',
+      'Reken in offertes met een terugverdientijd over 10 of 25 jaar altijd het 2027-scenario mee, niet alleen de huidige regeling.',
+      'Zelfconsumptie verhogen (warmtepomp, laadpaal, thuisbatterij) wordt na 2027 het belangrijkste rendementsargument.',
+    ],
   },
   {
     slug: 'btw-zonnepanelen',
@@ -44,6 +50,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Het 0%-btw-tarief op zonnepanelen scheelt uw klant direct geld op de offerte — maar alleen als aan de juiste voorwaarden is voldaan. Wanneer geldt het nultarief wel, en wanneer toch 21%?',
     tags: ['Zonnepanelen', 'BTW', 'Installatiebranche'],
+    keyPoints: [
+      'Sinds 1 januari 2023 geldt 0% btw op levering en installatie van zonnepanelen op of bij woningen (particulier/VvE); bedrijfsmatig vastgoed valt erbuiten.',
+      'Onder het nultarief vallen panelen, omvormer, optimizers, montagemateriaal, bekabeling, installatie-uren en meterkastaanpassing.',
+      'Buiten het nultarief (21%): dakversterking, thuisbatterij, laadpaal, zonneboiler en PVT-systemen — splits die apart in de offerte.',
+      'Vermeld het installatieadres en het btw-tarief per regel; een onjuiste toepassing kan tot een naheffing leiden.',
+    ],
   },
   {
     slug: 'terugleverkosten-thuisbatterij',
@@ -54,6 +66,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Terugleverkosten knagen aan het rendement van zonnepanelen, en de manier waarop leveranciers ze berekenen verschilt sterk. Hoe legt u dit uit aan uw klant, en welke rol speelt een thuisbatterij hierin?',
     tags: ['Terugleverkosten', 'Thuisbatterij', 'Zonnepanelen', 'Installatiebranche'],
+    keyPoints: [
+      'Terugleverkosten zijn een door de ACM goedgekeurde, structurele kostenpost voor teruggeleverde zonnestroom — geen tijdelijke actie van één leverancier.',
+      'Vanaf modelcontract 2026 moeten leveranciers terugleverkosten per kWh berekenen, wat contracten beter vergelijkbaar maakt.',
+      'Een thuisbatterij verhoogt de zelfconsumptie en verlaagt de teruglevering, en daarmee direct de terugleverkosten.',
+      'Neem de terugleverkosten van het huidige contract mee in de terugverdientijd, niet alleen de salderingstarieven.',
+    ],
   },
   {
     slug: 'isde-subsidie-warmtepompen',
@@ -65,6 +83,12 @@ export const blogPosts: BlogPostMeta[] = [
       'Een onvolledig onderbouwd adviesrapport kan uw klant tijd of subsidie kosten. Welke technische specificaties en meldcodes vraagt de RVO precies, en wat is uw rol als installateur daarin?',
     tags: ['ISDE', 'Warmtepomp', 'Subsidie', 'Installatiebranche'],
     popular: true,
+    keyPoints: [
+      'De RVO beoordeelt ISDE-aanvragen voor warmtepompen op meldcodes (per model) plus technische specificaties en vermogens.',
+      'Uw adviesrapport onderbouwt wáárom de warmtepomp past; voor de aanvraag heeft de klant zelf een installatie- en betaalbewijs nodig.',
+      'Scheid advies (vooraf) en subsidieaanvraag (achteraf) expliciet, anders denkt de klant dat de subsidie al geregeld is.',
+      'Veelgemaakte fout: een generieke meldcode noemen in plaats van de exacte code van het geoffreerde model.',
+    ],
   },
   {
     slug: 'warmtepomp-rendement-aannames',
@@ -75,6 +99,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een klant die het getal achter de besparing niet begrijpt, vertrouwt het minder. Welke standaardaannames liggen aan een warmtepomp-rendementsberekening ten grondslag, en hoe legt u dit uit?',
     tags: ['Warmtepomp', 'EnergieAdvies', 'Duurzaamheid', 'Installatiebranche'],
+    keyPoints: [
+      'Een warmtepomp-besparing rust op drie vaste aannames: 8,79 kWh per m³ gas, 90% ketelrendement en 20% warmwateraandeel.',
+      'Uit het historische gasverbruik wordt zo de warmtevraag en de verwachte besparing op de energierekening herleid.',
+      'Bij een hybride systeem blijven warmwater en bijstook op de gasketel; de besparing geldt alleen over het door de warmtepomp overgenomen deel.',
+      'Transparantie over deze aannames is het verkoopargument: een klant die het getal begrijpt, vertrouwt het meer.',
+    ],
   },
   {
     slug: 'van-excel-naar-geautomatiseerd-advies',
@@ -85,6 +115,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een Excel-rekenmodel werkt, tot het moment dat een tarief wijzigt of een nieuwe medewerker het moet overnemen. Wat verandert er in uw werkdag bij een overstap naar een gestructureerd, geautomatiseerd adviestraject?',
     tags: ['EnergieAdvies', 'Automatisering', 'Excel', 'Installatiebranche'],
+    keyPoints: [
+      'Een Excel-rekenmodel loopt vast bij tariefwijzigingen (handmatig overtypen, rekenfouten) en bij overdracht aan een nieuwe medewerker.',
+      'Een geautomatiseerd traject verkleint de handmatige stappen: pand registreren (Kadaster), energierekening uploaden (auto-uitlezen), adviesrapport downloaden.',
+      'Tarieven pas je centraal op één plek aan in plaats van in elk los bestand; dezelfde invoer geeft altijd dezelfde uitkomst.',
+      'Vooral relevant voor MKB-installateurs met meerdere offertes per week en meerdere medewerkers die dossiers overnemen.',
+    ],
   },
   {
     slug: 'laadpaal-advies-thuis',
@@ -95,6 +131,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Een laadpaal-advies is meer dan een stekker aan de gevel: laadvermogen, load balancing en de resterende capaciteit van de groepenkast bepalen samen de juiste configuratie. Hoe legt u dit onderbouwd uit aan uw klant?',
     tags: ['Laadpaal', 'ElektrischRijden', 'EnergieAdvies', 'Installatiebranche'],
+    keyPoints: [
+      'Drie factoren bepalen de juiste laadpaal-configuratie: laadvermogen, load balancing en de resterende capaciteit van groepenkast en netaansluiting.',
+      'Het laadvermogen wordt begrensd door de zwakste schakel — vaak de ingebouwde lader van de auto; meer vermogen dan de auto aankan is verspilde investering.',
+      '(Dynamische) load balancing voorkomt dat de hoofdzekering afslaat als warmtepomp, airco of batterij gelijktijdig verbruiken.',
+      'Bij structureel capaciteitstekort is een verzwaring bij de netbeheerder nodig — een aparte aanvraagstap met doorlooptijd die je vooraf benoemt.',
+    ],
   },
   {
     slug: 'airco-vs-warmtepomp',
@@ -105,6 +147,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Airco of warmtepomp — voor veel klanten lijken het inwisselbare keuzes, maar de argumentatie verschilt sterk. Welke situatie vraagt om een lucht-lucht-airco, en wanneer is een (hybride) warmtepomp de betere keuze? De SCOP-norm maakt het verschil inzichtelijk.',
     tags: ['Airco', 'Warmtepomp', 'SCOP', 'EnergieAdvies', 'Installatiebranche'],
+    keyPoints: [
+      'Airco (lucht-lucht) en (hybride) lucht-water-warmtepomp worden beide op de SCOP-norm (EN 14825) beoordeeld en zijn daarmee vergelijkbaar.',
+      'Een airco past bij primair koelen met bijverwarmen of een woning zonder geschikt cv-systeem; hij levert geen warm tapwater.',
+      'Een hybride warmtepomp is de tussenstap voor bestaande bouw met hogere aanvoertemperaturen of matige isolatie; ISDE geldt mits de SCOP-drempel wordt gehaald.',
+      'Een volledig elektrische warmtepomp geeft de hoogste besparing, maar alleen bij goede isolatie en lagetemperatuurverwarming (circa 35 °C).',
+    ],
   },
   {
     slug: 'trends-verduurzaming-2026',
@@ -115,6 +163,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Gewijzigde ISDE-subsidies, een thuisbatterijmarkt die in 2025 met 140% groeide, een nieuw prioriteringskader voor netcongestie en de salderingsregeling die in 2027 verdwijnt: de verduurzamingsmarkt vraagt in 2026 om een bijgesteld advies. Wat zijn de belangrijkste ontwikkelingen?',
     tags: ['Verduurzaming', 'Trends', 'ISDE', 'Thuisbatterij', 'Netcongestie', 'Installatiebranche'],
+    keyPoints: [
+      'ISDE 2026: gewijzigde bedragen (startbedrag €1.025 plus €225 per kW vanaf 1 kW); split-airco\'s en warmtepompen met GWP boven 750 en onder 3 kg vervallen.',
+      'De thuisbatterijmarkt groeide in 2025 circa 140%, gedreven door de salderingsafschaffing (2027) en terugleverkosten.',
+      'Vanaf 1 juli 2026 geldt een nieuw ACM-prioriteringskader voor netcongestie; load balancing wordt bij zakelijke laadpalen een voorwaarde.',
+      'De zonnemarkt verzadigt (29,4 GWp, 3,3 miljoen installaties); de combinatieofferte (zon met batterij of laadpaal) wordt de standaard.',
+    ],
   },
   {
     slug: 'thuisbatterij-capaciteit-kiezen',
@@ -142,6 +196,12 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Niet elk dak kijkt naar het zuiden. Hoeveel zonnepaneelrendement verliest een klant bij een oost-westdak, een vlak dak of gedeeltelijke schaduw — en wanneer loont een installatie toch?',
     tags: ['Zonnepanelen', 'Dakoriëntatie', 'EnergieAdvies', 'Installatiebranche'],
+    keyPoints: [
+      'Zuid met 35–40° helling is optimaal (circa 875–950 kWh/kWp per jaar in NL); alle andere situaties worden als percentage daarvan uitgedrukt (oriëntatiefactor).',
+      'Oost/west op 35° levert circa 80–85%, een vlak dak circa 87–90%, noord op 35° circa 60–65% — klanten overschatten het verlies meestal.',
+      'Een oost-westdak heeft twee productiepieken, wat de zelfconsumptie beter spreidt en terugleverkosten kan verlagen.',
+      'Permanente schaduw neem je als reductiefactor mee; bij meer dan 20% schaduw tijdens productieve uren lonen optimizers of micro-omvormers.',
+    ],
   },
   {
     slug: 'netcongestie-wachtlijst-zakelijk-2026',
@@ -153,5 +213,11 @@ export const blogPosts: BlogPostMeta[] = [
     excerpt:
       'Ruim 15.000 grootverbruikers staan al op de wachtlijst voor netcapaciteit, en vanaf 1 juli 2026 komen kleinverbruikers daar in congestiegebieden bij. Wat betekent dit voor het aansluitadvies aan uw zakelijke klant, en welke alternatieven overbruggen de wachttijd?',
     tags: ['Netcongestie', 'Zakelijk', 'Batterijopslag', 'Installatiebranche'],
+    keyPoints: [
+      'Vanaf 1 juli 2026 komen ook kleinverbruikers (tot en met 3x80A) in congestiegebieden op dezelfde netcongestie-wachtlijst als grootverbruikers.',
+      'Eind 2025 stonden ruim 15.000 grootverbruikers op de wachtlijst (circa 9,3 GW); reguliere bedrijfsaansluitingen krijgen geen automatische voorrang.',
+      'Het ACM-prioriteringskader geeft alleen voorrang aan congestieverlichters, kritieke voorzieningen en basisbehoeften.',
+      'Overbruggen kan met een capaciteitsbeperkend contract (CBC), GOPACS/congestiemanagement of batterijopslag (telt als congestieverlichter).',
+    ],
   },
 ];
