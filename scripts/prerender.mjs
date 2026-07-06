@@ -34,6 +34,7 @@ const routes = [
   { url: '/blog/airco-vs-warmtepomp', outFile: 'blog-airco-vs-warmtepomp.html' },
   { url: '/blog/trends-verduurzaming-2026', outFile: 'blog-trends-verduurzaming-2026.html' },
   { url: '/blog/thuisbatterij-capaciteit-kiezen', outFile: 'blog-thuisbatterij-capaciteit-kiezen.html' },
+  { url: '/blog/dakorientatie-zonnepanelen-opbrengst', outFile: 'blog-dakorientatie-zonnepanelen-opbrengst.html' },
   { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html' },
   { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html' },
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html' },
