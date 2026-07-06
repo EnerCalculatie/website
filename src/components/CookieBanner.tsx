@@ -1,23 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Settings, Check, X } from 'lucide-react';
 
 export function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(
+    () => typeof window !== 'undefined' && !localStorage.getItem('cookie-consent')
+  );
   const [showDetails, setShowDetails] = useState(false);
-  
+
   const [preferences, setPreferences] = useState({
-    functional: true, // Always true and disabled
+    functional: true,
     analytical: false,
     marketing: false,
   });
-
-  useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, []);
 
   const handleAcceptAll = () => {
     localStorage.setItem('cookie-consent', JSON.stringify({ functional: true, analytical: true, marketing: true }));
