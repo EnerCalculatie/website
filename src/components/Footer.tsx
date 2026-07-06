@@ -59,8 +59,7 @@ export function Footer() {
               <a href="tel:+31630366189" className="text-slate-400 hover:text-white transition-colors">
                 06 - 30 36 61 89
               </a>
-              <p className="text-slate-400 mt-2">Toenzalstraat 16<br />1363 RJ Almere</p>
-              <p className="text-slate-400">KvK: 42102840</p>
+              <p className="text-slate-400 mt-2">KvK: 42102840</p>
             </div>
           </div>
 
