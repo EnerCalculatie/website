@@ -145,7 +145,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg mb-1">Telefoon</h4>
-                    <p className="text-slate-600 mb-1">We zijn bereikbaar van 08:30 tot 17:30.</p>
+                    <p className="text-slate-600 mb-1">We zijn bereikbaar op</p>
                     <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
                   </div>
                 </div>
