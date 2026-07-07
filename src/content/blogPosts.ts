@@ -220,4 +220,20 @@ export const blogPosts: BlogPostMeta[] = [
       'Overbruggen kan met een capaciteitsbeperkend contract (CBC), GOPACS/congestiemanagement of batterijopslag (telt als congestieverlichter).',
     ],
   },
+  {
+    slug: 'thuisbatterij-veiligheid-verzekering',
+    title: 'Thuisbatterij, verzekering en het energielabel: welke eisen gelden er per 29 mei 2026?',
+    description:
+      'Verzekeraars stellen steeds strengere eisen aan de installatie van thuisbatterijen, en vanaf 29 mei 2026 kan een thuisbatterij meetellen voor het energielabel. Lees welke NEN 1010-eisen, celchemie en documentatie uw klant nodig heeft om verzekerd én in aanmerking te blijven.',
+    date: '2026-07-07',
+    excerpt:
+      'Een verkeerd geplaatste of ondocumenteerde thuisbatterij kan uw klant bij schade zijn verzekeringsdekking kosten. Welke NEN 1010- en documentatie-eisen stellen verzekeraars, en wat verandert er per 29 mei 2026 aan het energielabel?',
+    tags: ['Thuisbatterij', 'Brandveiligheid', 'Verzekering', 'Energielabel', 'Installatiebranche'],
+    keyPoints: [
+      'Verzekeraars eisen bij een vaste thuisbatterij installatie door een erkend installateur conform NEN 1010, met een opleverrapport — anders kan een schadeclaim worden afgewezen.',
+      'Een LFP-batterij (lithium-ijzerfosfaat) op een onbrandbare ondergrond of wand geldt als brandveiliger dan plaatsing op een houten vloer.',
+      'Meld de thuisbatterij aan bij Energieleveren.nl en bewaar het opleverrapport, garantiebewijs en model-/serienummers — verzekeraars vragen dit dossier steeds vaker op.',
+      'Vanaf 29 mei 2026 kan een vast aangesloten thuisbatterij (minimaal 5 kWh, met lokale opwek) meetellen voor het energielabel van de woning.',
+    ],
+  },
 ];

@@ -73,6 +73,7 @@ const TrendsVerduurzaming2026Article = lazyRoute('/blog/trends-verduurzaming-202
 const ThuisbatterijCapaciteitArticle = lazyRoute('/blog/thuisbatterij-capaciteit-kiezen', () => import('./components/blog/ThuisbatterijCapaciteitArticle').then(m => ({ default: m.ThuisbatterijCapaciteitArticle })));
 const DakorientatieZonnepanelenArticle = lazyRoute('/blog/dakorientatie-zonnepanelen-opbrengst', () => import('./components/blog/DakorientatieZonnepanelenArticle').then(m => ({ default: m.DakorientatieZonnepanelenArticle })));
 const NetcongestieWachtlijstZakelijkArticle = lazyRoute('/blog/netcongestie-wachtlijst-zakelijk-2026', () => import('./components/blog/NetcongestieWachtlijstZakelijkArticle').then(m => ({ default: m.NetcongestieWachtlijstZakelijkArticle })));
+const ThuisbatterijVeiligheidVerzekeringArticle = lazyRoute('/blog/thuisbatterij-veiligheid-verzekering', () => import('./components/blog/ThuisbatterijVeiligheidVerzekeringArticle').then(m => ({ default: m.ThuisbatterijVeiligheidVerzekeringArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -164,6 +165,7 @@ export function AppContent() {
             <Route path="/blog/thuisbatterij-capaciteit-kiezen" element={<ThuisbatterijCapaciteitArticle />} />
             <Route path="/blog/dakorientatie-zonnepanelen-opbrengst" element={<DakorientatieZonnepanelenArticle />} />
             <Route path="/blog/netcongestie-wachtlijst-zakelijk-2026" element={<NetcongestieWachtlijstZakelijkArticle />} />
+            <Route path="/blog/thuisbatterij-veiligheid-verzekering" element={<ThuisbatterijVeiligheidVerzekeringArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
