@@ -60,6 +60,7 @@ export function Footer() {
                 06 - 30 36 61 89
               </a>
               <p className="text-slate-400 mt-2">KvK: 42102840</p>
+              <p className="text-slate-400">BTW-ID: NL005495668B40</p>
             </div>
           </div>
 
