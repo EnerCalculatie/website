@@ -236,4 +236,20 @@ export const blogPosts: BlogPostMeta[] = [
       'Vanaf 29 mei 2026 kan een vast aangesloten thuisbatterij (minimaal 5 kWh, met lokale opwek) meetellen voor het energielabel van de woning.',
     ],
   },
+  {
+    slug: 'energie-investeringsaftrek-eia-2026',
+    title: 'Energie-investeringsaftrek (EIA) 2026: hoe onderbouwt u dit fiscale voordeel bij een zakelijke klant?',
+    description:
+      'Bij een zakelijke klant is niet de ISDE, maar de energie-investeringsaftrek (EIA) het relevante fiscale voordeel: 40% van het investeringsbedrag in zonnepanelen, een warmtepomp of laadinfrastructuur is in 2026 extra aftrekbaar. Lees aan welke eisen de Energielijst 2026 stelt en hoe u dit onderbouwt in uw offerte.',
+    date: '2026-07-08',
+    excerpt:
+      'Bij een zakelijke klant met een bedrijfsdak of wagenpark draait het fiscale gesprek niet om de ISDE, maar om de energie-investeringsaftrek. Welke eisen stelt de Energielijst 2026 aan zonnepanelen, warmtepompen en laadpalen, en hoe berekent u het daadwerkelijke belastingvoordeel?',
+    tags: ['EIA', 'Subsidie', 'Zakelijk', 'Installatiebranche'],
+    keyPoints: [
+      'De EIA levert in 2026 een extra aftrek van 40% van het investeringsbedrag op de fiscale winst op, bovenop de reguliere afschrijving; het budget bedraagt €460 miljoen.',
+      'Per bedrijfsmiddel geldt een minimale investering van €2.500, met een maximum van €155 miljoen aftrekbare investeringen per onderneming per kalenderjaar.',
+      'De Energielijst 2026 stelt per categorie eigen eisen: zonnepanelen vanaf 15 kWp gecombineerd piekvermogen, warmtepompen met SCOP ≥ 4,5 en halogeenvrij koudemiddel, laadpalen die publiek toegankelijk zijn (AC ≥ 11 kW, DC ≥ 20 kW).',
+      'Meld de investering binnen drie maanden na het aangaan van de verplichting (opdrachtbevestiging) bij de RVO — een te late melding kost de aftrek definitief, ook als de investering verder aan alle eisen voldoet.',
+    ],
+  },
 ];
