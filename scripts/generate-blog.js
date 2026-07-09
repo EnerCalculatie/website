@@ -28,12 +28,18 @@ Je werkt in de repository enercalculatie-website.
 Taak: schrijf EEN nieuw, origineel Nederlands blogartikel voor de kennisbank, gericht op installateurs in de verduurzamingsbranche (zonnepanelen, thuisbatterijen, warmtepompen).
 
 Instructies:
-- Het onderwerp mag NIET al voorkomen in deze lijst: ${existingContent.substring(0, 500)}...
+- Het onderwerp mag NIET al voorkomen in deze lijst: ${existingContent.substring(0, 1000)}...
 - Gebruik actuele thema's: RVO (ISDE), ACM, Netbeheer Nederland.
 - Schrijf in professioneel Nederlands, u-vorm, gericht op de installateur.
 - Genereer UITSLUITEND de rauwe React/TypeScript code voor het component. Geen markdown blokken (\`\`\`tsx), geen uitleg, alleen de code.
 - Gebruik exacte BlogPostLayout structuur en exporteer het als een default function.
 - Typ Framer Motion variants expliciet en gebruik geen 'any'.
+
+CRUCIALE EISEN VOOR DE CODE:
+1. Gebruik EXACT deze import voor de layout bovenaan:
+   import BlogPostLayout from '@/components/BlogPostLayout';
+2. Neem ook de benodigde interface/type-imports mee als je die gebruikt.
+3. Genereer bovenaan het bestand een geëxporteerde constante 'meta' van het type 'BlogPostMeta' (zorg dat de interface in dit bestand is gedeclareerd of geïmporteerd). Vul de velden in zoals in de huidige blogPosts.ts: slug, title, description, date (gebruik de datum van vandaag), excerpt, tags (array van strings) en keyPoints (array van 3-4 strings).
 `;
 
   console.log("Verbinding maken met OpenRouter API...");
