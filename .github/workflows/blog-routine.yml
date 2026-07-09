@@ -27,7 +27,7 @@ jobs:
         run: node scripts/generate-blog.js
 
       - name: Maak Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "feat(blog): nieuw kennisbank artikel installatiebranche"
