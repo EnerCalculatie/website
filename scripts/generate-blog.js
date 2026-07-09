@@ -1,7 +1,13 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const API_KEY = process.env.LLM_API_KEY;
+
+// In ES Modules moeten __dirname en __filename handmatig worden gedefinieerd
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const BLOG_DIR = path.join(__dirname, '../src/components/blog');
 const CONTENT_FILE = path.join(__dirname, '../src/content/blogPosts.ts');
 
@@ -40,8 +46,6 @@ Instructies:
         'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        // Gratis model voor testdoeleinden. 
-        // Vervang dit door 'anthropic/claude-3.5-sonnet' zodra je saldo op OpenRouter laadt.
         model: 'meta-llama/llama-3.3-70b-instruct:free', 
         messages: [{ role: 'user', content: prompt }]
       })
@@ -55,10 +59,8 @@ Instructies:
     }
 
     let code = data.choices[0].message.content;
-    // Schoon eventuele backticks op als het model ze toch meestuurt
     code = code.replace(/```tsx?\n/g, '').replace(/```/g, '').trim();
 
-    // Zorg dat de doelfolder bestaat
     if (!fs.existsSync(BLOG_DIR)){
         fs.mkdirSync(BLOG_DIR, { recursive: true });
     }
