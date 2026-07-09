@@ -4,15 +4,16 @@
 # Geef alle crawlers standaard toegang, behalve tot de API-eindpunten.
 # Dit voorkomt dat crawlers proberen te interageren met backend-logica.
 User-agent: *
+Allow: /
 Disallow: /api/
 
 # Geef AI-crawlers expliciet en onbeperkt toegang tot alle content.
 # Dit is een toekomstgerichte best practice voor AI-gedreven zoekresultaten en discovery.
 User-agent: Google-Extended
-Disallow:
+Allow: /
 
 User-agent: GPTBot
-Disallow:
+Allow: /
 
 User-agent: OAI-SearchBot
 Disallow:
@@ -21,7 +22,7 @@ User-agent: ClaudeBot
 Disallow:
 
 User-agent: PerplexityBot
-Disallow:
+Allow: /
 
 # Verwijs alle crawlers naar de sitemap voor een compleet overzicht van alle URLs.
 Sitemap: https://www.enercalculatie.nl/sitemap.xml
