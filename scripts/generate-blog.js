@@ -36,28 +36,28 @@ Instructies:
 - Typ Framer Motion variants expliciet en gebruik geen 'any'.
 `;
 
-  console.log("Verbinding maken met Google Gemini API...");
+  console.log("Verbinding maken met OpenRouter API...");
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${API_KEY}`, {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        contents: [{
-          parts: [{ text: prompt }]
-        }]
+        model: 'deepseek/deepseek-chat', 
+        messages: [{ role: 'user', content: prompt }]
       })
     });
 
     const data = await response.json();
     
-    if (!response.ok || !data.candidates || !data.candidates[0]) {
+    if (!data.choices || !data.choices[0]) {
       console.error("API Foutmelding:", data);
       process.exit(1);
     }
 
-    let code = data.candidates[0].content.parts[0].text;
+    let code = data.choices[0].message.content;
     code = code.replace(/```tsx?\n/g, '').replace(/```/g, '').trim();
 
     if (!fs.existsSync(BLOG_DIR)){
