@@ -11,7 +11,25 @@ export interface BlogPostMeta {
   keyPoints?: string[];
 }
 
-export const blogPosts: BlogPostMeta[] = [
+export const blogPosts: BlogPostMeta[
+  {
+  "slug": "optimale-warmtepomp-installatie",
+  "title": "Optimale warmtepompinstallatie: waar moet u op letten?",
+  "description": "Lees hoe u als installateur een optimale warmtepompinstallatie kunt realiseren, inclusief aandachtspunten voor RVO-richtlijnen en ACM-regulering.",
+  "date": "2026-07-09",
+  "excerpt": "Een optimale warmtepompinstallatie vraagt om een zorgvuldige afstemming tussen techniek, regelgeving en klantbehoefte. Ontdek de belangrijkste aandachtspunten.",
+  "tags": [
+    "Warmtepomp",
+    "Installatie",
+    "RVO",
+    "ACM"
+  ],
+  "keyPoints": [
+    "Kies de juiste capaciteit en type warmtepomp voor de situatie van uw klant.",
+    "Houd rekening met RVO-richtlijnen voor ISDE-subsidie en ACM-regulering.",
+    "Zorg voor een toekomstbestendige installatie met aandacht voor energie-efficiëntie."
+  ]
+},] = [
   {
     slug: 'salderingsregeling-2027',
     title: 'Salderingsregeling 2027: wat verandert er voor uw klanten met zonnepanelen?',
