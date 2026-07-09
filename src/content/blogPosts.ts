@@ -23,7 +23,25 @@ export interface BlogPostMeta {
 // voor de overzichtskaarten, en door elk artikel zelf voor SEO/schema.
 // Nieuw artikel toevoegen = hier een entry toevoegen + een eigen component
 // in src/components/blog/, en de route registreren in App.tsx.
-export const blogPosts: BlogPostMeta[] = [
+export const blogPosts: BlogPostMeta[
+  {
+  "slug": "optimaliseren-warmtepompinstallaties-rvo-eisen",
+  "title": "Hoe u warmtepompinstallaties optimaliseert volgens de nieuwste RVO-eisen",
+  "description": "Ontdek praktische tips om warmtepompinstallaties te optimaliseren volgens de actuele RVO-richtlijnen en ISDE-subsidie-eisen voor maximale klanttevredenheid.",
+  "date": "2026-07-09",
+  "excerpt": "De RVO heeft recentelijk de eisen voor warmtepompinstallaties aangescherpt. In dit artikel leest u hoe u als installateur optimaal inspeelt op deze veranderingen.",
+  "tags": [
+    "RVO",
+    "ISDE",
+    "Warmtepompen",
+    "Verduurzaming"
+  ],
+  "keyPoints": [
+    "Nieuwe RVO-richtlijnen voor warmtepompinstallaties per juli 2026",
+    "Praktische tips voor ISDE-submissie zonder vertraging",
+    "Optimalisatie van systeemrendement voor betere subsidie-aanvragen"
+  ]
+},] = [
   {
     slug: 'salderingsregeling-2027',
     title: 'Salderingsregeling 2027: wat verandert er voor uw klanten met zonnepanelen?',
