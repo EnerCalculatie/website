@@ -1,8 +1,8 @@
-name: Blog Installatiebranche (Ma-Vr 05:30)
+name: Blog Installatiebranche (Dagelijks 06:00)
 
 on:
   schedule:
-    - cron: '30 3 * * 1-5' # Dit is 05:30 Nederlandse tijd (rekening houdend met zomertijd)
+    - cron: '0 4 * * *' # Dit is 06:00 Nederlandse zomertijd (elke dag)
   workflow_dispatch: # Zorgt ervoor dat we handmatig kunnen testen
 
 permissions:
