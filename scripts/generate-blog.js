@@ -31,31 +31,31 @@ Instructies:
 - Typ Framer Motion variants expliciet en gebruik geen 'any'.
 `;
 
-  console.log("Verbinding maken met Anthropic API...");
+  console.log("Verbinding maken met OpenRouter API...");
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': API_KEY,
-        'anthropic-version': '2023-06-01'
+        'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20240620',
-        max_tokens: 3000,
+        // Gratis model voor testdoeleinden. 
+        // Vervang dit door 'anthropic/claude-3.5-sonnet' zodra je saldo op OpenRouter laadt.
+        model: 'meta-llama/llama-3.3-70b-instruct:free', 
         messages: [{ role: 'user', content: prompt }]
       })
     });
 
     const data = await response.json();
     
-    if (!data.content || !data.content[0]) {
+    if (!data.choices || !data.choices[0]) {
       console.error("API Foutmelding:", data);
       process.exit(1);
     }
 
-    let code = data.content[0].text;
-    // Schoon eventuele backticks op als Claude ze toch meestuurt
+    let code = data.choices[0].message.content;
+    // Schoon eventuele backticks op als het model ze toch meestuurt
     code = code.replace(/```tsx?\n/g, '').replace(/```/g, '').trim();
 
     // Zorg dat de doelfolder bestaat
