@@ -11,7 +11,24 @@ export interface BlogPostMeta {
   keyPoints?: string[];
 }
 
-export const blogPosts: BlogPostMeta[] = [
+export const blogPosts: BlogPostMeta[
+  {
+  "slug": "duurzame-verwarmingstechnieken",
+  "title": "Duurzame verwarmingstechnieken: wat zijn de beste opties voor uw klanten?",
+  "description": "Ontdek de meest efficiënte en duurzame verwarmingstechnieken voor uw klanten, van warmtepompen tot hybride systemen en innovatieve oplossingen.",
+  "date": "2026-07-09",
+  "excerpt": "De transitie naar duurzame verwarmingstechnieken biedt kansen voor installateurs. Welke opties zijn het meest geschikt voor uw klanten?",
+  "tags": [
+    "Warmtepompen",
+    "DuurzameVerwarming",
+    "EnergieAdvies"
+  ],
+  "keyPoints": [
+    "Warmtepompen blijven de meest efficiënte oplossing voor duurzame verwarming.",
+    "Hybride systemen bieden een flexibele overgang naar volledig elektrische verwarming.",
+    "Innovatieve technieken zoals infraroodverwarming winnen aan populariteit."
+  ]
+},] = [
   {
     slug: 'salderingsregeling-2027',
     title: 'Salderingsregeling 2027: wat verandert er voor uw klanten met zonnepanelen?',
