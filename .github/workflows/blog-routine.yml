@@ -1,0 +1,36 @@
+name: Blog Installatiebranche (Ma-Vr 05:30)
+
+on:
+  schedule:
+    - cron: '30 3 * * 1-5' # Dit is 05:30 Nederlandse tijd (rekening houdend met zomertijd)
+  workflow_dispatch: # Zorgt ervoor dat we handmatig kunnen testen
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Genereer Blog Artikel
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: node scripts/generate-blog.js
+
+      - name: Maak Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "feat(blog): nieuw kennisbank artikel installatiebranche"
+          title: "Automatisch gegenereerd blogartikel"
+          branch: "auto-blog-${{ github.run_id }}"
+          body: "Dit artikel is automatisch gegenereerd door de workflow. Controleer de inhoud voor je merget."
