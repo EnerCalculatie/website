@@ -9,17 +9,36 @@ Disallow: /api/
 
 # Geef AI-crawlers expliciet en onbeperkt toegang tot alle content.
 # Dit is een toekomstgerichte best practice voor AI-gedreven zoekresultaten en discovery.
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CloudflareBrowserRenderingCrawler
+Allow: /
+
 User-agent: Google-Extended
 Allow: /
 
 User-agent: GPTBot
 Allow: /
 
-User-agent: OAI-SearchBot
-Disallow:
+User-agent: meta-externalagent
+Allow: /
 
-User-agent: ClaudeBot
-Disallow:
+User-agent: OAI-SearchBot
+Allow: /
 
 User-agent: PerplexityBot
 Allow: /
