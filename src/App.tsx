@@ -23,22 +23,12 @@ import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 import { CookieBanner } from './components/CookieBanner';
 
-// ---------------------------------------------------------------------------
-// Code-splitting: alle routes buiten de homepage worden lazy geladen zodat de
-// initiële bundle klein blijft. routePreloads koppelt elk pad aan zijn
-// module-loader, zodat:
-//  - entry-server.tsx vóór renderToString alle modules kan laden (prerender), en
-//  - main.tsx vóór hydrateRoot de module van de huidige route kan laden
-//    (voorkomt dat Suspense de geprerenderde HTML wegblankt).
-// ---------------------------------------------------------------------------
-
 function lazyRoute(
   paths: string | string[],
   load: () => Promise<RouteModule>
 ): LazyExoticComponent<ComponentType> {
   let cached: RouteModule | undefined;
   const preload = () => load().then((m) => { cached = m; return m; });
-
   const loader = () => {
     if (cached) {
       const mod = cached;
@@ -46,7 +36,6 @@ function lazyRoute(
     }
     return preload();
   };
-
   for (const p of Array.isArray(paths) ? paths : [paths]) routePreloads[p] = preload;
   return lazy(loader);
 }
@@ -58,7 +47,6 @@ const Terms = lazyRoute('/voorwaarden', () => import('./components/Terms').then(
 const ProcessorAgreement = lazyRoute('/verwerkersovereenkomst', () => import('./components/ProcessorAgreement').then(m => ({ default: m.ProcessorAgreement })));
 const BlogIndex = lazyRoute('/blog', () => import('./components/blog/BlogIndex').then(m => ({ default: m.BlogIndex })));
 
-// Statische blog artikelen
 const SalderingsregelingArticle = lazyRoute('/blog/salderingsregeling-2027', () => import('./components/blog/SalderingsregelingArticle').then(m => ({ default: m.SalderingsregelingArticle })));
 const BtwZonnepanelenArticle = lazyRoute('/blog/btw-zonnepanelen', () => import('./components/blog/BtwZonnepanelenArticle').then(m => ({ default: m.BtwZonnepanelenArticle })));
 const TerugleverkostenThuisbatterijArticle = lazyRoute('/blog/terugleverkosten-thuisbatterij', () => import('./components/blog/TerugleverkostenThuisbatterijArticle').then(m => ({ default: m.TerugleverkostenThuisbatterijArticle })));
@@ -74,29 +62,20 @@ const NetcongestieWachtlijstZakelijkArticle = lazyRoute('/blog/netcongestie-wach
 const ThuisbatterijVeiligheidVerzekeringArticle = lazyRoute('/blog/thuisbatterij-veiligheid-verzekering', () => import('./components/blog/ThuisbatterijVeiligheidVerzekeringArticle').then(m => ({ default: m.ThuisbatterijVeiligheidVerzekeringArticle })));
 const EiaInvesteringsaftrekArticle = lazyRoute('/blog/energie-investeringsaftrek-eia-2026', () => import('./components/blog/EiaInvesteringsaftrekArticle').then(m => ({ default: m.EiaInvesteringsaftrekArticle })));
 
-// ---------------------------------------------------------------------------
-// Automatische routing voor dagelijks gegenereerde blogs via Vite glob-import
-// ---------------------------------------------------------------------------
 const autoBlogModules = import.meta.glob('./components/blog/BlogInstallatie_*.tsx');
-
 const autoBlogRoutes = Object.entries(autoBlogModules).map(([filePath, loadModule]) => {
   const match = filePath.match(/BlogInstallatie_(\d{8})\.tsx$/);
   if (!match) return null;
-
   const dateStr = match[1];
   const formattedDate = `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`;
-
   const post = blogPosts.find(p => p.date === formattedDate);
   if (!post) return null;
-
   const Component = lazyRoute(`/blog/${post.slug}`, () =>
     loadModule().then(m => ({ default: (m as any).default }))
   );
-
   return { path: `/blog/${post.slug}`, Component };
 }).filter((route): route is { path: string; Component: React.ComponentType } => route !== null);
 
-// Gedeelde module voor de vijf rekentool-landingspagina's
 const serviceLanding = (slug: string) =>
   lazyRoute(`/rekentool-${slug}`, () =>
     import('./components/services/ServiceLandingPage').then(m => ({
@@ -123,7 +102,6 @@ export function AppContent() {
       <ScrollToTop />
       <div className="min-h-screen bg-white">
         <NavBar />
-
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={
@@ -161,7 +139,6 @@ export function AppContent() {
             <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
             <Route path="/blog" element={<BlogIndex />} />
             
-            {/* Statische blog routes */}
             <Route path="/blog/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
             <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
             <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
@@ -170,16 +147,4 @@ export function AppContent() {
             <Route path="/blog/van-excel-naar-geautomatiseerd-advies" element={<ExcelNaarAdviesArticle />} />
             <Route path="/blog/laadpaal-advies-thuis" element={<LaadpaalAdviesArticle />} />
             <Route path="/blog/airco-vs-warmtepomp" element={<AircoVsWarmtepompArticle />} />
-            <Route path="/blog/trends-verduurzaming-2026" element={<TrendsVerduurzaming2026Article />} />
-            <Route path="/blog/thuisbatterij-capaciteit-kiezen" element={<ThuisbatterijCapaciteitArticle />} />
-            <Route path="/blog/dakorientatie-zonnepanelen-opbrengst" element={<DakorientatieZonnepanelenArticle />} />
-            <Route path="/blog/netcongestie-wachtlijst-zakelijk-2026" element={<NetcongestieWachtlijstZakelijkArticle />} />
-            <Route path="/blog/thuisbatterij-veiligheid-verzekering" element={<ThuisbatterijVeiligheidVerzekeringArticle />} />
-            <Route path="/blog/energie-investeringsaftrek-eia-2026" element={<EiaInvesteringsaftrekArticle />} />
-
-            {/* Dynamisch gegenereerde blog routes */}
-            {autoBlogRoutes.map((route) => (
-              <Route key={route.path} path={route.path} element={<route.Component />} />
-            ))}
-
-            <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
+            <Route path="/blog/trends-verduurzaming-202
