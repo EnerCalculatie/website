@@ -147,4 +147,37 @@ export function AppContent() {
             <Route path="/blog/van-excel-naar-geautomatiseerd-advies" element={<ExcelNaarAdviesArticle />} />
             <Route path="/blog/laadpaal-advies-thuis" element={<LaadpaalAdviesArticle />} />
             <Route path="/blog/airco-vs-warmtepomp" element={<AircoVsWarmtepompArticle />} />
-            <Route path="/blog/trends-verduurzaming-202
+            <Route path="/blog/trends-verduurzaming-2026" element={<TrendsVerduurzaming2026Article />} />
+            <Route path="/blog/thuisbatterij-capaciteit-kiezen" element={<ThuisbatterijCapaciteitArticle />} />
+            <Route path="/blog/dakorientatie-zonnepanelen-opbrengst" element={<DakorientatieZonnepanelenArticle />} />
+            <Route path="/blog/netcongestie-wachtlijst-zakelijk-2026" element={<NetcongestieWachtlijstZakelijkArticle />} />
+            <Route path="/blog/thuisbatterij-veiligheid-verzekering" element={<ThuisbatterijVeiligheidVerzekeringArticle />} />
+            <Route path="/blog/energie-investeringsaftrek-eia-2026" element={<EiaInvesteringsaftrekArticle />} />
+
+            {autoBlogRoutes.map((route) => (
+              <Route key={route.path} path={route.path} element={<route.Component />} />
+            ))}
+
+            <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
+            <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
+            <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
+            <Route path="/rekentool-airco" element={<AircoLanding />} />
+            <Route path="/rekentool-laadpaal" element={<LaadpaalLanding />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+        <Footer />
+        <CookieBanner />
+      </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+export default App;
