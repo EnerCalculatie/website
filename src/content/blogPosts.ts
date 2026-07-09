@@ -11,7 +11,25 @@ export interface BlogPostMeta {
   keyPoints?: string[];
 }
 
-export const blogPosts: BlogPostMeta[] = [
+export const blogPosts: BlogPostMeta[
+  {
+  "slug": "rvo-isde-2026-wijzigingen",
+  "title": "ISDE 2026: belangrijke wijzigingen voor installateurs in de verduurzamingsbranche",
+  "description": "Ontdek de belangrijkste wijzigingen in de ISDE-regeling voor 2026 en hoe u uw klanten optimaal kunt adviseren over warmtepompen en isolatie.",
+  "date": "2026-07-15",
+  "excerpt": "De ISDE-regeling ondergaat in 2026 enkele belangrijke wijzigingen waar u als installateur rekening mee moet houden.",
+  "tags": [
+    "ISDE",
+    "RVO",
+    "Warmtepompen",
+    "Verduurzaming"
+  ],
+  "keyPoints": [
+    "Verhoogde subsidiebedragen voor hybride warmtepompen",
+    "Nieuwe eisen voor isolatie bij warmtepompinstallaties",
+    "Vereenvoudigde aanvraagprocedure via MijnISDE"
+  ]
+},] = [
   {
     slug: 'salderingsregeling-2027',
     title: 'Salderingsregeling 2027: wat verandert er voor uw klanten met zonnepanelen?',
