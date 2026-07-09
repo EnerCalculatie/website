@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 
 const API_KEY = process.env.LLM_API_KEY;
 
-// In ES Modules moeten __dirname en __filename handmatig worden gedefinieerd
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -37,28 +36,28 @@ Instructies:
 - Typ Framer Motion variants expliciet en gebruik geen 'any'.
 `;
 
-  console.log("Verbinding maken met OpenRouter API...");
+  console.log("Verbinding maken met Google Gemini API...");
   try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${API_KEY}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'meta-llama/llama-3.3-70b-instruct:free', 
-        messages: [{ role: 'user', content: prompt }]
+        contents: [{
+          parts: [{ text: prompt }]
+        }]
       })
     });
 
     const data = await response.json();
     
-    if (!data.choices || !data.choices[0]) {
+    if (!response.ok || !data.candidates || !data.candidates[0]) {
       console.error("API Foutmelding:", data);
       process.exit(1);
     }
 
-    let code = data.choices[0].message.content;
+    let code = data.candidates[0].content.parts[0].text;
     code = code.replace(/```tsx?\n/g, '').replace(/```/g, '').trim();
 
     if (!fs.existsSync(BLOG_DIR)){
