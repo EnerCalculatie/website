@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, type ComponentType, type LazyExoticComponent } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { routePreloads, type RouteModule } from './routePreloads';
+import { blogPosts } from './content/blogPosts';
 import { SEO } from './components/SEO';
 import { NavBar } from './components/NavBar';
 import { Hero } from './components/Hero';
@@ -38,10 +39,6 @@ function lazyRoute(
   let cached: RouteModule | undefined;
   const preload = () => load().then((m) => { cached = m; return m; });
 
-  // Na preload geven we lazy() een synchroon-resolvende thenable in plaats van
-  // de import()-promise: import() resolvet altijd asynchroon (ook uit cache),
-  // en het synchrone renderToString zou dan de Suspense-fallback renderen —
-  // lege prerender-pagina's en een content-flash bij hydration.
   const loader = () => {
     if (cached) {
       const mod = cached;
@@ -61,6 +58,7 @@ const Terms = lazyRoute('/voorwaarden', () => import('./components/Terms').then(
 const ProcessorAgreement = lazyRoute('/verwerkersovereenkomst', () => import('./components/ProcessorAgreement').then(m => ({ default: m.ProcessorAgreement })));
 const BlogIndex = lazyRoute('/blog', () => import('./components/blog/BlogIndex').then(m => ({ default: m.BlogIndex })));
 
+// Statische blog artikelen
 const SalderingsregelingArticle = lazyRoute('/blog/salderingsregeling-2027', () => import('./components/blog/SalderingsregelingArticle').then(m => ({ default: m.SalderingsregelingArticle })));
 const BtwZonnepanelenArticle = lazyRoute('/blog/btw-zonnepanelen', () => import('./components/blog/BtwZonnepanelenArticle').then(m => ({ default: m.BtwZonnepanelenArticle })));
 const TerugleverkostenThuisbatterijArticle = lazyRoute('/blog/terugleverkosten-thuisbatterij', () => import('./components/blog/TerugleverkostenThuisbatterijArticle').then(m => ({ default: m.TerugleverkostenThuisbatterijArticle })));
@@ -76,8 +74,29 @@ const NetcongestieWachtlijstZakelijkArticle = lazyRoute('/blog/netcongestie-wach
 const ThuisbatterijVeiligheidVerzekeringArticle = lazyRoute('/blog/thuisbatterij-veiligheid-verzekering', () => import('./components/blog/ThuisbatterijVeiligheidVerzekeringArticle').then(m => ({ default: m.ThuisbatterijVeiligheidVerzekeringArticle })));
 const EiaInvesteringsaftrekArticle = lazyRoute('/blog/energie-investeringsaftrek-eia-2026', () => import('./components/blog/EiaInvesteringsaftrekArticle').then(m => ({ default: m.EiaInvesteringsaftrekArticle })));
 
-// Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
-// eigen lazy component die de juiste slug doorgeeft.
+// ---------------------------------------------------------------------------
+// Automatische routing voor dagelijks gegenereerde blogs via Vite glob-import
+// ---------------------------------------------------------------------------
+const autoBlogModules = import.meta.glob('./components/blog/BlogInstallatie_*.tsx');
+
+const autoBlogRoutes = Object.entries(autoBlogModules).map(([filePath, loadModule]) => {
+  const match = filePath.match(/BlogInstallatie_(\d{8})\.tsx$/);
+  if (!match) return null;
+
+  const dateStr = match[1];
+  const formattedDate = `${dateStr.substring(0, 4)}-${dateStr.substring(4, 6)}-${dateStr.substring(6, 8)}`;
+
+  const post = blogPosts.find(p => p.date === formattedDate);
+  if (!post) return null;
+
+  const Component = lazyRoute(`/blog/${post.slug}`, () =>
+    loadModule().then(m => ({ default: (m as any).default }))
+  );
+
+  return { path: `/blog/${post.slug}`, Component };
+}).filter((route): route is { path: string; Component: React.ComponentType } => route !== null);
+
+// Gedeelde module voor de vijf rekentool-landingspagina's
 const serviceLanding = (slug: string) =>
   lazyRoute(`/rekentool-${slug}`, () =>
     import('./components/services/ServiceLandingPage').then(m => ({
@@ -90,7 +109,6 @@ const WarmtepompLanding = serviceLanding('warmtepomp');
 const AircoLanding = serviceLanding('airco');
 const LaadpaalLanding = serviceLanding('laadpaal');
 
-// Helper om de scrollpositie te resetten bij het wisselen van pagina
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -99,33 +117,23 @@ function ScrollToTop() {
   return null;
 }
 
-// Router-onafhankelijke content, herbruikt door zowel de browser-entry (BrowserRouter)
-// als de server-entry (StaticRouter) voor prerendering.
 export function AppContent() {
   return (
     <>
       <ScrollToTop />
       <div className="min-h-screen bg-white">
-        {/* Navigation */}
         <NavBar />
 
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={
               <main>
-                {/* SEO & Meta Tags (default homepage-metadata) */}
                 <SEO />
-
-                {/* Hero Section with Dashboard Mockup */}
                 <Hero />
-
-                {/* Trust & Process */}
                 <HowItWorks />
                 <ProblemSolution />
                 <ComparisonTable />
                 <AppDemoVideo />
-
-                {/* Product Depth */}
                 <Features />
                 <section className="py-4 bg-brand-bg">
                   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,8 +143,6 @@ export function AppContent() {
                 <Integrations />
                 <PricingCalculator />
                 <Technology />
-
-                {/* Conversion & Proof */}
                 <Testimonials />
                 <Pricing />
                 <FAQ />
@@ -154,6 +160,8 @@ export function AppContent() {
             <Route path="/voorwaarden" element={<Terms />} />
             <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
             <Route path="/blog" element={<BlogIndex />} />
+            
+            {/* Statische blog routes */}
             <Route path="/blog/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
             <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
             <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />
@@ -168,28 +176,10 @@ export function AppContent() {
             <Route path="/blog/netcongestie-wachtlijst-zakelijk-2026" element={<NetcongestieWachtlijstZakelijkArticle />} />
             <Route path="/blog/thuisbatterij-veiligheid-verzekering" element={<ThuisbatterijVeiligheidVerzekeringArticle />} />
             <Route path="/blog/energie-investeringsaftrek-eia-2026" element={<EiaInvesteringsaftrekArticle />} />
+
+            {/* Dynamisch gegenereerde blog routes */}
+            {autoBlogRoutes.map((route) => (
+              <Route key={route.path} path={route.path} element={<route.Component />} />
+            ))}
+
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
-            <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
-            <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
-            <Route path="/rekentool-airco" element={<AircoLanding />} />
-            <Route path="/rekentool-laadpaal" element={<LaadpaalLanding />} />
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-
-        <Footer />
-        <CookieBanner />
-      </div>
-    </>
-  );
-}
-
-function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
-}
-export default App;
