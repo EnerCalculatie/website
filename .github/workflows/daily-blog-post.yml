@@ -1,0 +1,49 @@
+name: Dagelijks kennisbank-artikel
+
+on:
+  schedule:
+    # 05:00 UTC = 06:00 CET (winter) / 07:00 CEST (zomer).
+    # GitHub Actions cron kent geen tijdzones/DST; pas aan als 06:00 lokale tijd
+    # het hele jaar exact nodig is (bv. twee cronregels, zomer/winter).
+    - cron: '0 5 * * 1-5'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Genereer blogartikel
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+        run: node scripts/generate-blog-post.mjs
+
+      - name: Commit en push
+        run: |
+          git config user.name "enercalculatie-bot"
+          git config user.email "bot@enercalculatie.nl"
+          git add src/components/blog src/content/blogPosts.ts src/App.tsx
+          if git diff --cached --quiet; then
+            echo "Geen wijzigingen om te committen."
+            exit 0
+          fi
+          SLUG=$(git diff --cached src/content/blogPosts.ts | grep -oP "^\+\s*slug: '\K[^']+" | tail -1)
+          git commit -m "feat: kennisbank-artikel toevoegen - ${SLUG:-automatisch gegenereerd}"
+          git push origin HEAD:main
