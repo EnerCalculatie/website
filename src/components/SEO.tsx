@@ -24,7 +24,10 @@ export function SEO({
     "@type": "Organization",
     "name": "EnerCalculatie",
     "url": "https://www.enercalculatie.nl",
-    "logo": "https://www.enercalculatie.nl/logo.png"
+    "logo": "https://www.enercalculatie.nl/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/enercalculatie/"
+    ]
   };
 
   const softwareSchema = {
@@ -84,12 +87,12 @@ export function SEO({
       <meta property="og:image:height" content="630" />
 
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={canonical} />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={imageUrl} />
-      <meta property="twitter:image:alt" content={`${name} logo`} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={canonical} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content={`${name} logo`} />
       
       <link rel="canonical" href={canonical} />
 
