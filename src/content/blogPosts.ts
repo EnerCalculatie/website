@@ -268,4 +268,20 @@ export const blogPosts: BlogPostMeta[] = [
       'Voor zakelijk gebruik gelden wel de SPRILA-subsidie en, sinds 1 juli 2026, ERE-certificaten voor bidirectionele laadpalen met een MID-gecertificeerde meter.',
     ],
   },
+  {
+    slug: 'energiemanagementsysteem-p1-poort',
+    title: 'Energiemanagementsysteem en P1-poort: hoe stuurt u batterij, laadpaal en warmtepomp slim aan?',
+    description:
+      'Een energiemanagementsysteem (EMS) leest via de P1-poort van de slimme meter continu het actuele vermogen en stuurt daarmee thuisbatterij, laadpaal en warmtepomp op elkaar af. Lees hoe de P1-poort werkt, waarom dit in 2026 relevanter wordt, en wat dit betekent voor uw ontwerp en offerte.',
+    date: '2026-07-10',
+    excerpt:
+      'Vier apparaten die onafhankelijk van elkaar stroom vragen of opwekken, passen niet altijd binnen dezelfde netaansluiting. Hoe stuurt een energiemanagementsysteem via de P1-poort batterij, laadpaal en warmtepomp op elkaar af, en wanneer neemt u dit standaard op in uw offerte?',
+    tags: ['EMS', 'SlimmeMeter', 'Thuisbatterij', 'Installatiebranche'],
+    keyPoints: [
+      'De P1-poort geeft via het DSMR-protocol elke seconde het actuele vermogen door en meet, anders dan omvormerdata, op het punt van de netaansluiting zelf.',
+      'Activatie van de P1-poort is gratis via het klantportaal van de netbeheerder (o.a. mijnliander.nl, mijnaansluiting.nl, klantportaal Stedin) en zou standaard onderdeel moeten zijn van de oplevering bij meerdere grootverbruikers.',
+      'Een EMS combineert P1-, omvormer-, batterij- en laadpaaldata om te bepalen welk apparaat op welk moment stroom krijgt, vaak via een lokaal protocol zoals Modbus zodat sturing ook zonder internetverbinding werkt.',
+      'EMS-sturing kan bij zakelijke klanten een kostbare capaciteitsuitbreiding van de aansluiting overbodig maken en wordt relevanter door de salderingsafschaffing (2027), dynamische contracten en netcongestie.',
+    ],
+  },
 ];
