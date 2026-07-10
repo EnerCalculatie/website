@@ -236,4 +236,20 @@ export const blogPosts: BlogPostMeta[] = [
       'Vanaf 29 mei 2026 kan een vast aangesloten thuisbatterij (minimaal 5 kWh, met lokale opwek) meetellen voor het energielabel van de woning.',
     ],
   },
+  {
+    slug: 'bidirectioneel-laden-v2h-v2g',
+    title: 'Bidirectioneel laden (V2H/V2G): wat kunt u uw klant vandaag al adviseren, en wat niet?',
+    description:
+      'Bidirectioneel laden is technisch in opmars, maar juridisch en fiscaal nog volop in ontwikkeling. Lees het verschil tussen V2L, V2H en V2G, wat de AFIR-norm ISO 15118 vanaf 2026 en 2027 betekent voor uw laadpaal-advies, en waarom dubbele energiebelasting V2G voor woningeigenaren nog remt.',
+    date: '2026-07-10',
+    excerpt:
+      'De autoaccu die het huis voedt of geld oplevert door terug te leveren aan het net: bidirectioneel laden klinkt aantrekkelijk, maar wat is er nu al mogelijk en wat nog niet? Het onderscheid tussen V2H en V2G, en de dubbele energiebelasting die V2G voor woningeigenaren nog in de weg zit.',
+    tags: ['Laadpaal', 'ElektrischRijden', 'V2G', 'Installatiebranche'],
+    keyPoints: [
+      'V2L, V2H en V2G zijn drie verschillende toepassingen: V2H voedt de eigen woning (achter de meter), V2G levert terug aan het net — alleen dat laatste loopt tegen fiscale knelpunten aan.',
+      'Vanaf 8 januari 2026 geldt ISO 15118-2 voor nieuwe publieke AC-laadpunten; vanaf 1 januari 2027 geldt ISO 15118-20 (nodig voor V2G) voor alle nieuwe en ingrijpend vernieuwde AC- en DC-laadpunten, publiek én privaat.',
+      'Dubbele energiebelasting is voor grootverbruikers al sinds 2022 opgelost, maar voor kleinverbruikers nog niet — een nationale routekaart bidirectioneel laden moet hier uitkomst bieden.',
+      'Volgens onderzoek van Revnext kan V2H-gebruik (eigen zonnestroom opslaan in de auto) tot circa €900–1.050 per jaar besparen; presenteer dit als indicatie, niet als garantie.',
+    ],
+  },
 ];
