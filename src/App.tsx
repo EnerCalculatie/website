@@ -77,6 +77,7 @@ const ThuisbatterijVeiligheidVerzekeringArticle = lazyRoute('/blog/thuisbatterij
 const EiaInvesteringsaftrekArticle = lazyRoute('/blog/energie-investeringsaftrek-eia-2026', () => import('./components/blog/EiaInvesteringsaftrekArticle').then(m => ({ default: m.EiaInvesteringsaftrekArticle })));
 const BidirectioneelLadenArticle = lazyRoute('/blog/bidirectioneel-laden-v2g', () => import('./components/blog/BidirectioneelLadenArticle').then(m => ({ default: m.BidirectioneelLadenArticle })));
 const EmsP1PoortArticle = lazyRoute('/blog/energiemanagementsysteem-p1-poort', () => import('./components/blog/EmsP1PoortArticle').then(m => ({ default: m.EmsP1PoortArticle })));
+const EnergielabelCPlicht2030Article = lazyRoute('/blog/energielabel-c-plicht-2030', () => import('./components/blog/EnergielabelCPlicht2030Article').then(m => ({ default: m.EnergielabelCPlicht2030Article })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -172,6 +173,7 @@ export function AppContent() {
             <Route path="/blog/energie-investeringsaftrek-eia-2026" element={<EiaInvesteringsaftrekArticle />} />
             <Route path="/blog/bidirectioneel-laden-v2g" element={<BidirectioneelLadenArticle />} />
             <Route path="/blog/energiemanagementsysteem-p1-poort" element={<EmsP1PoortArticle />} />
+            <Route path="/blog/energielabel-c-plicht-2030" element={<EnergielabelCPlicht2030Article />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

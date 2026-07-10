@@ -284,4 +284,20 @@ export const blogPosts: BlogPostMeta[] = [
       'EMS-sturing kan bij zakelijke klanten een kostbare capaciteitsuitbreiding van de aansluiting overbodig maken en wordt relevanter door de salderingsafschaffing (2027), dynamische contracten en netcongestie.',
     ],
   },
+  {
+    slug: 'energielabel-c-plicht-2030',
+    title: 'Energielabel C-plicht 2030: wat betekent dit voor uw verduurzamingsadvies aan particuliere verhuurders?',
+    description:
+      'Per 2030 moeten huurwoningen minimaal energielabel C hebben. Ontdek welke maatregelen nodig zijn en hoe u verhuurders hierin adviseert.',
+    date: '2026-07-10',
+    excerpt:
+      'Vanaf 1 januari 2030 geldt in Nederland een wettelijke eis dat particuliere verhuurders hun woningen moeten verhuren met minimaal energielabel C. Deze maatregel, vastgelegd in het Besluit kwaliteit energieprestatie woningen (BKE), heeft directe gevolgen voor uw adviesgesprek met verhuurders die nu nog label D, E, F of G hebben. In dit artikel leest u welke maatregelen doorgaans nodig zijn om van label D naar C te komen, welke uitzonderingen er gelden, en hoe u als installateur deze transitie onderbouwt.',
+    tags: ['Energielabel', 'Regelgeving', 'Warmtepompen', 'Zonnepanelen', 'Installatiebranche'],
+    keyPoints: [
+      'Per 1 januari 2030 moeten particuliere huurwoningen minimaal energielabel C hebben bij aanvang van een nieuwe huurovereenkomst',
+      'Van label D naar C vraagt doorgaans isolatie plus één of twee verduurzamingsmaatregelen zoals zonnepanelen of een warmtepomp',
+      'Uitzonderingen gelden voor monumenten, beschermde stads- en dorpsgezichten, en woningen waar maatregelen niet technisch of financieel haalbaar zijn',
+      'Een rendementsberekening voor een verhuurder wijkt af van die voor een eigenaar-bewoner: de verhuurder investeert, maar de huurder profiteert van lagere energielasten',
+    ],
+  },
 ];
