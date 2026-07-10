@@ -33,7 +33,7 @@ if (!OPENROUTER_API_KEY) {
 // Kies zelf een model via de OPENROUTER_MODEL env var/secret, bv.
 // 'anthropic/claude-sonnet-4.5', 'openai/gpt-5', 'google/gemini-2.5-pro',
 // 'deepseek/deepseek-chat'. Volledige lijst: https://openrouter.ai/models
-const MODEL = process.env.OPENROUTER_MODEL || 'anthropic/claude-sonnet-4.5';
+const MODEL = process.env.OPENROUTER_MODEL || 'anthropic/claude-haiku-4.5';
 
 function todayISO() {
   return new Date().toISOString().slice(0, 10);
