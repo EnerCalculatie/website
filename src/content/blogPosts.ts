@@ -252,4 +252,20 @@ export const blogPosts: BlogPostMeta[] = [
       'Meld de investering binnen drie maanden na het aangaan van de verplichting (opdrachtbevestiging) bij de RVO — een te late melding kost de aftrek definitief, ook als de investering verder aan alle eisen voldoet.',
     ],
   },
+  {
+    slug: 'bidirectioneel-laden-v2g',
+    title: 'Bidirectioneel laden: wat betekent V2G/V2H voor uw laadpaal-advies in 2026?',
+    description:
+      'Sinds 2026 is Renault de eerste fabrikant met een opschaalbare V2G-dienst voor Nederlandse particulieren. Lees het verschil tussen V2H en V2G, welke techniek en standaarden hierbij horen, en welke subsidies en regelingen gelden voor uw klant.',
+    date: '2026-07-10',
+    excerpt:
+      'Een laadpaal die niet alleen laadt, maar ook teruglevert: bidirectioneel laden komt in 2026 voor het eerst beschikbaar voor Nederlandse particulieren. Wat is het verschil tussen V2H en V2G, wat kost het, en welke regelingen gelden voor uw zakelijke klant?',
+    tags: ['Laadpaal', 'V2G', 'ElektrischRijden', 'Installatiebranche'],
+    keyPoints: [
+      'Bidirectioneel laden kent twee toepassingen: V2H (eigen zelfconsumptie verhogen, vergelijkbaar met een thuisbatterij) en V2G (daadwerkelijk terugleveren aan het net via een marktpartij en dynamisch contract).',
+      'ISO 15118-20 is de CCS-standaard die auto, laadpaal en netcode op elkaar afstemt; oudere modellen zoals de Nissan Leaf gebruiken nog het CHAdeMO-protocol.',
+      'Sinds H1 2026 is Renault de eerste fabrikant met een opschaalbare V2G-dienst voor Nederlandse particulieren; een landelijke subsidie voor particuliere bidirectionele laadpalen ontbreekt vooralsnog.',
+      'Voor zakelijk gebruik gelden wel de SPRILA-subsidie en, sinds 1 juli 2026, ERE-certificaten voor bidirectionele laadpalen met een MID-gecertificeerde meter.',
+    ],
+  },
 ];
