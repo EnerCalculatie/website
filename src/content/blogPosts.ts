@@ -300,4 +300,20 @@ export const blogPosts: BlogPostMeta[] = [
       'Een rendementsberekening voor een verhuurder wijkt af van die voor een eigenaar-bewoner: de verhuurder investeert, maar de huurder profiteert van lagere energielasten',
     ],
   },
+  {
+    slug: 'netontwikkelingsbijdrage-zonnepanelen-2026',
+    title: 'Netontwikkelingsbijdrage zonnepanelen: hoe rekent u deze correct door in uw advies?',
+    description:
+      'Ontdek hoe u de netontwikkelingsbijdrage verwerkt in zonnepaneeladviezen. Wij laten zien hoe u transparant rekent en de impact op de terugverdientijd bepaalt.',
+    date: '2026-07-10',
+    excerpt:
+      'Regelgeving rondom de netontwikkelingsbijdrage raakt direct de rendementsberekening voor zonnepanelen. Leer hoe u deze correct verwerkt in uw advies, zodat uw klant een realistisch financieel beeld houdt.',
+    tags: ['Zonnepanelen', 'Regelgeving', 'Rendementsberekening', 'Installatiebranche'],
+    keyPoints: [
+      'Netontwikkelingsbijdrage is een gemeentelijke vergoeding voor nul-afnemers zonder stroomafname',
+      'Het tarief verschilt per gemeente en wordt jaarlijks geïndexeerd aan officiële prijsindexen',
+      'Een berekening zonder deze vaste last geeft een te optimistisch beeld van de terugverdientijd',
+      'EnerCalculatie verwerkt de bijdrage automatisch in uw dossier, zodat het rendement altijd kloppend is',
+    ],
+  },
 ];
