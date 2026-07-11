@@ -27,6 +27,7 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
       name: 'Nederland',
     },
     url: canonical,
+    dateModified: service.updated,
   };
 
   const faqSchema = {
@@ -100,6 +101,36 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
               .
             </p>
           </div>
+
+          {service.comparison && (
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 mb-12 overflow-x-auto">
+              <h2 className="text-lg font-bold text-slate-900 mb-4">{service.comparison.caption}</h2>
+              <table className="w-full text-sm text-left border-collapse">
+                <thead>
+                  <tr>
+                    <th className="py-2 pr-4"></th>
+                    {service.comparison.columns.map((col) => (
+                      <th key={col} className="py-2 px-4 font-semibold text-slate-900 whitespace-nowrap">
+                        {col}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {service.comparison.rows.map((row) => (
+                    <tr key={row.label} className="border-t border-slate-200">
+                      <td className="py-2 pr-4 font-medium text-slate-700 whitespace-nowrap">{row.label}</td>
+                      {row.values.map((value, i) => (
+                        <td key={i} className="py-2 px-4 text-slate-600">
+                          {value}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
           {service.relatedBlogSlug && (
             <a

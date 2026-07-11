@@ -8,6 +8,17 @@ export interface ServiceFaq {
   answer: string;
 }
 
+export interface ServiceComparisonRow {
+  label: string;
+  values: string[];
+}
+
+export interface ServiceComparison {
+  caption: string;
+  columns: string[];
+  rows: ServiceComparisonRow[];
+}
+
 export interface ServiceMeta {
   slug: string;
   title: string;
@@ -19,9 +30,28 @@ export interface ServiceMeta {
   features: ServiceFeature[];
   pricingTier: string;
   faqs: ServiceFaq[];
+  comparison?: ServiceComparison;
+  updated: string; // ISO 8601 — laatste contentwijziging (dateModified)
   relatedBlogSlug?: string;
   relatedBlogLabel?: string;
 }
+
+// Vergelijkingstabel pakketten x modules — direct afgeleid uit pricing.md,
+// hergebruikt op elke rekentool-pagina zodat "welk pakket voor X" een
+// citeerbaar, tabel-gestructureerd antwoord heeft (GEO: comparison content
+// scoort het hoogst van alle content-types voor AI-citaties).
+const PAKKET_COMPARISON: ServiceComparison = {
+  caption: 'Welk pakket bevat welke module?',
+  columns: ['Business (€ 99/mnd)', 'Business PRO (€ 179/mnd)', 'Compleet (€ 299/mnd)'],
+  rows: [
+    { label: 'Zonnepanelen', values: ['✓', '✓', '✓'] },
+    { label: 'Thuisbatterij', values: ['✓', '✓', '✓'] },
+    { label: 'Warmtepomp', values: ['—', '✓', '✓'] },
+    { label: 'Technische opname', values: ['—', '✓', '✓'] },
+    { label: 'Airco', values: ['—', '—', '✓'] },
+    { label: 'Laadpaal (EV)', values: ['—', '—', '✓'] },
+  ],
+};
 
 // Metadata voor de long-tail rekentool-landingspagina's, één per dienst/module.
 // Content is direct afgeleid uit reeds goedgekeurde copy in Features.tsx,
@@ -67,6 +97,8 @@ export const services: ServiceMeta[] = [
         answer: 'De zonnepanelen-module is beschikbaar vanaf het Business-pakket, het instappakket van EnerCalculatie.',
       },
     ],
+    comparison: PAKKET_COMPARISON,
+    updated: '2026-07-11',
     relatedBlogSlug: 'btw-zonnepanelen',
     relatedBlogLabel: '0% btw op zonnepanelen: wanneer geldt het nultarief?',
   },
@@ -110,6 +142,8 @@ export const services: ServiceMeta[] = [
           'Ja, de impact van teruglevering — en de besparing die een thuisbatterij hierop oplevert — wordt meegenomen in de rendementsberekening.',
       },
     ],
+    comparison: PAKKET_COMPARISON,
+    updated: '2026-07-11',
     relatedBlogSlug: 'terugleverkosten-thuisbatterij',
     relatedBlogLabel: 'Terugleverkosten: hoe rekent u ze door naar uw klant?',
   },
@@ -153,6 +187,8 @@ export const services: ServiceMeta[] = [
           'Het adviesrapport bevat de technische specificaties, vermogens en meldcodes die de RVO bij een ISDE-aanvraag voor warmtepompen vraagt. De daadwerkelijke aanvraag, inclusief installatie- en betaalbewijs, blijft een aparte stap die de klant na installatie zelf doorloopt.',
       },
     ],
+    comparison: PAKKET_COMPARISON,
+    updated: '2026-07-11',
     relatedBlogSlug: 'isde-subsidie-warmtepompen',
     relatedBlogLabel: 'ISDE-subsidie voor warmtepompen: welke onderbouwing heeft de RVO nodig?',
   },
@@ -195,6 +231,8 @@ export const services: ServiceMeta[] = [
         answer: 'De airco-module is beschikbaar vanaf het Compleet-pakket.',
       },
     ],
+    comparison: PAKKET_COMPARISON,
+    updated: '2026-07-11',
   },
   {
     slug: 'laadpaal',
@@ -235,6 +273,8 @@ export const services: ServiceMeta[] = [
         answer: 'De laadpaal-module is beschikbaar vanaf het Compleet-pakket.',
       },
     ],
+    comparison: PAKKET_COMPARISON,
+    updated: '2026-07-11',
     relatedBlogSlug: 'laadpaal-advies-thuis',
     relatedBlogLabel: 'Laadpaal-advies: welke factoren bepalen de juiste configuratie?',
   },
