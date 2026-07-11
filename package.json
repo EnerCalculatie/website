@@ -17,7 +17,9 @@
     "clean": "rm -rf dist dist-ssr server.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "lint:all": "npm run typecheck && npm run lint"
+    "lint:all": "npm run typecheck && npm run lint",
+    "plan:content": "node scripts/plan-content.mjs",
+    "generate:blog": "node scripts/generate-blog-post.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",

@@ -1,5 +1,16 @@
 name: Dagelijks kennisbank-artikel
 
+# SEO/GEO content engine-pipeline:
+# 1. Cronjob start (of handmatig via workflow_dispatch)
+# 2. ai-context/*.md wordt gelezen door plan-content.mjs en generate-blog-post.mjs
+# 3. Onderwerp gekozen: hoogste-prioriteit 'planned' item uit ai-context/content-plan.json
+# 4. Artikel gegenereerd via OpenRouter (generate-blog-post.mjs)
+# 5. SEO/GEO-controle (seo-geo-validator.mjs) — score < 80 op SEO of GEO triggert
+#    één automatische verbeterpoging, daarna definitieve afkeuring
+# 6. Verbetering zit in stap 5 (self-correcting binnen hetzelfde script-proces)
+# 7. Commit naar main (alleen bij goedgekeurd artikel; content-plan/content-log
+#    worden altijd gecommit, ook bij afkeuring, voor zichtbare geschiedenis)
+# 8. Deploy — Railway deployt automatisch bij push naar main (buiten deze workflow)
 on:
   schedule:
     # 05:00 UTC = 06:00 CET (winter) / 07:00 CEST (zomer).
@@ -15,7 +26,7 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: "1. Checkout"
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -29,21 +40,49 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Genereer blogartikel
+      - name: "2-3. Lees ai-context en vul content-backlog aan"
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+        run: node scripts/plan-content.mjs
+
+      - name: "4-6. Genereer artikel, SEO/GEO-controle en verbeterpoging"
+        id: generate
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
         run: node scripts/generate-blog-post.mjs
 
-      - name: Commit en push
+      - name: "7. Commit en push (main → Railway deployt automatisch)"
+        if: always()
         run: |
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
-          git add src/components/blog src/content/blogPosts.ts src/App.tsx
+          git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json
           if git diff --cached --quiet; then
             echo "Geen wijzigingen om te committen."
             exit 0
           fi
           SLUG=$(git diff --cached src/content/blogPosts.ts | grep -oP "^\+\s*slug: '\K[^']+" | tail -1)
-          git commit -m "feat: kennisbank-artikel toevoegen - ${SLUG:-automatisch gegenereerd}"
+          if [ -n "$SLUG" ]; then
+            git commit -m "feat: kennisbank-artikel toevoegen - ${SLUG}"
+          else
+            git commit -m "chore: content-backlog/log bijgewerkt (geen nieuw artikel)"
+          fi
           git push origin HEAD:main
+
+      - name: Samenvatting
+        if: always()
+        run: |
+          echo "## Kennisbank-generator — resultaat" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ steps.generate.outcome }}" = "success" ]; then
+            echo "**Status:** geslaagd" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "**Status:** mislukt of artikel afgekeurd — zie logs van stap 4-6 hierboven" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Laatste entry in ai-context/content-log.json:" >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          node -e "const l=require('./ai-context/content-log.json'); console.log(JSON.stringify(l.at(-1) ?? {note:'geen log-entry'}, null, 2))" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

@@ -43,6 +43,22 @@ export function buildBlogPostingSchema(post: BlogPostMeta) {
   };
 }
 
+/** FAQPage-schema (JSON-LD) uit `post.faq` — alleen aanroepen als dat gevuld is. */
+export function buildFaqSchema(post: BlogPostMeta) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: (post.faq ?? []).map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 /**
  * Blog-listingschema voor /blog: een `Blog` met per artikel een lichte
  * BlogPosting-verwijzing. Geeft zoek-/AI-engines de volledige artikelindex in één

@@ -1,0 +1,77 @@
+[
+  {
+    "title": "Kosten-batenanalyse voor de installateur: wanneer loont een verduurzamingspakket écht voor uw klant?",
+    "keyword": "verduurzaming kosten baten analyse",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "kosten-batenanalyse-voor-de-installateur-wanneer-loont-een-verduurzamingspakket-echt-voor-uw-klant",
+    "status": "rejected",
+    "createdAt": "2026-07-11T09:10:47.494Z",
+    "lastScore": 80,
+    "lastImprovements": [
+      "Voeg een expliciete interne link naar een bestaande /blog/ artikel in de hoofdtekst in (nu alleen in de laatste alinea). Bijvoorbeeld: in sectie 'Drie valkuilen' kan een link naar 'salderingsafschaffing' of 'batterij-rendement' vroeger ingevoegd worden.",
+      "Meta description is goed, maar 'saldering, ISDE en terugleverkosten' kan nog preciëzer: beperk tot maximaal 2 van de 3 voor betere CTR. Voorstel: 'Zonnepanelen + batterij + warmtepomp: geïntegreerde kosten-batenanalyse met saldering en ISDE-subsidie.'",
+      "In het praktijkvoorbeeld (Drenthe-case): voeg een duidelijke voetnoot toe dat de SCOP 3,8 een aanname is en dat dit MOET worden geverifieerd bij RVO-meldcode. Nu staat dit impliciet in 'Valkuilen' maar niet in het voorbeeld zelf.",
+      "Sectie 'Hoe een geïntegreerde kosten-batenanalyse werkt': de 4 stappen (1. Zonnepanelen, 2. Warmtepomp, etc.) kunnen korter: veel tekst vóór elk puntnummer. Beperk tot 2 zinnen per stap.",
+      "Voeg een afbeelding/diagram-suggestie in voor de twee scenario's (tot 2026 vs. na 2027), bijvoorbeeld als ASCII-tabel of grafische beschrijving. Dit helpt citabiliteit in AI-context.",
+      "Disclaimer na het praktijkvoorbeeld is uitgebreid (goed), maar markeer duidelijker als '[DISCLAIMER]' of vergelijkbaar zodat AI-engines dit herkennen en apart kunnen citeren."
+    ],
+    "rejectedAt": "2026-07-11T09:13:18.005Z"
+  },
+  {
+    "title": "Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?",
+    "keyword": "zonnepanelen netcongestie advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "zonnepanelen-en-netcongestie-hoe-adviseert-u-tegen-wachtlijsten-en-capaciteitsgrenzen",
+    "status": "rejected",
+    "createdAt": "2026-07-11T09:10:47.493Z",
+    "lastScore": 75,
+    "lastImprovements": [
+      "Meta description is 158 tekens — prima — maar voeg explicieter toe welke ACM-regel van toepassing is ('prioriteringskader 1 juli 2026') om clickthrough te verhogen.",
+      "Titel is goed, maar voeg '2026' toe voor urgentie: 'Zonnepanelen en netcongestie 2026: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?' — dit verhoogt SEO voor toekomstige zoekintentie.",
+      "De TL;DR-box is uitstekend voor GEO, maar voeg daarin ook één concrete verificatiestap in ('Check via enexis.nl, liander.nl of stedin.nl') — dit verhoogt actionability voor AI-citatie.",
+      "Tabel met regio's is sterk, maar maak kolom 3 meer specifiek: voeg concrete contact-URLs toe of verwijzingen naar netbeheerders-portalen (bijv. 'Check Enexis-congestiekaart op enexis.nl/bedrijf/netcongestie') — dit verhoogt verifieerbaarheid.",
+      "Sectie 'Hoe EnerCalculatie hiermee omgaat' voelt verkoopachtig en ondergraaft E-E-A-T. Herschrijf dit als: 'Hoe u netcongestie snel verifieert' met stap-voor-stap-instructie (bijv. 'Stap 1: Adres invoeren op netbeheerders-site. Stap 2: Prioriteitsklasse bepalen (ontlasting/basisbehoeften). Stap 3: Capaciteit en combinatiemogelijkheden in offerte opnemen.'). Verwijs naar rekentool als voorbeeld, niet als bewijs.",
+      "Demand-response-inkomsten ('enkele honderden euro's per jaar') zijn niet onderbouwd met concrete voorbeelden of bronnen. Voeg toe: 'Bijvoorbeeld: Liander pilot Utrecht betaalt €300–500/jaar voor flexibiliteit' met link naar openbare informatie, of vervang door voorzichtiger formulering.",
+      "Interne link naar '/blog/thuisbatterij-capaciteit-kiezen' is aanwezig, maar alleen aan het einde. Voeg minimaal één extra interne link toe eerder in het artikel (bijv. in sectie 'Combinatie zonnepanelen + batterij' linken naar artikel over batterijrentabiliteit of '/rekentool-batterij-rendement').",
+      "Koppenstructuur is logisch, maar sectie 'Wat is netcongestie' bevat veel inleiding vóór de harde definitie. Herschrijf opening als: '**Netcongestie = het distributienet kan geen verdere stroom doorvoeren zonder risico's.** Dit treedt lokaal op, niet landelijk.' — zet definiëring voorop.",
+      "Claim 'Netbeheerders rapporteren lokale knelpunten' (sectie 'In welke regio's') voelt vaag. Voeg toe: 'Controlepunt voor u: bel de desbetreffende netbeheerder (Enexis/Liander/Stedin) of check hun online portaal voordat u een offerte uitbrengt — wachttijden variëren per locatie en worden regelmatig bijgewerkt.' Dit is meer citeerbaar.",
+      "Artikel bevat geen concrete casus of rekenvoorbeeld (bijv. 'Een gezin in Eindhoven (Enexis) met 8kWp zonnepanelen zonder batterij wacht 6 maanden; met 10kWh batterij kan dit tot 2 weken worden verkort'). Voeg minstens één anonieme casus in voor GEO-citaatbaarheid.",
+      "Formulering 'foutloos', 'altijd', 'absolute' is voorzichtig geformuleerd (goed), maar titel en TL;DR impliceren dat alle bovenstaande adviezen zaligmakend zijn. Nuanceer: 'In de meeste congestiegebieden werkt zonnepanelen + batterij sneller...' in plaats van 'is de standaard.'."
+    ],
+    "rejectedAt": "2026-07-11T09:20:01.739Z"
+  },
+  {
+    "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
+    "keyword": "hybride warmtepomp dimensionering",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
+    "status": "rejected",
+    "createdAt": "2026-07-11T09:10:47.494Z",
+    "lastScore": 84,
+    "rejectedAt": "2026-07-11T09:27:10.585Z"
+  },
+  {
+    "title": "Rendementsverlies door schaduw en vervuiling: hoe betrekt u dit in uw zonnepaneel-berekening?",
+    "keyword": "zonnepanelen rendementsverlies schaduw",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "rendementsverlies-door-schaduw-en-vervuiling-hoe-betrekt-u-dit-in-uw-zonnepaneel-berekening",
+    "status": "generated",
+    "createdAt": "2026-07-11T09:10:47.494Z",
+    "generatedSlug": "rendementsverlies-schaduw-vervuiling-zonnepanelen",
+    "generatedAt": "2026-07-11T09:29:12.367Z",
+    "seoGeoScore": 84
+  },
+  {
+    "title": "Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?",
+    "keyword": "thuisbatterij netaansluiting capaciteit",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "thuisbatterij-en-netaansluiting-wanneer-vereist-het-batterijbeheer-aanpassingen-aan-uw-offerte",
+    "status": "planned",
+    "createdAt": "2026-07-11T09:10:47.494Z"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "date": "2026-07-11",
+    "topic": "Kosten-batenanalyse voor de installateur: wanneer loont een verduurzamingspakket écht voor uw klant?",
+    "slug": "kosten-batenanalyse-verduurzaming-installateur",
+    "model": "anthropic/claude-haiku-4.5",
+    "seoScore": 78,
+    "geoScore": 82,
+    "status": "rejected",
+    "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-11",
+    "topic": "Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?",
+    "slug": "zonnepanelen-netcongestie-advies",
+    "model": "anthropic/claude-haiku-4.5",
+    "seoScore": 72,
+    "geoScore": 78,
+    "status": "rejected",
+    "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-11",
+    "topic": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
+    "slug": "hybride-warmtepomp-dimensioneren",
+    "model": "anthropic/claude-haiku-4.5",
+    "seoScore": 82,
+    "geoScore": 85,
+    "status": "rejected-invalid-jsx",
+    "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-11",
+    "topic": "Rendementsverlies door schaduw en vervuiling: meten, berekenen en compenseren",
+    "slug": "rendementsverlies-schaduw-vervuiling-zonnepanelen",
+    "model": "anthropic/claude-haiku-4.5",
+    "seoScore": 82,
+    "geoScore": 85,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
+  }
+]

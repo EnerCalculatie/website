@@ -8,3 +8,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Puur afgeleid uit blogPosts.ts + services.ts, elke run opnieuw gegenereerd.
+ai-context/content-map.json

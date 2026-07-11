@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowRight, Linkedin, Check } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { blogPosts, type BlogPostMeta } from '../../content/blogPosts';
 import { author } from '../../content/author';
-import { buildBlogPostingSchema } from '../../content/blogSchema';
+import { buildBlogPostingSchema, buildFaqSchema } from '../../content/blogSchema';
 import { LeadMagnet } from '../LeadMagnet';
 
 // Te generieke tags tellen niet mee voor 'verwantschap' bij Lees ook.
@@ -48,6 +48,9 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
       {/* BlogPosting-schema (JSON-LD) centraal uit blogSchema.ts — auteur = Person
           voor E-E-A-T. Elk artikel erft dit automatisch; geen inline schema meer. */}
       <script type="application/ld+json">{JSON.stringify(buildBlogPostingSchema(post))}</script>
+      {post.faq && post.faq.length > 0 && (
+        <script type="application/ld+json">{JSON.stringify(buildFaqSchema(post))}</script>
+      )}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-slate-200">
         {/* CSS-animatie i.p.v. Motion: initial opacity 0 wordt mee-geprerenderd
             en houdt het hele artikel onzichtbaar tot hydration (LCP-killer). */}
@@ -99,6 +102,22 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
           )}
 
           {children}
+
+          {/* Zichtbaar FAQ-blok — naast het FAQPage-schema hierboven ook een
+              citeerbaar, leesbaar antwoordformaat voor bezoekers én AI-engines (GEO). */}
+          {post.faq && post.faq.length > 0 && (
+            <div className="not-prose mt-10">
+              <h2 className="text-xl font-black text-slate-900 mb-4">Veelgestelde vragen</h2>
+              <div className="space-y-4">
+                {post.faq.map((item) => (
+                  <div key={item.question} className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                    <p className="font-bold text-slate-900 mb-2">{item.question}</p>
+                    <p className="text-slate-700 leading-relaxed">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

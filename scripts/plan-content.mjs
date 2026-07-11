@@ -1,0 +1,144 @@
+#!/usr/bin/env node
+/**
+ * Vult ai-context/content-plan.json aan met nieuwe SEO/GEO content-backlog-items
+ * via OpenRouter, op basis van ai-context/*.md en de bestaande blogonderwerpen.
+ * Draait los van generate-blog-post.mjs, dat alleen items met status 'planned'
+ * consumeert. Vereist env var OPENROUTER_API_KEY.
+ */
+import { readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+
+const ROOT = path.resolve(import.meta.dirname, '..');
+const CONTEXT_DIR = path.join(ROOT, 'ai-context');
+const PLAN_PATH = path.join(CONTEXT_DIR, 'content-plan.json');
+const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
+
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+if (!OPENROUTER_API_KEY) {
+  console.error('MISLUKT — Reden: OPENROUTER_API_KEY ontbreekt als environment variable.');
+  process.exit(1);
+}
+const MODEL = process.env.OPENROUTER_MODEL || 'meta-llama/llama-3.3-70b-instruct';
+
+// Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
+const MIN_PLANNED = 5;
+// Zoveel nieuwe items worden per aanvulling gevraagd.
+const BATCH_SIZE = 5;
+
+function slugify(title) {
+  return title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
+
+async function readContext() {
+  const files = ['company.md', 'products.md', 'audience.md', 'topics.md'];
+  const contents = await Promise.all(files.map((f) => readFile(path.join(CONTEXT_DIR, f), 'utf8')));
+  return files.map((f, i) => `--- ${f} ---\n${contents[i]}`).join('\n\n');
+}
+
+async function readPlan() {
+  try {
+    const raw = await readFile(PLAN_PATH, 'utf8');
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+async function callOpenRouter(system, user) {
+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${OPENROUTER_API_KEY}`,
+      'HTTP-Referer': 'https://www.enercalculatie.nl',
+      'X-Title': 'EnerCalculatie content-planner',
+    },
+    body: JSON.stringify({
+      model: MODEL,
+      max_tokens: 3000,
+      messages: [
+        { role: 'system', content: system },
+        { role: 'user', content: user },
+      ],
+    }),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`OpenRouter API-fout (${res.status}, model ${MODEL}): ${text}`);
+  }
+  const data = await res.json();
+  const message = data.choices?.[0]?.message?.content;
+  if (!message) throw new Error(`Geen tekstantwoord ontvangen van OpenRouter (model ${MODEL}).`);
+  return message;
+}
+
+function extractJsonArray(raw) {
+  const match = raw.match(/```json\s*([\s\S]*?)```/) || raw.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error('Kon geen JSON-array uit het model-antwoord halen.');
+  return JSON.parse(match[1] ?? match[0]);
+}
+
+async function main() {
+  const plan = await readPlan();
+  const plannedCount = plan.filter((i) => i.status === 'planned').length;
+
+  if (plannedCount >= MIN_PLANNED) {
+    console.log(`Backlog heeft al ${plannedCount} 'planned' items (minimum ${MIN_PLANNED}) — geen aanvulling nodig.`);
+    return;
+  }
+
+  const context = await readContext();
+  const blogPostsSource = await readFile(BLOG_POSTS_PATH, 'utf8');
+  const existingSlugs = [...blogPostsSource.matchAll(/slug:\s*'([^']+)'/g)].map((m) => m[1]);
+  const existingTitles = [...blogPostsSource.matchAll(/title:\s*'([^']+)'/g)].map((m) => m[1]);
+  const plannedTitles = plan.map((i) => i.title);
+
+  const system = `Je bent een SEO/GEO-contentstrateeg voor EnerCalculatie. Gebruik uitsluitend onderstaande bedrijfscontext als bron voor doelgroep, producten en toon. Verzin geen feiten, cijfers of regelgeving buiten wat hierin staat.\n\n${context}`;
+
+  const user = `Reeds gepubliceerd (titels): ${existingTitles.join(' | ') || '(geen)'}\nAl in backlog gepland (titels): ${plannedTitles.join(' | ') || '(geen)'}\n\nStel een content-backlog samen van ${BATCH_SIZE} NIEUWE artikel-ideeën, elk over een onderwerp dat nog niet gepubliceerd of gepland is. Kies onderwerpen uit topics.md die de doelgroep (installateur) daadwerkelijk zoekt.\n\nAntwoord UITSLUITEND met een JSON-array (in een \`\`\`json codeblok) van objecten met exact deze velden:\n[{\n  "title": "werktitel van het artikel",\n  "keyword": "primair zoekwoord waar dit artikel op moet scoren",\n  "intent": "informatief" | "commercieel" | "transactioneel",\n  "priority": 1-10 (10 = hoogste zoekvolume/commerciële waarde voor de doelgroep)\n}]`;
+
+  console.log(`Vul content-plan aan via OpenRouter (${MODEL})...`);
+  const raw = await callOpenRouter(system, user);
+  const newItems = extractJsonArray(raw);
+
+  const usedSlugs = new Set([...existingSlugs, ...plan.map((i) => i.slug)]);
+  const additions = [];
+  for (const item of newItems) {
+    let slug = slugify(item.title);
+    if (usedSlugs.has(slug)) {
+      console.warn(`Sla dubbel onderwerp over (slug '${slug}' bestaat al): ${item.title}`);
+      continue;
+    }
+    usedSlugs.add(slug);
+    additions.push({
+      title: item.title,
+      keyword: item.keyword,
+      intent: item.intent,
+      priority: item.priority,
+      slug,
+      status: 'planned',
+      createdAt: new Date().toISOString(),
+    });
+  }
+
+  const updatedPlan = [...plan, ...additions].sort((a, b) => {
+    if (a.status === 'planned' && b.status !== 'planned') return -1;
+    if (a.status !== 'planned' && b.status === 'planned') return 1;
+    return (b.priority ?? 0) - (a.priority ?? 0);
+  });
+
+  await writeFile(PLAN_PATH, `${JSON.stringify(updatedPlan, null, 2)}\n`, 'utf8');
+  console.log(`content-plan.json bijgewerkt: ${additions.length} nieuwe items toegevoegd (totaal ${updatedPlan.length}).`);
+}
+
+main().catch((err) => {
+  console.error(`MISLUKT — Reden: ${err.message}`);
+  process.exit(1);
+});

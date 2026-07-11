@@ -17,6 +17,12 @@ export interface BlogPostMeta {
   /** 3-4 korte kernpunten (TL;DR). Getoond in een 'Kernpunten'-blok bovenaan het
    *  artikel — direct, citeerbaar antwoord voor lezers én AI-engines (GEO). */
   keyPoints?: string[];
+  /** Redactionele hoofdcategorie (bv. 'Zonnepanelen', 'Subsidies') — los van
+   *  `tags`, bedoeld voor toekomstige categoriefiltering/indeling. */
+  category?: string;
+  /** Vraag/antwoord-paren. Gerenderd als zichtbaar FAQ-blok + FAQPage-schema
+   *  (JSON-LD) — rich results en citeerbare Q&A voor AI-engines (GEO). */
+  faq?: { question: string; answer: string }[];
 }
 
 // Metadata van alle blogartikelen. Wordt gebruikt door de BlogIndex
@@ -314,6 +320,30 @@ export const blogPosts: BlogPostMeta[] = [
       'Het tarief verschilt per gemeente en wordt jaarlijks geïndexeerd aan officiële prijsindexen',
       'Een berekening zonder deze vaste last geeft een te optimistisch beeld van de terugverdientijd',
       'EnerCalculatie verwerkt de bijdrage automatisch in uw dossier, zodat het rendement altijd kloppend is',
+    ],
+  },
+  {
+    slug: 'rendementsverlies-schaduw-vervuiling-zonnepanelen',
+    title: 'Rendementsverlies door schaduw en vervuiling: meten, berekenen en compenseren',
+    description:
+      'Hoe schaduw en vervuiling uw zonnepaneel-berekening beïnvloeden. Lees hoe u dit professioneel meet, in kaart brengt en in uw offerte verwerkt.',
+    date: '2026-07-11',
+    excerpt:
+      'Schaduw en vervuiling kunnen de jaaropbrengst van zonnepanelen met 20–60% verminderen. Ontdek hoe u deze verliezen professioneel analyseert, berekent en transparant communiceert naar uw klant.',
+    tags: ['Zonnepanelen', 'Rendement', 'Schaduwanalyse', 'Vervuiling', 'Offertebereking', 'Installatiebranche'],
+    keyPoints: [
+      'Schaduw en vervuiling kunnen jaaropbrengst met 20–60% verminderen, afhankelijk van type en seizoen',
+      'Professionele schaduwanalyse bepaalt via lasermetingen of software welke obstakels daadwerkelijk impact hebben',
+      'Vervuilingsverliezen verschillen per type (mos, bladeren, vogelmest) en zijn deels seizoensgebonden',
+      'Transparante communicatie over deze factoren verhoogt klantvertrouwen en voorkomt latere teleurstelling',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Hoeveel rendement verliest een zonnepaneel door schaduw?', answer: 'Dit varieert sterk: gedeeltelijke schaduw kan 5–20% verlies geven, terwijl structurele schaduw door gebouwen of bomen 40–60% verlies of meer kan betekenen. Een professionele schaduwanalyse bepaalt dit per uur van de dag en per seizoen.' },
+      { question: 'Wat zijn de gevolgen van vervuiling (mos, bladeren, vogelmest)?', answer: 'Vervuiling veroorzaakt meestal 2–8% rendementsverlies in het groeimoment (voorjaar) of na onregelmatig schoonmaken. Mos en bladeren werken groter door dan vogelmest. Regelmatig schoonmaken (1–2x per jaar) herstelt meestal 90%+ van het verlies.' },
+      { question: 'Hoe meet ik schaduw professioneel voordat ik een offerte maak?', answer: 'Via lasermeting ter plaatse, drone-fotografie of schaduwsimulatie-software (bv. PVsyst, HelioScope). Deze methoden tonen welke delen van het dak en wanneer schaduw krijgen, zodat u nauwkeurig kunt berekenen hoeveel opbrengstverlies dat betekent.' },
+      { question: 'Moet ik rendementsverlies door schaduw en vervuiling in de offerte opnemen?', answer: 'Ja — een onderbouwde berekening met zichtbare verliesfactoren geeft klanten realistischere verwachtingen en verhoogt het vertrouwen in uw advies. Dit voorkomt teleurstelling later en wordt steeds vaker verwacht door klanten die online onderzoek doen.' },
+      { question: 'Hoe controleer ik na installatie of vervuiling het rendement inderdaad beïnvloedt?', answer: 'Via monitoring-systemen (monitoring-apps van paneelfabrikanten of de omvormer) kunt u de actuele opbrengst volgen en vergelijken met de berekende opbrengst. Afwijkingen groter dan 5–10% kunnen op vervuiling of technische problemen wijzen.' },
     ],
   },
 ];
