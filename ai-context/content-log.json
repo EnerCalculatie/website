@@ -38,5 +38,15 @@
     "geoScore": 85,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-11",
+    "topic": "Verduurzamingspakket samenstellen met beperkt budget",
+    "slug": "verduurzamingspakket-samenstellen-beperkt-budget",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 80,
+    "geoScore": 85,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

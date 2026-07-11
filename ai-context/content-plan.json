@@ -5,8 +5,11 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "hoe-kunnen-installateurs-het-beste-een-verduurzamingspakket-samenstellen-voor-een-klant-met-een-beperkt-budget",
-    "status": "planned",
-    "createdAt": "2026-07-11T10:15:43.114Z"
+    "status": "generated",
+    "createdAt": "2026-07-11T10:15:43.114Z",
+    "generatedSlug": "verduurzamingspakket-samenstellen-beperkt-budget",
+    "generatedAt": "2026-07-11T10:33:57.295Z",
+    "seoGeoScore": 83
   },
   {
     "title": "Hoe kiest u de juiste warmtepomp voor uw klant: een vergelijking van verschillende typen en merken",

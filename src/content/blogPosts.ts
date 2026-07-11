@@ -346,4 +346,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe controleer ik na installatie of vervuiling het rendement inderdaad beïnvloedt?', answer: 'Via monitoring-systemen (monitoring-apps van paneelfabrikanten of de omvormer) kunt u de actuele opbrengst volgen en vergelijken met de berekende opbrengst. Afwijkingen groter dan 5–10% kunnen op vervuiling of technische problemen wijzen.' },
     ],
   },
+  {
+    slug: 'verduurzamingspakket-samenstellen-beperkt-budget',
+    title: 'Verduurzamingspakket samenstellen met beperkt budget',
+    description:
+      'Een praktische gids voor installateurs om een verduurzamingspakket samen te stellen voor klanten met een beperkt budget',
+    date: '2026-07-11',
+    excerpt:
+      'Met de juiste combinatie van zonnepanelen, thuisbatterijen en warmtepompen kan een klant met een beperkt budget toch een duurzame en betaalbare oplossing krijgen',
+    tags: ['Verduurzamingspakket', 'Beperkt budget', 'Zonnepanelen', 'Thuisbatterijen', 'Warmtepompen', 'Installatiebranche'],
+    keyPoints: [
+      'Combinatie van zonnepanelen en thuisbatterijen voor maximale zelfconsumptie',
+      'Warmtepompen als alternatief voor gasgestookte verwarmingsinstallaties',
+      'Belang van load balancing en capaciteitscontrole bij laadpalen',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Hoe kan ik als installateur een verduurzamingspakket samenstellen voor een klant met een beperkt budget?', answer: 'Door de combinatie van zonnepanelen, thuisbatterijen en warmtepompen te optimaliseren, rekening houdend met de specifieke situatie en wensen van de klant.' },
+      { question: 'Wat is de belangrijkste factor bij het kiezen van een laadpaal?', answer: 'De capaciteit van de aansluiting en de resterende capaciteit van de groepenkast en de netaansluiting, om te voorkomen dat de hoofdzekering afslaat.' },
+      { question: 'Kan een warmtepomp een goede optie zijn voor een klant met een beperkt budget?', answer: 'Ja, warmtepompen kunnen een alternatief zijn voor gasgestookte verwarmingsinstallaties en kunnen zelfs subsidies ontvangen via de ISDE-regeling, zoals vermeld op de website van de RVO.' },
+      { question: 'Hoe kan ik de zelfconsumptie van een zonnepaneel-installatie maximaliseren?', answer: 'Door de combinatie van zonnepanelen en thuisbatterijen te optimaliseren, zodat de opgewekte stroom direct wordt gebruikt of opgeslagen voor later gebruik.' },
+      { question: 'Wat is de rol van load balancing bij laadpalen?', answer: 'Load balancing regelt de laadstroom van de laadpaal automatisch, om te voorkomen dat de hoofdzekering afslaat en om de installatie veiliger en toekomstbestendiger te maken.' },
+    ],
+  },
 ];
