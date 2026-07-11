@@ -15,6 +15,7 @@ import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { validateArticle, APPROVAL_THRESHOLD } from './seo-geo-validator.mjs';
 import { buildContentMap } from './build-content-map.mjs';
+import { estimateReadingMinutes } from './backfill-reading-time.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -320,9 +321,11 @@ ${article.componentBody}
       (f) => `      { question: '${escape(f.question)}', answer: '${escape(f.answer)}' },`
     )
     .join('\n');
+  const readingTimeMinutes = estimateReadingMinutes(article.componentBody);
 
   const entry = `  {
     slug: '${article.slug}',
+    readingTimeMinutes: ${readingTimeMinutes},
     title: '${escape(article.title)}',
     description:
       '${escape(article.description)}',

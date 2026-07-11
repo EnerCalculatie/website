@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, Plus, Search, TrendingUp, X } from 'lucide-react';
+import { ArrowRight, Clock, Plus, Search, TrendingUp, X } from 'lucide-react';
 import { SEO } from '../SEO';
 import { LeadMagnet } from '../LeadMagnet';
 import { NewsletterSignup } from '../NewsletterSignup';
@@ -34,6 +34,10 @@ export function BlogIndex() {
     () => sortedPosts.filter((p) => p.popular).slice(0, MAX_POPULAR),
     [sortedPosts]
   );
+
+  // Nieuwste artikel uitgelicht links, met de eerstvolgende 3 rechts ernaast.
+  const newestPost = sortedPosts[0];
+  const secondaryPosts = sortedPosts.slice(1, 4);
 
   // Filtertags: op frequentie, generieke tags eruit, gecapt op MAX_TAG_CHIPS.
   const filterTags = useMemo(() => {
@@ -71,7 +75,12 @@ export function BlogIndex() {
     return matchTag && matchQuery;
   });
 
-  const remaining = Math.max(0, visiblePosts.length - shown);
+  // Nieuwste + eerstvolgende 3 artikelen staan al uitgelicht boven de grid — niet dubbel tonen.
+  const featuredSlugs = new Set(newestPost ? [newestPost.slug, ...secondaryPosts.map((p) => p.slug)] : []);
+  const gridPosts = isFiltering
+    ? visiblePosts
+    : visiblePosts.filter((p) => !featuredSlugs.has(p.slug));
+  const remaining = Math.max(0, gridPosts.length - shown);
 
   return (
     <>
@@ -139,6 +148,60 @@ export function BlogIndex() {
             })}
           </div>
 
+          {/* Nieuwste artikel uitgelicht links, eerstvolgende 3 rechts — alleen
+              zonder actief filter/zoekterm (anders is 'nieuwste' misleidend). */}
+          {!isFiltering && newestPost && (
+            <div className="animate-fade-up grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-10">
+              <a
+                href={`/blog/${newestPost.slug}`}
+                className="lg:col-span-2 flex flex-col bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:border-brand-primary/40 hover:shadow-md transition-all group"
+              >
+                <span className="inline-flex w-fit items-center gap-1.5 mb-4 px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary-text text-xs font-bold uppercase tracking-wide">
+                  Nieuwste artikel
+                </span>
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 leading-snug group-hover:text-brand-primary transition-colors">
+                  {newestPost.title}
+                </h2>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4 line-clamp-3">{newestPost.excerpt}</p>
+                <p className="text-xs text-slate-500 mb-4 flex items-center gap-2">
+                  {formatDate(newestPost.date)}
+                  {newestPost.readingTimeMinutes && (
+                    <span className="inline-flex items-center gap-1">
+                      <Clock size={12} aria-hidden="true" />
+                      {newestPost.readingTimeMinutes} min leestijd
+                    </span>
+                  )}
+                </p>
+                <span className="mt-auto inline-flex items-center gap-2 text-brand-primary font-semibold text-sm">
+                  Lees verder <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </span>
+              </a>
+
+              <div className="flex flex-col gap-3">
+                {secondaryPosts.map((post) => (
+                  <a
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="flex flex-col bg-white p-4 rounded-2xl border border-slate-200 hover:border-brand-primary/40 hover:shadow-md transition-all group"
+                  >
+                    <p className="text-xs text-slate-500 mb-1.5 flex items-center gap-2">
+                      {formatDate(post.date)}
+                      {post.readingTimeMinutes && (
+                        <span className="inline-flex items-center gap-1">
+                          <Clock size={11} aria-hidden="true" />
+                          {post.readingTimeMinutes} min
+                        </span>
+                      )}
+                    </p>
+                    <h3 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-brand-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Meest gelezen — alleen zonder actief filter/zoekterm (anders leidt het af). */}
           {!isFiltering && popularPosts.length > 0 && (
             <div className="animate-fade-up mb-10">
@@ -168,13 +231,13 @@ export function BlogIndex() {
           )}
 
           {/* Resultatenraster */}
-          {visiblePosts.length === 0 ? (
+          {gridPosts.length === 0 ? (
             <p className="text-slate-500 py-8">
               Geen artikelen gevonden{query ? ` voor "${query.trim()}"` : ''}. Probeer een andere zoekterm of filter.
             </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {visiblePosts.map((post, i) => (
+              {gridPosts.map((post, i) => (
                 <a
                   key={post.slug}
                   href={`/blog/${post.slug}`}
@@ -183,7 +246,15 @@ export function BlogIndex() {
                     i >= shown ? 'hidden' : ''
                   }`}
                 >
-                  <p className="text-xs text-slate-500 mb-2">{formatDate(post.date)}</p>
+                  <p className="text-xs text-slate-500 mb-2 flex items-center gap-2">
+                    {formatDate(post.date)}
+                    {post.readingTimeMinutes && (
+                      <span className="inline-flex items-center gap-1">
+                        <Clock size={12} aria-hidden="true" />
+                        {post.readingTimeMinutes} min
+                      </span>
+                    )}
+                  </p>
                   <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug group-hover:text-brand-primary transition-colors line-clamp-2">
                     {post.title}
                   </h2>

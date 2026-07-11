@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Linkedin, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Linkedin, Check, Clock } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { blogPosts, type BlogPostMeta } from '../../content/blogPosts';
 import { author } from '../../content/author';
@@ -83,6 +83,13 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
             {formatDate(post.date)}
             {post.updated && post.updated !== post.date && (
               <> · bijgewerkt {formatDate(post.updated)}</>
+            )}
+            {post.readingTimeMinutes && (
+              <span className="inline-flex items-center gap-1">
+                {' · '}
+                <Clock size={14} className="inline -mt-0.5" aria-hidden="true" />
+                {post.readingTimeMinutes} min leestijd
+              </span>
             )}
           </p>
 

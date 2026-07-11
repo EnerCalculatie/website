@@ -23,6 +23,11 @@ export interface BlogPostMeta {
   /** Vraag/antwoord-paren. Gerenderd als zichtbaar FAQ-blok + FAQPage-schema
    *  (JSON-LD) — rich results en citeerbare Q&A voor AI-engines (GEO). */
   faq?: { question: string; answer: string }[];
+  /** Geschatte leestijd in minuten (woordental artikel-body / 200 wpm,
+   *  afgerond, minimaal 1). Wordt automatisch berekend door
+   *  scripts/generate-blog-post.mjs bij nieuwe artikelen; voor bestaande
+   *  artikelen eenmalig gevuld door scripts/backfill-reading-time.mjs. */
+  readingTimeMinutes?: number;
 }
 
 // Metadata van alle blogartikelen. Wordt gebruikt door de BlogIndex
@@ -32,6 +37,7 @@ export interface BlogPostMeta {
 export const blogPosts: BlogPostMeta[] = [
   {
     slug: 'salderingsregeling-2027',
+    readingTimeMinutes: 2,
     title: 'Salderingsregeling 2027: wat verandert er voor uw klanten met zonnepanelen?',
     description:
       'De salderingsregeling wordt per 1 januari 2027 in één keer volledig afgeschaft. Lees wat dit betekent voor terugverdientijd-berekeningen en uw adviesgesprek.',
@@ -49,6 +55,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'btw-zonnepanelen',
+    readingTimeMinutes: 3,
     title: '0% btw op zonnepanelen: wanneer geldt het nultarief, en wat moet er in de offerte staan?',
     description:
       'Sinds 1 januari 2023 geldt een 0%-btw-tarief op zonnepanelen op woningen. Lees wanneer het nultarief van toepassing is, wat erbuiten valt, en hoe u dit correct verwerkt in uw offerte.',
@@ -65,6 +72,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'terugleverkosten-thuisbatterij',
+    readingTimeMinutes: 4,
     title: 'Terugleverkosten: hoe rekent u ze door, en hoe compenseert een thuisbatterij dit voor uw klant?',
     description:
       'Energieleveranciers rekenen terugleverkosten door aan huishoudens met zonnepanelen. Lees hoe deze kosten worden berekend, wat de ACM hierover heeft vastgesteld, en hoe een thuisbatterij de teruglevering — en daarmee de kosten — verlaagt.',
@@ -81,6 +89,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'isde-subsidie-warmtepompen',
+    readingTimeMinutes: 2,
     title: 'ISDE-subsidie voor warmtepompen: welke onderbouwing heeft de RVO nodig?',
     description:
       'De RVO beoordeelt ISDE-aanvragen voor warmtepompen op specifieke technische onderbouwing en meldcodes. Lees wat uw adviesrapport moet bevatten, en waar de grens ligt tussen advies en aanvraag.',
@@ -98,6 +107,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'warmtepomp-rendement-aannames',
+    readingTimeMinutes: 2,
     title: 'Warmtepomp-rendement: de Nederlandse standaardaannames die uw berekening onderbouwen',
     description:
       'Een warmtepomp-besparing wordt berekend op basis van drie vaste aannames over gasverbruik, ketelrendement en warmwaterverbruik. Lees welke dat zijn, hoe een hybride systeem de berekening verandert, en waarom transparantie hierover uw verkoopargument is.',
@@ -114,6 +124,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'van-excel-naar-geautomatiseerd-advies',
+    readingTimeMinutes: 2,
     title: 'Van Excel naar geautomatiseerd advies: wat verandert er in uw werkdag?',
     description:
       'Een eigen Excel-rekenmodel voor zonnepanelen, thuisbatterijen of warmtepompen werkt — tot een tarief wijzigt of een collega het overneemt. Lees wat er verandert in uw werkdag bij een overstap naar een geautomatiseerd adviestraject.',
@@ -130,6 +141,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'laadpaal-advies-thuis',
+    readingTimeMinutes: 3,
     title: 'Laadpaal-advies: welke factoren bepalen de juiste configuratie voor uw klant?',
     description:
       'Laadvermogen, load balancing en de capaciteit van de groepenkast bepalen samen welke laadpaal-configuratie bij een woning past. Lees hoe u dit technisch onderbouwt én uitlegt aan een klant die elektrisch rijden overweegt.',
@@ -146,6 +158,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'airco-vs-warmtepomp',
+    readingTimeMinutes: 4,
     title: 'Airco of (hybride) warmtepomp: wanneer is welke keuze de juiste verkoopargumentatie?',
     description:
       'Airco, hybride warmtepomp of volledig elektrische warmtepomp: de keuze hangt af van de bouwkundige situatie, het verwarmingssysteem en de wens van de klant. Lees hoe u de SCOP-norm gebruikt als verkoopargument en wanneer welke oplossing het beste past.',
@@ -162,6 +175,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'trends-verduurzaming-2026',
+    readingTimeMinutes: 5,
     title: 'Verduurzamingsmarkt 2026: trends in subsidies, regelgeving en marktvraag voor installateurs',
     description:
       'De Nederlandse verduurzamingsmarkt verandert in 2026: gewijzigde ISDE-bedragen voor warmtepompen, explosieve groei van thuisbatterijen, het nieuwe netcongestie-prioriteringskader en de naderende afschaffing van de salderingsregeling. Lees wat dit betekent voor uw adviesgesprek.',
@@ -178,6 +192,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'thuisbatterij-capaciteit-kiezen',
+    readingTimeMinutes: 5,
     title: 'Thuisbatterij dimensioneren: hoe bepaalt u de juiste capaciteit voor uw klant?',
     description:
       'De juiste thuisbatterij-capaciteit hangt af van zelfconsumptieprofiel, zonnepaneelproductie en financieel doel van uw klant. Lees welke vuistregels gelden, wat het verschil is tussen kWh en kW, en hoe u onderbouwd adviseert.',
@@ -195,6 +210,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'dakorientatie-zonnepanelen-opbrengst',
+    readingTimeMinutes: 4,
     title: 'Dakoriëntatie en hellingshoek: hoeveel opbrengst verliest uw klant bij een niet-ideaal dak?',
     description:
       'Een zuidgericht dak met 35° helling levert het meeste op — maar de meeste daken wijken daarvan af. Lees hoeveel opbrengstverlies realistisch is bij oost-, west- of noordoriëntatie, en hoe u dit onderbouwd uitlegt in het adviesgesprek.',
@@ -211,6 +227,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'netcongestie-wachtlijst-zakelijk-2026',
+    readingTimeMinutes: 5,
     title:
       'Netcongestie 2026: wat betekent de wachtlijst voor kleinverbruikers vanaf 1 juli voor uw zakelijke klant?',
     description:
@@ -228,6 +245,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'thuisbatterij-veiligheid-verzekering',
+    readingTimeMinutes: 5,
     title: 'Thuisbatterij, verzekering en het energielabel: welke eisen gelden er per 29 mei 2026?',
     description:
       'Verzekeraars stellen steeds strengere eisen aan de installatie van thuisbatterijen, en vanaf 29 mei 2026 kan een thuisbatterij meetellen voor het energielabel. Lees welke NEN 1010-eisen, celchemie en documentatie uw klant nodig heeft om verzekerd én in aanmerking te blijven.',
@@ -244,6 +262,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'energie-investeringsaftrek-eia-2026',
+    readingTimeMinutes: 5,
     title: 'Energie-investeringsaftrek (EIA) 2026: hoe onderbouwt u dit fiscale voordeel bij een zakelijke klant?',
     description:
       'Bij een zakelijke klant is niet de ISDE, maar de energie-investeringsaftrek (EIA) het relevante fiscale voordeel: 40% van het investeringsbedrag in zonnepanelen, een warmtepomp of laadinfrastructuur is in 2026 extra aftrekbaar. Lees aan welke eisen de Energielijst 2026 stelt en hoe u dit onderbouwt in uw offerte.',
@@ -260,6 +279,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'bidirectioneel-laden-v2g',
+    readingTimeMinutes: 5,
     title: 'Bidirectioneel laden: wat betekent V2G/V2H voor uw laadpaal-advies in 2026?',
     description:
       'Sinds 2026 is Renault de eerste fabrikant met een opschaalbare V2G-dienst voor Nederlandse particulieren. Lees het verschil tussen V2H en V2G, welke techniek en standaarden hierbij horen, en welke subsidies en regelingen gelden voor uw klant.',
@@ -276,6 +296,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'energiemanagementsysteem-p1-poort',
+    readingTimeMinutes: 4,
     title: 'Energiemanagementsysteem en P1-poort: hoe stuurt u batterij, laadpaal en warmtepomp slim aan?',
     description:
       'Een energiemanagementsysteem (EMS) leest via de P1-poort van de slimme meter continu het actuele vermogen en stuurt daarmee thuisbatterij, laadpaal en warmtepomp op elkaar af. Lees hoe de P1-poort werkt, waarom dit in 2026 relevanter wordt, en wat dit betekent voor uw ontwerp en offerte.',
@@ -292,6 +313,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'energielabel-c-plicht-2030',
+    readingTimeMinutes: 5,
     title: 'Energielabel C-plicht 2030: wat betekent dit voor uw verduurzamingsadvies aan particuliere verhuurders?',
     description:
       'Per 2030 moeten huurwoningen minimaal energielabel C hebben. Ontdek welke maatregelen nodig zijn en hoe u verhuurders hierin adviseert.',
@@ -308,6 +330,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'netontwikkelingsbijdrage-zonnepanelen-2026',
+    readingTimeMinutes: 3,
     title: 'Netontwikkelingsbijdrage zonnepanelen: hoe rekent u deze correct door in uw advies?',
     description:
       'Ontdek hoe u de netontwikkelingsbijdrage verwerkt in zonnepaneeladviezen. Wij laten zien hoe u transparant rekent en de impact op de terugverdientijd bepaalt.',
@@ -324,6 +347,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'rendementsverlies-schaduw-vervuiling-zonnepanelen',
+    readingTimeMinutes: 5,
     title: 'Rendementsverlies door schaduw en vervuiling: meten, berekenen en compenseren',
     description:
       'Hoe schaduw en vervuiling uw zonnepaneel-berekening beïnvloeden. Lees hoe u dit professioneel meet, in kaart brengt en in uw offerte verwerkt.',
@@ -348,6 +372,7 @@ export const blogPosts: BlogPostMeta[] = [
   },
   {
     slug: 'verduurzamingspakket-samenstellen-beperkt-budget',
+    readingTimeMinutes: 1,
     title: 'Verduurzamingspakket samenstellen met beperkt budget',
     description:
       'Een praktische gids voor installateurs om een verduurzamingspakket samen te stellen voor klanten met een beperkt budget',
