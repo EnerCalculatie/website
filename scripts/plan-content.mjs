@@ -79,10 +79,37 @@ async function callOpenRouter(system, user) {
   return message;
 }
 
+// Sommige modellen (bv. Llama) zetten rauwe newlines/tabs in JSON-stringwaarden
+// i.p.v. \n/\t te escapen — ongeldige JSON. Escaped alsnog elk control-karakter
+// dat binnen een string-literal voorkomt.
+function sanitizeJsonString(text) {
+  let result = '';
+  let inString = false;
+  let escaped = false;
+  for (const ch of text) {
+    if (inString && !escaped && ch.charCodeAt(0) < 0x20) {
+      if (ch === '\n') result += '\\n';
+      else if (ch === '\r') result += '\\r';
+      else if (ch === '\t') result += '\\t';
+      else result += `\\u${ch.charCodeAt(0).toString(16).padStart(4, '0')}`;
+      continue;
+    }
+    result += ch;
+    if (escaped) {
+      escaped = false;
+    } else if (ch === '\\' && inString) {
+      escaped = true;
+    } else if (ch === '"') {
+      inString = !inString;
+    }
+  }
+  return result;
+}
+
 function extractJsonArray(raw) {
   const match = raw.match(/```json\s*([\s\S]*?)```/) || raw.match(/\[[\s\S]*\]/);
   if (!match) throw new Error('Kon geen JSON-array uit het model-antwoord halen.');
-  return JSON.parse(match[1] ?? match[0]);
+  return JSON.parse(sanitizeJsonString(match[1] ?? match[0]));
 }
 
 async function main() {
