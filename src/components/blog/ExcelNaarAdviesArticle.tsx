@@ -21,7 +21,11 @@ export function ExcelNaarAdviesArticle() {
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Waar een Excel-rekenmodel vastloopt</h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Tarieven overtypen in Excel kost tijd en leidt snel tot rekenfouten, zeker wanneer dit naast drukke werkdagen op de bouw of bij de klant gebeurt. Energieprijzen, BTW-regels en de salderingsregeling veranderen regelmatig — elke wijziging moet handmatig worden doorgevoerd in elk losse rekenblad, en een vergeten update valt vaak pas op als een klant er zelf naar vraagt.
+          Tarieven overtypen in Excel kost tijd en leidt snel tot rekenfouten, zeker wanneer dit naast drukke werkdagen op de bouw of bij de klant gebeurt. Energieprijzen, BTW-regels en{' '}
+          <a href="/blog/salderingsregeling-2027" className="text-brand-primary-text font-semibold hover:underline">
+            de salderingsregeling
+          </a>
+          {' '}veranderen regelmatig — elke wijziging moet handmatig worden doorgevoerd in elk losse rekenblad, en een vergeten update valt vaak pas op als een klant er zelf naar vraagt.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
           Daarnaast is een Excel-bestand zo goed als de persoon die het heeft gebouwd. Verlaat die collega het bedrijf, of wil een nieuwe medewerker zelfstandig offertes opstellen, dan is er vaak geen documentatie van wélke aannames en formules in het bestand verwerkt zijn.

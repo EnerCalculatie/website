@@ -40,7 +40,11 @@ export function LaadpaalAdviesArticle() {
           De maximale capaciteit van de netaansluiting van de woning is de harde grens waarbinnen alle gelijktijdige verbruikers moeten passen. Een laadpaal optellen bij een woning die al een warmtepomp, airco en mogelijk een thuisbatterij heeft (of krijgt), kan de beschikbare capaciteit van de groepenkast en de aansluiting overschrijden. Dat is precies de reden waarom een laadpaal-advies niet los staat van het totale energieprofiel van de woning, maar er integraal onderdeel van moet zijn.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Blijkt de resterende capaciteit ontoereikend, dan is load balancing een eerste oplossing — maar bij een structureel tekort kan een capaciteitsuitbreiding van de aansluiting bij de netbeheerder nodig zijn. Dat is een aparte aanvraagstap met een eigen doorlooptijd, die u als installateur vooraf bij de klant moet benoemen, zodat dit geen verrassing wordt na de offerte.
+          Blijkt de resterende capaciteit ontoereikend, dan is load balancing een eerste oplossing — maar bij een structureel tekort kan een capaciteitsuitbreiding van de aansluiting bij de netbeheerder nodig zijn. Dat is een aparte aanvraagstap met een eigen doorlooptijd, die mede door{' '}
+          <a href="/blog/netcongestie-wachtlijst-zakelijk-2026" className="text-brand-primary-text font-semibold hover:underline">
+            netcongestie en de bijbehorende wachtlijsten
+          </a>
+          {' '}kan oplopen, en die u als installateur vooraf bij de klant moet benoemen, zodat dit geen verrassing wordt na de offerte.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe legt u dit uit aan de klant?</h2>

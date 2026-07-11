@@ -50,7 +50,11 @@ export function BtwZonnepanelenArticle() {
           <li>Het toegepaste btw-tarief per regel, in plaats van één totaalbedrag inclusief btw.</li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Een transparante uitsplitsing in de offerte voorkomt niet alleen discussie achteraf met de klant, maar maakt ook meteen zichtbaar wat het nultarief concreet oplevert — een overtuigend argument in het verkoopgesprek, naast de terugverdientijd van de installatie zelf.
+          Een transparante uitsplitsing in de offerte voorkomt niet alleen discussie achteraf met de klant, maar maakt ook meteen zichtbaar wat het nultarief concreet oplevert — een overtuigend argument in het verkoopgesprek, naast de terugverdientijd van de installatie zelf, zeker nu{' '}
+          <a href="/blog/salderingsregeling-2027" className="text-brand-primary-text font-semibold hover:underline">
+            de salderingsregeling per 2027 wijzigt
+          </a>
+          .
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>

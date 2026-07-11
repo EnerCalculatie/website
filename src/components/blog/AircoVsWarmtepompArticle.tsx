@@ -51,7 +51,11 @@ export function AircoVsWarmtepompArticle() {
           <li>woningen met een matige schilisolatie, waarbij het rendement van een volledig elektrische warmtepomp op strenge vorst terugvalt.</li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Vanuit verkoopoogpunt is de hybride warmtepomp een krachtig argument voor klanten die twijfelen over de stap naar volledig elektrisch: de investering is lager, de risico's kleiner, en de besparing op gas is direct merkbaar. De ISDE-subsidieregeling van de RVO is ook op hybride warmtepompen van toepassing, mits de warmtepomp voldoet aan de minimum SCOP-drempel die voor dat subsidiejaar geldt — controleer de actuele eisen op{' '}
+          Vanuit verkoopoogpunt is de hybride warmtepomp een krachtig argument voor klanten die twijfelen over de stap naar volledig elektrisch: de investering is lager, de risico's kleiner, en de besparing op gas is direct merkbaar. De{' '}
+          <a href="/blog/isde-subsidie-warmtepompen" className="text-brand-primary-text font-semibold hover:underline">
+            ISDE-subsidieregeling
+          </a>
+          {' '}van de RVO is ook op hybride warmtepompen van toepassing, mits de warmtepomp voldoet aan de minimum SCOP-drempel die voor dat subsidiejaar geldt — controleer de actuele eisen op{' '}
           <a href="https://www.rvo.nl/subsidies-financiering/isde" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">
             rvo.nl/subsidies-financiering/isde
           </a>

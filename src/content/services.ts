@@ -233,6 +233,8 @@ export const services: ServiceMeta[] = [
     ],
     comparison: PAKKET_COMPARISON,
     updated: '2026-07-11',
+    relatedBlogSlug: 'airco-vs-warmtepomp',
+    relatedBlogLabel: 'Airco of (hybride) warmtepomp: wanneer is welke keuze de juiste verkoopargumentatie?',
   },
   {
     slug: 'laadpaal',
