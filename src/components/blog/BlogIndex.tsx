@@ -55,24 +55,38 @@ export function BlogIndex() {
       .map(([tag]) => tag);
   }, []);
 
+  // Categorieën: alleen posts met een gezette `category` (redactioneel/generator-
+  // gevuld veld, ouder handmatig werk heeft dit vaak nog niet). Groeit vanzelf
+  // mee naarmate de content-engine meer artikelen genereert.
+  const filterCategories = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const post of blogPosts) {
+      if (!post.category) continue;
+      counts.set(post.category, (counts.get(post.category) ?? 0) + 1);
+    }
+    return [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([c]) => c);
+  }, []);
+
   const [activeTag, setActiveTag] = useState<string>(ALL);
+  const [activeCategory, setActiveCategory] = useState<string>(ALL);
   const [query, setQuery] = useState('');
   const [shown, setShown] = useState<number>(PAGE_SIZE);
 
   const q = query.trim().toLowerCase();
-  const isFiltering = q !== '' || activeTag !== ALL;
+  const isFiltering = q !== '' || activeTag !== ALL || activeCategory !== ALL;
 
   // Reset de 'toon meer'-teller bij het wisselen van filter of zoekterm.
-  useEffect(() => setShown(PAGE_SIZE), [activeTag, q]);
+  useEffect(() => setShown(PAGE_SIZE), [activeTag, activeCategory, q]);
 
   const visiblePosts = sortedPosts.filter((p) => {
     const matchTag = activeTag === ALL || p.tags.includes(activeTag);
+    const matchCategory = activeCategory === ALL || p.category === activeCategory;
     const matchQuery =
       q === '' ||
       p.title.toLowerCase().includes(q) ||
       p.excerpt.toLowerCase().includes(q) ||
       p.tags.some((t) => t.toLowerCase().includes(q));
-    return matchTag && matchQuery;
+    return matchTag && matchCategory && matchQuery;
   });
 
   // Nieuwste + eerstvolgende 3 artikelen staan al uitgelicht boven de grid — niet dubbel tonen.
@@ -147,6 +161,32 @@ export function BlogIndex() {
               );
             })}
           </div>
+
+          {/* Categorie-filter: aparte, grovere indeling dan tags. Verschijnt pas
+              zodra er minimaal 2 categorieën in gebruik zijn. */}
+          {filterCategories.length >= 2 && (
+            <div className="animate-fade-up flex flex-wrap items-center gap-2 mb-10" role="group" aria-label="Filter artikelen op categorie">
+              <span className="text-xs font-bold uppercase tracking-wide text-slate-400 mr-1">Categorie</span>
+              {[ALL, ...filterCategories].map((cat) => {
+                const active = cat === activeCategory;
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setActiveCategory(cat)}
+                    aria-pressed={active}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer border ${
+                      active
+                        ? 'bg-slate-900 text-white border-slate-900'
+                        : 'bg-white text-slate-500 border-slate-200 hover:border-slate-400 hover:text-slate-700'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          )}
 
           {/* Nieuwste artikel uitgelicht links, eerstvolgende 3 rechts — alleen
               zonder actief filter/zoekterm (anders is 'nieuwste' misleidend). */}
