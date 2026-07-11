@@ -16,6 +16,7 @@ import path from 'node:path';
 import { validateArticle, APPROVAL_THRESHOLD } from './seo-geo-validator.mjs';
 import { buildContentMap } from './build-content-map.mjs';
 import { estimateReadingMinutes } from './backfill-reading-time.mjs';
+import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -140,49 +141,6 @@ async function callOpenRouter(system, user) {
   const message = data.choices?.[0]?.message?.content;
   if (!message) throw new Error(`Geen tekstantwoord ontvangen van OpenRouter (model ${MODEL}).`);
   return message;
-}
-
-// Sommige modellen (bv. Llama) leveren geen geldige JSON in stringwaarden:
-// rauwe newlines/tabs i.p.v. \n/\t, en ongeldige escapes zoals \' (geldig in
-// JS, niet in JSON). Repareert beide vóór het parsen.
-const VALID_JSON_ESCAPES = new Set(['"', '\\', '/', 'b', 'f', 'n', 'r', 't', 'u']);
-
-function sanitizeJsonString(text) {
-  let result = '';
-  let inString = false;
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    if (!inString) {
-      result += ch;
-      if (ch === '"') inString = true;
-      continue;
-    }
-    if (ch === '"') {
-      result += ch;
-      inString = false;
-      continue;
-    }
-    if (ch.charCodeAt(0) < 0x20) {
-      if (ch === '\n') result += '\\n';
-      else if (ch === '\r') result += '\\r';
-      else if (ch === '\t') result += '\\t';
-      else result += `\\u${ch.charCodeAt(0).toString(16).padStart(4, '0')}`;
-      continue;
-    }
-    if (ch === '\\') {
-      const next = text[i + 1];
-      if (VALID_JSON_ESCAPES.has(next)) {
-        result += ch + next;
-        i++;
-      } else {
-        // Ongeldige escape (bv. \'): backslash escapen, volgend karakter met rust laten.
-        result += '\\\\';
-      }
-      continue;
-    }
-    result += ch;
-  }
-  return result;
 }
 
 function extractJson(raw) {

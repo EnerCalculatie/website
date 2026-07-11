@@ -62,7 +62,7 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "kosten-batenanalyse-voor-de-installateur-wanneer-loont-een-verduurzamingspakket-echt-voor-uw-klant",
-    "status": "rejected",
+    "status": "planned",
     "createdAt": "2026-07-11T09:10:47.494Z",
     "lastScore": 80,
     "lastImprovements": [
@@ -73,7 +73,8 @@
       "Voeg een afbeelding/diagram-suggestie in voor de twee scenario's (tot 2026 vs. na 2027), bijvoorbeeld als ASCII-tabel of grafische beschrijving. Dit helpt citabiliteit in AI-context.",
       "Disclaimer na het praktijkvoorbeeld is uitgebreid (goed), maar markeer duidelijker als '[DISCLAIMER]' of vergelijkbaar zodat AI-engines dit herkennen en apart kunnen citeren."
     ],
-    "rejectedAt": "2026-07-11T09:13:18.005Z"
+    "rejectedAt": "2026-07-11T09:13:18.005Z",
+    "retryCount": 1
   },
   {
     "title": "Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?",
@@ -81,7 +82,7 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "zonnepanelen-en-netcongestie-hoe-adviseert-u-tegen-wachtlijsten-en-capaciteitsgrenzen",
-    "status": "rejected",
+    "status": "planned",
     "createdAt": "2026-07-11T09:10:47.493Z",
     "lastScore": 75,
     "lastImprovements": [
@@ -97,7 +98,8 @@
       "Artikel bevat geen concrete casus of rekenvoorbeeld (bijv. 'Een gezin in Eindhoven (Enexis) met 8kWp zonnepanelen zonder batterij wacht 6 maanden; met 10kWh batterij kan dit tot 2 weken worden verkort'). Voeg minstens één anonieme casus in voor GEO-citaatbaarheid.",
       "Formulering 'foutloos', 'altijd', 'absolute' is voorzichtig geformuleerd (goed), maar titel en TL;DR impliceren dat alle bovenstaande adviezen zaligmakend zijn. Nuanceer: 'In de meeste congestiegebieden werkt zonnepanelen + batterij sneller...' in plaats van 'is de standaard.'."
     ],
-    "rejectedAt": "2026-07-11T09:20:01.739Z"
+    "rejectedAt": "2026-07-11T09:20:01.739Z",
+    "retryCount": 1
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
@@ -105,10 +107,11 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
-    "status": "rejected",
+    "status": "planned",
     "createdAt": "2026-07-11T09:10:47.494Z",
     "lastScore": 84,
-    "rejectedAt": "2026-07-11T09:27:10.585Z"
+    "rejectedAt": "2026-07-11T09:27:10.585Z",
+    "retryCount": 1
   },
   {
     "title": "Rendementsverlies door schaduw en vervuiling: hoe betrekt u dit in uw zonnepaneel-berekening?",
