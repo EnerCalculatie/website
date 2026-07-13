@@ -451,4 +451,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe kan ik de juiste warmtepomp kiezen voor mijn klant?', answer: 'Om de juiste warmtepomp te kiezen voor uw klant, moet u rekening houden met factoren zoals de grootte van de woning, de isolatie, de energievraag en de subsidievoorwaarden. Een professioneel advies van een erkend installateur is essentieel om de juiste keuze te maken.' },
     ],
   },
+  {
+    slug: 'zonnepanelen-netcongestie-advies',
+    readingTimeMinutes: 1,
+    title: 'Zonnepanelen en netcongestie:ptrdiff hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?',
+    description:
+      'Netcongestie beperkt de mogelijkheden voor zonnepanelen. Ontdek hoe u als installateur uw klanten effectief adviseert over capaciteitsbeperkingen.',
+    date: '2026-07-13',
+    excerpt:
+      'Netcongestie is een steeds grotere uitdaging voor installateurs van zonnepanelen. Hoe onderbouwt u uw advies?',
+    tags: ['Zonnepanelen', 'Netcongestie', 'Installatiebranche', 'Subsidies'],
+    keyPoints: [
+      'Netcongestie definities en oorzaken',
+      'Capaciteitsbeperkingen en wachtlijsten',
+      'Rekentools voor capaciteitsberekening',
+      'ISDE-subsidies en netcongestie',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Wat is netcongestie?', answer: 'Netcongestie is een situatie waarbij het elektriciteitsnet overbelast raakt door te veel gelijktijdige verbruikers. Dit kan leiden tot capaciteitsbeperkingen en wachtlijsten voor nieuwe aansluitingen.' },
+      { question: 'Hoe bereken ik de capaciteit van mijn netaansluiting?', answer: 'U kunt de capaciteit van uw netaansluiting berekenen met behulp van onze rekentool op <a href="/rekentool-zonnepanelen">onze website</a> of door contact op te nemen met uw netbeheerder.' },
+      { question: 'Kan ik nog steeds zonnepanelen installeren als er sprake is van netcongestie?', answer: 'Ja, maar u moet rekening houden met capaciteitsbeperkingen en wachtlijsten. U kunt contact opnemen met uw netbeheerder om te zien welke opties er zijn voor uw specifieke situatie. Meer informatie over netcongestie vindt u op de <a href="https://www.rvo.nl/">website van de RVO</a>.' },
+      { question: 'Hoe zit het met ISDE-subsidies en netcongestie?', answer: 'De ISDE-subsidie is een belangrijk instrument voor het stimuleren van duurzame energie. Echter, netcongestie kan de capaciteit van het net beperken, waardoor subsidies niet altijd kunnen worden toegekend. U kunt meer informatie over de ISDE-subsidie vinden op <a href="/blog/isde-subsidie-warmtepompen">onze blog</a>.' },
+    ],
+  },
 ];

@@ -88,7 +88,7 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "zonnepanelen-en-netcongestie-hoe-adviseert-u-tegen-wachtlijsten-en-capaciteitsgrenzen",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-07-11T09:10:47.493Z",
     "lastScore": 75,
     "lastImprovements": [
@@ -105,7 +105,10 @@
       "Formulering 'foutloos', 'altijd', 'absolute' is voorzichtig geformuleerd (goed), maar titel en TL;DR impliceren dat alle bovenstaande adviezen zaligmakend zijn. Nuanceer: 'In de meeste congestiegebieden werkt zonnepanelen + batterij sneller...' in plaats van 'is de standaard.'."
     ],
     "rejectedAt": "2026-07-11T09:20:01.739Z",
-    "retryCount": 1
+    "retryCount": 1,
+    "generatedSlug": "zonnepanelen-netcongestie-advies",
+    "generatedAt": "2026-07-13T17:51:07.747Z",
+    "seoGeoScore": 85
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",

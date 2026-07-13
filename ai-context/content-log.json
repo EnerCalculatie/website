@@ -68,5 +68,15 @@
     "geoScore": 90,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-13",
+    "topic": "Zonnepanelen en netcongestie:ptrdiff hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?",
+    "slug": "zonnepanelen-netcongestie-advies",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 80,
+    "geoScore": 90,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
