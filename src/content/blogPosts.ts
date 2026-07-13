@@ -426,4 +426,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kan EnerCalculatie helpen bij het maken van een kosten-batenanalyse?', answer: 'Ja, EnerCalculatie kan helpen bij het maken van een kosten-batenanalyse. Onze rekentools en expertise kunnen u helpen bij het bepalen of een verduurzamingspakket loont voor uw klant.' },
     ],
   },
+  {
+    slug: 'warmtepompen-kopen-isde-subsidie',
+    readingTimeMinutes: 1,
+    title: 'Warmtepompen kopen met ISDE-subsidie: hoe kiest u de juiste voor uw klant?',
+    description:
+      'Ontdek hoe u de juiste warmtepomp kiest voor uw klant met ISDE-subsidie. Lees over hybride en all-electric warmtepompen, rendementen en subsidievoorwaarden.',
+    date: '2026-07-13',
+    excerpt:
+      'In dit artikel leest u hoe u de juiste warmtepomp kiest voor uw klant, inclusief hybride en all-electric warmtepompen, rendementen en subsidievoorwaarden.',
+    tags: ['Warmtepompen', 'ISDE-subsidie', 'Hybride warmtepompen', 'All-electric warmtepompen', 'Installatiebranche'],
+    keyPoints: [
+      'Hybride warmtepompen combineren elektrische en gasgestookte verwarming',
+      'All-electric warmtepompen verdienen zich sneller terug dan hybride modellen',
+      'De ISDE-subsidie voor warmtepompen bedraagt maximaal €5.000',
+      'Een goede isolatie van de woning is essentieel voor het rendement van de warmtepomp',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Wat is de ISDE-subsidie voor warmtepompen?', answer: 'De ISDE-subsidie voor warmtepompen bedraagt maximaal €5.000. Deze subsidie is afhankelijk van het type warmtepomp en de woning waarin deze wordt geïnstalleerd.' },
+      { question: 'Wat is het verschil tussen hybride en all-electric warmtepompen?', answer: 'Hybride warmtepompen combineren elektrische en gasgestookte verwarming, terwijl all-electric warmtepompen alleen elektriciteit gebruiken. All-electric warmtepompen verdienen zich sneller terug dan hybride modellen.' },
+      { question: 'Hoe belangrijk is isolatie voor het rendement van een warmtepomp?', answer: 'Een goede isolatie van de woning is essentieel voor het rendement van de warmtepomp. Een slecht geïsoleerde woning verhoogt de energievraag en verlaagt het rendement van de warmtepomp.' },
+      { question: 'Wat zijn de voordelen van een warmtepomp voor een woning?', answer: 'Warmtepompen bieden een aantal voordelen, zoals een lagere energierekening, een hoger wooncomfort en een verhoogde waarde van de woning. Bovendien zijn warmtepompen een milieuvriendelijke optie, omdat ze minder CO2-uitstoot produceren dan traditionele verwarmingsbronnen.' },
+      { question: 'Hoe kan ik de juiste warmtepomp kiezen voor mijn klant?', answer: 'Om de juiste warmtepomp te kiezen voor uw klant, moet u rekening houden met factoren zoals de grootte van de woning, de isolatie, de energievraag en de subsidievoorwaarden. Een professioneel advies van een erkend installateur is essentieel om de juiste keuze te maken.' },
+    ],
+  },
 ];
