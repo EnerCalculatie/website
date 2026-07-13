@@ -402,4 +402,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is de rol van load balancing bij laadpalen?', answer: 'Load balancing regelt de laadstroom van de laadpaal automatisch, om te voorkomen dat de hoofdzekering afslaat en om de installatie veiliger en toekomstbestendiger te maken.' },
     ],
   },
+  {
+    slug: 'verduurzaming-kosten-baten-analyse',
+    readingTimeMinutes: 1,
+    title: 'Verduurzaming kosten baten analyse: wanneer loont een verduurzamingspakket écht voor uw klant?',
+    description:
+      'Ontdek wanneer een verduurzamingspakket echt loont voor uw klant. Lees onze expertise over verduurzaming, warmtepompen, zonnepanelen en thuisbatterijen.',
+    date: '2026-07-13',
+    excerpt:
+      'Een verduurzamingspakket kan een grote investering zijn, maar wanneer loont het echt voor uw klant? Lees hier onze expertise.',
+    tags: ['Verduurzaming', 'Kosten-batenanalyse', 'Zonnepanelen', 'Thuisbatterijen', 'Warmtepompen', 'Installatiebranche'],
+    keyPoints: [
+      'Verduurzaming kan een grote investering zijn',
+      'Een kosten-batenanalyse is essentieel',
+      'Zonnepanelen, thuisbatterijen en warmtepompen zijn populaire opties',
+      'Een goede analyse kan helpen bij het maken van een beslissing',
+    ],
+    category: 'Subsidies',
+    faq: [
+      { question: 'Wat is een verduurzamingspakket?', answer: 'Een verduurzamingspakket is een combinatie van maatregelen om een woning of bedrijf te verduurzamen, zoals zonnepanelen, thuisbatterijen en warmtepompen.' },
+      { question: 'Hoe kan ik bepalen of een verduurzamingspakket loont voor mijn klant?', answer: 'Een kosten-batenanalyse is essentieel om te bepalen of een verduurzamingspakket loont voor uw klant. Hierbij worden de kosten van de investering vergeleken met de verwachte besparingen en voordelen.' },
+      { question: 'Wat zijn de meest populaire opties voor verduurzaming?', answer: 'Zonnepanelen, thuisbatterijen en warmtepompen zijn populaire opties voor verduurzaming. Elk van deze opties heeft zijn eigen voordelen en nadelen, en een goede analyse kan helpen bij het maken van een beslissing.' },
+      { question: 'Kan EnerCalculatie helpen bij het maken van een kosten-batenanalyse?', answer: 'Ja, EnerCalculatie kan helpen bij het maken van een kosten-batenanalyse. Onze rekentools en expertise kunnen u helpen bij het bepalen of een verduurzamingspakket loont voor uw klant.' },
+    ],
+  },
 ];

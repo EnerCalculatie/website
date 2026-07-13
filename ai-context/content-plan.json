@@ -62,7 +62,7 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "kosten-batenanalyse-voor-de-installateur-wanneer-loont-een-verduurzamingspakket-echt-voor-uw-klant",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-07-11T09:10:47.494Z",
     "lastScore": 80,
     "lastImprovements": [
@@ -74,7 +74,10 @@
       "Disclaimer na het praktijkvoorbeeld is uitgebreid (goed), maar markeer duidelijker als '[DISCLAIMER]' of vergelijkbaar zodat AI-engines dit herkennen en apart kunnen citeren."
     ],
     "rejectedAt": "2026-07-11T09:13:18.005Z",
-    "retryCount": 1
+    "retryCount": 1,
+    "generatedSlug": "verduurzaming-kosten-baten-analyse",
+    "generatedAt": "2026-07-13T06:24:02.636Z",
+    "seoGeoScore": 83
   },
   {
     "title": "Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?",
