@@ -78,5 +78,15 @@
     "geoScore": 90,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-14",
+    "topic": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
+    "slug": "hybride-warmtepomp-dimensionering",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 85,
+    "geoScore": 90,
+    "status": "rejected-invalid-jsx",
+    "publicationStatus": "not-published"
   }
 ]

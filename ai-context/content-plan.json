@@ -114,13 +114,15 @@
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
     "keyword": "hybride warmtepomp dimensionering",
     "intent": "commercieel",
-    "priority": 8,
+    "priority": 7,
     "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
     "status": "planned",
     "createdAt": "2026-07-11T09:10:47.494Z",
-    "lastScore": 84,
+    "lastScore": 88,
     "rejectedAt": "2026-07-11T09:27:10.585Z",
-    "retryCount": 1
+    "retryCount": 2,
+    "lastRejectionReason": "Ongeldige JSX: Transform failed with 4 errors:\n<stdin>:19:8: ERROR: Unexpected closing \"BlogPostLayout\" tag does not match opening \"p\" tag\n<stdin>:20:6: ERROR: Unexpected closing fragment tag does not match opening \"BlogPostLayout\" tag\n<stdin>:22:0: ERROR: The character \"}\" is not valid inside a JSX element\n<stdin>:23:0: ERROR: Unexpected end of file before a closing fragment tag",
+    "lastRejectedAt": "2026-07-14T05:09:25.788Z"
   },
   {
     "title": "Rendementsverlies door schaduw en vervuiling: hoe betrekt u dit in uw zonnepaneel-berekening?",
