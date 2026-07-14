@@ -88,5 +88,15 @@
     "geoScore": 90,
     "status": "rejected-invalid-jsx",
     "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-14",
+    "topic": "Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?",
+    "slug": "thuisbatterij-netaansluiting-capaciteit",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 85,
+    "geoScore": 80,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

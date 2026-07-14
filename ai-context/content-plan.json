@@ -29,8 +29,11 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "thuisbatterij-en-netaansluiting-wanneer-vereist-het-batterijbeheer-aanpassingen-aan-uw-offerte",
-    "status": "planned",
-    "createdAt": "2026-07-11T09:10:47.494Z"
+    "status": "generated",
+    "createdAt": "2026-07-11T09:10:47.494Z",
+    "generatedSlug": "thuisbatterij-netaansluiting-capaciteit",
+    "generatedAt": "2026-07-14T05:18:29.816Z",
+    "seoGeoScore": 83
   },
   {
     "title": "Laadpalen voor elektrische auto's: wat zijn de verschillen tussen verschillende typen en merken?",

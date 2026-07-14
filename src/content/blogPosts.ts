@@ -475,4 +475,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe zit het met ISDE-subsidies en netcongestie?', answer: 'De ISDE-subsidie is een belangrijk instrument voor het stimuleren van duurzame energie. Echter, netcongestie kan de capaciteit van het net beperken, waardoor subsidies niet altijd kunnen worden toegekend. U kunt meer informatie over de ISDE-subsidie vinden op <a href="/blog/isde-subsidie-warmtepompen">onze blog</a>.' },
     ],
   },
+  {
+    slug: 'thuisbatterij-netaansluiting-capaciteit',
+    readingTimeMinutes: 1,
+    title: 'Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?',
+    description:
+      'Lees hoe een thuisbatterij uw netaansluiting beïnvloedt en wanneer batterijbeheer aanpassingen in uw offerte vereist.',
+    date: '2026-07-14',
+    excerpt:
+      'Een thuisbatterij kan de capaciteit van uw netaansluiting beïnvloeden, zeker in combinatie met andere verduurzamingsmaatregelen. Ontdek wanneer batterijbeheer aanpassingen in uw offerte vereist.',
+    tags: ['Thuisbatterij', 'Netaansluiting', 'Capaciteit', 'Installatiebranche'],
+    keyPoints: [
+      'Bepaal de maximale capaciteit van uw netaansluiting',
+      'Evalueer de impact van een thuisbatterij op uw netaansluiting',
+      'Batterijbeheer kan aanpassingen in uw offerte vereisen',
+      'EnerCalculatie helpt u bij het bepalen van de juiste capaciteit',
+    ],
+    category: 'Thuisbatterijen',
+    faq: [
+      { question: 'Wat is de invloed van een thuisbatterij op mijn netaansluiting?', answer: 'Een thuisbatterij kan de capaciteit van uw netaansluiting beïnvloeden, zeker in combinatie met andere verduurzamingsmaatregelen zoals zonnepanelen en warmtepompen.' },
+      { question: 'Wanneer vereist batterijbeheer aanpassingen aan mijn offerte?', answer: 'Batterijbeheer vereist aanpassingen aan uw offerte wanneer de capaciteit van uw netaansluiting ontoereikend is of wanneer u meerdere verduurzamingsmaatregelen combineert.' },
+      { question: 'Hoe kan ik de maximale capaciteit van mijn netaansluiting bepalen?', answer: 'U kunt de maximale capaciteit van uw netaansluiting bepalen door contact op te nemen met uw netbeheerder of door gebruik te maken van een rekentool zoals EnerCalculatie.' },
+    ],
+  },
 ];
