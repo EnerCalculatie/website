@@ -21,7 +21,8 @@ export function ZonnepanelenNetcongestieAdviesArticle() {
     <p className="text-slate-700 leading-relaxed mb-4">Netcongestie ontstaat wanneer het elektriciteitsnet niet voldoende capaciteit heeft om alle gelijktijdige verbruikers te bedienen. Dit kan worden veroorzaakt door een snelle toename van het aantal zonnepanelen en andere duurzame energiebronnen.</p>
     <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Capaciteitsbeperkingen en wachtlijsten</h2>
     <p className="text-slate-700 leading-relaxed mb-4">Capaciteitsbeperkingen en wachtlijsten kunnen het gevolg zijn van netcongestie. Dit kan betekenen dat klanten moeten wachten voordat ze hun zonnepanelen kunnen installeren of dat ze moeten kiezen voor een kleiner systeem.</p>
-    <table className="table-auto w-full text-slate-700 mb-4">
+    <div className="overflow-x-auto mb-4">
+    <table className="table-auto w-full text-slate-700">
       <thead className="bg-slate-100">
         <tr>
           <th className="px-4 py-2 text-left">Capaciteitsniveau</th>
@@ -47,6 +48,7 @@ export function ZonnepanelenNetcongestieAdviesArticle() {
         </tr>
       </tbody>
     </table>
+    </div>
     <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Rekentools voor capaciteitsberekening</h2>
     <p className="text-slate-700 leading-relaxed mb-4">Er zijn verschillende rekentools beschikbaar om de capaciteit van uw netaansluiting te berekenen. U kunt contact opnemen met uw netbeheerder om te zien welke opties er zijn voor uw specifieke situatie.</p>
     <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>
