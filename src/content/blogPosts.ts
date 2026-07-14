@@ -498,4 +498,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe kan ik de maximale capaciteit van mijn netaansluiting bepalen?', answer: 'U kunt de maximale capaciteit van uw netaansluiting bepalen door contact op te nemen met uw netbeheerder of door gebruik te maken van een rekentool zoals EnerCalculatie.' },
     ],
   },
+  {
+    slug: 'thuisbatterij-vergelijking-merken-en-typen',
+    readingTimeMinutes: 1,
+    title: 'Hoe kiest u de juiste thuisbatterij voor uw klant: een vergelijking van verschillende typen en merken',
+    description:
+      'Vergelijk thuisbatterijen voor een onderbouwd advies. Lees hier over zelfconsumptie, energieopslag en rendement.',
+    date: '2026-07-14',
+    excerpt:
+      'Het kiezen van de juiste thuisbatterij voor uw klant kan lastig zijn. Maar met de juiste kennis en de juiste vergelijking, kunt u een onderbouwd advies geven.',
+    tags: ['Thuisbatterij', 'Zelfconsumptie', 'Energieopslag', 'Installatiebranche'],
+    keyPoints: [
+      'Definitie van zelfconsumptie en energieopslag',
+      'Vergelijking van verschillende typen en merken van thuisbatterijen',
+      'Belang van rendement en terugverdientijd bij het kiezen van een thuisbatterij',
+      'Het belang van een onderbouwd advies voor uw klant',
+    ],
+    category: 'Thuisbatterijen',
+    faq: [
+      { question: 'Wat is zelfconsumptie?', answer: 'Zelfconsumptie is het eigen verbruik van de door uw zonnepanelen opgewekte stroom. Een thuisbatterij kan dat verbruik verhogen door teruggeleverde stroom op te slaan en later te gebruiken.' },
+      { question: 'Wat is energieopslag?', answer: 'Energieopslag is de mogelijkheid om energie die op een bepaald moment wordt opgewekt, op te slaan voor later gebruik. Thuisbatterijen zijn een vorm van energieopslag.' },
+      { question: 'Hoe kies ik de juiste thuisbatterij voor mijn klant?', answer: 'Bij het kiezen van een thuisbatterij moet u rekening houden met factoren als het soort accu, de capaciteit, de garantie en de kosten. Vergelijk verschillende typen en merken om de beste keuze te maken.' },
+      { question: 'Wat is de terugverdientijd van een thuisbatterij?', answer: 'De terugverdientijd van een thuisbatterij hangt af van factoren als de kosten van de batterij, de besparing op de energierekening en de salderingsregeling. Een gemiddelde terugverdientijd van 5-10 jaar is realistisch.' },
+      { question: 'Waarom is een onderbouwd advies belangrijk voor mijn klant?', answer: 'Een onderbouwd advies zorgt ervoor dat uw klant de juiste keuze maakt en niet voor verrassingen komt te staan. Het advies moet zijn gebaseerd op de specifieke situatie van de klant en rekening houden met factoren als het verbruik, de opbrengst van de zonnepanelen en de financieringsmogelijkheden.' },
+    ],
+  },
 ];

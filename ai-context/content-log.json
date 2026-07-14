@@ -98,5 +98,15 @@
     "geoScore": 80,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-14",
+    "topic": "Hoe kiest u de juiste thuisbatterij voor uw klant: een vergelijking van verschillende typen en merken",
+    "slug": "thuisbatterij-vergelijking-merken-en-typen",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 85,
+    "geoScore": 90,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
