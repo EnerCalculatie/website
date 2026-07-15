@@ -15,11 +15,11 @@
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
     "keyword": "Bouwbesluit 2023",
     "intent": "informatief",
-    "priority": 6,
+    "priority": 5,
     "slug": "de-impact-van-het-nieuwe-bouwbesluit-2023-op-verduurzamingsadvies",
     "status": "planned",
     "createdAt": "2026-07-15T16:51:08.180Z",
-    "lastScore": 92,
+    "lastScore": 96,
     "lastImprovements": [
       "Voeg een duidelijke definities van vaktermen zoals 'verduurzamingsmaatregelen' en 'Bouwbesluit 2023' toe",
       "Het artikel bevat nog te lange alinea's, deze kunnen worden onderverdeeld in kleinere paragrafen",
@@ -29,8 +29,8 @@
       "De body is 225 woorden, minimaal 500 vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen."
     ],
     "retryCount": 0,
-    "lastRejectionReason": "Ongeldige JSX: Transform failed with 2 errors:\n<stdin>:13:33: ERROR: The character \">\" is not valid inside a JSX element\n<stdin>:16:2: ERROR: Unexpected \"return\"",
-    "lastRejectedAt": "2026-07-15T19:26:59.217Z"
+    "lastRejectionReason": "Contentchecks gefaald: body bevat corruptie-token \"NaN\".",
+    "lastRejectedAt": "2026-07-15T19:29:42.987Z"
   },
   {
     "title": "Hoe helpt u uw klanten het beste tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij?",

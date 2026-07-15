@@ -214,7 +214,11 @@ export function checkComponentBody(body) {
     errors.push('body bevat niet-Latijnse tekens (modelcorruptie).');
   }
   for (const token of CORRUPTION_TOKENS) {
-    if (body.toLowerCase().includes(token.toLowerCase())) {
+    if (token === 'NaN') {
+      if (/\bNaN\b/.test(body)) {
+        errors.push(`body bevat corruptie-token "NaN".`);
+      }
+    } else if (body.toLowerCase().includes(token.toLowerCase())) {
       errors.push(`body bevat corruptie-token "${token}".`);
     }
   }

@@ -228,5 +228,15 @@
     "geoScore": 88,
     "status": "abandoned-invalid-jsx",
     "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
+    "slug": "bouwbesluit-2023-verduurzamingsadvies-bbl",
+    "model": "gemini-flash-latest",
+    "seoScore": 96,
+    "geoScore": 95,
+    "status": "rejected-failed-checks",
+    "publicationStatus": "not-published"
   }
 ]
