@@ -607,31 +607,4 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kan ik als installateur de ISDE-subsidieaanvraag voor mijn klant indienen?', answer: 'Nee, de ISDE-subsidieaanvraag moet door de woningeigenaar zelf worden ingediend. U kunt als installateur wel uw klant hierbij assisteren en adviseren' },
     ],
   },
-  {
-    slug: 'laadpalen-voor-elektrische-auto-s-vergelijking-tussen-typen-en-merken',
-    readingTimeMinutes: 1,
-    title: 'Laadpalen voor elektrische auto\'s: een vergelijking van verschillende typen en merken',
-    seoTitle: 'Laadpalen voor elektrische auto\'s',
-    description:
-      'Laadpalen voor elektrische auto\'s: ontdek de verschillen tussen typen en merken en kies het beste voor uw klant',
-    date: '2026-07-15',
-    excerpt:
-      'Laadpalen voor elektrische auto\'s: een overzicht van de belangrijkste factoren om te overwegen bij de keuze van een laadpaal',
-    tags: ['Laadpalen', 'Elektrische auto's', 'Installatiebranche', 'Verduurzaming'],
-    keyPoints: [
-      'Vergelijking van verschillende typen laadpalen',
-      'Keuze van het juiste merk en model voor uw klant',
-      'Belang van load balancing en capaciteitscontrole',
-      'Invloed van netcongestie op laadpalen',
-      'Hoe EnerCalculatie uw laadpaal-advies ondersteunt',
-    ],
-    category: 'Laadpalen',
-    faq: [
-      { question: 'Wat is het belang van load balancing bij laadpalen?', answer: 'Load balancing is belangrijk om te voorkomen dat de hoofdzekering van de woning afslaat wanneer meerdere grote verbruikers gelijktijdig actief zijn.' },
-      { question: 'Hoe bepaal ik de juiste laadpaal voor mijn klant?', answer: 'Bepaal het laadvermogen van de auto, controleer de capaciteit van de netaansluiting en kies een laadpaal die past bij de woning en de behoeften van de klant.' },
-      { question: 'Wat is de invloed van netcongestie op laadpalen?', answer: 'Netcongestie kan de capaciteit van de netaansluiting beperken, waardoor laadpalen minder efficiënt werken. EnerCalculatie helpt u om de capaciteit van de netaansluiting te controleren en de juiste laadpaal te kiezen.' },
-      { question: 'Kan ik een laadpaal installeren zonder load balancing?', answer: 'Nee, load balancing is noodzakelijk om te voorkomen dat de hoofdzekering van de woning afslaat. EnerCalculatie biedt ondersteuning bij het kiezen van de juiste laadpaal met load balancing.' },
-      { question: 'Hoe ondersteunt EnerCalculatie mijn laadpaal-advies?', answer: 'EnerCalculatie biedt een rekentool waarmee u de capaciteit van de netaansluiting kunt controleren en de juiste laadpaal kunt kiezen. Meer informatie vindt u op onze <a href="/rekentool-laadpaal">rekentool laadpaal</a> of in onze <a href="/blog/laadpaal-advies-thuis">blog over laadpaal-advies</a>.' },
-    ],
-  },
 ];
