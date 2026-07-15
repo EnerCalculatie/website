@@ -51,7 +51,7 @@
     "intent": "commercieel",
     "priority": 6,
     "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-07-11T09:10:47.494Z",
     "rejectedAt": "2026-07-11T09:27:10.585Z",
     "retryCount": 1,
@@ -63,7 +63,10 @@
       "Voeg een overzichtelijke HTML-tabel toe (bijv. Hybride vs. All-electric met criteria als vereist energielabel, afgiftesysteem en tapwatervraag). Dit structureert de data beter en verhoogt de GEO-waarde aanzienlijk voor AI-citaties."
     ],
     "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 80, GEO 75)",
-    "lastRejectedAt": "2026-07-15T19:09:08.582Z"
+    "lastRejectedAt": "2026-07-15T19:09:08.582Z",
+    "generatedSlug": "hybride-warmtepomp-dimensionering-gasketel",
+    "generatedAt": "2026-07-15T19:32:11.444Z",
+    "seoGeoScore": 91
   },
   {
     "title": "De rol van energieopslag in de toekomst van verduurzaming: ontwikkelingen en trends",

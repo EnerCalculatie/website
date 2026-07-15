@@ -238,5 +238,15 @@
     "geoScore": 95,
     "status": "rejected-failed-checks",
     "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
+    "slug": "hybride-warmtepomp-dimensionering-gasketel",
+    "model": "gemini-flash-latest",
+    "seoScore": 96,
+    "geoScore": 85,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

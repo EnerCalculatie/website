@@ -581,4 +581,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is een energiemanagementsysteem (EMS) belangrijk bij energieopslag in de toekomst?', answer: 'Een EMS koppelt de batterij aan zonnepanelen, warmtepompen en laadpalen. Het zorgt voor een deterministisch berekende sturing op basis van weersvoorspellingen, het actuele huishoudelijke verbruiksprofil en dynamische energieprijzen.' },
     ],
   },
+  {
+    slug: 'hybride-warmtepomp-dimensionering-gasketel',
+    readingTimeMinutes: 6,
+    title: 'Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?',
+    seoTitle: 'Hybride warmtepomp dimensionering: gids voor installateurs',
+    description:
+      'Hoe pakt u hybride warmtepomp dimensionering aan? Ontdek de afweging tussen een bivalente opstelling en all-electric voor uw klanten.',
+    date: '2026-07-15',
+    excerpt:
+      'Voor welke klanten is een hybride warmtepomp de beste keuze, en wanneer adviseert u all-electric? Een diepgaande gids over bivalente dimensionering, warmteverlies en netbelasting.',
+    tags: ['Warmtepompen', 'Installatietechniek', 'Rendement'],
+    keyPoints: [
+      'De basis van hybride warmtepomp dimensionering is een nauwkeurige transmissieberekening en het bepalen van het bivalente punt.',
+      'De afweging tussen bivalent (hybride) en monovalent (all-electric) hangt direct samen met de isolatiegraad en het afgiftesysteem.',
+      'Netbeheer Nederland adviseert kritisch te kijken naar gelijktijdigheid om overbelasting van het elektriciteitsnet te voorkomen.',
+      'ISDE-subsidieonderbouwing via de RVO vereist kloppende technische specificaties en goedgekeurde meldcodes.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Wat is het bivalente punt bij hybride warmtepomp dimensionering?', answer: 'Het bivalente punt is de buitentemperatuur waarbij de warmtepomp het warmteverlies van de woning niet meer volledig zelfstandig kan dekken. Beneden deze temperatuur moet de gasketel of een elektrisch element bijspringen om de woning comfortabel warm te houden.' },
+      { question: 'Wanneer is een all-electric warmtepomp beter dan een hybride opstelling?', answer: 'Een all-electric (monovalente) warmtepomp is de beste keuze als de woning zeer goed geïsoleerd is (minimaal label B, maar bij voorkeur label A of hoger), beschikt over een afgiftesysteem op lage temperatuur en de netaansluiting voldoende capaciteit heeft.' },
+      { question: 'Hoe beïnvloedt de stooklijn de dimensionering van de warmtepomp?', answer: 'De stooklijn bepaalt bij welke watertemperatuur het afgiftesysteem de woning verwarmt op basis van de buitentemperatuur. Hoe lager de stooklijn kan worden ingesteld, hoe efficiënter de warmtepomp werkt (hogere SCOP), wat directe invloed heeft op het benodigde vermogen.' },
+      { question: 'Waar vind ik de actuele subsidievoorwaarden voor warmtepompen?', answer: 'De meest actuele voorwaarden, startbedragen en de officiële meldcodelijst voor de ISDE-subsidie worden gepubliceerd en beheerd door de Rijksdienst voor Ondernemend Nederland (rvo.nl).' },
+    ],
+  },
 ];
