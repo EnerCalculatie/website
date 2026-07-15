@@ -158,5 +158,15 @@
     "geoScore": 90,
     "status": "rejected",
     "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "Hoeayet uw klanten het beste faut disrupted tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij",
+    "slug": "stroomstoring-zonnepanelen-thuisbatterij",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 85,
+    "geoScore": 80,
+    "status": "rejected",
+    "publicationStatus": "not-published"
   }
 ]

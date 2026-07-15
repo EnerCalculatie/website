@@ -35,10 +35,23 @@
     "title": "Hoeayet uw klanten het beste faut disrupted tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij",
     "keyword": "stroomstoring zonnepanelen thuisbatterij",
     "intent": "informatief",
-    "priority": 8,
+    "priority": 7,
     "slug": "hoeayet-uw-klanten-het-beste-faut-disrupted-tijdens-een-stroomstoring-met-een-combinatie-van-zonnepanelen-en-thuisbatterij",
     "status": "planned",
-    "createdAt": "2026-07-15T16:51:08.183Z"
+    "createdAt": "2026-07-15T16:51:08.183Z",
+    "lastScore": 83,
+    "lastImprovements": [
+      "De titel zou nog wat specifieker gemaakt kunnen worden, bijvoorbeeld 'Stroomstoringen voorkomen met zonnepanelen en thuisbatterijen: een gids'",
+      "In de meta description ontbreekt een call-to-action, voeg bijvoorbeeld 'Lees nu hoe' toe",
+      "Er zijn geen tabellen of lijstjes gebruikt om informatie te presenteren, overweeg om deze toe te voegen voor betere leesbaarheid",
+      "Er zijn geen concrete, verifieerbare uitspraken gedaan over de verwachte terugverdientijd van zonnepanelen met thuisbatterij, voeg cijfers of bronnen toe",
+      "Overweeg om een overzichtelijke samenvatting of conclusie toe te voegen aan het einde van het artikel",
+      "De body is 358 woorden, minimaal 700 vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen.",
+      "seoTitle is letterlijk het zoekwoord (\"Stroomstoring zonnepanelen thuisbatterij\") — maak er een leesbare titel van."
+    ],
+    "retryCount": 1,
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 85, GEO 80)",
+    "lastRejectedAt": "2026-07-15T17:14:24.410Z"
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
