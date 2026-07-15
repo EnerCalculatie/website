@@ -93,6 +93,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/isde-subsidie-aanvragen': '/blog/isde-subsidie-warmtepompen',
     '/blog/zonnepanelen-netcongestie-advies': '/blog/netcongestie-wachtlijst-zakelijk-2026',
     '/blog/thuisbatterij-vergelijking-merken-en-typen': '/blog/thuisbatterij-capaciteit-kiezen',
+    '/blog/zonnepanelen-warmtepomp-combinatie': '/blog',
   };
   app.get(Object.keys(legacyRedirects), (req, res) => {
     res.redirect(301, legacyRedirects[req.path]);

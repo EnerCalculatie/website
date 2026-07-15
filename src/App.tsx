@@ -83,7 +83,7 @@ const RendementsverliesSchaduwVervuilingZonnepanelenArticle = lazyRoute('/blog/r
 const VerduurzamingspakketSamenstellenBeperktBudgetArticle = lazyRoute('/blog/verduurzamingspakket-samenstellen-beperkt-budget', () => import('./components/blog/VerduurzamingspakketSamenstellenBeperktBudgetArticle').then(m => ({ default: m.VerduurzamingspakketSamenstellenBeperktBudgetArticle })));
 const VerduurzamingKostenBatenAnalyseArticle = lazyRoute('/blog/verduurzaming-kosten-baten-analyse', () => import('./components/blog/VerduurzamingKostenBatenAnalyseArticle').then(m => ({ default: m.VerduurzamingKostenBatenAnalyseArticle })));
 const ThuisbatterijNetaansluitingCapaciteitArticle = lazyRoute('/blog/thuisbatterij-netaansluiting-capaciteit', () => import('./components/blog/ThuisbatterijNetaansluitingCapaciteitArticle').then(m => ({ default: m.ThuisbatterijNetaansluitingCapaciteitArticle })));
-const ZonnepanelenWarmtepompCombinatieArticle = lazyRoute('/blog/zonnepanelen-warmtepomp-combinatie', () => import('./components/blog/ZonnepanelenWarmtepompCombinatieArticle').then(m => ({ default: m.ZonnepanelenWarmtepompCombinatieArticle })));
+
 const LaadpalenVoorElektrischeAutosArticle = lazyRoute('/blog/laadpalen-voor-elektrische-autos', () => import('./components/blog/LaadpalenVoorElektrischeAutosArticle').then(m => ({ default: m.LaadpalenVoorElektrischeAutosArticle })));
 const HybrideWarmtepompBusinessCaseArticle = lazyRoute('/blog/hybride-warmtepomp-business-case', () => import('./components/blog/HybrideWarmtepompBusinessCaseArticle').then(m => ({ default: m.HybrideWarmtepompBusinessCaseArticle })));
 const StroomstoringZonnepanelenThuisbatterijArticle = lazyRoute('/blog/stroomstoring-zonnepanelen-thuisbatterij', () => import('./components/blog/StroomstoringZonnepanelenThuisbatterijArticle').then(m => ({ default: m.StroomstoringZonnepanelenThuisbatterijArticle })));
@@ -188,7 +188,7 @@ export function AppContent() {
             <Route path="/blog/verduurzamingspakket-samenstellen-beperkt-budget" element={<VerduurzamingspakketSamenstellenBeperktBudgetArticle />} />
             <Route path="/blog/verduurzaming-kosten-baten-analyse" element={<VerduurzamingKostenBatenAnalyseArticle />} />
             <Route path="/blog/thuisbatterij-netaansluiting-capaciteit" element={<ThuisbatterijNetaansluitingCapaciteitArticle />} />
-            <Route path="/blog/zonnepanelen-warmtepomp-combinatie" element={<ZonnepanelenWarmtepompCombinatieArticle />} />
+
             <Route path="/blog/laadpalen-voor-elektrische-autos" element={<LaadpalenVoorElektrischeAutosArticle />} />
             <Route path="/blog/hybride-warmtepomp-business-case" element={<HybrideWarmtepompBusinessCaseArticle />} />
             <Route path="/blog/stroomstoring-zonnepanelen-thuisbatterij" element={<StroomstoringZonnepanelenThuisbatterijArticle />} />

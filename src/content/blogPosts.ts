@@ -478,32 +478,7 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe kan ik de maximale capaciteit van mijn netaansluiting bepalen?', answer: 'U kunt de maximale capaciteit van uw netaansluiting bepalen door contact op te nemen met uw netbeheerder of door gebruik te maken van een rekentool zoals EnerCalculatie.' },
     ],
   },
-  {
-    slug: 'zonnepanelen-warmtepomp-combinatie',
-    readingTimeMinutes: 1,
-    title: 'Zonnepanelen en warmtepomp: de ideale combinatie voor een optimaal verduurzamingspakket',
-    seoTitle: 'Zonnepanelen en warmtepomp combineren: zo werkt het',
-    description:
-      'Lees hoe u zonnepanelen en een warmtepomp combineert tot een efficiënt verduurzamingspakket: de voordelen, de vereisten en de valkuilen.',
-    date: '2026-07-15',
-    excerpt:
-      'Een combinatie van zonnepanelen en warmtepompen biedt een efficiënte en duurzame oplossing voor uw energiebehoeften. Ontdek hoe u deze combinatie kunt gebruiken om uw energierekening te verlagen en uw ecologische voetafdruk te reduceren.',
-    tags: ['Zonnepanelen', 'Warmtepompen', 'Verduurzamingspakket', 'Installatiebranche'],
-    keyPoints: [
-      'Zonnepanelen en warmtepompen kunnen worden gecombineerd voor een efficiënt verduurzamingspakket',
-      'De combinatie biedt een hogere energie-efficiëntie en een lagere energierekening',
-      'Het is belangrijk om de juiste grootte en type warmtepomp te kiezen voor uw zonnepanelen-installatie',
-      'Een professioneel ontwerp en installatie zijn essentieel voor een optimale combinatie',
-    ],
-    category: 'Zonnepanelen',
-    faq: [
-      { question: 'Wat zijn de voordelen van het combineren van zonnepanelen en warmtepompen?', answer: 'De combinatie van zonnepanelen en warmtepompen biedt een hogere energie-efficiëntie, een lagere energierekening en een verminderde ecologische voetafdruk.' },
-      { question: 'Hoe kies ik de juiste warmtepomp voor mijn zonnepanelen-installatie?', answer: 'Het is belangrijk om de juiste grootte en type warmtepomp te kiezen op basis van uw specifieke energiebehoeften en de omvang van uw zonnepanelen-installatie.' },
-      { question: 'Is een professioneel ontwerp en installatie noodzakelijk voor een optimale combinatie?', answer: 'Ja, een professioneel ontwerp en installatie zijn essentieel om ervoor te zorgen dat de combinatie van zonnepanelen en warmtepompen optimaal functioneert en uw energierekening verlaagt.' },
-      { question: 'Kan ik de combinatie van zonnepanelen en warmtepompen ook gebruiken voor mijn bedrijf?', answer: 'Ja, de combinatie van zonnepanelen en warmtepompen kan ook voor bedrijven worden gebruikt om de energierekening te verlagen en de ecologische voetafdruk te reduceren.' },
-      { question: 'Wat is de terugverdientijd van de combinatie van zonnepanelen en warmtepompen?', answer: 'De terugverdientijd van de combinatie van zonnepanelen en warmtepompen kan variëren afhankelijk van verschillende factoren, zoals de grootte van de installatie, de energieprijs en de subsidiemogelijkheden.' },
-    ],
-  },
+
   {
     slug: 'laadpalen-voor-elektrische-autos',
     readingTimeMinutes: 2,
