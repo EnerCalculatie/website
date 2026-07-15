@@ -15,11 +15,19 @@ export const MAX_DESCRIPTION_LENGTH = 155;
  *
  * De pipeline leverde structureel 120-300 woorden, terwijl de SEO/GEO-validator
  * ze op 80+ zette — die draait op hetzelfde model dat het schreef en herkent
- * dunne content dus niet. 700 ligt tussen wat de generator vanzelf produceert en
- * wat de handgeschreven artikelen halen (400-1000), dus het dwingt uitwerking
- * zonder onhaalbaar te zijn.
+ * dunne content dus niet. Woordental moet je dus tellen, niet laten beoordelen.
+ *
+ * Waarom 500 en niet meer: gemeten met llama-3.3-70b (het default-model) haalt
+ * de generator 350-560 woorden en plateaut daar. Herhaald om uitbreiding vragen
+ * helpt niet — in één meetrun werd het tweede concept juist kórter (331 -> 436
+ * -> 358). 700 blokkeerde daardoor élk artikel; 500 is haalbaar en nog altijd
+ * ruim het dubbele van wat er eerder live ging.
+ *
+ * Reken op afkeuringen: ook 500 wordt niet elke run gehaald. Dat is het signaal
+ * dat het model tegen zijn grens zit, niet dat de check stuk is. Wil je hoger,
+ * verhoog dan eerst OPENROUTER_MODEL — niet deze drempel.
  */
-export const MIN_WORD_COUNT = 700;
+export const MIN_WORD_COUNT = 500;
 
 /** Woorden in JSX/HTML-body, zonder tags. */
 export function countBodyWords(body) {

@@ -62,6 +62,13 @@ Voeg hem toe aan `src/content/staticRoutes.ts` — dat is de gedeelde bron voor 
 
 Draait in `ci.yml` op elke push/PR naar main, én in `daily-blog-post.yml` vóór de push — faalt die, dan worden de artikelbestanden teruggedraaid en publiceert de bot niets. **Verwijder deze gate niet:** tussen 13 en 15 juli 2026 stond `ci.yml` uit, en in dat gat ging een artikel live met `clase=` in plaats van `className=` (11 typecheck-errors op main) en een `ptrdiff`-token middenin de titel. De esbuild-preflight in de generator checkt alleen syntax, geen JSX-props of tekenlimieten.
 
+## Kwaliteitsgates op AI-content
+`scripts/lib/content-checks.mjs` bevat de deterministische checks; ze voeden de verbeterlus in `generate-blog-post.mjs` (2 pogingen) en keuren daarna hard af.
+
+- **`MIN_WORD_COUNT` (500):** de SEO/GEO-validator draait op hetzelfde model dat het artikel schreef en zette stukken van 120-300 woorden probleemloos op 80+. Woordental tel je dus. Gemeten plateaut llama-3.3-70b op 350-560 woorden — 700 blokkeerde élk artikel. **Loopt de pipeline vast op lengte: verhoog `OPENROUTER_MODEL`, niet deze drempel verlagen.**
+- **`checkSavingsClaims`:** blokkeert een percentage naast besparingstaal ("besparing van meer dan 40% op de energiekosten"), laat marges ("20-60%, afhankelijk van isolatie") en rekenvoorbeelden staan. Bewust smal: een bredere superlatief-regel vlagde "een rendementsverlies van ruim 15% in de voormiddag" — de uitkomst van een rekenvoorbeeld in het beste AI-artikel.
+- **`seoTitle`:** moet met een hoofdletter beginnen en mag niet gelijk zijn aan het zoekwoord. Het model leverde ooit letterlijk `hybride warmtepomp business case` als `<title>`.
+
 ## Geen bedragen in AI-content
 De generator wijst elk artikel af dat een geldbedrag noemt (`checkNoAmounts` in `scripts/lib/content-checks.mjs`) — body, FAQ, description en keyPoints. Verwijs naar de bron ("de actuele ISDE-bedragen staan op rvo.nl") in plaats van een bedrag te noemen.
 
