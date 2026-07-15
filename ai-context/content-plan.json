@@ -15,21 +15,22 @@
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
     "keyword": "Bouwbesluit 2023",
     "intent": "informatief",
-    "priority": 7,
+    "priority": 6,
     "slug": "de-impact-van-het-nieuwe-bouwbesluit-2023-op-verduurzamingsadvies",
     "status": "planned",
     "createdAt": "2026-07-15T16:51:08.180Z",
-    "lastScore": 88,
+    "lastScore": 75,
     "lastImprovements": [
-      "Interne linkjes naar rekentools zijn aanwezig, maar een overzichtelijke lijst naar relevante blogartikelen (/blog/<slug>) ontbreekt",
-      "Het artikel begint met een introductie van het Bouwbesluit 2023, maar een korte, directe samenvatting van de impact op verduurzamingsadvies voor installateurs ontbreekt",
-      "Er zijn geen absolute claims gemaakt, maar meer concrete, verifieerbare uitspraken over de consequenties van het Bouwbesluit 2023 zouden de wetenschappelijke onderbouwing versterken",
-      "Er wordt verwezen naar EnerCalculatie, maar expliciete bronnen zoals RVO of Netbeheer Nederland worden niet vermeld",
-      "De body is 564 woorden, minimaal 700 vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen."
+      "Voeg een duidelijke definities van vaktermen zoals 'verduurzamingsmaatregelen' en 'Bouwbesluit 2023' toe",
+      "Het artikel bevat nog te lange alinea's, deze kunnen worden onderverdeeld in kleinere paragrafen",
+      "Gebruik van tabellen en/of lijstjes om de informatie beter te presenteren",
+      "Voeg meer expertise-/E-E-A-T-signalen toe, zoals verwijzingen naar bronnen zoals RVO, ACM of Netbeheer Nederland",
+      "In de meta description ontbreekt een concrete call-to-action of vraag, deze kan worden toegevoegd",
+      "De body is 225 woorden, minimaal 500 vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen."
     ],
-    "retryCount": 1,
-    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 85, GEO 90)",
-    "lastRejectedAt": "2026-07-15T17:04:46.119Z"
+    "retryCount": 2,
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 80, GEO 70)",
+    "lastRejectedAt": "2026-07-15T17:29:39.998Z"
   },
   {
     "title": "Hoeayet uw klanten het beste faut disrupted tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij",
