@@ -20,7 +20,7 @@ if (!OPENROUTER_API_KEY) {
   console.error('MISLUKT — Reden: OPENROUTER_API_KEY ontbreekt als environment variable.');
   process.exit(1);
 }
-const MODEL = process.env.OPENROUTER_MODEL || 'anthropic/claude-3.5-sonnet';
+const MODEL = process.env.OPENROUTER_MODEL || 'anthropic/claude-sonnet-5';
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
 const MIN_PLANNED = 5;
