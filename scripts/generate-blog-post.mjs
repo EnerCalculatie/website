@@ -111,6 +111,8 @@ function pickNextPlannedItem(plan) {
 // het definitief 'abandoned' raakt. Elke afkeuring verlaagt ook de prioriteit,
 // zodat andere backlog-items eerst aan de beurt komen.
 const MAX_RETRIES = 2;
+/** Verbeterpogingen binnen één run, vóór het artikel definitief wordt afgekeurd. */
+const MAX_IMPROVE_ATTEMPTS = 2;
 
 function rejectPlanItem(planItem, reason) {
   const retryCount = (planItem.retryCount ?? 0) + 1;
@@ -221,9 +223,14 @@ async function main() {
   let issues = collectIssues(article);
   console.log(`SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}) | contentchecks: ${issues.length} bezwaar(en)`);
 
-  if (!validation.approved || issues.length > 0) {
+  // Twee verbeterpogingen, geen één. Het model reageert aantoonbaar op de
+  // lengte-feedback (een meetrun ging van 229 naar 564 woorden, met de GEO-score
+  // van 80 naar 90 mee omhoog), maar haalt 700 zelden in één keer. Met één poging
+  // strandt zo'n artikel net vóór de streep en loopt het backlog-item na twee
+  // runs dood op 'abandoned', terwijl het bij een tweede poging gewoon slaagt.
+  for (let poging = 1; poging <= MAX_IMPROVE_ATTEMPTS && (!validation.approved || issues.length > 0); poging++) {
     const feedback = [...validation.improvements, ...issues];
-    console.log(`Nog niet publicabel — één verbeterpoging met feedback:\n- ${feedback.join('\n- ')}`);
+    console.log(`Nog niet publicabel — verbeterpoging ${poging}/${MAX_IMPROVE_ATTEMPTS} met feedback:\n- ${feedback.join('\n- ')}`);
     const improveUser = `${user}\n\nJe vorige concept scoorde SEO ${validation.seoScore}/100, GEO ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}). Verwerk deze verbeterpunten en lever een volledig herzien artikel (zelfde JSON-structuur):\n- ${feedback.join('\n- ')}`;
     const improvedRaw = await callOpenRouter(system, improveUser);
     const improvedArticle = extractJson(improvedRaw);
@@ -231,7 +238,7 @@ async function main() {
 
     validation = await validateArticle(article, { callOpenRouter, extractJson });
     issues = collectIssues(article);
-    console.log(`Na verbetering — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 | contentchecks: ${issues.length} bezwaar(en)`);
+    console.log(`Na poging ${poging} — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 | contentchecks: ${issues.length} bezwaar(en)`);
     if (issues.length > 0) console.log(`Resterend:\n- ${issues.join('\n- ')}`);
   }
 
