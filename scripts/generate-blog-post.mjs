@@ -151,7 +151,26 @@ async function callGemini(system, user) {
 function extractJson(raw) {
   const match = raw.match(/```json\s*([\s\S]*?)```/) || raw.match(/\{[\s\S]*\}/);
   if (!match) throw new Error('Kon geen JSON uit het model-antwoord halen.');
-  return JSON.parse(sanitizeJsonString(match[1] ?? match[0]));
+  
+  let parsed;
+  try {
+    parsed = JSON.parse(sanitizeJsonString(match[1] ?? match[0]));
+  } catch (err) {
+    throw new Error(`JSON parsing gefaald: ${err.message}`);
+  }
+
+  // Als de componentBody ontbreekt in JSON, zoek hem in een apart JSX of HTML blok
+  // (alleen bij artikel-generatie waar 'title' aanwezig is, niet bij de validator)
+  if (parsed.title && (!parsed.componentBody || parsed.componentBody.trim() === '')) {
+    const jsxMatch = raw.match(/```(?:jsx|tsx|html)\s*([\s\S]*?)```/);
+    if (jsxMatch) {
+      parsed.componentBody = jsxMatch[1].trim();
+    } else {
+      throw new Error('Kon geen componentBody vinden (niet in JSON en niet in een ```jsx blok).');
+    }
+  }
+  
+  return parsed;
 }
 
 async function main() {
@@ -233,7 +252,9 @@ HARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bed
 Gebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.
 
 # OUTPUT FORMAT
-Antwoord UITSLUITEND met een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbele aanhalingstekens in strings goed ge-escaped zijn met een backslash (\\"), en voeg GEEN opmerkingen toe buiten of binnen het JSON-object. Gebruik exact deze velden:
+Geef je antwoord in TWEE APARTE DELEN (gescheiden door witregels).
+
+DEEL 1: Een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbele aanhalingstekens goed ge-escaped zijn. Laat het veld 'componentBody' LEEG in de JSON. Gebruik exact deze velden:
 
 - slug: kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)
 - title: volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten
@@ -244,9 +265,13 @@ Antwoord UITSLUITEND met een valide JSON-object (in een \`\`\`json codeblok). Zo
 - keyPoints: Array van 3-5 strings met de belangrijkste punten.
 - category: één hoofdcategorie (Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies)
 - faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."}). Dit dekt de aanvullende zoekvragen af.
-- componentBody: de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen. KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan'). Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".
 
-Voorbeeld van de verwachte JSON-structuur:
+DEEL 2: Een apart JSX codeblok (in een \`\`\`jsx codeblok) met de daadwerkelijke componentBody (de JSX-children van <BlogPostLayout>). Omdat dit géén JSON is, hoef je dubbele aanhalingstekens (zoals in \`className="my-class"\`) NIET te escapen. Schrijf hier het volledige, uitgewerkte artikel.
+KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan'). Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".
+
+Voorbeeld van het verwachte antwoord:
+
+\`\`\`json
 {
   "slug": "...",
   "title": "...",
@@ -256,11 +281,16 @@ Voorbeeld van de verwachte JSON-structuur:
   "tags": ["..."],
   "keyPoints": ["..."],
   "category": "...",
-  "faq": [{"question": "...", "answer": "..."}],
-  "componentBody": "..."
+  "faq": [{"question": "...", "answer": "..."}]
 }
+\`\`\`
 
-De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
+\`\`\`jsx
+<h2>Voorbeeldkop</h2>
+<p>Hier komt de tekst van de componentBody...</p>
+\`\`\`
+
+De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit de JSON.`;
 
   async function generateWithRetries(systemPrompt, userPrompt, contextLabel) {
     let result;
