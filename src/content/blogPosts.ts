@@ -607,4 +607,30 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kan ik als installateur de ISDE-subsidieaanvraag voor mijn klant indienen?', answer: 'Nee, de ISDE-subsidieaanvraag moet door de woningeigenaar zelf worden ingediend. U kunt als installateur wel uw klant hierbij assisteren en adviseren' },
     ],
   },
+  {
+    slug: 'laadpalen-voor-elektrische-autos',
+    readingTimeMinutes: 2,
+    title: 'Laadpalen voor elektrische auto\'s: een vergelijking van typen en merken',
+    seoTitle: 'Laadpalen elektrische auto\'s vergelijking',
+    description:
+      'Laadpalen voor elektrische auto\'s: ontdek de verschillen tussen typen en merken en kies de juiste laadpaal voor uw klant',
+    date: '2026-07-15',
+    excerpt:
+      'Een overzicht van de verschillende typen laadpalen voor elektrische auto\'s en hoe u de juiste kiest voor uw klant',
+    tags: ['Laadpalen', 'Elektrische auto\'s', 'Installatiebranche'],
+    keyPoints: [
+      'Laadpalen voor elektrische auto\'s: een overzicht van de verschillende typen',
+      'Hoe kiest u de juiste laadpaal voor uw klant',
+      'Laadpalen en netcongestie: hoe voorkomt u overbelasting',
+      'Load balancing: de oplossing voor een betrouwbare installatie',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Wat zijn de verschillen tussen een 1-fase en 3-fase laadpaal?', answer: 'Een 1-fase laadpaal levert doorgaans enkele kW\'s aan laadvermogen, terwijl een 3-fase laadpaal een aanzienlijk hoger vermogen kan leveren.' },
+      { question: 'Hoe belangrijk is load balancing bij de installatie van een laadpaal?', answer: 'Load balancing is cruciaal om overbelasting van de installatie te voorkomen en een betrouwbare laadpaal te garanderen.' },
+      { question: 'Kan ik een laadpaal installeren zonder load balancing?', answer: 'Het is mogelijk om een laadpaal te installeren zonder load balancing, maar dit kan leiden tot overbelasting en onbetrouwbare werking.' },
+      { question: 'Hoe kies ik de juiste laadpaal voor mijn klant?', answer: 'U kiest de juiste laadpaal door te kijken naar het laadvermogen van de auto, de capaciteit van de aansluiting en de beschikbare ruimte in de woning.' },
+      { question: 'Wat is de rol van de netbeheerder bij de installatie van een laadpaal?', answer: 'De netbeheerder is verantwoordelijk voor de capaciteit van de aansluiting en kan in sommige gevallen een capaciteitsuitbreiding vereisen.' },
+    ],
+  },
 ];

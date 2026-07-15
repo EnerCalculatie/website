@@ -41,8 +41,11 @@
     "intent": "commercieel",
     "priority": 7,
     "slug": "laadpalen-voor-elektrische-autos-wat-zijn-de-verschillen-tussen-verschillende-typen-en-merken",
-    "status": "planned",
-    "createdAt": "2026-07-11T10:15:43.114Z"
+    "status": "generated",
+    "createdAt": "2026-07-11T10:15:43.114Z",
+    "generatedSlug": "laadpalen-voor-elektrische-autos",
+    "generatedAt": "2026-07-15T16:30:56.670Z",
+    "seoGeoScore": 88
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
