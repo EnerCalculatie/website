@@ -77,6 +77,7 @@ jobs:
           git clean -fd src/components/blog
 
       - name: "7. Commit en push (main → Railway deployt automatisch)"
+        id: push
         if: always()
         run: |
           git config user.name "enercalculatie-bot"
@@ -89,10 +90,21 @@ jobs:
           SLUG=$(git diff --cached src/content/blogPosts.ts | grep -oP "^\+\s*slug: '\K[^']+" | tail -1)
           if [ -n "$SLUG" ]; then
             git commit -m "feat: kennisbank-artikel toevoegen - ${SLUG}"
+            echo "slug=${SLUG}" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: content-backlog/log bijgewerkt (geen nieuw artikel)"
           fi
           git push origin HEAD:main
+
+      # IndexNow meldt de nieuwe URL direct aan bij Bing/Yandex, i.p.v. te wachten
+      # tot ze de sitemap opnieuw ophalen. Het script wacht zelf tot het
+      # sleutelbestand live staat, zodat de Railway-deploy de tijd krijgt.
+      # Faalt dit, dan is dat geen reden de run rood te maken: het artikel staat
+      # dan al gepubliceerd en wordt alsnog via de sitemap opgepikt.
+      - name: "8. IndexNow — nieuwe URL aanmelden"
+        if: steps.push.outputs.slug != ''
+        continue-on-error: true
+        run: node scripts/indexnow-submit.mjs "/blog/${{ steps.push.outputs.slug }}"
 
       - name: Samenvatting
         if: always()
