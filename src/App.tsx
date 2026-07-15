@@ -82,12 +82,9 @@ const NetontwikkelingsbijdrageZonnepanelen2026Article = lazyRoute('/blog/netontw
 const RendementsverliesSchaduwVervuilingZonnepanelenArticle = lazyRoute('/blog/rendementsverlies-schaduw-vervuiling-zonnepanelen', () => import('./components/blog/RendementsverliesSchaduwVervuilingZonnepanelenArticle').then(m => ({ default: m.RendementsverliesSchaduwVervuilingZonnepanelenArticle })));
 const VerduurzamingspakketSamenstellenBeperktBudgetArticle = lazyRoute('/blog/verduurzamingspakket-samenstellen-beperkt-budget', () => import('./components/blog/VerduurzamingspakketSamenstellenBeperktBudgetArticle').then(m => ({ default: m.VerduurzamingspakketSamenstellenBeperktBudgetArticle })));
 const VerduurzamingKostenBatenAnalyseArticle = lazyRoute('/blog/verduurzaming-kosten-baten-analyse', () => import('./components/blog/VerduurzamingKostenBatenAnalyseArticle').then(m => ({ default: m.VerduurzamingKostenBatenAnalyseArticle })));
-const WarmtepompenKopenIsdeSubsidieArticle = lazyRoute('/blog/warmtepompen-kopen-isde-subsidie', () => import('./components/blog/WarmtepompenKopenIsdeSubsidieArticle').then(m => ({ default: m.WarmtepompenKopenIsdeSubsidieArticle })));
-const ZonnepanelenNetcongestieAdviesArticle = lazyRoute('/blog/zonnepanelen-netcongestie-advies', () => import('./components/blog/ZonnepanelenNetcongestieAdviesArticle').then(m => ({ default: m.ZonnepanelenNetcongestieAdviesArticle })));
 const ThuisbatterijNetaansluitingCapaciteitArticle = lazyRoute('/blog/thuisbatterij-netaansluiting-capaciteit', () => import('./components/blog/ThuisbatterijNetaansluitingCapaciteitArticle').then(m => ({ default: m.ThuisbatterijNetaansluitingCapaciteitArticle })));
 const ThuisbatterijVergelijkingMerkenEnTypenArticle = lazyRoute('/blog/thuisbatterij-vergelijking-merken-en-typen', () => import('./components/blog/ThuisbatterijVergelijkingMerkenEnTypenArticle').then(m => ({ default: m.ThuisbatterijVergelijkingMerkenEnTypenArticle })));
 const ZonnepanelenWarmtepompCombinatieArticle = lazyRoute('/blog/zonnepanelen-warmtepomp-combinatie', () => import('./components/blog/ZonnepanelenWarmtepompCombinatieArticle').then(m => ({ default: m.ZonnepanelenWarmtepompCombinatieArticle })));
-const IsdeSubsidieAanvragenArticle = lazyRoute('/blog/isde-subsidie-aanvragen', () => import('./components/blog/IsdeSubsidieAanvragenArticle').then(m => ({ default: m.IsdeSubsidieAanvragenArticle })));
 const LaadpalenVoorElektrischeAutosArticle = lazyRoute('/blog/laadpalen-voor-elektrische-autos', () => import('./components/blog/LaadpalenVoorElektrischeAutosArticle').then(m => ({ default: m.LaadpalenVoorElektrischeAutosArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
@@ -189,12 +186,9 @@ export function AppContent() {
             <Route path="/blog/rendementsverlies-schaduw-vervuiling-zonnepanelen" element={<RendementsverliesSchaduwVervuilingZonnepanelenArticle />} />
             <Route path="/blog/verduurzamingspakket-samenstellen-beperkt-budget" element={<VerduurzamingspakketSamenstellenBeperktBudgetArticle />} />
             <Route path="/blog/verduurzaming-kosten-baten-analyse" element={<VerduurzamingKostenBatenAnalyseArticle />} />
-            <Route path="/blog/warmtepompen-kopen-isde-subsidie" element={<WarmtepompenKopenIsdeSubsidieArticle />} />
-            <Route path="/blog/zonnepanelen-netcongestie-advies" element={<ZonnepanelenNetcongestieAdviesArticle />} />
             <Route path="/blog/thuisbatterij-netaansluiting-capaciteit" element={<ThuisbatterijNetaansluitingCapaciteitArticle />} />
             <Route path="/blog/thuisbatterij-vergelijking-merken-en-typen" element={<ThuisbatterijVergelijkingMerkenEnTypenArticle />} />
             <Route path="/blog/zonnepanelen-warmtepomp-combinatie" element={<ZonnepanelenWarmtepompCombinatieArticle />} />
-            <Route path="/blog/isde-subsidie-aanvragen" element={<IsdeSubsidieAanvragenArticle />} />
             <Route path="/blog/laadpalen-voor-elektrische-autos" element={<LaadpalenVoorElektrischeAutosArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />

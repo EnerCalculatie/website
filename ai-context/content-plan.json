@@ -29,11 +29,12 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "hoe-kunnen-installateurs-hun-klanten-helpen-bij-het-aanvragen-van-de-isde-subsidie-voor-warmtepompen-een-stap-voor-stap-gids",
-    "status": "generated",
+    "status": "abandoned",
     "createdAt": "2026-07-14T07:12:51.490Z",
-    "generatedSlug": "isde-subsidie-aanvragen",
     "generatedAt": "2026-07-15T07:19:48.487Z",
-    "seoGeoScore": 88
+    "seoGeoScore": 88,
+    "abandonReason": "Samengevoegd met /blog/isde-subsidie-warmtepompen (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
+    "abandonedAt": "2026-07-15T16:38:54.555Z"
   },
   {
     "title": "Laadpalen voor elektrische auto's: wat zijn de verschillen tussen verschillende typen en merken?",
@@ -140,11 +141,12 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "hoe-kiest-u-de-juiste-warmtepomp-voor-uw-klant-een-vergelijking-van-verschillende-typen-en-merken",
-    "status": "generated",
+    "status": "abandoned",
     "createdAt": "2026-07-11T10:15:43.114Z",
-    "generatedSlug": "warmtepompen-kopen-isde-subsidie",
     "generatedAt": "2026-07-13T08:22:48.712Z",
-    "seoGeoScore": 88
+    "seoGeoScore": 88,
+    "abandonReason": "Samengevoegd met /blog/isde-subsidie-warmtepompen (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
+    "abandonedAt": "2026-07-15T16:38:54.556Z"
   },
   {
     "title": "Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?",
@@ -152,7 +154,7 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "zonnepanelen-en-netcongestie-hoe-adviseert-u-tegen-wachtlijsten-en-capaciteitsgrenzen",
-    "status": "generated",
+    "status": "abandoned",
     "createdAt": "2026-07-11T09:10:47.493Z",
     "lastScore": 75,
     "lastImprovements": [
@@ -170,9 +172,10 @@
     ],
     "rejectedAt": "2026-07-11T09:20:01.739Z",
     "retryCount": 1,
-    "generatedSlug": "zonnepanelen-netcongestie-advies",
     "generatedAt": "2026-07-13T17:51:07.747Z",
-    "seoGeoScore": 85
+    "seoGeoScore": 85,
+    "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
+    "abandonedAt": "2026-07-15T16:38:54.556Z"
   },
   {
     "title": "Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?",

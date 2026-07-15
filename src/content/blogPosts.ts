@@ -455,57 +455,6 @@ export const blogPosts: BlogPostMeta[] = [
     ],
   },
   {
-    slug: 'warmtepompen-kopen-isde-subsidie',
-    readingTimeMinutes: 1,
-    title: 'Warmtepompen kopen met ISDE-subsidie: hoe kiest u de juiste voor uw klant?',
-    seoTitle: 'Warmtepomp kopen met ISDE-subsidie: de juiste keuze',
-    description:
-      'Lees hoe u de juiste warmtepomp kiest voor uw klant met ISDE-subsidie: hybride en all-electric, rendementen en subsidievoorwaarden.',
-    date: '2026-07-13',
-    excerpt:
-      'In dit artikel leest u hoe u de juiste warmtepomp kiest voor uw klant, inclusief hybride en all-electric warmtepompen, rendementen en subsidievoorwaarden.',
-    tags: ['Warmtepompen', 'ISDE-subsidie', 'Hybride warmtepompen', 'All-electric warmtepompen', 'Installatiebranche'],
-    keyPoints: [
-      'Hybride warmtepompen combineren elektrische en gasgestookte verwarming',
-      'All-electric warmtepompen verdienen zich sneller terug dan hybride modellen',
-      'De ISDE-subsidie voor warmtepompen bedraagt maximaal €5.000',
-      'Een goede isolatie van de woning is essentieel voor het rendement van de warmtepomp',
-    ],
-    category: 'Warmtepompen',
-    faq: [
-      { question: 'Wat is de ISDE-subsidie voor warmtepompen?', answer: 'De ISDE-subsidie voor warmtepompen bedraagt maximaal €5.000. Deze subsidie is afhankelijk van het type warmtepomp en de woning waarin deze wordt geïnstalleerd.' },
-      { question: 'Wat is het verschil tussen hybride en all-electric warmtepompen?', answer: 'Hybride warmtepompen combineren elektrische en gasgestookte verwarming, terwijl all-electric warmtepompen alleen elektriciteit gebruiken. All-electric warmtepompen verdienen zich sneller terug dan hybride modellen.' },
-      { question: 'Hoe belangrijk is isolatie voor het rendement van een warmtepomp?', answer: 'Een goede isolatie van de woning is essentieel voor het rendement van de warmtepomp. Een slecht geïsoleerde woning verhoogt de energievraag en verlaagt het rendement van de warmtepomp.' },
-      { question: 'Wat zijn de voordelen van een warmtepomp voor een woning?', answer: 'Warmtepompen bieden een aantal voordelen, zoals een lagere energierekening, een hoger wooncomfort en een verhoogde waarde van de woning. Bovendien zijn warmtepompen een milieuvriendelijke optie, omdat ze minder CO2-uitstoot produceren dan traditionele verwarmingsbronnen.' },
-      { question: 'Hoe kan ik de juiste warmtepomp kiezen voor mijn klant?', answer: 'Om de juiste warmtepomp te kiezen voor uw klant, moet u rekening houden met factoren zoals de grootte van de woning, de isolatie, de energievraag en de subsidievoorwaarden. Een professioneel advies van een erkend installateur is essentieel om de juiste keuze te maken.' },
-    ],
-  },
-  {
-    slug: 'zonnepanelen-netcongestie-advies',
-    readingTimeMinutes: 1,
-    title: 'Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?',
-    seoTitle: 'Zonnepanelen en netcongestie: zo adviseert u',
-    description:
-      'Netcongestie beperkt de mogelijkheden voor zonnepanelen. Ontdek hoe u als installateur uw klanten effectief adviseert over capaciteitsbeperkingen.',
-    date: '2026-07-13',
-    excerpt:
-      'Netcongestie is een steeds grotere uitdaging voor installateurs van zonnepanelen. Hoe onderbouwt u uw advies?',
-    tags: ['Zonnepanelen', 'Netcongestie', 'Installatiebranche', 'Subsidies'],
-    keyPoints: [
-      'Netcongestie definities en oorzaken',
-      'Capaciteitsbeperkingen en wachtlijsten',
-      'Rekentools voor capaciteitsberekening',
-      'ISDE-subsidies en netcongestie',
-    ],
-    category: 'Zonnepanelen',
-    faq: [
-      { question: 'Wat is netcongestie?', answer: 'Netcongestie is een situatie waarbij het elektriciteitsnet overbelast raakt door te veel gelijktijdige verbruikers. Dit kan leiden tot capaciteitsbeperkingen en wachtlijsten voor nieuwe aansluitingen.' },
-      { question: 'Hoe bereken ik de capaciteit van mijn netaansluiting?', answer: 'U kunt de capaciteit van uw netaansluiting berekenen met behulp van onze rekentool op <a href="/rekentool-zonnepanelen">onze website</a> of door contact op te nemen met uw netbeheerder.' },
-      { question: 'Kan ik nog steeds zonnepanelen installeren als er sprake is van netcongestie?', answer: 'Ja, maar u moet rekening houden met capaciteitsbeperkingen en wachtlijsten. U kunt contact opnemen met uw netbeheerder om te zien welke opties er zijn voor uw specifieke situatie. Meer informatie over netcongestie vindt u op de <a href="https://www.rvo.nl/">website van de RVO</a>.' },
-      { question: 'Hoe zit het met ISDE-subsidies en netcongestie?', answer: 'De ISDE-subsidie is een belangrijk instrument voor het stimuleren van duurzame energie. Echter, netcongestie kan de capaciteit van het net beperken, waardoor subsidies niet altijd kunnen worden toegekend. U kunt meer informatie over de ISDE-subsidie vinden op <a href="/blog/isde-subsidie-warmtepompen">onze blog</a>.' },
-    ],
-  },
-  {
     slug: 'thuisbatterij-netaansluiting-capaciteit',
     readingTimeMinutes: 1,
     title: 'Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?',
@@ -579,32 +528,6 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is een professioneel ontwerp en installatie noodzakelijk voor een optimale combinatie?', answer: 'Ja, een professioneel ontwerp en installatie zijn essentieel om ervoor te zorgen dat de combinatie van zonnepanelen en warmtepompen optimaal functioneert en uw energierekening verlaagt.' },
       { question: 'Kan ik de combinatie van zonnepanelen en warmtepompen ook gebruiken voor mijn bedrijf?', answer: 'Ja, de combinatie van zonnepanelen en warmtepompen kan ook voor bedrijven worden gebruikt om de energierekening te verlagen en de ecologische voetafdruk te reduceren.' },
       { question: 'Wat is de terugverdientijd van de combinatie van zonnepanelen en warmtepompen?', answer: 'De terugverdientijd van de combinatie van zonnepanelen en warmtepompen kan variëren afhankelijk van verschillende factoren, zoals de grootte van de installatie, de energieprijs en de subsidiemogelijkheden.' },
-    ],
-  },
-  {
-    slug: 'isde-subsidie-aanvragen',
-    readingTimeMinutes: 1,
-    title: 'ISDE-subsidie aanvragen voor warmtepompen: een stap-voor-stap gids voor installateurs',
-    seoTitle: 'ISDE-subsidie aanvragen: stappenplan warmtepomp',
-    description:
-      'Lees hoe installateurs hun klanten kunnen helpen bij het aanvragen van de ISDE-subsidie voor warmtepompen met een stap-voor-stap gids',
-    date: '2026-07-15',
-    excerpt:
-      'De ISDE-subsidie kan een aanzienlijke Premiëring betekenen voor klanten die een warmtepomp aanschaffen. Hier is een stap-voor-stap gids voor installateurs om hun klanten te helpen bij het aanvragen van de subsidie',
-    tags: ['ISDE-subsidie', 'Warmtepompen', 'Installateurs', 'Subsidie aanvragen'],
-    keyPoints: [
-      'Hoe de ISDE-subsidie werkt',
-      'Welke eisen uw klant moet voldoen',
-      'Hoe u de subsidieaanvraag voorbereidt',
-      'Wat de deadline is voor de aanvraag',
-    ],
-    category: 'Subsidies',
-    faq: [
-      { question: 'Wat is de ISDE-subsidie en hoe werkt het?', answer: 'De ISDE-subsidie is een financieringsregeling van de RVO voor woningeigenaren die een warmtepomp aanschaffen. De subsidie bedraagt eenmalig €1.025 en €225 per kW vermogen, met een minimumbedrag van €500' },
-      { question: 'Welke eisen moet mijn klant voldoen om in aanmerking te komen voor de ISDE-subsidie?', answer: 'Uw klant moet een warmtepomp aanschaffen die op de actuele meldcodelijst van de RVO staat en voldoen aan de technische eisen die de RVO stelt' },
-      { question: 'Hoe bereid ik de subsidieaanvraag voor en wat zijn de benodigde documenten?', answer: 'U moet een offerte opstellen met daarin de meldcode van de warmtepomp, de capaciteit, het vermogen en de totale investering. U moet ook een kopie van de factuur en de betalingsbewijs toevoegen' },
-      { question: 'Wat is de deadline voor de ISDE-subsidieaanvraag?', answer: 'De deadline voor de aanvraag is 31 december 2030. Echter, het is raadzaam om de aanvraag zo snel mogelijk in te dienen, aangezien de subsidie beschikbaar is tot het subsidieplafond is bereikt' },
-      { question: 'Kan ik als installateur de ISDE-subsidieaanvraag voor mijn klant indienen?', answer: 'Nee, de ISDE-subsidieaanvraag moet door de woningeigenaar zelf worden ingediend. U kunt als installateur wel uw klant hierbij assisteren en adviseren' },
     ],
   },
   {

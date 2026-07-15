@@ -78,12 +78,20 @@ if (process.env.NODE_ENV === 'production') {
     ...Object.fromEntries(blogPosts.map((p) => [`/blog/${p.slug}`, `blog-${p.slug}.html`])),
   };
 
-  // Permanente redirects van de oude /kennisbank-URL's naar /blog (URL-rename, behoud SEO-waarde).
+  // Permanente redirects. Twee groepen:
+  // 1. De oude /kennisbank-URL's na de rename naar /blog.
+  // 2. Samengevoegde blogartikelen: drie dunne artikelen die op hetzelfde
+  //    zoekwoord mikten als een bestaand, uitgebreider artikel en dat in de
+  //    zoekresultaten kannibaliseerden. 301 i.p.v. verwijderen, zodat bestaande
+  //    links en eventuele opgebouwde SEO-waarde naar het canonieke artikel gaan.
   const legacyRedirects: Record<string, string> = {
     '/kennisbank': '/blog',
     '/kennisbank/salderingsregeling-2027': '/blog/salderingsregeling-2027',
     '/kennisbank/btw-zonnepanelen': '/blog/btw-zonnepanelen',
     '/kennisbank/terugleverkosten-thuisbatterij': '/blog/terugleverkosten-thuisbatterij',
+    '/blog/warmtepompen-kopen-isde-subsidie': '/blog/isde-subsidie-warmtepompen',
+    '/blog/isde-subsidie-aanvragen': '/blog/isde-subsidie-warmtepompen',
+    '/blog/zonnepanelen-netcongestie-advies': '/blog/netcongestie-wachtlijst-zakelijk-2026',
   };
   app.get(Object.keys(legacyRedirects), (req, res) => {
     res.redirect(301, legacyRedirects[req.path]);
