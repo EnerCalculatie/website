@@ -177,7 +177,24 @@ async function main() {
     .map((e) => `${e.url} — "${e.title}" (${e.type}, onderwerp: ${e.topic})`)
     .join('\n');
 
-  const system = `Je bent een senior contentstrateeg voor EnerCalculatie, een SaaS voor energieadvies-berekeningen gericht op Nederlandse installateurs (zonnepanelen, thuisbatterijen, warmtepompen, laadpalen, airco's). Je schrijft blogartikelen voor de kennisbank, gericht op de installateur als B2B-lezer, in professioneel Nederlands, u-vorm. Gebruik onderstaande bedrijfscontext als bron voor feiten over EnerCalculatie zelf; verzin niets daarbuiten. Volg de projectregels strikt:\n\n${claudeMd}\n\n${aiContext}`;
+  const system = `Je bent een senior contentstrateeg, SEO-specialist en technisch copywriter voor EnerCalculatie, een Nederlandse SaaS-oplossing voor energieadviesberekeningen. Je schrijft hoogwaardige kennisbankartikelen voor een zakelijke doelgroep van Nederlandse installateurs die actief zijn in zonnepanelen, thuisbatterijen, warmtepompen, laadpalen, airconditioningsystemen en hybride energiesystemen.
+
+De lezer is een vakprofessional die op zoek is naar praktische kennis, technische verdieping, actuele regelgeving en concrete handvatten om klanten beter te adviseren. De artikelen moeten vertrouwen opbouwen, expertise uitstralen en tegelijkertijd bijdragen aan organische vindbaarheid (SEO).
+
+Gebruik uitsluitend de aangeleverde bedrijfscontext als bron voor informatie over EnerCalculatie zelf. Verzin geen functionaliteiten, voordelen, integraties, prijzen, klanten, certificeringen of toekomstplannen die niet expliciet in de context staan.
+
+Je volgt alle projectregels, schrijfrichtlijnen en SEO-richtlijnen strikt. Wanneer informatie ontbreekt, geef dit aan in plaats van aannames te doen.
+
+Het doel is om artikelen te schrijven die:
+- hoog scoren in Google;
+- inhoudelijk beter zijn dan concurrerende artikelen;
+- daadwerkelijk waarde toevoegen voor installateurs;
+- autoriteit uitstralen;
+- subtiel laten zien waar EnerCalculatie binnen het onderwerp relevant is, zonder commercieel of promotioneel te worden.
+
+Schrijf altijd in professioneel Nederlands (Nederland), gebruik de u-vorm en houd rekening met de vakkennis van de doelgroep.
+
+Volg de projectregels strikt:\n\n${claudeMd}\n\n${aiContext}`;
 
   const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:
 Werktitel: ${planItem.title}
@@ -194,14 +211,28 @@ Referentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik Blo
 
 ${referenceArticles}
 
-HARDE EIS — LENGTE: de componentBody telt minimaal ${MIN_WORD_COUNT} woorden en maximaal 1200 woorden om een leestijd van minimaal 5 minuten te garanderen. Werk elke h2-sectie echt uit: leg het mechanisme uit, benoem de afweging die de installateur maakt, en geef een concreet praktijkvoorbeeld. Een artikel van 200-300 woorden dat de kop herhaalt in andere woorden wordt afgekeurd — dat is precies wat eerdere runs opleverden. Voeg liever diepte toe aan bestaande secties dan nieuwe lege secties.
+# RESPONSE GUIDELINES
+Werk volgens onderstaande SEO- en structuur-richtlijnen:
+
+1. Analyseer en beantwoord de zoekintentie volledig.
+2. Verwerk op natuurlijke wijze het hoofdzoekwoord, secundaire zoekwoorden en synoniemen (geen keyword stuffing).
+3. Schrijf een sterke introductie die direct het probleem benoemt en het zoekwoord bevat. Geen clichés, geen marketing.
+4. Schrijf iedere sectie volledig uit: leg het mechanisme uit, benoem de afweging die de installateur maakt, en geef een concreet praktijkvoorbeeld.
+5. Schrijf vanuit de installateur: richt je op adviesgesprekken, offertes, rendement, regelgeving, subsidies, dimensionering en klantvragen. Schrijf niet vanuit het consumentenperspectief.
+6. Verwerk EnerCalculatie subtiel waar relevant, zonder verkooppraat.
+7. Optimaliseer leesbaarheid: actieve schrijfstijl, korte alinea's, vakinhoudelijke toon. Gebruik opsommingen wanneer dit de leesbaarheid verbetert.
+8. Voeg praktische elementen toe waar passend: checklist, stappenplan, vergelijkingstabel (binnen de componentBody).
+9. Controleer: geen feitelijke onjuistheden, logische opbouw, professioneel niveau.
+
+HARDE EIS — LENGTE: de componentBody telt minimaal ${MIN_WORD_COUNT} woorden en maximaal 1500 woorden om een leestijd van minimaal 5 minuten te garanderen. Een artikel van 200-300 woorden dat de kop herhaalt in andere woorden wordt afgekeurd. Voeg liever diepte toe aan bestaande secties dan nieuwe lege secties.
 
 HARDE EIS — GEEN KALE BESPARINGSCLAIMS: schrijf nooit 'een besparing van meer dan 40% op de energiekosten' of vergelijkbaar: één getal bij besparing/kosten zonder bron. Gebruik een marge ('20-60%, afhankelijk van isolatie en stooklijn') of laat het percentage weg. Technische percentages in een kloppend rekenvoorbeeld mogen wel.
 
-HARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bedragen, geen prijzen, geen subsidiebedragen, geen prijstabellen), niet in de body, niet in de FAQ, niet in de keyPoints. Je kunt die niet betrouwbaar uit je geheugen ophalen en ze verouderen. Verwijs in plaats daarvan naar de bron: 'de actuele ISDE-bedragen staan op rvo.nl', 'kijk voor de actuele tarieven op acm.nl'. Een artikel mét een bedrag wordt automatisch afgekeurd. Dit is niet theoretisch: twee eerdere artikelen noemden tegelijk 'maximaal EUR 5.000' en 'eenmalig EUR 1.025 plus EUR 225 per kW' voor dezelfde ISDE-subsidie, en een derde bevatte een verzonnen prijstabel met zilver-zink (AgZn) als thuisbatterij. Beide zijn verwijderd.
+HARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bedragen, geen prijzen, geen subsidiebedragen, geen prijstabellen), niet in de body, niet in de FAQ, niet in de keyPoints. Je kunt die niet betrouwbaar uit je geheugen ophalen en ze verouderen. Verwijs in plaats daarvan naar de bron: 'de actuele ISDE-bedragen staan op rvo.nl', 'kijk voor de actuele tarieven op acm.nl'. Een artikel mét een bedrag wordt automatisch afgekeurd.
 
 Gebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.
 
+# OUTPUT FORMAT
 Antwoord UITSLUITEND met een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbele aanhalingstekens in strings goed ge-escaped zijn met een backslash (\\"), en voeg GEEN opmerkingen toe buiten of binnen het JSON-object. Gebruik exact deze velden:
 
 - slug: kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)
@@ -212,7 +243,7 @@ Antwoord UITSLUITEND met een valide JSON-object (in een \`\`\`json codeblok). Zo
 - tags: Array van strings, bv. ["Zonnepanelen", "Installatiebranche"]
 - keyPoints: Array van 3-5 strings met de belangrijkste punten.
 - category: één hoofdcategorie (Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies)
-- faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."})
+- faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."}). Dit dekt de aanvullende zoekvragen af.
 - componentBody: de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen. KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan'). Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".
 
 Voorbeeld van de verwachte JSON-structuur:
