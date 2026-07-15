@@ -10,6 +10,27 @@ export const MAX_TITLE_LENGTH = 60;
 /** Google kapt de meta description af rond 155 tekens. */
 export const MAX_DESCRIPTION_LENGTH = 155;
 
+/**
+ * Minimum woordental van de artikelbody.
+ *
+ * De pipeline leverde structureel 120-300 woorden, terwijl de SEO/GEO-validator
+ * ze op 80+ zette — die draait op hetzelfde model dat het schreef en herkent
+ * dunne content dus niet. 700 ligt tussen wat de generator vanzelf produceert en
+ * wat de handgeschreven artikelen halen (400-1000), dus het dwingt uitwerking
+ * zonder onhaalbaar te zijn.
+ */
+export const MIN_WORD_COUNT = 700;
+
+/** Woorden in JSX/HTML-body, zonder tags. */
+export function countBodyWords(body) {
+  return body
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean).length;
+}
+
 // Tekens die niet in Nederlandse content horen: CJK, Cyrillisch, Arabisch,
 // Hebreeuws. Een LLM lekt die af en toe middenin een woord — zie de 'Chinese
 // karakters'-bug (commit 1cb19cc). Latin-1/Latin Extended-A blijft toegestaan
@@ -91,6 +112,14 @@ export function checkArticleMeta(article) {
   if (seoTitle && / \| EnerCalculatie\s*$/.test(seoTitle)) {
     errors.push('seoTitle bevat het merksuffix; dat wordt niet meer toegevoegd en eet de tekenlimiet op.');
   }
+  // Het model leverde ooit letterlijk 'hybride warmtepomp business case': het
+  // zoekwoord in kleine letters, geen titel. Dat staat zo in de zoekresultaten.
+  if (seoTitle && /^[a-z]/.test(seoTitle)) {
+    errors.push(`seoTitle begint met een kleine letter: "${seoTitle}" — dit is de zichtbare <title> in Google, schrijf hem als een titel.`);
+  }
+  if (seoTitle && article.keyword && seoTitle.trim().toLowerCase() === article.keyword.trim().toLowerCase()) {
+    errors.push(`seoTitle is letterlijk het zoekwoord ("${seoTitle}") — maak er een leesbare titel van.`);
+  }
   if (slug && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) {
     errors.push(`slug is geen schone kebab-case: "${slug}"`);
   }
@@ -170,6 +199,51 @@ export function checkNoAmounts(text) {
   return [
     `bevat ${hits.length} bedrag(en) (${hits.slice(0, 5).join(', ')}): verwijs naar de bron (rvo.nl, acm.nl) in plaats van een bedrag te noemen — het model kan die niet betrouwbaar uit zijn geheugen ophalen en ze verouderen.`,
   ];
+}
+
+/**
+ * Blokkeert onderbouwde-klinkende besparingsclaims in AI-content.
+ *
+ * ALLEEN voor de generator. Waarom niet álle percentages: het beste
+ * AI-artikel (rendementsverlies-schaduw-vervuiling) gebruikt er tientallen, maar
+ * als marges ('20-60% van de opbrengst', 'gemiddeld 2-8% verlies') en in
+ * kloppende rekenvoorbeelden ('schaduwfactor 0,85 = 85% van het licht'). Dat is
+ * legitieme techniek. Het probleem is de kale marketingclaim: 'een besparing van
+ * meer dan 40% op de energiekosten' — één getal, geen marge, geen bron.
+ *
+ * Vandaar: percentages naast besparingstaal blokkeren, marges (X-Y%) toestaan.
+ *
+ * @param {string} text
+ * @returns {string[]} lege array = akkoord
+ */
+export function checkSavingsClaims(text) {
+  const plain = text.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const errors = [];
+
+  // Een marge (20-60%, 2–8%) is een hedge en mag; haal die eerst weg zodat hij
+  // niet als kale claim wordt gelezen.
+  const zonderMarges = plain.replace(/\d+(?:[.,]\d+)?\s?[-–—]\s?\d+(?:[.,]\d+)?\s?%/g, ' MARGE ');
+
+  const savings = /\b(bespar\w*|goedkoper|voordeliger|winst|lagere energierekening|energiekosten)/i;
+  for (const m of zonderMarges.matchAll(/[^.!?]*\b\d+(?:[.,]\d+)?\s?%[^.!?]*/g)) {
+    const zin = m[0];
+    if (savings.test(zin)) {
+      errors.push(
+        `kale besparingsclaim met percentage: "${zin.trim().slice(0, 90)}" — noem geen percentage bij besparing/kosten zonder bron, of gebruik een marge.`
+      );
+    }
+  }
+
+  // 'tot wel 60%' is marketingtaal. Bewust géén 'ruim X%' of 'meer dan X%' in het
+  // algemeen: die staan ook in kloppende conclusies ('een rendementsverlies van
+  // ruim 15% in de voormiddag' volgt uit het rekenvoorbeeld erboven). De echte
+  // fout ('besparing van meer dan 40%') vangt de besparingsregel hierboven al,
+  // dus een bredere regel levert alleen fout-positieven op goede artikelen op.
+  for (const m of zonderMarges.matchAll(/\btot wel\s+\d+(?:[.,]\d+)?\s?%/gi)) {
+    errors.push(`marketingclaim "${m[0]}" — gebruik een marge of laat het percentage weg.`);
+  }
+
+  return [...new Set(errors)];
 }
 
 // ---------------------------------------------------------------------------

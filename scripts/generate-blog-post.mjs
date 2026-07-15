@@ -21,9 +21,12 @@ import {
   checkArticleMeta,
   checkComponentBody,
   checkNoAmounts,
+  checkSavingsClaims,
+  countBodyWords,
   deriveSeoTitle,
   truncateAtWord,
   MAX_DESCRIPTION_LENGTH,
+  MIN_WORD_COUNT,
 } from './lib/content-checks.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -182,7 +185,7 @@ async function main() {
 
   const system = `Je bent een senior contentstrateeg voor EnerCalculatie, een SaaS voor energieadvies-berekeningen gericht op Nederlandse installateurs (zonnepanelen, thuisbatterijen, warmtepompen, laadpalen, airco's). Je schrijft blogartikelen voor de kennisbank, gericht op de installateur als B2B-lezer, in professioneel Nederlands, u-vorm. Gebruik onderstaande bedrijfscontext als bron voor feiten over EnerCalculatie zelf; verzin niets daarbuiten. Volg de projectregels strikt:\n\n${claudeMd}\n\n${aiContext}`;
 
-  const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:\nWerktitel: ${planItem.title}\nPrimair zoekwoord: ${planItem.keyword}\nZoekintentie: ${planItem.intent}\n\nBestaande blogonderwerpen (slugs, ter voorkoming van duplicaten in interne links): ${existingSlugs.join(', ')}\nBestaande titels: ${existingTitles.join(' | ')}\n\nBeschikbare interne pagina's om naar te linken (kies 2-3 die inhoudelijk relevant zijn voor DIT artikel, niet willekeurig):\n${contentMapText}\n\nReferentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik BlogPostLayout, dezelfde Tailwind-classes, dezelfde opbouw met h2-secties en een "Hoe EnerCalculatie hiermee omgaat"-slot):\n\n${referenceArticles}\n\nHARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bedragen, geen prijzen, geen subsidiebedragen, geen prijstabellen), niet in de body, niet in de FAQ, niet in de keyPoints. Je kunt die niet betrouwbaar uit je geheugen ophalen en ze verouderen. Verwijs in plaats daarvan naar de bron: 'de actuele ISDE-bedragen staan op rvo.nl', 'kijk voor de actuele tarieven op acm.nl'. Een artikel mét een bedrag wordt automatisch afgekeurd. Dit is niet theoretisch: twee eerdere artikelen noemden tegelijk 'maximaal EUR 5.000' en 'eenmalig EUR 1.025 plus EUR 225 per kW' voor dezelfde ISDE-subsidie, en een derde bevatte een verzonnen prijstabel met zilver-zink (AgZn) als thuisbatterij. Beide zijn verwijderd.\n\nGebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.\n\nAntwoord UITSLUITEND met een JSON-object (in een \`\`\`json codeblok), met exact deze velden:\n{\n  "slug": "kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)",\n  "title": "... (volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten)",\n  "seoTitle": "... (titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens, tel ze na. Primair zoekwoord vooraan. GEEN merksuffix zoals ' | EnerCalculatie' — die wordt niet toegevoegd. Mag korter/anders zijn dan title.)",\n  "description": "... (SEO meta description. HARDE EIS: maximaal 155 tekens, tel ze na. Bevat het primaire zoekwoord.)",\n  "excerpt": "...",\n  "tags": ["Tag1", "Tag2", "Tag3", "Installatiebranche"],\n  "keyPoints": ["...", "...", "...", "..."],\n  "category": "één hoofdcategorie, bv. Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies",\n  "faq": [{"question": "...", "answer": "..."}] (array van minimaal 3, maximaal 5 vraag/antwoord-objecten die de zoekintentie direct beantwoorden, citeerbaar door AI-engines),\n  "componentBody": "de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen (met dezelfde Tailwind-classes, h2-koppen, en het slotstuk 'Hoe EnerCalculatie hiermee omgaat' met minimaal 2 interne links uit de lijst hierboven, als <a href=\\"...\\"> binnen de bestaande Tailwind-linkstijl). KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst (bv. '< 10 jaar', '> 15 jaar' breekt de JSX-parser). Schrijf dit altijd als woorden ('minder dan 10 jaar', 'meer dan 15 jaar') of als HTML-entity (&lt; &gt;). Gebruik je een <table> (bv. bij een vergelijking), wrap die dan ALTIJD in <div className=\\"overflow-x-auto mb-6\\"> en geef table de classes \\"w-full border-collapse border border-slate-300 text-sm\\", elke <th> en <td> de classes \\"border border-slate-300 px-4 py-2 text-left\\" (th extra: \\"font-semibold text-slate-800\\", td extra: \\"text-slate-700\\"), en de <thead><tr> de class \\"bg-slate-100\\" — nooit een kale <table className=\\"table-auto\\"> zonder deze classes en zonder de overflow-x-auto container."\n}\n\nDe datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
+  const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:\nWerktitel: ${planItem.title}\nPrimair zoekwoord: ${planItem.keyword}\nZoekintentie: ${planItem.intent}\n\nBestaande blogonderwerpen (slugs, ter voorkoming van duplicaten in interne links): ${existingSlugs.join(', ')}\nBestaande titels: ${existingTitles.join(' | ')}\n\nBeschikbare interne pagina's om naar te linken (kies 2-3 die inhoudelijk relevant zijn voor DIT artikel, niet willekeurig):\n${contentMapText}\n\nReferentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik BlogPostLayout, dezelfde Tailwind-classes, dezelfde opbouw met h2-secties en een "Hoe EnerCalculatie hiermee omgaat"-slot):\n\n${referenceArticles}\n\nHARDE EIS — LENGTE: de componentBody telt minimaal ${MIN_WORD_COUNT} woorden. Werk elke h2-sectie echt uit: leg het mechanisme uit, benoem de afweging die de installateur maakt, en geef een concreet praktijkvoorbeeld. Een artikel van 200-300 woorden dat de kop herhaalt in andere woorden wordt afgekeurd — dat is precies wat eerdere runs opleverden. Voeg liever diepte toe aan bestaande secties dan nieuwe lege secties.\n\nHARDE EIS — GEEN KALE BESPARINGSCLAIMS: schrijf nooit 'een besparing van meer dan 40% op de energiekosten' of vergelijkbaar: één getal bij besparing/kosten zonder bron. Gebruik een marge ('20-60%, afhankelijk van isolatie en stooklijn') of laat het percentage weg. Technische percentages in een kloppend rekenvoorbeeld mogen wel.\n\nHARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bedragen, geen prijzen, geen subsidiebedragen, geen prijstabellen), niet in de body, niet in de FAQ, niet in de keyPoints. Je kunt die niet betrouwbaar uit je geheugen ophalen en ze verouderen. Verwijs in plaats daarvan naar de bron: 'de actuele ISDE-bedragen staan op rvo.nl', 'kijk voor de actuele tarieven op acm.nl'. Een artikel mét een bedrag wordt automatisch afgekeurd. Dit is niet theoretisch: twee eerdere artikelen noemden tegelijk 'maximaal EUR 5.000' en 'eenmalig EUR 1.025 plus EUR 225 per kW' voor dezelfde ISDE-subsidie, en een derde bevatte een verzonnen prijstabel met zilver-zink (AgZn) als thuisbatterij. Beide zijn verwijderd.\n\nGebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.\n\nAntwoord UITSLUITEND met een JSON-object (in een \`\`\`json codeblok), met exact deze velden:\n{\n  "slug": "kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)",\n  "title": "... (volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten)",\n  "seoTitle": "... (titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens, tel ze na. Primair zoekwoord vooraan. GEEN merksuffix zoals ' | EnerCalculatie' — die wordt niet toegevoegd. Mag korter/anders zijn dan title.)",\n  "description": "... (SEO meta description. HARDE EIS: maximaal 155 tekens, tel ze na. Bevat het primaire zoekwoord.)",\n  "excerpt": "...",\n  "tags": ["Tag1", "Tag2", "Tag3", "Installatiebranche"],\n  "keyPoints": ["...", "...", "...", "..."],\n  "category": "één hoofdcategorie, bv. Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies",\n  "faq": [{"question": "...", "answer": "..."}] (array van minimaal 3, maximaal 5 vraag/antwoord-objecten die de zoekintentie direct beantwoorden, citeerbaar door AI-engines),\n  "componentBody": "de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen (met dezelfde Tailwind-classes, h2-koppen, en het slotstuk 'Hoe EnerCalculatie hiermee omgaat' met minimaal 2 interne links uit de lijst hierboven, als <a href=\\"...\\"> binnen de bestaande Tailwind-linkstijl). KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst (bv. '< 10 jaar', '> 15 jaar' breekt de JSX-parser). Schrijf dit altijd als woorden ('minder dan 10 jaar', 'meer dan 15 jaar') of als HTML-entity (&lt; &gt;). Gebruik je een <table> (bv. bij een vergelijking), wrap die dan ALTIJD in <div className=\\"overflow-x-auto mb-6\\"> en geef table de classes \\"w-full border-collapse border border-slate-300 text-sm\\", elke <th> en <td> de classes \\"border border-slate-300 px-4 py-2 text-left\\" (th extra: \\"font-semibold text-slate-800\\", td extra: \\"text-slate-700\\"), en de <thead><tr> de class \\"bg-slate-100\\" — nooit een kale <table className=\\"table-auto\\"> zonder deze classes en zonder de overflow-x-auto container."\n}\n\nDe datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
 
   console.log(`Genereer artikel via OpenRouter (${MODEL})...`);
   const raw = await callOpenRouter(system, user);
@@ -192,19 +195,49 @@ async function main() {
     throw new Error(`Gegenereerde slug '${article.slug}' bestaat al — model heeft duplicaat gekozen.`);
   }
 
+  // Deterministische bezwaren náást de LLM-score. De validator draait op
+  // hetzelfde model dat het artikel schreef en zette artikelen van 120-300
+  // woorden probleemloos op 80+; woordental en verzonnen cijfers moet je dus
+  // tellen, niet laten beoordelen.
+  const collectIssues = (a) => {
+    const words = countBodyWords(a.componentBody ?? '');
+    const faqText = (a.faq ?? []).map((f) => `${f.question} ${f.answer}`).join(' ');
+    return [
+      ...(words < MIN_WORD_COUNT
+        ? [`De body is ${words} woorden, minimaal ${MIN_WORD_COUNT} vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen.`]
+        : []),
+      ...checkNoAmounts(a.componentBody ?? '').map((e) => `Body ${e}`),
+      ...checkNoAmounts(faqText).map((e) => `FAQ ${e}`),
+      ...checkSavingsClaims(a.componentBody ?? ''),
+      ...checkSavingsClaims(faqText),
+      ...checkArticleMeta({ ...a, keyword: planItem.keyword, seoTitle: a.seoTitle ?? '' }).filter((e) =>
+        e.startsWith('seoTitle')
+      ),
+    ];
+  };
+
   console.log('SEO/GEO-controle...');
   let validation = await validateArticle(article, { callOpenRouter, extractJson });
-  console.log(`SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD})`);
+  let issues = collectIssues(article);
+  console.log(`SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}) | contentchecks: ${issues.length} bezwaar(en)`);
 
-  if (!validation.approved) {
-    console.log(`Score onvoldoende — één verbeterpoging met feedback:\n- ${validation.improvements.join('\n- ')}`);
-    const improveUser = `${user}\n\nJe vorige concept scoorde SEO ${validation.seoScore}/100, GEO ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}). Verwerk deze verbeterpunten en lever een volledig herzien artikel (zelfde JSON-structuur):\n- ${validation.improvements.join('\n- ')}`;
+  if (!validation.approved || issues.length > 0) {
+    const feedback = [...validation.improvements, ...issues];
+    console.log(`Nog niet publicabel — één verbeterpoging met feedback:\n- ${feedback.join('\n- ')}`);
+    const improveUser = `${user}\n\nJe vorige concept scoorde SEO ${validation.seoScore}/100, GEO ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}). Verwerk deze verbeterpunten en lever een volledig herzien artikel (zelfde JSON-structuur):\n- ${feedback.join('\n- ')}`;
     const improvedRaw = await callOpenRouter(system, improveUser);
     const improvedArticle = extractJson(improvedRaw);
     Object.assign(article, improvedArticle);
 
     validation = await validateArticle(article, { callOpenRouter, extractJson });
-    console.log(`Score na verbetering — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100`);
+    issues = collectIssues(article);
+    console.log(`Na verbetering — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 | contentchecks: ${issues.length} bezwaar(en)`);
+    if (issues.length > 0) console.log(`Resterend:\n- ${issues.join('\n- ')}`);
+  }
+
+  // Deterministische bezwaren zijn hard: ze gaan over feiten en lengte, niet over smaak.
+  if (issues.length > 0) {
+    validation = { ...validation, approved: false, improvements: [...validation.improvements, ...issues] };
   }
 
   if (!validation.approved) {
@@ -265,15 +298,11 @@ ${article.componentBody}
   // Harde contentgate vóór de JSX-preflight: corruptie en structuurfouten zijn
   // te tellen, niet te beoordelen. Faalt dit, dan gaat het item terug de backlog
   // in, net als bij ongeldige JSX: geen half artikel op schijf.
-  // Bedragen mogen nergens in de gegenereerde content staan — ook niet in de
-  // FAQ's, want juist dáár zaten de verzonnen ISDE-bedragen die als FAQPage-
-  // schema live gingen.
-  const faqText = (article.faq ?? []).map((f) => `${f.question} ${f.answer}`).join(' ');
+  // Laatste gate vóór schrijven. Bedragen/woordental/seoTitle zijn hierboven al
+  // door de verbeterlus gegaan; wat hier nog staat is niet meer te repareren.
   const metaErrors = [
     ...checkArticleMeta(article),
     ...checkComponentBody(article.componentBody),
-    ...checkNoAmounts(article.componentBody).map((e) => `body ${e}`),
-    ...checkNoAmounts(faqText).map((e) => `faq ${e}`),
     ...checkNoAmounts(`${article.description} ${(article.keyPoints ?? []).join(' ')}`).map(
       (e) => `description/keyPoints ${e}`
     ),
