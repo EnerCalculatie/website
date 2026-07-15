@@ -53,6 +53,29 @@ jobs:
           OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
         run: node scripts/generate-blog-post.mjs
 
+      # Gate tussen AI-output en productie. De push gaat direct naar main en
+      # Railway deployt daarop, dus een fout die hier doorglipt staat live.
+      # Draait dezelfde checks als ci.yml, maar vóór de push i.p.v. erna.
+      - name: "6b. QC — typecheck, build en SEO-QC op het nieuwe artikel"
+        id: qc
+        if: steps.generate.outcome == 'success'
+        continue-on-error: true
+        run: |
+          npm run typecheck
+          npm run lint
+          npm run build
+          npm run qc:seo
+
+      # Faalt de QC, dan draaien we de artikelbestanden terug en publiceren we
+      # niets. content-plan/content-log gaan wél mee: die leggen de afkeuring
+      # vast, zodat het onderwerp opnieuw geprobeerd kan worden.
+      - name: "6c. Artikel terugdraaien bij gefaalde QC"
+        if: steps.generate.outcome == 'success' && steps.qc.outcome != 'success'
+        run: |
+          echo "::error::QC gefaald — artikel wordt niet gepubliceerd. Zie stap 6b."
+          git checkout -- src/components/blog src/content/blogPosts.ts src/App.tsx
+          git clean -fd src/components/blog
+
       - name: "7. Commit en push (main → Railway deployt automatisch)"
         if: always()
         run: |
@@ -76,10 +99,12 @@ jobs:
         run: |
           echo "## Kennisbank-generator — resultaat" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          if [ "${{ steps.generate.outcome }}" = "success" ]; then
-            echo "**Status:** geslaagd" >> "$GITHUB_STEP_SUMMARY"
-          else
+          if [ "${{ steps.generate.outcome }}" != "success" ]; then
             echo "**Status:** mislukt of artikel afgekeurd — zie logs van stap 4-6 hierboven" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.qc.outcome }}" != "success" ]; then
+            echo "**Status:** artikel gegenereerd maar QC gefaald — niet gepubliceerd, zie stap 6b" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "**Status:** geslaagd" >> "$GITHUB_STEP_SUMMARY"
           fi
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "Laatste entry in ai-context/content-log.json:" >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+
+      # SEO-QC draait op de geprerenderde dist/ uit de stap hierboven: interne
+      # links, title/meta-lengtes, JSON-LD, exact één H1 en de sitemap. Faalt de
+      # push bij een overtreding.
+      #
+      # De dagelijkse blogpipeline pusht direct naar main, dus dit is de enige
+      # gate tussen AI-output en productie. Toen deze workflow tussen 13 en 15
+      # juli 2026 verwijderd was, ging er een artikel live met 'clase=' i.p.v.
+      # 'className=' (11 typecheck-errors op main) en een titel met een
+      # 'ptrdiff'-token erin.
+      - run: npm run qc:seo

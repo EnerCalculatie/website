@@ -10,6 +10,7 @@
     "build:frontend": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "prerender": "node scripts/prerender.mjs",
+    "qc:seo": "node scripts/qc-seo.mjs",
     "build:backend": "esbuild server.ts --bundle --platform=node --packages=external --outfile=server.js --format=esm",
     "build": "npm run build:frontend && npm run build:ssr && npm run prerender && npm run build:backend",
     "start": "node server.js",
