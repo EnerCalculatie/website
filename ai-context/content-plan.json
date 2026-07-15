@@ -49,12 +49,21 @@
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
     "keyword": "hybride warmtepomp dimensionering",
     "intent": "commercieel",
-    "priority": 7,
+    "priority": 6,
     "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
     "status": "planned",
     "createdAt": "2026-07-11T09:10:47.494Z",
     "rejectedAt": "2026-07-11T09:27:10.585Z",
-    "retryCount": 0
+    "retryCount": 1,
+    "lastScore": 78,
+    "lastImprovements": [
+      "Verwijder de letterlijke meta-tekst 'E-E-A-T signaal:' uit de H2-kop ('E-E-A-T signaal: Dimensioneren volgens ISSO 51 en ISSO 72'). Dit is een prompt-artefact dat onprofessioneel overkomt en de zoekintentie verstoort.",
+      "De SEO-titel is met 82 tekens aan de lange kant en kan in zoekresultaten worden afgebroken. Kort deze in naar maximaal ~60-65 tekens (bijv. 'Hybride warmtepomp dimensioneren: Gasketel of all-electric?').",
+      "Verwijder absolute claims: verander 'bepaalt u exact hoeveel kilowatt' naar 'bepaalt u uiterst nauwkeurig hoeveel kilowatt' en 'dat exact laat zien' naar 'dat duidelijk inzichtelijk maakt'. In de techniek is 'exact' of een 0% foutmarge een gevaarlijke claim.",
+      "Voeg een overzichtelijke HTML-tabel toe (bijv. Hybride vs. All-electric met criteria als vereist energielabel, afgiftesysteem en tapwatervraag). Dit structureert de data beter en verhoogt de GEO-waarde aanzienlijk voor AI-citaties."
+    ],
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 80, GEO 75)",
+    "lastRejectedAt": "2026-07-15T19:09:08.582Z"
   },
   {
     "title": "De rol van energieopslag in de toekomst van verduurzaming: ontwikkelingen en trends",
