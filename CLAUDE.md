@@ -68,6 +68,7 @@ Draait in `ci.yml` op elke push/PR naar main, én in `daily-blog-post.yml` vóó
 - **`MIN_WORD_COUNT` (500):** de SEO/GEO-validator draait op hetzelfde model dat het artikel schreef en zette stukken van 120-300 woorden probleemloos op 80+. Woordental tel je dus. Gemeten plateaut llama-3.3-70b op 350-560 woorden — 700 blokkeerde élk artikel. **Loopt de pipeline vast op lengte: verhoog `OPENROUTER_MODEL`, niet deze drempel verlagen.**
 - **`checkSavingsClaims`:** blokkeert een percentage naast besparingstaal ("besparing van meer dan 40% op de energiekosten"), laat marges ("20-60%, afhankelijk van isolatie") en rekenvoorbeelden staan. Bewust smal: een bredere superlatief-regel vlagde "een rendementsverlies van ruim 15% in de voormiddag" — de uitkomst van een rekenvoorbeeld in het beste AI-artikel.
 - **`seoTitle`:** moet met een hoofdletter beginnen en mag niet gelijk zijn aan het zoekwoord. Het model leverde ooit letterlijk `hybride warmtepomp business case` als `<title>`.
+- **`checkPlanItem`:** controleert backlog-items op vreemde schriften, corruptietokens (zoals `ptrdiff`), en anderstalige woorden om te voorkomen dat corrupte onderwerpen in de backlog belanden.
 
 ## Geen bedragen in AI-content
 De generator wijst elk artikel af dat een geldbedrag noemt (`checkNoAmounts` in `scripts/lib/content-checks.mjs`) — body, FAQ, description en keyPoints. Verwijs naar de bron ("de actuele ISDE-bedragen staan op rvo.nl") in plaats van een bedrag te noemen.
@@ -80,6 +81,12 @@ Aanleiding: twee artikelen noemden tegelijk "ISDE bedraagt maximaal €5.000" en
 
 ## Samengevoegde artikelen (301)
 Staan in `legacyRedirects` in `server.ts`. Bij het samenvoegen van een artikel: entry uit `blogPosts.ts`, component weg, route uit `App.tsx`, 301 toevoegen, en het backlog-item in `content-plan.json` op `abandoned` met een reden — anders pakt de generator het onderwerp opnieuw op.
+
+Bestaande samenvoegingen (301):
+- `/blog/warmtepompen-kopen-isde-subsidie` -> `/blog/isde-subsidie-warmtepompen`
+- `/blog/isde-subsidie-aanvragen` -> `/blog/isde-subsidie-warmtepompen`
+- `/blog/zonnepanelen-netcongestie-advies` -> `/blog/netcongestie-wachtlijst-zakelijk-2026`
+- `/blog/thuisbatterij-vergelijking-merken-en-typen` -> `/blog/thuisbatterij-capaciteit-kiezen`
 
 ## IndexNow
 Sleutelbestand `public/<hex>.txt` (publiek by design — het protocol vereist dat de inhoud gelijk is aan de bestandsnaam). `npm run indexnow -- --all` submit alle sitemap-URL's; `npm run indexnow -- /blog/<slug>` een losse. De blogworkflow meldt nieuwe artikelen automatisch aan. Google doet niet mee aan IndexNow en blijft op de sitemap.

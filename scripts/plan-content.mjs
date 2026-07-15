@@ -20,7 +20,7 @@ if (!GEMINI_API_KEY) {
   console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
   process.exit(1);
 }
-const MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-pro';
+const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-pro';
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
 const MIN_PLANNED = 5;
