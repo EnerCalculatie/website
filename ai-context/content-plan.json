@@ -29,8 +29,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "hoe-kunnen-installateurs-hun-klanten-helpen-bij-het-aanvragen-van-de-isde-subsidie-voor-warmtepompen-een-stap-voor-stap-gids",
-    "status": "planned",
-    "createdAt": "2026-07-14T07:12:51.490Z"
+    "status": "generated",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "generatedSlug": "isde-subsidie-aanvragen",
+    "generatedAt": "2026-07-15T07:19:48.487Z",
+    "seoGeoScore": 88
   },
   {
     "title": "Laadpalen voor elektrische auto's: wat zijn de verschillen tussen verschillende typen en merken?",

@@ -548,4 +548,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is de terugverdientijd van de combinatie van zonnepanelen en warmtepompen?', answer: 'De terugverdientijd van de combinatie van zonnepanelen en warmtepompen kan variëren afhankelijk van verschillende factoren, zoals de grootte van de installatie, de energieprijs en de subsidiemogelijkheden.' },
     ],
   },
+  {
+    slug: 'isde-subsidie-aanvragen',
+    readingTimeMinutes: 1,
+    title: 'ISDE-subsidie aanvragen voor warmtepompen: een stap-voor-stap gids voor installateurs',
+    description:
+      'Lees hoe installateurs hun klanten kunnen helpen bij het aanvragen van de ISDE-subsidie voor warmtepompen met een stap-voor-stap gids',
+    date: '2026-07-15',
+    excerpt:
+      'De ISDE-subsidie kan een aanzienlijke Premiëring betekenen voor klanten die een warmtepomp aanschaffen. Hier is een stap-voor-stap gids voor installateurs om hun klanten te helpen bij het aanvragen van de subsidie',
+    tags: ['ISDE-subsidie', 'Warmtepompen', 'Installateurs', 'Subsidie aanvragen'],
+    keyPoints: [
+      'Hoe de ISDE-subsidie werkt',
+      'Welke eisen uw klant moet voldoen',
+      'Hoe u de subsidieaanvraag voorbereidt',
+      'Wat de deadline is voor de aanvraag',
+    ],
+    category: 'Subsidies',
+    faq: [
+      { question: 'Wat is de ISDE-subsidie en hoe werkt het?', answer: 'De ISDE-subsidie is een financieringsregeling van de RVO voor woningeigenaren die een warmtepomp aanschaffen. De subsidie bedraagt eenmalig €1.025 en €225 per kW vermogen, met een minimumbedrag van €500' },
+      { question: 'Welke eisen moet mijn klant voldoen om in aanmerking te komen voor de ISDE-subsidie?', answer: 'Uw klant moet een warmtepomp aanschaffen die op de actuele meldcodelijst van de RVO staat en voldoen aan de technische eisen die de RVO stelt' },
+      { question: 'Hoe bereid ik de subsidieaanvraag voor en wat zijn de benodigde documenten?', answer: 'U moet een offerte opstellen met daarin de meldcode van de warmtepomp, de capaciteit, het vermogen en de totale investering. U moet ook een kopie van de factuur en de betalingsbewijs toevoegen' },
+      { question: 'Wat is de deadline voor de ISDE-subsidieaanvraag?', answer: 'De deadline voor de aanvraag is 31 december 2030. Echter, het is raadzaam om de aanvraag zo snel mogelijk in te dienen, aangezien de subsidie beschikbaar is tot het subsidieplafond is bereikt' },
+      { question: 'Kan ik als installateur de ISDE-subsidieaanvraag voor mijn klant indienen?', answer: 'Nee, de ISDE-subsidieaanvraag moet door de woningeigenaar zelf worden ingediend. U kunt als installateur wel uw klant hierbij assisteren en adviseren' },
+    ],
+  },
 ];

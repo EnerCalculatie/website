@@ -118,5 +118,15 @@
     "geoScore": 80,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "ISDE-subsidie aanvragen voor warmtepompen: een stap-voor-stap gids voor installateurs",
+    "slug": "isde-subsidie-aanvragen",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 85,
+    "geoScore": 90,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
