@@ -27,7 +27,7 @@ export const MAX_DESCRIPTION_LENGTH = 155;
  * dat het model tegen zijn grens zit, niet dat de check stuk is. Wil je hoger,
  * verhoog dan eerst OPENROUTER_MODEL — niet deze drempel.
  */
-export const MIN_WORD_COUNT = 500;
+export const MIN_WORD_COUNT = 1000;
 
 /** Woorden in JSX/HTML-body, zonder tags. */
 export function countBodyWords(body) {

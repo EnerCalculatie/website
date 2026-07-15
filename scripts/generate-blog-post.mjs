@@ -179,7 +179,57 @@ async function main() {
 
   const system = `Je bent een senior contentstrateeg voor EnerCalculatie, een SaaS voor energieadvies-berekeningen gericht op Nederlandse installateurs (zonnepanelen, thuisbatterijen, warmtepompen, laadpalen, airco's). Je schrijft blogartikelen voor de kennisbank, gericht op de installateur als B2B-lezer, in professioneel Nederlands, u-vorm. Gebruik onderstaande bedrijfscontext als bron voor feiten over EnerCalculatie zelf; verzin niets daarbuiten. Volg de projectregels strikt:\n\n${claudeMd}\n\n${aiContext}`;
 
-  const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:\nWerktitel: ${planItem.title}\nPrimair zoekwoord: ${planItem.keyword}\nZoekintentie: ${planItem.intent}\n\nBestaande blogonderwerpen (slugs, ter voorkoming van duplicaten in interne links): ${existingSlugs.join(', ')}\nBestaande titels: ${existingTitles.join(' | ')}\n\nBeschikbare interne pagina's om naar te linken (kies 2-3 die inhoudelijk relevant zijn voor DIT artikel, niet willekeurig):\n${contentMapText}\n\nReferentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik BlogPostLayout, dezelfde Tailwind-classes, dezelfde opbouw met h2-secties en een "Hoe EnerCalculatie hiermee omgaat"-slot):\n\n${referenceArticles}\n\nHARDE EIS — LENGTE: de componentBody telt minimaal ${MIN_WORD_COUNT} woorden en maximaal 800 woorden om afkapping (token limits) te voorkomen. Werk elke h2-sectie echt uit: leg het mechanisme uit, benoem de afweging die de installateur maakt, en geef een concreet praktijkvoorbeeld. Een artikel van 200-300 woorden dat de kop herhaalt in andere woorden wordt afgekeurd — dat is precies wat eerdere runs opleverden. Voeg liever diepte toe aan bestaande secties dan nieuwe lege secties.\n\nHARDE EIS — GEEN KALE BESPARINGSCLAIMS: schrijf nooit 'een besparing van meer dan 40% op de energiekosten' of vergelijkbaar: één getal bij besparing/kosten zonder bron. Gebruik een marge ('20-60%, afhankelijk van isolatie en stooklijn') of laat het percentage weg. Technische percentages in een kloppend rekenvoorbeeld mogen wel.\n\nHARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bedragen, geen prijzen, geen subsidiebedragen, geen prijstabellen), niet in de body, niet in de FAQ, niet in de keyPoints. Je kunt die niet betrouwbaar uit je geheugen ophalen en ze verouderen. Verwijs in plaats daarvan naar de bron: 'de actuele ISDE-bedragen staan op rvo.nl', 'kijk voor de actuele tarieven op acm.nl'. Een artikel mét een bedrag wordt automatisch afgekeurd. Dit is niet theoretisch: twee eerdere artikelen noemden tegelijk 'maximaal EUR 5.000' en 'eenmalig EUR 1.025 plus EUR 225 per kW' voor dezelfde ISDE-subsidie, en een derde bevatte een verzonnen prijstabel met zilver-zink (AgZn) als thuisbatterij. Beide zijn verwijderd.\n\nGebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.\n\nAntwoord UITSLUITEND met een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbele aanhalingstekens in strings goed ge-escaped zijn met een backslash (\\"), en voeg GEEN opmerkingen toe buiten of binnen het JSON-object. Gebruik exact deze velden:\n\n- slug: kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)\n- title: volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten\n- seoTitle: titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens. Primair zoekwoord vooraan. GEEN merksuffix.\n- description: SEO meta description. HARDE EIS: maximaal 155 tekens. Bevat het primaire zoekwoord.\n- excerpt: Korte samenvatting.\n- tags: Array van strings, bv. ["Zonnepanelen", "Installatiebranche"]\n- keyPoints: Array van 3-5 strings met de belangrijkste punten.\n- category: één hoofdcategorie (Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies)\n- faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."})\n- componentBody: de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen. KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan'). Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".\n\nVoorbeeld van de verwachte JSON-structuur:\n{\n  "slug": "...",\n  "title": "...",\n  "seoTitle": "...",\n  "description": "...",\n  "excerpt": "...",\n  "tags": ["..."],\n  "keyPoints": ["..."],\n  "category": "...",\n  "faq": [{"question": "...", "answer": "..."}],\n  "componentBody": "..."\n}\n\nDe datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
+  const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:
+Werktitel: ${planItem.title}
+Primair zoekwoord: ${planItem.keyword}
+Zoekintentie: ${planItem.intent}
+
+Bestaande blogonderwerpen (slugs, ter voorkoming van duplicaten in interne links): ${existingSlugs.join(', ')}
+Bestaande titels: ${existingTitles.join(' | ')}
+
+Beschikbare interne pagina's om naar te linken (kies 2-3 die inhoudelijk relevant zijn voor DIT artikel, niet willekeurig):
+${contentMapText}
+
+Referentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik BlogPostLayout, dezelfde Tailwind-classes, dezelfde opbouw met h2-secties en een "Hoe EnerCalculatie hiermee omgaat"-slot):
+
+${referenceArticles}
+
+HARDE EIS — LENGTE: de componentBody telt minimaal ${MIN_WORD_COUNT} woorden en maximaal 1200 woorden om een leestijd van minimaal 5 minuten te garanderen. Werk elke h2-sectie echt uit: leg het mechanisme uit, benoem de afweging die de installateur maakt, en geef een concreet praktijkvoorbeeld. Een artikel van 200-300 woorden dat de kop herhaalt in andere woorden wordt afgekeurd — dat is precies wat eerdere runs opleverden. Voeg liever diepte toe aan bestaande secties dan nieuwe lege secties.
+
+HARDE EIS — GEEN KALE BESPARINGSCLAIMS: schrijf nooit 'een besparing van meer dan 40% op de energiekosten' of vergelijkbaar: één getal bij besparing/kosten zonder bron. Gebruik een marge ('20-60%, afhankelijk van isolatie en stooklijn') of laat het percentage weg. Technische percentages in een kloppend rekenvoorbeeld mogen wel.
+
+HARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bedragen, geen prijzen, geen subsidiebedragen, geen prijstabellen), niet in de body, niet in de FAQ, niet in de keyPoints. Je kunt die niet betrouwbaar uit je geheugen ophalen en ze verouderen. Verwijs in plaats daarvan naar de bron: 'de actuele ISDE-bedragen staan op rvo.nl', 'kijk voor de actuele tarieven op acm.nl'. Een artikel mét een bedrag wordt automatisch afgekeurd. Dit is niet theoretisch: twee eerdere artikelen noemden tegelijk 'maximaal EUR 5.000' en 'eenmalig EUR 1.025 plus EUR 225 per kW' voor dezelfde ISDE-subsidie, en een derde bevatte een verzonnen prijstabel met zilver-zink (AgZn) als thuisbatterij. Beide zijn verwijderd.
+
+Gebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.
+
+Antwoord UITSLUITEND met een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbele aanhalingstekens in strings goed ge-escaped zijn met een backslash (\\"), en voeg GEEN opmerkingen toe buiten of binnen het JSON-object. Gebruik exact deze velden:
+
+- slug: kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)
+- title: volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten
+- seoTitle: titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens. Primair zoekwoord vooraan. GEEN merksuffix.
+- description: SEO meta description. HARDE EIS: maximaal 155 tekens. Bevat het primaire zoekwoord.
+- excerpt: Korte samenvatting.
+- tags: Array van strings, bv. ["Zonnepanelen", "Installatiebranche"]
+- keyPoints: Array van 3-5 strings met de belangrijkste punten.
+- category: één hoofdcategorie (Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies)
+- faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."})
+- componentBody: de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen. KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan'). Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".
+
+Voorbeeld van de verwachte JSON-structuur:
+{
+  "slug": "...",
+  "title": "...",
+  "seoTitle": "...",
+  "description": "...",
+  "excerpt": "...",
+  "tags": ["..."],
+  "keyPoints": ["..."],
+  "category": "...",
+  "faq": [{"question": "...", "answer": "..."}],
+  "componentBody": "..."
+}
+
+De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
 
   async function generateWithRetries(systemPrompt, userPrompt, contextLabel) {
     let result;
