@@ -400,7 +400,7 @@ export function ${componentName}() {
 
   return (
     <BlogPostLayout post={post}>
-${article.componentBody}
+${article.componentBody.replace(/\\'/g, "'")}
     </BlogPostLayout>
   );
 }
