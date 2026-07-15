@@ -42,11 +42,28 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 
 ## Nieuw Blogartikel — Verplichte Checklist
 Een nieuw blogartikel vereist wijzigingen op precies drie plekken:
-1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent.
-2. `src/content/blogPosts.ts` — metadata-entry (slug/title/description/excerpt/tags/date).
+1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent. **Geen `<SEO />`-call**: `BlogPostLayout` regelt title/description/canonical centraal uit de metadata. **Geen `<h1>`**: die rendert `BlogPostLayout` uit `post.title` — een eigen h1 geeft een dubbele H1 en faalt de QC.
+2. `src/content/blogPosts.ts` — metadata-entry (slug/title/seoTitle/description/excerpt/tags/date).
 3. `src/App.tsx` — `lazyRoute('/blog/<slug>', () => import(...))`-declaratie + `<Route path="/blog/<slug>">`. Gebruik ALTIJD `lazyRoute` (niet een statische import): dat houdt de artikelcode uit de initiële bundle én registreert het pad in `routePreloads`, waarop `entry-server.tsx` (prerender) en `main.tsx` (hydration zonder content-flash) vertrouwen.
 
 Al het overige wordt bij de build **gegenereerd uit `blogPosts.ts`** (single source of truth) door `scripts/prerender.mjs` en `server.ts`: prerender-route, server-routemapping, `sitemap.xml`, `blog-index.md`, `blog-<slug>.md` en de blogsectie in `llms.txt`. Voeg die dus NIET handmatig toe — geen entries in `server.ts`/`prerender.mjs`, geen bestanden in `public/`. De slug in `blogPosts.ts` moet exact overeenkomen met het `<Route>`-pad in `App.tsx`, anders prerendert de build een pagina die de router niet kent.
+
+### Nieuwe statische (niet-blog) route
+Voeg hem toe aan `src/content/staticRoutes.ts` — dat is de gedeelde bron voor `scripts/prerender.mjs` (welke pagina's worden geprerenderd + wat komt er in de sitemap) én `server.ts` (welk pad serveert welk bestand met status 200). Zet hem NIET in één van die twee apart. `/over-ons` stond wél in `App.tsx`, prerender en sitemap, maar niet in de toenmalige handmatige routetabel van `server.ts`: elke hit gaf een 404, terwijl de footer er vanaf élke pagina naartoe linkte.
+
+## Titels & Meta — harde limieten
+- **`title`** = de volledige, beschrijvende titel. Wordt de H1 en vult de kaarten/RSS. Mag lang zijn.
+- **`seoTitle`** = de `<title>`-tag, **max 60 tekens**, zoekwoord vooraan, **zonder merksuffix**. Het oude `` `${post.title} | EnerCalculatie` ``-patroon at 17 tekens op en duwde 26 van de 27 artikelen over de limiet.
+- **`description`** = **max 155 tekens**.
+- Deze limieten worden geteld, niet gevraagd: `scripts/lib/content-checks.mjs` gate't ze in de generator én in de CI. Een prompt die om "max 60 tekens" vraagt is geen garantie — dat was precies de bestaande situatie.
+
+## QC — `npm run qc:seo`
+`scripts/qc-seo.mjs` draait op de geprerenderde `dist/`, niet op de bron: dat is wat de crawler krijgt. Checkt interne links, title/meta-lengtes, JSON-LD (parseerbaar + `@context`/`@type`), exact één H1, canonical, en de sitemap in beide richtingen (geen 4XX erin, geen indexable pagina eruit).
+
+Draait in `ci.yml` op elke push/PR naar main, én in `daily-blog-post.yml` vóór de push — faalt die, dan worden de artikelbestanden teruggedraaid en publiceert de bot niets. **Verwijder deze gate niet:** tussen 13 en 15 juli 2026 stond `ci.yml` uit, en in dat gat ging een artikel live met `clase=` in plaats van `className=` (11 typecheck-errors op main) en een `ptrdiff`-token middenin de titel. De esbuild-preflight in de generator checkt alleen syntax, geen JSX-props of tekenlimieten.
+
+## IndexNow
+Sleutelbestand `public/<hex>.txt` (publiek by design — het protocol vereist dat de inhoud gelijk is aan de bestandsnaam). `npm run indexnow -- --all` submit alle sitemap-URL's; `npm run indexnow -- /blog/<slug>` een losse. De blogworkflow meldt nieuwe artikelen automatisch aan. Google doet niet mee aan IndexNow en blijft op de sitemap.
 
 ## Integraties & Claims
 - **Alleen bevestigde integraties tonen als "Beschikbaar":** Op dit moment is alleen PDOK Kadaster live. Exact Online, Teamleader en AFAS zijn in ontwikkeling — toon als "Binnenkort" in `Integrations.tsx`.
