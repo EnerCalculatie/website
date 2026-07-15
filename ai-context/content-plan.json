@@ -38,7 +38,7 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "hoeayet-uw-klanten-het-beste-faut-disrupted-tijdens-een-stroomstoring-met-een-combinatie-van-zonnepanelen-en-thuisbatterij",
-    "status": "planned",
+    "status": "abandoned",
     "createdAt": "2026-07-15T16:51:08.183Z",
     "lastScore": 83,
     "lastImprovements": [
@@ -52,7 +52,9 @@
     ],
     "retryCount": 1,
     "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 85, GEO 80)",
-    "lastRejectedAt": "2026-07-15T17:14:24.410Z"
+    "lastRejectedAt": "2026-07-15T17:14:24.410Z",
+    "abandonReason": "Corrupte titel uit plan-content.mjs (token-afval: \"Hoeayet\", \"faut disrupted\"). Zelfde klasse als de ptrdiff- en Chinese-karakters-corruptie.",
+    "abandonedAt": "2026-07-15T17:30:38.582Z"
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",

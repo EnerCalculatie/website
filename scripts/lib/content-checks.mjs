@@ -45,11 +45,57 @@ export function countBodyWords(body) {
 // voor accenten (é, ë, ï), net als de gangbare typografische leestekens.
 const FOREIGN_SCRIPT = /[Ѐ-ӿ֐-׿؀-ۿ　-ヿ一-鿿가-힯]/;
 
+// Hoogfrequente Engelse/Franse/Duitse functiewoorden die in Nederlandse tekst
+// nooit voorkomen. Het model mengt er soms een woord doorheen: de backlog bevatte
+// "Hoeayet uw klanten het beste faut disrupted tijdens een stroomstoring".
+// Bewust géén woorden die ook Nederlands zijn (die, der, in, over, is, was).
+const FOREIGN_WORDS = [
+  'the', 'with', 'from', 'about', 'through', 'their', 'would', 'should', 'disrupted',
+  'faut', 'pour', 'avec', 'dans', 'est', 'sont', 'cette',
+  'und', 'ist', 'für', 'nicht', 'auch', 'sich',
+];
+
 // Losse tokens die uit modeloutput lekken en er als gewone tekst uitzien.
 // 'ptrdiff' stond live middenin een gepubliceerde titel. Uitbreiden zodra er
 // een nieuwe variant opduikt — een exacte lijst is betrouwbaarder dan een
 // heuristiek die echte woorden als corruptie aanmerkt.
 const CORRUPTION_TOKENS = ['ptrdiff', 'undefined', 'NaN', '[object Object]', 'lorem ipsum'];
+
+/**
+ * Corruptiecheck voor een backlog-titel (plan-content.mjs).
+ *
+ * De generator had deze check al, de planner niet — waardoor een corrupte titel
+ * de backlog in kon en pas bij het schrijven sneuvelde, met verspilde
+ * retry-pogingen tot gevolg. Vangt niet alles (een verzonnen maar Nederlands
+ * klinkende titel glipt erdoor), wel het patroon dat we in de praktijk zien:
+ * vreemde schriften, corruptie-tokens en ingemengde anderstalige woorden.
+ *
+ * @param {{title?:string, keyword?:string}} item
+ * @returns {string[]} lege array = akkoord
+ */
+export function checkPlanItem(item) {
+  const errors = [];
+  for (const [field, value] of Object.entries({ title: item.title, keyword: item.keyword })) {
+    if (!value?.trim()) {
+      errors.push(`${field} ontbreekt of is leeg.`);
+      continue;
+    }
+    if (FOREIGN_SCRIPT.test(value)) {
+      errors.push(`${field} bevat niet-Latijnse tekens: "${value}"`);
+    }
+    for (const token of CORRUPTION_TOKENS) {
+      if (value.toLowerCase().includes(token.toLowerCase())) {
+        errors.push(`${field} bevat corruptie-token "${token}": "${value}"`);
+      }
+    }
+    const words = value.toLowerCase().split(/[^a-zà-ÿ]+/).filter(Boolean);
+    const foreign = words.filter((w) => FOREIGN_WORDS.includes(w));
+    if (foreign.length > 0) {
+      errors.push(`${field} bevat anderstalige woorden (${foreign.join(', ')}): "${value}"`);
+    }
+  }
+  return errors;
+}
 
 /**
  * Kort een tekst in op een woordgrens, met een leesbaar einde.

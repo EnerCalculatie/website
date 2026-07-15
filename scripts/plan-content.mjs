@@ -8,7 +8,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
-import { findDuplicateTopic } from './lib/content-checks.mjs';
+import { findDuplicateTopic, checkPlanItem } from './lib/content-checks.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const CONTEXT_DIR = path.join(ROOT, 'ai-context');
@@ -124,6 +124,14 @@ async function main() {
 
   const additions = [];
   for (const item of newItems) {
+    // Corruptie eerst: een kapotte titel de backlog in laten glippen kost later
+    // retry-pogingen op een item dat nooit had mogen bestaan.
+    const corruption = checkPlanItem(item);
+    if (corruption.length > 0) {
+      console.warn(`Sla corrupt backlog-item over: ${corruption.join(' | ')}`);
+      continue;
+    }
+
     const slug = slugify(item.title);
     if (usedSlugs.has(slug)) {
       console.warn(`Sla dubbel onderwerp over (slug '${slug}' bestaat al): ${item.title}`);
