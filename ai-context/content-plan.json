@@ -62,13 +62,21 @@
     "intent": "commercieel",
     "priority": 7,
     "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
-    "status": "planned",
+    "status": "abandoned",
     "createdAt": "2026-07-11T09:10:47.494Z",
-    "lastScore": 88,
+    "lastScore": 75,
     "rejectedAt": "2026-07-11T09:27:10.585Z",
-    "retryCount": 2,
-    "lastRejectionReason": "Ongeldige JSX: Transform failed with 4 errors:\n<stdin>:19:8: ERROR: Unexpected closing \"BlogPostLayout\" tag does not match opening \"p\" tag\n<stdin>:20:6: ERROR: Unexpected closing fragment tag does not match opening \"BlogPostLayout\" tag\n<stdin>:22:0: ERROR: The character \"}\" is not valid inside a JSX element\n<stdin>:23:0: ERROR: Unexpected end of file before a closing fragment tag",
-    "lastRejectedAt": "2026-07-14T05:09:25.788Z"
+    "retryCount": 3,
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 80, GEO 70)",
+    "lastRejectedAt": "2026-07-15T17:38:00.078Z",
+    "lastImprovements": [
+      "Voeg een duidelijke definitie van 'hybride warmtepomp' toe aan het begin van het artikel",
+      "Gebruik concrete voorbeelden of tabellen om de voordelen van hybride warmtepompen te illustreren",
+      "Verwijs naar meer bronnen, zoals Netbeheer Nederland, om expertise en autoriteit te tonen",
+      "Zorg ervoor dat alle claims over energiekosten en CO2-uitstoot onderbouwd zijn met concrete cijfers of bronnen",
+      "Overweeg het toevoegen van een conclusie-sectie om de belangrijkste punten samen te vatten en de lezer te motivieren om in actie te komen",
+      "De body is 303 woorden, minimaal 500 vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen."
+    ]
   },
   {
     "title": "De rol van energieopslag in de toekomst van verduurzaming: ontwikkelingen en trends",
