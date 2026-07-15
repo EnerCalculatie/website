@@ -1,4 +1,3 @@
-import { SEO } from '../SEO';
 import { BlogPostLayout } from './BlogPostLayout';
 import { MathCallout } from './MathCallout';
 import { blogPosts } from '../../content/blogPosts';
@@ -9,11 +8,6 @@ export function EiaInvesteringsaftrekArticle() {
 
   return (
     <>
-      <SEO
-        title={`${post.title} | EnerCalculatie`}
-        description={post.description}
-        canonical={`https://www.enercalculatie.nl/blog/${post.slug}`}
-      />
 
       <BlogPostLayout post={post}>
         <p className="text-slate-700 leading-relaxed mb-4">

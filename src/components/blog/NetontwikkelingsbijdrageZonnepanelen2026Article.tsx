@@ -1,4 +1,3 @@
-import { SEO } from '../SEO';
 import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 
@@ -8,11 +7,6 @@ export function NetontwikkelingsbijdrageZonnepanelen2026Article() {
 
   return (
     <>
-      <SEO
-        title={`${post.title} | EnerCalculatie`}
-        description={post.description}
-        canonical={`https://www.enercalculatie.nl/blog/${post.slug}`}
-      />
 
       <BlogPostLayout post={post}>
 De terugkeer naar een markt zonder saldering verandert niet alleen de opbrengstdynamiek van zonnepanelen, maar ook de kostenstructuur rondom een zonnepaneelinstallatie. Naast terugleverkosten en eventuele aansluitkosten voor de stadaansluiting, speelt de netontwikkelingsbijdrage een groeiende rol in het financiële plaatje. Deze gemeentelijke heffing raakt direct de totale kosten van een zonnepaneelproject en moet daarom integraal onderdeel uitmaken van uw rendementsoverzicht. Voor installateurs is het belangrijk om deze bijdrage niet als een optionele post te behandelen, maar als een structurele vaste last die de terugverdientijd bepaalt.

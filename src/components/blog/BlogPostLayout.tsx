@@ -4,6 +4,7 @@ import { blogPosts, type BlogPostMeta } from '../../content/blogPosts';
 import { author } from '../../content/author';
 import { buildBlogPostingSchema, buildFaqSchema } from '../../content/blogSchema';
 import { LeadMagnet } from '../LeadMagnet';
+import { SEO } from '../SEO';
 
 // Te generieke tags tellen niet mee voor 'verwantschap' bij Lees ook.
 const GENERIC_TAGS = ['Installatiebranche', 'EnergieAdvies'];
@@ -45,6 +46,16 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
 
   return (
     <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">
+      {/* Metadata centraal — elk artikel riep hiervoor zelf <SEO> aan met een
+          `${post.title} | EnerCalculatie`-titel, waardoor de merksuffix (17 tekens)
+          de titel bijna altijd over de 60-tekengrens duwde. seoTitle is de korte
+          variant voor de <title>-tag; post.title blijft de volledige H1. */}
+      <SEO
+        title={post.seoTitle ?? post.title}
+        description={post.description}
+        canonical={articleUrl}
+        type="article"
+      />
       {/* BlogPosting-schema (JSON-LD) centraal uit blogSchema.ts — auteur = Person
           voor E-E-A-T. Elk artikel erft dit automatisch; geen inline schema meer. */}
       <script type="application/ld+json">{JSON.stringify(buildBlogPostingSchema(post))}</script>

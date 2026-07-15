@@ -1,6 +1,13 @@
 export interface BlogPostMeta {
   slug: string;
+  /** Volledige, beschrijvende titel. Gerenderd als H1 en in de kaarten/RSS —
+   *  mag lang zijn. Voor de <title>-tag gebruikt BlogPostLayout `seoTitle`. */
   title: string;
+  /** Titel voor de <title>-tag: max 60 tekens, zoekwoord vooraan, zonder
+   *  merksuffix (dat past er niet meer bij binnen de limiet). Leeg = valt terug
+   *  op `title`, wat bij een lange titel afkapt in de zoekresultaten. */
+  seoTitle?: string;
+  /** Meta description: max 155 tekens, anders kapt Google hem af. */
   description: string;
   date: string; // ISO 8601 — publicatiedatum (datePublished)
   excerpt: string;

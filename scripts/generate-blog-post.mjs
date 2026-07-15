@@ -17,6 +17,7 @@ import { validateArticle, APPROVAL_THRESHOLD } from './seo-geo-validator.mjs';
 import { buildContentMap } from './build-content-map.mjs';
 import { estimateReadingMinutes } from './backfill-reading-time.mjs';
 import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
+import { checkArticleMeta, checkComponentBody } from './lib/content-checks.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -174,7 +175,7 @@ async function main() {
 
   const system = `Je bent een senior contentstrateeg voor EnerCalculatie, een SaaS voor energieadvies-berekeningen gericht op Nederlandse installateurs (zonnepanelen, thuisbatterijen, warmtepompen, laadpalen, airco's). Je schrijft blogartikelen voor de kennisbank, gericht op de installateur als B2B-lezer, in professioneel Nederlands, u-vorm. Gebruik onderstaande bedrijfscontext als bron voor feiten over EnerCalculatie zelf; verzin niets daarbuiten. Volg de projectregels strikt:\n\n${claudeMd}\n\n${aiContext}`;
 
-  const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:\nWerktitel: ${planItem.title}\nPrimair zoekwoord: ${planItem.keyword}\nZoekintentie: ${planItem.intent}\n\nBestaande blogonderwerpen (slugs, ter voorkoming van duplicaten in interne links): ${existingSlugs.join(', ')}\nBestaande titels: ${existingTitles.join(' | ')}\n\nBeschikbare interne pagina's om naar te linken (kies 2-3 die inhoudelijk relevant zijn voor DIT artikel, niet willekeurig):\n${contentMapText}\n\nReferentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik BlogPostLayout, dezelfde Tailwind-classes, dezelfde opbouw met h2-secties en een "Hoe EnerCalculatie hiermee omgaat"-slot):\n\n${referenceArticles}\n\nGebruik alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen bedragen, percentages of regelgeving. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.\n\nAntwoord UITSLUITEND met een JSON-object (in een \`\`\`json codeblok), met exact deze velden:\n{\n  "slug": "kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)",\n  "title": "... (mag de werktitel verfijnen, moet het primaire zoekwoord bevatten)",\n  "description": "... (SEO meta description, max ~160 tekens)",\n  "excerpt": "...",\n  "tags": ["Tag1", "Tag2", "Tag3", "Installatiebranche"],\n  "keyPoints": ["...", "...", "...", "..."],\n  "category": "één hoofdcategorie, bv. Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies",\n  "faq": [{"question": "...", "answer": "..."}] (array van minimaal 3, maximaal 5 vraag/antwoord-objecten die de zoekintentie direct beantwoorden, citeerbaar door AI-engines),\n  "componentBody": "de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen (met dezelfde Tailwind-classes, h2-koppen, en het slotstuk 'Hoe EnerCalculatie hiermee omgaat' met minimaal 2 interne links uit de lijst hierboven, als <a href=\\"...\\"> binnen de bestaande Tailwind-linkstijl). KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst (bv. '< 10 jaar', '> 15 jaar' breekt de JSX-parser). Schrijf dit altijd als woorden ('minder dan 10 jaar', 'meer dan 15 jaar') of als HTML-entity (&lt; &gt;). Gebruik je een <table> (bv. bij een vergelijking), wrap die dan ALTIJD in <div className=\\"overflow-x-auto mb-6\\"> en geef table de classes \\"w-full border-collapse border border-slate-300 text-sm\\", elke <th> en <td> de classes \\"border border-slate-300 px-4 py-2 text-left\\" (th extra: \\"font-semibold text-slate-800\\", td extra: \\"text-slate-700\\"), en de <thead><tr> de class \\"bg-slate-100\\" — nooit een kale <table className=\\"table-auto\\"> zonder deze classes en zonder de overflow-x-auto container."\n}\n\nDe datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
+  const user = `Schrijf het artikel voor dit vooraf geplande backlog-item — het onderwerp staat vast, kies GEEN ander onderwerp:\nWerktitel: ${planItem.title}\nPrimair zoekwoord: ${planItem.keyword}\nZoekintentie: ${planItem.intent}\n\nBestaande blogonderwerpen (slugs, ter voorkoming van duplicaten in interne links): ${existingSlugs.join(', ')}\nBestaande titels: ${existingTitles.join(' | ')}\n\nBeschikbare interne pagina's om naar te linken (kies 2-3 die inhoudelijk relevant zijn voor DIT artikel, niet willekeurig):\n${contentMapText}\n\nReferentie-artikelen (structuur, stijl en lengte exact aanhouden — gebruik BlogPostLayout, dezelfde Tailwind-classes, dezelfde opbouw met h2-secties en een "Hoe EnerCalculatie hiermee omgaat"-slot):\n\n${referenceArticles}\n\nGebruik alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen bedragen, percentages of regelgeving. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.\n\nAntwoord UITSLUITEND met een JSON-object (in een \`\`\`json codeblok), met exact deze velden:\n{\n  "slug": "kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)",\n  "title": "... (volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten)",\n  "seoTitle": "... (titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens, tel ze na. Primair zoekwoord vooraan. GEEN merksuffix zoals ' | EnerCalculatie' — die wordt niet toegevoegd. Mag korter/anders zijn dan title.)",\n  "description": "... (SEO meta description. HARDE EIS: maximaal 155 tekens, tel ze na. Bevat het primaire zoekwoord.)",\n  "excerpt": "...",\n  "tags": ["Tag1", "Tag2", "Tag3", "Installatiebranche"],\n  "keyPoints": ["...", "...", "...", "..."],\n  "category": "één hoofdcategorie, bv. Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies",\n  "faq": [{"question": "...", "answer": "..."}] (array van minimaal 3, maximaal 5 vraag/antwoord-objecten die de zoekintentie direct beantwoorden, citeerbaar door AI-engines),\n  "componentBody": "de JSX-children van <BlogPostLayout post={post}> als raw string, exact zoals in de referentie-artikelen (met dezelfde Tailwind-classes, h2-koppen, en het slotstuk 'Hoe EnerCalculatie hiermee omgaat' met minimaal 2 interne links uit de lijst hierboven, als <a href=\\"...\\"> binnen de bestaande Tailwind-linkstijl). KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst (bv. '< 10 jaar', '> 15 jaar' breekt de JSX-parser). Schrijf dit altijd als woorden ('minder dan 10 jaar', 'meer dan 15 jaar') of als HTML-entity (&lt; &gt;). Gebruik je een <table> (bv. bij een vergelijking), wrap die dan ALTIJD in <div className=\\"overflow-x-auto mb-6\\"> en geef table de classes \\"w-full border-collapse border border-slate-300 text-sm\\", elke <th> en <td> de classes \\"border border-slate-300 px-4 py-2 text-left\\" (th extra: \\"font-semibold text-slate-800\\", td extra: \\"text-slate-700\\"), en de <thead><tr> de class \\"bg-slate-100\\" — nooit een kale <table className=\\"table-auto\\"> zonder deze classes en zonder de overflow-x-auto container."\n}\n\nDe datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date" weg uit je antwoord.`;
 
   console.log(`Genereer artikel via OpenRouter (${MODEL})...`);
   const raw = await callOpenRouter(system, user);
@@ -222,8 +223,9 @@ async function main() {
   const componentName = `${pascalCase(article.slug)}Article`;
   const componentPath = path.join(BLOG_DIR, `${componentName}.tsx`);
 
-  const componentSource = `import { SEO } from '../SEO';
-import { BlogPostLayout } from './BlogPostLayout';
+  // Geen <SEO>-call meer: BlogPostLayout regelt title/description/canonical
+  // centraal uit de post-metadata (zie BlogPostLayout.tsx).
+  const componentSource = `import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 
 const post = blogPosts.find((p) => p.slug === '${article.slug}')!;
@@ -231,20 +233,39 @@ const post = blogPosts.find((p) => p.slug === '${article.slug}')!;
 export function ${componentName}() {
 
   return (
-    <>
-      <SEO
-        title={\`\${post.title} | EnerCalculatie\`}
-        description={post.description}
-        canonical={\`https://www.enercalculatie.nl/blog/\${post.slug}\`}
-      />
-
-      <BlogPostLayout post={post}>
+    <BlogPostLayout post={post}>
 ${article.componentBody}
-      </BlogPostLayout>
-    </>
+    </BlogPostLayout>
   );
 }
 `;
+
+  // Harde contentgate vóór de JSX-preflight: tekenlimieten en corruptie zijn
+  // te tellen, niet te beoordelen — de prompt vragen om 'max 60 tekens' is geen
+  // garantie. Faalt dit, dan gaat het item terug de backlog in, net als bij
+  // ongeldige JSX: geen half artikel op schijf.
+  const metaErrors = [
+    ...checkArticleMeta(article),
+    ...checkComponentBody(article.componentBody),
+  ];
+  if (metaErrors.length > 0) {
+    planItem.lastScore = validation.score;
+    rejectPlanItem(planItem, `Contentchecks gefaald: ${metaErrors.join(' | ')}`);
+    await writePlan(plan);
+    await appendLogEntry({
+      date: todayISO(),
+      topic: planItem.title,
+      slug: article.slug,
+      model: MODEL,
+      seoScore: validation.seoScore,
+      geoScore: validation.geoScore,
+      status: planItem.status === 'abandoned' ? 'abandoned-failed-checks' : 'rejected-failed-checks',
+      publicationStatus: 'not-published',
+    });
+    throw new Error(
+      `Contentchecks gefaald — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven:\n- ${metaErrors.join('\n- ')}`
+    );
+  }
 
   try {
     const esbuild = await import('esbuild');
@@ -285,6 +306,7 @@ ${article.componentBody}
     slug: '${article.slug}',
     readingTimeMinutes: ${readingTimeMinutes},
     title: '${escape(article.title)}',
+    seoTitle: '${escape(article.seoTitle)}',
     description:
       '${escape(article.description)}',
     date: '${todayISO()}',
