@@ -62,6 +62,18 @@ Voeg hem toe aan `src/content/staticRoutes.ts` — dat is de gedeelde bron voor 
 
 Draait in `ci.yml` op elke push/PR naar main, én in `daily-blog-post.yml` vóór de push — faalt die, dan worden de artikelbestanden teruggedraaid en publiceert de bot niets. **Verwijder deze gate niet:** tussen 13 en 15 juli 2026 stond `ci.yml` uit, en in dat gat ging een artikel live met `clase=` in plaats van `className=` (11 typecheck-errors op main) en een `ptrdiff`-token middenin de titel. De esbuild-preflight in de generator checkt alleen syntax, geen JSX-props of tekenlimieten.
 
+## Geen bedragen in AI-content
+De generator wijst elk artikel af dat een geldbedrag noemt (`checkNoAmounts` in `scripts/lib/content-checks.mjs`) — body, FAQ, description en keyPoints. Verwijs naar de bron ("de actuele ISDE-bedragen staan op rvo.nl") in plaats van een bedrag te noemen.
+
+**Waarom alleen bedragen, en niet ook percentages of data:** bedragen zijn óf subsidie-/regelgevingsclaims die het model niet betrouwbaar uit zijn geheugen haalt, óf marktprijzen die verouderen. Percentages zijn vaak technisch en legitiem ("85% van het licht bereikt het paneel"); data zijn hier juist de kern ("saldering vervalt per 1 januari 2027"). Die blokkeren zou te veel goede content tegenhouden.
+
+De check geldt **alleen voor de generator**, niet voor `qc:seo`: handgeschreven artikelen noemen bedragen die geverifieerd zijn.
+
+Aanleiding: twee artikelen noemden tegelijk "ISDE bedraagt maximaal €5.000" en "eenmalig €1.025 plus €225 per kW" — die spraken elkaar tegen, dus minstens één stond fout live in FAQPage-schema. Een derde bevatte een verzonnen prijstabel met zilver-zink (AgZn) als thuisbatterij. Alle drie zijn samengevoegd met een 301.
+
+## Samengevoegde artikelen (301)
+Staan in `legacyRedirects` in `server.ts`. Bij het samenvoegen van een artikel: entry uit `blogPosts.ts`, component weg, route uit `App.tsx`, 301 toevoegen, en het backlog-item in `content-plan.json` op `abandoned` met een reden — anders pakt de generator het onderwerp opnieuw op.
+
 ## IndexNow
 Sleutelbestand `public/<hex>.txt` (publiek by design — het protocol vereist dat de inhoud gelijk is aan de bestandsnaam). `npm run indexnow -- --all` submit alle sitemap-URL's; `npm run indexnow -- /blog/<slug>` een losse. De blogworkflow meldt nieuwe artikelen automatisch aan. Google doet niet mee aan IndexNow en blijft op de sitemap.
 

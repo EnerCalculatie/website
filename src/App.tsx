@@ -83,7 +83,6 @@ const RendementsverliesSchaduwVervuilingZonnepanelenArticle = lazyRoute('/blog/r
 const VerduurzamingspakketSamenstellenBeperktBudgetArticle = lazyRoute('/blog/verduurzamingspakket-samenstellen-beperkt-budget', () => import('./components/blog/VerduurzamingspakketSamenstellenBeperktBudgetArticle').then(m => ({ default: m.VerduurzamingspakketSamenstellenBeperktBudgetArticle })));
 const VerduurzamingKostenBatenAnalyseArticle = lazyRoute('/blog/verduurzaming-kosten-baten-analyse', () => import('./components/blog/VerduurzamingKostenBatenAnalyseArticle').then(m => ({ default: m.VerduurzamingKostenBatenAnalyseArticle })));
 const ThuisbatterijNetaansluitingCapaciteitArticle = lazyRoute('/blog/thuisbatterij-netaansluiting-capaciteit', () => import('./components/blog/ThuisbatterijNetaansluitingCapaciteitArticle').then(m => ({ default: m.ThuisbatterijNetaansluitingCapaciteitArticle })));
-const ThuisbatterijVergelijkingMerkenEnTypenArticle = lazyRoute('/blog/thuisbatterij-vergelijking-merken-en-typen', () => import('./components/blog/ThuisbatterijVergelijkingMerkenEnTypenArticle').then(m => ({ default: m.ThuisbatterijVergelijkingMerkenEnTypenArticle })));
 const ZonnepanelenWarmtepompCombinatieArticle = lazyRoute('/blog/zonnepanelen-warmtepomp-combinatie', () => import('./components/blog/ZonnepanelenWarmtepompCombinatieArticle').then(m => ({ default: m.ZonnepanelenWarmtepompCombinatieArticle })));
 const LaadpalenVoorElektrischeAutosArticle = lazyRoute('/blog/laadpalen-voor-elektrische-autos', () => import('./components/blog/LaadpalenVoorElektrischeAutosArticle').then(m => ({ default: m.LaadpalenVoorElektrischeAutosArticle })));
 
@@ -187,7 +186,6 @@ export function AppContent() {
             <Route path="/blog/verduurzamingspakket-samenstellen-beperkt-budget" element={<VerduurzamingspakketSamenstellenBeperktBudgetArticle />} />
             <Route path="/blog/verduurzaming-kosten-baten-analyse" element={<VerduurzamingKostenBatenAnalyseArticle />} />
             <Route path="/blog/thuisbatterij-netaansluiting-capaciteit" element={<ThuisbatterijNetaansluitingCapaciteitArticle />} />
-            <Route path="/blog/thuisbatterij-vergelijking-merken-en-typen" element={<ThuisbatterijVergelijkingMerkenEnTypenArticle />} />
             <Route path="/blog/zonnepanelen-warmtepomp-combinatie" element={<ZonnepanelenWarmtepompCombinatieArticle />} />
             <Route path="/blog/laadpalen-voor-elektrische-autos" element={<LaadpalenVoorElektrischeAutosArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />

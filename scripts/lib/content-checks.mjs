@@ -143,6 +143,35 @@ export function checkComponentBody(body) {
   return errors;
 }
 
+/**
+ * Blokkeert bedragen in AI-gegenereerde content.
+ *
+ * ALLEEN voor de generator — niet voor qc-seo.mjs. Pascals handgeschreven
+ * artikelen noemen bedragen die hij zelf geverifieerd heeft; die blijven staan.
+ *
+ * Waarom juist bedragen, en niet ook percentages of data: bedragen zijn óf
+ * subsidie-/regelgevingsclaims (die hoort het model niet uit zijn geheugen op te
+ * lepelen) óf marktprijzen (die verouderen). Percentages zijn vaak technisch en
+ * legitiem ('85% van het licht bereikt het paneel'), en data zijn hier de kern
+ * van het onderwerp ('saldering vervalt per 1 januari 2027'). Die blokkeren zou
+ * te veel goede content tegenhouden.
+ *
+ * Aanleiding: twee gepubliceerde pagina's noemden tegelijk 'ISDE bedraagt
+ * maximaal EUR 5.000' en 'eenmalig EUR 1.025 plus EUR 225 per kW' — die spraken
+ * elkaar tegen, dus minstens één stond fout live, in FAQPage-schema. Een derde
+ * artikel bevatte een verzonnen prijstabel met zilver-zink als thuisbatterij.
+ *
+ * @param {string} text
+ * @returns {string[]} lege array = akkoord
+ */
+export function checkNoAmounts(text) {
+  const hits = [...new Set(text.match(/€\s?\d[\d.,]*/g) ?? [])];
+  if (hits.length === 0) return [];
+  return [
+    `bevat ${hits.length} bedrag(en) (${hits.slice(0, 5).join(', ')}): verwijs naar de bron (rvo.nl, acm.nl) in plaats van een bedrag te noemen — het model kan die niet betrouwbaar uit zijn geheugen ophalen en ze verouderen.`,
+  ];
+}
+
 // ---------------------------------------------------------------------------
 // Duplicaatdetectie op onderwerp.
 //

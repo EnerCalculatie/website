@@ -5,11 +5,12 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "hoe-kiest-u-de-juiste-thuisbatterij-voor-uw-klant-een-vergelijking-van-verschillende-typen-en-merken",
-    "status": "generated",
+    "status": "abandoned",
     "createdAt": "2026-07-14T07:12:51.490Z",
-    "generatedSlug": "thuisbatterij-vergelijking-merken-en-typen",
     "generatedAt": "2026-07-14T07:18:02.827Z",
-    "seoGeoScore": 88
+    "seoGeoScore": 88,
+    "abandonReason": "Samengevoegd met /blog/thuisbatterij-capaciteit-kiezen (301). Bevatte een verzonnen vergelijkingstabel (o.a. AgZn/zilver-zink als thuisbatterij, onrealistische garanties en prijzen); wat overbleef was inhoudsloos en mikte op hetzelfde zoekwoord.",
+    "abandonedAt": "2026-07-15T16:46:09.174Z"
   },
   {
     "title": " Hoe combineert u zonnepanelen met een warmtepomp voor een optimaal verduurzamingspakket?",
