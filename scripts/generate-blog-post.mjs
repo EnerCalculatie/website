@@ -10,7 +10,7 @@
  * (artikelcomponent, blogPosts.ts-entry, App.tsx-route), runt daarna de build
  * ter verificatie. Commit/push gebeurt in de workflow, niet in dit script.
  */
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, rm } from 'node:fs/promises';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { validateArticle, APPROVAL_THRESHOLD } from './seo-geo-validator.mjs';
@@ -310,9 +310,13 @@ ${article.componentBody}
   await writeFile(componentPath, componentSource, 'utf8');
   console.log(`Component geschreven: ${componentPath}`);
 
-  const tagsJs = article.tags.map((t) => `'${t}'`).join(', ');
-  const keyPointsJs = article.keyPoints.map((k) => `      '${k.replace(/'/g, "\\'")}',`).join('\n');
+  // Alles wat als JS-string in blogPosts.ts belandt moet hier langs: een
+  // apostrof in de waarde sluit anders de string en breekt het bestand. Tags
+  // gingen er ongeëscaped doorheen, waardoor de tag 'Elektrische auto's' een
+  // kapotte blogPosts.ts opleverde die de build sloopte.
   const escape = (s) => s.replace(/'/g, "\\'");
+  const tagsJs = article.tags.map((t) => `'${escape(t)}'`).join(', ');
+  const keyPointsJs = article.keyPoints.map((k) => `      '${escape(k)}',`).join('\n');
 
   const faqItems = Array.isArray(article.faq) ? article.faq : [];
   const faqJs = faqItems
@@ -364,8 +368,36 @@ ${keyPointsJs}
   await writeFile(APP_TSX_PATH, appSource, 'utf8');
   console.log('App.tsx bijgewerkt.');
 
+  // Build-verificatie draait ná het schrijven — anders valt er niets te bouwen.
+  // Faalt hij, dan moeten de geschreven bestanden wéér weg: de workflow committeert
+  // met `if: always()` wat er op schijf staat, en zou anders kapotte code naar main
+  // pushen. Dat is precies wat er gebeurde met de tag 'Elektrische auto's': build
+  // stuk, bestanden bleven staan, bot pushte ze alsnog.
   console.log('Build verifiëren...');
-  execSync('npm run build', { cwd: ROOT, stdio: 'inherit' });
+  try {
+    execSync('npm run build', { cwd: ROOT, stdio: 'inherit' });
+  } catch (err) {
+    execSync(`git checkout -- ${APP_TSX_PATH} ${BLOG_POSTS_PATH}`, { cwd: ROOT });
+    await rm(componentPath, { force: true });
+    console.error('Build gefaald — App.tsx, blogPosts.ts en het artikelcomponent teruggedraaid.');
+
+    planItem.lastScore = validation.score;
+    rejectPlanItem(planItem, `Build gefaald na schrijven: ${err.message}`);
+    await writePlan(plan);
+    await appendLogEntry({
+      date: todayISO(),
+      topic: planItem.title,
+      slug: article.slug,
+      model: MODEL,
+      seoScore: validation.seoScore,
+      geoScore: validation.geoScore,
+      status: planItem.status === 'abandoned' ? 'abandoned-build-failed' : 'rejected-build-failed',
+      publicationStatus: 'not-published',
+    });
+    throw new Error(
+      `Build gefaald na het schrijven van de bestanden — alles teruggedraaid, backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}).`
+    );
+  }
 
   planItem.status = 'generated';
   planItem.generatedSlug = article.slug;

@@ -66,14 +66,19 @@ jobs:
           npm run build
           npm run qc:seo
 
-      # Faalt de QC, dan draaien we de artikelbestanden terug en publiceren we
-      # niets. content-plan/content-log gaan wél mee: die leggen de afkeuring
-      # vast, zodat het onderwerp opnieuw geprobeerd kan worden.
-      - name: "6c. Artikel terugdraaien bij gefaalde QC"
-        if: steps.generate.outcome == 'success' && steps.qc.outcome != 'success'
+      # Faalt de generatie óf de QC, dan draaien we de artikelbestanden terug en
+      # publiceren we niets. content-plan/content-log gaan wél mee: die leggen de
+      # afkeuring vast, zodat het onderwerp opnieuw geprobeerd kan worden.
+      #
+      # Let op de generate-tak: stap 7 committeert met `if: always()` wat er op
+      # schijf staat. Een generate die halverwege afbreekt (bv. build stuk op een
+      # niet-geëscapete tag) laat kapotte bestanden achter, en die gingen zo
+      # ongecontroleerd naar main — precies wat er op 15-07-2026 gebeurde.
+      - name: "6c. Artikelbestanden terugdraaien bij gefaalde generatie of QC"
+        if: steps.generate.outcome != 'success' || steps.qc.outcome != 'success'
         run: |
-          echo "::error::QC gefaald — artikel wordt niet gepubliceerd. Zie stap 6b."
-          git checkout -- src/components/blog src/content/blogPosts.ts src/App.tsx
+          echo "::error::Generatie of QC gefaald — artikel wordt niet gepubliceerd. Zie stap 4-6 en 6b."
+          git checkout -- src/components/blog src/content/blogPosts.ts src/App.tsx || true
           git clean -fd src/components/blog
 
       - name: "7. Commit en push (main → Railway deployt automatisch)"
