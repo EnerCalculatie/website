@@ -17,8 +17,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "hoe-combineert-u-zonnepanelen-met-een-warmtepomp-voor-een-optimaal-verduurzamingspakket",
-    "status": "planned",
-    "createdAt": "2026-07-14T07:12:51.490Z"
+    "status": "generated",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "generatedSlug": "zonnepanelen-warmtepomp-combinatie",
+    "generatedAt": "2026-07-15T06:09:13.118Z",
+    "seoGeoScore": 85
   },
   {
     "title": "Hoe kunnen installateurs hun klanten helpen bij het aanvragen van de ISDE-subsidie voor warmtepompen: een stap-voor-stap gids",
