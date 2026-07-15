@@ -38,9 +38,12 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "hoe-helpt-u-uw-klanten-het-beste-tijdens-een-stroomstoring-met-combinatie-zonnepanelen-thuisbatterij",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-07-15T16:51:08.183Z",
-    "retryCount": 0
+    "retryCount": 0,
+    "generatedSlug": "stroomstoring-zonnepanelen-thuisbatterij",
+    "generatedAt": "2026-07-15T18:34:45.341Z",
+    "seoGeoScore": 90
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",

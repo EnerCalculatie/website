@@ -188,5 +188,15 @@
     "geoScore": 70,
     "status": "abandoned",
     "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "Stroomstoring en zonnepanelen: hoe een thuisbatterij uw klant helpt",
+    "slug": "stroomstoring-zonnepanelen-thuisbatterij",
+    "model": "gemini-pro-latest",
+    "seoScore": 95,
+    "geoScore": 85,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

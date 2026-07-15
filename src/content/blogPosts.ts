@@ -556,4 +556,30 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat zijn de voordelen van een hybride warmtepomp ten opzichte van een traditionele gasketel?', answer: 'Een hybride warmtepomp is een duurzame en kostenefficiënte oplossing, die minder fossiele brandstoffen verbruikt en minder CO2-uitstoot produceert.' },
     ],
   },
+  {
+    slug: 'stroomstoring-zonnepanelen-thuisbatterij',
+    readingTimeMinutes: 4,
+    title: 'Stroomstoring en zonnepanelen: hoe een thuisbatterij uw klant helpt',
+    seoTitle: 'Stroomstoring overbruggen met zonnepanelen en thuisbatterij',
+    description:
+      'Wat gebeurt er met zonnepanelen tijdens een stroomstoring? Ontdek hoe u met een thuisbatterij en back-upfunctie uw klant voorziet van noodstroom.',
+    date: '2026-07-15',
+    excerpt:
+      'Een standaard PV-systeem valt uit tijdens een stroomstoring. Ontdek hoe u met een thuisbatterij, EPS of ATS uw klanten toch van stroom voorziet.',
+    tags: ['Thuisbatterijen', 'Zonnepanelen', 'Installatietechniek', 'Netbeheer'],
+    keyPoints: [
+      'Een standaard PV-systeem schakelt uit bij netuitval vanwege verplichte anti-islanding.',
+      'Met een EPS-aansluiting levert u gerichte noodstroom op specifieke stopcontacten of een enkele groep.',
+      'Volledig eilandbedrijf voor de hele woning vereist een externe ATS om het pand fysiek af te schakelen van het net.',
+      'Voorzie de back-up van een correct TT-stelsel en aardpen om de veiligheid te waarborgen zonder net-aarding.',
+      'Manage de klantverwachting: een batterij kan tijdens een winterse stroomuitval deels leeg zijn en heeft gelimiteerd piekvermogen.',
+    ],
+    category: 'Thuisbatterijen',
+    faq: [
+      { question: 'Blijven zonnepanelen standaard werken tijdens een stroomstoring?', answer: 'Nee. Zonder specifieke back-upvoorzieningen of een eilandmodus schakelt de omvormer direct uit wanneer het net wegvalt. Dit is een verplichte veiligheidsmaatregel (anti-islanding).' },
+      { question: 'Wat is het verschil tussen een EPS-uitgang en een ATS-systeem?', answer: 'Een EPS (Emergency Power Supply) is een uitgang op de omvormer die stroom levert aan één of meerdere specifieke groepen of stopcontacten. Een ATS (Automatic Transfer Switch) plaatst u direct achter de hoofdschakelaar en scheidt de hele woning fysiek van het elektriciteitsnet, waarna de hele groepenkast (binnen de vermogenslimieten) van stroom wordt voorzien.' },
+      { question: 'Kan de klant een warmtepomp laten draaien op de noodstroomvoorziening?', answer: 'In theorie is dit mogelijk, maar in de praktijk vraagt een warmtepomp vaak een (aanloop)vermogen dat de limieten van de omvormer en batterij overschrijdt. Bovendien zal de batterij hierdoor zeer snel ontladen. Het is aan te raden zware verbruikers buiten de noodstroomcircuits te houden.' },
+      { question: 'Is er een extra aardpen nodig bij het installeren van een noodstroomsysteem?', answer: 'Ja, in de meeste gevallen wel. Zodra een woning wordt losgekoppeld van het stroomnet (eilandbedrijf), kan de verbinding met de aarding van de netbeheerder vervallen. Een lokaal TT-stelsel met een adequate eigen aardpen is dan noodzakelijk om de werking van aardlekschakelaars te waarborgen.' },
+    ],
+  },
 ];
