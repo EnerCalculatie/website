@@ -5,7 +5,7 @@ export function Terms() {
     <>
       <SEO 
         title="Algemene Voorwaarden Installatiesoftware | EnerCalculatie"
-        description="Lees de algemene voorwaarden van EnerCalculatie. Transparante afspraken over het gebruik van onze calculatie- en adviessoftware voor verduurzamingsinstallateurs."
+        description="De algemene voorwaarden van EnerCalculatie: transparante afspraken over het gebruik van onze calculatie- en adviessoftware voor installateurs."
         canonical="https://www.enercalculatie.nl/voorwaarden"
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 min-h-screen">

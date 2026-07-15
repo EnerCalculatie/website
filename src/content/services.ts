@@ -62,7 +62,7 @@ export const services: ServiceMeta[] = [
     slug: 'zonnepanelen',
     title: 'Rekentool zonnepanelen voor installateurs | EnerCalculatie',
     metaDescription:
-      'Automatiseer de offerte voor zonnepanelen: optimaal aantal panelen, piekvermogen en jaaropbrengst direct berekend uit dakoriëntatie en energierekening. Inclusief 0%-btw en saldering 2027.',
+      'Automatiseer de offerte voor zonnepanelen: aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening.',
     badge: 'Rekentool zonnepanelen',
     headline: 'Offertes voor zonnepanelen, automatisch onderbouwd',
     intro:
