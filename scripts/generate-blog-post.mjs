@@ -267,7 +267,10 @@ DEEL 1: Een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbe
 - faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."}). Dit dekt de aanvullende zoekvragen af.
 
 DEEL 2: Een apart JSX codeblok (in een \`\`\`jsx codeblok) met de daadwerkelijke componentBody (de JSX-children van <BlogPostLayout>). Omdat dit géén JSON is, hoef je dubbele aanhalingstekens (zoals in \`className="my-class"\`) NIET te escapen. Schrijf hier het volledige, uitgewerkte artikel.
-KRITIEK — geldig JSX: gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan'). Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".
+KRITIEK — geldig JSX:
+- Gebruik NOOIT een kale < of > als vergelijkingsteken in lopende tekst, schrijf dit als woorden ('minder dan', 'groter dan').
+- Schrijf ALLEEN de inhoud (de tags zoals <h2>, <p>), schrijf NOOIT een \`export function\` of \`return (...)\` eromheen!
+- Gebruik je een <table>, wrap die dan ALTIJD in <div className="overflow-x-auto mb-6"> en geef table de classes "w-full border-collapse border border-slate-300 text-sm".
 
 Voorbeeld van het verwachte antwoord:
 

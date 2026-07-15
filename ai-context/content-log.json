@@ -208,5 +208,25 @@
     "geoScore": 75,
     "status": "rejected",
     "publicationStatus": "not-published"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "Energieopslag in de toekomst: trends en kansen voor de installateur",
+    "slug": "energieopslag-toekomst-trends-installateurs",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 85,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
+    "slug": "bouwbesluit-2023-verduurzamingsadvies",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 88,
+    "status": "abandoned-invalid-jsx",
+    "publicationStatus": "not-published"
   }
 ]
