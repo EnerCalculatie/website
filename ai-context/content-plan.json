@@ -64,8 +64,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "de-impact-van-de-netcongestie-op-de-verduurzamingsmarkt-hoe-kunnen-installateurs-hun-klanten-het-beste-adviseren",
-    "status": "planned",
-    "createdAt": "2026-07-14T07:12:51.490Z"
+    "status": "abandoned",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "abandonReason": "Duplicaat: 50% onderwerp-overlap met het gepubliceerde trends-verduurzaming-2026 (dat de netcongestie-prioritering al behandelt) en met zonnepanelen-netcongestie-advies. Zou de bestaande paginas kannibaliseren.",
+    "abandonedAt": "2026-07-15T16:19:39.253Z"
   },
   {
     "title": "De impact van seizoensvariabiliteit op zonnepanelenrendement: hoe houdt u hier rekening mee in uw advies?",

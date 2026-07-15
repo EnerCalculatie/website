@@ -17,7 +17,13 @@ import { validateArticle, APPROVAL_THRESHOLD } from './seo-geo-validator.mjs';
 import { buildContentMap } from './build-content-map.mjs';
 import { estimateReadingMinutes } from './backfill-reading-time.mjs';
 import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
-import { checkArticleMeta, checkComponentBody } from './lib/content-checks.mjs';
+import {
+  checkArticleMeta,
+  checkComponentBody,
+  deriveSeoTitle,
+  truncateAtWord,
+  MAX_DESCRIPTION_LENGTH,
+} from './lib/content-checks.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -240,10 +246,24 @@ ${article.componentBody}
 }
 `;
 
-  // Harde contentgate vóór de JSX-preflight: tekenlimieten en corruptie zijn
-  // te tellen, niet te beoordelen — de prompt vragen om 'max 60 tekens' is geen
-  // garantie. Faalt dit, dan gaat het item terug de backlog in, net als bij
-  // ongeldige JSX: geen half artikel op schijf.
+  // Lengtes zijn te repareren, corruptie niet. Kort daarom eerst deterministisch
+  // in wat te lang is (of ontbreekt), en gate daarna pas op wat écht fout is.
+  // Zonder deze stap sneuvelt een verder prima artikel op één te lang veld, en
+  // loopt het backlog-item na twee pogingen dood op 'abandoned'.
+  const { seoTitle, derived } = deriveSeoTitle(article);
+  article.seoTitle = seoTitle;
+  if (derived) {
+    console.warn(`seoTitle door het model niet bruikbaar geleverd — afgeleid uit de titel: "${seoTitle}"`);
+  }
+  if (article.description && article.description.length > MAX_DESCRIPTION_LENGTH) {
+    const before = article.description.length;
+    article.description = truncateAtWord(article.description, MAX_DESCRIPTION_LENGTH);
+    console.warn(`description was ${before} tekens — ingekort naar ${article.description.length}.`);
+  }
+
+  // Harde contentgate vóór de JSX-preflight: corruptie en structuurfouten zijn
+  // te tellen, niet te beoordelen. Faalt dit, dan gaat het item terug de backlog
+  // in, net als bij ongeldige JSX: geen half artikel op schijf.
   const metaErrors = [
     ...checkArticleMeta(article),
     ...checkComponentBody(article.componentBody),

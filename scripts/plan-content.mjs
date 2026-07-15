@@ -8,6 +8,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
+import { findDuplicateTopic } from './lib/content-checks.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const CONTEXT_DIR = path.join(ROOT, 'ai-context');
@@ -110,14 +111,38 @@ async function main() {
   const newItems = extractJsonArray(raw);
 
   const usedSlugs = new Set([...existingSlugs, ...plan.map((i) => i.slug)]);
+
+  // Onderwerpen om tegen te vergelijken: alles wat gepubliceerd is plus alles wat
+  // al in de backlog staat (inclusief wat we in déze ronde toevoegen — anders
+  // levert één batch alsnog twee varianten van hetzelfde onderwerp).
+  const knownTopics = [
+    ...existingTitles.map((title) => ({ title, source: 'gepubliceerd' })),
+    ...plan
+      .filter((i) => i.status === 'planned' || i.status === 'generated')
+      .map((i) => ({ title: i.title, keyword: i.keyword, source: `backlog (${i.status})` })),
+  ];
+
   const additions = [];
   for (const item of newItems) {
-    let slug = slugify(item.title);
+    const slug = slugify(item.title);
     if (usedSlugs.has(slug)) {
       console.warn(`Sla dubbel onderwerp over (slug '${slug}' bestaat al): ${item.title}`);
       continue;
     }
+
+    // De slug-check hierboven vangt alleen exacte dubbelen. Near-duplicates
+    // ('ISDE-subsidie voor warmtepompen' vs 'Warmtepompen kopen met ISDE-subsidie')
+    // krijgen een andere slug en glipten er zo langs — vandaar deze overlap-check.
+    const dup = findDuplicateTopic(item, knownTopics);
+    if (dup) {
+      console.warn(
+        `Sla dubbel onderwerp over (${Math.round(dup.overlap * 100)}% overlap met ${dup.match.source}: "${dup.match.title}"): ${item.title}`
+      );
+      continue;
+    }
+
     usedSlugs.add(slug);
+    knownTopics.push({ title: item.title, keyword: item.keyword, source: 'backlog (deze ronde)' });
     additions.push({
       title: item.title,
       keyword: item.keyword,
