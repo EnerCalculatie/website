@@ -138,5 +138,15 @@
     "geoScore": 90,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-15",
+    "topic": "Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel",
+    "slug": "hybride-warmtepomp-business-case",
+    "model": "meta-llama/llama-3.3-70b-instruct",
+    "seoScore": 90,
+    "geoScore": 80,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

@@ -85,6 +85,7 @@ const VerduurzamingKostenBatenAnalyseArticle = lazyRoute('/blog/verduurzaming-ko
 const ThuisbatterijNetaansluitingCapaciteitArticle = lazyRoute('/blog/thuisbatterij-netaansluiting-capaciteit', () => import('./components/blog/ThuisbatterijNetaansluitingCapaciteitArticle').then(m => ({ default: m.ThuisbatterijNetaansluitingCapaciteitArticle })));
 const ZonnepanelenWarmtepompCombinatieArticle = lazyRoute('/blog/zonnepanelen-warmtepomp-combinatie', () => import('./components/blog/ZonnepanelenWarmtepompCombinatieArticle').then(m => ({ default: m.ZonnepanelenWarmtepompCombinatieArticle })));
 const LaadpalenVoorElektrischeAutosArticle = lazyRoute('/blog/laadpalen-voor-elektrische-autos', () => import('./components/blog/LaadpalenVoorElektrischeAutosArticle').then(m => ({ default: m.LaadpalenVoorElektrischeAutosArticle })));
+const HybrideWarmtepompBusinessCaseArticle = lazyRoute('/blog/hybride-warmtepomp-business-case', () => import('./components/blog/HybrideWarmtepompBusinessCaseArticle').then(m => ({ default: m.HybrideWarmtepompBusinessCaseArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -188,6 +189,7 @@ export function AppContent() {
             <Route path="/blog/thuisbatterij-netaansluiting-capaciteit" element={<ThuisbatterijNetaansluitingCapaciteitArticle />} />
             <Route path="/blog/zonnepanelen-warmtepomp-combinatie" element={<ZonnepanelenWarmtepompCombinatieArticle />} />
             <Route path="/blog/laadpalen-voor-elektrische-autos" element={<LaadpalenVoorElektrischeAutosArticle />} />
+            <Route path="/blog/hybride-warmtepomp-business-case" element={<HybrideWarmtepompBusinessCaseArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

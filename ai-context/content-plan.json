@@ -1,53 +1,33 @@
 [
   {
-    "title": "Hoe kiest u de juiste thuisbatterij voor uw klant: een vergelijking van verschillende typen en merken",
-    "keyword": "thuisbatterij vergelijking",
+    "title": "Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel",
+    "keyword": "hybride warmtepomp business case",
     "intent": "commercieel",
     "priority": 9,
-    "slug": "hoe-kiest-u-de-juiste-thuisbatterij-voor-uw-klant-een-vergelijking-van-verschillende-typen-en-merken",
-    "status": "abandoned",
-    "createdAt": "2026-07-14T07:12:51.490Z",
-    "generatedAt": "2026-07-14T07:18:02.827Z",
-    "seoGeoScore": 88,
-    "abandonReason": "Samengevoegd met /blog/thuisbatterij-capaciteit-kiezen (301). Bevatte een verzonnen vergelijkingstabel (o.a. AgZn/zilver-zink als thuisbatterij, onrealistische garanties en prijzen); wat overbleef was inhoudsloos en mikte op hetzelfde zoekwoord.",
-    "abandonedAt": "2026-07-15T16:46:09.174Z"
-  },
-  {
-    "title": " Hoe combineert u zonnepanelen met een warmtepomp voor een optimaal verduurzamingspakket?",
-    "keyword": "zonnepanelen warmtepomp combinatie",
-    "intent": "informatief",
-    "priority": 8,
-    "slug": "hoe-combineert-u-zonnepanelen-met-een-warmtepomp-voor-een-optimaal-verduurzamingspakket",
+    "slug": "hoe-onderbouwt-u-de-business-case-voor-een-hybride-warmtepomp-bij-een-bestaande-gasketel",
     "status": "generated",
-    "createdAt": "2026-07-14T07:12:51.490Z",
-    "generatedSlug": "zonnepanelen-warmtepomp-combinatie",
-    "generatedAt": "2026-07-15T06:09:13.118Z",
+    "createdAt": "2026-07-15T16:51:08.181Z",
+    "generatedSlug": "hybride-warmtepomp-business-case",
+    "generatedAt": "2026-07-15T16:53:07.333Z",
     "seoGeoScore": 85
   },
   {
-    "title": "Hoe kunnen installateurs hun klanten helpen bij het aanvragen van de ISDE-subsidie voor warmtepompen: een stap-voor-stap gids",
-    "keyword": "ISDE-subsidie aanvragen",
+    "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
+    "keyword": "Bouwbesluit 2023",
     "intent": "informatief",
     "priority": 8,
-    "slug": "hoe-kunnen-installateurs-hun-klanten-helpen-bij-het-aanvragen-van-de-isde-subsidie-voor-warmtepompen-een-stap-voor-stap-gids",
-    "status": "abandoned",
-    "createdAt": "2026-07-14T07:12:51.490Z",
-    "generatedAt": "2026-07-15T07:19:48.487Z",
-    "seoGeoScore": 88,
-    "abandonReason": "Samengevoegd met /blog/isde-subsidie-warmtepompen (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
-    "abandonedAt": "2026-07-15T16:38:54.555Z"
+    "slug": "de-impact-van-het-nieuwe-bouwbesluit-2023-op-verduurzamingsadvies",
+    "status": "planned",
+    "createdAt": "2026-07-15T16:51:08.180Z"
   },
   {
-    "title": "Laadpalen voor elektrische auto's: wat zijn de verschillen tussen verschillende typen en merken?",
-    "keyword": "laadpalen",
-    "intent": "commercieel",
-    "priority": 7,
-    "slug": "laadpalen-voor-elektrische-autos-wat-zijn-de-verschillen-tussen-verschillende-typen-en-merken",
-    "status": "generated",
-    "createdAt": "2026-07-11T10:15:43.114Z",
-    "generatedSlug": "laadpalen-voor-elektrische-autos",
-    "generatedAt": "2026-07-15T16:30:56.670Z",
-    "seoGeoScore": 88
+    "title": "Hoeayet uw klanten het beste faut disrupted tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij",
+    "keyword": "stroomstoring zonnepanelen thuisbatterij",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "hoeayet-uw-klanten-het-beste-faut-disrupted-tijdens-een-stroomstoring-met-een-combinatie-van-zonnepanelen-en-thuisbatterij",
+    "status": "planned",
+    "createdAt": "2026-07-15T16:51:08.183Z"
   },
   {
     "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
@@ -64,15 +44,13 @@
     "lastRejectedAt": "2026-07-14T05:09:25.788Z"
   },
   {
-    "title": "De impact van de netcongestie op de verduurzamingsmarkt: hoe kunnen installateurs hun klanten het beste adviseren?",
-    "keyword": "netcongestie verduurzamingsmarkt",
+    "title": "De rol van energieopslag in de toekomst van verduurzaming: ontwikkelingen en trends",
+    "keyword": "energieopslag toekomst",
     "intent": "informatief",
     "priority": 7,
-    "slug": "de-impact-van-de-netcongestie-op-de-verduurzamingsmarkt-hoe-kunnen-installateurs-hun-klanten-het-beste-adviseren",
-    "status": "abandoned",
-    "createdAt": "2026-07-14T07:12:51.490Z",
-    "abandonReason": "Duplicaat: 50% onderwerp-overlap met het gepubliceerde trends-verduurzaming-2026 (dat de netcongestie-prioritering al behandelt) en met zonnepanelen-netcongestie-advies. Zou de bestaande paginas kannibaliseren.",
-    "abandonedAt": "2026-07-15T16:19:39.253Z"
+    "slug": "de-rol-van-energieopslag-in-de-toekomst-van-verduurzaming-ontwikkelingen-en-trends",
+    "status": "planned",
+    "createdAt": "2026-07-15T16:51:08.181Z"
   },
   {
     "title": "De impact van seizoensvariabiliteit op zonnepanelenrendement: hoe houdt u hier rekening mee in uw advies?",
@@ -93,6 +71,15 @@
     "createdAt": "2026-07-14T07:12:51.490Z"
   },
   {
+    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
+    "keyword": "zonnepanelen flats",
+    "intent": "commercieel",
+    "priority": 6,
+    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
+    "status": "planned",
+    "createdAt": "2026-07-15T16:51:08.182Z"
+  },
+  {
     "title": "De rol van een energieadviseur bij het verbeteren van het energielabel van een woning",
     "keyword": "energieadviseur",
     "intent": "informatief",
@@ -100,6 +87,19 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Hoe kiest u de juiste thuisbatterij voor uw klant: een vergelijking van verschillende typen en merken",
+    "keyword": "thuisbatterij vergelijking",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "hoe-kiest-u-de-juiste-thuisbatterij-voor-uw-klant-een-vergelijking-van-verschillende-typen-en-merken",
+    "status": "abandoned",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "generatedAt": "2026-07-14T07:18:02.827Z",
+    "seoGeoScore": 88,
+    "abandonReason": "Samengevoegd met /blog/thuisbatterij-capaciteit-kiezen (301). Bevatte een verzonnen vergelijkingstabel (o.a. AgZn/zilver-zink als thuisbatterij, onrealistische garanties en prijzen); wat overbleef was inhoudsloos en mikte op hetzelfde zoekwoord.",
+    "abandonedAt": "2026-07-15T16:46:09.174Z"
   },
   {
     "title": "Hoe kunnen installateurs het beste een verduurzamingspakket samenstellen voor een klant met een beperkt budget",
@@ -135,6 +135,31 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": " Hoe combineert u zonnepanelen met een warmtepomp voor een optimaal verduurzamingspakket?",
+    "keyword": "zonnepanelen warmtepomp combinatie",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "hoe-combineert-u-zonnepanelen-met-een-warmtepomp-voor-een-optimaal-verduurzamingspakket",
+    "status": "generated",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "generatedSlug": "zonnepanelen-warmtepomp-combinatie",
+    "generatedAt": "2026-07-15T06:09:13.118Z",
+    "seoGeoScore": 85
+  },
+  {
+    "title": "Hoe kunnen installateurs hun klanten helpen bij het aanvragen van de ISDE-subsidie voor warmtepompen: een stap-voor-stap gids",
+    "keyword": "ISDE-subsidie aanvragen",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "hoe-kunnen-installateurs-hun-klanten-helpen-bij-het-aanvragen-van-de-isde-subsidie-voor-warmtepompen-een-stap-voor-stap-gids",
+    "status": "abandoned",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "generatedAt": "2026-07-15T07:19:48.487Z",
+    "seoGeoScore": 88,
+    "abandonReason": "Samengevoegd met /blog/isde-subsidie-warmtepompen (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
+    "abandonedAt": "2026-07-15T16:38:54.555Z"
   },
   {
     "title": "Hoe kiest u de juiste warmtepomp voor uw klant: een vergelijking van verschillende typen en merken",
@@ -177,6 +202,29 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Laadpalen voor elektrische auto's: wat zijn de verschillen tussen verschillende typen en merken?",
+    "keyword": "laadpalen",
+    "intent": "commercieel",
+    "priority": 7,
+    "slug": "laadpalen-voor-elektrische-autos-wat-zijn-de-verschillen-tussen-verschillende-typen-en-merken",
+    "status": "generated",
+    "createdAt": "2026-07-11T10:15:43.114Z",
+    "generatedSlug": "laadpalen-voor-elektrische-autos",
+    "generatedAt": "2026-07-15T16:30:56.670Z",
+    "seoGeoScore": 88
+  },
+  {
+    "title": "De impact van de netcongestie op de verduurzamingsmarkt: hoe kunnen installateurs hun klanten het beste adviseren?",
+    "keyword": "netcongestie verduurzamingsmarkt",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "de-impact-van-de-netcongestie-op-de-verduurzamingsmarkt-hoe-kunnen-installateurs-hun-klanten-het-beste-adviseren",
+    "status": "abandoned",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "abandonReason": "Duplicaat: 50% onderwerp-overlap met het gepubliceerde trends-verduurzaming-2026 (dat de netcongestie-prioritering al behandelt) en met zonnepanelen-netcongestie-advies. Zou de bestaande paginas kannibaliseren.",
+    "abandonedAt": "2026-07-15T16:19:39.253Z"
   },
   {
     "title": "Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?",

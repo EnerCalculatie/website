@@ -530,4 +530,30 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is de rol van de netbeheerder bij de installatie van een laadpaal?', answer: 'De netbeheerder is verantwoordelijk voor de capaciteit van de aansluiting en kan in sommige gevallen een capaciteitsuitbreiding vereisen.' },
     ],
   },
+  {
+    slug: 'hybride-warmtepomp-business-case',
+    readingTimeMinutes: 1,
+    title: 'Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel',
+    seoTitle: 'hybride warmtepomp business case',
+    description:
+      'Ontdek hoe u de business case voor een hybride warmtepomp onderbouwt bij een bestaande gasketel',
+    date: '2026-07-15',
+    excerpt:
+      'Een hybride warmtepomp is een aantrekkelijk alternatief voor bestaande gasketels. Lees hier hoe u de business case onderbouwt',
+    tags: ['Warmtepompen', 'Hybride warmtepompen', 'Gasketels', 'Installatiebranche'],
+    keyPoints: [
+      'Een hybride warmtepomp is een combinatie van een gasketel en een warmtepomp',
+      'Deze combinatie kan meer dan 40% aan energie besparen',
+      'Een hybride warmtepomp is een duurzame en kostenefficiënte oplossing',
+      'De ISDE-subsidie kan de aanschaf van een hybride warmtepomp ondersteunen',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Wat is een hybride warmtepomp?', answer: 'Een hybride warmtepomp is een combinatie van een gasketel en een warmtepomp, die samenwerken om de warmtevraag van een woning te dekken.' },
+      { question: 'Hoeveel energie kan een hybride warmtepomp besparen?', answer: 'Een hybride warmtepomp kan meer dan 40% aan energie besparen ten opzichte van een traditionele gasketel.' },
+      { question: 'Kan ik een hybride warmtepomp combineren met zonnepanelen?', answer: 'Ja, een hybride warmtepomp kan prima worden gecombineerd met zonnepanelen, om nog meer energie te besparen en de CO2-uitstoot te verlagen.' },
+      { question: 'Hoe kan ik de business case voor een hybride warmtepomp onderbouwen?', answer: 'U kunt de business case voor een hybride warmtepomp onderbouwen door de energiekosten te berekenen, de ISDE-subsidie te berekenen en de interviews met tevreden klanten te delen.' },
+      { question: 'Wat zijn de voordelen van een hybride warmtepomp ten opzichte van een traditionele gasketel?', answer: 'Een hybride warmtepomp is een duurzame en kostenefficiënte oplossing, die minder fossiele brandstoffen verbruikt en minder CO2-uitstoot produceert.' },
+    ],
+  },
 ];
