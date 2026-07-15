@@ -23,9 +23,11 @@ function formatDate(date: string) {
 export function BlogIndex() {
   const sortedPosts = useMemo(
     () =>
-      [...blogPosts].sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-      ),
+      [...blogPosts].sort((a, b) => {
+        const diff = new Date(b.date).getTime() - new Date(a.date).getTime();
+        if (diff !== 0) return diff;
+        return blogPosts.indexOf(b) - blogPosts.indexOf(a);
+      }),
     []
   );
 
