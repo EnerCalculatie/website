@@ -3,7 +3,7 @@
  * Vult ai-context/content-plan.json aan met nieuwe SEO/GEO content-backlog-items
  * via OpenRouter, op basis van ai-context/*.md en de bestaande blogonderwerpen.
  * Draait los van generate-blog-post.mjs, dat alleen items met status 'planned'
- * consumeert. Vereist env var OPENROUTER_API_KEY.
+ * consumeert. Vereist env var GEMINI_API_KEY.
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -15,12 +15,12 @@ const CONTEXT_DIR = path.join(ROOT, 'ai-context');
 const PLAN_PATH = path.join(CONTEXT_DIR, 'content-plan.json');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
 
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-if (!OPENROUTER_API_KEY) {
-  console.error('MISLUKT — Reden: OPENROUTER_API_KEY ontbreekt als environment variable.');
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+if (!GEMINI_API_KEY) {
+  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
   process.exit(1);
 }
-const MODEL = process.env.OPENROUTER_MODEL || 'anthropic/claude-sonnet-5';
+const MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-pro';
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
 const MIN_PLANNED = 5;
@@ -53,31 +53,25 @@ async function readPlan() {
   }
 }
 
-async function callOpenRouter(system, user) {
-  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+async function callGemini(system, user) {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      authorization: `Bearer ${OPENROUTER_API_KEY}`,
-      'HTTP-Referer': 'https://www.enercalculatie.nl',
-      'X-Title': 'EnerCalculatie content-planner',
     },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 3000,
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user', content: user },
-      ],
+      contents: [{ role: 'user', parts: [{ text: user }] }],
+      systemInstruction: { role: 'system', parts: [{ text: system }] },
+      generationConfig: { maxOutputTokens: 3000 },
     }),
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`OpenRouter API-fout (${res.status}, model ${MODEL}): ${text}`);
+    throw new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
   }
   const data = await res.json();
-  const message = data.choices?.[0]?.message?.content;
-  if (!message) throw new Error(`Geen tekstantwoord ontvangen van OpenRouter (model ${MODEL}).`);
+  const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}).`);
   return message;
 }
 
@@ -106,8 +100,8 @@ async function main() {
 
   const user = `Reeds gepubliceerd (titels): ${existingTitles.join(' | ') || '(geen)'}\nAl in backlog gepland (titels): ${plannedTitles.join(' | ') || '(geen)'}\n\nStel een content-backlog samen van ${BATCH_SIZE} NIEUWE artikel-ideeën, elk over een onderwerp dat nog niet gepubliceerd of gepland is. Kies onderwerpen uit topics.md die de doelgroep (installateur) daadwerkelijk zoekt.\n\nAntwoord UITSLUITEND met een JSON-array (in een \`\`\`json codeblok) van objecten met exact deze velden:\n[{\n  "title": "werktitel van het artikel",\n  "keyword": "primair zoekwoord waar dit artikel op moet scoren",\n  "intent": "informatief" | "commercieel" | "transactioneel",\n  "priority": 1-10 (10 = hoogste zoekvolume/commerciële waarde voor de doelgroep)\n}]`;
 
-  console.log(`Vul content-plan aan via OpenRouter (${MODEL})...`);
-  const raw = await callOpenRouter(system, user);
+  console.log(`Vul content-plan aan via Gemini (${MODEL})...`);
+  const raw = await callGemini(system, user);
   const newItems = extractJsonArray(raw);
 
   const usedSlugs = new Set([...existingSlugs, ...plan.map((i) => i.slug)]);

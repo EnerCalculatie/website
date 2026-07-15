@@ -4,7 +4,7 @@ name: Dagelijks kennisbank-artikel
 # 1. Cronjob start (of handmatig via workflow_dispatch)
 # 2. ai-context/*.md wordt gelezen door plan-content.mjs en generate-blog-post.mjs
 # 3. Onderwerp gekozen: hoogste-prioriteit 'planned' item uit ai-context/content-plan.json
-# 4. Artikel gegenereerd via OpenRouter (generate-blog-post.mjs)
+# 4. Artikel gegenereerd via Gemini (generate-blog-post.mjs)
 # 5. SEO/GEO-controle (seo-geo-validator.mjs) — score < 80 op SEO of GEO triggert
 #    één automatische verbeterpoging, daarna definitieve afkeuring
 # 6. Verbetering zit in stap 5 (self-correcting binnen hetzelfde script-proces)
@@ -42,15 +42,15 @@ jobs:
 
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
       - name: "4-6. Genereer artikel, SEO/GEO-controle en verbeterpoging"
         id: generate
         env:
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/generate-blog-post.mjs
 
       # Gate tussen AI-output en productie. De push gaat direct naar main en

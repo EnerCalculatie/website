@@ -8,10 +8,10 @@ const APPROVAL_THRESHOLD = 80;
 
 /**
  * @param {{title:string, description:string, excerpt:string, tags:string[], keyPoints:string[], componentBody:string}} article
- * @param {{callOpenRouter: (system:string, user:string) => Promise<string>, extractJson: (raw:string) => any}} deps
+ * @param {{callGemini: (system:string, user:string) => Promise<string>, extractJson: (raw:string) => any}} deps
  * @returns {Promise<{seoScore:number, geoScore:number, score:number, approved:boolean, improvements:string[]}>}
  */
-export async function validateArticle(article, { callOpenRouter, extractJson }) {
+export async function validateArticle(article, { callGemini, extractJson }) {
   const system = `Je bent een strikte SEO/GEO-kwaliteitscontroleur voor de EnerCalculatie-kennisbank. Je beoordeelt een concept-blogartikel op basis van onderstaande criteria en geeft NOOIT het voordeel van de twijfel — wees kritisch.
 
 SEO-criteria:
@@ -45,7 +45,7 @@ Kernpunten: ${(article.keyPoints ?? []).join(' | ')}
 Artikelinhoud (JSX-body):
 ${article.componentBody}`;
 
-  const raw = await callOpenRouter(system, user);
+  const raw = await callGemini(system, user);
   const result = extractJson(raw);
 
   const seoScore = Number(result.seoScore) || 0;

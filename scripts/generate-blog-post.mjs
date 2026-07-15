@@ -4,8 +4,8 @@
  * agnostisch, geen lock-in op één LLM-provider), los van Claude Code / de
  * interactieve CLI. Bedoeld voor GitHub Actions cron.
  *
- * Vereist env var OPENROUTER_API_KEY. Optioneel: OPENROUTER_MODEL (default
- * hieronder) om zelf een model te kiezen, zie https://openrouter.ai/models.
+ * Vereist env var GEMINI_API_KEY. Optioneel: GEMINI_MODEL (default
+ * hieronder) om zelf een model te kiezen.
  * Schrijft uitsluitend de drie bestanden die CLAUDE.md voorschrijft
  * (artikelcomponent, blogPosts.ts-entry, App.tsx-route), runt daarna de build
  * ter verificatie. Commit/push gebeurt in de workflow, niet in dit script.
@@ -42,16 +42,15 @@ const REFERENCE_ARTICLES = [
   'LaadpaalAdviesArticle.tsx',
 ];
 
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-if (!OPENROUTER_API_KEY) {
-  console.error('MISLUKT — Reden: OPENROUTER_API_KEY ontbreekt als environment variable.');
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+if (!GEMINI_API_KEY) {
+  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
   process.exit(1);
 }
 
-// Kies zelf een model via de OPENROUTER_MODEL env var/secret, bv.
-// 'anthropic/claude-sonnet-4.5', 'openai/gpt-5', 'google/gemini-2.5-pro',
-// 'deepseek/deepseek-chat'. Volledige lijst: https://openrouter.ai/models
-const MODEL = process.env.OPENROUTER_MODEL || 'anthropic/claude-sonnet-5';
+// Kies zelf een model via de GEMINI_MODEL env var/secret, bv.
+// 'gemini-1.5-flash'.
+const MODEL = process.env.GEMINI_MODEL || 'gemini-1.5-pro';
 
 function todayISO() {
   return new Date().toISOString().slice(0, 10);
@@ -127,32 +126,25 @@ function rejectPlanItem(planItem, reason) {
   }
 }
 
-async function callOpenRouter(system, user) {
-  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+async function callGemini(system, user) {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      authorization: `Bearer ${OPENROUTER_API_KEY}`,
-      // Vereist door OpenRouter voor attributie/rankings, mag een placeholder zijn.
-      'HTTP-Referer': 'https://www.enercalculatie.nl',
-      'X-Title': 'EnerCalculatie kennisbank-generator',
     },
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 8192,
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user', content: user },
-      ],
+      contents: [{ role: 'user', parts: [{ text: user }] }],
+      systemInstruction: { role: 'system', parts: [{ text: system }] },
+      generationConfig: { maxOutputTokens: 8192 },
     }),
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`OpenRouter API-fout (${res.status}, model ${MODEL}): ${text}`);
+    throw new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
   }
   const data = await res.json();
-  const message = data.choices?.[0]?.message?.content;
-  if (!message) throw new Error(`Geen tekstantwoord ontvangen van OpenRouter (model ${MODEL}). API Response: ${JSON.stringify(data)}`);
+  const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}). API Response: ${JSON.stringify(data)}`);
   return message;
 }
 
@@ -193,7 +185,7 @@ async function main() {
     let result;
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
-        const raw = await callOpenRouter(systemPrompt, userPrompt);
+        const raw = await callGemini(systemPrompt, userPrompt);
         result = extractJson(raw);
         break;
       } catch (err) {
@@ -204,7 +196,7 @@ async function main() {
     return result;
   }
 
-  console.log(`Genereer artikel via OpenRouter (${MODEL})...`);
+  console.log(`Genereer artikel via Gemini (${MODEL})...`);
   let article = await generateWithRetries(system, user, "initiële generatie");
 
   if (existingSlugs.includes(article.slug)) {
@@ -233,7 +225,7 @@ async function main() {
   };
 
   console.log('SEO/GEO-controle...');
-  let validation = await validateArticle(article, { callOpenRouter, extractJson });
+  let validation = await validateArticle(article, { callGemini, extractJson });
   let issues = collectIssues(article);
   console.log(`SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}) | contentchecks: ${issues.length} bezwaar(en)`);
 
@@ -249,7 +241,7 @@ async function main() {
     const improvedArticle = await generateWithRetries(system, improveUser, `verbeterpoging ${poging}`);
     Object.assign(article, improvedArticle);
 
-    validation = await validateArticle(article, { callOpenRouter, extractJson });
+    validation = await validateArticle(article, { callGemini, extractJson });
     issues = collectIssues(article);
     console.log(`Na poging ${poging} — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 | contentchecks: ${issues.length} bezwaar(en)`);
     if (issues.length > 0) console.log(`Resterend:\n- ${issues.join('\n- ')}`);
