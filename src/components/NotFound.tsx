@@ -5,9 +5,12 @@ import { SEO } from './SEO';
 export function NotFound() {
   return (
     <>
-      <SEO 
+      {/* noindex: zonder dit erfde de 404 de homepage-canonical, wat de pagina
+          als duplicaat van de homepage aanbood in plaats van als foutpagina. */}
+      <SEO
         title="404 - Pagina niet gevonden - EnerCalculatie"
         description="De opgevraagde pagina kon helaas niet worden gevonden."
+        noindex
       />
       <div className="pt-24 md:pt-32 pb-16 md:pb-24 min-h-[70vh] flex items-center justify-center px-4">
         <div className="animate-fade-up text-center max-w-md">

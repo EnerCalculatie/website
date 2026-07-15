@@ -454,7 +454,7 @@ export const blogPosts: BlogPostMeta[] = [
   {
     slug: 'zonnepanelen-netcongestie-advies',
     readingTimeMinutes: 1,
-    title: 'Zonnepanelen en netcongestie:ptrdiff hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?',
+    title: 'Zonnepanelen en netcongestie: hoe adviseert u tegen wachtlijsten en capaciteitsgrenzen?',
     description:
       'Netcongestie beperkt de mogelijkheden voor zonnepanelen. Ontdek hoe u als installateur uw klanten effectief adviseert over capaciteitsbeperkingen.',
     date: '2026-07-13',

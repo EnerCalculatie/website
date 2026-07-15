@@ -8,6 +8,7 @@ import { routePreloads } from './routePreloads';
 // Geëxporteerd zodat scripts/prerender.mjs de blogdata uit dezelfde bron leest
 // als de app zelf (single source of truth voor routes, sitemap en agent-bestanden).
 export { blogPosts } from './content/blogPosts';
+export { staticRoutes, notFoundRoute } from './content/staticRoutes';
 
 // Lazy routemodules moeten geladen zijn vóór renderToString, anders rendert
 // React de Suspense-fallback in plaats van de pagina-inhoud. Eén keer laden

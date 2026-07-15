@@ -22,7 +22,7 @@ const distDir = path.join(root, 'dist');
 const SITE = 'https://www.enercalculatie.nl';
 
 // pathToFileURL: een kaal Windows-pad (c:\...) is geen geldige ESM-specifier
-const { render, blogPosts } = await import(
+const { render, blogPosts, staticRoutes, notFoundRoute } = await import(
   pathToFileURL(path.join(root, 'dist-ssr', 'entry-server.js')).href
 );
 
@@ -74,22 +74,9 @@ const beasties = new Beasties({
 });
 
 // ---------------------------------------------------------------------------
-// Routes: statische pagina's handmatig, blogroutes afgeleid uit blogPosts.ts.
+// Routes: statische routes uit staticRoutes.ts, blogroutes uit blogPosts.ts —
+// dezelfde bronnen die server.ts gebruikt om deze bestanden te serveren.
 // ---------------------------------------------------------------------------
-
-const staticRoutes = [
-  { url: '/', outFile: 'index.html', lastmod: '2026-06-20', changefreq: 'weekly', priority: '1.0' },
-  { url: '/privacy', outFile: 'privacy.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
-  { url: '/over-ons', outFile: 'over-ons.html', lastmod: '2026-07-06', changefreq: 'monthly', priority: '0.6' },
-  { url: '/nieuwsbrief-bevestigd', outFile: 'nieuwsbrief-bevestigd.html', sitemap: false },
-  { url: '/voorwaarden', outFile: 'voorwaarden.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
-  { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
-  { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
-  { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
-  { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
-  { url: '/rekentool-airco', outFile: 'rekentool-airco.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
-  { url: '/rekentool-laadpaal', outFile: 'rekentool-laadpaal.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
-];
 
 const newestPostDate = blogPosts.map((p) => p.updated ?? p.date).sort().at(-1);
 
@@ -113,7 +100,7 @@ const routes = [
   ...staticRoutes,
   blogListingRoute,
   ...blogRoutes,
-  { url: '/__not-found__', outFile: '404.html', sitemap: false },
+  notFoundRoute,
 ];
 
 // ---------------------------------------------------------------------------

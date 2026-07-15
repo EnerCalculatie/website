@@ -8,6 +8,7 @@ import newsletterRouter from './newsletter';
 import healthRouter from './health';
 import rssRouter from './rss';
 import { blogPosts } from './src/content/blogPosts';
+import { staticRoutes } from './src/content/staticRoutes';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -67,20 +68,14 @@ if (process.env.NODE_ENV === 'production') {
  
   // Elke bekende client-side route heeft een eigen voorgerenderde HTML
   // (met de juiste title/meta/canonical/schema al ingebakken — zie scripts/prerender.mjs).
-  // Blogroutes worden afgeleid uit blogPosts.ts, dezelfde bron als prerender en sitemap.
+  // Volledig afgeleid: statische routes uit staticRoutes.ts, blogroutes uit
+  // blogPosts.ts — dezelfde twee bronnen die prerender en sitemap gebruiken.
+  // Handmatig bijhouden liet /over-ons hier ontbreken, waardoor die pagina een
+  // 404 gaf terwijl hij wél in de sitemap en in elke footer stond.
   const prerenderedRoutes: Record<string, string> = {
-    '/': 'index.html',
-    '/privacy': 'privacy.html',
-    '/nieuwsbrief-bevestigd': 'nieuwsbrief-bevestigd.html',
-    '/voorwaarden': 'voorwaarden.html',
-    '/verwerkersovereenkomst': 'verwerkersovereenkomst.html',
+    ...Object.fromEntries(staticRoutes.map((r) => [r.url, r.outFile])),
     '/blog': 'blog.html',
     ...Object.fromEntries(blogPosts.map((p) => [`/blog/${p.slug}`, `blog-${p.slug}.html`])),
-    '/rekentool-zonnepanelen': 'rekentool-zonnepanelen.html',
-    '/rekentool-thuisbatterij': 'rekentool-thuisbatterij.html',
-    '/rekentool-warmtepomp': 'rekentool-warmtepomp.html',
-    '/rekentool-airco': 'rekentool-airco.html',
-    '/rekentool-laadpaal': 'rekentool-laadpaal.html',
   };
 
   // Permanente redirects van de oude /kennisbank-URL's naar /blog (URL-rename, behoud SEO-waarde).

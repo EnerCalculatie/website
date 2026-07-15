@@ -7,6 +7,8 @@ interface SEOProps {
   type?: string;
   name?: string;
   image?: string;
+  /** Zet noindex/nofollow én laat de canonical weg (404, foutpagina's). */
+  noindex?: boolean;
 }
 
 export function SEO({
@@ -15,10 +17,12 @@ export function SEO({
   canonical = 'https://www.enercalculatie.nl',
   type = 'website',
   name = 'EnerCalculatie',
-  image = '/og-image.png'
+  image = '/og-image.png',
+  noindex = false
 }: SEOProps) {
   const baseUrl = 'https://www.enercalculatie.nl';
   const imageUrl = `${baseUrl}${image}`;
+  const isHomepage = canonical === baseUrl;
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -47,6 +51,10 @@ export function SEO({
     }
   };
 
+  // De <title> draagt een merksuffix (' | EnerCalculatie' of ' - EnerCalculatie');
+  // in een breadcrumb hoort alleen de paginanaam, niet het merk erachteraan.
+  const breadcrumbName = title.replace(/\s*[|-]\s*EnerCalculatie\s*$/, '');
+
   const breadcrumbItems = [
     {
       "@type": "ListItem",
@@ -56,11 +64,11 @@ export function SEO({
     }
   ];
 
-  if (canonical !== "https://www.enercalculatie.nl") {
+  if (!isHomepage) {
     breadcrumbItems.push({
       "@type": "ListItem",
       "position": 2,
-      "name": title.split(' - ')[0],
+      "name": breadcrumbName,
       "item": canonical
     });
   }
@@ -76,6 +84,7 @@ export function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="msvalidate.01" content="B1FA6C373F293872B51C1B974F6F7700" />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
 
       {/* Open Graph / Facebook / LinkedIn */}
       <meta property="og:type" content={type} />
@@ -95,17 +104,24 @@ export function SEO({
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={`${name} logo`} />
       
-      <link rel="canonical" href={canonical} />
+      {!noindex && <link rel="canonical" href={canonical} />}
 
       <script type="application/ld+json">
         {JSON.stringify(orgSchema)}
       </script>
-      <script type="application/ld+json">
-        {JSON.stringify(softwareSchema)}
-      </script>
-      <script type="application/ld+json">
-        {JSON.stringify(breadcrumbSchema)}
-      </script>
+      {/* SoftwareApplication beschrijft het product, niet de pagina — hoort dus
+          alleen op de homepage. Stond eerder op élke URL, waardoor elk blogartikel
+          een SoftwareApplication-rich-result claimde dat niet bij de inhoud past. */}
+      {isHomepage && (
+        <script type="application/ld+json">
+          {JSON.stringify(softwareSchema)}
+        </script>
+      )}
+      {!noindex && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
     </Helmet>
   );
 }
