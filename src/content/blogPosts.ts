@@ -606,4 +606,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waar vind ik de actuele subsidievoorwaarden voor warmtepompen?', answer: 'De meest actuele voorwaarden, startbedragen en de officiële meldcodelijst voor de ISDE-subsidie worden gepubliceerd en beheerd door de Rijksdienst voor Ondernemend Nederland (rvo.nl).' },
     ],
   },
+  {
+    slug: 'seizoensvariabiliteit-zonnepanelen-rendement',
+    readingTimeMinutes: 7,
+    title: 'De impact van seizoensvariabiliteit op zonnepanelen rendement: hoe houdt u hier rekening mee in uw advies?',
+    seoTitle: 'Zonnepanelen rendement en seizoensinvloeden berekenen',
+    description:
+      'Hoe beïnvloedt seizoensvariabiliteit het zonnepanelen rendement? Praktische handvatten voor installateurs voor een realistisch opwekprofiel.',
+    date: '2026-07-16',
+    excerpt:
+      'Seizoensvariabiliteit heeft een enorme impact op de opbrengst van PV-systemen. Ontdek hoe u als installateur een realistisch zonnepanelen rendement berekent en adviseert.',
+    tags: ['Zonnepanelen', 'Rendement', 'Installatietechniek', 'Adviesvaardigheden'],
+    keyPoints: [
+      'Begrijp de verdeling van de jaarlijkse PV-opbrengst over de seizoenen in Nederland.',
+      'Leer hoe de temperatuurcoëfficiënt het zonnepanelen rendement op hete zomerdagen beïnvloedt.',
+      'Ontdek waarom de afbouw van de salderingsregeling dwingt tot sturen op uurprofielen.',
+      'Krijg concrete handvatten om seizoenspatronen transparant te presenteren aan uw klanten.',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Hoeveel procent van de jaaropbrengst wordt in de winter opgewekt?', answer: 'In de meteorologische winter (december, januari en februari) wekken zonnepanelen in Nederland gemiddeld slechts 8 tot 10 procent van hun totale jaarlijkse opbrengst op. De resterende 90 procent wordt verdeeld over de lente, zomer en herfst, waarbij de piek in mei en juni ligt.' },
+      { question: 'Waarom daalt het rendement van zonnepanelen als het erg warm is?', answer: 'Dit komt door de temperatuurcoëfficiënt van de zonnecellen. Naarmate de temperatuur van het paneel stijgt boven de standaard testconditie van 25 graden Celsius, daalt de spanning van de cellen. Dit leidt tot een vermogensverlies van gemiddeld 0,3 tot 0,4 procent per graad temperatuurstijging.' },
+      { question: 'Hoe beïnvloedt de afschaffing van de salderingsregeling het advies over seizoensvariabiliteit?', answer: 'Zolang de salderingsregeling actief is, mag winterverbruik worden weggestreept tegen zomeropwekking. Na de afschaffing vervalt dit voordeel. Het zonnepanelen rendement wordt dan sterk afhankelijk van directe zelfconsumptie en slimme opslag, omdat overtollige zomerstroom tegen lage tarieven wordt teruggeleverd.' },
+    ],
+  },
 ];

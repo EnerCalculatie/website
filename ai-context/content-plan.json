@@ -86,8 +86,11 @@
     "intent": "informatief",
     "priority": 6,
     "slug": "de-impact-van-seizoensvariabiliteit-op-zonnepanelenrendement-hoe-houdt-u-hier-rekening-mee-in-uw-advies",
-    "status": "planned",
-    "createdAt": "2026-07-11T10:15:43.114Z"
+    "status": "generated",
+    "createdAt": "2026-07-11T10:15:43.114Z",
+    "generatedSlug": "seizoensvariabiliteit-zonnepanelen-rendement",
+    "generatedAt": "2026-07-16T03:52:20.116Z",
+    "seoGeoScore": 95
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",

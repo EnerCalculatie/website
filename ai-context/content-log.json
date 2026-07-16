@@ -248,5 +248,15 @@
     "geoScore": 85,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-16",
+    "topic": "De impact van seizoensvariabiliteit op zonnepanelen rendement: hoe houdt u hier rekening mee in uw advies?",
+    "slug": "seizoensvariabiliteit-zonnepanelen-rendement",
+    "model": "gemini-flash-latest",
+    "seoScore": 98,
+    "geoScore": 92,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
