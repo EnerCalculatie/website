@@ -484,6 +484,7 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 2,
     title: 'Laadpalen voor elektrische auto\'s: een vergelijking van typen en merken',
     seoTitle: 'Laadpalen elektrische auto\'s vergelijking',
+    image: '/og-laadpalen.jpg',
     description:
       'Laadpalen voor elektrische auto\'s: ontdek de verschillen tussen typen en merken en kies de juiste laadpaal voor uw klant',
     date: '2026-07-15',
