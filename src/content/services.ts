@@ -64,7 +64,7 @@ export const services: ServiceMeta[] = [
     metaDescription:
       'Automatiseer de offerte voor zonnepanelen: aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening.',
     badge: 'Rekentool zonnepanelen',
-    headline: 'Offertes voor zonnepanelen, automatisch onderbouwd',
+    headline: 'Offerte zonnepanelen onderbouwd in 5 minuten, niet in een avond Excel',
     intro:
       'Van dakoriëntatie tot rendementsberekening: EnerCalculatie berekent het optimale aantal panelen, het piekvermogen (Wp) en de jaaropbrengst, en houdt daarbij rekening met het 0%-btw-tarief en de aankomende afschaffing van de salderingsregeling per 2027.',
     serviceType: 'Offerte- en adviessoftware voor zonnepanelen',
@@ -108,7 +108,7 @@ export const services: ServiceMeta[] = [
     metaDescription:
       'Dimensioneer thuisbatterijen op basis van het berekende opwekoverschot. Direct inzicht in de stijging van zelfconsumptie en de impact op terugleverkosten.',
     badge: 'Rekentool thuisbatterij',
-    headline: 'Thuisbatterij-advies onderbouwd met het werkelijke opwekprofiel',
+    headline: 'Thuisbatterij-advies op het werkelijke opwekprofiel, niet op een vuistregel',
     intro:
       'EnerCalculatie dimensioneert thuisbatterijen aan de hand van het berekende opwekoverschot van de zonnepanelen, en toont direct wat de stijging van de zelfconsumptie oplevert — inclusief de impact op terugleverkosten.',
     serviceType: 'Adviessoftware voor thuisbatterijen',
@@ -153,15 +153,15 @@ export const services: ServiceMeta[] = [
     metaDescription:
       'Bereken het rendement van een hybride of all-electric warmtepomp, inclusief de geldende ISDE-subsidie en de technische onderbouwing die de RVO vraagt.',
     badge: 'Rekentool warmtepomp',
-    headline: 'Warmtepomp-rendement en ISDE-onderbouwing in één rapport',
+    headline: 'Warmtepomp-dimensionering die klopt — geen terugkomst, geen ISDE-gedoe',
     intro:
-      'Ondersteun uw adviesgesprek met een hybride of all-electric warmtepompberekening. EnerCalculatie neemt de extra stroomvraag mee in het totale energieprofiel, en de geldende ISDE-subsidie in de netto investering.',
+      'Een verkeerd gedimensioneerde warmtepomp kost u een terugkomst en uw reputatie. EnerCalculatie neemt de extra stroomvraag mee in het totale energieprofiel — hybride of all-electric — en de geldende ISDE-subsidie in de netto investering.',
     serviceType: 'Adviessoftware voor warmtepompen en ISDE-onderbouwing',
     features: [
       {
-        title: 'Warmtepomp-configuratie',
+        title: 'Gevalideerde dimensionering',
         description:
-          'Ondersteun uw adviesgesprek met een hybride of all-electric warmtepompberekening. Het model neemt de extra stroomvraag direct mee in het totale energieprofiel, ter voorkoming van dubbeltellingen.',
+          'Warmtepompvermogen en energieprofiel kloppen altijd met elkaar — hybride of all-electric. Het model neemt de extra stroomvraag direct mee, ter voorkoming van dubbeltellingen en verkeerd gedimensioneerde installaties.',
       },
       {
         title: 'Subsidie (ISDE) inzicht',
@@ -198,7 +198,7 @@ export const services: ServiceMeta[] = [
     metaDescription:
       'Bereken het benodigde koelvermogen per ruimte en de impact op het totale energieprofiel van de woning. Onderdeel van het complete verduurzamingsadvies.',
     badge: 'Rekentool airco',
-    headline: 'Compleet klimaatadvies, inclusief energieprofiel',
+    headline: 'Airco-koelvermogen berekend, energieprofiel meteen kloppend',
     intro:
       'Bied een compleet klimaatadvies naast zonnepanelen, batterij en warmtepomp. EnerCalculatie berekent het benodigde koelvermogen per ruimte en voegt het extra stroomverbruik naadloos toe aan het totale energieprofiel.',
     serviceType: 'Adviessoftware voor airco-dimensionering',
@@ -242,7 +242,7 @@ export const services: ServiceMeta[] = [
     metaDescription:
       'Maak het laadprofiel van een laadpaal inzichtelijk en controleer direct de impact op de maximale capaciteit van de netaansluiting.',
     badge: 'Rekentool laadpaal',
-    headline: 'Laadpaal-advies met directe capaciteitscontrole',
+    headline: 'Laadpaal-advies met directe capaciteitscontrole — geen verrassing bij de netaansluiting',
     intro:
       'Integreer elektrisch rijden in het verduurzamingsadvies. EnerCalculatie maakt het specifieke laadprofiel inzichtelijk voor de klant en controleert direct de impact op de maximale capaciteit van de netaansluiting.',
     serviceType: 'Adviessoftware voor laadpalen (EV)',
