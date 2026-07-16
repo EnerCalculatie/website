@@ -1,15 +1,66 @@
 [
   {
-    "title": "Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel",
-    "keyword": "hybride warmtepomp business case",
+    "title": "Energieprofiel opstellen zonder handmatig typewerk: de voordelen van pdf-documentherkenning in uw offerteproces",
+    "keyword": "offerte software installatietechniek",
     "intent": "commercieel",
     "priority": 9,
-    "slug": "hoe-onderbouwt-u-de-business-case-voor-een-hybride-warmtepomp-bij-een-bestaande-gasketel",
-    "status": "generated",
-    "createdAt": "2026-07-15T16:51:08.181Z",
-    "generatedSlug": "hybride-warmtepomp-business-case",
-    "generatedAt": "2026-07-15T16:53:07.333Z",
-    "seoGeoScore": 85
+    "slug": "energieprofiel-opstellen-zonder-handmatig-typewerk-de-voordelen-van-pdf-documentherkenning-in-uw-offerteproces",
+    "status": "planned",
+    "createdAt": "2026-07-16T07:26:08.209Z"
+  },
+  {
+    "title": "Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave en de fiscale spelregels?",
+    "keyword": "btw op thuisbatterij",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "btw-op-thuisbatterijen-hoe-adviseert-u-uw-klant-over-btw-teruggave-en-de-fiscale-spelregels",
+    "status": "planned",
+    "createdAt": "2026-07-16T07:26:08.205Z"
+  },
+  {
+    "title": "SCOP-waarde van een warmtepomp: hoe vertaalt u dit naar een realistisch extra stroomverbruik?",
+    "keyword": "scop warmtepomp berekenen",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "scop-waarde-van-een-warmtepomp-hoe-vertaalt-u-dit-naar-een-realistisch-extra-stroomverbruik",
+    "status": "planned",
+    "createdAt": "2026-07-16T07:26:08.210Z"
+  },
+  {
+    "title": "Laadpaal installeren op een 3x25A netaansluiting: hoe adviseert u over gelijktijdigheid en overbelasting?",
+    "keyword": "laadpaal netaansluiting capaciteit",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "laadpaal-installeren-op-een-3x25a-netaansluiting-hoe-adviseert-u-over-gelijktijdigheid-en-overbelasting",
+    "status": "planned",
+    "createdAt": "2026-07-16T07:26:08.212Z"
+  },
+  {
+    "title": "Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?",
+    "keyword": "airco als verwarming berekenen",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "airco-als-verwarming-hoe-berekent-u-de-gasbesparing-en-het-extra-stroomverbruik-voor-uw-klant",
+    "status": "planned",
+    "createdAt": "2026-07-16T07:26:08.207Z"
+  },
+  {
+    "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
+    "keyword": "geïntegreerd energiesysteem",
+    "intent": "informatief",
+    "priority": 6,
+    "slug": "de-voordelen-van-een-geintegreerd-energiesysteem-voor-woningen-zonnepanelen-warmtepompen-en-thuisbatterijen",
+    "status": "planned",
+    "createdAt": "2026-07-14T07:12:51.490Z"
+  },
+  {
+    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
+    "keyword": "zonnepanelen flats",
+    "intent": "commercieel",
+    "priority": 6,
+    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
+    "status": "planned",
+    "createdAt": "2026-07-15T16:51:08.182Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -33,84 +84,6 @@
     "lastRejectedAt": "2026-07-15T19:29:42.987Z"
   },
   {
-    "title": "Hoe helpt u uw klanten het beste tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij?",
-    "keyword": "stroomstoring zonnepanelen thuisbatterij",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "hoe-helpt-u-uw-klanten-het-beste-tijdens-een-stroomstoring-met-combinatie-zonnepanelen-thuisbatterij",
-    "status": "generated",
-    "createdAt": "2026-07-15T16:51:08.183Z",
-    "retryCount": 0,
-    "generatedSlug": "stroomstoring-zonnepanelen-thuisbatterij",
-    "generatedAt": "2026-07-15T18:34:45.341Z",
-    "seoGeoScore": 90
-  },
-  {
-    "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
-    "keyword": "hybride warmtepomp dimensionering",
-    "intent": "commercieel",
-    "priority": 6,
-    "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
-    "status": "generated",
-    "createdAt": "2026-07-11T09:10:47.494Z",
-    "rejectedAt": "2026-07-11T09:27:10.585Z",
-    "retryCount": 1,
-    "lastScore": 78,
-    "lastImprovements": [
-      "Verwijder de letterlijke meta-tekst 'E-E-A-T signaal:' uit de H2-kop ('E-E-A-T signaal: Dimensioneren volgens ISSO 51 en ISSO 72'). Dit is een prompt-artefact dat onprofessioneel overkomt en de zoekintentie verstoort.",
-      "De SEO-titel is met 82 tekens aan de lange kant en kan in zoekresultaten worden afgebroken. Kort deze in naar maximaal ~60-65 tekens (bijv. 'Hybride warmtepomp dimensioneren: Gasketel of all-electric?').",
-      "Verwijder absolute claims: verander 'bepaalt u exact hoeveel kilowatt' naar 'bepaalt u uiterst nauwkeurig hoeveel kilowatt' en 'dat exact laat zien' naar 'dat duidelijk inzichtelijk maakt'. In de techniek is 'exact' of een 0% foutmarge een gevaarlijke claim.",
-      "Voeg een overzichtelijke HTML-tabel toe (bijv. Hybride vs. All-electric met criteria als vereist energielabel, afgiftesysteem en tapwatervraag). Dit structureert de data beter en verhoogt de GEO-waarde aanzienlijk voor AI-citaties."
-    ],
-    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 80, GEO 75)",
-    "lastRejectedAt": "2026-07-15T19:09:08.582Z",
-    "generatedSlug": "hybride-warmtepomp-dimensionering-gasketel",
-    "generatedAt": "2026-07-15T19:32:11.444Z",
-    "seoGeoScore": 91
-  },
-  {
-    "title": "De rol van energieopslag in de toekomst van verduurzaming: ontwikkelingen en trends",
-    "keyword": "energieopslag toekomst",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "de-rol-van-energieopslag-in-de-toekomst-van-verduurzaming-ontwikkelingen-en-trends",
-    "status": "generated",
-    "createdAt": "2026-07-15T16:51:08.181Z",
-    "generatedSlug": "energieopslag-toekomst-trends-installateurs",
-    "generatedAt": "2026-07-15T19:24:23.124Z",
-    "seoGeoScore": 90
-  },
-  {
-    "title": "De impact van seizoensvariabiliteit op zonnepanelenrendement: hoe houdt u hier rekening mee in uw advies?",
-    "keyword": "zonnepanelen rendement",
-    "intent": "informatief",
-    "priority": 6,
-    "slug": "de-impact-van-seizoensvariabiliteit-op-zonnepanelenrendement-hoe-houdt-u-hier-rekening-mee-in-uw-advies",
-    "status": "generated",
-    "createdAt": "2026-07-11T10:15:43.114Z",
-    "generatedSlug": "seizoensvariabiliteit-zonnepanelen-rendement",
-    "generatedAt": "2026-07-16T03:52:20.116Z",
-    "seoGeoScore": 95
-  },
-  {
-    "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
-    "keyword": "geïntegreerd energiesysteem",
-    "intent": "informatief",
-    "priority": 6,
-    "slug": "de-voordelen-van-een-geintegreerd-energiesysteem-voor-woningen-zonnepanelen-warmtepompen-en-thuisbatterijen",
-    "status": "planned",
-    "createdAt": "2026-07-14T07:12:51.490Z"
-  },
-  {
-    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
-    "keyword": "zonnepanelen flats",
-    "intent": "commercieel",
-    "priority": 6,
-    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
-    "status": "planned",
-    "createdAt": "2026-07-15T16:51:08.182Z"
-  },
-  {
     "title": "De rol van een energieadviseur bij het verbeteren van het energielabel van een woning",
     "keyword": "energieadviseur",
     "intent": "informatief",
@@ -118,6 +91,18 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel",
+    "keyword": "hybride warmtepomp business case",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "hoe-onderbouwt-u-de-business-case-voor-een-hybride-warmtepomp-bij-een-bestaande-gasketel",
+    "status": "generated",
+    "createdAt": "2026-07-15T16:51:08.181Z",
+    "generatedSlug": "hybride-warmtepomp-business-case",
+    "generatedAt": "2026-07-15T16:53:07.333Z",
+    "seoGeoScore": 85
   },
   {
     "title": "Hoe kiest u de juiste thuisbatterij voor uw klant: een vergelijking van verschillende typen en merken",
@@ -236,6 +221,31 @@
     "abandonedAt": "2026-07-15T16:38:54.556Z"
   },
   {
+    "title": "Hoe helpt u uw klanten het beste tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij?",
+    "keyword": "stroomstoring zonnepanelen thuisbatterij",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "hoe-helpt-u-uw-klanten-het-beste-tijdens-een-stroomstoring-met-combinatie-zonnepanelen-thuisbatterij",
+    "status": "generated",
+    "createdAt": "2026-07-15T16:51:08.183Z",
+    "retryCount": 0,
+    "generatedSlug": "stroomstoring-zonnepanelen-thuisbatterij",
+    "generatedAt": "2026-07-15T18:34:45.341Z",
+    "seoGeoScore": 90
+  },
+  {
+    "title": "De rol van energieopslag in de toekomst van verduurzaming: ontwikkelingen en trends",
+    "keyword": "energieopslag toekomst",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "de-rol-van-energieopslag-in-de-toekomst-van-verduurzaming-ontwikkelingen-en-trends",
+    "status": "generated",
+    "createdAt": "2026-07-15T16:51:08.181Z",
+    "generatedSlug": "energieopslag-toekomst-trends-installateurs",
+    "generatedAt": "2026-07-15T19:24:23.124Z",
+    "seoGeoScore": 90
+  },
+  {
     "title": "Laadpalen voor elektrische auto's: wat zijn de verschillen tussen verschillende typen en merken?",
     "keyword": "laadpalen",
     "intent": "commercieel",
@@ -281,5 +291,40 @@
     "generatedSlug": "rendementsverlies-schaduw-vervuiling-zonnepanelen",
     "generatedAt": "2026-07-11T09:29:12.367Z",
     "seoGeoScore": 84
+  },
+  {
+    "title": "Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?",
+    "keyword": "hybride warmtepomp dimensionering",
+    "intent": "commercieel",
+    "priority": 6,
+    "slug": "hybride-warmtepomp-dimensioneren-gasketel-behouden-of-volledig-elektrisch-gaan",
+    "status": "generated",
+    "createdAt": "2026-07-11T09:10:47.494Z",
+    "rejectedAt": "2026-07-11T09:27:10.585Z",
+    "retryCount": 1,
+    "lastScore": 78,
+    "lastImprovements": [
+      "Verwijder de letterlijke meta-tekst 'E-E-A-T signaal:' uit de H2-kop ('E-E-A-T signaal: Dimensioneren volgens ISSO 51 en ISSO 72'). Dit is een prompt-artefact dat onprofessioneel overkomt en de zoekintentie verstoort.",
+      "De SEO-titel is met 82 tekens aan de lange kant en kan in zoekresultaten worden afgebroken. Kort deze in naar maximaal ~60-65 tekens (bijv. 'Hybride warmtepomp dimensioneren: Gasketel of all-electric?').",
+      "Verwijder absolute claims: verander 'bepaalt u exact hoeveel kilowatt' naar 'bepaalt u uiterst nauwkeurig hoeveel kilowatt' en 'dat exact laat zien' naar 'dat duidelijk inzichtelijk maakt'. In de techniek is 'exact' of een 0% foutmarge een gevaarlijke claim.",
+      "Voeg een overzichtelijke HTML-tabel toe (bijv. Hybride vs. All-electric met criteria als vereist energielabel, afgiftesysteem en tapwatervraag). Dit structureert de data beter en verhoogt de GEO-waarde aanzienlijk voor AI-citaties."
+    ],
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 80, GEO 75)",
+    "lastRejectedAt": "2026-07-15T19:09:08.582Z",
+    "generatedSlug": "hybride-warmtepomp-dimensionering-gasketel",
+    "generatedAt": "2026-07-15T19:32:11.444Z",
+    "seoGeoScore": 91
+  },
+  {
+    "title": "De impact van seizoensvariabiliteit op zonnepanelenrendement: hoe houdt u hier rekening mee in uw advies?",
+    "keyword": "zonnepanelen rendement",
+    "intent": "informatief",
+    "priority": 6,
+    "slug": "de-impact-van-seizoensvariabiliteit-op-zonnepanelenrendement-hoe-houdt-u-hier-rekening-mee-in-uw-advies",
+    "status": "generated",
+    "createdAt": "2026-07-11T10:15:43.114Z",
+    "generatedSlug": "seizoensvariabiliteit-zonnepanelen-rendement",
+    "generatedAt": "2026-07-16T03:52:20.116Z",
+    "seoGeoScore": 95
   }
 ]
