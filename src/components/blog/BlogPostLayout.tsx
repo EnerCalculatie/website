@@ -55,6 +55,7 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
         description={post.description}
         canonical={articleUrl}
         type="article"
+        image={post.image}
       />
       {/* BlogPosting-schema (JSON-LD) centraal uit blogSchema.ts — auteur = Person
           voor E-E-A-T. Elk artikel erft dit automatisch; geen inline schema meer. */}
