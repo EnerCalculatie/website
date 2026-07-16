@@ -9,6 +9,11 @@ const router = Router();
 router.post('/lead-magnet', async (req, res) => {
   const { email, company } = req.body || {};
 
+  if (!process.env.RESEND_API_KEY) {
+    console.error('CRITICAL: Kan geen lead magnet versturen. RESEND_API_KEY ontbreekt in de environment variables.');
+    return res.status(500).json({ error: 'Server configuratiefout: e-mailverzending is tijdelijk niet beschikbaar.' });
+  }
+
   // Honeypot check: als het verborgen 'company'-veld is ingevuld, is het waarschijnlijk een bot.
   if (company) {
     return res.status(200).json({ message: 'Aanmelding succesvol verwerkt.' });

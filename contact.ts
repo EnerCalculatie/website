@@ -11,6 +11,11 @@ router.post('/contact', async (req, res) => {
   // Fallback naar een leeg object voor het geval req.body niet goed geparsed wordt
   const { firstName, lastName, email, company, message, subject } = req.body || {};
 
+  if (!process.env.RESEND_API_KEY) {
+    console.error('CRITICAL: Kan geen contactaanvraag verzenden. RESEND_API_KEY ontbreekt in de environment variables.');
+    return res.status(500).json({ error: 'Server configuratiefout: e-mailverzending is tijdelijk niet beschikbaar.' });
+  }
+
   // Honeypot check: if the hidden 'subject' field is filled, it's likely a bot.
   if (subject) {
     // Silently succeed to trick the bot.
