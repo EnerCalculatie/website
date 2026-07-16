@@ -612,6 +612,7 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 6,
     title: 'Hybride warmtepomp dimensioneren: gasketel behouden of volledig elektrisch gaan?',
     seoTitle: 'Hybride warmtepomp dimensionering: gids voor installateurs',
+    image: '/og-warmtepomp.jpg',
     description:
       'Hoe pakt u hybride warmtepomp dimensionering aan? Ontdek de afweging tussen een bivalente opstelling en all-electric voor uw klanten.',
     date: '2026-07-15',
@@ -637,6 +638,7 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 7,
     title: 'De impact van seizoensvariabiliteit op zonnepanelen rendement: hoe houdt u hier rekening mee in uw advies?',
     seoTitle: 'Zonnepanelen rendement en seizoensinvloeden berekenen',
+    image: '/og-zonnepanelen.jpg',
     description:
       'Hoe beïnvloedt seizoensvariabiliteit het zonnepanelen rendement? Praktische handvatten voor installateurs voor een realistisch opwekprofiel.',
     date: '2026-07-16',
