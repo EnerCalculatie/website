@@ -19,6 +19,7 @@ export function Contact() {
   useEffect(() => {
     try {
       const savedData = sessionStorage.getItem('contactFormData');
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (savedData) setFormData(JSON.parse(savedData));
     } catch (_error) {
       // Corrupte JSON: start met een leeg formulier.

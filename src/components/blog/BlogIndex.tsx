@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { ArrowRight, Clock, Plus, Search, TrendingUp, X } from 'lucide-react';
 import { SEO } from '../SEO';
 import { LeadMagnet } from '../LeadMagnet';
@@ -77,9 +77,6 @@ export function BlogIndex() {
   const q = query.trim().toLowerCase();
   const isFiltering = q !== '' || activeTag !== ALL || activeCategory !== ALL;
 
-  // Reset de 'toon meer'-teller bij het wisselen van filter of zoekterm.
-  useEffect(() => setShown(PAGE_SIZE), [activeTag, activeCategory, q]);
-
   const visiblePosts = sortedPosts.filter((p) => {
     const matchTag = activeTag === ALL || p.tags.includes(activeTag);
     const matchCategory = activeCategory === ALL || p.category === activeCategory;
@@ -124,7 +121,7 @@ export function BlogIndex() {
             <input
               type="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => { setQuery(e.target.value); setShown(PAGE_SIZE); }}
               placeholder="Zoek in artikelen…"
               aria-label="Zoek in artikelen"
               className="w-full h-14 pl-12 pr-12 rounded-2xl bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-colors"
@@ -132,7 +129,7 @@ export function BlogIndex() {
             {query && (
               <button
                 type="button"
-                onClick={() => setQuery('')}
+                onClick={() => { setQuery(''); setShown(PAGE_SIZE); }}
                 aria-label="Zoekopdracht wissen"
                 className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-slate-700 transition-colors cursor-pointer"
               >
@@ -150,7 +147,7 @@ export function BlogIndex() {
                 <button
                   key={tag}
                   type="button"
-                  onClick={() => setActiveTag(tag)}
+                  onClick={() => { setActiveTag(tag); setShown(PAGE_SIZE); }}
                   aria-pressed={active}
                   className={`px-4 py-2.5 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
                     active
@@ -175,7 +172,7 @@ export function BlogIndex() {
                   <button
                     key={cat}
                     type="button"
-                    onClick={() => setActiveCategory(cat)}
+                    onClick={() => { setActiveCategory(cat); setShown(PAGE_SIZE); }}
                     aria-pressed={active}
                     className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors cursor-pointer border ${
                       active

@@ -16,9 +16,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-// Railway zet zelf de X-Forwarded-For header (1 proxy-hop); vertrouw alleen die laag,
-// anders kan express-rate-limit niet betrouwbaar het echte client-IP bepalen.
-app.set('trust proxy', 1);
+// Omdat Cloudflare wordt gebruikt, zijn er twee proxy-lagen (Cloudflare -> Railway -> Express).
+// We moeten 'trust proxy' op 2 zetten, anders worden alle bezoekers als 1 IP gezien (Cloudflare-server),
+// wat leidt tot een globale rate-limit voor álle gebruikers.
+app.set('trust proxy', 2);
 app.use(express.json());
 
 // Begrens formulier-inzendingen tegen spam/misbruik (contact, lead-magnet en nieuwsbrief delen dit quotum).

@@ -9,6 +9,7 @@ export function CookieBanner() {
   // geprerenderde DOM weg om client-side opnieuw te renderen.
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!localStorage.getItem('cookie-consent')) setIsVisible(true);
   }, []);
   const [showDetails, setShowDetails] = useState(false);
