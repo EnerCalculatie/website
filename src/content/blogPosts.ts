@@ -47,7 +47,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 2,
     title: 'Salderingsregeling 2027: wat verandert er voor uw klanten met zonnepanelen?',
     seoTitle: 'Salderingsregeling 2027: wat verandert er voor uw klant?',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'De salderingsregeling wordt per 1 januari 2027 in één keer afgeschaft. Lees wat dit betekent voor uw terugverdientijd-berekening en adviesgesprek.',
     date: '2026-06-20',
     updated: '2026-07-06',
@@ -67,7 +68,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 3,
     title: '0% btw op zonnepanelen: wanneer geldt het nultarief, en wat moet er in de offerte staan?',
     seoTitle: '0% btw op zonnepanelen: wanneer geldt het nultarief?',
-    description:
+    image: '/og-zonnepanelen.jpg',
+  description:
       'Sinds 1 januari 2023 geldt 0% btw op zonnepanelen op woningen. Lees wanneer het nultarief geldt, wat erbuiten valt en hoe u dit in de offerte verwerkt.',
     date: '2026-06-20',
     updated: '2026-07-11',
@@ -86,7 +88,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 4,
     title: 'Terugleverkosten: hoe rekent u ze door, en hoe compenseert een thuisbatterij dit voor uw klant?',
     seoTitle: 'Terugleverkosten doorrekenen: wat doet een thuisbatterij?',
-    description:
+    image: '/og-thuisbatterij.jpg',
+  description:
       'Energieleveranciers rekenen terugleverkosten door. Lees hoe die worden berekend, wat de ACM hierover vaststelde, en hoe een thuisbatterij ze verlaagt.',
     date: '2026-06-22',
     updated: '2026-07-06',
@@ -105,7 +108,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 2,
     title: 'ISDE-subsidie voor warmtepompen: welke onderbouwing heeft de RVO nodig?',
     seoTitle: 'ISDE-subsidie warmtepomp: wat de RVO moet zien',
-    description:
+    image: '/og-warmtepomp.jpg',
+  description:
       'De RVO beoordeelt ISDE-aanvragen op technische onderbouwing en meldcodes. Lees wat uw adviesrapport moet bevatten en waar de grens ligt.',
     date: '2026-06-22',
     updated: '2026-07-06',
@@ -125,7 +129,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 2,
     title: 'Warmtepomp-rendement: de Nederlandse standaardaannames die uw berekening onderbouwen',
     seoTitle: 'Warmtepomp-rendement: de standaardaannames op een rij',
-    description:
+    image: '/og-warmtepomp.jpg',
+  description:
       'Een warmtepomp-besparing rust op drie vaste aannames: gasverbruik, ketelrendement en warmwater. Lees welke dat zijn en wat een hybride systeem verandert.',
     date: '2026-06-24',
     excerpt:
@@ -143,7 +148,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 2,
     title: 'Van Excel naar geautomatiseerd advies: wat verandert er in uw werkdag?',
     seoTitle: 'Van Excel naar geautomatiseerd verduurzamingsadvies',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Een eigen Excel-rekenmodel werkt — tot een tarief wijzigt of een collega het overneemt. Lees wat een geautomatiseerd adviestraject verandert.',
     date: '2026-06-26',
     updated: '2026-07-11',
@@ -162,7 +168,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 3,
     title: 'Laadpaal-advies: welke factoren bepalen de juiste configuratie voor uw klant?',
     seoTitle: 'Laadpaal-advies: welke configuratie past bij uw klant?',
-    description:
+    image: '/og-laadpalen.jpg',
+  description:
       'Laadvermogen, load balancing en de groepenkast bepalen welke laadpaal past. Lees hoe u dit technisch onderbouwt én uitlegt aan uw klant.',
     date: '2026-06-29',
     updated: '2026-07-11',
@@ -181,7 +188,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 4,
     title: 'Airco of (hybride) warmtepomp: wanneer is welke keuze de juiste verkoopargumentatie?',
     seoTitle: 'Airco of warmtepomp: wanneer kiest u wat?',
-    description:
+    image: '/og-airco.jpg',
+  description:
       'Airco, hybride of volledig elektrische warmtepomp? Lees hoe de bouwkundige situatie en de SCOP-norm bepalen welke keuze u onderbouwt.',
     date: '2026-07-01',
     updated: '2026-07-11',
@@ -200,7 +208,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Verduurzamingsmarkt 2026: trends in subsidies, regelgeving en marktvraag voor installateurs',
     seoTitle: 'Verduurzamingsmarkt 2026: trends voor installateurs',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'ISDE-bedragen, groei van thuisbatterijen, netcongestie-prioritering en het einde van de saldering. Lees wat 2026 verandert aan uw adviesgesprek.',
     date: '2026-07-03',
     updated: '2026-07-06',
@@ -219,7 +228,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Thuisbatterij dimensioneren: hoe bepaalt u de juiste capaciteit voor uw klant?',
     seoTitle: 'Thuisbatterij dimensioneren: de juiste capaciteit',
-    description:
+    image: '/og-thuisbatterij.jpg',
+  description:
       'De juiste capaciteit hangt af van zelfconsumptie, productie en het doel van uw klant. Lees welke vuistregels gelden en wat kWh van kW onderscheidt.',
     date: '2026-07-06',
     excerpt:
@@ -238,7 +248,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 4,
     title: 'Dakoriëntatie en hellingshoek: hoeveel opbrengst verliest uw klant bij een niet-ideaal dak?',
     seoTitle: 'Dakoriëntatie zonnepanelen: hoeveel opbrengst verliest u?',
-    description:
+    image: '/og-zonnepanelen.jpg',
+  description:
       'Een zuidgericht dak met 35° helling levert het meeste op, maar de meeste daken wijken af. Lees hoeveel opbrengst oost, west of noord kost.',
     date: '2026-07-06',
     excerpt:
@@ -257,7 +268,8 @@ export const blogPosts: BlogPostMeta[] = [
     title:
       'Netcongestie 2026: wat betekent de wachtlijst voor kleinverbruikers vanaf 1 juli voor uw zakelijke klant?',
     seoTitle: 'Netcongestie 2026: wachtlijst voor kleinverbruikers',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Vanaf 1 juli 2026 komen ook kleinverbruikers op de netcongestie-wachtlijst. Lees wat dit betekent voor uw zakelijke aansluitadvies.',
     date: '2026-07-06',
     excerpt:
@@ -275,7 +287,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Thuisbatterij, verzekering en het energielabel: welke eisen gelden er per 29 mei 2026?',
     seoTitle: 'Thuisbatterij: verzekeringseisen en energielabel 2026',
-    description:
+    image: '/og-thuisbatterij.jpg',
+  description:
       'Verzekeraars stellen strengere eisen, en per 29 mei 2026 telt een thuisbatterij mee voor het energielabel. Lees welke eisen er gelden.',
     date: '2026-07-07',
     excerpt:
@@ -293,7 +306,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Energie-investeringsaftrek (EIA) 2026: hoe onderbouwt u dit fiscale voordeel bij een zakelijke klant?',
     seoTitle: 'Energie-investeringsaftrek (EIA) 2026 voor uw klant',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Bij zakelijke klanten telt niet de ISDE maar de EIA: 40% extra aftrekbaar in 2026. Lees wat de Energielijst eist en hoe u dit onderbouwt.',
     date: '2026-07-08',
     excerpt:
@@ -311,7 +325,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Bidirectioneel laden: wat betekent V2G/V2H voor uw laadpaal-advies in 2026?',
     seoTitle: 'Bidirectioneel laden: V2G en V2H in uw laadpaal-advies',
-    description:
+    image: '/og-laadpalen.jpg',
+  description:
       'Renault is de eerste fabrikant met een opschaalbare V2G-dienst in Nederland. Lees het verschil tussen V2H en V2G, en welke regelingen gelden.',
     date: '2026-07-10',
     excerpt:
@@ -329,7 +344,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 4,
     title: 'Energiemanagementsysteem en P1-poort: hoe stuurt u batterij, laadpaal en warmtepomp slim aan?',
     seoTitle: 'Energiemanagementsysteem en P1-poort: slim aansturen',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Een EMS leest via de P1-poort het actuele vermogen en stemt batterij, laadpaal en warmtepomp op elkaar af. Lees wat dit betekent voor uw ontwerp.',
     date: '2026-07-10',
     excerpt:
@@ -347,7 +363,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Energielabel C-plicht 2030: wat betekent dit voor uw verduurzamingsadvies aan particuliere verhuurders?',
     seoTitle: 'Energielabel C-plicht 2030 voor particuliere verhuur',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Per 2030 moeten huurwoningen minimaal energielabel C hebben. Ontdek welke maatregelen nodig zijn en hoe u verhuurders hierin adviseert.',
     date: '2026-07-10',
     excerpt:
@@ -365,7 +382,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 3,
     title: 'Netontwikkelingsbijdrage zonnepanelen: hoe rekent u deze correct door in uw advies?',
     seoTitle: 'Netontwikkelingsbijdrage zonnepanelen doorrekenen',
-    description:
+    image: '/og-zonnepanelen.jpg',
+  description:
       'Lees hoe u de netontwikkelingsbijdrage verwerkt in uw zonnepaneeladvies: transparant doorrekenen en de impact op de terugverdientijd bepalen.',
     date: '2026-07-10',
     excerpt:
@@ -383,7 +401,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 5,
     title: 'Rendementsverlies door schaduw en vervuiling: meten, berekenen en compenseren',
     seoTitle: 'Rendementsverlies zonnepanelen: schaduw en vervuiling',
-    description:
+    image: '/og-zonnepanelen.jpg',
+  description:
       'Hoe schaduw en vervuiling uw zonnepaneel-berekening beïnvloeden. Lees hoe u dit professioneel meet, in kaart brengt en in uw offerte verwerkt.',
     date: '2026-07-11',
     excerpt:
@@ -409,7 +428,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 1,
     title: 'Verduurzamingspakket samenstellen met beperkt budget',
     seoTitle: 'Verduurzamingspakket samenstellen met beperkt budget',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Een praktische gids voor installateurs om een verduurzamingspakket samen te stellen voor klanten met een beperkt budget',
     date: '2026-07-11',
     excerpt:
@@ -434,7 +454,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 1,
     title: 'Verduurzaming kosten baten analyse: wanneer loont een verduurzamingspakket écht voor uw klant?',
     seoTitle: 'Verduurzaming: kosten-batenanalyse voor uw klant',
-    description:
+    image: '/og-verduurzaming.jpg',
+  description:
       'Ontdek wanneer een verduurzamingspakket echt loont voor uw klant. Lees onze expertise over verduurzaming, warmtepompen, zonnepanelen en thuisbatterijen.',
     date: '2026-07-13',
     excerpt:
@@ -459,7 +480,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 1,
     title: 'Thuisbatterij en netaansluiting: wanneer vereist het batterijbeheer aanpassingen aan uw offerte?',
     seoTitle: 'Thuisbatterij en netaansluiting: wat uw offerte raakt',
-    description:
+    image: '/og-thuisbatterij.jpg',
+  description:
       'Lees hoe een thuisbatterij uw netaansluiting beïnvloedt en wanneer batterijbeheer aanpassingen in uw offerte vereist.',
     date: '2026-07-14',
     excerpt:
@@ -511,7 +533,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 1,
     title: 'Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel',
     seoTitle: 'hybride warmtepomp business case',
-    description:
+    image: '/og-warmtepomp.jpg',
+  description:
       'Ontdek hoe u de business case voor een hybride warmtepomp onderbouwt bij een bestaande gasketel',
     date: '2026-07-15',
     excerpt:
@@ -537,7 +560,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 4,
     title: 'Stroomstoring en zonnepanelen: hoe een thuisbatterij uw klant helpt',
     seoTitle: 'Stroomstoring overbruggen met zonnepanelen en thuisbatterij',
-    description:
+    image: '/og-thuisbatterij.jpg',
+  description:
       'Wat gebeurt er met zonnepanelen tijdens een stroomstoring? Ontdek hoe u met een thuisbatterij en back-upfunctie uw klant voorziet van noodstroom.',
     date: '2026-07-15',
     excerpt:
@@ -563,7 +587,8 @@ export const blogPosts: BlogPostMeta[] = [
     readingTimeMinutes: 7,
     title: 'Energieopslag in de toekomst: trends en kansen voor de installateur',
     seoTitle: 'Energieopslag toekomst: trends voor de installatiebranche',
-    description:
+    image: '/og-thuisbatterij.jpg',
+  description:
       'Wat brengt de toekomst van energieopslag? Ontdek de belangrijkste trends, technologische ontwikkelingen en kansen voor Nederlandse installateurs.',
     date: '2026-07-15',
     excerpt:
