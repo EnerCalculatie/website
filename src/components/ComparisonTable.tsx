@@ -19,7 +19,7 @@ export function ComparisonTable() {
       label: 'Berekeningen',
       excel: 'Handmatig, foutgevoelig',
       advisor: 'Correct, maar niet transparant',
-      ener: 'Deterministisch & gevalideerd',
+      ener: 'Elke keer dezelfde kloppende uitkomst',
     },
     {
       label: 'Actuele salderingsregels',

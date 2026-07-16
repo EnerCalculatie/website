@@ -184,7 +184,9 @@ export function Pricing() {
                 </a>
                 <div className="mt-4 text-center">
                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-                    Maandelijks opzegbaar · Geen verborgen kosten
+                    {tier.name === 'Compleet'
+                      ? 'Complete pakket · eerst persoonlijk gesprek'
+                      : 'Maandelijks opzegbaar · Geen verborgen kosten'}
                   </p>
                 </div>
               </div>

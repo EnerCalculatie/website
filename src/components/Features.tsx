@@ -29,7 +29,7 @@ export function Features() {
             Belangrijkste functionaliteiten
           </span>
           <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Alles wat u nodig heeft voor een onweerlegbaar adviesgesprek
+            Alles wat u nodig heeft om de deal aan de keukentafel te sluiten
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Eén verduurzamingssoftware die offertesoftware, calculatiesoftware en configuratortool voor zonnepanelen combineert. Gebouwd op praktijkervaring in de installatietechniek — niet door marketeers, maar door iemand die weet hoe een schouw eruitziet.

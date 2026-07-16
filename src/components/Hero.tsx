@@ -23,17 +23,26 @@ export function Hero() {
 
           {/* Hoofdtitel (Story LP.1) */}
           <h1 className="animate-fade-up anim-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8 break-words">
-            De slimste rekenhulp voor de <span className="text-brand-primary">verduurzamingsinstallateur.</span>{' '}
+            Van energierekening naar ondertekende offerte <span className="text-brand-primary">in 5 minuten.</span>{' '}
             <br className="hidden md:block" />
             <span className="text-slate-500">U voert het gesprek, wij doen het rekenwerk.</span>
           </h1>
 
           {/* Doelgroep + resultaat */}
           <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
-            Dé offerte- en calculatiesoftware voor zzp'ers en kleine en middelgrote installatiebedrijven, actief in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
-            Van energierekening tot onderbouwd verduurzamingsadvies — geen Excel, geen typfouten, geen gemiste wetgeving.
-            Alleen een rapport waar uw klant met een gerust hart ja tegen zegt.
+            Offerte- en calculatiesoftware voor zzp'ers en kleine en middelgrote installatiebedrijven, actief in zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen.
+            Upload de energierekening, wij rekenen — met actuele salderingsregels, zonder typfouten.
+            U levert een rapport waar uw klant aan de keukentafel ja tegen zegt.
           </p>
+
+          {/* Bewijslast direct onder de belofte */}
+          <div className="animate-fade-up anim-delay-300 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-2 text-sm font-semibold text-slate-500">
+            <span>&lt; 5 min per dossier</span>
+            <span className="text-slate-300">·</span>
+            <span>Actuele saldering automatisch verwerkt</span>
+            <span className="text-slate-300">·</span>
+            <span>AVG-proof, Nederlandse servers</span>
+          </div>
 
           {/* Call to Actions (Story LP.3 & LP.5) */}
           <div className="animate-fade-up anim-delay-300 flex flex-col items-center justify-center mb-12">

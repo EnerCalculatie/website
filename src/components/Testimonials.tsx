@@ -29,7 +29,7 @@ export function Testimonials() {
             href="#contact"
             className="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-[#008f5a] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg relative z-10 group"
           >
-            Meld u aan als Early Adopter
+            Vraag early adopter-voorwaarden op
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </motion.div>

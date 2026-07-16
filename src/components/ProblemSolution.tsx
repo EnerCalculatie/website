@@ -7,13 +7,15 @@ export function ProblemSolution() {
     "Tijdrovend en foutgevoelig: Tarieven overtypen in Excel kost tijd en leidt snel tot rekenfouten. Dat schaadt het vertrouwen.",
     "Complexe regelgeving: Door wisselende salderingsregels en terugleverkosten is het lastig om het exacte rendement uit te rekenen.",
     "Rommelige presentatie: Losse documentjes en bijgevoegde screenshots maken geen professionele indruk aan de keukentafel.",
+    "Twijfel bij warmtepompkeuze: een verkeerd gedimensioneerde installatie kost u een terugkomst en uw reputatie.",
   ];
 
   const solutions = [
-    "Onweerlegbare cijfers: Geef uw klant zekerheid met een exacte berekening die elke kritische vraag beantwoordt.",
+    "Kloppende cijfers: Geef uw klant zekerheid met een exacte berekening die elke kritische vraag beantwoordt.",
     "Slimme documentherkenning: Energierekeningen worden automatisch uitgelezen. Geen typefouten, alleen kloppende feiten.",
     "Altijd actueel: Onze rekenmodule rekent automatisch met de nieuwste regels rondom salderen, terugleverkosten en thuisbatterijen.",
     "Onderscheidend rapport: Lever direct een duidelijk en overzichtelijk adviesrapport af dat puur vakmanschap uitstraalt.",
+    "Gevalideerde dimensionering: warmtepompvermogen en energieprofiel kloppen altijd met elkaar — geen dubbeltellingen, geen verrassingen achteraf.",
   ];
 
   return (
