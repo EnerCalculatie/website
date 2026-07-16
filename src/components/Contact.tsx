@@ -112,7 +112,7 @@ export function Contact() {
             transition={{ delay: 0.1 }}
             className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto"
           >
-            Ons team staat voor u klaar. Neem contact op voor ondersteuning, demo's of technische vragen.
+            Ik help u persoonlijk verder. Neem contact op voor ondersteuning, demo's of technische vragen.
           </motion.p>
         </div>
 
