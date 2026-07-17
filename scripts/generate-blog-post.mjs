@@ -126,26 +126,43 @@ function rejectPlanItem(planItem, reason) {
   }
 }
 
+const RETRYABLE_STATUSES = new Set([429, 500, 503]);
+const GEMINI_MAX_ATTEMPTS = 3;
+const GEMINI_RETRY_DELAY_MS = 15000;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function callGemini(system, user) {
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      contents: [{ role: 'user', parts: [{ text: user }] }],
-      systemInstruction: { role: 'system', parts: [{ text: system }] },
-      generationConfig: { maxOutputTokens: 8192 },
-    }),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
+  let lastError;
+  for (let attempt = 1; attempt <= GEMINI_MAX_ATTEMPTS; attempt++) {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: user }] }],
+        systemInstruction: { role: 'system', parts: [{ text: system }] },
+        generationConfig: { maxOutputTokens: 8192 },
+      }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      lastError = new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
+      if (RETRYABLE_STATUSES.has(res.status) && attempt < GEMINI_MAX_ATTEMPTS) {
+        await sleep(GEMINI_RETRY_DELAY_MS * attempt);
+        continue;
+      }
+      throw lastError;
+    }
+    const data = await res.json();
+    const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}). API Response: ${JSON.stringify(data)}`);
+    return message;
   }
-  const data = await res.json();
-  const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}). API Response: ${JSON.stringify(data)}`);
-  return message;
+  throw lastError;
 }
 
 function extractJson(raw) {
