@@ -18,6 +18,11 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
+
+      # Unit-tests op de deterministische contentgates (scripts/lib/*.mjs). Vóór
+      # de build: falen ze, dan is een gate stuk en heeft prerenderen geen zin.
+      - run: npm test
+
       - run: npm run build
 
       # SEO-QC draait op de geprerenderde dist/ uit de stap hierboven: interne

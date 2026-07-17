@@ -19,6 +19,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:all": "npm run typecheck && npm run lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "plan:content": "node scripts/plan-content.mjs",
     "generate:blog": "node scripts/generate-blog-post.mjs",
     "indexnow": "node scripts/indexnow-submit.mjs"
@@ -57,6 +59,7 @@
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.61.1",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "vitest": "^4.1.10"
   }
 }
