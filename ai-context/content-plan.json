@@ -5,8 +5,11 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "energieprofiel-opstellen-zonder-handmatig-typewerk-de-voordelen-van-pdf-documentherkenning-in-uw-offerteproces",
-    "status": "planned",
-    "createdAt": "2026-07-16T07:26:08.209Z"
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.209Z",
+    "generatedSlug": "pdf-documentherkenning-offerteproces-installateurs",
+    "generatedAt": "2026-07-17T05:36:29.995Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave en de fiscale spelregels?",

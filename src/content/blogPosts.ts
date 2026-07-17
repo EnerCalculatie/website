@@ -658,4 +658,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe beïnvloedt de afschaffing van de salderingsregeling het advies over seizoensvariabiliteit?', answer: 'Zolang de salderingsregeling actief is, mag winterverbruik worden weggestreept tegen zomeropwekking. Na de afschaffing vervalt dit voordeel. Het zonnepanelen rendement wordt dan sterk afhankelijk van directe zelfconsumptie en slimme opslag, omdat overtollige zomerstroom tegen lage tarieven wordt teruggeleverd.' },
     ],
   },
+  {
+    slug: 'pdf-documentherkenning-offerteproces-installateurs',
+    readingTimeMinutes: 5,
+    title: 'Offerte software voor installatietechniek: sneller via pdf-import',
+    seoTitle: 'Offerte software installatietechniek: pdf-herkenning',
+    description:
+      'Ontdek hoe slimme offerte software voor de installatietechniek met pdf-documentherkenning uw energieprofielen en adviesrapporten automatiseert.',
+    date: '2026-07-17',
+    excerpt:
+      'Handmatig energienota\'s overtypen in uw rekentool kost tijd en is foutgevoelig. Ontdek hoe pdf-documentherkenning uw offerteproces voorgoed versnelt en professionaliseert.',
+    tags: ['Bedrijfsvoering', 'Software', 'Zonnepanelen', 'Thuisbatterijen'],
+    keyPoints: [
+      'Bespaar kostbare tijd door handmatige data-invoer volledig over te slaan.',
+      'Drastische verlaging van de foutmarge bij het invoeren van historische verbruiksdata.',
+      'Zorgvuldige naleving van de privacywetgeving (AVG) bij het verwerken van klantinformatie.',
+      'Versnel de doorlooptijd van uw offertes en verhoog de conversie in het adviesgesprek.',
+    ],
+    category: 'Subsidies',
+    faq: [
+      { question: 'Wat is pdf-documentherkenning in de installatietechniek?', answer: 'Dit is de geautomatiseerde extractie van gestructureerde verbruiksgegevens uit digitale energienota\'s en jaarrekeningen door middel van algoritmen, waardoor handmatige invoer door een adviseur overbodig wordt.' },
+      { question: 'Is het uploaden van energienota\'s AVG-proof?', answer: 'Ja, mits de software voldoet aan de richtlijnen van de Autoriteit Persoonsgegevens. Dit betekent dat persoonsgegevens veilig worden verwerkt, versleuteld worden verzonden en niet langer dan noodzakelijk worden bewaard.' },
+      { question: 'Welke bestanden kunnen door deze software worden uitgelezen?', answer: 'De software herkent gestructureerde pdf-bestanden van de bekende Nederlandse energieleveranciers en netbeheerders, inclusief de gedetailleerde verbruikstabellen en tariefspecificaties.' },
+    ],
+  },
 ];

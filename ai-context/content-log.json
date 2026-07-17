@@ -258,5 +258,15 @@
     "geoScore": 92,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-17",
+    "topic": "Offerte software voor installatietechniek: sneller via pdf-import",
+    "slug": "pdf-documentherkenning-offerteproces-installateurs",
+    "model": "gemini-flash-latest",
+    "seoScore": 96,
+    "geoScore": 92,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
