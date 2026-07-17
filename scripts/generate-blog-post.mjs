@@ -145,7 +145,7 @@ async function callGemini(system, user) {
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: user }] }],
         systemInstruction: { role: 'system', parts: [{ text: system }] },
-        generationConfig: { maxOutputTokens: 8192 },
+        generationConfig: { maxOutputTokens: 16384 },
       }),
     });
     if (!res.ok) {
@@ -159,7 +159,9 @@ async function callGemini(system, user) {
     }
     const data = await res.json();
     const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}). API Response: ${JSON.stringify(data)}`);
+    const finishReason = data.candidates?.[0]?.finishReason;
+    if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}, finishReason: ${finishReason}). API Response: ${JSON.stringify(data)}`);
+    if (finishReason === 'MAX_TOKENS') throw new Error(`Gemini-antwoord afgekapt op maxOutputTokens (model ${MODEL}) — output was niet compleet.`);
     return message;
   }
   throw lastError;
