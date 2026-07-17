@@ -17,8 +17,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "btw-op-thuisbatterijen-hoe-adviseert-u-uw-klant-over-btw-teruggave-en-de-fiscale-spelregels",
-    "status": "planned",
-    "createdAt": "2026-07-16T07:26:08.205Z"
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.205Z",
+    "generatedSlug": "btw-op-thuisbatterij",
+    "generatedAt": "2026-07-17T07:59:57.934Z",
+    "seoGeoScore": 92
   },
   {
     "title": "SCOP-waarde van een warmtepomp: hoe vertaalt u dit naar een realistisch extra stroomverbruik?",

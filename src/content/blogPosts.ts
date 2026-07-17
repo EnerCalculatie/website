@@ -682,4 +682,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Welke bestanden kunnen door deze software worden uitgelezen?', answer: 'De software herkent gestructureerde pdf-bestanden van de bekende Nederlandse energieleveranciers en netbeheerders, inclusief de gedetailleerde verbruikstabellen en tariefspecificaties.' },
     ],
   },
+  {
+    slug: 'btw-op-thuisbatterij',
+    readingTimeMinutes: 7,
+    title: 'Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave?',
+    seoTitle: 'Btw op thuisbatterij: fiscale regels & advies',
+    description:
+      'Hoe zit het met de btw op een thuisbatterij? Ontdek de fiscale voorwaarden voor btw-teruggave en hoe u uw klant als installateur adviseert.',
+    date: '2026-07-17',
+    excerpt:
+      'De btw op een thuisbatterij terugvragen is een belangrijk verkoopargument voor installateurs. Ontdek de voorwaarden van de Belastingdienst en de KOR.',
+    tags: ['Thuisbatterijen', 'Subsidies & regelgeving', 'Bedrijfsvoering installateur'],
+    keyPoints: [
+      'Btw-teruggave op een thuisbatterij is voor particulieren mogelijk onder specifieke voorwaarden van de Belastingdienst.',
+      'De koppeling met een dynamisch energiecontract is essentieel voor het aantonen van actieve stroomhandel.',
+      'De Kleineondernemersregeling (KOR) kan van invloed zijn op het recht op btw-teruggave van uw klant.',
+      'Transparante advisering over het fiscale traject voorkomt onverwachte naheffingen en verhoogt uw offerteconversie.',
+    ],
+    category: 'Thuisbatterijen',
+    faq: [
+      { question: 'Is er een nultarief voor de btw op een thuisbatterij?', answer: 'Nee, in tegenstelling tot zonnepanelen geldt voor een thuisbatterij het standaard btw-tarief. Particulieren kunnen deze btw echter achteraf terugvragen via de Belastingdienst als zij aan de gestelde voorwaarden voldoen.' },
+      { question: 'Kan een klant met een vast energiecontract de btw op een thuisbatterij terugvragen?', answer: 'In de regel niet. De Belastingdienst vereist actieve stroomhandel om te spreken van btw-ondernemerschap. Dit is alleen mogelijk met een dynamisch energiecontract waarbij de stroomtarieven per uur fluctueren.' },
+      { question: 'Wat gebeurt er met de btw-teruggave als de klant al in de KOR zit?', answer: 'Als de klant al is aangemeld voor de Kleineondernemersregeling (KOR), is btw-teruggave op de thuisbatterij niet direct mogelijk. De klant moet de minimale looptijd van de KOR uitzitten of zich afmelden, wat fiscale gevolgen kan hebben. Adviseer uw klant altijd dit vooraf te toetsen bij de Belastingdienst.' },
+    ],
+  },
 ];

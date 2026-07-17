@@ -268,5 +268,15 @@
     "geoScore": 92,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-17",
+    "topic": "Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave?",
+    "slug": "btw-op-thuisbatterij",
+    "model": "gemini-flash-latest",
+    "seoScore": 96,
+    "geoScore": 88,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
