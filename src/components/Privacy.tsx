@@ -53,7 +53,15 @@ export function Privacy() {
             <li><strong>Railway (Amsterdam, EER)</strong> - Hosting van de applicatieservers.</li>
           </ul>
 
-          <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">7. Contact</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">7. Cookies en websitestatistiek</h2>
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Deze website plaatst geen tracking- of advertentiecookies. In de applicatie gebruiken wij alleen functionele cookies die nodig zijn om ingelogd te blijven en de sessie te beveiligen. Daarvoor is geen toestemming vereist, en daarom ziet u geen cookiemelding.
+          </p>
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Voor bezoekersstatistiek gebruiken wij Cloudflare Web Analytics. Dat werkt zonder cookies en zonder een profiel van u op te bouwen: er worden geen gegevens verzameld waarmee u persoonlijk te herleiden bent. Google Analytics is per 20 juli 2026 verwijderd.
+          </p>
+
+          <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">8. Contact</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
             Voor vragen over dit privacy statement of privacy-gerelateerde verzoeken kunt u contact opnemen met:
             <br /><br />

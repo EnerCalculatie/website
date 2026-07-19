@@ -10,35 +10,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- Google tag (gtag.js) — GA4, uitgestelde laadstrategie:
-         config staat direct klaar in dataLayer, gtag.js laadt bij eerste
-         interactie of kort na window.load om de kritieke laadfase vrij te houden. -->
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-627EB4SHYL');
-    (function () {
-      var loaded = false;
-      function loadGtag() {
-        if (loaded) return;
-        loaded = true;
-        var j = document.createElement('script');
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtag/js?id=G-627EB4SHYL';
-        document.head.appendChild(j);
-      }
-      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
-        window.addEventListener(evt, loadGtag, { once: true, passive: true });
-      });
-      if (document.readyState === 'complete') {
-        setTimeout(loadGtag, 1500);
-      } else {
-        window.addEventListener('load', function () { setTimeout(loadGtag, 1500); });
-      }
-    })();
-    </script>
-    <!-- End Google tag (gtag.js) -->
+    <!-- Geen Google Analytics. Bezoekersstatistiek loopt via Cloudflare Web
+         Analytics (onderaan de body): cookieloos, dus geen toestemming en geen
+         cookiebanner nodig. Verwijderd 2026-07-20, zie Story 1.3 in de vault. -->
   </head>
   <body>
     <div id="root"></div>

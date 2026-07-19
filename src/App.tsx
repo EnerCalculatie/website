@@ -20,7 +20,6 @@ import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
-import { CookieBanner } from './components/CookieBanner';
 
 // ---------------------------------------------------------------------------
 // Code-splitting: alle routes buiten de homepage worden lazy geladen zodat de
@@ -213,7 +212,6 @@ export function AppContent() {
         </Suspense>
 
         <Footer />
-        <CookieBanner />
       </div>
     </>
   );

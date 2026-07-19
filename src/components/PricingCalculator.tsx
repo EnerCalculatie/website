@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calculator, Clock, Euro, TrendingUp, ArrowRight } from 'lucide-react';
 
+// dataLayer is optioneel: sinds het verwijderen van GA4 (2026-07-20) staat er
+// niets meer klaar om dit event op te vangen. De push hieronder no-opt daardoor
+// stil. Bewust laten staan zodat een latere, cookieloze tool 'm meteen kan lezen.
 declare global {
   interface Window {
-    dataLayer: Record<string, unknown>[];
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
