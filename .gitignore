@@ -11,3 +11,6 @@ coverage/
 
 # Puur afgeleid uit blogPosts.ts + services.ts, elke run opnieuw gegenereerd.
 ai-context/content-map.json
+
+# Geinstalleerde skill-library (28 bestanden, herinstalleerbaar), geen projectinhoud
+.agents/
