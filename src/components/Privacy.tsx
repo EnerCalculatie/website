@@ -51,6 +51,7 @@ export function Privacy() {
           <ul className="list-disc pl-6 mb-6 text-slate-700">
             <li><strong>Supabase (Frankfurt, EER)</strong> - Database, opslag en authenticatie.</li>
             <li><strong>Railway (Amsterdam, EER)</strong> - Hosting van de applicatieservers.</li>
+            <li><strong>Cloudflare</strong> - Beveiliging en bezoekersstatistiek van deze website. Zie sectie 7.</li>
           </ul>
 
           <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">7. Cookies en websitestatistiek</h2>
@@ -58,7 +59,10 @@ export function Privacy() {
             Deze website plaatst geen tracking- of advertentiecookies. In de applicatie gebruiken wij alleen functionele cookies die nodig zijn om ingelogd te blijven en de sessie te beveiligen. Daarvoor is geen toestemming vereist, en daarom ziet u geen cookiemelding.
           </p>
           <p className="text-slate-700 leading-relaxed mb-4">
-            Voor bezoekersstatistiek gebruiken wij Cloudflare Web Analytics. Dat werkt zonder cookies en zonder een profiel van u op te bouwen: er worden geen gegevens verzameld waarmee u persoonlijk te herleiden bent. Google Analytics is per 20 juli 2026 verwijderd.
+            Voor bezoekersstatistiek gebruiken wij Cloudflare Web Analytics. Dat werkt zonder cookies: er wordt niets op uw apparaat geplaatst of uitgelezen, er wordt geen bezoekers-ID aangemaakt en er wordt geen profiel van u opgebouwd. Gemeten worden onder meer de opgevraagde pagina, de verwijzende pagina en laadtijden.
+          </p>
+          <p className="text-slate-700 leading-relaxed mb-4">
+            Uw IP-adres wordt daarbij kort verwerkt om het land van herkomst te bepalen en wordt niet opgeslagen. Wij doen dit op grond van ons gerechtvaardigd belang om te zien hoe de website gebruikt wordt. Google Analytics is per 20 juli 2026 verwijderd.
           </p>
 
           <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">8. Contact</h2>
