@@ -706,4 +706,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat gebeurt er met de btw-teruggave als de klant al in de KOR zit?', answer: 'Als de klant al is aangemeld voor de Kleineondernemersregeling (KOR), is btw-teruggave op de thuisbatterij niet direct mogelijk. De klant moet de minimale looptijd van de KOR uitzitten of zich afmelden, wat fiscale gevolgen kan hebben. Adviseer uw klant altijd dit vooraf te toetsen bij de Belastingdienst.' },
     ],
   },
+  {
+    slug: 'scop-warmtepomp-berekenen-stroomverbruik',
+    readingTimeMinutes: 8,
+    title: 'SCOP-waarde van een warmtepomp: hoe vertaalt u dit naar een realistisch extra stroomverbruik?',
+    seoTitle: 'SCOP warmtepomp berekenen: realistisch stroomverbruik',
+    description:
+      'Hoe kunt u de SCOP van een warmtepomp berekenen en vertalen naar een realistisch stroomverbruik? Handige tips en rekenvoorbeelden voor de installateur.',
+    date: '2026-07-20',
+    excerpt:
+      'De SCOP-waarde is een belangrijke indicator voor warmtepomprendement, maar hoe vertaalt u dit naar een realistisch extra stroomverbruik voor uw klant?',
+    tags: ['Warmtepompen', 'Rendement', 'Installatietechniek', 'Dimensionering'],
+    keyPoints: [
+      'Begrijp het fundamentele verschil tussen de momentane COP en de seizoensgebonden SCOP.',
+      'Leer hoe u de warmtebehoefte van de woning nauwkeurig bepaalt als basis voor de verbruiksberekening.',
+      'Houd rekening met de lagere COP voor tapwaterbereiding om onderschatting van het stroomverbruik te voorkomen.',
+      'Corrigeer de theoretische SCOP-waarde op basis van het gekozen afgiftesysteem en de stooklijn.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Wat is het verschil tussen COP en SCOP?', answer: 'De COP is een momentopname van het rendement bij één specifieke buitentemperatuur en cv-watertemperatuur. De SCOP berekent het gemiddelde rendement over een volledig stookseizoen, gecorrigeerd voor het Nederlandse klimaatprofiel.' },
+      { question: 'Waarom mag ik de SCOP voor ruimteverwarming niet gebruiken voor tapwater?', answer: 'Voor warm tapwater moet de warmtepomp cv-water van een veel hogere temperatuur leveren (meestal tussen de 50 en 58 graden Celsius). Dit grotere temperatuurverschil verlaagt het rendement aanzienlijk, waardoor de tapwater-COP vaak veel lager ligt dan de ruimteverwarmings-SCOP.' },
+      { question: 'Hoe beïnvloedt de stooklijn het werkelijke stroomverbruik?', answer: 'Een weersafhankelijke regeling (stooklijn) verlaagt de aanvoertemperatuur wanneer het buiten milder is. Hierdoor stijgt het rendement van de warmtepomp op die dagen, wat resulteert in een gunstiger gemiddeld jaarverbruik.' },
+    ],
+  },
 ];

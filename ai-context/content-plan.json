@@ -29,8 +29,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "scop-waarde-van-een-warmtepomp-hoe-vertaalt-u-dit-naar-een-realistisch-extra-stroomverbruik",
-    "status": "planned",
-    "createdAt": "2026-07-16T07:26:08.210Z"
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.210Z",
+    "generatedSlug": "scop-warmtepomp-berekenen-stroomverbruik",
+    "generatedAt": "2026-07-20T05:12:28.281Z",
+    "seoGeoScore": 92
   },
   {
     "title": "Laadpaal installeren op een 3x25A netaansluiting: hoe adviseert u over gelijktijdigheid en overbelasting?",

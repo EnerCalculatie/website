@@ -278,5 +278,15 @@
     "geoScore": 88,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-20",
+    "topic": "SCOP-waarde van een warmtepomp: hoe vertaalt u dit naar een realistisch extra stroomverbruik?",
+    "slug": "scop-warmtepomp-berekenen-stroomverbruik",
+    "model": "gemini-flash-latest",
+    "seoScore": 98,
+    "geoScore": 86,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
