@@ -288,5 +288,15 @@
     "geoScore": 86,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-20",
+    "topic": "Laadpaal op een 3x25A netaansluiting: adviseren over capaciteit en gelijktijdigheid",
+    "slug": "laadpaal-netaansluiting-capaciteit-3x25a",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 92,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

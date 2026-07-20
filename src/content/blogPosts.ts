@@ -730,4 +730,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe beïnvloedt de stooklijn het werkelijke stroomverbruik?', answer: 'Een weersafhankelijke regeling (stooklijn) verlaagt de aanvoertemperatuur wanneer het buiten milder is. Hierdoor stijgt het rendement van de warmtepomp op die dagen, wat resulteert in een gunstiger gemiddeld jaarverbruik.' },
     ],
   },
+  {
+    slug: 'laadpaal-netaansluiting-capaciteit-3x25a',
+    readingTimeMinutes: 7,
+    title: 'Laadpaal op een 3x25A netaansluiting: adviseren over capaciteit en gelijktijdigheid',
+    seoTitle: 'Laadpaal netaansluiting capaciteit op 3x25A',
+    description:
+      'Hoe adviseert u over laadpaal netaansluiting capaciteit bij 3x25A? Alles over gelijktijdigheid, dynamische load balancing en overbelasting.',
+    date: '2026-07-20',
+    excerpt:
+      'Een laadpaal installeren op een standaard 3x25A netaansluiting vraagt om een slimme aanpak. Ontdek hoe u adviseert over gelijktijdigheid, overbelasting en load balancing.',
+    tags: ['Laadpalen', 'Installatietechniek', 'Netcapaciteit'],
+    keyPoints: [
+      'De standaard residentiële 3x25A netaansluiting raakt snel overbelast bij de combinatie van een laadpaal, warmtepomp en andere zware verbruikers.',
+      'Bij een laadpaal is de gelijktijdigheidsfactor volgens de NEN 1010 gelijk aan 1, wat een aanzienlijke impact heeft op de resterende capaciteit.',
+      'Dynamische load balancing via de P1-poort is essentieel om de selectiviteit te waarborgen en uitschakeling van de hoofdbeveiliging te voorkomen.',
+      'Een integraal energieprofiel waarin opwek, opslag en verbruik samenkomen, vormt de basis voor een risicovrij en betrouwbaar installatieadvies.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Kan een 11 kW laadpaal altijd op een standaard 3x25A netaansluiting?', answer: 'In theorie levert een 3x25A aansluiting maximaal 17,25 kW, wat voldoende is voor een 11 kW laadpaal (die 3x16A ofwel 11,04 kW vraagt). In de praktijk is het risico op overbelasting echter zeer groot zodra andere zware verbruikers, zoals een warmtepomp of inductiekookplaat, tegelijkertijd inschakelen. Dynamische load balancing is daarom in vrijwel alle gevallen noodzakelijk.' },
+      { question: 'Wat schrijft de NEN 1010 voor over de gelijktijdigheid van laadpalen?', answer: 'De NEN 1010 schrijft voor dat voor laadpunten voor elektrische voertuigen een gelijktijdigheidsfactor van 1 (100%) moet worden gehanteerd. Dit komt omdat een laadpaal gedurende langere tijd onafgebroken het maximale vermogen kan afnemen, in tegenstelling tot huishoudelijke apparaten die cyclisch werken.' },
+      { question: 'Wanneer is een netverzwaring naar 3x35A aan te raden voor een laadpaal?', answer: 'Een netverzwaring is aan te raden wanneer de structurele basislast van de woning (bijvoorbeeld door een grote all-electric warmtepomp, een elektrische kookplaat en een aircosysteem) zo hoog is dat er zelfs met load balancing onvoldoende vermogen overblijft om de auto op een acceptabele snelheid op te laden. Houd hierbij rekening met de hogere jaarlijkse vastrechtkosten van de netbeheerder.' },
+    ],
+  },
 ];

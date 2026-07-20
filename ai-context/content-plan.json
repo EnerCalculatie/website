@@ -41,8 +41,11 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "laadpaal-installeren-op-een-3x25a-netaansluiting-hoe-adviseert-u-over-gelijktijdigheid-en-overbelasting",
-    "status": "planned",
-    "createdAt": "2026-07-16T07:26:08.212Z"
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.212Z",
+    "generatedSlug": "laadpaal-netaansluiting-capaciteit-3x25a",
+    "generatedAt": "2026-07-20T08:16:51.346Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?",
