@@ -22,6 +22,30 @@ const app = express();
 app.set('trust proxy', 2);
 app.use(express.json());
 
+// Voeg beveiligingsheaders toe, inclusief Content Security Policy (CSP) en HSTS
+app.use((_req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; " +
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://static.cloudflareinsights.com; " +
+    "style-src 'self' 'unsafe-inline'; " +
+    "img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; " +
+    "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://cloudflareinsights.com; " +
+    "font-src 'self' data:; " +
+    "object-src 'none'; " +
+    "base-uri 'self'; " +
+    "form-action 'self'; " +
+    "frame-ancestors 'none'; " +
+    "upgrade-insecure-requests;"
+  );
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  next();
+});
+
 // Begrens formulier-inzendingen tegen spam/misbruik (contact, lead-magnet en nieuwsbrief delen dit quotum).
 const formLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
