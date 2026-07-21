@@ -93,6 +93,7 @@ const PdfDocumentherkenningOfferteprocesInstallateursArticle = lazyRoute('/blog/
 const BtwOpThuisbatterijArticle = lazyRoute('/blog/btw-op-thuisbatterij', () => import('./components/blog/BtwOpThuisbatterijArticle').then(m => ({ default: m.BtwOpThuisbatterijArticle })));
 const ScopWarmtepompBerekenenStroomverbruikArticle = lazyRoute('/blog/scop-warmtepomp-berekenen-stroomverbruik', () => import('./components/blog/ScopWarmtepompBerekenenStroomverbruikArticle').then(m => ({ default: m.ScopWarmtepompBerekenenStroomverbruikArticle })));
 const LaadpaalNetaansluitingCapaciteit3x25aArticle = lazyRoute('/blog/laadpaal-netaansluiting-capaciteit-3x25a', () => import('./components/blog/LaadpaalNetaansluitingCapaciteit3x25aArticle').then(m => ({ default: m.LaadpaalNetaansluitingCapaciteit3x25aArticle })));
+const AircoAlsVerwarmingBerekenenArticle = lazyRoute('/blog/airco-als-verwarming-berekenen', () => import('./components/blog/AircoAlsVerwarmingBerekenenArticle').then(m => ({ default: m.AircoAlsVerwarmingBerekenenArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -205,6 +206,7 @@ export function AppContent() {
             <Route path="/blog/btw-op-thuisbatterij" element={<BtwOpThuisbatterijArticle />} />
             <Route path="/blog/scop-warmtepomp-berekenen-stroomverbruik" element={<ScopWarmtepompBerekenenStroomverbruikArticle />} />
             <Route path="/blog/laadpaal-netaansluiting-capaciteit-3x25a" element={<LaadpaalNetaansluitingCapaciteit3x25aArticle />} />
+            <Route path="/blog/airco-als-verwarming-berekenen" element={<AircoAlsVerwarmingBerekenenArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

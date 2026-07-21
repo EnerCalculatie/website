@@ -754,4 +754,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer is een netverzwaring naar 3x35A aan te raden voor een laadpaal?', answer: 'Een netverzwaring is aan te raden wanneer de structurele basislast van de woning (bijvoorbeeld door een grote all-electric warmtepomp, een elektrische kookplaat en een aircosysteem) zo hoog is dat er zelfs met load balancing onvoldoende vermogen overblijft om de auto op een acceptabele snelheid op te laden. Houd hierbij rekening met de hogere jaarlijkse vastrechtkosten van de netbeheerder.' },
     ],
   },
+  {
+    slug: 'airco-als-verwarming-berekenen',
+    readingTimeMinutes: 7,
+    title: 'Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?',
+    seoTitle: 'Airco als verwarming berekenen: stappenplan',
+    description:
+      'Hoe kunt u de gasbesparing en het extra stroomverbruik van een airco als verwarming berekenen? Leer de exacte formules en ISSO-normen voor uw advies.',
+    date: '2026-07-21',
+    excerpt:
+      'Wilt u voor uw klant de overstap van gas naar een airco als verwarming doorrekenen? Ontdek de exacte ISSO-formules om de gasbesparing en het extra stroomverbruik betrouwbaar te bepalen.',
+    tags: ['Airco', 'Rendement', 'Installatietechniek', 'Warmtepompen'],
+    keyPoints: [
+      'Een m³ Gronings aardgas levert volgens ISSO-normen netto circa 8,8 kWh thermische warmte via een HR-ketel.',
+      'De SCOP-waarde is leidend voor het berekenen van het seizoensgebonden elektriciteitsverbruik van de airco.',
+      'Airco\'s verwarmen decentraal; de invloed op het tapwaterverbruik moet altijd apart worden gecalculeerd.',
+      'De verhouding tussen gasreductie en stroomtoename hangt direct samen met de isolatieklasse en het stookgedrag.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Hoeveel stroom verbruikt een airco gemiddeld bij het verwarmen van een ruimte?', answer: 'Het stroomverbruik hangt direct af van de thermische warmtevraag van de ruimte en de SCOP van het systeem. Bij een gemiddelde jaarlijkse warmtebehoefte van 2200 kWh en een SCOP van 4,0 verbruikt de airco op jaarbasis circa 550 kWh aan elektriciteit.' },
+      { question: 'Kan een airco de cv-ketel volledig vervangen voor de hele woning?', answer: 'Technisch kan een multi-splitsysteem met voldoende vermogen een woning volledig verwarmen, mits de transmissieberekening klopt. Er is dan wel een aparte elektrische oplossing nodig voor warm tapwater, zoals een warmtepompboiler, omdat een airco (lucht-lucht warmtepomp) geen sanitair water kan verwarmen.' },
+      { question: 'Waarom daalt de COP-waarde van een airco als het buiten erg koud is?', answer: 'Bij lage buitentemperaturen is het temperatuurverschil tussen de buitenlucht en de gewenste binnentemperatuur groter, waardoor de compressor harder moet werken. Bovendien activeert het systeem periodiek een ontdooicyclus om ijsvorming op de buitenunit te smelten, wat extra energie kost.' },
+    ],
+  },
 ];

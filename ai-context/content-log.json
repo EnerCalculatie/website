@@ -298,5 +298,15 @@
     "geoScore": 92,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-21",
+    "topic": "Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?",
+    "slug": "airco-als-verwarming-berekenen",
+    "model": "gemini-flash-latest",
+    "seoScore": 100,
+    "geoScore": 100,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

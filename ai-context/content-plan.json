@@ -53,8 +53,11 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "airco-als-verwarming-hoe-berekent-u-de-gasbesparing-en-het-extra-stroomverbruik-voor-uw-klant",
-    "status": "planned",
-    "createdAt": "2026-07-16T07:26:08.207Z"
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.207Z",
+    "generatedSlug": "airco-als-verwarming-berekenen",
+    "generatedAt": "2026-07-21T05:01:46.953Z",
+    "seoGeoScore": 100
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
