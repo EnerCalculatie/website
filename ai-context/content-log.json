@@ -308,5 +308,15 @@
     "geoScore": 100,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-22",
+    "topic": "Selectiviteit en hoofdzekering: overbelasting voorkomen bij warmtepomp en laadpaal",
+    "slug": "selectiviteit-hoofdzekering-warmtepomp-laadpaal",
+    "model": "gemini-flash-latest",
+    "seoScore": 90,
+    "geoScore": 88,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

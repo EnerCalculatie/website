@@ -1,63 +1,42 @@
 [
   {
-    "title": "Energieprofiel opstellen zonder handmatig typewerk: de voordelen van pdf-documentherkenning in uw offerteproces",
-    "keyword": "offerte software installatietechniek",
+    "title": "Selectiviteit en hoofdzekering: hoe voorkomt u overbelasting bij een all-electric verduurzamingsadvies?",
+    "keyword": "selectiviteit hoofdzekering warmtepomp laadpaal",
+    "intent": "informatief",
+    "priority": 9,
+    "slug": "selectiviteit-en-hoofdzekering-hoe-voorkomt-u-overbelasting-bij-een-all-electric-verduurzamingsadvies",
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.116Z",
+    "generatedSlug": "selectiviteit-hoofdzekering-warmtepomp-laadpaal",
+    "generatedAt": "2026-07-22T06:32:04.911Z",
+    "seoGeoScore": 89
+  },
+  {
+    "title": "Hoe verhoogt u de conversie van uw offertes met een transparant digitaal adviesrapport?",
+    "keyword": "conversie verhogen offertes installatiebedrijf",
     "intent": "commercieel",
     "priority": 9,
-    "slug": "energieprofiel-opstellen-zonder-handmatig-typewerk-de-voordelen-van-pdf-documentherkenning-in-uw-offerteproces",
-    "status": "generated",
-    "createdAt": "2026-07-16T07:26:08.209Z",
-    "generatedSlug": "pdf-documentherkenning-offerteproces-installateurs",
-    "generatedAt": "2026-07-17T05:36:29.995Z",
-    "seoGeoScore": 94
+    "slug": "hoe-verhoogt-u-de-conversie-van-uw-offertes-met-een-transparant-digitaal-adviesrapport",
+    "status": "planned",
+    "createdAt": "2026-07-22T06:30:33.117Z"
   },
   {
-    "title": "Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave en de fiscale spelregels?",
-    "keyword": "btw op thuisbatterij",
+    "title": "Warmteverliesberekening voor warmtepompen: hoe onderbouwt u het benodigd vermogen bij uw klant?",
+    "keyword": "warmteverliesberekening warmtepomp advies",
     "intent": "informatief",
     "priority": 8,
-    "slug": "btw-op-thuisbatterijen-hoe-adviseert-u-uw-klant-over-btw-teruggave-en-de-fiscale-spelregels",
-    "status": "generated",
-    "createdAt": "2026-07-16T07:26:08.205Z",
-    "generatedSlug": "btw-op-thuisbatterij",
-    "generatedAt": "2026-07-17T07:59:57.934Z",
-    "seoGeoScore": 92
+    "slug": "warmteverliesberekening-voor-warmtepompen-hoe-onderbouwt-u-het-benodigd-vermogen-bij-uw-klant",
+    "status": "planned",
+    "createdAt": "2026-07-22T06:30:33.113Z"
   },
   {
-    "title": "SCOP-waarde van een warmtepomp: hoe vertaalt u dit naar een realistisch extra stroomverbruik?",
-    "keyword": "scop warmtepomp berekenen",
-    "intent": "informatief",
-    "priority": 8,
-    "slug": "scop-waarde-van-een-warmtepomp-hoe-vertaalt-u-dit-naar-een-realistisch-extra-stroomverbruik",
-    "status": "generated",
-    "createdAt": "2026-07-16T07:26:08.210Z",
-    "generatedSlug": "scop-warmtepomp-berekenen-stroomverbruik",
-    "generatedAt": "2026-07-20T05:12:28.281Z",
-    "seoGeoScore": 92
-  },
-  {
-    "title": "Laadpaal installeren op een 3x25A netaansluiting: hoe adviseert u over gelijktijdigheid en overbelasting?",
-    "keyword": "laadpaal netaansluiting capaciteit",
+    "title": "Micro-omvormers of centrale omvormer met optimizers: hoe onderbouwt u de keuze in uw offerte?",
+    "keyword": "micro omvormer vs centrale omvormer advies",
     "intent": "commercieel",
     "priority": 8,
-    "slug": "laadpaal-installeren-op-een-3x25a-netaansluiting-hoe-adviseert-u-over-gelijktijdigheid-en-overbelasting",
-    "status": "generated",
-    "createdAt": "2026-07-16T07:26:08.212Z",
-    "generatedSlug": "laadpaal-netaansluiting-capaciteit-3x25a",
-    "generatedAt": "2026-07-20T08:16:51.346Z",
-    "seoGeoScore": 94
-  },
-  {
-    "title": "Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?",
-    "keyword": "airco als verwarming berekenen",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "airco-als-verwarming-hoe-berekent-u-de-gasbesparing-en-het-extra-stroomverbruik-voor-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-07-16T07:26:08.207Z",
-    "generatedSlug": "airco-als-verwarming-berekenen",
-    "generatedAt": "2026-07-21T05:01:46.953Z",
-    "seoGeoScore": 100
+    "slug": "micro-omvormers-of-centrale-omvormer-met-optimizers-hoe-onderbouwt-u-de-keuze-in-uw-offerte",
+    "status": "planned",
+    "createdAt": "2026-07-22T06:30:33.114Z"
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
@@ -106,6 +85,18 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Energieprofiel opstellen zonder handmatig typewerk: de voordelen van pdf-documentherkenning in uw offerteproces",
+    "keyword": "offerte software installatietechniek",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "energieprofiel-opstellen-zonder-handmatig-typewerk-de-voordelen-van-pdf-documentherkenning-in-uw-offerteproces",
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.209Z",
+    "generatedSlug": "pdf-documentherkenning-offerteproces-installateurs",
+    "generatedAt": "2026-07-17T05:36:29.995Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Hoe onderbouwt u de business case voor een hybride warmtepomp bij een bestaande gasketel",
@@ -166,6 +157,42 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave en de fiscale spelregels?",
+    "keyword": "btw op thuisbatterij",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "btw-op-thuisbatterijen-hoe-adviseert-u-uw-klant-over-btw-teruggave-en-de-fiscale-spelregels",
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.205Z",
+    "generatedSlug": "btw-op-thuisbatterij",
+    "generatedAt": "2026-07-17T07:59:57.934Z",
+    "seoGeoScore": 92
+  },
+  {
+    "title": "SCOP-waarde van een warmtepomp: hoe vertaalt u dit naar een realistisch extra stroomverbruik?",
+    "keyword": "scop warmtepomp berekenen",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "scop-waarde-van-een-warmtepomp-hoe-vertaalt-u-dit-naar-een-realistisch-extra-stroomverbruik",
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.210Z",
+    "generatedSlug": "scop-warmtepomp-berekenen-stroomverbruik",
+    "generatedAt": "2026-07-20T05:12:28.281Z",
+    "seoGeoScore": 92
+  },
+  {
+    "title": "Laadpaal installeren op een 3x25A netaansluiting: hoe adviseert u over gelijktijdigheid en overbelasting?",
+    "keyword": "laadpaal netaansluiting capaciteit",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "laadpaal-installeren-op-een-3x25a-netaansluiting-hoe-adviseert-u-over-gelijktijdigheid-en-overbelasting",
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.212Z",
+    "generatedSlug": "laadpaal-netaansluiting-capaciteit-3x25a",
+    "generatedAt": "2026-07-20T08:16:51.346Z",
+    "seoGeoScore": 94
   },
   {
     "title": " Hoe combineert u zonnepanelen met een warmtepomp voor een optimaal verduurzamingspakket?",
@@ -234,6 +261,18 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?",
+    "keyword": "airco als verwarming berekenen",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "airco-als-verwarming-hoe-berekent-u-de-gasbesparing-en-het-extra-stroomverbruik-voor-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-07-16T07:26:08.207Z",
+    "generatedSlug": "airco-als-verwarming-berekenen",
+    "generatedAt": "2026-07-21T05:01:46.953Z",
+    "seoGeoScore": 100
   },
   {
     "title": "Hoe helpt u uw klanten het beste tijdens een stroomstoring met een combinatie van zonnepanelen en thuisbatterij?",
