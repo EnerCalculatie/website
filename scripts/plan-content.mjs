@@ -70,14 +70,25 @@ async function callGemini(system, user) {
     throw new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
   }
   const data = await res.json();
-  const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}).`);
+  const candidate = data.candidates?.[0];
+  const message = candidate?.content?.parts?.[0]?.text;
+  if (!message) {
+    throw new Error(
+      `Geen tekstantwoord ontvangen van Gemini (model ${MODEL}, finishReason: ${candidate?.finishReason ?? 'onbekend'}).`
+    );
+  }
+  if (candidate.finishReason === 'MAX_TOKENS') {
+    console.warn(`Waarschuwing: Gemini-antwoord afgekapt op maxOutputTokens (model ${MODEL}).`);
+  }
   return message;
 }
 
 function extractJsonArray(raw) {
   const match = raw.match(/```json\s*([\s\S]*?)```/) || raw.match(/\[[\s\S]*\]/);
-  if (!match) throw new Error('Kon geen JSON-array uit het model-antwoord halen.');
+  if (!match) {
+    console.error(`Model-antwoord (geen JSON-array gevonden):\n${raw}`);
+    throw new Error('Kon geen JSON-array uit het model-antwoord halen.');
+  }
   return JSON.parse(sanitizeJsonString(match[1] ?? match[0]));
 }
 
