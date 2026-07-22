@@ -277,7 +277,7 @@ DEEL 1: Een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbe
 
 - slug: kebab-case-slug (mag afwijken van werktitel-slug indien een betere SEO-slug logischer is)
 - title: volledige titel, gebruikt als H1; mag de werktitel verfijnen, moet het primaire zoekwoord bevatten
-- seoTitle: titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens. Primair zoekwoord vooraan. GEEN merksuffix.
+- seoTitle: titel voor de <title>-tag. HARDE EIS: maximaal 60 tekens (reken elk teken mee, dus tel exact voordat je antwoordt). Primair zoekwoord vooraan. GEEN merksuffix. GEEN "&" (wordt in HTML "&amp;", dat kost 5 tekens in plaats van 1 en duwt je over de limiet) — schrijf "en" voluit.
 - description: SEO meta description. HARDE EIS: maximaal 155 tekens. Bevat het primaire zoekwoord.
 - excerpt: Korte samenvatting.
 - tags: Array van strings, bv. ["Zonnepanelen", "Installatiebranche"]

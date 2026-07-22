@@ -133,14 +133,21 @@ export function truncateAtWord(text, max) {
  * @param {{title?:string, seoTitle?:string}} article
  * @returns {{seoTitle:string, derived:boolean}}
  */
+// React escaped dit als HTML-entity in de <title>-tag; qc-seo.mjs telt de
+// geprerenderde HTML, dus deze telling moet daarmee overeenkomen — anders
+// haalt een seoTitle met "&" de lokale gate wel maar de build-QC niet.
+function htmlRenderedLength(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').length;
+}
+
 export function deriveSeoTitle(article) {
   const current = article.seoTitle?.trim();
-  if (current && current.length <= MAX_TITLE_LENGTH && !FOREIGN_SCRIPT.test(current)) {
+  if (current && htmlRenderedLength(current) <= MAX_TITLE_LENGTH && !FOREIGN_SCRIPT.test(current)) {
     return { seoTitle: current, derived: false };
   }
   // Val terug op de volledige titel: die bevat het zoekwoord vooraan, wat een
   // afgekapte seoTitle van het model mogelijk niet meer doet.
-  const base = current && current.length > MAX_TITLE_LENGTH ? current : (article.title ?? '');
+  const base = current && htmlRenderedLength(current) > MAX_TITLE_LENGTH ? current : (article.title ?? '');
   return { seoTitle: truncateAtWord(base, MAX_TITLE_LENGTH), derived: true };
 }
 
@@ -157,8 +164,10 @@ export function checkArticleMeta(article) {
   if (!description?.trim()) errors.push('description ontbreekt of is leeg.');
   if (!seoTitle?.trim()) errors.push('seoTitle ontbreekt of is leeg.');
 
-  if (seoTitle && seoTitle.length > MAX_TITLE_LENGTH) {
-    errors.push(`seoTitle is ${seoTitle.length} tekens, max ${MAX_TITLE_LENGTH}: "${seoTitle}"`);
+  if (seoTitle && htmlRenderedLength(seoTitle) > MAX_TITLE_LENGTH) {
+    errors.push(
+      `seoTitle is ${htmlRenderedLength(seoTitle)} tekens als HTML (${seoTitle.length} raw), max ${MAX_TITLE_LENGTH}: "${seoTitle}"`
+    );
   }
   if (description && description.length > MAX_DESCRIPTION_LENGTH) {
     errors.push(`description is ${description.length} tekens, max ${MAX_DESCRIPTION_LENGTH}: "${description}"`);
