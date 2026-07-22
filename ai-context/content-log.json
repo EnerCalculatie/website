@@ -318,5 +318,15 @@
     "geoScore": 88,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-22",
+    "topic": "Conversie verhogen van offertes voor uw installatiebedrijf: de kracht van een digitaal adviesrapport",
+    "slug": "conversie-verhogen-offertes-installatiebedrijf",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 90,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]

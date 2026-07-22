@@ -17,8 +17,11 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "hoe-verhoogt-u-de-conversie-van-uw-offertes-met-een-transparant-digitaal-adviesrapport",
-    "status": "planned",
-    "createdAt": "2026-07-22T06:30:33.117Z"
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.117Z",
+    "generatedSlug": "conversie-verhogen-offertes-installatiebedrijf",
+    "generatedAt": "2026-07-22T06:40:38.552Z",
+    "seoGeoScore": 93
   },
   {
     "title": "Warmteverliesberekening voor warmtepompen: hoe onderbouwt u het benodigd vermogen bij uw klant?",

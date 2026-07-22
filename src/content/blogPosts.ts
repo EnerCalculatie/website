@@ -778,4 +778,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom daalt de COP-waarde van een airco als het buiten erg koud is?', answer: 'Bij lage buitentemperaturen is het temperatuurverschil tussen de buitenlucht en de gewenste binnentemperatuur groter, waardoor de compressor harder moet werken. Bovendien activeert het systeem periodiek een ontdooicyclus om ijsvorming op de buitenunit te smelten, wat extra energie kost.' },
     ],
   },
+  {
+    slug: 'conversie-verhogen-offertes-installatiebedrijf',
+    readingTimeMinutes: 6,
+    title: 'Conversie verhogen van offertes voor uw installatiebedrijf: de kracht van een digitaal adviesrapport',
+    seoTitle: 'Conversie verhogen offertes installatiebedrijf: advies',
+    description:
+      'Conversie verhogen van offertes voor uw installatiebedrijf? Ontdek hoe een transparant digitaal adviesrapport het vertrouwen van uw klant vergroot.',
+    date: '2026-07-22',
+    excerpt:
+      'Verhoog de conversie van uw installatie-offertes door kille prijsopgaves te vervangen door transparante, geautomatiseerde digitale adviesrapporten.',
+    tags: ['Bedrijfsvoering', 'Offerteproces', 'Adviesrapport'],
+    keyPoints: [
+      'Vervang kille prijsopgaven door transparante digitale adviesrapporten die vertrouwen bouwen',
+      'Ondervang twijfels over de salderingsregeling 2027 en terugleverkosten met heldere scenario\'s',
+      'Combineer opwek, opslag en verbruik in één geautomatiseerd energieprofiel zonder dubbeltellingen',
+      'Verklein de uitval in uw verkoop-pipeline en voorkom dat u in een zuiver prijsgevecht belandt',
+    ],
+    category: 'Bedrijfsvoering',
+    faq: [
+      { question: 'Waarom converseren traditionele PDF-offertes minder goed in de huidige markt?', answer: 'Traditionele offertes tonen vaak alleen materiaallijsten en een eindbedrag. In de huidige markt met veranderende regelgeving rondom de salderingsregeling, terugleverkosten en netcongestie roept een kale prijsopgave twijfel op bij de klant. Een adviesrapport legt juist uit wáárom een specifieke oplossing gekozen is.' },
+      { question: 'Hoe helpt een digitaal adviesrapport bij vragen over de salderingsregeling per 2027?', answer: 'Door in het advies rapport doorgerekende scenario\'s te tonen voor zowel de periode tot 2027 als de jaren daarna, ziet de klant exact wat de impact is op het rendement en de zelfconsumptie. Dit neemt de angst voor veranderende wetgeving weg.' },
+      { question: 'Hoe voorkomt u dubbele tellingen bij combinatie-offertes van warmtepomp, batterij en zonnepanelen?', answer: 'Door gebruik te maken van één geautomatiseerd en integraal rekenmodel worden de stroomopwekking van zonnepanelen, het extra verbruik van de warmtepomp en de opslag van de thuisbatterij op elkaar afgestemd in één doorlopend energieprofiel.' },
+      { question: 'Kost het opstellen van een uitgebreid digitaal adviesrapport niet veel extra tijd?', answer: 'Nee, mits u gebruikmaakt van gespecialiseerde advies- en rekensoftware. Door slimme gegevensinvoer, zoals pdf-documentherkenning van energienota\'s en geautomatiseerde rekenmodellen, genereert u een compleet rapport binnen enkele minuten.' },
+    ],
+  },
 ];
