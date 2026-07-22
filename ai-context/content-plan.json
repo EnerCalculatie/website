@@ -29,8 +29,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "warmteverliesberekening-voor-warmtepompen-hoe-onderbouwt-u-het-benodigd-vermogen-bij-uw-klant",
-    "status": "planned",
-    "createdAt": "2026-07-22T06:30:33.113Z"
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.113Z",
+    "generatedSlug": "warmteverliesberekening-warmtepomp-advies",
+    "generatedAt": "2026-07-22T07:39:23.593Z",
+    "seoGeoScore": 92
   },
   {
     "title": "Micro-omvormers of centrale omvormer met optimizers: hoe onderbouwt u de keuze in uw offerte?",

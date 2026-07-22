@@ -328,5 +328,15 @@
     "geoScore": 90,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-22",
+    "topic": "Warmteverliesberekening voor warmtepompen: hoe onderbouwt u het benodigd vermogen bij uw klant?",
+    "slug": "warmteverliesberekening-warmtepomp-advies",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 88,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
