@@ -51,19 +51,36 @@ Bestaande samenvoegingen (301):
 ## IndexNow
 Sleutelbestand `public/<hex>.txt` (publiek by design — het protocol vereist dat de inhoud gelijk is aan de bestandsnaam). `npm run indexnow -- --all` submit alle sitemap-URL's; `npm run indexnow -- /blog/<slug>` een losse. De blogworkflow meldt nieuwe artikelen automatisch aan. Google doet niet mee aan IndexNow en blijft op de sitemap.
 
+`npm run indexnow -- --all` leest URL's uit lokale `dist/sitemap.xml` (build-time snapshot) — bij een lokale ongebouwde checkout mist die de nieuwste artikelen die al wél live staan via Railway. Vergelijk zo nodig met de live sitemap (`curl https://www.enercalculatie.nl/sitemap.xml`) vóór een handmatige bulk-submit.
+
+## Cloudflare kan AI-crawlers blokkeren, los van robots.txt
+Cloudflare's "AI bot access"-instelling (dashboard: Security → AI Crawl Control → Security, of de oudere "Block AI bots"-toggle in Security → Settings) blokkeert op edge-niveau — vóórdat robots.txt ooit gelezen wordt. Op 23-07-2026 bleek deze op **Block** te staan voor Search/Agent/Training, wat BingBot, GPTBot, ClaudeBot, Googlebot en anderen structureel weerde ondanks dat `robots.txt` ze expliciet toestaat. Gevolg: nul AI-citaties/crawls gemeten, IndexNow-submissies kwamen wel aan maar de crawler die erop afkwam werd geblokkeerd.
+
+Check bij twijfel over crawler-/indexeringsproblemen altijd eerst Cloudflare **Security → Analytics → Events** (filter op `Block`, service "Managed rules", rule "Block AI training crawlers") vóór je in robots.txt of code gaat zoeken. Fix staat in AI Crawl Control → Security → "AI bot access": Search/Agent/Training op "Allow (do not block)".
+
+## Google Search Console — sitemap moet je zelf indienen
+GSC pakt een sitemap niet automatisch op, ook niet als hij prima bereikbaar is en in `robots.txt` staat. Op 23-07-2026 bleek de sitemap **nooit ingediend** in de bestaande property (`sc-domain:enercalculatie.nl`) — slechts 4 bekende pagina's/9 clicks totaal ondanks 47 live URL's. Check dit via **Search Console → Indexeren → Sitemaps**; staat er niks in "Verzonden sitemaps", dien `https://www.enercalculatie.nl/sitemap.xml` daar handmatig in.
+
+Na indienen toont GSC eerst "Sitemap kan niet worden gelezen" — dat is normaal en tijdelijk (Google moet nog voor het eerst fetchen, kan uren duren), geen technisch defect. Valideer pas als reëel probleem als de fout na 24+ uur blijft staan.
+
+## Bing Webmaster Tools — los van robots.txt/IndexNow
+Bing-verificatie (HTML meta tag of XML-bestand) kan falen met misleidende foutmeldingen ("Incorrect authentication key", "Body tag not found") terwijl content en bestand kloppen — check dan eerst de Cloudflare AI-bot-block hierboven, niet de verificatiemethode zelf.
+
+Los van IndexNow (auto per artikel via de workflow) heeft Bing WMT een **URL Submission**-tool (Configuration → URL Submission) voor handmatige bulk-indiening, max 100 URL's/dag, los quotum van IndexNow. Handig bij een backlog van meerdere artikelen tegelijk of na het herstellen van een crawler-block.
+
 ## SEO/GEO Content Engine (blog-automatisering)
 De dagelijkse blog-cronjob (`.github/workflows/daily-blog-post.yml`, ma-vr 05:00 UTC) is uitgebreid met een gestuurde content-pipeline, niet langer vrije onderwerpkeuze door het model:
 
 1. **`ai-context/`** — bevat `company.md`, `products.md`, `audience.md`, `topics.md` (bedrijfscontext, handmatig onderhouden), en drie gegenereerde/gelogde bestanden:
    - `content-plan.json` — backlog. Items hebben `status`: `planned` → `generated` | `rejected` (met `retryCount`, max 2 pogingen daarna `abandoned`) | `abandoned`. Git-getrackt.
-   - `content-log.json` — append-only run-log (datum, topic, model, seoScore, geoScore, status, publicationStatus). Git-getrackt.
+   - `content-log.json` — append-only run-log (datum, topic, model, seoScore, geoScore, status). Git-getrackt.
    - `content-map.json` — **niet** git-getrackt (`.gitignore`), puur afgeleid uit `blogPosts.ts`/`services.ts` bij elke run, voor interne-link-suggesties.
-2. **`scripts/plan-content.mjs`** — vult `content-plan.json` aan zolang er <5 `planned`-items zijn, via OpenRouter + `ai-context/*.md`.
+2. **`scripts/plan-content.mjs`** — vult `content-plan.json` aan zolang er <5 `planned`-items zijn, via Gemini + `ai-context/*.md`.
 3. **`scripts/generate-blog-post.mjs`** — pakt het hoogste-prioriteit `planned`-item, genereert het artikel, valideert via `scripts/seo-geo-validator.mjs` (score-gate: SEO **én** GEO moeten ≥80, één auto-verbeterpoging), draait een JSX-preflight-check (esbuild transform) vóórdat er iets naar schijf gaat — voorkomt orphan-bestanden bij een ongeldige AI-output. Schrijft bij succes dezelfde 3 bestanden als de bestaande blog-flow (component/`blogPosts.ts`-entry/`App.tsx`-route) plus `category`, `faq[]` en `readingTimeMinutes` op de entry.
 4. **`scripts/lib/json-sanitizer.mjs`** — gedeelde `sanitizeJsonString()`, want niet elk LLM-model (bv. Llama) levert geldige JSON: rauwe newlines/tabs en ongeldige escapes (`\'`) in stringwaarden worden hier gerepareerd vóór `JSON.parse`.
 5. **`scripts/backfill-reading-time.mjs`** — eenmalig backfill-script + geëxporteerde `estimateReadingMinutes()` die ook `generate-blog-post.mjs` gebruikt voor nieuwe artikelen. **Let op:** isoleert eerst de body tussen `<BlogPostLayout>`-tags vóórdat het JS-expressies opschoont — anders vangt de niet-brace-matching `{...}`-regex de functie's eigen `{` en eet bijna de hele body op.
-6. **Model:** `OPENROUTER_MODEL` env var/GitHub Actions variable, default `meta-llama/llama-3.3-70b-instruct` (hardcoded fallback in zowel `plan-content.mjs` als `generate-blog-post.mjs`).
+6. **Model:** `GEMINI_API_KEY` (verplicht) + optionele `GEMINI_MODEL` env var/GitHub Actions variable, default `gemini-flash-latest` (hardcoded fallback in zowel `plan-content.mjs` als `generate-blog-post.mjs`). Calls gaan naar `generativelanguage.googleapis.com`.
 7. **Regels voor AI-gegenereerde JSX:** nooit kale `<`/`>` als vergelijkingsteken in lopende tekst (bv. "< 10 jaar") — breekt de JSX-parser; schrijf "minder dan 10 jaar".
-8. **Cloud-fallback:** er is een disabled Claude Code-routine (`trig_01XyrunYbmJQg9m7haGzfvv7`, zelfde cron-schema) die dezelfde pipeline **zonder OpenRouter** draait — de agent schrijft/beoordeelt het artikel zelf met zijn eigen model. Alleen te activeren als de GitHub Actions-workflow structureel kapot is; heeft geen eigen OPENROUTER_API_KEY nodig maar ook geen automatische toegang tot iets anders.
+8. **Cloud-fallback:** er is een disabled Claude Code-routine (`trig_01XyrunYbmJQg9m7haGzfvv7`, zelfde cron-schema) die dezelfde pipeline **zonder Gemini** draait — de agent schrijft/beoordeelt het artikel zelf met zijn eigen model. Alleen te activeren als de GitHub Actions-workflow structureel kapot is.
 
 Windows-ontwikkelaars: dit repo gebruikt CRLF lokaal (`core.autocrlf=true` is gangbaar), maar de GitHub Actions-runner (Ubuntu) checkt uit met LF. Regexes in de scripts die met bestandsinhoud werken (App.tsx-route-anchors, content-map-parsing) moeten `\r?\n` gebruiken, niet kale `\n` — een eerdere bug werkte toevallig op CI maar faalde lokaal.
