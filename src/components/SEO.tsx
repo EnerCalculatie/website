@@ -84,7 +84,9 @@ export function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="msvalidate.01" content="B1FA6C373F293872B51C1B974F6F7700" />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+      <meta name="author" content="EnerCalculatie" />
+      <meta name="format-detection" content="telephone=no" />
 
       {/* Open Graph / Facebook / LinkedIn */}
       <meta property="og:type" content={type} />
