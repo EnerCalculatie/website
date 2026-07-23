@@ -398,7 +398,6 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned' : 'rejected',
-      publicationStatus: 'not-published',
     });
     throw new Error(
       `Artikel afgekeurd na verbeterpoging (SEO ${validation.seoScore}/${APPROVAL_THRESHOLD}, GEO ${validation.geoScore}/${APPROVAL_THRESHOLD} — beide moeten voldoen) — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven.`
@@ -464,7 +463,6 @@ ${article.componentBody.replace(/\\'/g, "'")}
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-failed-checks' : 'rejected-failed-checks',
-      publicationStatus: 'not-published',
     });
     throw new Error(
       `Contentchecks gefaald — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven:\n- ${metaErrors.join('\n- ')}`
@@ -486,7 +484,6 @@ ${article.componentBody.replace(/\\'/g, "'")}
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-invalid-jsx' : 'rejected-invalid-jsx',
-      publicationStatus: 'not-published',
     });
     throw new Error(`Gegenereerde componentBody bevat ongeldige JSX — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven. Details: ${err.message}`);
   }
@@ -576,7 +573,6 @@ ${keyPointsJs}
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-build-failed' : 'rejected-build-failed',
-      publicationStatus: 'not-published',
     });
     throw new Error(
       `Build gefaald na het schrijven van de bestanden — alles teruggedraaid, backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}).`
@@ -598,7 +594,6 @@ ${keyPointsJs}
     seoScore: validation.seoScore,
     geoScore: validation.geoScore,
     status: 'generated',
-    publicationStatus: 'pending-deploy',
   });
   console.log('content-log.json bijgewerkt.');
 
