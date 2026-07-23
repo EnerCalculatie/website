@@ -1,51 +1,42 @@
 [
   {
-    "title": "Selectiviteit en hoofdzekering: hoe voorkomt u overbelasting bij een all-electric verduurzamingsadvies?",
-    "keyword": "selectiviteit hoofdzekering warmtepomp laadpaal",
-    "intent": "informatief",
-    "priority": 9,
-    "slug": "selectiviteit-en-hoofdzekering-hoe-voorkomt-u-overbelasting-bij-een-all-electric-verduurzamingsadvies",
+    "title": "Geautomatiseerd verduurzamingsrapport: hoe verkort u de doorlooptijd van uw adviestraject?",
+    "keyword": "geautomatiseerd verduurzamingsrapport software",
+    "intent": "transactioneel",
+    "priority": 10,
+    "slug": "geautomatiseerd-verduurzamingsrapport-hoe-verkort-u-de-doorlooptijd-van-uw-adviestraject",
     "status": "generated",
-    "createdAt": "2026-07-22T06:30:33.116Z",
-    "generatedSlug": "selectiviteit-hoofdzekering-warmtepomp-laadpaal",
-    "generatedAt": "2026-07-22T06:32:04.911Z",
-    "seoGeoScore": 89
+    "createdAt": "2026-07-23T07:36:02.009Z",
+    "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
+    "generatedAt": "2026-07-23T07:36:44.712Z",
+    "seoGeoScore": 90
   },
   {
-    "title": "Hoe verhoogt u de conversie van uw offertes met een transparant digitaal adviesrapport?",
-    "keyword": "conversie verhogen offertes installatiebedrijf",
-    "intent": "commercieel",
-    "priority": 9,
-    "slug": "hoe-verhoogt-u-de-conversie-van-uw-offertes-met-een-transparant-digitaal-adviesrapport",
-    "status": "generated",
-    "createdAt": "2026-07-22T06:30:33.117Z",
-    "generatedSlug": "conversie-verhogen-offertes-installatiebedrijf",
-    "generatedAt": "2026-07-22T06:40:38.552Z",
-    "seoGeoScore": 93
-  },
-  {
-    "title": "Warmteverliesberekening voor warmtepompen: hoe onderbouwt u het benodigd vermogen bij uw klant?",
-    "keyword": "warmteverliesberekening warmtepomp advies",
-    "intent": "informatief",
-    "priority": 8,
-    "slug": "warmteverliesberekening-voor-warmtepompen-hoe-onderbouwt-u-het-benodigd-vermogen-bij-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-07-22T06:30:33.113Z",
-    "generatedSlug": "warmteverliesberekening-warmtepomp-advies",
-    "generatedAt": "2026-07-22T07:39:23.593Z",
-    "seoGeoScore": 92
-  },
-  {
-    "title": "Micro-omvormers of centrale omvormer met optimizers: hoe onderbouwt u de keuze in uw offerte?",
-    "keyword": "micro omvormer vs centrale omvormer advies",
+    "title": "Dynamic load balancing adviseren: hoe voorkomt u overbelasting bij een laadpaal op locatie?",
+    "keyword": "dynamic load balancing laadpaal adviseren",
     "intent": "commercieel",
     "priority": 8,
-    "slug": "micro-omvormers-of-centrale-omvormer-met-optimizers-hoe-onderbouwt-u-de-keuze-in-uw-offerte",
-    "status": "generated",
-    "createdAt": "2026-07-22T06:30:33.114Z",
-    "generatedSlug": "micro-omvormer-vs-centrale-omvormer-advies",
-    "generatedAt": "2026-07-23T06:11:33.031Z",
-    "seoGeoScore": 95
+    "slug": "dynamic-load-balancing-adviseren-hoe-voorkomt-u-overbelasting-bij-een-laadpaal-op-locatie",
+    "status": "planned",
+    "createdAt": "2026-07-23T07:36:02.000Z"
+  },
+  {
+    "title": "Geluidsnormen voor warmtepompen: hoe onderbouwt u de plaatsing van de buiteneenheid in uw advies?",
+    "keyword": "geluidsnorm warmtepomp buiteneenheid advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "geluidsnormen-voor-warmtepompen-hoe-onderbouwt-u-de-plaatsing-van-de-buiteneenheid-in-uw-advies",
+    "status": "planned",
+    "createdAt": "2026-07-23T07:36:02.004Z"
+  },
+  {
+    "title": "Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?",
+    "keyword": "koelvermogen airco berekenen",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "koelvermogen-van-een-airco-berekenen-hoe-onderbouwt-u-het-benodigde-vermogen-per-ruimte",
+    "status": "planned",
+    "createdAt": "2026-07-23T07:36:02.008Z"
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
@@ -94,6 +85,30 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Selectiviteit en hoofdzekering: hoe voorkomt u overbelasting bij een all-electric verduurzamingsadvies?",
+    "keyword": "selectiviteit hoofdzekering warmtepomp laadpaal",
+    "intent": "informatief",
+    "priority": 9,
+    "slug": "selectiviteit-en-hoofdzekering-hoe-voorkomt-u-overbelasting-bij-een-all-electric-verduurzamingsadvies",
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.116Z",
+    "generatedSlug": "selectiviteit-hoofdzekering-warmtepomp-laadpaal",
+    "generatedAt": "2026-07-22T06:32:04.911Z",
+    "seoGeoScore": 89
+  },
+  {
+    "title": "Hoe verhoogt u de conversie van uw offertes met een transparant digitaal adviesrapport?",
+    "keyword": "conversie verhogen offertes installatiebedrijf",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "hoe-verhoogt-u-de-conversie-van-uw-offertes-met-een-transparant-digitaal-adviesrapport",
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.117Z",
+    "generatedSlug": "conversie-verhogen-offertes-installatiebedrijf",
+    "generatedAt": "2026-07-22T06:40:38.552Z",
+    "seoGeoScore": 93
   },
   {
     "title": "Energieprofiel opstellen zonder handmatig typewerk: de voordelen van pdf-documentherkenning in uw offerteproces",
@@ -166,6 +181,30 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Warmteverliesberekening voor warmtepompen: hoe onderbouwt u het benodigd vermogen bij uw klant?",
+    "keyword": "warmteverliesberekening warmtepomp advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "warmteverliesberekening-voor-warmtepompen-hoe-onderbouwt-u-het-benodigd-vermogen-bij-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.113Z",
+    "generatedSlug": "warmteverliesberekening-warmtepomp-advies",
+    "generatedAt": "2026-07-22T07:39:23.593Z",
+    "seoGeoScore": 92
+  },
+  {
+    "title": "Micro-omvormers of centrale omvormer met optimizers: hoe onderbouwt u de keuze in uw offerte?",
+    "keyword": "micro omvormer vs centrale omvormer advies",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "micro-omvormers-of-centrale-omvormer-met-optimizers-hoe-onderbouwt-u-de-keuze-in-uw-offerte",
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.114Z",
+    "generatedSlug": "micro-omvormer-vs-centrale-omvormer-advies",
+    "generatedAt": "2026-07-23T06:11:33.031Z",
+    "seoGeoScore": 95
   },
   {
     "title": "Btw op thuisbatterijen: hoe adviseert u uw klant over btw-teruggave en de fiscale spelregels?",

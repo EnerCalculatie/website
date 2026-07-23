@@ -348,5 +348,15 @@
     "geoScore": 95,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-23",
+    "topic": "Geautomatiseerd verduurzamingsrapport software: zo verkort u uw doorlooptijd",
+    "slug": "geautomatiseerd-verduurzamingsrapport-software",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 88,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
