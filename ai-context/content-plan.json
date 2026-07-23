@@ -41,8 +41,11 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "micro-omvormers-of-centrale-omvormer-met-optimizers-hoe-onderbouwt-u-de-keuze-in-uw-offerte",
-    "status": "planned",
-    "createdAt": "2026-07-22T06:30:33.114Z"
+    "status": "generated",
+    "createdAt": "2026-07-22T06:30:33.114Z",
+    "generatedSlug": "micro-omvormer-vs-centrale-omvormer-advies",
+    "generatedAt": "2026-07-23T06:11:33.031Z",
+    "seoGeoScore": 95
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",

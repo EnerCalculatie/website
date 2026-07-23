@@ -803,4 +803,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kost het opstellen van een uitgebreid digitaal adviesrapport niet veel extra tijd?', answer: 'Nee, mits u gebruikmaakt van gespecialiseerde advies- en rekensoftware. Door slimme gegevensinvoer, zoals pdf-documentherkenning van energienota\'s en geautomatiseerde rekenmodellen, genereert u een compleet rapport binnen enkele minuten.' },
     ],
   },
+  {
+    slug: 'micro-omvormer-vs-centrale-omvormer-advies',
+    readingTimeMinutes: 7,
+    title: 'Micro-omvormer vs centrale omvormer met optimizers: onderbouw uw keuze in de offerte',
+    seoTitle: 'Micro omvormer vs centrale omvormer advies: gids',
+    description:
+      'Hoe kiest u tussen micro-omvormers en een centrale omvormer met optimizers? Lees de technische criteria, NEN 1010 eisen en offerte-onderbouwing.',
+    date: '2026-07-23',
+    excerpt:
+      'Ontdek hoe u als installateur de keuze tussen micro-omvormers en een centrale omvormer met optimizers technisch onderbouwt met NEN 1010-normen, schaduwanalyse en rendementsberekeningen.',
+    tags: ['Zonnepanelen', 'Omvormers', 'Installatietechniek', 'NEN 1010'],
+    keyPoints: [
+      'Verschil in DC-spanning op het dak en de impact op de brandveiligheid volgens NEN 1010.',
+      'Impact van schaduwwerking, complexe dakvlakken en uitbreidbaarheid op het systeemrendement.',
+      'Onderhoudbaarheid, thermische belasting en uitvalrisico\'s per systeemarchitectuur.',
+      'Onderbouwing in de offerte op basis van objectieve meetgegevens en de NEN 1010-normering.',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Wanneer kiest u voor micro-omvormers boven een centrale omvormer met optimizers?', answer: 'Micro-omvormers zijn de aangewezen keuze bij complexe daken met meerdere oriëntaties, harde schaduwelementen, kleine systeemgroottes, of situaties waarin hoge gelijkspanning (DC) op het dak en in het pand om veiligheidsredenen ongewenst is.' },
+      { question: 'Hoe verhouden beide systemen zich tot de veiligheidseisen van NEN 1010?', answer: 'Bij micro-omvormers wordt de gelijkstroom direct achter het zonnepaneel omgezet naar 230V wisselstroom (AC), waardoor er geen hoge DC-stringspanningen ontstaan. Bij centrale omvormers met optimizers blijft de DC-stringspanning op het dak tijdens werking hoog, al beschikken moderne optimizers over actieve spanningsreductie bij uitschakeling.' },
+      { question: 'Is een installatie met micro-omvormers eenvoudiger modulair uit te breiden?', answer: 'Ja. Omdat elk paneel een afzonderlijke omvormer heeft die op de AC-buskabel wordt aangesloten, is een uitbreiding niet gebonden aan de maximale ingangsspanning of MPP-trackers van een centrale omvormer.' },
+      { question: 'Welke invloed heeft de omgevingstemperatuur op de levensduur van de omvormers?', answer: 'Micro-omvormers en optimizers hangen direct onder de zonnepanelen en worden blootgesteld aan thermische schommelingen. Centrale omvormers hangen binnen op een koelere plek. Een goede montage met voldoende ventilatieruimte achter de zonnepanelen is bij dakgekoppelde elektronica essentieel om de levensduur te borgen.' },
+    ],
+  },
 ];

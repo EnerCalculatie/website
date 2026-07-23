@@ -338,5 +338,15 @@
     "geoScore": 88,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-23",
+    "topic": "Micro-omvormer vs centrale omvormer met optimizers: onderbouw uw keuze in de offerte",
+    "slug": "micro-omvormer-vs-centrale-omvormer-advies",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 95,
+    "status": "generated",
+    "publicationStatus": "pending-deploy"
   }
 ]
