@@ -17,8 +17,11 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "dynamic-load-balancing-adviseren-hoe-voorkomt-u-overbelasting-bij-een-laadpaal-op-locatie",
-    "status": "planned",
-    "createdAt": "2026-07-23T07:36:02.000Z"
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.000Z",
+    "generatedSlug": "dynamic-load-balancing-laadpaal-adviseren",
+    "generatedAt": "2026-07-24T07:37:30.134Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Geluidsnormen voor warmtepompen: hoe onderbouwt u de plaatsing van de buiteneenheid in uw advies?",

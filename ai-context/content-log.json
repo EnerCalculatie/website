@@ -358,5 +358,14 @@
     "geoScore": 88,
     "status": "generated",
     "publicationStatus": "pending-deploy"
+  },
+  {
+    "date": "2026-07-24",
+    "topic": "Dynamic load balancing laadpaal adviseren: overbelasting voorkomen op locatie",
+    "slug": "dynamic-load-balancing-laadpaal-adviseren",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 95,
+    "status": "generated"
   }
 ]

@@ -853,4 +853,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe helpt een geautomatiseerd adviesrapport bij het verhogen van de offerteconversie?', answer: 'Een helder, visueel en transparant adviesrapport bouwt direct vertrouwen op bij de woning- of pandeigenaar. Omdat de klant sneller antwoord krijgt en het rendement overzichtelijk wordt gepresenteerd, beslist de klant sneller en stijgt de conversie.' },
     ],
   },
+  {
+    slug: 'dynamic-load-balancing-laadpaal-adviseren',
+    readingTimeMinutes: 7,
+    title: 'Dynamic load balancing laadpaal adviseren: overbelasting voorkomen op locatie',
+    seoTitle: 'Dynamic load balancing laadpaal adviseren: zo werkt het',
+    description:
+      'Dynamic load balancing laadpaal adviseren? Voorkom overbelasting op de netaansluiting en onderbouw uw advies. Praktische gids voor installateurs.',
+    date: '2026-07-24',
+    excerpt:
+      'Hoe adviseert u dynamic load balancing bij laadpalen? Ontdek hoe u met slimme lastbalancering overbelasting van de netaansluiting voorkomt en een onderbouwd advies geeft.',
+    tags: ['Laadpalen', 'Netaansluiting', 'Dynamic Load Balancing', 'Installatietechniek'],
+    keyPoints: [
+      'Dynamic load balancing (DLB) meet het actuele huishoudelijke verbruik via de P1-poort of CT-spoelen en past het laadvermogen automatisch aan volgens de IEC 61851-norm.',
+      'Op een standaard 3x25A netaansluiting is DLB essentieel om het risico op overbelasting van de hoofdzekering bij gelijktijdig gebruik van een warmtepomp of kookplaat tot een minimum te beperken.',
+      'Een onderbouwd adviesgesprek voorkomt onnodige en kostbare netuitbreidingen door de capaciteit van de aansluiting vooraf inzichtelijk te maken voor de klant.',
+      'Geïntegreerde adviessoftware combineert het laadprofiel met overige verduurzamingsmaatregelen tot één transparant adviesrapport.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Wat is het verschil tussen statische en dynamische load balancing bij een laadpaal?', answer: 'Bij statische load balancing stelt u een vast maximaal laadvermogen in dat nooit wordt overschreden, ongeacht het overige verbruik. Bij dynamische load balancing wordt het beschikbare vermogen continu in real-time gemeten via de P1-poort of CT-spoelen, waardoor de laadpaal direct bijschakelt wanneer het overige verbruik in het pand daalt.' },
+      { question: 'Is dynamic load balancing verplicht bij de installatie van een laadpaal?', answer: 'Volgens de NEN 1010-normen is dynamic load balancing niet formeel wettelijk verplicht, maar in de praktijk is het bij een 11 kW laadpaal op een standaard 3x25A netaansluiting vrijwel onmisbaar. Zonder dynamische sturing is het risico op het doorslaan van de hoofdzekering bij gelijktijdig gebruik van apparaten zoals een warmtepomp of inductiekookplaat zeer groot.' },
+      { question: 'Hoe communiceert een laadpaal met de slimme meter voor dynamic load balancing?', answer: 'De communicatie verloopt meestal via een fysieke datakabel (UTP) of een draadloze module tussen de P1-poort van de slimme meter (SMR 4.2 of SMR 5.0 protocol) of externe CT-stroomspoelen en de laadpaal. De laadpaal gebruikt dit signaal om conform de IEC 61851-norm het laadsignaal (PWM) naar het voertuig aan te passen.' },
+      { question: 'Kan dynamic load balancing worden gecombineerd met zonnepanelen en een thuisbatterij?', answer: 'Ja, moderne laadpalen en energiemanagementsystemen (EMS) kunnen het laadvermogen afstemmen op zowel de netbelasting als de actuele opwek van zonnepanelen en de status van een thuisbatterij. Hierdoor kan het laadpunt voorrang geven aan het laden op eigen zonne-energie.' },
+    ],
+  },
 ];
