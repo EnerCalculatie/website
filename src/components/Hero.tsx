@@ -46,11 +46,18 @@ export function Hero() {
 
           {/* Call to Actions — primair de gratis account-loze rapport-flow
               (Fase 1 GTM, app.enercalculatie.nl/gratis), demo als secundair/
-              tertiair alternatief voor wie liever eerst praat. */}
+              tertiair alternatief voor wie liever eerst praat.
+              2026-07-25: doelgroep expliciet gemaakt — tool is lead-magnet
+              gericht op installateurs (upload nota van een eigen klant),
+              niet een self-service product voor eindklanten. Zie
+              [[gratis-instap-flow-gtm]] open strategisch punt. */}
           <div className="animate-fade-up anim-delay-300 flex flex-col items-center justify-center mb-12">
+            <p className="text-sm font-bold text-brand-primary-text uppercase tracking-wide mb-3">
+              Gratis proberen als installateur
+            </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
               <a href="https://app.enercalculatie.nl/gratis" className="w-full sm:w-auto px-8 py-4 bg-brand-primary-text text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
-                Upload uw energienota → gratis rapport <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Upload de nota van een klant → gratis rapport <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="#demo-video" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center gap-2">
                 <Play size={20} className="text-brand-primary fill-brand-primary/20" /> Bekijk hoe het werkt
@@ -60,7 +67,7 @@ export function Hero() {
                 knop leidt niet naar een 30-dagen-proefaccount maar naar één
                 los gratis rapport, zonder account. */}
             <p className="text-sm font-medium text-slate-500 mb-2">
-              Geen account nodig · rapport binnen 2 minuten
+              Geen account nodig · rapport binnen 2 minuten · voor installateurs
             </p>
 
             {/* Early adopter urgentie-signaal (geen klantenteller — pre-launch fase) */}
