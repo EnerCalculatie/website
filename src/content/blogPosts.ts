@@ -904,4 +904,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wie is verantwoordelijk als de warmtepomp na installatie niet voldoet aan de geluidsnorm?', answer: 'De gebouweigenaar is juridisch verantwoordelijk voor het naleven van het BBL, maar u als installateur heeft een zorgplicht. Met een schriftelijke akoestische onderbouwing vooraf toont u aan dat het systeem zorgvuldig en compliant is ontworpen.' },
     ],
   },
+  {
+    slug: 'koelvermogen-airco-berekenen',
+    readingTimeMinutes: 7,
+    title: 'Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?',
+    seoTitle: 'Koelvermogen airco berekenen: onderbouwing per ruimte',
+    description:
+      'Koelvermogen van een airco berekenen per ruimte? Ontdek de ISSO-factoren, m3-berekeningen, isolatieklassen en het invullen van een kloppend adviesrapport.',
+    date: '2026-07-27',
+    excerpt:
+      'Hoe berekent u als installateur het benodigde koelvermogen van een airco per ruimte exact? Een heldere uitleg van de ISSO-methodiek, vermogensklassen, isolatiefactoren en de impact op het totale energieprofiel.',
+    tags: ['Airco', 'Installatietechniek', 'Koelvermogen', 'Energierapport'],
+    keyPoints: [
+      'Het berekenen van het koelvermogen vereist een precieze analyse van het ruimtevolume (m³) en de thermische kenmerken van de schil.',
+      'De ISSO-methodiek onderscheidt vermogensklassen (30 tot 50 Watt per m³) op basis van isolatiewaarde, glasoppervlak en zonbelasting.',
+      'Overdimensionering leidt tot pendelgedrag en efficiëntieverlies, terwijl onderdimensionering het gewenste comfort verhindert.',
+      'Een onderbouwde berekening koppelt het koel- en verwarmingsvermogen van de airco direct aan de totale energiebalans en zonnepaneel-opwek.',
+    ],
+    category: 'Airco',
+    faq: [
+      { question: 'Hoeveel Watt koelvermogen is gemiddeld nodig per kubieke meter (m³)?', answer: 'De algemeen gehanteerde richtlijn kent een spreiding van 30 tot 50 Watt per m³. Een goed geïsoleerde ruimte met HR++ of triple glas vereist doorgaans 30 Watt per m³, terwijl ruimtes met een hoog glasoppervlak, plat dak of matige isolatie al snel 40 tot 50 Watt per m³ vragen.' },
+      { question: 'Wat is het risico van een overgedimensioneerde airco?', answer: 'Bij overdimensionering kan de inverter van de airconditioning niet ver genoeg terugmoduleren. Dit veroorzaakt een zogenaamd pendel-effect (frequent in- en uitschakelen van de compressor), wat leidt tot een hoger energieverbruik, grotere temperatuurschommelingen en versnelde slijtage.' },
+      { question: 'Welke standaarden en richtlijnen onderbouwen een professionele koellastberekening?', answer: 'Professionele installateurs baseren hun advies op de richtlijnen van ISSO (zoals ISSO-publicatie 51 en 74 voor koellastberekeningen) en NEN-EN 14511 / NEN-EN 14825 voor seizoensprestaties (SEER en SCOP).' },
+      { question: 'Hoe beïnvloedt een airco het totale energieprofiel van de woning?', answer: 'In de zomer vraagt de airco koelstroom op momenten dat zonnepanelen veel opwekken. In het stookseizoen werkt de airco als efficiënte lucht-lucht warmtepomp. Door het stroomverbruik in beide seizoenen mee te nemen, ontstaat een integraal en realistisch energie-advies.' },
+    ],
+  },
 ];

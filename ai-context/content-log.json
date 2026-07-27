@@ -376,5 +376,14 @@
     "seoScore": 95,
     "geoScore": 92,
     "status": "generated"
+  },
+  {
+    "date": "2026-07-27",
+    "topic": "Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?",
+    "slug": "koelvermogen-airco-berekenen",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 96,
+    "status": "generated"
   }
 ]

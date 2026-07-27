@@ -41,8 +41,11 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "koelvermogen-van-een-airco-berekenen-hoe-onderbouwt-u-het-benodigde-vermogen-per-ruimte",
-    "status": "planned",
-    "createdAt": "2026-07-23T07:36:02.008Z"
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.008Z",
+    "generatedSlug": "koelvermogen-airco-berekenen",
+    "generatedAt": "2026-07-27T08:37:32.165Z",
+    "seoGeoScore": 94
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
