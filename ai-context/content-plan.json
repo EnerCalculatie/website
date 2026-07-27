@@ -29,8 +29,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "geluidsnormen-voor-warmtepompen-hoe-onderbouwt-u-de-plaatsing-van-de-buiteneenheid-in-uw-advies",
-    "status": "planned",
-    "createdAt": "2026-07-23T07:36:02.004Z"
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.004Z",
+    "generatedSlug": "geluidsnorm-warmtepomp-buiteneenheid-advies",
+    "generatedAt": "2026-07-27T08:13:00.134Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?",

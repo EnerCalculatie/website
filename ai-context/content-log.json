@@ -367,5 +367,14 @@
     "seoScore": 92,
     "geoScore": 95,
     "status": "generated"
+  },
+  {
+    "date": "2026-07-27",
+    "topic": "Geluidsnormen voor warmtepompen: hoe onderbouwt u de plaatsing van de buiteneenheid in uw advies?",
+    "slug": "geluidsnorm-warmtepomp-buiteneenheid-advies",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 92,
+    "status": "generated"
   }
 ]

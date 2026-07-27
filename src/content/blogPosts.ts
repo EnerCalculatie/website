@@ -878,4 +878,30 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kan dynamic load balancing worden gecombineerd met zonnepanelen en een thuisbatterij?', answer: 'Ja, moderne laadpalen en energiemanagementsystemen (EMS) kunnen het laadvermogen afstemmen op zowel de netbelasting als de actuele opwek van zonnepanelen en de status van een thuisbatterij. Hierdoor kan het laadpunt voorrang geven aan het laden op eigen zonne-energie.' },
     ],
   },
+  {
+    slug: 'geluidsnorm-warmtepomp-buiteneenheid-advies',
+    readingTimeMinutes: 7,
+    title: 'Geluidsnormen voor warmtepompen: hoe onderbouwt u de plaatsing van de buiteneenheid in uw advies?',
+    seoTitle: 'Geluidsnorm warmtepomp buiteneenheid: advies',
+    description:
+      'Hoe voldoet u aan de geluidsnorm warmtepomp buiteneenheid? Lees hoe u als installateur geluidsberekeningen en plaatsing onderbouwt in uw advies.',
+    date: '2026-07-27',
+    excerpt:
+      'Als installateur bent u gebonden aan de BBL-geluidsnormen voor buiten opgestelde warmtepompen. Ontdek hoe u afstand, reflecties en omkastingen onderbouwt in uw klantadvies.',
+    tags: ['Warmtepompen', 'Geluidsnormen', 'Installatietechniek', 'Buiteneenheid'],
+    keyPoints: [
+      'Het Besluit bouwwerken leefomgeving (BBL) stelt een grenswaarde van maximaal 40 dB(A) \'s nachts en 45 dB(A) overdag op de erfgrens.',
+      'Het verschil tussen geluidsvermogen (Lwa) en geluidsdruk (Lp) vormt de rekenbasis bij het bepalen van de juiste afstand.',
+      'Plaatsing nabij een buitenwand of in een hoek verhoogt de geluidsdruk met 3 tot 6 dB(A) door reflectie van geluidsgolven.',
+      'Trillingsdempers, nachtmodus en akoestische omkastingen zijn effectieve maatregelen bij krappe kavelgrenzen.',
+      'Een heldere akoestische onderbouwing in het adviesrapport voorkomt burenconflicten en aansprakelijkheid achteraf.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Welke geluidsnorm geldt er voor de buiteneenheid van een warmtepomp?', answer: 'Volgens artikel 3.21 van het Besluit bouwwerken leefomgeving (BBL) mag het geluidsdrukniveau veroorzaakt door een buiten opgestelde warmtepomp op de erfgrens met de buren (of bij een te openen raam van een woonfunctie) maximaal 40 dB(A) bedragen tussen 23:00 en 07:00 uur, en maximaal 45 dB(A) tussen 07:00 en 23:00 uur.' },
+      { question: 'Wat is het verschil tussen geluidsvermogen (Lwa) en geluidsdruk (Lp)?', answer: 'Geluidsvermogen (Lwa) is de broneigenschap van de warmtepomp op de machine zelf, gemeten in een laboratorium. Geluidsdruk (Lp) is de daadwerkelijk waargenomen geluidsintensiteit op een specifieke plek (zoals de perceelgrens), beïnvloed door afstand, obstakels en reflecterende wanden.' },
+      { question: 'Hoeveel invloed heeft een muur of hoek op het geluidsniveau van de buiteneenheid?', answer: 'Plaatsing vlak voor een harde gevel voegt door geluidsreflectie circa 3 dB(A) toe aan de geluidsdruk. Een plaatsing in een binnenhoek tussen twee muren verhoogt het geluidsdrukniveau met circa 6 dB(A) ten opzichte van een vrijstaande opstelling.' },
+      { question: 'Wie is verantwoordelijk als de warmtepomp na installatie niet voldoet aan de geluidsnorm?', answer: 'De gebouweigenaar is juridisch verantwoordelijk voor het naleven van het BBL, maar u als installateur heeft een zorgplicht. Met een schriftelijke akoestische onderbouwing vooraf toont u aan dat het systeem zorgvuldig en compliant is ontworpen.' },
+    ],
+  },
 ];
