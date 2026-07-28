@@ -929,4 +929,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe beïnvloedt een airco het totale energieprofiel van de woning?', answer: 'In de zomer vraagt de airco koelstroom op momenten dat zonnepanelen veel opwekken. In het stookseizoen werkt de airco als efficiënte lucht-lucht warmtepomp. Door het stroomverbruik in beide seizoenen mee te nemen, ontstaat een integraal en realistisch energie-advies.' },
     ],
   },
+  {
+    slug: 'monoblock-vs-split-warmtepomp',
+    readingTimeMinutes: 7,
+    title: 'Monoblock of split-warmtepomp: hoe onderbouwt u de keuze in uw klantadvies en offerte?',
+    seoTitle: 'Monoblock vs split warmtepomp: onderbouw uw advies',
+    description:
+      'Twijfelt u tussen een monoblock vs split warmtepomp? Ontdek hoe u installatie-eisen, F-gassen en efficiëntie onderbouwt in uw advies en offerte.',
+    date: '2026-07-28',
+    excerpt:
+      'Een gedegen keuze tussen een monoblock en een split-warmtepomp vraagt om inzicht in F-gascertificering, bouwkundige ruimte, geluidsnormen en leidingsverliezen. Zo onderbouwt u dit helder in uw offertes.',
+    tags: ['Warmtepompen', 'Installatietechniek', 'F-gassen', 'Offerteproces'],
+    keyPoints: [
+      'Het fundamentele verschil ligt in het koudemiddelcircuit: bij een monoblock blijft dit in de buiteneenheid, bij een split loopt het tot in de woning.',
+      'F-gascertificering is wettelijk verplicht voor het installeren van split-systemen, terwijl een monoblock puur waterzijdig aangesloten wordt.',
+      'Plaatsingsruimte binnen en buiten, geluidsnormen op de perceelgrens en bevriezingsrisico\'s bepalen mede het geschikte systeemtype.',
+      'Een heldere onderbouwing in het adviesrapport voorkomt onduidelijkheid over meerkosten, fysieke impact op het pand en subsidievoorwaarden.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Is een monoblock warmtepomp efficiënter dan een split-warmtepomp?', answer: 'In de basis ontlopen het nominale rendement en de SCOP-waarde van een monoblock en split elkaar nauwelijks wanneer vergelijkbare compressoren worden toegepast. Wel spelen thermische leidingverliezen over het waterzijdige buitentraject bij een monoblock en de gekozen vorstbeveiliging een rol in het netto jaarrendement.' },
+      { question: 'Heeft u voor het installeren van een monoblock een F-gascertificaat nodig?', answer: 'Nee, bij een monoblock warmtepomp is het koudemiddelcircuit af fabriek hermetisch gesloten in de buiteneenheid. Omdat u als installateur uitsluitend CV-waterzijdige leidingen naar binnen aanlegt, is een F-gascertificering voor deze specifieke montage werkzaamheden niet verplicht.' },
+      { question: 'Hoe voorkomt u bevriezingsschade bij een monoblock warmtepomp?', answer: 'Omdat er CV-water door de buitenleidingen van een monoblock stroomt, kan bij langdurige stroomuitval tijdens vorst schade ontstaan. Dit wordt in het ontwerp opgevangen door het toepassen van thermische vorstbeveiligingskleppen, een glycolmengsel of een scheidingswisselaar.' },
+      { question: 'Komen zowel monoblock- als split-warmtepompen in aanmerking voor ISDE-subsidie?', answer: 'Ja, zowel monoblock- als split-lucht-waterwarmtepompen komen in aanmerking voor de ISDE-subsidie, mits het specifieke fabricaat en type op de actuele meldcodelijst van de RVO staat vermeld en aan de geldende kwaliteits- en efficiëntie-eisen voldoet.' },
+    ],
+  },
 ];

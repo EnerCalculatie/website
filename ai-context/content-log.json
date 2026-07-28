@@ -385,5 +385,14 @@
     "seoScore": 92,
     "geoScore": 96,
     "status": "generated"
+  },
+  {
+    "date": "2026-07-28",
+    "topic": "Monoblock of split-warmtepomp: hoe onderbouwt u de keuze in uw klantadvies en offerte?",
+    "slug": "monoblock-vs-split-warmtepomp",
+    "model": "gemini-flash-latest",
+    "seoScore": 100,
+    "geoScore": 100,
+    "status": "generated"
   }
 ]

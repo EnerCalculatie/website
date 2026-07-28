@@ -1,51 +1,33 @@
 [
   {
-    "title": "Geautomatiseerd verduurzamingsrapport: hoe verkort u de doorlooptijd van uw adviestraject?",
-    "keyword": "geautomatiseerd verduurzamingsrapport software",
-    "intent": "transactioneel",
-    "priority": 10,
-    "slug": "geautomatiseerd-verduurzamingsrapport-hoe-verkort-u-de-doorlooptijd-van-uw-adviestraject",
-    "status": "generated",
-    "createdAt": "2026-07-23T07:36:02.009Z",
-    "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
-    "generatedAt": "2026-07-23T07:36:44.712Z",
-    "seoGeoScore": 90
-  },
-  {
-    "title": "Dynamic load balancing adviseren: hoe voorkomt u overbelasting bij een laadpaal op locatie?",
-    "keyword": "dynamic load balancing laadpaal adviseren",
+    "title": "Monoblock of split-warmtepomp: hoe onderbouwt u de keuze in uw klantiets en offerte?",
+    "keyword": "monoblock vs split warmtepomp",
     "intent": "commercieel",
     "priority": 8,
-    "slug": "dynamic-load-balancing-adviseren-hoe-voorkomt-u-overbelasting-bij-een-laadpaal-op-locatie",
+    "slug": "monoblock-of-split-warmtepomp-hoe-onderbouwt-u-de-keuze-in-uw-klantiets-en-offerte",
     "status": "generated",
-    "createdAt": "2026-07-23T07:36:02.000Z",
-    "generatedSlug": "dynamic-load-balancing-laadpaal-adviseren",
-    "generatedAt": "2026-07-24T07:37:30.134Z",
-    "seoGeoScore": 94
+    "createdAt": "2026-07-28T07:42:17.526Z",
+    "generatedSlug": "monoblock-vs-split-warmtepomp",
+    "generatedAt": "2026-07-28T07:43:10.075Z",
+    "seoGeoScore": 100
   },
   {
-    "title": "Geluidsnormen voor warmtepompen: hoe onderbouwt u de plaatsing van de buiteneenheid in uw advies?",
-    "keyword": "geluidsnorm warmtepomp buiteneenheid advies",
+    "title": "MID-gecertificeerde laadpaal voor zakelijk thuisladen: waar op letten in uw advies?",
+    "keyword": "MID laadpaal zakelijk verrekenen advies",
     "intent": "informatief",
     "priority": 8,
-    "slug": "geluidsnormen-voor-warmtepompen-hoe-onderbouwt-u-de-plaatsing-van-de-buiteneenheid-in-uw-advies",
-    "status": "generated",
-    "createdAt": "2026-07-23T07:36:02.004Z",
-    "generatedSlug": "geluidsnorm-warmtepomp-buiteneenheid-advies",
-    "generatedAt": "2026-07-27T08:13:00.134Z",
-    "seoGeoScore": 94
+    "slug": "mid-gecertificeerde-laadpaal-voor-zakelijk-thuisladen-waar-op-letten-in-uw-advies",
+    "status": "planned",
+    "createdAt": "2026-07-28T07:42:17.532Z"
   },
   {
-    "title": "Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?",
-    "keyword": "koelvermogen airco berekenen",
+    "title": "Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?",
+    "keyword": "vermogensgarantie zonnepanelen offerte",
     "intent": "informatief",
     "priority": 7,
-    "slug": "koelvermogen-van-een-airco-berekenen-hoe-onderbouwt-u-het-benodigde-vermogen-per-ruimte",
-    "status": "generated",
-    "createdAt": "2026-07-23T07:36:02.008Z",
-    "generatedSlug": "koelvermogen-airco-berekenen",
-    "generatedAt": "2026-07-27T08:37:32.165Z",
-    "seoGeoScore": 94
+    "slug": "vermogensgarantie-en-productgarantie-van-zonnepanelen-hoe-verwerkt-u-dit-helder-in-uw-adviesrapport",
+    "status": "planned",
+    "createdAt": "2026-07-28T07:42:17.538Z"
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
@@ -94,6 +76,18 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Geautomatiseerd verduurzamingsrapport: hoe verkort u de doorlooptijd van uw adviestraject?",
+    "keyword": "geautomatiseerd verduurzamingsrapport software",
+    "intent": "transactioneel",
+    "priority": 10,
+    "slug": "geautomatiseerd-verduurzamingsrapport-hoe-verkort-u-de-doorlooptijd-van-uw-adviestraject",
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.009Z",
+    "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
+    "generatedAt": "2026-07-23T07:36:44.712Z",
+    "seoGeoScore": 90
   },
   {
     "title": "Selectiviteit en hoofdzekering: hoe voorkomt u overbelasting bij een all-electric verduurzamingsadvies?",
@@ -190,6 +184,30 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Dynamic load balancing adviseren: hoe voorkomt u overbelasting bij een laadpaal op locatie?",
+    "keyword": "dynamic load balancing laadpaal adviseren",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "dynamic-load-balancing-adviseren-hoe-voorkomt-u-overbelasting-bij-een-laadpaal-op-locatie",
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.000Z",
+    "generatedSlug": "dynamic-load-balancing-laadpaal-adviseren",
+    "generatedAt": "2026-07-24T07:37:30.134Z",
+    "seoGeoScore": 94
+  },
+  {
+    "title": "Geluidsnormen voor warmtepompen: hoe onderbouwt u de plaatsing van de buiteneenheid in uw advies?",
+    "keyword": "geluidsnorm warmtepomp buiteneenheid advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "geluidsnormen-voor-warmtepompen-hoe-onderbouwt-u-de-plaatsing-van-de-buiteneenheid-in-uw-advies",
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.004Z",
+    "generatedSlug": "geluidsnorm-warmtepomp-buiteneenheid-advies",
+    "generatedAt": "2026-07-27T08:13:00.134Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Warmteverliesberekening voor warmtepompen: hoe onderbouwt u het benodigd vermogen bij uw klant?",
@@ -318,6 +336,18 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?",
+    "keyword": "koelvermogen airco berekenen",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "koelvermogen-van-een-airco-berekenen-hoe-onderbouwt-u-het-benodigde-vermogen-per-ruimte",
+    "status": "generated",
+    "createdAt": "2026-07-23T07:36:02.008Z",
+    "generatedSlug": "koelvermogen-airco-berekenen",
+    "generatedAt": "2026-07-27T08:37:32.165Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Airco als verwarming: hoe berekent u de gasbesparing en het extra stroomverbruik voor uw klant?",
