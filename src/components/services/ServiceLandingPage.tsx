@@ -27,7 +27,6 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
       name: 'Nederland',
     },
     url: canonical,
-    dateModified: service.updated,
   };
 
   const faqSchema = {
