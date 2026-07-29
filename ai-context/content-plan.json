@@ -17,8 +17,11 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "mid-gecertificeerde-laadpaal-voor-zakelijk-thuisladen-waar-op-letten-in-uw-advies",
-    "status": "planned",
-    "createdAt": "2026-07-28T07:42:17.532Z"
+    "status": "generated",
+    "createdAt": "2026-07-28T07:42:17.532Z",
+    "generatedSlug": "mid-laadpaal-zakelijk-verrekenen-advies",
+    "generatedAt": "2026-07-29T07:48:01.450Z",
+    "seoGeoScore": 91
   },
   {
     "title": "Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?",

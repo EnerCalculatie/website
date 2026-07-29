@@ -954,4 +954,30 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Komen zowel monoblock- als split-warmtepompen in aanmerking voor ISDE-subsidie?', answer: 'Ja, zowel monoblock- als split-lucht-waterwarmtepompen komen in aanmerking voor de ISDE-subsidie, mits het specifieke fabricaat en type op de actuele meldcodelijst van de RVO staat vermeld en aan de geldende kwaliteits- en efficiëntie-eisen voldoet.' },
     ],
   },
+  {
+    slug: 'mid-laadpaal-zakelijk-verrekenen-advies',
+    readingTimeMinutes: 6,
+    title: 'MID-gecertificeerde laadpaal voor zakelijk thuisladen: waar op letten in uw advies?',
+    seoTitle: 'MID laadpaal zakelijk verrekenen: advies voor installateurs',
+    description:
+      'MID laadpaal zakelijk verrekenen: advies over MID-certificering, CPO-koppeling en netcapaciteit voor zakelijk thuisladen bij uw klanten.',
+    date: '2026-07-29',
+    excerpt:
+      'Voor het zakelijk verrekenen van thuisgeladen stroom is een MID-gecertificeerde laadpaal een harde voorwaarde. Ontdek waar u als installateur op moet letten bij certificering, CPO-koppeling en netcapaciteit.',
+    tags: ['Laadpalen', 'Zakelijk laden', 'Installatiebranche', 'Wetgeving'],
+    keyPoints: [
+      'MID-certificering (Measuring Instruments Directive) is een fiscale voorwaarde van de Belastingdienst voor het onbelast verrekenen van geladen kilowatturen met een werkgever of B.V.',
+      'Automatische verrekening vereist naast een geijkte MID-stroommeter ook OCPP-ondersteuning en een Charge Point Operator (CPO) backoffice.',
+      'Via een RFID-laadpas worden zakelijke laadsessies betrouwbaar gescheiden van het privégebruik van overige voertuigen binnen het huishouden.',
+      'Het hoge laadvermogen bij zakelijk laden vereist een grondige controle van de netaansluiting en de toepassing van dynamic load balancing.',
+      'In één gecombineerd adviesrapport maakt u de impact van een zakelijke laadpaal op het totale energieprofiel van de klant inzichtelijk.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Waarom is een MID-gecertificeerde stroommeter verplicht voor zakelijk verrekenen?', answer: 'De Belastingdienst en de fiscale wetgeving eisen dat onbelaste kostenvergoedingen voor thuisgeladen kilowatturen gebaseerd zijn op een geijkte en aantoonbare meting. De Europese MID-richtlijn (Measuring Instruments Directive) garandeert de vereiste nauwkeurigheid en fraudebestendigheid.' },
+      { question: 'Is een externe MID-kWh-meter in de groepenkast ook toegestaan?', answer: 'Ja, een externe gecertificeerde MID-meter op de laadpaalgroep in de meterkast is fiscaal toegestaan, mits de meetgegevens verzegeld en aantoonbaar via het verrekenplatform worden uitgelezen. In de praktijk wordt echter meestal gekozen voor een laadpaal met een ingebouwde MID-meter voor een snellere installatie.' },
+      { question: 'Hoe werkt het verrekenen van laadkosten als de klant ook zonnepanelen heeft?', answer: 'De MID-meter registreert de exacte hoeveelheid kilowatturen die de laadpaal opneemt. De werkgever vergoedt het afgesproken kWh-tarief aan de werknemer op basis van deze meterstand. Hoe de stroom is opgewekt (uit de zonnepanelen of vanaf het net) verandert niets aan het geijkte verbruik dat de laadpaal registreert.' },
+      { question: 'Wat is het verschil tussen een standaard laadpaal en een MID-gecertificeerde zakelijke laadpaal?', answer: 'Een standaard thuislader gebruikt vaak een niet-geijkte interne stroommeting en mist soms de benodigde software-protocollen (OCPP). Een MID-laadpaal beschikt over een officieel geijkte stroommeter, ondersteunt het OCPP-protocol voor gegevensuitwisseling met een backoffice en gebruikt een RFID-lezer voor gebruikersidentificatie.' },
+    ],
+  },
 ];

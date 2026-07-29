@@ -394,5 +394,14 @@
     "seoScore": 100,
     "geoScore": 100,
     "status": "generated"
+  },
+  {
+    "date": "2026-07-29",
+    "topic": "MID-gecertificeerde laadpaal voor zakelijk thuisladen: waar op letten in uw advies?",
+    "slug": "mid-laadpaal-zakelijk-verrekenen-advies",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 90,
+    "status": "generated"
   }
 ]
