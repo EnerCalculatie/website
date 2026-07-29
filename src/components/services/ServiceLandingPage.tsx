@@ -48,6 +48,7 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
         title={service.title}
         description={service.metaDescription}
         canonical={canonical}
+        image={service.image}
       />
       <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>

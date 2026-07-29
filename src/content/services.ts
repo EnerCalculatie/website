@@ -23,6 +23,7 @@ export interface ServiceMeta {
   slug: string;
   title: string;
   metaDescription: string;
+  image: string;
   badge: string;
   headline: string;
   intro: string;
@@ -61,6 +62,7 @@ export const services: ServiceMeta[] = [
   {
     slug: 'zonnepanelen',
     title: 'Rekentool zonnepanelen voor installateurs | EnerCalculatie',
+    image: '/og-zonnepanelen.jpg',
     metaDescription:
       'Automatiseer de offerte voor zonnepanelen: aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening.',
     badge: 'Rekentool zonnepanelen',
@@ -105,6 +107,7 @@ export const services: ServiceMeta[] = [
   {
     slug: 'thuisbatterij',
     title: 'Rekentool thuisbatterij voor installateurs | EnerCalculatie',
+    image: '/og-thuisbatterij.jpg',
     metaDescription:
       'Dimensioneer thuisbatterijen op basis van het berekende opwekoverschot. Direct inzicht in de stijging van zelfconsumptie en de impact op terugleverkosten.',
     badge: 'Rekentool thuisbatterij',
@@ -150,6 +153,7 @@ export const services: ServiceMeta[] = [
   {
     slug: 'warmtepomp',
     title: 'Rekentool warmtepomp & ISDE-subsidie | EnerCalculatie',
+    image: '/og-warmtepomp.jpg',
     metaDescription:
       'Bereken het rendement van een hybride of all-electric warmtepomp, inclusief de geldende ISDE-subsidie en de technische onderbouwing die de RVO vraagt.',
     badge: 'Rekentool warmtepomp',
@@ -195,6 +199,7 @@ export const services: ServiceMeta[] = [
   {
     slug: 'airco',
     title: 'Rekentool airco-dimensionering | EnerCalculatie',
+    image: '/og-airco.jpg',
     metaDescription:
       'Bereken het benodigde koelvermogen per ruimte en de impact op het totale energieprofiel van de woning. Onderdeel van het complete verduurzamingsadvies.',
     badge: 'Rekentool airco',
@@ -239,6 +244,7 @@ export const services: ServiceMeta[] = [
   {
     slug: 'laadpaal',
     title: 'Rekentool laadpaal (EV) voor installateurs | EnerCalculatie',
+    image: '/og-laadpalen.jpg',
     metaDescription:
       'Maak het laadprofiel van een laadpaal inzichtelijk en controleer direct de impact op de maximale capaciteit van de netaansluiting.',
     badge: 'Rekentool laadpaal',
