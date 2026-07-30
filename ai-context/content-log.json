@@ -403,5 +403,14 @@
     "seoScore": 92,
     "geoScore": 90,
     "status": "generated"
+  },
+  {
+    "date": "2026-07-30",
+    "topic": "Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?",
+    "slug": "vermogensgarantie-zonnepanelen-offerte",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 95,
+    "status": "generated"
   }
 ]

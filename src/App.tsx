@@ -102,6 +102,7 @@ const GeluidsnormWarmtepompBuiteneenheidAdviesArticle = lazyRoute('/blog/geluids
 const KoelvermogenAircoBerekenenArticle = lazyRoute('/blog/koelvermogen-airco-berekenen', () => import('./components/blog/KoelvermogenAircoBerekenenArticle').then(m => ({ default: m.KoelvermogenAircoBerekenenArticle })));
 const MonoblockVsSplitWarmtepompArticle = lazyRoute('/blog/monoblock-vs-split-warmtepomp', () => import('./components/blog/MonoblockVsSplitWarmtepompArticle').then(m => ({ default: m.MonoblockVsSplitWarmtepompArticle })));
 const MidLaadpaalZakelijkVerrekenenAdviesArticle = lazyRoute('/blog/mid-laadpaal-zakelijk-verrekenen-advies', () => import('./components/blog/MidLaadpaalZakelijkVerrekenenAdviesArticle').then(m => ({ default: m.MidLaadpaalZakelijkVerrekenenAdviesArticle })));
+const VermogensgarantieZonnepanelenOfferteArticle = lazyRoute('/blog/vermogensgarantie-zonnepanelen-offerte', () => import('./components/blog/VermogensgarantieZonnepanelenOfferteArticle').then(m => ({ default: m.VermogensgarantieZonnepanelenOfferteArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -223,6 +224,7 @@ export function AppContent() {
             <Route path="/blog/koelvermogen-airco-berekenen" element={<KoelvermogenAircoBerekenenArticle />} />
             <Route path="/blog/monoblock-vs-split-warmtepomp" element={<MonoblockVsSplitWarmtepompArticle />} />
             <Route path="/blog/mid-laadpaal-zakelijk-verrekenen-advies" element={<MidLaadpaalZakelijkVerrekenenAdviesArticle />} />
+            <Route path="/blog/vermogensgarantie-zonnepanelen-offerte" element={<VermogensgarantieZonnepanelenOfferteArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

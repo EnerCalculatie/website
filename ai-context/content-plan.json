@@ -29,8 +29,11 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "vermogensgarantie-en-productgarantie-van-zonnepanelen-hoe-verwerkt-u-dit-helder-in-uw-adviesrapport",
-    "status": "planned",
-    "createdAt": "2026-07-28T07:42:17.538Z"
+    "status": "generated",
+    "createdAt": "2026-07-28T07:42:17.538Z",
+    "generatedSlug": "vermogensgarantie-zonnepanelen-offerte",
+    "generatedAt": "2026-07-30T07:39:46.420Z",
+    "seoGeoScore": 94
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",

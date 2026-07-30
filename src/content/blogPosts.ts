@@ -980,4 +980,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is het verschil tussen een standaard laadpaal en een MID-gecertificeerde zakelijke laadpaal?', answer: 'Een standaard thuislader gebruikt vaak een niet-geijkte interne stroommeting en mist soms de benodigde software-protocollen (OCPP). Een MID-laadpaal beschikt over een officieel geijkte stroommeter, ondersteunt het OCPP-protocol voor gegevensuitwisseling met een backoffice en gebruikt een RFID-lezer voor gebruikersidentificatie.' },
     ],
   },
+  {
+    slug: 'vermogensgarantie-zonnepanelen-offerte',
+    readingTimeMinutes: 6,
+    title: 'Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?',
+    seoTitle: 'Vermogensgarantie zonnepanelen offerte: zo adviseert u',
+    description:
+      'Vermogensgarantie zonnepanelen in de offerte helder uitleggen? Ontdek het verschil met productgarantie en de verwerking in uw adviesrapport.',
+    date: '2026-07-30',
+    excerpt:
+      'Het verschil tussen productgarantie en vermogensgarantie van zonnepanelen is voor veel klanten onduidelijk. Ontdek hoe u beide garanties helder toelicht, onderbouwt met IEC-normen en correct verwerkt in uw offertes en adviesrapporten.',
+    tags: ['Zonnepanelen', 'Garantie', 'Adviesrapport', 'Installatiebranche'],
+    keyPoints: [
+      'Het essentiële verschil tussen fysieke productgarantie en lineaire vermogensgarantie helder uitgelegd.',
+      'Borging van kwaliteit en veiligheid via IEC 61215 en IEC 61730 normeringen in uw advies.',
+      'Hoe de jaarlijkse degradatie direct invloed heeft op de meerjarige opbrengstberekening.',
+      'Praktische handvatten om misverstanden over garantievoorwaarden in offertes te voorkomen.',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Wat is het verschil tussen productgarantie en vermogensgarantie bij zonnepanelen?', answer: 'Productgarantie dekt fysieke gebreken en materiaaldefecten aan het zonnepaneel zelf (zoals delaminatie of gebroken soldeerverbindingen). Vermogensgarantie garandeert dat de module na een bepaald aantal jaren (meestal 25 tot 30 jaar) nog een minimaal percentage van het oorspronkelijke piekvermogen levert.' },
+      { question: 'Welke IEC-normen borgen de kwaliteit van zonnepanelen in een offerte?', answer: 'De belangrijkste internationale normen zijn IEC 61215 (ontwerpkwalificatie en typegoedkeuring voor de mechanische en elektrische belasting) en IEC 61730 (elektrische en thermische veiligheid). Het vermelden van deze certificeringen geeft uw klant onderbouwde zekerheid.' },
+      { question: 'Dekt de productgarantie van de fabrikant ook de arbeidskosten bij vervanging?', answer: 'Nee, fabrikanten vergoeden vanuit de standaard productgarantie meestal alleen de vervangende module of onderdelen. De arbeidskosten voor de de-installatie, montage en eventuele steigerhuur vallen doorgaans onder de installatiegarantie van de installateur of de aanvullende voorwaarden van de fabrikant.' },
+      { question: 'Hoe verwerkt u de vermogensdegradatie correct in een rendementsberekening?', answer: 'Door in de meerjarige berekening rekening te houden met een jaarlijkse degradatiefactor (zoals 0,25% tot 0,55% verlies per jaar) en een initiële declassering in het eerste jaar. Hiermee berekent u de verwachte kilowatturen over 10 tot 25 jaar op een deterministische en verantwoorde wijze.' },
+    ],
+  },
 ];
