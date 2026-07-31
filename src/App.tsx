@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, type ComponentType, type LazyExoticComponent } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router';
 import { routePreloads, type RouteModule } from './routePreloads';
 import { SEO } from './components/SEO';
 import { NavBar } from './components/NavBar';
