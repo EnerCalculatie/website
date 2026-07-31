@@ -1,39 +1,24 @@
 [
   {
-    "title": "Monoblock of split-warmtepomp: hoe onderbouwt u de keuze in uw klantiets en offerte?",
-    "keyword": "monoblock vs split warmtepomp",
+    "title": "Warmtepompboiler adviseren: hoe onderbouwt u de gasbesparing en ISDE-subsidie voor uw klant?",
+    "keyword": "warmtepompboiler adviseren",
     "intent": "commercieel",
     "priority": 8,
-    "slug": "monoblock-of-split-warmtepomp-hoe-onderbouwt-u-de-keuze-in-uw-klantiets-en-offerte",
+    "slug": "warmtepompboiler-adviseren-hoe-onderbouwt-u-de-gasbesparing-en-isde-subsidie-voor-uw-klant",
     "status": "generated",
-    "createdAt": "2026-07-28T07:42:17.526Z",
-    "generatedSlug": "monoblock-vs-split-warmtepomp",
-    "generatedAt": "2026-07-28T07:43:10.075Z",
-    "seoGeoScore": 100
+    "createdAt": "2026-07-31T07:53:59.560Z",
+    "generatedSlug": "warmtepompboiler-adviseren-gasbesparing-isde",
+    "generatedAt": "2026-07-31T07:55:02.743Z",
+    "seoGeoScore": 95
   },
   {
-    "title": "MID-gecertificeerde laadpaal voor zakelijk thuisladen: waar op letten in uw advies?",
-    "keyword": "MID laadpaal zakelijk verrekenen advies",
-    "intent": "informatief",
-    "priority": 8,
-    "slug": "mid-gecertificeerde-laadpaal-voor-zakelijk-thuisladen-waar-op-letten-in-uw-advies",
-    "status": "generated",
-    "createdAt": "2026-07-28T07:42:17.532Z",
-    "generatedSlug": "mid-laadpaal-zakelijk-verrekenen-advies",
-    "generatedAt": "2026-07-29T07:48:01.450Z",
-    "seoGeoScore": 91
-  },
-  {
-    "title": "Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?",
-    "keyword": "vermogensgarantie zonnepanelen offerte",
-    "intent": "informatief",
+    "title": "Verduurzamingsadvies voor VvE’s: hoe onderbouwt u een collectief verduurzamingsplan?",
+    "keyword": "verduurzamingsadvies vve",
+    "intent": "commercieel",
     "priority": 7,
-    "slug": "vermogensgarantie-en-productgarantie-van-zonnepanelen-hoe-verwerkt-u-dit-helder-in-uw-adviesrapport",
-    "status": "generated",
-    "createdAt": "2026-07-28T07:42:17.538Z",
-    "generatedSlug": "vermogensgarantie-zonnepanelen-offerte",
-    "generatedAt": "2026-07-30T07:39:46.420Z",
-    "seoGeoScore": 94
+    "slug": "verduurzamingsadvies-voor-vves-hoe-onderbouwt-u-een-collectief-verduurzamingsplan",
+    "status": "planned",
+    "createdAt": "2026-07-31T07:53:59.567Z"
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
@@ -192,6 +177,30 @@
     "seoGeoScore": 83
   },
   {
+    "title": "Monoblock of split-warmtepomp: hoe onderbouwt u de keuze in uw klantiets en offerte?",
+    "keyword": "monoblock vs split warmtepomp",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "monoblock-of-split-warmtepomp-hoe-onderbouwt-u-de-keuze-in-uw-klantiets-en-offerte",
+    "status": "generated",
+    "createdAt": "2026-07-28T07:42:17.526Z",
+    "generatedSlug": "monoblock-vs-split-warmtepomp",
+    "generatedAt": "2026-07-28T07:43:10.075Z",
+    "seoGeoScore": 100
+  },
+  {
+    "title": "MID-gecertificeerde laadpaal voor zakelijk thuisladen: waar op letten in uw advies?",
+    "keyword": "MID laadpaal zakelijk verrekenen advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "mid-gecertificeerde-laadpaal-voor-zakelijk-thuisladen-waar-op-letten-in-uw-advies",
+    "status": "generated",
+    "createdAt": "2026-07-28T07:42:17.532Z",
+    "generatedSlug": "mid-laadpaal-zakelijk-verrekenen-advies",
+    "generatedAt": "2026-07-29T07:48:01.450Z",
+    "seoGeoScore": 91
+  },
+  {
     "title": "Dynamic load balancing adviseren: hoe voorkomt u overbelasting bij een laadpaal op locatie?",
     "keyword": "dynamic load balancing laadpaal adviseren",
     "intent": "commercieel",
@@ -342,6 +351,18 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?",
+    "keyword": "vermogensgarantie zonnepanelen offerte",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "vermogensgarantie-en-productgarantie-van-zonnepanelen-hoe-verwerkt-u-dit-helder-in-uw-adviesrapport",
+    "status": "generated",
+    "createdAt": "2026-07-28T07:42:17.538Z",
+    "generatedSlug": "vermogensgarantie-zonnepanelen-offerte",
+    "generatedAt": "2026-07-30T07:39:46.420Z",
+    "seoGeoScore": 94
   },
   {
     "title": "Koelvermogen van een airco berekenen: hoe onderbouwt u het benodigde vermogen per ruimte?",

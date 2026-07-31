@@ -412,5 +412,14 @@
     "seoScore": 92,
     "geoScore": 95,
     "status": "generated"
+  },
+  {
+    "date": "2026-07-31",
+    "topic": "Warmtepompboiler adviseren: hoe onderbouwt u de gasbesparing en ISDE-subsidie voor uw klant?",
+    "slug": "warmtepompboiler-adviseren-gasbesparing-isde",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 95,
+    "status": "generated"
   }
 ]

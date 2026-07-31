@@ -1005,4 +1005,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe verwerkt u de vermogensdegradatie correct in een rendementsberekening?', answer: 'Door in de meerjarige berekening rekening te houden met een jaarlijkse degradatiefactor (zoals 0,25% tot 0,55% verlies per jaar) en een initiële declassering in het eerste jaar. Hiermee berekent u de verwachte kilowatturen over 10 tot 25 jaar op een deterministische en verantwoorde wijze.' },
     ],
   },
+  {
+    slug: 'warmtepompboiler-adviseren-gasbesparing-isde',
+    readingTimeMinutes: 6,
+    title: 'Warmtepompboiler adviseren: hoe onderbouwt u de gasbesparing en ISDE-subsidie voor uw klant?',
+    seoTitle: 'Warmtepompboiler adviseren: gasbesparing en ISDE-subsidie',
+    description:
+      'Warmtepompboiler adviseren aan uw klant? Lees hoe u de gasbesparing, het extra stroomverbruik en de ISDE-subsidie onderbouwt in uw adviesrapport.',
+    date: '2026-07-31',
+    excerpt:
+      'Een warmtepompboiler is een effectieve tussenstap naar aardgasvrij wonen. Lees hoe u als installateur de gasbesparing, COP-waarde en ISDE-subsidie onderbouwt.',
+    tags: ['Warmtepompboiler', 'ISDE-subsidie', 'Gasbesparing', 'Installatiebranche'],
+    keyPoints: [
+      'Onderbouw de gasbesparing voor warm tapwater op basis van gezinsgrootte en de COP-waarde van de boiler.',
+      'Reken het extra elektriciteitsverbruik transparant door op basis van de rendementsfactor (COP).',
+      'Controleer vooraf de actuele RVO-meldcodelijst om de ISDE-subsidieaanvraag voor de klant te waarborgen.',
+      'Combineer een warmtepompboiler met zonnepanelen om het eigenverbruik van zonne-energie te verhogen.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Hoeveel gas bespaart een warmtepompboiler gemiddeld per jaar?', answer: 'Het gasverbruik voor warm tapwater bedraagt bij een gemiddeld huishouden circa 10 tot 20 procent van de totale gasvraag. Door het tapwater volledig elektrisch te verwarmen via een warmtepompboiler, vervalt dit gasverbruik voor tapwater volledig. De exacte besparing hangt af van de gezinsgrootte en het douchegedrag.' },
+      { question: 'Komt elke warmtepompboiler in aanmerking voor ISDE-subsidie?', answer: 'Nee. Om in aanmerking te komen voor ISDE-subsidie moet het apparaat vermeld staan op de officiële meldcodelijst van de RVO voor warmtepompboilers. Daarnaast moet de installatie worden uitgevoerd door een bouw- of installatiebedrijf en moet de aanvraag binnen de gestelde termijn na installatie worden ingediend.' },
+      { question: 'Wat is het effect van de aanzuiglucht op het rendement van een warmtepompboiler?', answer: 'Een warmtepompboiler die warme binnenlucht of ventilatieretourlucht gebruikt, behaalt over het algemeen een hogere COP-waarde dan een systeem dat koude buitenlucht aanzuigt. Wanneer binnenlucht uit een verwarmde ruimte wordt gebruikt, moet er echter rekening mee worden gehouden dat de ruimte-verwarmingsinstallatie die warmte deels moet compenseren.' },
+      { question: 'Hoe kan een warmtepompboiler helpen bij het verhogen van de zelfconsumptie van zonnepanelen?', answer: 'Veel moderne warmtepompboilers beschikken over een stuurcontact (zoals SG Ready of een PV-contact). Hiermee kan het apparaat overdag, op momenten van overtollige zonnestroom, het water opwarmen tot een hogere temperatuur. Dit verhoogt het directe eigenverbruik van de zonnepaneleninstallatie.' },
+    ],
+  },
 ];
