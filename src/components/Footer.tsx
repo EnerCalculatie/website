@@ -56,8 +56,8 @@ export function Footer() {
               <a href="mailto:info@enercalculatie.nl" className="text-brand-primary hover:text-white transition-colors font-medium">
                 info@enercalculatie.nl
               </a>
-              <a href="tel:+31630366189" className="text-slate-400 hover:text-white transition-colors">
-                06 - 30 36 61 89
+              <a href="tel:+31644572511" className="text-slate-400 hover:text-white transition-colors">
+                06 - 44 57 25 11
               </a>
               <p className="text-slate-400 mt-2">KvK: 42102840</p>
               <p className="text-slate-400">BTW-ID: NL005495668B40</p>
@@ -116,7 +116,7 @@ export function Footer() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/31630366189?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..."
+        href="https://wa.me/31644572511?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-xl transition-transform hover:scale-110 flex items-center justify-center group print:hidden"

@@ -73,7 +73,7 @@ export function Privacy() {
             Toenzalstraat 16<br />
             1363 RJ Almere<br />
             E-mail: <a href="mailto:info@enercalculatie.nl" className="text-brand-primary font-medium hover:underline">info@enercalculatie.nl</a><br />
-            Tel: <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
+            Tel: <a href="tel:+31644572511" className="text-brand-primary font-medium hover:underline">06 - 44 57 25 11</a>
           </p>
         </div>
       </div>

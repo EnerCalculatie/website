@@ -147,7 +147,7 @@ export function Contact() {
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg mb-1">Telefoon</h4>
                     <p className="text-slate-600 mb-1">We zijn bereikbaar op</p>
-                    <a href="tel:+31630366189" className="text-brand-primary font-medium hover:underline">06 - 30 36 61 89</a>
+                    <a href="tel:+31644572511" className="text-brand-primary font-medium hover:underline">06 - 44 57 25 11</a>
                   </div>
                 </div>
 
@@ -158,7 +158,7 @@ export function Contact() {
                   <div>
                     <h4 className="font-bold text-slate-800 text-lg mb-1">WhatsApp</h4>
                     <p className="text-slate-600 mb-1">Snel antwoord via een kort berichtje.</p>
-                    <a href="https://wa.me/31630366189?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..." target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium hover:underline">06 - 30 36 61 89</a>
+                    <a href="https://wa.me/31644572511?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..." target="_blank" rel="noopener noreferrer" className="text-[#25D366] font-medium hover:underline">06 - 44 57 25 11</a>
                   </div>
                 </div>
 
