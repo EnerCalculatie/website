@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Genereert dagelijks één nieuw kennisbank-blogartikel via OpenRouter (model-
+ * Genereert op dinsdag en donderdag één nieuw kennisbank-blogartikel via OpenRouter (model-
  * agnostisch, geen lock-in op één LLM-provider), los van Claude Code / de
  * interactieve CLI. Bedoeld voor GitHub Actions cron.
  *

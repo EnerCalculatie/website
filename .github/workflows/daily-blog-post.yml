@@ -1,4 +1,4 @@
-name: Dagelijks kennisbank-artikel
+name: Kennisbank-artikel (di/do)
 
 # SEO/GEO content engine-pipeline:
 # 1. Cronjob start (of handmatig via workflow_dispatch)
@@ -16,7 +16,8 @@ on:
     # 05:00 UTC = 06:00 CET (winter) / 07:00 CEST (zomer).
     # GitHub Actions cron kent geen tijdzones/DST; pas aan als 06:00 lokale tijd
     # het hele jaar exact nodig is (bv. twee cronregels, zomer/winter).
-    - cron: '0 5 * * 1-5'
+    # 2 = dinsdag, 4 = donderdag.
+    - cron: '0 5 * * 2,4'
   workflow_dispatch: {}
 
 permissions:

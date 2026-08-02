@@ -69,7 +69,7 @@ Bing-verificatie (HTML meta tag of XML-bestand) kan falen met misleidende foutme
 Los van IndexNow (auto per artikel via de workflow) heeft Bing WMT een **URL Submission**-tool (Configuration → URL Submission) voor handmatige bulk-indiening, max 100 URL's/dag, los quotum van IndexNow. Handig bij een backlog van meerdere artikelen tegelijk of na het herstellen van een crawler-block.
 
 ## SEO/GEO Content Engine (blog-automatisering)
-De dagelijkse blog-cronjob (`.github/workflows/daily-blog-post.yml`, ma-vr 05:00 UTC) is uitgebreid met een gestuurde content-pipeline, niet langer vrije onderwerpkeuze door het model:
+De blog-cronjob (`.github/workflows/daily-blog-post.yml`, di+do 05:00 UTC) is uitgebreid met een gestuurde content-pipeline, niet langer vrije onderwerpkeuze door het model:
 
 1. **`ai-context/`** — bevat `company.md`, `products.md`, `audience.md`, `topics.md` (bedrijfscontext, handmatig onderhouden), en drie gegenereerde/gelogde bestanden:
    - `content-plan.json` — backlog. Items hebben `status`: `planned` → `generated` | `rejected` (met `retryCount`, max 2 pogingen daarna `abandoned`) | `abandoned`. Git-getrackt.
