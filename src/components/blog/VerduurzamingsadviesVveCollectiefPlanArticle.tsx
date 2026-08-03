@@ -8,10 +8,10 @@ export function VerduurzamingsadviesVveCollectiefPlanArticle() {
   return (
     <BlogPostLayout post={post}>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Het uitbrengen van een verduurzamingsadvies aan een Vereniging van Eienaars (VvE) verschilt fundamenteel van een traject bij een individuele huiseigenaar. Waar een particuliere klant zelf doorslaggevende keuzes maakt, beslist een VvE op basis van een formeel besluitvormingsproces in de Algemene Ledenvergadering (ALV). Een technisch doordacht voorstel is niet voldoende; het verduurzamingsplan moet voor alle appartementseigenaren transparant, financieel onderbouwd en juridisch uitvoerbaar zijn.
+  Het uitbrengen van een verduurzamingsadvies aan een Vereniging van Eigenaars (VvE) verschilt fundamenteel van een traject bij een individuele huiseigenaar. Waar een particuliere klant zelf doorslaggevende keuzes maakt, beslist een VvE op basis van een formeel besluitvormingsproces in de Algemene Ledenvergadering (ALV). Een technisch doordacht voorstel is niet voldoende; het verduurzamingsplan moet voor alle appartementseigenaren transparant, financieel onderbouwd en juridisch uitvoerbaar zijn.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Voor installateurs en energieadviseurs ligt hier een grote kans, maar ook een complexe uitdaging. Hoe verenig de uiteenlopende belangen van bewoners en investeerders? En hoe vertaalt u een combinatie van zonnepanelen, warmtepompen en laadpalen naar een helder <strong>verduurzamingsadvies voor de VvE</strong>? In dit artikel leest u hoe u een collectief verduurzamingsplan opzet dat standhoudt in de ledenvergadering en leidt doordachte besluitvorming.
+  Voor installateurs en energieadviseurs ligt hier een grote kans, maar ook een complexe uitdaging. Hoe verenigt u de uiteenlopende belangen van bewoners en investeerders? En hoe vertaalt u een combinatie van zonnepanelen, warmtepompen en laadpalen naar een helder <strong>verduurzamingsadvies voor de VvE</strong>? In dit artikel leest u hoe u een collectief verduurzamingsplan opzet dat standhoudt in de ledenvergadering en leidt tot doordachte besluitvorming.
 </p>
 
 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
@@ -35,7 +35,7 @@ export function VerduurzamingsadviesVveCollectiefPlanArticle() {
   1. Opwek en verdeling: gemeenschappelijke meter versus individuele meters
 </h3>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Bij het plaatsen van zonnepanelen op een complex VvE-dak moet de stroom ergens naar toe. Sluit u de omvormers aan op de aansluiting voor de algemene voorzieningen (de 'VvE-meter'), dan verlaging van de servicekosten het directe doel. Is het dakoppervlak groter dan nodig voor het algemene verbruik, dan ontstaat de vraag hoe de overtollige stroom verdeeld wordt.
+  Bij het plaatsen van zonnepanelen op een complex VvE-dak moet de stroom ergens naar toe. Sluit u de omvormers aan op de aansluiting voor de algemene voorzieningen (de 'VvE-meter'), dan is verlaging van de servicekosten het directe doel. Is het dakoppervlak groter dan nodig voor het algemene verbruik, dan ontstaat de vraag hoe de overtollige stroom verdeeld wordt.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
   Aansluiten op individuele slimme meters vraagt om een doordachte kabeltrajectplanning via stijgleidingen en brengt hogere installatiekosten met zich mee. In uw advies dient u beide opties door te rekenen, waarbij de komende afschaffing van de salderingsregeling per 2027 zwaar meeweegt in het rendement van een algemene meter.
@@ -63,7 +63,7 @@ export function VerduurzamingsadviesVveCollectiefPlanArticle() {
 </p>
 <ul className="list-disc pl-6 mb-6 text-slate-700">
   <li className="mb-2">
-    <strong>Subsidievoorziening verduurzaming verenigingen van eigenaars (SVVE):</strong> Gebeert via de RVO. Deze subsidie ondersteunt zowel de voorbereidende fase (energieadvies en procesbegeleiding) als de daadwerkelijke uitvoering van maatregelen (isolatie, warmtepompen en zonneboilers). Actuele voorwaarden en vergoedingen vindt u op rvo.nl.
+    <strong>Subsidievoorziening verduurzaming verenigingen van eigenaars (SVVE):</strong> Gebeurt via de RVO. Deze subsidie ondersteunt zowel de voorbereidende fase (energieadvies en procesbegeleiding) als de daadwerkelijke uitvoering van maatregelen (isolatie, warmtepompen en zonneboilers). Actuele voorwaarden en vergoedingen vindt u op rvo.nl.
   </li>
   <li className="mb-2">
     <strong>Nationaal Warmtefonds (Energiebespaarlening voor VvE’s):</strong> Maakt het mogelijk voor VvE's om tegen gunstige voorwaarden een langlopende lening aan te gaan, waardoor de investering niet in één keer uit het reservefonds of via een eenmalige bijdrage van de eigenaren hoeft te komen.
