@@ -174,6 +174,14 @@ export function ConversieVerhogenOffertesInstallatiebedrijfArticle() {
   </a>
   .
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rvo.nl/subsidies-financiering/isde" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">ISDE — Investeringssubsidie duurzame energie en energiebesparing</a> — geraadpleegd 2026-08-03</li>
+  <li className="mb-2"><a href="https://consument.acm.nl/elektriciteit-en-gas/duurzame-energie/wat-is-salderen" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderen en terugleveren — ACM ConsuWijzer</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }

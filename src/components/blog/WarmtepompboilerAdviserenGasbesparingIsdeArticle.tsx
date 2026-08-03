@@ -152,6 +152,13 @@ export function WarmtepompboilerAdviserenGasbesparingIsdeArticle() {
 <p className="text-slate-700 leading-relaxed mb-4">
   Wilt u zien hoe dit werkt binnen ons platform? Bekijk dan de functionaliteiten op de pagina over onze <a href="/rekentool-warmtepomp" className="text-brand-primary-text font-semibold hover:underline">warmtepomp software</a>.
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rvo.nl/subsidies-financiering/isde" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">ISDE — Investeringssubsidie duurzame energie en energiebesparing</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }

@@ -171,6 +171,14 @@ export function GeautomatiseerdVerduurzamingsrapportSoftwareArticle() {
 <p className="text-slate-700 leading-relaxed mb-4">
   Met functies zoals geautomatiseerde pdf-herkenning voor energierekeningen, altijd actuele verwerking van regelgeving (zoals de afbouw van saldering en ISDE-eisen) en het direct opleveren van een professioneel klantrapport, verkort EnerCalculatie de doorlooptijd van uw adviestraject aanzienlijk. Hierdoor levert u sneller een beter onderbouwd advies af, waarmee u uw conversie verhoogt en kostbare tijd bespaart op kantoor.
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">ISDE: Warmtepomp woningeigenaren aanvragen — RVO</a> — geraadpleegd 2026-08-03</li>
+  <li className="mb-2"><a href="https://consument.acm.nl/elektriciteit-en-gas/duurzame-energie/wat-is-salderen" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderen en terugleveren — ACM ConsuWijzer</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }

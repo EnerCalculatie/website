@@ -162,6 +162,13 @@ export function EnergieopslagToekomstTrendsInstallateursArticle() {
   </a>
   .
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderingsregeling zonnepanelen</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }

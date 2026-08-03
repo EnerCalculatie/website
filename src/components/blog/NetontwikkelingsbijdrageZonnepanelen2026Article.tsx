@@ -25,6 +25,13 @@ De terugkeer naar een markt zonder saldering verandert niet alleen de opbrengstd
 
 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Hoe EnerCalculatie hiermee omgaat</h2>
 <p className="text-slate-700 leading-relaxed mb-4">EnerCalculatie verwerkt de netontwikkelingsbijdrage als een vaste jaarlast in uw rendementsberekening, zodat de terugverdientijd altijd kloppend is over de gekozen termijn. U kunt de bijdrage per adres koppelen aan de actuele gemeentelijke verordening, waarna de software automatisch de impact doorrekent in de meerjarige prognose. Zo krijgt uw klant een compleet financieel plaatje, inclusief alle structurele kosten en baten na de salderingsperiode. Meer weten over hoe wij de overstap naar het terugleveringscenario na 2027 in uw berekeningen verwerken? Lees dan ook <a href="/blog/salderingsregeling-2027" className="text-brand-primary-text font-semibold hover:underline">het artikel over de salderingsregeling 2027</a>.</p>
+      
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderingsregeling zonnepanelen</a> — geraadpleegd 2026-08-03</li>
+</ol>
       </BlogPostLayout>
     </>
   );
