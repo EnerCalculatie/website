@@ -139,6 +139,13 @@ export function VerduurzamingsadviesVveCollectiefPlanArticle() {
 <p className="text-slate-700 leading-relaxed mb-4">
   Of het nu gaat om het doorrekenen van de zonnepanelen-capaciteit op de algemene meter via de <a href="/rekentool-zonnepanelen" className="text-brand-primary-text font-semibold hover:underline">rekentool zonnepanelen</a> of de inpassing van een collectieve warmtepomp met de <a href="/rekentool-warmtepomp" className="text-brand-primary-text font-semibold hover:underline">rekentool warmtepomp</a>: EnerCalculatie levert een visueel aantrekkelijk en onderbouwd digitaal adviesrapport op. Dit rapport geeft het VvE-bestuur én de ledenvergadering de exacte handvatten die nodig zijn om snel en met vol vertrouwen tot besluitvorming over te gaan.
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderingsregeling zonnepanelen</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }

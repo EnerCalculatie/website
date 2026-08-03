@@ -143,6 +143,13 @@ export function SeizoensvariabiliteitZonnepanelenRendementArticle() {
 <p className="text-slate-700 leading-relaxed mb-4">
   Wilt u zelf ervaren hoe eenvoudig u complexe seizoensberekeningen vertaalt naar een overtuigend klantrapport? Ontdek dan de mogelijkheden van onze <a href="/rekentool-zonnepanelen" className="text-brand-primary-text font-semibold hover:underline">rekentool zonnepanelen</a> en de aanvullende <a href="/rekentool-thuisbatterij" className="text-brand-primary-text font-semibold hover:underline">rekentool thuisbatterij</a> om uw adviesproces te professionaliseren.
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderingsregeling zonnepanelen</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }
