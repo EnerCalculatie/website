@@ -452,5 +452,23 @@
     "sourcesCount": 0,
     "repairAttempts": 3,
     "status": "rejected-failed-factcheck"
+  },
+  {
+    "date": "2026-08-03",
+    "topic": "Afgiftesysteem en warmtepomp: hoe controleert u of de radiatoren geschikt zijn voor lage temperatuur?",
+    "slug": "lage-temperatuur-radiatoren-warmtepomp-advies",
+    "model": "google/gemini-2.5-flash",
+    "seoScore": 75,
+    "geoScore": 60,
+    "status": "rejected"
+  },
+  {
+    "date": "2026-08-03",
+    "topic": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
+    "slug": "mia-vamil-laadpaal-adviseren",
+    "model": "google/gemini-2.5-flash",
+    "seoScore": 70,
+    "geoScore": 65,
+    "status": "rejected"
   }
 ]

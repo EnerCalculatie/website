@@ -50,15 +50,15 @@ jobs:
 
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          OPEN_ROUTER: ${{ secrets.OPEN_ROUTER }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
         run: node scripts/plan-content.mjs
 
       - name: "4-7. Genereer artikel, claim-extractie, bronverificatie, fact-check, self-herstel en SEO/GEO"
         id: generate
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          OPEN_ROUTER: ${{ secrets.OPEN_ROUTER }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
         run: node scripts/generate-blog-post.mjs
 
       # Gate tussen AI-output en productie. De push gaat direct naar main en
