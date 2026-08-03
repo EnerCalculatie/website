@@ -387,6 +387,15 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
   let issues = await collectIssues(article);
   console.log(`SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}) | contentchecks: ${issues.length} bezwaar(en)`);
 
+  // Best-of-N i.p.v. alleen-de-laatste-poging bewaren: de validator-LLM scoort
+  // niet monotoon stabiel over pogingen — een meetrun zag GEO terugzakken van
+  // 94 (poging 1, al voldoende) naar 72 (poging 2, na een op zichzelf terechte
+  // fix van een deterministisch bezwaar). Zonder dit verliest een artikel dat
+  // na poging 1 al publicabel was, dat alsnog aan een instabiele herbeoordeling
+  // in poging 2.
+  const quality = (v, iss) => (v.approved && iss.length === 0 ? 1000 + v.score : v.score - iss.length * 5);
+  let best = { snapshot: { ...article }, validation, issues, quality: quality(validation, issues) };
+
   // Twee verbeterpogingen, geen één. Het model reageert aantoonbaar op de
   // lengte-feedback (een meetrun ging van 229 naar 564 woorden, met de GEO-score
   // van 80 naar 90 mee omhoog), maar haalt 700 zelden in één keer. Met één poging
@@ -403,6 +412,18 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
     issues = await collectIssues(article);
     console.log(`Na poging ${poging} — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 | contentchecks: ${issues.length} bezwaar(en)`);
     if (issues.length > 0) console.log(`Resterend:\n- ${issues.join('\n- ')}`);
+
+    const q = quality(validation, issues);
+    if (q > best.quality) {
+      best = { snapshot: { ...article }, validation, issues, quality: q };
+    }
+  }
+
+  if (best.quality > quality(validation, issues)) {
+    console.log(`Beste poging was niet de laatste — terugvallen op die versie (kwaliteitsscore ${best.quality} vs. laatste poging ${quality(validation, issues)}).`);
+    Object.assign(article, best.snapshot);
+    validation = best.validation;
+    issues = best.issues;
   }
 
   // Deterministische bezwaren zijn hard: ze gaan over feiten en lengte, niet over smaak.
