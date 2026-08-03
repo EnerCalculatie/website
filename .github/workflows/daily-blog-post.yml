@@ -95,7 +95,13 @@ jobs:
         run: |
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
-          git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json ai-context/article-audit.json
+          git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json
+          # article-audit.json bestaat alleen na een volledig geslaagde run (fact-check +
+          # SEO/GEO beide goedgekeurd) — los toevoegen, anders faalt `git add` hard op een
+          # niet-bestaand pad en breekt de hele commit-stap, óók bij een normale afkeuring.
+          if [ -f ai-context/article-audit.json ]; then
+            git add ai-context/article-audit.json
+          fi
           if git diff --cached --quiet; then
             echo "Geen wijzigingen om te committen."
             exit 0
