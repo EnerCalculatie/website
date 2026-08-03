@@ -430,5 +430,14 @@
     "seoScore": 92,
     "geoScore": 86,
     "status": "rejected-failed-checks"
+  },
+  {
+    "date": "2026-08-03",
+    "topic": "Verduurzamingsadvies voor VvE’s: hoe onderbouwt u een collectief verduurzamingsplan?",
+    "slug": "verduurzamingsadvies-vve-collectief-plan",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 88,
+    "status": "generated"
   }
 ]

@@ -1030,4 +1030,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe kan een warmtepompboiler helpen bij het verhogen van de zelfconsumptie van zonnepanelen?', answer: 'Veel moderne warmtepompboilers beschikken over een stuurcontact (zoals SG Ready of een PV-contact). Hiermee kan het apparaat overdag, op momenten van overtollige zonnestroom, het water opwarmen tot een hogere temperatuur. Dit verhoogt het directe eigenverbruik van de zonnepaneleninstallatie.' },
     ],
   },
+  {
+    slug: 'verduurzamingsadvies-vve-collectief-plan',
+    readingTimeMinutes: 6,
+    title: 'Verduurzamingsadvies voor VvE’s: hoe onderbouwt u een collectief verduurzamingsplan?',
+    seoTitle: 'Verduurzamingsadvies VvE: zo onderbouwt u een plan',
+    description:
+      'Hoe geeft u professioneel verduurzamingsadvies aan een VvE? Ontdek hoe u besluitvorming, draagvlak, subsidies en de terugverdientijd helder onderbouwt.',
+    date: '2026-08-03',
+    excerpt:
+      'Het verduurzamen van een VvE vraagt om meer dan alleen een technische offerte. Ontdek hoe u met een integraal verduurzamingsadvies draagvlak creëert in de ledenvergadering en het collectieve energieprofiel onderbouwt.',
+    tags: ['VvE', 'Verduurzaming', 'Adviesrapport', 'Installateurs'],
+    keyPoints: [
+      'Besluitvorming in een VvE vereist transparante rekenmodellen die individuele en collectieve baten helder scheiden.',
+      'De verdeling van opwek en opslag over privé- en gemeenschappelijke meters vormt het belangrijkste technische knelpunt.',
+      'Subsidies zoals de SVVE en de afbouw van de salderingsregeling maken een meerjarige kosten-batenanalyse noodzakelijk voor de ALV.',
+      'Een integraal energieadvies op gebouwniveau verhoogt het draagvlak en verkort de besluitvormingstermijn van de ledenvergadering.',
+    ],
+    category: 'Subsidies',
+    faq: [
+      { question: 'Welke subsidies zijn beschikbaar voor het verduurzamen van een VvE?', answer: 'Via de Subsidievoorziening verduurzaming verenigingen van eigenaars (SVVE) van de RVO kunnen VvE\'s subsidie aanvragen voor energieadvies, procesbegeleiding en concrete verduurzamingsmaatregelen zoals isolatie, warmtepompen en zonneboilers. Raadpleeg rvo.nl voor de actuele voorwaarden en vergoedingen.' },
+      { question: 'Hoe onderbouwt u zonnepanelen op een gemeenschappelijk VvE-dak?', answer: 'U start met een analyse van de netaansluitingen: sluit u de installatie aan op de centrale meter voor algemene voorzieningen (zoals liften en verlichting), of op individuele slimme meters via stijgleidingen? De keuze bepaalt direct hoe het rendement verdeeld wordt over de servicekosten en het privéverbruik.' },
+      { question: 'Waarom is de afbouw van de salderingsregeling extra relevant voor VvE\'s?', answer: 'Bij collectieve zonnepanelen op een algemene meter is de gelijktijdigheid tussen opwek en verbruik vaak laag. Na de afschaffing van het salderen per 2027 daalt de opbrengst van teruglevering scherp. Een advies moet daarom sturen op maximale zelfconsumptie of koppeling met laadpalen en warmtepompen.' },
+      { question: 'Hoe voorkomt u overbelasting bij laadpalen op het parkeerdek van een VvE?', answer: 'Door in uw verduurzamingsadvies altijd te kiezen voor laadstations met Dynamic Load Balancing. Hiermee wordt het laadvermogen automatisch afgestemd op de resterende capaciteit van de hoofdaansluiting, zodat kostbare netuitbreidingen worden voorkomen.' },
+    ],
+  },
 ];

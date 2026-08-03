@@ -17,12 +17,15 @@
     "intent": "commercieel",
     "priority": 6,
     "slug": "verduurzamingsadvies-voor-vves-hoe-onderbouwt-u-een-collectief-verduurzamingsplan",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-07-31T07:53:59.567Z",
     "lastScore": 89,
     "retryCount": 1,
     "lastRejectionReason": "Contentchecks gefaald: description bevat corruptie-token \"NaN\": \"Hoe stelt u als installateur een onderbouwd verduurzamingsadvies voor een VvE op? Ontdek de juridische, technische en financiële stappen.\"",
-    "lastRejectedAt": "2026-08-03T10:41:50.680Z"
+    "lastRejectedAt": "2026-08-03T10:41:50.680Z",
+    "generatedSlug": "verduurzamingsadvies-vve-collectief-plan",
+    "generatedAt": "2026-08-03T10:51:56.370Z",
+    "seoGeoScore": 90
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
