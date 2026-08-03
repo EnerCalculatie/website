@@ -439,5 +439,18 @@
     "seoScore": 92,
     "geoScore": 88,
     "status": "generated"
+  },
+  {
+    "date": "2026-08-03",
+    "topic": "Afgiftesysteem en warmtepomp: hoe controleert u of de radiatoren geschikt zijn voor lage temperatuur?",
+    "slug": "afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 88,
+    "factScore": 0,
+    "claimsCount": 1,
+    "sourcesCount": 0,
+    "repairAttempts": 3,
+    "status": "rejected-failed-factcheck"
   }
 ]
