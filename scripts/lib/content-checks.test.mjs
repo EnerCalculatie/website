@@ -119,6 +119,13 @@ describe('checkArticleMeta', () => {
     const errors = checkArticleMeta({ ...ok, slug: 'Warmtepomp_Kiezen!' });
     expect(errors.some((e) => e.includes('kebab-case'))).toBe(true);
   });
+  it('matcht NaN alleen als los woord, niet in "financiële" (false positive 2026-08-03)', () => {
+    expect(
+      checkArticleMeta({ ...ok, description: 'Ontdek de juridische, technische en financiële stappen.' })
+    ).toEqual([]);
+    const errors = checkArticleMeta({ ...ok, description: 'De waarde is NaN hier.' });
+    expect(errors.some((e) => e.includes('NaN'))).toBe(true);
+  });
 });
 
 describe('checkComponentBody', () => {

@@ -193,7 +193,11 @@ export function checkArticleMeta(article) {
       errors.push(`${field} bevat niet-Latijnse tekens (modelcorruptie): "${value}"`);
     }
     for (const token of CORRUPTION_TOKENS) {
-      if (value.toLowerCase().includes(token.toLowerCase())) {
+      if (token === 'NaN') {
+        if (/\bNaN\b/.test(value)) {
+          errors.push(`${field} bevat corruptie-token "NaN": "${value}"`);
+        }
+      } else if (value.toLowerCase().includes(token.toLowerCase())) {
         errors.push(`${field} bevat corruptie-token "${token}": "${value}"`);
       }
     }
