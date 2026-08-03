@@ -5,12 +5,15 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "afgiftesysteem-en-warmtepomp-hoe-controleert-u-of-de-radiatoren-geschikt-zijn-voor-lage-temperatuur",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-08-03T12:09:00.120Z",
     "lastScore": 90,
     "retryCount": 1,
     "lastRejectionReason": "Fact-check gefaald: claim-001 (\"Via de ISDE-regeling kunnen woningeigenaren subsidie aanvragen voor de aanschaf van een warmtepomp.\"): NO_SOURCE",
-    "lastRejectedAt": "2026-08-03T12:14:10.553Z"
+    "lastRejectedAt": "2026-08-03T12:14:10.553Z",
+    "generatedSlug": "radiatoren-geschikt-warmtepomp-lage-temperatuur",
+    "generatedAt": "2026-08-03T18:33:24.090Z",
+    "seoGeoScore": 90
   },
   {
     "title": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",

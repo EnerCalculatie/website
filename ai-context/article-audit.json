@@ -1,0 +1,21 @@
+{
+  "title": "Afgiftesysteem en warmtepomp: zo controleert u of radiatoren geschikt zijn voor lage temperatuur",
+  "generatedAt": "2026-08-03T18:33:24.096Z",
+  "seoScore": 92,
+  "geoScore": 88,
+  "factScore": 100,
+  "sourceQuality": 100,
+  "claims": [
+    {
+      "claim": "Subsidievoorwaarden en technische onderbouwingen voor warmtepompinstallaties worden vastgesteld via de ISDE-regeling van de RVO.",
+      "status": "SUPPORTED",
+      "sources": [
+        {
+          "title": "ISDE: Warmtepomp woningeigenaren aanvragen — RVO",
+          "url": "https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp",
+          "quality": 100
+        }
+      ]
+    }
+  ]
+}

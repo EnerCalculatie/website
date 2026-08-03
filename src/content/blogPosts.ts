@@ -1055,4 +1055,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkomt u overbelasting bij laadpalen op het parkeerdek van een VvE?', answer: 'Door in uw verduurzamingsadvies altijd te kiezen voor laadstations met Dynamic Load Balancing. Hiermee wordt het laadvermogen automatisch afgestemd op de resterende capaciteit van de hoofdaansluiting, zodat kostbare netuitbreidingen worden voorkomen.' },
     ],
   },
+  {
+    slug: 'radiatoren-geschikt-warmtepomp-lage-temperatuur',
+    readingTimeMinutes: 6,
+    title: 'Afgiftesysteem en warmtepomp: zo controleert u of radiatoren geschikt zijn voor lage temperatuur',
+    seoTitle: 'Lage temperatuur radiatoren warmtepomp: advies',
+    description:
+      'Hoe controleert u of radiatoren geschikt zijn voor een warmtepomp? Lees ons lage temperatuur radiatoren warmtepomp advies voor vakprofessionals.',
+    date: '2026-08-03',
+    excerpt:
+      'Een succesvolle warmtepomp-installatie valt of staat met het afgiftesysteem. Ontdek hoe u als installateur gecontroleerd berekent of bestaande radiatoren geschikt zijn voor lage temperatuur verwarming.',
+    tags: ['Warmtepompen', 'Lage temperatuur', 'Radiatoren', 'Afgiftesysteem', 'Installatietechniek'],
+    keyPoints: [
+      'Herbereken het radiatorvermogen bij lage aanvoertemperaturen op basis van de exponentiële afgifte-omrekenfactor.',
+      'Voer een exacte warmteverliesberekening uit per ruimte om onderdimensionering bij lagetemperatuurverwarming te voorkomen.',
+      'Gebruik radiatorventilatoren, zwaardere paneelradiatoren (type 22/33) of lagetemperatuurradiatoren bij een capaciteitstekort.',
+      'Zorg dat waterzijdig inregelen standaard onderdeel is van het advies om het rendement en de COP van de warmtepomp te borgen.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Hoeveel vermogen verliest een standaard radiator bij lage temperatuur?', answer: 'Bij een teruggang van een traditioneel regime (75/65/20 °C) naar een lagetemperatuurregime (45/35/20 °C) verliest een standaard paneelradiator gemiddeld 60 tot 70 procent van zijn nominale warmteafgifte. Een radiator die nominaal 2.000 Watt levert, geeft bij 45 °C aanvoer nog maar circa 600 tot 800 Watt af.' },
+      { question: 'Wat is het verschil tussen een traditionele radiator en een lagetemperatuurradiator (LTV)?', answer: 'Een traditionele paneelradiator is ontworpen voor een hoge watertemperatuur en vertrouwt primair op natuurlijke straling en convectie. Een LTV-radiator of convector heeft een veel groter intern warmtewisselend oppervlak of maakt gebruik van geïntegreerde microventilatoren (geforceerde convectie) om bij lage watertemperaturen toch voldoende warmte aan de ruimte af te geven.' },
+      { question: 'Is de 50-gradentest een betrouwbare methode om geschiktheid te testen?', answer: 'De 50-gradentest is een praktische indicatiewijze voor de woningeigenaar gedurende de wintermaanden, maar vervangt voor de installateur geen normatieve warmteverliesberekening. Een geslaagde test geeft aan dat de woning bij mild winterweer warm blijft, maar geeft geen garantie op voldoende vermogen tijdens de ontwerpbuitentemperatuur.' },
+      { question: 'Waarom is waterzijdig inregelen kritiek bij lagetemperatuurverwarming?', answer: 'Bij lage aanvoertemperaturen is het temperatuurverschil (delta T) tussen aanvoer en retour kleiner. Als het cv-water ongelijkmatig door het systeem stroomt, ontstaan er grote kortsluitstromen. Dit leidt tot een te hoge retourtemperatuur naar de warmtepomp, wat het rendement (de COP) ernstig verslechtert en tot pendelgedrag leidt.' },
+    ],
+  },
 ];
