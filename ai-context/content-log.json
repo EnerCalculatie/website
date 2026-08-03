@@ -484,5 +484,19 @@
     "seoScore": 90,
     "geoScore": 72,
     "status": "rejected"
+  },
+  {
+    "date": "2026-08-03",
+    "topic": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
+    "slug": "geintegreerd-energiesysteem-woningen",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 90,
+    "factScore": 100,
+    "claimsCount": 3,
+    "sourcesCount": 3,
+    "sourceQuality": 98,
+    "repairAttempts": 0,
+    "status": "generated"
   }
 ]

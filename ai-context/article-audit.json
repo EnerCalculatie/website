@@ -1,13 +1,35 @@
 {
-  "title": "Afgiftesysteem en warmtepomp: zo controleert u of radiatoren geschikt zijn voor lage temperatuur",
-  "generatedAt": "2026-08-03T18:33:24.096Z",
+  "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
+  "generatedAt": "2026-08-03T19:11:14.215Z",
   "seoScore": 92,
-  "geoScore": 88,
+  "geoScore": 90,
   "factScore": 100,
-  "sourceQuality": 100,
+  "sourceQuality": 98,
   "claims": [
     {
-      "claim": "Subsidievoorwaarden en technische onderbouwingen voor warmtepompinstallaties worden vastgesteld via de ISDE-regeling van de RVO.",
+      "claim": "De salderingsregeling voor zonnepanelen wordt per 1 januari 2027 afgeschaft.",
+      "status": "SUPPORTED",
+      "sources": [
+        {
+          "title": "Salderingsregeling zonnepanelen",
+          "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling",
+          "quality": 100
+        }
+      ]
+    },
+    {
+      "claim": "Energieleveranciers kunnen terugleverkosten in rekening brengen bij kleinverbruikers die stroom terugleveren aan het net.",
+      "status": "SUPPORTED",
+      "sources": [
+        {
+          "title": "Salderen en terugleveren — ACM ConsuWijzer",
+          "url": "https://consument.acm.nl/elektriciteit-en-gas/duurzame-energie/wat-is-salderen",
+          "quality": 98
+        }
+      ]
+    },
+    {
+      "claim": "Via de ISDE-regeling kunnen woningeigenaren subsidie aanvragen voor de aanschaf van een warmtepomp.",
       "status": "SUPPORTED",
       "sources": [
         {

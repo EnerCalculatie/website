@@ -1080,4 +1080,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is waterzijdig inregelen kritiek bij lagetemperatuurverwarming?', answer: 'Bij lage aanvoertemperaturen is het temperatuurverschil (delta T) tussen aanvoer en retour kleiner. Als het cv-water ongelijkmatig door het systeem stroomt, ontstaan er grote kortsluitstromen. Dit leidt tot een te hoge retourtemperatuur naar de warmtepomp, wat het rendement (de COP) ernstig verslechtert en tot pendelgedrag leidt.' },
     ],
   },
+  {
+    slug: 'geintegreerd-energiesysteem-woningen',
+    readingTimeMinutes: 7,
+    title: 'De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen',
+    seoTitle: 'Geïntegreerd energiesysteem: zon, batterij en warmtepomp',
+    description:
+      'Wat levert een geïntegreerd energiesysteem op? Lees hoe zonnepanelen, warmtepomp en thuisbatterij samen de zelfconsumptie verhogen en netbelasting',
+    date: '2026-08-03',
+    excerpt:
+      'Ontdek hoe de integratie van zonnepanelen, warmtepompen en thuisbatterijen tot één samenhangend energiesysteem de zelfconsumptie verhoogt, terugleverkosten minimaliseert en uw klantadvies versterkt.',
+    tags: ['Zonnepanelen', 'Thuisbatterijen', 'Warmtepompen', 'Energiebeheer'],
+    keyPoints: [
+      'Losse verduurzamingsmaatregelen lopen vast op terugleverkosten, netbelasting en de afschaffing van de salderingsregeling per 2027.',
+      'Een geïntegreerd energiesysteem stemt opwek, thermische opslag en elektrische opslag dynamisch op elkaar af.',
+      'Door slimme sturing via een Energiemanagementsysteem (EMS) stijgt de eigen consumptie van zonnestroom van circa 30% naar 60% tot 80%.',
+      'Installateurs voorkomen \'stapelfouten\' in offertes door te rekenen met één doorlopend energieprofiel in plaats van losse productberekeningen.',
+    ],
+    category: 'Thuisbatterijen',
+    faq: [
+      { question: 'Wat is een geïntegreerd energiesysteem in een woning precies?', answer: 'Een geïntegreerd energiesysteem stemt de opwek van zonnepanelen, de warmtevraag van een warmtepomp en de opslag van een thuisbatterij via een energiemanagementsysteem (EMS) dynamisch op elkaar af om lokaal verbruik te maximaliseren.' },
+      { question: 'Waarom stijgt de zelfconsumptie bij een geïntegreerd energiesysteem?', answer: 'Overschotten aan zonnestroom worden direct nuttig ingezet: eerst voor directe huishoudelijke vraag en thermische opslag (warmtepomp of warmtepompboiler), en vervolgens voor het laden van de thuisbatterij. Zo vloeit er minimaal stroom terug naar het net.' },
+      { question: 'Is een thuisbatterij noodzakelijk als een woning al een warmtepomp heeft?', answer: 'Een batterij is niet verplicht, maar vormt wel de schakel om de avonduren te overbruggen. De warmtepomp vraagt ook \'s avonds stroom wanneer de zonnepanelen niets meer opwekken; een batterij voorkomt dat er op dat moment netstroom ingekocht moet worden.' },
+      { question: 'Hoe voorkomt een geïntegreerd systeem overbelasting van de netaansluiting?', answer: 'Het energiemanagementsysteem meet continu de P1-poort en regelt via dynamic load balancing het vermogen van grote verbruikers (zoals de laadpaal, warmtepomp en batterij) bij binnen de grenzen van de hoofdzekering.' },
+    ],
+  },
 ];
