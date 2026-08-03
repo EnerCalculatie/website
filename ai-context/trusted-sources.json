@@ -56,6 +56,38 @@
       "publisher": "NEN",
       "domain": "nen.nl",
       "qualityScore": 95
+    },
+    {
+      "key": "rvo-eia",
+      "title": "Energie-investeringsaftrek (EIA) — RVO",
+      "url": "https://www.rvo.nl/subsidies-financiering/eia",
+      "publisher": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "domain": "rvo.nl",
+      "qualityScore": 100
+    },
+    {
+      "key": "iplo-geluid-bouwwerkinstallaties",
+      "title": "Geluid van bouwwerkinstallaties: regels bij nieuwbouw — Informatiepunt Leefomgeving (IPLO)",
+      "url": "https://iplo.nl/regelgeving/regels-voor-activiteiten/technische-bouwactiviteit/nieuwbouw/rijksregels/geluid-bouwwerkinstallaties/",
+      "publisher": "Informatiepunt Leefomgeving (Rijksoverheid)",
+      "domain": "iplo.nl",
+      "qualityScore": 100
+    },
+    {
+      "key": "kiwa-pv-testing-certificering",
+      "title": "Solar PV modules testing and certification — Kiwa",
+      "url": "https://www.kiwa.com/en/services/inspection/solar-pv-modules-testing-and-certification/",
+      "publisher": "Kiwa (geaccrediteerd testinstituut, IEC 61215/61730)",
+      "domain": "kiwa.com",
+      "qualityScore": 90
+    },
+    {
+      "key": "elaad-v2g-routekaart",
+      "title": "Routekaart Bidirectioneel Laden naar Tweede Kamer — ElaadNL",
+      "url": "https://elaad.nl/routekaart-bidirectioneel-laden-naar-tweede-kamer/",
+      "publisher": "ElaadNL (kennis- en innovatiecentrum laadinfrastructuur, gefinancierd door netbeheerders)",
+      "domain": "elaad.nl",
+      "qualityScore": 95
     }
   ]
 }

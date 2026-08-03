@@ -18,6 +18,9 @@ export const DOMAIN_QUALITY = {
   'nen.nl': 95,
   'isso.nl': 95,
   'ec.europa.eu': 95,
+  'iplo.nl': 100,
+  'elaad.nl': 95,
+  'kiwa.com': 90,
 };
 
 /** Publicatiegate: alleen bronnen op of boven dit niveau tellen mee voor de "SOURCE QUALITY"-eis. */
