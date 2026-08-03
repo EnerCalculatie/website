@@ -50,14 +50,14 @@ jobs:
 
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         env:
-          OPEN_ROUTER: ${{ secrets.OPEN_ROUTER }}
+          OPEN_ROUTER: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
         run: node scripts/plan-content.mjs
 
       - name: "4-7. Genereer artikel, claim-extractie, bronverificatie, fact-check, self-herstel en SEO/GEO"
         id: generate
         env:
-          OPEN_ROUTER: ${{ secrets.OPEN_ROUTER }}
+          OPEN_ROUTER: ${{ secrets.OPENROUTER_API_KEY }}
           OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
         run: node scripts/generate-blog-post.mjs
 
