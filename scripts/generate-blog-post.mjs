@@ -28,6 +28,12 @@ import {
   MAX_DESCRIPTION_LENGTH,
   MIN_WORD_COUNT,
 } from './lib/content-checks.mjs';
+import { extractClaims } from './lib/claim-extractor.mjs';
+import { loadTrustedSources, fetchSourcesForClaims } from './lib/source-validator.mjs';
+import { factCheckClaims, allClaimsSupported } from './lib/fact-check.mjs';
+import { scoreForSource, MIN_SOURCE_QUALITY } from './lib/source-quality.mjs';
+import { collectUsedSources, buildSourcesBlock } from './lib/citation-generator.mjs';
+import { buildAudit, writeAuditFile } from './lib/article-audit.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -112,6 +118,8 @@ function pickNextPlannedItem(plan) {
 const MAX_RETRIES = 2;
 /** Verbeterpogingen binnen één run, vóór het artikel definitief wordt afgekeurd. */
 const MAX_IMPROVE_ATTEMPTS = 2;
+/** Zelfherstel-pogingen voor de fact-check-fase (los van MAX_IMPROVE_ATTEMPTS hierboven). */
+const MAX_FACTCHECK_ATTEMPTS = 3;
 
 function rejectPlanItem(planItem, reason) {
   const retryCount = (planItem.retryCount ?? 0) + 1;
@@ -215,6 +223,11 @@ async function main() {
     .map((e) => `${e.url} — "${e.title}" (${e.type}, onderwerp: ${e.topic})`)
     .join('\n');
 
+  const { byKey: trustedSourcesByKey, sources: trustedSources } = await loadTrustedSources();
+  const trustedSourcesText = trustedSources
+    .map((s) => `- key: "${s.key}" — ${s.title} (${s.publisher}, ${s.url})`)
+    .join('\n');
+
   const system = `Je bent een senior contentstrateeg, SEO-specialist en technisch copywriter voor EnerCalculatie, een Nederlandse SaaS-oplossing voor energieadviesberekeningen. Je schrijft hoogwaardige kennisbankartikelen voor een zakelijke doelgroep van Nederlandse installateurs die actief zijn in zonnepanelen, thuisbatterijen, warmtepompen, laadpalen, airconditioningsystemen en hybride energiesystemen.
 
 De lezer is een vakprofessional die op zoek is naar praktische kennis, technische verdieping, actuele regelgeving en concrete handvatten om klanten beter te adviseren. De artikelen moeten vertrouwen opbouwen, expertise uitstralen en tegelijkertijd bijdragen aan organische vindbaarheid (SEO).
@@ -270,6 +283,11 @@ HARDE EIS — GEEN BEDRAGEN: noem nergens een concreet geldbedrag (geen euro-bed
 
 Gebruik verder alleen feiten waarvan je zeker bent dat ze correct zijn (RVO/ISDE, ACM, Netbeheer Nederland, Techniek Nederland, Belastingdienst) — verzin geen percentages of regelgeving. Noem geen productmerken of celchemieën die je niet zeker weet. Vermijd absolute claims ("foutloos", "altijd correct", "0% foutmarge"); gebruik "gevalideerd" / "deterministisch berekend" / "kloppend" in plaats daarvan.
 
+HARDE EIS — CLAIMS EN BRONNEN: elke feitelijke claim in het artikel (percentage, jaartal, regelgeving, norm, subsidie, wettelijke verplichting, technische specificatie) moet expliciet opgenomen worden in de "claims"-array (zie OUTPUT FORMAT) met een "sourceKey" die EXACT overeenkomt met één van onderstaande vertrouwde bronnen. Gebruik GEEN sourceKey die niet in deze lijst staat, en verzin GEEN URL's. Past een claim bij geen enkele bron in de lijst? Schrijf de claim dan generiek/zonder het specifieke cijfer of de specifieke regelnaam (bv. "de gasvraag kan afnemen" i.p.v. een percentage), of laat hem weg. Elke claim die niet aan een geldige sourceKey hangt, wordt automatisch afgekeurd en het hele artikel wordt teruggestuurd voor herziening — dit is een harde publicatie-eis, geen suggestie.
+
+Beschikbare vertrouwde bronnen (gebruik alleen deze keys):
+${trustedSourcesText}
+
 # OUTPUT FORMAT
 Geef je antwoord in TWEE APARTE DELEN (gescheiden door witregels).
 
@@ -284,6 +302,7 @@ DEEL 1: Een valide JSON-object (in een \`\`\`json codeblok). Zorg dat alle dubbe
 - keyPoints: Array van 3-5 strings met de belangrijkste punten.
 - category: één hoofdcategorie (Zonnepanelen / Thuisbatterijen / Warmtepompen / Laadpalen / Subsidies)
 - faq: Array van minimaal 3, maximaal 5 vraag/antwoord-objecten ({"question": "...", "answer": "..."}). Dit dekt de aanvullende zoekvragen af.
+- claims: Array van objecten {"text": "de exacte feitelijke claim uit het artikel", "sourceKey": "key uit de vertrouwde-bronnenlijst hierboven"}. Leeg array toegestaan als het artikel geen feitelijke claims bevat die een bron nodig hebben (zeldzaam bij dit onderwerp).
 
 DEEL 2: Een apart JSX codeblok (in een \`\`\`jsx codeblok) met de daadwerkelijke componentBody (de JSX-children van <BlogPostLayout>). Omdat dit géén JSON is, hoef je dubbele aanhalingstekens (zoals in \`className="my-class"\`) NIET te escapen. Schrijf hier het volledige, uitgewerkte artikel.
 KRITIEK — geldig JSX:
@@ -303,7 +322,8 @@ Voorbeeld van het verwachte antwoord:
   "tags": ["..."],
   "keyPoints": ["..."],
   "category": "...",
-  "faq": [{"question": "...", "answer": "..."}]
+  "faq": [{"question": "...", "answer": "..."}],
+  "claims": [{"text": "...", "sourceKey": "..."}]
 }
 \`\`\`
 
@@ -403,6 +423,72 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
       `Artikel afgekeurd na verbeterpoging (SEO ${validation.seoScore}/${APPROVAL_THRESHOLD}, GEO ${validation.geoScore}/${APPROVAL_THRESHOLD} — beide moeten voldoen) — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven.`
     );
   }
+
+  // Fact-check-fase: elke claim moet aan een vertrouwde bron hangen (zie
+  // ai-context/trusted-sources.json) én die bron moet de claim daadwerkelijk
+  // ondersteunen. Correctheid boven snelheid: een artikel met ook maar één
+  // niet-ondersteunde claim wordt afgekeurd, geen gemiddelde-score-gate zoals
+  // bij SEO/GEO hierboven.
+  console.log('Claim-extractie en bronverificatie...');
+  let { claims, issues: claimIssues } = extractClaims(article, trustedSourcesByKey);
+  let sourceTexts = await fetchSourcesForClaims(claims);
+  let factCheck = await factCheckClaims(claims, sourceTexts, { callGemini, extractJson });
+  claims = claims.map((c, i) => ({ ...c, status: factCheck.results[i]?.status ?? 'NO_SOURCE' }));
+
+  const lowQualitySources = () =>
+    claims.filter((c) => c.status === 'SUPPORTED' && c.source && scoreForSource(c.source) < MIN_SOURCE_QUALITY);
+
+  const factCheckFailing = () => !allClaimsSupported(claims) || claimIssues.length > 0 || lowQualitySources().length > 0;
+
+  for (let poging = 1; poging <= MAX_FACTCHECK_ATTEMPTS && factCheckFailing(); poging++) {
+    const failing = claims.filter((c) => c.status !== 'SUPPORTED');
+    const feedback = [
+      ...claimIssues,
+      ...failing.map((c) => `Claim "${c.text}" (status ${c.status}) — verwijder deze claim of herschrijf hem generiek zonder het specifieke cijfer/regelnaam, tenzij een andere bron uit de lijst hem wél ondersteunt.`),
+    ];
+    console.log(`Fact-check niet geslaagd — herstelpoging ${poging}/${MAX_FACTCHECK_ATTEMPTS}:\n- ${feedback.join('\n- ')}`);
+
+    const factCheckUser = `${user}\n\nJe vorige concept bevatte claims die niet (volledig) door een vertrouwde bron ondersteund werden. Verwerk deze correcties en lever een volledig herzien artikel (zelfde JSON-structuur, incl. claims-array):\n- ${feedback.join('\n- ')}`;
+    const repaired = await generateWithRetries(system, factCheckUser, `fact-check-herstel ${poging}`);
+    Object.assign(article, repaired);
+
+    ({ claims, issues: claimIssues } = extractClaims(article, trustedSourcesByKey));
+    sourceTexts = await fetchSourcesForClaims(claims);
+    factCheck = await factCheckClaims(claims, sourceTexts, { callGemini, extractJson });
+    claims = claims.map((c, i) => ({ ...c, status: factCheck.results[i]?.status ?? 'NO_SOURCE' }));
+    console.log(`Na fact-check-poging ${poging} — FACT: ${factCheck.factScore}/100, ${claims.length} claim(s)`);
+  }
+
+  if (factCheckFailing()) {
+    const details = [
+      ...claimIssues,
+      ...claims.filter((c) => c.status !== 'SUPPORTED').map((c) => `${c.id} ("${c.text}"): ${c.status}`),
+      ...lowQualitySources().map((c) => `${c.id}: bronkwaliteit onder ${MIN_SOURCE_QUALITY}`),
+    ];
+    planItem.lastScore = validation.score;
+    rejectPlanItem(planItem, `Fact-check gefaald: ${details.join(' | ')}`);
+    await writePlan(plan);
+    await appendLogEntry({
+      date: todayISO(),
+      topic: planItem.title,
+      slug: article.slug ?? null,
+      model: MODEL,
+      seoScore: validation.seoScore,
+      geoScore: validation.geoScore,
+      factScore: factCheck.factScore,
+      claimsCount: claims.length,
+      sourcesCount: collectUsedSources(claims).length,
+      repairAttempts: MAX_FACTCHECK_ATTEMPTS,
+      status: planItem.status === 'abandoned' ? 'abandoned-failed-factcheck' : 'rejected-failed-factcheck',
+    });
+    throw new Error(
+      `Fact-check gefaald — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven:\n- ${details.join('\n- ')}`
+    );
+  }
+
+  const usedSources = collectUsedSources(claims);
+  const sourcesBlock = buildSourcesBlock(usedSources, todayISO());
+  article.componentBody = `${article.componentBody}\n${sourcesBlock}`;
 
   const componentName = `${pascalCase(article.slug)}Article`;
   const componentPath = path.join(BLOG_DIR, `${componentName}.tsx`);
@@ -586,6 +672,10 @@ ${keyPointsJs}
   await writePlan(plan);
   console.log('content-plan.json bijgewerkt: item op status "generated" gezet.');
 
+  const minSourceQuality = usedSources.length
+    ? Math.min(...claims.filter((c) => c.status === 'SUPPORTED' && c.source).map((c) => scoreForSource(c.source)))
+    : 100;
+
   await appendLogEntry({
     date: todayISO(),
     topic: article.title,
@@ -593,9 +683,26 @@ ${keyPointsJs}
     model: MODEL,
     seoScore: validation.seoScore,
     geoScore: validation.geoScore,
+    factScore: factCheck.factScore,
+    claimsCount: claims.length,
+    sourcesCount: usedSources.length,
+    sourceQuality: minSourceQuality,
+    repairAttempts: 0,
     status: 'generated',
   });
   console.log('content-log.json bijgewerkt.');
+
+  await writeAuditFile(
+    buildAudit({
+      article,
+      seoScore: validation.seoScore,
+      geoScore: validation.geoScore,
+      factScore: factCheck.factScore,
+      sourceQuality: minSourceQuality,
+      claims,
+    })
+  );
+  console.log('ai-context/article-audit.json bijgewerkt.');
 
   console.log(`GESLAAGD — Onderwerp: ${article.title} — Slug: ${article.slug}`);
 }

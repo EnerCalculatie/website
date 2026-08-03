@@ -1,0 +1,61 @@
+{
+  "_comment": "Vaste, handmatig gecureerde bronnenlijst voor de fact-check-pipeline (scripts/lib/source-validator.mjs, fact-check.mjs). Het model moet elke feitelijke claim koppelen aan één van deze 'key's — geen vrije URL's. Uitbreiden: nieuwe entry toevoegen met een key, title, url, publisher, domain en qualityScore (zie scripts/lib/source-quality.mjs voor de domeinscores). Let op bij NEN/ISSO: dit zijn overzichtspagina's, geen volledige (betaalde) normtekst — fact-check daarop kan alleen 'norm bestaat, naam klopt' verifiëren, niet gedetailleerde normwaarden.",
+  "sources": [
+    {
+      "key": "rvo-isde-warmtepompen",
+      "title": "ISDE voor warmtepompen — RVO",
+      "url": "https://www.rvo.nl/subsidies-financiering/isde/particulieren/warmtepomp",
+      "publisher": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "domain": "rvo.nl",
+      "qualityScore": 100
+    },
+    {
+      "key": "rvo-isde-algemeen",
+      "title": "ISDE — Investeringssubsidie duurzame energie en energiebesparing",
+      "url": "https://www.rvo.nl/subsidies-financiering/isde",
+      "publisher": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "domain": "rvo.nl",
+      "qualityScore": 100
+    },
+    {
+      "key": "rvo-svve",
+      "title": "Subsidieregeling verduurzaming voor verenigingen van eigenaars (SVVE)",
+      "url": "https://www.rvo.nl/subsidies-financiering/svve",
+      "publisher": "Rijksdienst voor Ondernemend Nederland (RVO)",
+      "domain": "rvo.nl",
+      "qualityScore": 100
+    },
+    {
+      "key": "rijksoverheid-salderingsregeling",
+      "title": "Salderingsregeling zonnepanelen",
+      "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling",
+      "publisher": "Rijksoverheid",
+      "domain": "rijksoverheid.nl",
+      "qualityScore": 100
+    },
+    {
+      "key": "acm-terugleverkosten",
+      "title": "Terugleverkosten en toezicht op energieleveranciers",
+      "url": "https://www.acm.nl/nl/onderwerpen/energie/energiemarkt-nederland/salderen-en-terugleveren",
+      "publisher": "Autoriteit Consument & Markt (ACM)",
+      "domain": "acm.nl",
+      "qualityScore": 98
+    },
+    {
+      "key": "netbeheer-nederland-netcongestie",
+      "title": "Netcongestie — capaciteitskaart en wachtlijsten",
+      "url": "https://www.netbeheernederland.nl/dossiers/capaciteit-elektriciteitsnet-28/wat-is-netcongestie",
+      "publisher": "Netbeheer Nederland",
+      "domain": "netbeheernederland.nl",
+      "qualityScore": 95
+    },
+    {
+      "key": "nen-1010-overzicht",
+      "title": "NEN 1010 — Laagspanningsinstallaties (normoverzicht)",
+      "url": "https://www.nen.nl/nen-1010-2020-nl-282265",
+      "publisher": "NEN",
+      "domain": "nen.nl",
+      "qualityScore": 95
+    }
+  ]
+}

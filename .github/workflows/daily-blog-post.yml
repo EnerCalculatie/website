@@ -1,16 +1,23 @@
 name: Kennisbank-artikel (di/do)
 
-# SEO/GEO content engine-pipeline:
+# Evidence-based SEO/GEO content engine-pipeline:
 # 1. Cronjob start (of handmatig via workflow_dispatch)
 # 2. ai-context/*.md wordt gelezen door plan-content.mjs en generate-blog-post.mjs
 # 3. Onderwerp gekozen: hoogste-prioriteit 'planned' item uit ai-context/content-plan.json
-# 4. Artikel gegenereerd via Gemini (generate-blog-post.mjs)
+# 4. Artikel gegenereerd via Gemini (generate-blog-post.mjs), incl. verplichte
+#    claims-array die elke feitelijke claim aan een sourceKey uit
+#    ai-context/trusted-sources.json koppelt
 # 5. SEO/GEO-controle (seo-geo-validator.mjs) — score < 80 op SEO of GEO triggert
 #    één automatische verbeterpoging, daarna definitieve afkeuring
-# 6. Verbetering zit in stap 5 (self-correcting binnen hetzelfde script-proces)
-# 7. Commit naar main (alleen bij goedgekeurd artikel; content-plan/content-log
-#    worden altijd gecommit, ook bij afkeuring, voor zichtbare geschiedenis)
-# 8. Deploy — Railway deployt automatisch bij push naar main (buiten deze workflow)
+# 6. Fact-check: elke claim wordt getoetst tegen live gefetchte brontekst van de
+#    opgegeven bron (claim-extractor/source-validator/fact-check.mjs). Één claim
+#    die niet SUPPORTED is, triggert een zelfherstel-poging (max 3), daarna
+#    definitieve afkeuring — correctheid boven publicatiefrequentie
+# 7. Zelfherstel zit in stap 5/6 (self-correcting binnen hetzelfde script-proces)
+# 8. Commit naar main (alleen bij goedgekeurd + fact-checked artikel;
+#    content-plan/content-log worden altijd gecommit, ook bij afkeuring, voor
+#    zichtbare geschiedenis)
+# 9. Deploy — Railway deployt automatisch bij push naar main (buiten deze workflow)
 on:
   schedule:
     # 05:00 UTC = 06:00 CET (winter) / 07:00 CEST (zomer).
@@ -47,7 +54,7 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
-      - name: "4-6. Genereer artikel, SEO/GEO-controle en verbeterpoging"
+      - name: "4-7. Genereer artikel, claim-extractie, bronverificatie, fact-check, self-herstel en SEO/GEO"
         id: generate
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -88,7 +95,7 @@ jobs:
         run: |
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
-          git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json
+          git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json ai-context/article-audit.json
           if git diff --cached --quiet; then
             echo "Geen wijzigingen om te committen."
             exit 0

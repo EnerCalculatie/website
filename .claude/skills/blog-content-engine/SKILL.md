@@ -84,3 +84,47 @@ De blog-cronjob (`.github/workflows/daily-blog-post.yml`, di+do 05:00 UTC) is ui
 8. **Cloud-fallback:** er is een disabled Claude Code-routine (`trig_01XyrunYbmJQg9m7haGzfvv7`, zelfde cron-schema) die dezelfde pipeline **zonder Gemini** draait — de agent schrijft/beoordeelt het artikel zelf met zijn eigen model. Alleen te activeren als de GitHub Actions-workflow structureel kapot is.
 
 Windows-ontwikkelaars: dit repo gebruikt CRLF lokaal (`core.autocrlf=true` is gangbaar), maar de GitHub Actions-runner (Ubuntu) checkt uit met LF. Regexes in de scripts die met bestandsinhoud werken (App.tsx-route-anchors, content-map-parsing) moeten `\r?\n` gebruiken, niet kale `\n` — een eerdere bug werkte toevallig op CI maar faalde lokaal.
+
+## Evidence-based fact-check-fase (na SEO/GEO, vóór schrijven)
+
+**Aanleiding:** ná de bedragen-fout (zie "Geen bedragen in AI-content" hierboven) bleken losse
+handmatige checks van live artikelen nog steeds fouten op te leveren die géén bedrag zijn: een
+verzonnen "20-50% gasreductie"-cijfer zonder bron, en een verkeerd gespelde subsidienaam (SVVE)
+in het VvE-artikel (2026-08-03). `checkNoAmounts` blokkeert alleen euro-bedragen — percentages,
+regelnamen, normen en jaartallen glipten er nog steeds doorheen. Vandaar een systematische
+fact-check-fase i.p.v. losse verboden-woordenlijsten.
+
+**Hoe het werkt:**
+1. **`ai-context/trusted-sources.json`** — vaste, handmatig gecureerde bronnenlijst (RVO/ISDE,
+   Rijksoverheid/saldering, ACM, Netbeheer Nederland, NEN). Geen zoekmachine-API in dit project
+   (geen secret/budget daarvoor) — het model moet elke feitelijke claim koppelen aan één van deze
+   vaste `sourceKey`'s, nooit een zelfverzonnen URL.
+2. De generatieprompt (`generate-blog-post.mjs`) eist een `claims`-array in de JSON-output:
+   `[{text, sourceKey}]`. Een claim zonder geldige sourceKey uit de lijst moet generiek
+   geschreven worden (zonder het specifieke cijfer/regelnaam) of weggelaten.
+3. **`scripts/lib/claim-extractor.mjs`** normaliseert/dedupliceert de claims en valideert de
+   sourceKey tegen de registry.
+4. **`scripts/lib/source-validator.mjs`** fetcht de bijbehorende bron live (native `fetch()`,
+   geen nieuwe dependency, in-memory cache per run) en strip de HTML naar platte tekst.
+5. **`scripts/lib/fact-check.mjs`** laat Gemini per claim + gefetchte brontekst een status geven:
+   `SUPPORTED`/`PARTIALLY_SUPPORTED`/`OUTDATED`/`CONFLICTING`/`NO_SOURCE`.
+6. **Publicatiegate:** elke claim moet exact `SUPPORTED` zijn — geen gemiddelde-score-gate zoals
+   bij SEO/GEO. Eén claim die niet SUPPORTED is, triggert een zelfherstel-poging (her-prompt met
+   de falende claims als feedback, max `MAX_FACTCHECK_ATTEMPTS = 3`), daarna definitieve
+   afkeuring via hetzelfde `rejectPlanItem`-mechanisme als de bestaande SEO/GEO-afkeuring.
+7. Bij succes: **`scripts/lib/citation-generator.mjs`** voegt automatisch een "Bronnen"-blok toe
+   onderaan `componentBody` (gededupliceerd, met geraadpleegd-datum) — geen apart
+   `blogPosts.ts`-veld, gewoon JSX-tekst.
+8. **`scripts/lib/article-audit.mjs`** schrijft `ai-context/article-audit.json` (overschreven per
+   run, geen append-only log) met scores + per-claim-detail. `content-log.json` krijgt extra
+   velden: `factScore`, `claimsCount`, `sourcesCount`, `sourceQuality`, `repairAttempts`.
+
+**Harde grens, geen bug:** NEN/ISSO-bronnen in de registry zijn overzichtspagina's — de volledige
+normtekst is betaald. Fact-check op een NEN/ISSO-claim kan dus alleen "de norm bestaat, de naam
+klopt" verifiëren, niet gedetailleerde normwaarden. Claims die een specifiek getal uit een
+betaalde norm nodig hebben, kunnen niet automatisch geverifieerd worden en moeten generiek
+blijven of weggelaten worden.
+
+**Geen nieuwe workflow-stappen:** de fact-check-lus zit, net als de SEO/GEO-validatie, ín
+`generate-blog-post.mjs` (niet als aparte GitHub Actions-stap). De bestaande rollback (git
+checkout bij falen) en `if: always()`-commit werken ongewijzigd voor een fact-check-afkeuring.
