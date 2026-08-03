@@ -35,6 +35,8 @@ import { scoreForSource, MIN_SOURCE_QUALITY } from './lib/source-quality.mjs';
 import { collectUsedSources, buildSourcesBlock } from './lib/citation-generator.mjs';
 import { buildAudit, writeAuditFile } from './lib/article-audit.mjs';
 import { GEMINI_TIER, GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
+import { checkAiLanguage } from './lib/ai-language-check.mjs';
+import { checkSpellingGrammar } from './lib/spelling-check.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -227,7 +229,14 @@ De lezer is een vakprofessional die op zoek is naar praktische kennis, technisch
 
 Gebruik uitsluitend de aangeleverde bedrijfscontext als bron voor informatie over EnerCalculatie zelf. Verzin geen functionaliteiten, voordelen, integraties, prijzen, klanten, certificeringen of toekomstplannen die niet expliciet in de context staan.
 
-Je volgt alle projectregels, schrijfrichtlijnen en SEO-richtlijnen strikt. Wanneer informatie ontbreekt, geef dit aan in plaats van aannames te doen.
+Je volgt alle projectregels, schrijfrichtlijnen en SEO-richtlijnen strikt. Wanneer informatie ontbreekt, geef dit aan in plaats van aannames te doen. Doe ook geen aannames over de situatie van de lezer ("u heeft vast al..." / "zoals u weet...") — installateurs verschillen sterk in ervaring en bedrijfsgrootte; schrijf voor wat je feitelijk weet over de doelgroep, niet voor een verzonnen gemiddelde lezer.
+
+SCHRIJFSTEM — schrijf zoals een ervaren vakgenoot die dit zelf typt, niet zoals een taalmodel:
+- Wissel ritme af: een lange, uitleggende zin gevolgd door een korte. Niet elke zin en niet elke alinea even lang.
+- Concreet en technisch boven adjectieven: een cijfer, norm of praktijkvoorbeeld zegt meer dan "krachtig" of "geavanceerd".
+- Durf een standpunt of inschatting te geven waar dat vakinhoudelijk verantwoord is, in plaats van alles neutraal te formuleren.
+- Vermijd AI-tells: geen "in de wereld van...", "het is belangrijk om te vermelden dat", "naadloos", "moeiteloos", "game-changer", "wij begrijpen dat...". Geen opsommingen van exact drie gelijkvormige adjectieven als stijltic.
+- Laatste alinea van het artikel: een concreet advies, een vraag aan de lezer, of een expliciete volgende stap. Geen samenvattend "Kortom/Al met al/Samenvattend/Tot slot"-alinea die herhaalt wat al gezegd is — de lezer heeft het net gelezen.
 
 Het doel is om artikelen te schrijven die:
 - hoog scoren in Google;
@@ -353,9 +362,10 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
   // hetzelfde model dat het artikel schreef en zette artikelen van 120-300
   // woorden probleemloos op 80+; woordental en verzonnen cijfers moet je dus
   // tellen, niet laten beoordelen.
-  const collectIssues = (a) => {
+  const collectIssues = async (a) => {
     const words = countBodyWords(a.componentBody ?? '');
     const faqText = (a.faq ?? []).map((f) => `${f.question} ${f.answer}`).join(' ');
+    const spellingIssues = await checkSpellingGrammar(a.componentBody ?? '');
     return [
       ...(words < MIN_WORD_COUNT
         ? [`De body is ${words} woorden, minimaal ${MIN_WORD_COUNT} vereist. Werk elke h2-sectie inhoudelijk uit met uitleg, afwegingen en een concreet voorbeeld uit de praktijk van een installateur — voeg geen secties toe die niets zeggen.`]
@@ -367,12 +377,14 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
       ...checkArticleMeta({ ...a, keyword: planItem.keyword, seoTitle: a.seoTitle ?? '' }).filter((e) =>
         e.startsWith('seoTitle')
       ),
+      ...checkAiLanguage(a.componentBody ?? ''),
+      ...spellingIssues,
     ];
   };
 
   console.log('SEO/GEO-controle...');
   let validation = await validateArticle(article, { callGemini, extractJson });
-  let issues = collectIssues(article);
+  let issues = await collectIssues(article);
   console.log(`SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 (beide moeten >= ${APPROVAL_THRESHOLD}) | contentchecks: ${issues.length} bezwaar(en)`);
 
   // Twee verbeterpogingen, geen één. Het model reageert aantoonbaar op de
@@ -388,7 +400,7 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
     Object.assign(article, improvedArticle);
 
     validation = await validateArticle(article, { callGemini, extractJson });
-    issues = collectIssues(article);
+    issues = await collectIssues(article);
     console.log(`Na poging ${poging} — SEO: ${validation.seoScore}/100, GEO: ${validation.geoScore}/100 | contentchecks: ${issues.length} bezwaar(en)`);
     if (issues.length > 0) console.log(`Resterend:\n- ${issues.join('\n- ')}`);
   }
