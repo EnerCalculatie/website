@@ -9,18 +9,14 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
 import { findDuplicateTopic, checkPlanItem } from './lib/content-checks.mjs';
+import { GEMINI_TIER, GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const CONTEXT_DIR = path.join(ROOT, 'ai-context');
 const PLAN_PATH = path.join(CONTEXT_DIR, 'content-plan.json');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-if (!GEMINI_API_KEY) {
-  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
-  process.exit(1);
-}
-const MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
+console.log(`Gemini-tier: ${GEMINI_TIER}, model: ${GEMINI_MODEL}`);
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
 const MIN_PLANNED = 5;
@@ -54,7 +50,7 @@ async function readPlan() {
 }
 
 async function callGemini(system, user) {
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -67,18 +63,18 @@ async function callGemini(system, user) {
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
+    throw new Error(`Gemini API-fout (${res.status}, model ${GEMINI_MODEL}): ${text}`);
   }
   const data = await res.json();
   const candidate = data.candidates?.[0];
   const message = candidate?.content?.parts?.[0]?.text;
   if (!message) {
     throw new Error(
-      `Geen tekstantwoord ontvangen van Gemini (model ${MODEL}, finishReason: ${candidate?.finishReason ?? 'onbekend'}).`
+      `Geen tekstantwoord ontvangen van Gemini (model ${GEMINI_MODEL}, finishReason: ${candidate?.finishReason ?? 'onbekend'}).`
     );
   }
   if (candidate.finishReason === 'MAX_TOKENS') {
-    console.warn(`Waarschuwing: Gemini-antwoord afgekapt op maxOutputTokens (model ${MODEL}).`);
+    console.warn(`Waarschuwing: Gemini-antwoord afgekapt op maxOutputTokens (model ${GEMINI_MODEL}).`);
   }
   return message;
 }
@@ -111,7 +107,7 @@ async function main() {
 
   const user = `Reeds gepubliceerd (titels): ${existingTitles.join(' | ') || '(geen)'}\nAl in backlog gepland (titels): ${plannedTitles.join(' | ') || '(geen)'}\n\nStel een content-backlog samen van ${BATCH_SIZE} NIEUWE artikel-ideeën, elk over een onderwerp dat nog niet gepubliceerd of gepland is. Kies onderwerpen uit topics.md die de doelgroep (installateur) daadwerkelijk zoekt.\n\nAntwoord UITSLUITEND met een JSON-array (in een \`\`\`json codeblok) van objecten met exact deze velden:\n[{\n  "title": "werktitel van het artikel",\n  "keyword": "primair zoekwoord waar dit artikel op moet scoren",\n  "intent": "informatief" | "commercieel" | "transactioneel",\n  "priority": 1-10 (10 = hoogste zoekvolume/commerciële waarde voor de doelgroep)\n}]`;
 
-  console.log(`Vul content-plan aan via Gemini (${MODEL})...`);
+  console.log(`Vul content-plan aan via Gemini (${GEMINI_MODEL})...`);
   const raw = await callGemini(system, user);
   const newItems = extractJsonArray(raw);
 

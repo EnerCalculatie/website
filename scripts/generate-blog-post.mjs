@@ -34,6 +34,7 @@ import { factCheckClaims, allClaimsSupported } from './lib/fact-check.mjs';
 import { scoreForSource, MIN_SOURCE_QUALITY } from './lib/source-quality.mjs';
 import { collectUsedSources, buildSourcesBlock } from './lib/citation-generator.mjs';
 import { buildAudit, writeAuditFile } from './lib/article-audit.mjs';
+import { GEMINI_TIER, GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
@@ -48,15 +49,7 @@ const REFERENCE_ARTICLES = [
   'LaadpaalAdviesArticle.tsx',
 ];
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-if (!GEMINI_API_KEY) {
-  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
-  process.exit(1);
-}
-
-// Kies zelf een model via de GEMINI_MODEL env var/secret, bv.
-// 'gemini-1.5-flash'.
-const MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
+console.log(`Gemini-tier: ${GEMINI_TIER}, model: ${GEMINI_MODEL}`);
 
 function todayISO() {
   return new Date().toISOString().slice(0, 10);
@@ -145,7 +138,7 @@ function sleep(ms) {
 async function callGemini(system, user) {
   let lastError;
   for (let attempt = 1; attempt <= GEMINI_MAX_ATTEMPTS; attempt++) {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -158,7 +151,7 @@ async function callGemini(system, user) {
     });
     if (!res.ok) {
       const text = await res.text();
-      lastError = new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
+      lastError = new Error(`Gemini API-fout (${res.status}, model ${GEMINI_MODEL}): ${text}`);
       if (RETRYABLE_STATUSES.has(res.status) && attempt < GEMINI_MAX_ATTEMPTS) {
         await sleep(GEMINI_RETRY_DELAY_MS * attempt);
         continue;
@@ -168,8 +161,8 @@ async function callGemini(system, user) {
     const data = await res.json();
     const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
     const finishReason = data.candidates?.[0]?.finishReason;
-    if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}, finishReason: ${finishReason}). API Response: ${JSON.stringify(data)}`);
-    if (finishReason === 'MAX_TOKENS') throw new Error(`Gemini-antwoord afgekapt op maxOutputTokens (model ${MODEL}) — output was niet compleet.`);
+    if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${GEMINI_MODEL}, finishReason: ${finishReason}). API Response: ${JSON.stringify(data)}`);
+    if (finishReason === 'MAX_TOKENS') throw new Error(`Gemini-antwoord afgekapt op maxOutputTokens (model ${GEMINI_MODEL}) — output was niet compleet.`);
     return message;
   }
   throw lastError;
@@ -349,7 +342,7 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
     return result;
   }
 
-  console.log(`Genereer artikel via Gemini (${MODEL})...`);
+  console.log(`Genereer artikel via Gemini (${GEMINI_MODEL})...`);
   let article = await generateWithRetries(system, user, "initiële generatie");
 
   if (existingSlugs.includes(article.slug)) {
@@ -414,7 +407,7 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
       date: todayISO(),
       topic: planItem.title,
       slug: article.slug ?? null,
-      model: MODEL,
+      model: GEMINI_MODEL,
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned' : 'rejected',
@@ -472,7 +465,7 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
       date: todayISO(),
       topic: planItem.title,
       slug: article.slug ?? null,
-      model: MODEL,
+      model: GEMINI_MODEL,
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       factScore: factCheck.factScore,
@@ -545,7 +538,7 @@ ${article.componentBody.replace(/\\'/g, "'")}
       date: todayISO(),
       topic: planItem.title,
       slug: article.slug,
-      model: MODEL,
+      model: GEMINI_MODEL,
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-failed-checks' : 'rejected-failed-checks',
@@ -566,7 +559,7 @@ ${article.componentBody.replace(/\\'/g, "'")}
       date: todayISO(),
       topic: planItem.title,
       slug: article.slug,
-      model: MODEL,
+      model: GEMINI_MODEL,
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-invalid-jsx' : 'rejected-invalid-jsx',
@@ -655,7 +648,7 @@ ${keyPointsJs}
       date: todayISO(),
       topic: planItem.title,
       slug: article.slug,
-      model: MODEL,
+      model: GEMINI_MODEL,
       seoScore: validation.seoScore,
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-build-failed' : 'rejected-build-failed',
@@ -680,7 +673,7 @@ ${keyPointsJs}
     date: todayISO(),
     topic: article.title,
     slug: article.slug,
-    model: MODEL,
+    model: GEMINI_MODEL,
     seoScore: validation.seoScore,
     geoScore: validation.geoScore,
     factScore: factCheck.factScore,
