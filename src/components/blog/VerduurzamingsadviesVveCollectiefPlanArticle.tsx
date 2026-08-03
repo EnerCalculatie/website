@@ -63,7 +63,7 @@ export function VerduurzamingsadviesVveCollectiefPlanArticle() {
 </p>
 <ul className="list-disc pl-6 mb-6 text-slate-700">
   <li className="mb-2">
-    <strong>Subsidievoorziening verduurzaming verenigingen van eigenaars (SVVE):</strong> Gebeurt via de RVO. Deze subsidie ondersteunt zowel de voorbereidende fase (energieadvies en procesbegeleiding) als de daadwerkelijke uitvoering van maatregelen (isolatie, warmtepompen en zonneboilers). Actuele voorwaarden en vergoedingen vindt u op rvo.nl.
+    <strong>Subsidieregeling verduurzaming voor verenigingen van eigenaars (SVVE):</strong> Gebeurt via de RVO. Deze subsidie ondersteunt zowel de voorbereidende fase (energieadvies en procesbegeleiding) als de daadwerkelijke uitvoering van maatregelen (isolatie, warmtepompen en zonneboilers). Actuele voorwaarden en vergoedingen vindt u op rvo.nl.
   </li>
   <li className="mb-2">
     <strong>Nationaal Warmtefonds (Energiebespaarlening voor VvE’s):</strong> Maakt het mogelijk voor VvE's om tegen gunstige voorwaarden een langlopende lening aan te gaan, waardoor de investering niet in één keer uit het reservefonds of via een eenmalige bijdrage van de eigenaren hoeft te komen.
