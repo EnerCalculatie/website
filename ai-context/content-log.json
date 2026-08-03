@@ -466,5 +466,14 @@
     "sourceQuality": 100,
     "repairAttempts": 0,
     "status": "generated"
+  },
+  {
+    "date": "2026-08-03",
+    "topic": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
+    "slug": "mia-vamil-laadpaal-adviseren-zakelijk",
+    "model": "gemini-flash-latest",
+    "seoScore": 92,
+    "geoScore": 88,
+    "status": "rejected"
   }
 ]

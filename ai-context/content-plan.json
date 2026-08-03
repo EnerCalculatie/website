@@ -19,10 +19,30 @@
     "title": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
     "keyword": "mia vamil laadpaal adviseren",
     "intent": "informatief",
-    "priority": 7,
+    "priority": 6,
     "slug": "zakelijke-laadpalen-en-fiscale-stimulering-hoe-adviseert-u-uw-klant-over-mia-en-vamil",
     "status": "planned",
-    "createdAt": "2026-08-03T12:09:00.123Z"
+    "createdAt": "2026-08-03T12:09:00.123Z",
+    "lastScore": 90,
+    "lastImprovements": [
+      "Plaats een korte, directe kernsamenvatting/definitie van MIA en VAMIL meteen in de inleiding voor betere directe AI-citatiewaarde (GEO).",
+      "Herstel enkele kleine tikfouten in de tekst, zoals 'meldertermijn' (moet 'meldtermijn' zijn) en 'voedings- databedrading' (moet 'voedings- en databedrading' zijn).",
+      "AI-tell \"naadloos\" — herschrijf deze zin, dit klinkt als een taalmodel, niet als een vakexpert.",
+      "AI-tell \"moeiteloos\" — herschrijf deze zin, dit klinkt als een taalmodel, niet als een vakexpert.",
+      "spelling/grammatica (TYPOS): \"aarden: Slimme laadfunctionaliteit (Smart Chargin\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"aliteit (Smart Charging): Het laadpunt\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"erne signalen. Dynamic Load Balancing\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \". Dynamic Load Balancing: De mogelijkhe\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"ikel over{' '} dynamic load balancing\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"} dynamic load balancing adviseren . Op\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"Geen of basis app-sturing Geautomatiseer\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"mogen per punt Dynamic load balancing\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"t Dynamic load balancing en integratie\" — Er is een mogelijke spelfout gevonden.",
+      "spelling/grammatica (TYPOS): \"s een accurate verloopcyclus van offerte to\" — Er is een mogelijke spelfout gevonden."
+    ],
+    "retryCount": 1,
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 92, GEO 88)",
+    "lastRejectedAt": "2026-08-03T18:55:23.734Z"
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
