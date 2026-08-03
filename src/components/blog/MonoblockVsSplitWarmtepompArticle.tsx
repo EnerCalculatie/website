@@ -185,6 +185,13 @@ export function MonoblockVsSplitWarmtepompArticle() {
 <p className="text-slate-700 leading-relaxed mb-4">
   In de <a href="/rekentool-warmtepomp" className="text-brand-primary-text font-semibold hover:underline">rekentool warmtepomp</a> voert u de woningkenmerken, de gewenste stooklijn en het energieprofiel in. De software berekent vervolgens het benodigde vermogen, verwerkt de technische specificaties van het geselecteerde type en genereert automatisch de complete onderbouwing voor de ISDE-subsidieaanvraag op het adviesrapport. Hierdoor levert u uw klant binnen enkele minuten een professioneel, begrijpelijk en geautomatiseerd verduurzamingsrapport dat de gemaakte keuzes feitelijk onderbouwt.
 </p>
-    </BlogPostLayout>
+    
+<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
+  Bronnen
+</h2>
+<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
+  <li className="mb-2"><a href="https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">ISDE: Warmtepomp woningeigenaren aanvragen — RVO</a> — geraadpleegd 2026-08-03</li>
+</ol>
+      </BlogPostLayout>
   );
 }
