@@ -3,8 +3,8 @@
   "sources": [
     {
       "key": "rvo-isde-warmtepompen",
-      "title": "ISDE voor warmtepompen — RVO",
-      "url": "https://www.rvo.nl/subsidies-financiering/isde/particulieren/warmtepomp",
+      "title": "ISDE: Warmtepomp woningeigenaren aanvragen — RVO",
+      "url": "https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp",
       "publisher": "Rijksdienst voor Ondernemend Nederland (RVO)",
       "domain": "rvo.nl",
       "qualityScore": 100
@@ -35,24 +35,24 @@
     },
     {
       "key": "acm-terugleverkosten",
-      "title": "Terugleverkosten en toezicht op energieleveranciers",
-      "url": "https://www.acm.nl/nl/onderwerpen/energie/energiemarkt-nederland/salderen-en-terugleveren",
+      "title": "Salderen en terugleveren — ACM ConsuWijzer",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/duurzame-energie/wat-is-salderen",
       "publisher": "Autoriteit Consument & Markt (ACM)",
-      "domain": "acm.nl",
+      "domain": "consument.acm.nl",
       "qualityScore": 98
     },
     {
       "key": "netbeheer-nederland-netcongestie",
-      "title": "Netcongestie — capaciteitskaart en wachtlijsten",
-      "url": "https://www.netbeheernederland.nl/dossiers/capaciteit-elektriciteitsnet-28/wat-is-netcongestie",
+      "title": "Capaciteitskaart — Netbeheer Nederland",
+      "url": "https://www.netbeheernederland.nl/netcapaciteit-en-flexibiliteit/capaciteitskaart",
       "publisher": "Netbeheer Nederland",
       "domain": "netbeheernederland.nl",
       "qualityScore": 95
     },
     {
       "key": "nen-1010-overzicht",
-      "title": "NEN 1010 — Laagspanningsinstallaties (normoverzicht)",
-      "url": "https://www.nen.nl/nen-1010-2020-nl-282265",
+      "title": "NEN 1010 — Dé norm voor laagspanningsinstallaties",
+      "url": "https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties",
       "publisher": "NEN",
       "domain": "nen.nl",
       "qualityScore": 95

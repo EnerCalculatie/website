@@ -12,6 +12,7 @@ export const DOMAIN_QUALITY = {
   'belastingdienst.nl': 100,
   'cbs.nl': 98,
   'acm.nl': 98,
+  'consument.acm.nl': 98,
   'netbeheernederland.nl': 95,
   'tno.nl': 95,
   'nen.nl': 95,
