@@ -1,0 +1,71 @@
+name: Backfill bronnensectie (eenmalig)
+
+# Eenmalig, handmatig te draaien script dat scripts/backfill-sources.mjs
+# uitvoert op alle bestaande blogposts zonder Bronnen-sectie (geschreven vóór
+# de fact-check-pipeline). Opent een PR i.p.v. direct naar main te pushen —
+# dit raakt in één keer tientallen gepubliceerde artikelen, dat verdient een
+# reviewmoment vóór het live gaat (anders dan de dagelijkse single-artikel-flow
+# in daily-blog-post.yml, die wél direct naar main pusht).
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Backfill bronnensectie
+        env:
+          GEMINI_TIER: ${{ vars.GEMINI_TIER }}
+          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: node scripts/backfill-sources.mjs
+
+      - name: QC — typecheck en build
+        run: |
+          npm run typecheck
+          npm run build
+
+      - name: Open PR met wijzigingen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "enercalculatie-bot"
+          git config user.email "bot@enercalculatie.nl"
+          if git diff --quiet -- src/components/blog; then
+            echo "Geen wijzigingen — geen artikel kreeg een nieuwe Bronnen-sectie."
+            exit 0
+          fi
+          BRANCH="backfill-bronnen-$(date -u +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH"
+          git add src/components/blog
+          git commit -m "content: bronnensectie toegevoegd aan bestaande blogposts (backfill)"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Backfill: bronnensectie op bestaande blogposts" \
+            --body "Automatisch gegenereerd door \`scripts/backfill-sources.mjs\`. Elke toegevoegde bron is fact-checked tegen de live brontekst (alleen SUPPORTED-claims); controleer de diff per artikel vóór merge — dit raakt gepubliceerde content." \
+            --base main --head "$BRANCH"
+
+      - name: Samenvatting
+        if: always()
+        run: |
+          echo "## Backfill bronnensectie — resultaat" >> "$GITHUB_STEP_SUMMARY"
+          echo "Zie de job-log hierboven voor de volledige samenvatting per artikel (bijgewerkt/overgeslagen/mislukt)." >> "$GITHUB_STEP_SUMMARY"
