@@ -48,15 +48,15 @@ const REFERENCE_ARTICLES = [
   'LaadpaalAdviesArticle.tsx',
 ];
 
-const OPENROUTER_API_KEY = process.env.OPEN_ROUTER;
-if (!OPENROUTER_API_KEY) {
-  console.error('MISLUKT — Reden: OPEN_ROUTER ontbreekt als environment variable.');
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+if (!GEMINI_API_KEY) {
+  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
   process.exit(1);
 }
 
-// Kies zelf een model via de OPENROUTER_MODEL env var/secret, bv.
-// 'anthropic/claude-3.5-sonnet' of 'openai/gpt-4o-mini'.
-const MODEL = process.env.OPENROUTER_MODEL || 'google/gemini-2.5-flash';
+// Kies zelf een model via de GEMINI_MODEL env var/secret, bv.
+// 'gemini-1.5-flash'.
+const MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
 
 function todayISO() {
   return new Date().toISOString().slice(0, 10);
@@ -145,24 +145,20 @@ function sleep(ms) {
 async function callGemini(system, user) {
   let lastError;
   for (let attempt = 1; attempt <= GEMINI_MAX_ATTEMPTS; attempt++) {
-    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        authorization: `Bearer ${OPENROUTER_API_KEY}`,
       },
       body: JSON.stringify({
-        model: MODEL,
-        messages: [
-          { role: 'system', content: system },
-          { role: 'user', content: user },
-        ],
-        max_tokens: 16384,
+        contents: [{ role: 'user', parts: [{ text: user }] }],
+        systemInstruction: { role: 'system', parts: [{ text: system }] },
+        generationConfig: { maxOutputTokens: 16384 },
       }),
     });
     if (!res.ok) {
       const text = await res.text();
-      lastError = new Error(`OpenRouter API-fout (${res.status}, model ${MODEL}): ${text}`);
+      lastError = new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
       if (RETRYABLE_STATUSES.has(res.status) && attempt < GEMINI_MAX_ATTEMPTS) {
         await sleep(GEMINI_RETRY_DELAY_MS * attempt);
         continue;
@@ -170,10 +166,10 @@ async function callGemini(system, user) {
       throw lastError;
     }
     const data = await res.json();
-    const message = data.choices?.[0]?.message?.content;
-    const finishReason = data.choices?.[0]?.finish_reason;
-    if (!message) throw new Error(`Geen tekstantwoord ontvangen van OpenRouter (model ${MODEL}, finishReason: ${finishReason}). API Response: ${JSON.stringify(data)}`);
-    if (finishReason === 'length') throw new Error(`OpenRouter-antwoord afgekapt op max_tokens (model ${MODEL}) — output was niet compleet.`);
+    const message = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    const finishReason = data.candidates?.[0]?.finishReason;
+    if (!message) throw new Error(`Geen tekstantwoord ontvangen van Gemini (model ${MODEL}, finishReason: ${finishReason}). API Response: ${JSON.stringify(data)}`);
+    if (finishReason === 'MAX_TOKENS') throw new Error(`Gemini-antwoord afgekapt op maxOutputTokens (model ${MODEL}) — output was niet compleet.`);
     return message;
   }
   throw lastError;

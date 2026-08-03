@@ -15,12 +15,12 @@ const CONTEXT_DIR = path.join(ROOT, 'ai-context');
 const PLAN_PATH = path.join(CONTEXT_DIR, 'content-plan.json');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
 
-const OPENROUTER_API_KEY = process.env.OPEN_ROUTER;
-if (!OPENROUTER_API_KEY) {
-  console.error('MISLUKT — Reden: OPEN_ROUTER ontbreekt als environment variable.');
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+if (!GEMINI_API_KEY) {
+  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
   process.exit(1);
 }
-const MODEL = process.env.OPENROUTER_MODEL || 'google/gemini-2.5-flash';
+const MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
 const MIN_PLANNED = 5;
@@ -54,35 +54,31 @@ async function readPlan() {
 }
 
 async function callGemini(system, user) {
-  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
-      authorization: `Bearer ${OPENROUTER_API_KEY}`,
     },
     body: JSON.stringify({
-      model: MODEL,
-      messages: [
-        { role: 'system', content: system },
-        { role: 'user', content: user },
-      ],
-      max_tokens: 3000,
+      contents: [{ role: 'user', parts: [{ text: user }] }],
+      systemInstruction: { role: 'system', parts: [{ text: system }] },
+      generationConfig: { maxOutputTokens: 3000 },
     }),
   });
   if (!res.ok) {
     const text = await res.text();
-    throw new Error(`OpenRouter API-fout (${res.status}, model ${MODEL}): ${text}`);
+    throw new Error(`Gemini API-fout (${res.status}, model ${MODEL}): ${text}`);
   }
   const data = await res.json();
-  const choice = data.choices?.[0];
-  const message = choice?.message?.content;
+  const candidate = data.candidates?.[0];
+  const message = candidate?.content?.parts?.[0]?.text;
   if (!message) {
     throw new Error(
-      `Geen tekstantwoord ontvangen van OpenRouter (model ${MODEL}, finishReason: ${choice?.finish_reason ?? 'onbekend'}).`
+      `Geen tekstantwoord ontvangen van Gemini (model ${MODEL}, finishReason: ${candidate?.finishReason ?? 'onbekend'}).`
     );
   }
-  if (choice.finish_reason === 'length') {
-    console.warn(`Waarschuwing: OpenRouter-antwoord afgekapt op max_tokens (model ${MODEL}).`);
+  if (candidate.finishReason === 'MAX_TOKENS') {
+    console.warn(`Waarschuwing: Gemini-antwoord afgekapt op maxOutputTokens (model ${MODEL}).`);
   }
   return message;
 }
