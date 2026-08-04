@@ -17,6 +17,7 @@ import { validateArticle, APPROVAL_THRESHOLD } from './seo-geo-validator.mjs';
 import { buildContentMap } from './build-content-map.mjs';
 import { estimateReadingMinutes } from './backfill-reading-time.mjs';
 import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
+import { extractJsx, jsxDiagnostic } from './lib/jsx-repair.mjs';
 import {
   checkArticleMeta,
   checkComponentBody,
@@ -195,30 +196,6 @@ function extractJson(raw) {
   }
   
   return parsed;
-}
-
-function extractJsx(raw) {
-  const match = raw.match(/```(?:jsx|tsx)\s*([\s\S]*?)```/i);
-  const jsx = (match?.[1] ?? raw).trim();
-  if (!jsx) throw new Error('Kon geen JSX-body uit het herstelantwoord halen.');
-  return jsx;
-}
-
-function jsxDiagnostic(source, err) {
-  const location = err.message.match(/<stdin>:(\d+):(\d+)/);
-  if (!location) return err.message;
-
-  const line = Number(location[1]);
-  const column = Number(location[2]);
-  const lines = source.split('\n');
-  const from = Math.max(0, line - 3);
-  const to = Math.min(lines.length, line + 2);
-  const snippet = lines
-    .slice(from, to)
-    .map((content, index) => `${String(from + index + 1).padStart(4)} | ${content}`)
-    .join('\n');
-
-  return `${err.message}\nJSX-context rond regel ${line}, kolom ${column}:\n${snippet}`;
 }
 
 async function main() {
