@@ -42,6 +42,8 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 
 ## Blogartikelen & content-engine
 Nieuw artikel toevoegen, titel/meta-limieten, QC-gates op AI-content, samenvoegen van artikelen (301), IndexNow, en de geautomatiseerde SEO/GEO-pipeline: zie skill `blog-content-engine` (`.claude/skills/blog-content-engine/SKILL.md`).
+- **JSX-Componentnamen:** Als de gegenereerde slug begint met een getal (bijv. `1-fase-...`), moet de React-componentnaam starten met de prefix `Post` (bijv. `Post1Fase...`) om SyntaxErrors te voorkomen (componentnamen mogen in JS/JSX niet met een getal beginnen).
+- **Fact-check (LLM-herstel):** Wanneer het model tijdens de fact-check claims afkeurt die niet letterlijk in `trusted-sources.json` staan (bijv. expliciete "NEN 1010" vermeldingen), is de harde eis in de herstelprompt dat deze specifieke norm/naam of getal *volledig wordt verwijderd* uit de lopende tekst, en niet louter anders geformuleerd.
 
 ## Integraties & Claims
 - **Alleen bevestigde integraties tonen als "Beschikbaar":** Op dit moment is alleen PDOK Kadaster live. Exact Online, Teamleader en AFAS zijn in ontwikkeling — toon als "Binnenkort" in `Integrations.tsx`.
