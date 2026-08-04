@@ -115,6 +115,8 @@ const MAX_RETRIES = 2;
 const MAX_IMPROVE_ATTEMPTS = 2;
 /** Zelfherstel-pogingen voor de fact-check-fase (los van MAX_IMPROVE_ATTEMPTS hierboven). */
 const MAX_FACTCHECK_ATTEMPTS = 3;
+/** Herstelpogingen voor alleen de JSX-markup, ná fact-check en vóór schrijven. */
+const MAX_JSX_REPAIR_ATTEMPTS = 2;
 
 function rejectPlanItem(planItem, reason) {
   const retryCount = (planItem.retryCount ?? 0) + 1;
@@ -193,6 +195,30 @@ function extractJson(raw) {
   }
   
   return parsed;
+}
+
+function extractJsx(raw) {
+  const match = raw.match(/```(?:jsx|tsx)\s*([\s\S]*?)```/i);
+  const jsx = (match?.[1] ?? raw).trim();
+  if (!jsx) throw new Error('Kon geen JSX-body uit het herstelantwoord halen.');
+  return jsx;
+}
+
+function jsxDiagnostic(source, err) {
+  const location = err.message.match(/<stdin>:(\d+):(\d+)/);
+  if (!location) return err.message;
+
+  const line = Number(location[1]);
+  const column = Number(location[2]);
+  const lines = source.split('\n');
+  const from = Math.max(0, line - 3);
+  const to = Math.min(lines.length, line + 2);
+  const snippet = lines
+    .slice(from, to)
+    .map((content, index) => `${String(from + index + 1).padStart(4)} | ${content}`)
+    .join('\n');
+
+  return `${err.message}\nJSX-context rond regel ${line}, kolom ${column}:\n${snippet}`;
 }
 
 async function main() {
@@ -514,14 +540,19 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
 
   const usedSources = collectUsedSources(claims);
   const sourcesBlock = buildSourcesBlock(usedSources, todayISO());
-  article.componentBody = `${article.componentBody}\n${sourcesBlock}`;
+  // Bronverwijzingen worden deterministisch toegevoegd. Bij een latere
+  // JSX-herstelpoging blijft dit blok dus onaangeraakt; het model mag alleen
+  // de artikelmarkup herstellen, niet URLs of bronclaims herschrijven.
+  let articleBody = article.componentBody;
+  const withSources = (body) => `${body}\n${sourcesBlock}`;
+  article.componentBody = withSources(articleBody);
 
   const componentName = `${pascalCase(article.slug)}Article`;
   const componentPath = path.join(BLOG_DIR, `${componentName}.tsx`);
 
   // Geen <SEO>-call meer: BlogPostLayout regelt title/description/canonical
   // centraal uit de post-metadata (zie BlogPostLayout.tsx).
-  const componentSource = `import { BlogPostLayout } from './BlogPostLayout';
+  const createComponentSource = (body) => `import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 
 const post = blogPosts.find((p) => p.slug === '${article.slug}')!;
@@ -530,11 +561,12 @@ export function ${componentName}() {
 
   return (
     <BlogPostLayout post={post}>
-${article.componentBody.replace(/\\'/g, "'")}
+${body.replace(/\\'/g, "'")}
     </BlogPostLayout>
   );
 }
 `;
+  let componentSource = createComponentSource(article.componentBody);
 
   // Lengtes zijn te repareren, corruptie niet. Kort daarom eerst deterministisch
   // in wat te lang is (of ontbreekt), en gate daarna pas op wat écht fout is.
@@ -581,12 +613,56 @@ ${article.componentBody.replace(/\\'/g, "'")}
     );
   }
 
+  const esbuild = await import('esbuild');
   try {
-    const esbuild = await import('esbuild');
     await esbuild.transform(componentSource, { loader: 'tsx', jsx: 'automatic' });
-  } catch (err) {
+  } catch (initialError) {
+    let jsxError = initialError;
+    for (let poging = 1; poging <= MAX_JSX_REPAIR_ATTEMPTS; poging++) {
+      const diagnostic = jsxDiagnostic(componentSource, jsxError);
+      console.log(`JSX-preflight gefaald — herstelpoging ${poging}/${MAX_JSX_REPAIR_ATTEMPTS}: ${diagnostic}`);
+      const repairPrompt = `Herstel uitsluitend de JSX-markup hieronder. Geef ALLEEN de volledige body terug in één \`\`\`jsx codeblok, zonder toelichting.
+
+Behoud alle zichtbare Nederlandse tekst, feiten, getallen, links en de volgorde exact. Wijzig alleen tags, attributen, quotes, accolades of afsluitende tags die nodig zijn om geldige JSX-children van <BlogPostLayout> te maken. Voeg geen componentfunctie, import, <BlogPostLayout>, <h1> of bronnenblok toe.
+
+Compilerfout:
+${diagnostic}
+
+Te herstellen JSX-body:
+\`\`\`jsx
+${articleBody}
+\`\`\``;
+
+      try {
+        articleBody = extractJsx(await callGemini(system, repairPrompt));
+        article.componentBody = withSources(articleBody);
+        componentSource = createComponentSource(article.componentBody);
+        const repairIssues = [
+          ...checkComponentBody(article.componentBody),
+          ...(countBodyWords(article.componentBody) < MIN_WORD_COUNT
+            ? [`De herstelde body is korter dan ${MIN_WORD_COUNT} woorden.`]
+            : []),
+          ...checkNoAmounts(article.componentBody),
+          ...checkSavingsClaims(article.componentBody),
+        ];
+        if (repairIssues.length > 0) {
+          throw new Error(`JSX-herstel veranderde de inhoud onveilig: ${repairIssues.join(' | ')}`);
+        }
+        await esbuild.transform(componentSource, { loader: 'tsx', jsx: 'automatic' });
+        jsxError = null;
+        console.log(`JSX-herstelpoging ${poging} geslaagd.`);
+        break;
+      } catch (err) {
+        jsxError = err;
+      }
+    }
+
+    if (!jsxError) {
+      // Preflight is na herstel geslaagd; schrijf hieronder de gevalideerde body.
+    } else {
     planItem.lastScore = validation.score;
-    rejectPlanItem(planItem, `Ongeldige JSX: ${err.message}`);
+    const diagnostic = jsxDiagnostic(componentSource, jsxError);
+    rejectPlanItem(planItem, `Ongeldige JSX: ${diagnostic}`);
     await writePlan(plan);
     await appendLogEntry({
       date: todayISO(),
@@ -597,7 +673,8 @@ ${article.componentBody.replace(/\\'/g, "'")}
       geoScore: validation.geoScore,
       status: planItem.status === 'abandoned' ? 'abandoned-invalid-jsx' : 'rejected-invalid-jsx',
     });
-    throw new Error(`Gegenereerde componentBody bevat ongeldige JSX — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven. Details: ${err.message}`);
+    throw new Error(`Gegenereerde componentBody bevat ongeldige JSX na ${MAX_JSX_REPAIR_ATTEMPTS} herstelpoging(en) — backlog-item op '${planItem.status}' gezet (poging ${planItem.retryCount}/${MAX_RETRIES}), geen bestanden geschreven. Details: ${diagnostic}`);
+    }
   }
 
   await writeFile(componentPath, componentSource, 'utf8');
