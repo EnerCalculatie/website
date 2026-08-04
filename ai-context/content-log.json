@@ -543,5 +543,19 @@
     "sourcesCount": 1,
     "repairAttempts": 3,
     "status": "abandoned-failed-factcheck"
+  },
+  {
+    "date": "2026-08-04",
+    "topic": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
+    "slug": "van-1-fase-naar-3-fase-verduurzaming-advies",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 95,
+    "factScore": 100,
+    "claimsCount": 2,
+    "sourcesCount": 2,
+    "sourceQuality": 95,
+    "repairAttempts": 0,
+    "status": "generated"
   }
 ]

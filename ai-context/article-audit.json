@@ -1,19 +1,30 @@
 {
-  "title": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
-  "generatedAt": "2026-08-04T00:40:24.276Z",
+  "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
+  "generatedAt": "2026-08-04T15:37:34.647Z",
   "seoScore": 95,
   "geoScore": 95,
   "factScore": 100,
-  "sourceQuality": 100,
+  "sourceQuality": 95,
   "claims": [
     {
-      "claim": "Subsidievoorwaarden en de goedgekeurde meldcodelijst voor warmtepompen worden bijgehouden door de RVO.",
+      "claim": "NEN 1010 bevat de normen en installatievoorschriften voor laagspanningsinstallaties.",
       "status": "SUPPORTED",
       "sources": [
         {
-          "title": "ISDE: Warmtepomp woningeigenaren aanvragen — RVO",
-          "url": "https://www.rvo.nl/subsidies-financiering/isde/woningeigenaren/warmtepomp",
-          "quality": 100
+          "title": "NEN 1010 — Dé norm voor laagspanningsinstallaties",
+          "url": "https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties",
+          "quality": 95
+        }
+      ]
+    },
+    {
+      "claim": "Netbeheer Nederland biedt via de capaciteitskaart inzicht in de netcapaciteit en netcongestie in Nederland.",
+      "status": "SUPPORTED",
+      "sources": [
+        {
+          "title": "Capaciteitskaart — Netbeheer Nederland",
+          "url": "https://www.netbeheernederland.nl/netcapaciteit-en-flexibiliteit/capaciteitskaart",
+          "quality": 95
         }
       ]
     }

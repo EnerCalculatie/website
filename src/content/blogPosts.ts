@@ -1155,4 +1155,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe haalt een klant de minimale SPRILA-drempel van € 2.500?', answer: 'Door meerdere laadpalen te combineren, of door de kosten voor de basislaadinfrastructuur (bekabeling, graafwerk) mee te nemen in de aanvraag. Ook een gekoppelde stationaire batterij (min. 10 kWh) telt mee voor de SPRILA.' },
     ],
   },
+  {
+    slug: 'van-1-fase-naar-3-fase-verduurzaming-advies',
+    readingTimeMinutes: 6,
+    title: 'Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?',
+    seoTitle: '1 fase naar 3 fase verduurzaming advies voor installateurs',
+    description:
+      '1 fase naar 3 fase verduurzaming advies: hoe adviseert u uw klant bij netverzwaarde verduurzaming met warmtepomp, laadpaal en thuisbatterij? Lees de gids.',
+    date: '2026-08-04',
+    excerpt:
+      'Het combineren van een warmtepomp, laadpaal en thuisbatterij vraagt vaak om een overstap van 1-fase naar 3-fase. Ontdek hoe u uw klant onderbouwd adviseert over netverzwaring.',
+    tags: ['Laadpalen', 'Warmtepompen', 'Thuisbatterijen', 'Netcongestie', 'Installatietechniek'],
+    keyPoints: [
+      'Het verschil in continu vermogen tussen 1x35A (ca. 8,0 kW) en 3x25A (ca. 17,2 kW) inzichtelijk maken.',
+      'Aanpassingen in de groepenkast volgens NEN 1010, inclusief 4-polige hoofdschakelaar en symmetrische fasebalancering.',
+      'Het toepassen van dynamic load balancing via de P1-poort om overbelasting op afzonderlijke fasen te voorkomen.',
+      'Een stappenplan voor het tijdig aanvragen van netverzwaring via MijnAansluiting.nl om opleververtraging te vermijden.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Wanneer is een overstap van 1-fase naar 3-fase noodzakelijk bij verduurzaming?', answer: 'Een overstap is noodzakelijk wanneer de gecombineerde gelijktijdige stroomvraag van apparaten zoals een all-electric warmtepomp, een 11 kW laadpaal en een inductiekookplaat het maximale continu vermogen van een 1-fase aansluiting (ca. 8,0 kW bij 1x35A) overschrijdt.' },
+      { question: 'Wat moet er in de groepenkast worden aangepast bij verzwaring naar 3x25A?', answer: 'Er moet een 4-polige hoofdschakelaar geïnstalleerd worden, de bestaand 1-fase groepen moeten evenredig verdeeld worden over de drie fasen (L1, L2, L3) en er moeten 4-polige krachtgroepen geplaatst worden voor 3-fase verbruikers.' },
+      { question: 'Is dynamic load balancing nog nodig op een 3x25A netaansluiting?', answer: 'Ja, want op een 3x25A aansluiting is de capaciteit per fase begrensd op 25A (circa 5,7 kW per fase). Een 11 kW laadpaal verbruikt al 16A per fase, waardoor overige gelijktijdige verbruikers een enkele fase alsnog kunnen overbelasten.' },
+      { question: 'Wie vraagt de netverzwaring aan en hoe lang duurt dit?', answer: 'De klant vraagt de verzwaring zelf aan via MijnAansluiting.nl bij de regionale netbeheerder. De doorlooptijd varieert per regio en netbeheerder van enkele weken tot meerdere maanden.' },
+    ],
+  },
 ];
