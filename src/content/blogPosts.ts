@@ -1105,4 +1105,54 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkomt een geïntegreerd systeem overbelasting van de netaansluiting?', answer: 'Het energiemanagementsysteem meet continu de P1-poort en regelt via dynamic load balancing het vermogen van grote verbruikers (zoals de laadpaal, warmtepomp en batterij) bij binnen de grenzen van de hoofdzekering.' },
     ],
   },
+  {
+    slug: 'afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren',
+    readingTimeMinutes: 7,
+    title: 'Afgiftesysteem en warmtepomp: hoe controleert u of radiatoren geschikt zijn voor lage temperatuur?',
+    seoTitle: 'Lage temperatuur radiatoren warmtepomp advies',
+    description:
+      'Hoe controleert u of bestaande radiatoren geschikt zijn voor een warmtepomp? Praktisch lage temperatuur radiatoren warmtepomp advies voor installateurs.',
+    date: '2026-08-04',
+    excerpt:
+      'Een warmtepomp presteert pas optimaal bij lage aanvoertemperaturen. Ontdek hoe u als installateur het bestaande afgiftesysteem controleert, de afgiftecapaciteit herrekent en uw klant van een passend advies voorziet.',
+    tags: ['Warmtepompen', 'Afgiftesysteem', 'Radiatoren', 'Adviesvaardigheden', 'Installatietechniek'],
+    keyPoints: [
+      'Afgiftecapaciteit van radiatoren daalt exponentieel bij een lagere gemidelde watertemperatuur.',
+      'Controleer radiatortypen (type 10 t/m 33) en bereken de effectieve afgifte bij een aanvoer van 35 tot 55 graden Celsius.',
+      'Waterzijdig inregelen en het verhogen van de volumestroom zijn cruciaal om stromingsruis en rendementsverlies te voorkomen.',
+      'Oplossingen bij capaciteitstekort variëren van actieve ventilatorconvectoren tot schilisolatie en ltv-radiatoren.',
+      'Onderbouw uw advies richting de klant met transparante herberekeningen voor comfort en een hoge SCOP.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Wat is het verschil tussen afgifte bij 75/65 graden Celsius en 45/35 graden Celsius?', answer: 'Bij een traditioneel temperatuurtraject van 75/65 graden Celsius bedraagt het gemiddelde temperatuurverschil met de ruimte (20 graden Celsius) circa 50 Kelvin. Bij een warmtepomptraject van 45/35 graden Celsius is dit gemiddelde temperatuurverschil nog maar 20 Kelvin. Door deze lagere Delta T verliest een standaard radiator meer dan de helft van zijn nominale warmteafgifte.' },
+      { question: 'Moeten alle radiatoren worden vervangen bij de overstap naar een warmtepomp?', answer: 'Nee, dat is niet altijd noodzakelijk. Door het beter isoleren van het gebouw, het plaatsen van radiatorventilatoren of het verhogen van de volumestroom kan de afgifte van de bestaande radiatoren in veel gevallen voldoende zijn, met name in goed geïsoleerde ruimtes.' },
+      { question: 'Hoe beïnvloedt de leidingdiameter het functioneren van de warmtepomp?', answer: 'Omdat een warmtepomp met een kleiner temperatuurverschil (Delta T van 5 tot 8 Kelvin) werkt dan een cv-ketel (Delta T van 15 tot 20 Kelvin), is er meer volumestroom aan water nodig om hetzelfde vermogen te verplaatsen. Te kleine leidingdiameters leiden dan tot hoge stromingsweerstand, ruis en storingen in de warmtepomp.' },
+      { question: 'Wat is de rol van radiatorventilatoren bij lage temperatuur verwarming?', answer: 'Radiatorventilatoren verhogen de geforceerde convectie langs de platen van een bestaande radiator. Hierdoor neemt de warmteafgifte bij lage aanvoertemperaturen aanzienlijk toe, zonder dat de radiator fysiek vervangen hoeft te worden.' },
+    ],
+  },
+  {
+    slug: 'mia-vamil-laadpaal-adviseren-zakelijk',
+    readingTimeMinutes: 6,
+    title: 'Zakelijke laadpalen, SPRILA en fiscale stimulering: hoe adviseert u uw klant?',
+    seoTitle: 'SPRILA en MIA VAMIL laadpalen adviseren',
+    description:
+      'MIA/Vamil voor standaard laadpalen is vervallen. Ontdek hoe u zakelijke klanten adviseert over de SPRILA-subsidie, KIA en netaansluitingen.',
+    date: '2026-08-04',
+    excerpt:
+      'De fiscale regels voor zakelijke laadpalen zijn ingrijpend gewijzigd. MIA/Vamil is voor reguliere auto\'s vervallen; de SPRILA-subsidie en KIA zijn nu de belangrijkste voordelen.',
+    tags: ['Laadpalen', 'Subsidies', 'Zakelijk', 'Advies'],
+    keyPoints: [
+      'MIA/Vamil is voor standaard personenwagen-laadpalen vervallen; dit geldt alleen nog voor zwaar transport of laadkluizen.',
+      'De SPRILA-subsidie is hét alternatief voor Mkb-laadpalen, met vergoedingen tot € 800 per laadstation en € 1.600 per duopaal.',
+      'Houd rekening met de harde SPRILA-drempel: er moet minimaal € 2.500 subsidie per locatie worden aangevraagd.',
+      'Dynamic load balancing voorkomt overbelasting van de netaansluiting binnen congestiegebieden.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Geldt de MIA/Vamil-regeling nog voor zakelijke laadpalen?', answer: 'Nee, voor standaard personenwagens is de MIA/Vamil voor laadpalen vervallen. Het geldt alleen nog voor zwaar transport (zoals e-vrachtwagens) of oplaadkluizen voor e-bikes/gereedschap. Voor gewone zakelijke laadpalen is de SPRILA-subsidie nu de aangewezen regeling.' },
+      { question: 'Wat houdt de SPRILA-subsidie voor laadpalen in?', answer: 'De SPRILA-subsidie dekt een deel van de aanschaf en installatie van laadpalen op eigen terrein. Mkb\'ers ontvangen tot € 800 per laadstation of € 1.600 per duopaal, mits er per locatie minimaal € 2.500 aan subsidie wordt aangevraagd.' },
+      { question: 'Hoe haalt een klant de minimale SPRILA-drempel van € 2.500?', answer: 'Door meerdere laadpalen te combineren, of door de kosten voor de basislaadinfrastructuur (bekabeling, graafwerk) mee te nemen in de aanvraag. Ook een gekoppelde stationaire batterij (min. 10 kWh) telt mee voor de SPRILA.' },
+    ],
+  },
 ];
