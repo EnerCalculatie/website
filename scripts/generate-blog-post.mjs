@@ -59,10 +59,11 @@ function todayISO() {
 }
 
 function pascalCase(slug) {
-  return slug
+  const c = slug
     .split('-')
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join('');
+  return /^\d/.test(c) ? `Post${c}` : c;
 }
 
 async function readReferenceArticles() {
