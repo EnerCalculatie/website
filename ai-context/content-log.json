@@ -498,5 +498,19 @@
     "sourceQuality": 98,
     "repairAttempts": 0,
     "status": "generated"
+  },
+  {
+    "date": "2026-08-04",
+    "topic": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
+    "slug": "warmtepomp-boilerinhoud-berekenen",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 95,
+    "factScore": 100,
+    "claimsCount": 1,
+    "sourcesCount": 1,
+    "sourceQuality": 100,
+    "repairAttempts": 0,
+    "status": "generated"
   }
 ]

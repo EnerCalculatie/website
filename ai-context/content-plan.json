@@ -1,19 +1,33 @@
 [
   {
-    "title": "Afgiftesysteem en warmtepomp: hoe controleert u of de radiatoren geschikt zijn voor lage temperatuur?",
-    "keyword": "lage temperatuur radiatoren warmtepomp advies",
+    "title": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
+    "keyword": "warmtepomp boilerinhoud berekenen",
     "intent": "informatief",
-    "priority": 7,
-    "slug": "afgiftesysteem-en-warmtepomp-hoe-controleert-u-of-de-radiatoren-geschikt-zijn-voor-lage-temperatuur",
+    "priority": 8,
+    "slug": "sanitair-warm-water-bij-warmtepompen-hoe-berekent-u-de-juiste-boilerinhoud-voor-uw-klant",
     "status": "generated",
-    "createdAt": "2026-08-03T12:09:00.120Z",
-    "lastScore": 90,
-    "retryCount": 1,
-    "lastRejectionReason": "Fact-check gefaald: claim-001 (\"Via de ISDE-regeling kunnen woningeigenaren subsidie aanvragen voor de aanschaf van een warmtepomp.\"): NO_SOURCE",
-    "lastRejectedAt": "2026-08-03T12:14:10.553Z",
-    "generatedSlug": "radiatoren-geschikt-warmtepomp-lage-temperatuur",
-    "generatedAt": "2026-08-03T18:33:24.090Z",
-    "seoGeoScore": 90
+    "createdAt": "2026-08-04T00:37:56.773Z",
+    "generatedSlug": "warmtepomp-boilerinhoud-berekenen",
+    "generatedAt": "2026-08-04T00:40:24.272Z",
+    "seoGeoScore": 95
+  },
+  {
+    "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
+    "keyword": "1 fase naar 3 fase verduurzaming advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "van-1-fase-naar-3-fase-netaansluiting-hoe-adviseert-u-uw-klant-over-netverzwaarde-verduurzaming",
+    "status": "planned",
+    "createdAt": "2026-08-04T00:37:56.775Z"
+  },
+  {
+    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
+    "keyword": "zonnepanelen flats",
+    "intent": "commercieel",
+    "priority": 6,
+    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
+    "status": "planned",
+    "createdAt": "2026-07-15T16:51:08.182Z"
   },
   {
     "title": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
@@ -32,27 +46,6 @@
     "retryCount": 2,
     "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 90, GEO 72)",
     "lastRejectedAt": "2026-08-03T19:01:04.358Z"
-  },
-  {
-    "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
-    "keyword": "geïntegreerd energiesysteem",
-    "intent": "informatief",
-    "priority": 6,
-    "slug": "de-voordelen-van-een-geintegreerd-energiesysteem-voor-woningen-zonnepanelen-warmtepompen-en-thuisbatterijen",
-    "status": "generated",
-    "createdAt": "2026-07-14T07:12:51.490Z",
-    "generatedSlug": "geintegreerd-energiesysteem-woningen",
-    "generatedAt": "2026-08-03T19:11:14.211Z",
-    "seoGeoScore": 91
-  },
-  {
-    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
-    "keyword": "zonnepanelen flats",
-    "intent": "commercieel",
-    "priority": 6,
-    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
-    "status": "planned",
-    "createdAt": "2026-07-15T16:51:08.182Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -381,6 +374,22 @@
     "abandonedAt": "2026-07-15T16:38:54.556Z"
   },
   {
+    "title": "Afgiftesysteem en warmtepomp: hoe controleert u of de radiatoren geschikt zijn voor lage temperatuur?",
+    "keyword": "lage temperatuur radiatoren warmtepomp advies",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "afgiftesysteem-en-warmtepomp-hoe-controleert-u-of-de-radiatoren-geschikt-zijn-voor-lage-temperatuur",
+    "status": "generated",
+    "createdAt": "2026-08-03T12:09:00.120Z",
+    "lastScore": 90,
+    "retryCount": 1,
+    "lastRejectionReason": "Fact-check gefaald: claim-001 (\"Via de ISDE-regeling kunnen woningeigenaren subsidie aanvragen voor de aanschaf van een warmtepomp.\"): NO_SOURCE",
+    "lastRejectedAt": "2026-08-03T12:14:10.553Z",
+    "generatedSlug": "radiatoren-geschikt-warmtepomp-lage-temperatuur",
+    "generatedAt": "2026-08-03T18:33:24.090Z",
+    "seoGeoScore": 90
+  },
+  {
     "title": "Vermogensgarantie en productgarantie van zonnepanelen: hoe verwerkt u dit helder in uw adviesrapport?",
     "keyword": "vermogensgarantie zonnepanelen offerte",
     "intent": "informatief",
@@ -487,6 +496,18 @@
     "generatedSlug": "rendementsverlies-schaduw-vervuiling-zonnepanelen",
     "generatedAt": "2026-07-11T09:29:12.367Z",
     "seoGeoScore": 84
+  },
+  {
+    "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
+    "keyword": "geïntegreerd energiesysteem",
+    "intent": "informatief",
+    "priority": 6,
+    "slug": "de-voordelen-van-een-geintegreerd-energiesysteem-voor-woningen-zonnepanelen-warmtepompen-en-thuisbatterijen",
+    "status": "generated",
+    "createdAt": "2026-07-14T07:12:51.490Z",
+    "generatedSlug": "geintegreerd-energiesysteem-woningen",
+    "generatedAt": "2026-08-03T19:11:14.211Z",
+    "seoGeoScore": 91
   },
   {
     "title": "Verduurzamingsadvies voor VvE’s: hoe onderbouwt u een collectief verduurzamingsplan?",

@@ -1,35 +1,13 @@
 {
-  "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
-  "generatedAt": "2026-08-03T19:11:14.215Z",
-  "seoScore": 92,
-  "geoScore": 90,
+  "title": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
+  "generatedAt": "2026-08-04T00:40:24.276Z",
+  "seoScore": 95,
+  "geoScore": 95,
   "factScore": 100,
-  "sourceQuality": 98,
+  "sourceQuality": 100,
   "claims": [
     {
-      "claim": "De salderingsregeling voor zonnepanelen wordt per 1 januari 2027 afgeschaft.",
-      "status": "SUPPORTED",
-      "sources": [
-        {
-          "title": "Salderingsregeling zonnepanelen",
-          "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling",
-          "quality": 100
-        }
-      ]
-    },
-    {
-      "claim": "Energieleveranciers kunnen terugleverkosten in rekening brengen bij kleinverbruikers die stroom terugleveren aan het net.",
-      "status": "SUPPORTED",
-      "sources": [
-        {
-          "title": "Salderen en terugleveren — ACM ConsuWijzer",
-          "url": "https://consument.acm.nl/elektriciteit-en-gas/duurzame-energie/wat-is-salderen",
-          "quality": 98
-        }
-      ]
-    },
-    {
-      "claim": "Via de ISDE-regeling kunnen woningeigenaren subsidie aanvragen voor de aanschaf van een warmtepomp.",
+      "claim": "Subsidievoorwaarden en de goedgekeurde meldcodelijst voor warmtepompen worden bijgehouden door de RVO.",
       "status": "SUPPORTED",
       "sources": [
         {
