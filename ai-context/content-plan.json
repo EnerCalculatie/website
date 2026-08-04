@@ -15,14 +15,14 @@
     "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
     "keyword": "1 fase naar 3 fase verduurzaming advies",
     "intent": "informatief",
-    "priority": 7,
+    "priority": 6,
     "slug": "van-1-fase-naar-3-fase-netaansluiting-hoe-adviseert-u-uw-klant-over-netverzwaarde-verduurzaming",
     "status": "planned",
     "createdAt": "2026-08-04T00:37:56.775Z",
     "lastScore": 95,
-    "retryCount": 1,
-    "lastRejectionReason": "Ongeldige JSX: Transform failed with 1 error:\n<stdin>:6:17: ERROR: Syntax error \"F\"",
-    "lastRejectedAt": "2026-08-04T07:40:34.761Z"
+    "retryCount": 2,
+    "lastRejectionReason": "Ongeldige JSX: Transform failed with 1 error:\n<stdin>:6:17: ERROR: Syntax error \"F\"\nJSX-context rond regel 6, kolom 17:\n   4 | const post = blogPosts.find((p) => p.slug === '1-fase-naar-3-fase-verduurzaming-advies')!;\n   5 | \n   6 | export function 1FaseNaar3FaseVerduurzamingAdviesArticle() {\n   7 | \n   8 |   return (",
+    "lastRejectedAt": "2026-08-04T15:07:26.412Z"
   },
   {
     "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",

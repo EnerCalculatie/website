@@ -521,5 +521,14 @@
     "seoScore": 95,
     "geoScore": 95,
     "status": "rejected-invalid-jsx"
+  },
+  {
+    "date": "2026-08-04",
+    "topic": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
+    "slug": "1-fase-naar-3-fase-verduurzaming-advies",
+    "model": "gemini-flash-latest",
+    "seoScore": 95,
+    "geoScore": 95,
+    "status": "rejected-invalid-jsx"
   }
 ]
