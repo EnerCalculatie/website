@@ -50,7 +50,7 @@ jobs:
 
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         env:
-          GEMINI_TIER: ${{ vars.GEMINI_TIER }}
+          GEMINI_TIER: free
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
@@ -59,7 +59,7 @@ jobs:
       - name: "4-7. Genereer artikel, claim-extractie, bronverificatie, fact-check, self-herstel en SEO/GEO"
         id: generate
         env:
-          GEMINI_TIER: ${{ vars.GEMINI_TIER }}
+          GEMINI_TIER: free
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
