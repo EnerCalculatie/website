@@ -478,7 +478,7 @@ De datum wordt automatisch ingevuld als vandaag (${todayISO()}), dus laat "date"
     ];
     console.log(`Fact-check niet geslaagd — herstelpoging ${poging}/${MAX_FACTCHECK_ATTEMPTS}:\n- ${feedback.join('\n- ')}`);
 
-    const factCheckUser = `${user}\n\nJe vorige concept bevatte claims die niet (volledig) door een vertrouwde bron ondersteund werden. Verwerk deze correcties en lever een volledig herzien artikel (zelfde JSON-structuur, incl. claims-array):\n- ${feedback.join('\n- ')}`;
+    const factCheckUser = `${user}\n\nJe vorige concept bevatte claims die niet (volledig) door een vertrouwde bron ondersteund werden. DIT IS EEN HARDE EIS: Als een claim werd afgekeurd, VERWIJDER dan de specifieke naam (zoals NEN 1010, ACM, Netbeheer Nederland) of het specifieke getal volledig uit de tekst van het artikel. Blijf niet proberen de claim te behouden als hij niet letterlijk in de bron staat. Verwerk deze correcties en lever een volledig herzien artikel (zelfde JSON-structuur, incl. claims-array):\n- ${feedback.join('\n- ')}`;
     const repaired = await generateWithRetries(system, factCheckUser, `fact-check-herstel ${poging}`);
     Object.assign(article, repaired);
 
