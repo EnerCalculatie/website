@@ -54,34 +54,52 @@ async function run() {
     const writerAgent = new WriterAgent();
     await writerAgent.run(topic, researchPath, draftPath);
 
-    // Stap 4: Fact Checker
+    // Stap 4-7: Kwaliteitscontrole en Feedback Loop
     const factChecker = new FactCheckerAgent();
-    await factChecker.run(draftPath, researchPath, factCheckPath);
-
-    // Stap 5: Technical Reviewer
     const techReviewer = new TechnicalReviewerAgent();
-    await techReviewer.run(draftPath, techReviewPath);
-
-    // (Optionele validatieloop) Als FactCheck of TechReview hard falen, zouden we hier
-    // terug kunnen naar de WriterAgent. Voor nu slaan we de issues op.
-
-    // Stap 6: SEO / GEO Optimizer
     const seoAgent = new SeoGeoAgent();
-    await seoAgent.run(draftPath, seoPath);
-
-    // Stap 7: Quality Gate
     const qualityGate = new QualityGateAgent();
-    const qualityOut = await qualityGate.run(seoPath, factCheckPath, techReviewPath, qualityPath);
 
-    if (qualityOut.passed) {
+    let passed = false;
+    let retries = 0;
+    const maxRetries = 2;
+    let qualityOut;
+
+    while (!passed && retries <= maxRetries) {
+      // Stap 4: Fact Checker
+      await factChecker.run(draftPath, researchPath, factCheckPath);
+
+      // Stap 5: Technical Reviewer
+      await techReviewer.run(draftPath, techReviewPath);
+
+      // Stap 6: SEO / GEO Optimizer
+      await seoAgent.run(draftPath, seoPath);
+
+      // Stap 7: Quality Gate
+      qualityOut = await qualityGate.run(seoPath, factCheckPath, techReviewPath, qualityPath);
+
+      if (qualityOut.passed) {
+        passed = true;
+      } else {
+        retries++;
+        if (retries > maxRetries) {
+          console.log(`\n❌ PIPELINE GEFAALD in Quality Gate na maximaal aantal iteraties (${maxRetries}). Handmatige controle vereist.`);
+          console.log(JSON.stringify(qualityOut.issues, null, 2));
+          process.exit(1);
+        }
+        console.log(`\n⚠️ Kwaliteitsproblemen gevonden, start herschrijven iteratie ${retries}...`);
+        
+        // Herschrijf met feedback
+        const feedback = qualityOut.issues.map((i: any) => `- [${i.severity}] ${i.issue}`).join('\n');
+        await writerAgent.run(topic, researchPath, draftPath, feedback);
+      }
+    }
+
+    if (passed) {
       console.log(`\n✅ Kwaliteitscontrole geslaagd. Start publicatie...`);
       const publisher = new PublishAgent();
       await publisher.run(seoPath, cwd);
       console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd!`);
-    } else {
-      console.log(`\n❌ PIPELINE GEFAALD in Quality Gate. Handmatige controle vereist.`);
-      console.log(JSON.stringify(qualityOut.issues, null, 2));
-      process.exit(1); // Fail de build / workflow
     }
 
   } catch (err) {

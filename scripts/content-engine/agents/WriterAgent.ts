@@ -16,7 +16,7 @@ export class WriterAgent {
     this.systemPrompt = readFileSync(promptPath, 'utf-8');
   }
 
-  async run(topic: string, researchJsonPath: string, outputPath: string): Promise<string> {
+  async run(topic: string, researchJsonPath: string, outputPath: string, feedback?: string): Promise<string> {
     const startTime = Date.now();
     console.log(`[WriterAgent] Start schrijven artikel over: "${topic}"...`);
 
@@ -32,7 +32,7 @@ export class WriterAgent {
     
     const kbContext = this.knowledgeBase.getCombinedContext();
 
-    const userPrompt = `
+    let userPrompt = `
 Schrijf het blogartikel over het onderwerp: "${topic}".
 Gebruik uitsluitend de volgende context. Mocht er informatie missen, verzin dan niks zelf.
 
@@ -40,6 +40,20 @@ ${kbContext}
 
 ${researchFacts}
     `;
+
+    if (feedback) {
+      userPrompt = `
+Herschrijf het blogartikel over het onderwerp: "${topic}" op basis van de volgende feedback van de kwaliteitscontrole:
+
+### FEEDBACK ###
+${feedback}
+
+### ORIGINEEL MATERIAAL ###
+${kbContext}
+
+${researchFacts}
+      `;
+    }
 
     try {
       // responseFormat text omdat we markdown verwachten
