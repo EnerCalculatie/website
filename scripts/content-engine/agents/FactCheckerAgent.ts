@@ -21,13 +21,13 @@ export class FactCheckerAgent {
     const startTime = Date.now();
     console.log(`[FactCheckerAgent] Start controle van artikel...`);
 
-    let draftContent = '';
-    let researchFacts = '';
+    
+    
     try {
-      draftContent = readFileSync(draftPath, 'utf-8');
-      researchFacts = readFileSync(researchJsonPath, 'utf-8');
-    } catch (e) {
-      throw new Error(`[FactCheckerAgent] Kon bestanden niet inladen. Zorg dat draft en research.json bestaan.`);
+      readFileSync(draftPath, 'utf-8');
+      readFileSync(researchJsonPath, 'utf-8');
+    } catch (_e) {
+      throw new Error(`[FactCheckerAgent] Kon bestanden niet inladen. Zorg dat draft en research.json bestaan.`, { cause: _e });
     }
 
     const kbContext = this.knowledgeBase.getCombinedContext();

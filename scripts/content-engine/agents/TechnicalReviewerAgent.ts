@@ -17,11 +17,11 @@ export class TechnicalReviewerAgent {
     const startTime = Date.now();
     console.log(`[TechnicalReviewerAgent] Start review door Senior Inspecteur...`);
 
-    let draftContent = '';
+    
     try {
-      draftContent = readFileSync(draftPath, 'utf-8');
-    } catch (e) {
-      throw new Error(`[TechnicalReviewerAgent] Kon concept blog niet inladen.`);
+      readFileSync(draftPath, 'utf-8');
+    } catch (_e) {
+      throw new Error(`[TechnicalReviewerAgent] Kon concept blog niet inladen.`, { cause: _e });
     }
 
     const userPrompt = `

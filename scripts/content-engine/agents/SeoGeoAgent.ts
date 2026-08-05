@@ -17,11 +17,11 @@ export class SeoGeoAgent {
     const startTime = Date.now();
     console.log(`[SeoGeoAgent] Start optimalisatie...`);
 
-    let draftContent = '';
+    
     try {
-      draftContent = readFileSync(draftPath, 'utf-8');
-    } catch (e) {
-      throw new Error(`[SeoGeoAgent] Kon concept blog niet inladen.`);
+      readFileSync(draftPath, 'utf-8');
+    } catch (_e) {
+      throw new Error(`[SeoGeoAgent] Kon concept blog niet inladen.`, { cause: _e });
     }
 
     const userPrompt = `

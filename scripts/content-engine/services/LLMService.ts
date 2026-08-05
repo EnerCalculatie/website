@@ -18,7 +18,7 @@ export class LLMService {
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
     
-    const body: any = {
+    const body: Record<string, unknown> = {
       contents: [{ role: 'user', parts: [{ text: request.userPrompt }] }],
       generationConfig: {
         temperature: request.temperature ?? 0.2,
@@ -26,13 +26,13 @@ export class LLMService {
     };
 
     if (request.systemPrompt) {
-      body.systemInstruction = {
+      (body as Record<string, unknown>).systemInstruction = {
         parts: [{ text: request.systemPrompt }]
       };
     }
 
     if (request.responseFormat === 'json_object') {
-      body.generationConfig.responseMimeType = 'application/json';
+      (body as Record<string, unknown>).generationConfig.responseMimeType = 'application/json';
     }
 
     const response = await fetch(url, {

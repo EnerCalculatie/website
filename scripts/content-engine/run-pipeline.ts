@@ -7,16 +7,16 @@ import { SeoGeoAgent } from './agents/SeoGeoAgent';
 import { QualityGateAgent } from './agents/QualityGateAgent';
 import { PublishAgent } from './agents/PublishAgent';
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 
 function pickNextPlannedItem(cwd: string) {
   const planPath = path.join(cwd, 'ai-context/content-plan.json');
   try {
     const plan = JSON.parse(readFileSync(planPath, 'utf-8'));
-    const planned = plan.filter((i: any) => i.status === 'planned');
+    const planned = plan.filter((i: { title?: string, status?: string, priority?: number }) => i.status === 'planned');
     if (!planned.length) return null;
-    return planned.reduce((best: any, item: any) => ((item.priority ?? 0) > (best.priority ?? 0) ? item : best));
-  } catch (e) {
+    return planned.reduce((best: { title?: string, status?: string, priority?: number }, item: { title?: string, status?: string, priority?: number }) => ((item.priority ?? 0) > (best.priority ?? 0) ? item : best));
+  } catch (_e) {
     return null;
   }
 }
@@ -56,11 +56,11 @@ async function run() {
 
     // Stap 4: Fact Checker
     const factChecker = new FactCheckerAgent();
-    const factCheckOut = await factChecker.run(draftPath, researchPath, factCheckPath);
+    await factChecker.run(draftPath, researchPath, factCheckPath);
 
     // Stap 5: Technical Reviewer
     const techReviewer = new TechnicalReviewerAgent();
-    const techReviewOut = await techReviewer.run(draftPath, techReviewPath);
+    await techReviewer.run(draftPath, techReviewPath);
 
     // (Optionele validatieloop) Als FactCheck of TechReview hard falen, zouden we hier
     // terug kunnen naar de WriterAgent. Voor nu slaan we de issues op.

@@ -25,7 +25,7 @@ export class QualityGateAgent {
       content = seoJson.content;
       factCheck = readFileSync(factCheckJsonPath, 'utf-8');
       techReview = readFileSync(techReviewJsonPath, 'utf-8');
-    } catch (e) {
+    } catch (_e) {
       console.warn('[QualityGateAgent] Waarschuwing: Niet alle inputbestanden gevonden. Zorg dat de pijplijn volledig is doorlopen.');
     }
 

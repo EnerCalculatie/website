@@ -62,7 +62,7 @@ ${bodyEscaped}
     
     const faqItems = Array.isArray(faq) ? faq : [];
     const faqJs = faqItems
-      .map((f: any) => `      { question: '${escape(f.question)}', answer: '${escape(f.answer)}' },`)
+      .map((f: { question: string, answer: string }) => `      { question: '${escape(f.question)}', answer: '${escape(f.answer)}' },`)
       .join('\n');
       
     const safeDesc = truncateAtWord(description || excerpt || '', 155);
@@ -119,7 +119,7 @@ ${keyPointsJs}
     const logPath = path.join(rootDir, 'ai-context/content-log.json');
     try {
       const plan = JSON.parse(readFileSync(planPath, 'utf-8'));
-      const planItem = plan.find((i: any) => i.title === title) || plan.find((i: any) => i.status === 'planned');
+      const planItem = plan.find((i: Record<string, unknown>) => i.title === title) || plan.find((i: Record<string, unknown>) => i.status === 'planned');
       if (planItem) {
         planItem.status = 'generated';
         planItem.generatedSlug = slug;
@@ -129,7 +129,7 @@ ${keyPointsJs}
       }
       
       let log = [];
-      try { log = JSON.parse(readFileSync(logPath, 'utf-8')); } catch(e) {}
+      try { log = JSON.parse(readFileSync(logPath, 'utf-8')); } catch(_e) { /* ignore */ }
       log.push({
         date: new Date().toISOString().slice(0, 10),
         topic: title,
@@ -138,7 +138,7 @@ ${keyPointsJs}
       });
       writeFileSync(logPath, JSON.stringify(log, null, 2), 'utf-8');
       console.log('[PublishAgent] content-log.json bijgewerkt.');
-    } catch (e) {
+    } catch (_e) {
       console.error('[PublishAgent] Kon plan/log niet bijwerken:', e);
     }
 
@@ -151,7 +151,7 @@ ${keyPointsJs}
       console.error('[PublishAgent] Build gefaald! Reverting files...');
       execSync(`git checkout -- ${appTsxPath} ${blogPostsPath} ${planPath} ${logPath}`, { cwd: rootDir });
       execSync(`rm ${componentPath}`, { cwd: rootDir });
-      throw new Error(`Build gefaald na integratie: ${err}`);
+      throw new Error(`Build gefaald na integratie: ${err}`, { cause: err });
     }
   }
 }

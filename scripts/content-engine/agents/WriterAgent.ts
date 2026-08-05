@@ -21,12 +21,12 @@ export class WriterAgent {
     console.log(`[WriterAgent] Start schrijven artikel over: "${topic}"...`);
 
     // Laad input data
-    let researchFacts = '';
+    
     try {
       const raw = readFileSync(researchJsonPath, 'utf-8');
       researchFacts = `### ONDERZOEKSFEITEN VOOR DIT ARTIKEL ###\n${raw}`;
-    } catch (e) {
-      throw new Error(`[WriterAgent] Kon research.json niet lezen op ${researchJsonPath}`);
+    } catch (_e) {
+      throw new Error(`[WriterAgent] Kon research.json niet lezen op ${researchJsonPath}`, { cause: _e });
     }
     
     const kbContext = this.knowledgeBase.getCombinedContext();
