@@ -33,17 +33,6 @@ Vanwege deze brandbaarheid dienen installateurs bij het opstellen van het plaats
 
 Daarnaast eist de **NEN 1010** dat elektrische installaties adequaat beveiligd zijn tegen overstroom, waarbij de gelijktijdigheid exact moet worden berekend. Raadpleeg voor specifieke vragen over de elektrische aansluiting een erkend installateur.
 
-## Veelgestelde vragen over R290 in warmtepompen (FAQ)
-
-### Waarom wordt R290 (propaan) gebruikt in warmtepompen?
-Vanwege de herziene F-gassenverordening worden koudemiddelen met een hoog GWP uitgefaseerd. R290 heeft een GWP van slechts 3 en kan hoge aanvoertemperaturen (tot 70-75 °C) leveren.
-
-### Waar moet een buitenunit met R290 koudemiddel geplaatst worden?
-De buitenunit moet geplaatst worden op een plek waar een veiligheidszone kan worden aangehouden. Deze zone moet vrij zijn van ontstekingsbronnen, gebouwopeningen (ramen/deuren) en afvoerputten.
-
-### Is R290 koudemiddel gevaarlijk binnenshuis?
-Bij monobloc systemen bevindt het R290-koudemiddel zich uitsluitend in de buitenunit. Er lopen enkel watervoerende leidingen naar de binnenruimte.
-
 ## Conclusie
 
 De overstap naar R290 zorgt voor een zeer lage GWP-waarde (3) en maakt hogere aanvoertemperaturen tot 70-75 °C mogelijk voor bestaande bouw. Vanwege de A3-classificatie (niet-giftig, zeer ontvlambaar) vraagt het plaatsingsadvies bij monobloc buitenunits om het strikt aanhouden van een veiligheidszone die vrij is van ontstekingsbronnen, gebouwopeningen en afvoerputten.
@@ -57,11 +46,11 @@ export function R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle() {
           h2: ({node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
           h3: ({node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
           p: ({node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
-          ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-4 space-y-2 text-slate-700" {...props} />,
-          ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-4 space-y-2 text-slate-700" {...props} />,
+          ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
           li: ({node, ...props}) => <li className="leading-relaxed" {...props} />,
           strong: ({node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
-          a: ({node, ...props}) => <a className="text-brand-primary hover:underline font-semibold" {...props} />,
+          a: ({node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
           hr: ({node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
           blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
         }}
