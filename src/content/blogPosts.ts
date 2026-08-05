@@ -1181,23 +1181,6 @@ export const blogPosts: BlogPostMeta[] = [
     ],
   },
   {
-    slug: 'mock-artikel-test',
-    readingTimeMinutes: 1,
-    title: 'Mock Artikel Test',
-    seoTitle: 'Mock Artikel Test | EnerCalculatie',
-    description:
-      'Dit is een mock description.',
-    date: '2026-08-05',
-    excerpt:
-      'Mock excerpt voor de overview page.',
-    tags: ['mock', 'test'],
-    keyPoints: [
-      'point 1',
-      'point 2',
-    ],
-    category: 'Kennisbank',
-  },
-  {
     slug: 'r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies',
     readingTimeMinutes: 3,
     title: 'R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheid',
