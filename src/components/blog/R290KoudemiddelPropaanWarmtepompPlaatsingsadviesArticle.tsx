@@ -5,9 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies')!;
 
 const markdown = `
-# R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheidsrichtlijnen
-
-**Wat betekent de overstap naar R290 (propaan) voor het plaatsingsadvies van een warmtepomp?** Door de herziene Europese F-gassenverordening vindt er een geleidelijke uitfasering plaats van koudemiddelen met een hoog Global Warming Potential (GWP). Hierdoor wordt R290 (propaan) in veel gevallen de standaardoplossing voor [monobloc warmtepompen](/kennisbank/monobloc-warmtepomp). Het gebruik van dit milieuvriendelijke koudemiddel brengt echter specifieke veiligheidseisen en aandachtspunten voor de installateur met zich mee.
+**Wat betekent de overstap naar R290 (propaan) voor het plaatsingsadvies van een warmtepomp?** Door de herziene Europese F-gassenverordening vindt er een geleidelijke uitfasering plaats van koudemiddelen met een hoog Global Warming Potential (GWP). Hierdoor wordt R290 (propaan) in veel gevallen de standaardoplossing voor monobloc warmtepompen. Het gebruik van dit milieuvriendelijke koudemiddel brengt echter specifieke veiligheidseisen en aandachtspunten voor de installateur met zich mee.
 
 ---
 
@@ -21,7 +19,7 @@ Naast de extreem lage milieu-impact presteren R290-systemen uitstekend bij renov
 
 ## Systeemopzet van een R290 Monobloc Warmtepomp
 
-Bij [monobloc warmtepompen](/kennisbank/monobloc-warmtepomp) die gebruikmaken van R290 bevindt het volledige koudemiddelcircuit zich hermetisch afgesloten in de buitenunit. Dit houdt in dat er enkel watervoerende leidingen de woning binnengaan, wat de veiligheid binnenshuis verhoogt.
+Bij monobloc warmtepompen die gebruikmaken van R290 bevindt het volledige koudemiddelcircuit zich hermetisch afgesloten in de buitenunit. Dit houdt in dat er enkel watervoerende leidingen de woning binnengaan, wat de veiligheid binnenshuis verhoogt.
 
 ## Veiligheidsclassificatie (NEN-EN 378) en Plaatsingsadvies buitenunit
 
@@ -33,7 +31,7 @@ Vanwege deze brandbaarheid dienen installateurs bij het opstellen van het plaats
 2. **Vrij van ontstekingsbronnen:** Binnen deze zone mogen zich absoluut geen ontstekingsbronnen bevinden (zoals verlichting, schakelaars of buitenstopcontacten).
 3. **Afstand tot openingen en afvoeren:** De ex-zone moet vrij blijven van openingen naar het gebouw (zoals ramen, deuren en ventilatieroosters) en mag geen onafgedekte afvoerputten of kelderkoekoeken bevatten.
 
-Daarnaast eist de **NEN 1010** dat elektrische installaties adequaat beveiligd zijn tegen overstroom, waarbij de gelijktijdigheid exact moet worden berekend. Raadpleeg voor specifieke vragen over de elektrische aansluiting een [erkend installateur](/installateurs).
+Daarnaast eist de **NEN 1010** dat elektrische installaties adequaat beveiligd zijn tegen overstroom, waarbij de gelijktijdigheid exact moet worden berekend. Raadpleeg voor specifieke vragen over de elektrische aansluiting een erkend installateur.
 
 ## Veelgestelde vragen over R290 in warmtepompen (FAQ)
 

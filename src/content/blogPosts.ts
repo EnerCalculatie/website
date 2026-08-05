@@ -1184,7 +1184,7 @@ export const blogPosts: BlogPostMeta[] = [
     slug: 'r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies',
     readingTimeMinutes: 3,
     title: 'R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheid',
-    seoTitle: 'R290 Koudemiddel in Warmtepompen: Plaatsingsadvies & Regels',
+    seoTitle: 'R290 Warmtepompen: Plaatsingsadvies en Veiligheid',
     description:
       'Wat betekent R290 (propaan) voor het plaatsingsadvies van monobloc warmtepompen? Lees alles over GWP, NEN-EN 378 A3-veiligheidszones en...',
     date: '2026-08-05',
