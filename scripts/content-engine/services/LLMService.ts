@@ -32,7 +32,7 @@ export class LLMService {
     }
 
     if (request.responseFormat === 'json_object') {
-      (body as Record<string, unknown>).generationConfig.responseMimeType = 'application/json';
+      (body.generationConfig as Record<string, unknown>).responseMimeType = 'application/json';
     }
 
     const response = await fetch(url, {

@@ -139,7 +139,7 @@ ${keyPointsJs}
       writeFileSync(logPath, JSON.stringify(log, null, 2), 'utf-8');
       console.log('[PublishAgent] content-log.json bijgewerkt.');
     } catch (_e) {
-      console.error('[PublishAgent] Kon plan/log niet bijwerken:', e);
+      console.error('[PublishAgent] Kon plan/log niet bijwerken:', _e);
     }
 
     // 5. Verifieer build
