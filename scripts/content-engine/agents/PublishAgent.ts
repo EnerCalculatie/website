@@ -37,17 +37,22 @@ export class PublishAgent {
     const appTsxPath = path.join(rootDir, 'src/App.tsx');
 
     // 1. Maak React Component
-    const bodyEscaped = content.replace(/\\'/g, "'");
+    const bodyEscapedForTemplate = content.replace(/`/g, '\\`').replace(/\$/g, '\\$');
     const componentSource = `import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
+import ReactMarkdown from 'react-markdown';
 
 const post = blogPosts.find((p) => p.slug === '${slug}')!;
+
+const markdown = \`
+${bodyEscapedForTemplate}
+\`;
 
 export function ${componentName}() {
 
   return (
     <BlogPostLayout post={post}>
-${bodyEscaped}
+      <ReactMarkdown>{markdown}</ReactMarkdown>
     </BlogPostLayout>
   );
 }

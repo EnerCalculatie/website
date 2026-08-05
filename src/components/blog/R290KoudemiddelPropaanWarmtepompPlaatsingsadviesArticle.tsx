@@ -1,12 +1,10 @@
 import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
+import ReactMarkdown from 'react-markdown';
 
 const post = blogPosts.find((p) => p.slug === 'r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies')!;
 
-export function R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle() {
-
-  return (
-    <BlogPostLayout post={post}>
+const markdown = `
 # R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheidsrichtlijnen
 
 **Wat betekent de overstap naar R290 (propaan) voor het plaatsingsadvies van een warmtepomp?** Door de herziene Europese F-gassenverordening vindt er een geleidelijke uitfasering plaats van koudemiddelen met een hoog Global Warming Potential (GWP). Hierdoor wordt R290 (propaan) in veel gevallen de standaardoplossing voor [monobloc warmtepompen](/kennisbank/monobloc-warmtepomp). Het gebruik van dit milieuvriendelijke koudemiddel brengt echter specifieke veiligheidseisen en aandachtspunten voor de installateur met zich mee.
@@ -51,6 +49,13 @@ Bij monobloc systemen bevindt het R290-koudemiddel zich uitsluitend in de buiten
 ## Conclusie
 
 De overstap naar R290 zorgt voor een zeer lage GWP-waarde (3) en maakt hogere aanvoertemperaturen tot 70-75 °C mogelijk voor bestaande bouw. Vanwege de A3-classificatie (niet-giftig, zeer ontvlambaar) vraagt het plaatsingsadvies bij monobloc buitenunits om het strikt aanhouden van een veiligheidszone die vrij is van ontstekingsbronnen, gebouwopeningen en afvoerputten.
+`;
+
+export function R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle() {
+
+  return (
+    <BlogPostLayout post={post}>
+      <ReactMarkdown>{markdown}</ReactMarkdown>
     </BlogPostLayout>
   );
 }
