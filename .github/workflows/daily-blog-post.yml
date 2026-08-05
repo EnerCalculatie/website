@@ -25,7 +25,16 @@ on:
     # het hele jaar exact nodig is (bv. twee cronregels, zomer/winter).
     # 2 = dinsdag, 4 = donderdag.
     - cron: '0 5 * * 2,4'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      gemini_tier:
+        description: 'API Tier (free of paid)'
+        required: true
+        default: 'free'
+        type: choice
+        options:
+          - free
+          - paid
 
 permissions:
   contents: write
@@ -50,81 +59,43 @@ jobs:
 
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         env:
-          GEMINI_TIER: free
+          GEMINI_TIER: ${{ github.event_name == 'schedule' && 'free' || github.event.inputs.gemini_tier || 'free' }}
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
-      - name: "4-7. Genereer artikel, claim-extractie, bronverificatie, fact-check, self-herstel en SEO/GEO"
+      - name: "4-7. Multi-Agent Pipeline (Research, Write, Review, SEO, Publish)"
         id: generate
         env:
-          GEMINI_TIER: free
+          GEMINI_TIER: ${{ github.event_name == 'schedule' && 'free' || github.event.inputs.gemini_tier || 'free' }}
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-        run: node scripts/generate-blog-post.mjs
+        run: npx tsx scripts/content-engine/run-pipeline.ts
 
-      # Gate tussen AI-output en productie. De push gaat direct naar main en
-      # Railway deployt daarop, dus een fout die hier doorglipt staat live.
-      # Draait dezelfde checks als ci.yml, maar vóór de push i.p.v. erna.
-      - name: "6b. QC — typecheck, build en SEO-QC op het nieuwe artikel"
-        id: qc
-        if: steps.generate.outcome == 'success'
-        continue-on-error: true
-        run: |
-          npm run typecheck
-          npm run lint
-          npm run build
-          npm run qc:seo
-
-      # Faalt de generatie óf de QC, dan draaien we de artikelbestanden terug en
-      # publiceren we niets. content-plan/content-log gaan wél mee: die leggen de
-      # afkeuring vast, zodat het onderwerp opnieuw geprobeerd kan worden.
-      #
-      # Let op de generate-tak: stap 7 committeert met `if: always()` wat er op
-      # schijf staat. Een generate die halverwege afbreekt (bv. build stuk op een
-      # niet-geëscapete tag) laat kapotte bestanden achter, en die gingen zo
-      # ongecontroleerd naar main — precies wat er op 15-07-2026 gebeurde.
-      - name: "6c. Artikelbestanden terugdraaien bij gefaalde generatie of QC"
-        if: steps.generate.outcome != 'success' || steps.qc.outcome != 'success'
-        run: |
-          echo "::error::Generatie of QC gefaald — artikel wordt niet gepubliceerd. Zie stap 4-6 en 6b."
-          git checkout -- src/components/blog src/content/blogPosts.ts src/App.tsx || true
-          git clean -fd src/components/blog
-
-      - name: "7. Commit en push (main → Railway deployt automatisch)"
+      - name: "8. Commit en push (main → Railway deployt automatisch)"
         id: push
         if: always()
         run: |
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
           git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json
-          # article-audit.json bestaat alleen na een volledig geslaagde run (fact-check +
-          # SEO/GEO beide goedgekeurd) — los toevoegen, anders faalt `git add` hard op een
-          # niet-bestaand pad en breekt de hele commit-stap, óók bij een normale afkeuring.
-          if [ -f ai-context/article-audit.json ]; then
-            git add ai-context/article-audit.json
-          fi
+          git add research.json draft.md fact-check.json technical-review.json seo-optimized.json quality-report.json || true
           if git diff --cached --quiet; then
             echo "Geen wijzigingen om te committen."
             exit 0
           fi
           SLUG=$(git diff --cached src/content/blogPosts.ts | grep -oP "^\+\s*slug: '\K[^']+" | tail -1)
           if [ -n "$SLUG" ]; then
-            git commit -m "feat: kennisbank-artikel toevoegen - ${SLUG}"
+            git commit -m "feat: kennisbank-artikel toevoegen via pipeline - ${SLUG}"
             echo "slug=${SLUG}" >> "$GITHUB_OUTPUT"
           else
             git commit -m "chore: content-backlog/log bijgewerkt (geen nieuw artikel)"
           fi
           git push origin HEAD:main
 
-      # IndexNow meldt de nieuwe URL direct aan bij Bing/Yandex, i.p.v. te wachten
-      # tot ze de sitemap opnieuw ophalen. Het script wacht zelf tot het
-      # sleutelbestand live staat, zodat de Railway-deploy de tijd krijgt.
-      # Faalt dit, dan is dat geen reden de run rood te maken: het artikel staat
-      # dan al gepubliceerd en wordt alsnog via de sitemap opgepikt.
-      - name: "8. IndexNow — nieuwe URL aanmelden"
+      - name: "9. IndexNow — nieuwe URL aanmelden"
         if: steps.push.outputs.slug != ''
         continue-on-error: true
         run: node scripts/indexnow-submit.mjs "/blog/${{ steps.push.outputs.slug }}"
@@ -135,14 +106,7 @@ jobs:
           echo "## Kennisbank-generator — resultaat" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ steps.generate.outcome }}" != "success" ]; then
-            echo "**Status:** mislukt of artikel afgekeurd — zie logs van stap 4-6 hierboven" >> "$GITHUB_STEP_SUMMARY"
-          elif [ "${{ steps.qc.outcome }}" != "success" ]; then
-            echo "**Status:** artikel gegenereerd maar QC gefaald — niet gepubliceerd, zie stap 6b" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Status:** mislukt of afgekeurd door Quality Gate" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "**Status:** geslaagd" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Status:** geslaagd en gepubliceerd" >> "$GITHUB_STEP_SUMMARY"
           fi
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "Laatste entry in ai-context/content-log.json:" >> "$GITHUB_STEP_SUMMARY"
-          echo '```json' >> "$GITHUB_STEP_SUMMARY"
-          node -e "const l=require('./ai-context/content-log.json'); console.log(JSON.stringify(l.at(-1) ?? {note:'geen log-entry'}, null, 2))" >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
