@@ -1,31 +1,30 @@
 [
   {
-    "title": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
-    "keyword": "warmtepomp boilerinhoud berekenen",
+    "title": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
+    "keyword": "DC AC verhouding omvormer",
     "intent": "informatief",
     "priority": 8,
-    "slug": "sanitair-warm-water-bij-warmtepompen-hoe-berekent-u-de-juiste-boilerinhoud-voor-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-08-04T00:37:56.773Z",
-    "generatedSlug": "warmtepomp-boilerinhoud-berekenen",
-    "generatedAt": "2026-08-04T00:40:24.272Z",
-    "seoGeoScore": 95
+    "slug": "dcac-verhouding-van-een-omvormer-hoe-legt-u-overdimensionering-uit-aan-uw-klant",
+    "status": "planned",
+    "createdAt": "2026-08-05T07:34:09.356Z"
   },
   {
-    "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
-    "keyword": "1 fase naar 3 fase verduurzaming advies",
+    "title": "R290 koudemiddel in warmtepompen: wat betekent de overstap naar propaan voor uw plaatsingsadvies?",
+    "keyword": "R290 warmtepomp veiligheidsafstanden",
     "intent": "informatief",
-    "priority": 6,
-    "slug": "van-1-fase-naar-3-fase-netaansluiting-hoe-adviseert-u-uw-klant-over-netverzwaarde-verduurzaming",
-    "status": "generated",
-    "createdAt": "2026-08-04T00:37:56.775Z",
-    "lastScore": 94,
-    "retryCount": 0,
-    "lastRejectionReason": "Fact-check gefaald: claim-001 (\"NEN 1010 bevat veiligheidsbepalingen voor de aanleg en uitbreiding van laagspanningsinstallaties in woningen.\"): PARTIALLY_SUPPORTED",
-    "lastRejectedAt": "2026-08-04T15:21:53.180Z",
-    "generatedSlug": "van-1-fase-naar-3-fase-verduurzaming-advies",
-    "generatedAt": "2026-08-04T15:37:34.643Z",
-    "seoGeoScore": 95
+    "priority": 8,
+    "slug": "r290-koudemiddel-in-warmtepompen-wat-betekent-de-overstap-naar-propaan-voor-uw-plaatsingsadvies",
+    "status": "planned",
+    "createdAt": "2026-08-05T07:34:09.358Z"
+  },
+  {
+    "title": "Brutomarge berekenen op verduurzamingsprojecten: zo onderbouwt u uw calculatie en offerte",
+    "keyword": "brutomarge berekenen installatiebedrijf",
+    "intent": "commercieel",
+    "priority": 7,
+    "slug": "brutomarge-berekenen-op-verduurzamingsprojecten-zo-onderbouwt-u-uw-calculatie-en-offerte",
+    "status": "planned",
+    "createdAt": "2026-08-05T07:34:09.361Z"
   },
   {
     "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
@@ -191,6 +190,18 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
+    "keyword": "warmtepomp boilerinhoud berekenen",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "sanitair-warm-water-bij-warmtepompen-hoe-berekent-u-de-juiste-boilerinhoud-voor-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-08-04T00:37:56.773Z",
+    "generatedSlug": "warmtepomp-boilerinhoud-berekenen",
+    "generatedAt": "2026-08-04T00:40:24.272Z",
+    "seoGeoScore": 95
   },
   {
     "title": "Warmtepompboiler adviseren: hoe onderbouwt u de gasbesparing en ISDE-subsidie voor uw klant?",
@@ -503,6 +514,22 @@
     "generatedSlug": "rendementsverlies-schaduw-vervuiling-zonnepanelen",
     "generatedAt": "2026-07-11T09:29:12.367Z",
     "seoGeoScore": 84
+  },
+  {
+    "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
+    "keyword": "1 fase naar 3 fase verduurzaming advies",
+    "intent": "informatief",
+    "priority": 6,
+    "slug": "van-1-fase-naar-3-fase-netaansluiting-hoe-adviseert-u-uw-klant-over-netverzwaarde-verduurzaming",
+    "status": "generated",
+    "createdAt": "2026-08-04T00:37:56.775Z",
+    "lastScore": 94,
+    "retryCount": 0,
+    "lastRejectionReason": "Fact-check gefaald: claim-001 (\"NEN 1010 bevat veiligheidsbepalingen voor de aanleg en uitbreiding van laagspanningsinstallaties in woningen.\"): PARTIALLY_SUPPORTED",
+    "lastRejectedAt": "2026-08-04T15:21:53.180Z",
+    "generatedSlug": "van-1-fase-naar-3-fase-verduurzaming-advies",
+    "generatedAt": "2026-08-04T15:37:34.643Z",
+    "seoGeoScore": 95
   },
   {
     "title": "De voordelen van een geïntegreerd energiesysteem voor woningen: zonnepanelen, warmtepompen en thuisbatterijen",
