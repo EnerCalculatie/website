@@ -22,6 +22,7 @@ export class WriterAgent {
 
     // Laad input data
     
+    let researchFacts: string;
     try {
       const raw = readFileSync(researchJsonPath, 'utf-8');
       researchFacts = `### ONDERZOEKSFEITEN VOOR DIT ARTIKEL ###\n${raw}`;

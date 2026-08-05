@@ -23,9 +23,11 @@ export class FactCheckerAgent {
 
     
     
+    let draftContent: string;
+    let researchFacts: string;
     try {
-      readFileSync(draftPath, 'utf-8');
-      readFileSync(researchJsonPath, 'utf-8');
+      draftContent = readFileSync(draftPath, 'utf-8');
+      researchFacts = readFileSync(researchJsonPath, 'utf-8');
     } catch (_e) {
       throw new Error(`[FactCheckerAgent] Kon bestanden niet inladen. Zorg dat draft en research.json bestaan.`, { cause: _e });
     }

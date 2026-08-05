@@ -18,8 +18,9 @@ export class SeoGeoAgent {
     console.log(`[SeoGeoAgent] Start optimalisatie...`);
 
     
+    let draftContent: string;
     try {
-      readFileSync(draftPath, 'utf-8');
+      draftContent = readFileSync(draftPath, 'utf-8');
     } catch (_e) {
       throw new Error(`[SeoGeoAgent] Kon concept blog niet inladen.`, { cause: _e });
     }
