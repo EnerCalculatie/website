@@ -90,7 +90,7 @@ async function run() {
         console.log(`\n⚠️ Kwaliteitsproblemen gevonden, start herschrijven iteratie ${retries}...`);
         
         // Herschrijf met feedback
-        const feedback = qualityOut.issues.map((i: any) => `- [${i.severity}] ${i.issue}`).join('\n');
+        const feedback = qualityOut.issues.map((i: { severity: string, issue: string }) => `- [${i.severity}] ${i.issue}`).join('\n');
         await writerAgent.run(topic, researchPath, draftPath, feedback);
       }
     }
