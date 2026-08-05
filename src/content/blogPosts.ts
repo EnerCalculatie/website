@@ -1180,4 +1180,21 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wie vraagt de netverzwaring aan en hoe lang duurt dit?', answer: 'De klant vraagt de verzwaring zelf aan via MijnAansluiting.nl bij de regionale netbeheerder. De doorlooptijd varieert per regio en netbeheerder van enkele weken tot meerdere maanden.' },
     ],
   },
+  {
+    slug: 'mock-artikel-test',
+    readingTimeMinutes: 1,
+    title: 'Mock Artikel Test',
+    seoTitle: 'Mock Artikel Test | EnerCalculatie',
+    description:
+      'Dit is een mock description.',
+    date: '2026-08-05',
+    excerpt:
+      'Mock excerpt voor de overview page.',
+    tags: ['mock', 'test'],
+    keyPoints: [
+      'point 1',
+      'point 2',
+    ],
+    category: 'Kennisbank',
+  },
 ];

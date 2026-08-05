@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "passed": false,
   "confidence": 95,
   "issues": [
@@ -11,4 +12,9 @@
       "severity": "medium"
     }
   ]
+=======
+  "passed": true,
+  "confidence": 100,
+  "issues": []
+>>>>>>> Stashed changes
 }

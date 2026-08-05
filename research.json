@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
   "facts": [
     {
@@ -48,6 +49,14 @@
       "source": "Milieu Centraal",
       "confidence": 90,
       "datum": "2024"
+=======
+  "topic": "mock onderwerp",
+  "facts": [
+    {
+      "claim": "Mock fact",
+      "source": "NEN1010",
+      "confidence": 95
+>>>>>>> Stashed changes
     }
   ]
 }

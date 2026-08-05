@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [
   {
     "issue": "De stelling dat overdimensionering zorgt voor een eerdere opstart doordat de opstartspanning (start-up voltage) sneller wordt bereikt is technisch incorrect.",
@@ -15,3 +16,6 @@
     "recommendation": "Specificeer dat een EMS of load balancing systeem pas effectief kan sturen als er een actieve meting plaatsvindt op de hoofdaansluiting, bijvoorbeeld via een P1-poort uitlezing van de slimme meter of via externe stroomtransformatoren (CT-spoelen) / MID-meters in de groepenkast."
   }
 ]
+=======
+[]
+>>>>>>> Stashed changes

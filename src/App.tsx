@@ -110,6 +110,7 @@ const GeintegreerdEnergiesysteemWoningenArticle = lazyRoute('/blog/geintegreerd-
 const AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle = lazyRoute('/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren', () => import('./components/blog/AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle').then(m => ({ default: m.AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle })));
 const MiaVamilLaadpaalAdviserenZakelijkArticle = lazyRoute('/blog/mia-vamil-laadpaal-adviseren-zakelijk', () => import('./components/blog/MiaVamilLaadpaalAdviserenZakelijkArticle').then(m => ({ default: m.MiaVamilLaadpaalAdviserenZakelijkArticle })));
 const Van1FaseNaar3FaseVerduurzamingAdviesArticle = lazyRoute('/blog/van-1-fase-naar-3-fase-verduurzaming-advies', () => import('./components/blog/Van1FaseNaar3FaseVerduurzamingAdviesArticle').then(m => ({ default: m.Van1FaseNaar3FaseVerduurzamingAdviesArticle })));
+const MockArtikelTestArticle = lazyRoute('/blog/mock-artikel-test', () => import('./components/blog/MockArtikelTestArticle').then(m => ({ default: m.MockArtikelTestArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -239,6 +240,7 @@ export function AppContent() {
             <Route path="/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren" element={<AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle />} />
             <Route path="/blog/mia-vamil-laadpaal-adviseren-zakelijk" element={<MiaVamilLaadpaalAdviserenZakelijkArticle />} />
             <Route path="/blog/van-1-fase-naar-3-fase-verduurzaming-advies" element={<Van1FaseNaar3FaseVerduurzamingAdviesArticle />} />
+            <Route path="/blog/mock-artikel-test" element={<MockArtikelTestArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

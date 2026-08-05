@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { LLMService } from '../services/LLMService';
 import { KnowledgeBase } from '../services/KnowledgeBase';
@@ -32,23 +32,38 @@ export class WriterAgent {
     
     const kbContext = this.knowledgeBase.getCombinedContext();
 
-    let userPrompt = `
-Schrijf het blogartikel over het onderwerp: "${topic}".
-Gebruik uitsluitend de volgende context. Mocht er informatie missen, verzin dan niks zelf.
+    let userPrompt: string;
 
+    if (feedback && existsSync(outputPath)) {
+      // Herschrijfmodus: stuur vorige draft + feedback mee
+      const previousDraft = readFileSync(outputPath, 'utf-8');
+      userPrompt = `
+Herschrijf het blogartikel over het onderwerp: "${topic}".
+De kwaliteitscontrole heeft het vorige concept afgekeurd met de volgende feedback:
+
+### FEEDBACK VAN KWALITEITSCONTROLE ###
+${feedback}
+
+### JOUW VORIGE CONCEPT (PAS DIT AAN) ###
+${previousDraft}
+
+### BRONMATERIAAL ###
 ${kbContext}
 
 ${researchFacts}
-    `;
 
-    if (feedback) {
+BELANGRIJK:
+- Pas ALLEEN de passages aan die de feedback benoemt.
+- Als een claim niet onderbouwd kan worden door het bronmateriaal: VERWIJDER de claim.
+- Voeg GEEN nieuwe informatie toe die niet in de bronnen staat.
+- Behoud de structuur en goede delen van het vorige concept.
+      `;
+    } else {
+      // Eerste schrijfbeurt
       userPrompt = `
-Herschrijf het blogartikel over het onderwerp: "${topic}" op basis van de volgende feedback van de kwaliteitscontrole:
+Schrijf het blogartikel over het onderwerp: "${topic}".
+Gebruik uitsluitend de volgende context. Mocht er informatie missen, verzin dan niks zelf.
 
-### FEEDBACK ###
-${feedback}
-
-### ORIGINEEL MATERIAAL ###
 ${kbContext}
 
 ${researchFacts}
@@ -60,7 +75,7 @@ ${researchFacts}
       const responseText = await this.llm.generate({
         systemPrompt: this.systemPrompt,
         userPrompt,
-        temperature: 0.3, // Iets hoger dan research, maar nog steeds laag voor feitelijke striktheid
+        temperature: 0.3,
         responseFormat: 'text'
       });
 

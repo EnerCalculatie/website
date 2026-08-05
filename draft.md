@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ## DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?
 
 Bij het ontwerpen van een zonnestroomsysteem komt de verhouding tussen het vermogen van de zonnepanelen en het vermogen van de omvormer regelmatig ter sprake. In veel gevallen wordt er gekozen voor overdimensionering. Wat houdt dit precies in, hoe verhoudt dit zich tot de technische grenzen en de veiligheidseisen, en hoe legt u dit helder uit aan uw klant?
@@ -50,3 +51,6 @@ Hoewel het verhogen van de DC/AC-ratio nuttig kan zijn, moet er rekening worden 
 - Omvormerfabrikanten hanteren strikte grenzen voor de maximale DC-ingangsspanning ($V_{max}$) en de kortsluitstroom ($I_{sc}$).
 - Het overschrijden van de maximale spanning kan permanente schade aan het apparaat veroorzaken en laat de fabrieksgarantie vervallen.
 - De DC-ingangsspanning van de aangesloten panelenreeks dient daarom onder alle omstandigheden gecontroleerd te worden binnen de door de fabrikant gestelde waarden.
+=======
+{}
+>>>>>>> Stashed changes

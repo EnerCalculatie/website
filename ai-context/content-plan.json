@@ -5,8 +5,10 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "dcac-verhouding-van-een-omvormer-hoe-legt-u-overdimensionering-uit-aan-uw-klant",
-    "status": "planned",
-    "createdAt": "2026-08-05T07:34:09.356Z"
+    "status": "generated",
+    "createdAt": "2026-08-05T07:34:09.356Z",
+    "generatedSlug": "mock-artikel-test",
+    "generatedAt": "2026-08-05T09:30:54.494Z"
   },
   {
     "title": "R290 koudemiddel in warmtepompen: wat betekent de overstap naar propaan voor uw plaatsingsadvies?",
