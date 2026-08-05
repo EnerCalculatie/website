@@ -3,20 +3,12 @@
   "confidence": 95,
   "issues": [
     {
-      "issue": "De stelling dat overdimensioneren 'de opstartspanning verlaagt' is technisch onjuist. De opstartspanning is een vaste hardware-eigenschap van de omvormer; door overdimensionering wordt de drempelwaarde sneller bereikt, maar de opstartspanning zelf veranderd niet.",
+      "issue": "De claim dat overdimensionering zorgt voor het sneller bereiken van de minimale opstartspanning (start-up voltage) is technisch onjuist. De opstartspanning wordt bepaald door de stringspanning (aantal panelen in serie) en niet direct door overdimensionering in Wattpiek.",
       "severity": "high"
     },
     {
-      "issue": "Het hoofdstuk over NEN 1010 mist cruciale veiligheidsinformatie inzake 'somstroom' in de groepenkast bij terugvoeding, wat bij verkeerde toepassing kan leiden tot overbelasting van componenten.",
-      "severity": "high"
-    },
-    {
-      "issue": "De NEN 1010 verwijzing mist specifieke veiligheidseisen voor PV-installaties uit Rubriek 712 (zoals type aardlekschakelaar en karakteristiek van installatieautomaat).",
+      "issue": "Bij de uitleg over de maximale DC-ingangsspanning (Vmax) ontbreekt het effect van lage temperaturen op de stijging van de openklemspanning (Voc).",
       "severity": "medium"
-    },
-    {
-      "issue": "De onderbouwing voor de 3-fase verplichting boven 5 kW mist een expliciete verwijzing naar de richtlijnen van netbeheerders (Netcode Elektriciteit).",
-      "severity": "low"
     }
   ]
 }

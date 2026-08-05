@@ -1,45 +1,51 @@
 {
-  "topic": "DC/AC-verhouding van een omvormer: overdimensionering uitgelegd",
+  "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
   "facts": [
     {
-      "claim": "De DC/AC-verhouding geeft de verhouding aan tussen het totale geïnstalleerde piekvermogen van de zonnepanelen (DC-zijde in Wattpiek) en het maximale wisselstroom-uitgangsvermogen van de omvormer (AC-zijde in Watt).",
+      "claim": "Overdimensionering houdt in dat het totale piekvermogen op gelijkstroomzijde (DC in Wp) van de zonnepanelen hoger is dan het maximale wisselstroomvermogen (AC in kW) van de omvormer.",
+      "source": "SolarEdge",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Een gebruikelijke DC/AC-verhouding bij residentiële PV-systemen ligt tussen 110% en 130% (DC/AC-ratio van 1,1 tot 1,3), afhankelijk van dakoriëntatie en hellingshoek.",
       "source": "SolarEdge",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Zonnepanelen behalen hun theoretische Standard Test Conditions (STC) vermogen in de praktijk zelden door factoren zoals verhoogde celtemperatuur, niet-optimale hellingshoek en oriëntatie.",
-      "source": "Milieu Centraal",
-      "confidence": 95,
+      "claim": "Het aftoppen van vermogen (clipping) treedt op wanneer de zonnepanelen tijdelijk meer vermogen genereren dan de omvormer op AC-zijde maximaal kan omzetten.",
+      "source": "SolarEdge",
+      "confidence": 100,
       "datum": "2024"
     },
     {
-      "claim": "Het overdimensioneren van een omvormer (DC/AC-verhouding groter dan 100%, typisch tussen 110% en 130%) verlaagt de opstartspanning waardoor het systeem bij lage lichtintensiteit sneller energie produceert.",
+      "claim": "Het jaarlijkse opbrengstverlies door clipping bij een lichte overdimensionering (bijv. 120%) bedraagt in de praktijk vaak slechts 1% tot 3%, terwijl het systeem op bewolkte dagen en in de wintermaanden sneller en efficiënter produceert.",
       "source": "SolarEdge",
       "confidence": 90,
       "datum": "2024"
     },
     {
-      "claim": "Clipping treedt op wanneer het opgewekte gelijkstroomvermogen het maximale wisselstroomvermogen van de omvormer overschrijdt, waarbij de omvormer het vermogen aftopt om binnen veilige bedrijfsgrenzen te blijven.",
-      "source": "NEN",
-      "confidence": 90,
-      "datum": "2024"
-    },
-    {
-      "claim": "Officiële specificaties van fabrikanten zoals SolarEdge staan voor specifieke omvormers een DC-overdimensionering toe van 135% tot maximaal 200%, afhankelijk van het model en de systeemarchitectuur.",
-      "source": "SolarEdge",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "Een lagere AC-capaciteit van de omvormer voorkomt dat het maximale aansluitvermogen op de hoofdaansluiting (zoals 1x35A of 3x25A) wordt overschreden en beperkt het risico op overspanning op het lokale net.",
+      "claim": "Het maximaal aan te sluiten AC-vermogen op de hoofdaansluiting bepaalt de limiet voor de omvormercapaciteit zonder dat de netoverbelastingsbeveiliging (hoofdzekering) aanspreekt of een aansluiting geüpgraded moet worden.",
       "source": "Netbeheer Nederland",
-      "confidence": 90,
-      "datum": "2025"
+      "confidence": 95,
+      "datum": "2024"
     },
     {
-      "claim": "Het omzettingsrendement van omvormers is optimaal wanneer deze worden belast tussen de 50% en 100% van hun nominale vermogen, wat vaker wordt bereikt bij een overgedimensioneerd DC-veld.",
+      "claim": "Een kleinere AC-omvormer beperkt het risico op het uitschakelen van de omvormer wegens te hoge netspanning (253V-grens) in een buurt met veel zonnepanelen.",
+      "source": "Liander",
+      "confidence": 90,
+      "datum": "2024"
+    },
+    {
+      "claim": "Omvormerfabrikanten stellen stricte grenzen aan de maximale DC-ingangsspanning (Vmax) en kortsluitstroom (Isc); het overschrijden van de maximale spanning kan permanente schade veroorzaken en laat de garantie vervallen.",
       "source": "SolarEdge",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Door overdimensionering bereikt de omvormer eerder op de dag zijn minimale opstartspanning (start-up voltage), waardoor de productieperiode per dag wordt verlengd.",
+      "source": "Milieu Centraal",
       "confidence": 90,
       "datum": "2024"
     }

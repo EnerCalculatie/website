@@ -1,22 +1,17 @@
 [
   {
-    "issue": "De uitspraak dat overdimensioneren 'de opstartspanning van het systeem verlaagt' is technisch onjuist.",
+    "issue": "De stelling dat overdimensionering zorgt voor een eerdere opstart doordat de opstartspanning (start-up voltage) sneller wordt bereikt is technisch incorrect.",
     "severity": "medium",
-    "recommendation": "Pas de tekst aan: de opstartspanning (startspanning) is een vaste hardware-eigenschap van de omvormer. Door overdimensionering (meer panelen of een hogere stringspanning) wordt deze drempelwaarde bij lage lichtintensiteit 's ochtends sneller bereikt, maar de spanning zelf verandert niet."
+    "recommendation": "Verduidelijk dat de opstartspanning wordt bepaald door de ketenspanning (het aantal panelen in serie in een string), en niet direct door overdimensionering in Wattpiek. Overdimensionering zorgt bij lage instraling voor meer stroom en vermogen, maar verlaagt de fysieke opstartspanning van de omvormer niet."
   },
   {
-    "issue": "Bij het hoofdstuk over NEN 1010 en overbelasting ontbreekt het cruciale concept van 'somstroom' in de verdeelinrichting (groepenkast).",
-    "severity": "high",
-    "recommendation": "Voeg een waarschuwing toe over de somstroom. Wanneer een omvormer terugvoedt op de groepenkast, kunnen de stromen uit het net en van de omvormer zich opbepaalde punten (zoals de intern bedrade kamrails of aardlekschakelaars) optellen. Conform NEN 1010 / NEN-EN-IEC 61439 moet de groepenkast geschikt zijn voor deze totale stroom (bijv. maximaal 40A) of beveiligd worden met een hoofd- of beveiligingsschakelaar."
-  },
-  {
-    "issue": "De verwijzing naar NEN 1010 is te algemeen en mist specifieke beveiligingseisen voor PV-installaties (rubriek 712).",
+    "issue": "Bij de uitleg over de maximale DC-ingangsspanning (Vmax) ontbreekt de invloed van temperatuur op de openklemspanning (Voc).",
     "severity": "medium",
-    "recommendation": "Vul het punt over NEN 1010 aan met vermelding van Rubriek 712 (Zonne-energiesystemen). Stip hierbij de specifieke eisen aan voor foutbescherming, zoals de keuze voor het juiste type aardlekschakelaar (Type A vs Type B bij het risico op DC-foutstromen) en de selectie van de juiste installatieautomaat (B- of C-karakteristiek i.v.m. inschakelstromen)."
+    "recommendation": "Voeg toe dat de maximale spanning (Voc) berekend dient te worden bij de laagste verwachte omgevingstemperatuur (bijvoorbeeld -10 °C conform NPR 5310 / NEN 1010), omdat de spanning van zonnepanelen stijgt bij dalende temperaturen."
   },
   {
-    "issue": "De stelling dat boven 5 kW een 3-fase aansluiting 'veelal noodzakelijk is' mist nettechnische onderbouwing (Netcode).",
+    "issue": "Bij de vermelding van EMS en load balancing ontbreekt de technische nuance over hoe het systeem de netbelasting meet.",
     "severity": "low",
-    "recommendation": "Verwijs expliciet naar de richtlijnen van netbeheerders (Netcode Elektriciteit), waarin de maximale invoeding op 1-fase vaak beperkt is tot 16A tot 25A (ca. 3,68 kW tot 5,75 kVA) om fasen-onbalans en overspanning te voorkomen."
+    "recommendation": "Specificeer dat een EMS of load balancing systeem pas effectief kan sturen als er een actieve meting plaatsvindt op de hoofdaansluiting, bijvoorbeeld via een P1-poort uitlezing van de slimme meter of via externe stroomtransformatoren (CT-spoelen) / MID-meters in de groepenkast."
   }
 ]
