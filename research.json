@@ -1,0 +1,47 @@
+{
+  "topic": "DC/AC-verhouding van een omvormer: overdimensionering uitgelegd",
+  "facts": [
+    {
+      "claim": "De DC/AC-verhouding geeft de verhouding aan tussen het totale geïnstalleerde piekvermogen van de zonnepanelen (DC-zijde in Wattpiek) en het maximale wisselstroom-uitgangsvermogen van de omvormer (AC-zijde in Watt).",
+      "source": "SolarEdge",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Zonnepanelen behalen hun theoretische Standard Test Conditions (STC) vermogen in de praktijk zelden door factoren zoals verhoogde celtemperatuur, niet-optimale hellingshoek en oriëntatie.",
+      "source": "Milieu Centraal",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Het overdimensioneren van een omvormer (DC/AC-verhouding groter dan 100%, typisch tussen 110% en 130%) verlaagt de opstartspanning waardoor het systeem bij lage lichtintensiteit sneller energie produceert.",
+      "source": "SolarEdge",
+      "confidence": 90,
+      "datum": "2024"
+    },
+    {
+      "claim": "Clipping treedt op wanneer het opgewekte gelijkstroomvermogen het maximale wisselstroomvermogen van de omvormer overschrijdt, waarbij de omvormer het vermogen aftopt om binnen veilige bedrijfsgrenzen te blijven.",
+      "source": "NEN",
+      "confidence": 90,
+      "datum": "2024"
+    },
+    {
+      "claim": "Officiële specificaties van fabrikanten zoals SolarEdge staan voor specifieke omvormers een DC-overdimensionering toe van 135% tot maximaal 200%, afhankelijk van het model en de systeemarchitectuur.",
+      "source": "SolarEdge",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Een lagere AC-capaciteit van de omvormer voorkomt dat het maximale aansluitvermogen op de hoofdaansluiting (zoals 1x35A of 3x25A) wordt overschreden en beperkt het risico op overspanning op het lokale net.",
+      "source": "Netbeheer Nederland",
+      "confidence": 90,
+      "datum": "2025"
+    },
+    {
+      "claim": "Het omzettingsrendement van omvormers is optimaal wanneer deze worden belast tussen de 50% en 100% van hun nominale vermogen, wat vaker wordt bereikt bij een overgedimensioneerd DC-veld.",
+      "source": "SolarEdge",
+      "confidence": 90,
+      "datum": "2024"
+    }
+  ]
+}
