@@ -1197,4 +1197,29 @@ export const blogPosts: BlogPostMeta[] = [
     ],
     category: 'Kennisbank',
   },
+  {
+    slug: 'r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies',
+    readingTimeMinutes: 3,
+    title: 'R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheid',
+    seoTitle: 'R290 Koudemiddel in Warmtepompen: Plaatsingsadvies & Regels',
+    description:
+      'Wat betekent R290 (propaan) voor het plaatsingsadvies van monobloc warmtepompen? Lees alles over GWP, NEN-EN 378 A3-veiligheidszones en...',
+    date: '2026-08-05',
+    excerpt:
+      'Door de F-gassenverordening wordt R290 (propaan) de norm voor monobloc warmtepompen. Ontdek de impact van de A3-veiligheidsclassificatie op het plaatsingsadvies en de buitenunit.',
+    tags: ['R290', 'Propaan', 'Monobloc warmtepomp', 'Koudemiddel', 'F-gassen', 'Plaatsingsadvies', 'NEN-EN 378'],
+    keyPoints: [
+      'R290 heeft een extreem lage GWP van 3 vergeleken met R32 (675) en R410A (2088).',
+      'Aanvoertemperaturen tot 70-75 °C zijn mogelijk zonder elektrisch bijverwarmen, ideaal voor bestaande bouw.',
+      'Bij monobloc systemen bevindt het R290 koudemiddelcircuit zich volledig in de buitenunit.',
+      'R290 valt in A3-veiligheidscategorie (niet-giftig, zeer ontvlambaar volgens NEN-EN 378).',
+      'Plaatsing van de buitenunit vereist een veiligheidszone vrij van ontstekingsbronnen, gebouwopeningen en afvoerputten.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waarom wordt R290 (propaan) gebruikt in warmtepompen?', answer: 'Vanwege de herziene F-gassenverordening worden koudemiddelen met een hoog GWP uitgefaseerd. R290 heeft een GWP van slechts 3 en kan hoge aanvoertemperaturen (tot 70-75 °C) leveren.' },
+      { question: 'Waar moet een buitenunit met R290 koudemiddel geplaatst worden?', answer: 'De buitenunit moet geplaatst worden op een plek waar een veiligheidszone kan worden aangehouden. Deze zone moet vrij zijn van ontstekingsbronnen, gebouwopeningen (ramen/deuren) en afvoerputten.' },
+      { question: 'Is R290 koudemiddel gevaarlijk binnenshuis?', answer: 'Bij monobloc systemen bevindt het R290-koudemiddel zich uitsluitend in de buitenunit. Er lopen enkel watervoerende leidingen naar de binnenruimte.' },
+    ],
+  },
 ];

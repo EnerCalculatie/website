@@ -16,8 +16,10 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "r290-koudemiddel-in-warmtepompen-wat-betekent-de-overstap-naar-propaan-voor-uw-plaatsingsadvies",
-    "status": "planned",
-    "createdAt": "2026-08-05T07:34:09.358Z"
+    "status": "generated",
+    "createdAt": "2026-08-05T07:34:09.358Z",
+    "generatedSlug": "r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies",
+    "generatedAt": "2026-08-05T09:42:11.696Z"
   },
   {
     "title": "Brutomarge berekenen op verduurzamingsprojecten: zo onderbouwt u uw calculatie en offerte",

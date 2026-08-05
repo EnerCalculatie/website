@@ -1,62 +1,41 @@
 {
-<<<<<<< Updated upstream
-  "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
+  "topic": "R290 koudemiddel in warmtepompen: wat betekent de overstap naar propaan voor uw plaatsingsadvies?",
   "facts": [
     {
-      "claim": "Overdimensionering houdt in dat het totale piekvermogen op gelijkstroomzijde (DC in Wp) van de zonnepanelen hoger is dan het maximale wisselstroomvermogen (AC in kW) van de omvormer.",
-      "source": "SolarEdge",
+      "claim": "R290 (propaan) heeft een Global Warming Potential (GWP) van 3, wat aanzienlijk lager is dan synthetische koudemiddelen zoals R410A (GWP 2088) en R32 (GWP 675).",
+      "source": "RVO",
       "confidence": 100,
       "datum": "2024"
     },
     {
-      "claim": "Een gebruikelijke DC/AC-verhouding bij residentiële PV-systemen ligt tussen 110% en 130% (DC/AC-ratio van 1,1 tot 1,3), afhankelijk van dakoriëntatie en hellingshoek.",
-      "source": "SolarEdge",
+      "claim": "R290 is geclassificeerd onder de A3-veiligheidscategorie (veiligheidsgroep NEN-EN 378), wat betekent dat het een niet-giftig maar wel zeer ontvlambaar koudemiddel is.",
+      "source": "NEN",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Vanwege de brandbaarheid van R290 moeten installateurs bij plaatsing van de buitenunit een veiligheidszone (ex-zone) aanhouden vrij van ontstekingsbronnen, openingen naar het gebouw (ramen, deuren) en afvoerputten.",
+      "source": "NEN",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Het aftoppen van vermogen (clipping) treedt op wanneer de zonnepanelen tijdelijk meer vermogen genereren dan de omvormer op AC-zijde maximaal kan omzetten.",
-      "source": "SolarEdge",
+      "claim": "Herziene Europese F-gassenverordening verplicht de geleidelijke uitfasering van koudemiddelen met een hoog GWP, waardoor R290 de standaardoplossing wordt voor monobloc warmtepompen.",
+      "source": "Rijksoverheid",
       "confidence": 100,
       "datum": "2024"
     },
     {
-      "claim": "Het jaarlijkse opbrengstverlies door clipping bij een lichte overdimensionering (bijv. 120%) bedraagt in de praktijk vaak slechts 1% tot 3%, terwijl het systeem op bewolkte dagen en in de wintermaanden sneller en efficiënter produceert.",
-      "source": "SolarEdge",
-      "confidence": 90,
-      "datum": "2024"
-    },
-    {
-      "claim": "Het maximaal aan te sluiten AC-vermogen op de hoofdaansluiting bepaalt de limiet voor de omvormercapaciteit zonder dat de netoverbelastingsbeveiliging (hoofdzekering) aanspreekt of een aansluiting geüpgraded moet worden.",
-      "source": "Netbeheer Nederland",
+      "claim": "Bij monobloc warmtepompen met R290 bevindt het volledige koudemiddelcircuit zich hermetisch afgesloten in de buitenunit, waardoor enkel watervoerende leidingen de woning binnengaan.",
+      "source": "Milieu Centraal",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Een kleinere AC-omvormer beperkt het risico op het uitschakelen van de omvormer wegens te hoge netspanning (253V-grens) in een buurt met veel zonnepanelen.",
-      "source": "Liander",
-      "confidence": 90,
-      "datum": "2024"
-    },
-    {
-      "claim": "Omvormerfabrikanten stellen stricte grenzen aan de maximale DC-ingangsspanning (Vmax) en kortsluitstroom (Isc); het overschrijden van de maximale spanning kan permanente schade veroorzaken en laat de garantie vervallen.",
-      "source": "SolarEdge",
-      "confidence": 100,
-      "datum": "2024"
-    },
-    {
-      "claim": "Door overdimensionering bereikt de omvormer eerder op de dag zijn minimale opstartspanning (start-up voltage), waardoor de productieperiode per dag wordt verlengd.",
+      "claim": "Warmtepompen met R290 kunnen hogere aanvoertemperaturen (tot 70-75 °C) bereiken zonder elektrisch bijverwarmen, wat ze geschikt maakt voor bestaande bouw met traditionele radiatoren.",
       "source": "Milieu Centraal",
       "confidence": 90,
       "datum": "2024"
-=======
-  "topic": "mock onderwerp",
-  "facts": [
-    {
-      "claim": "Mock fact",
-      "source": "NEN1010",
-      "confidence": 95
->>>>>>> Stashed changes
     }
   ]
 }

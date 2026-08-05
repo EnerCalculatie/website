@@ -1,20 +1,18 @@
 {
-<<<<<<< Updated upstream
-  "passed": false,
+  "passed": true,
   "confidence": 95,
   "issues": [
     {
-      "issue": "De claim dat overdimensionering zorgt voor het sneller bereiken van de minimale opstartspanning (start-up voltage) is technisch onjuist. De opstartspanning wordt bepaald door de stringspanning (aantal panelen in serie) en niet direct door overdimensionering in Wattpiek.",
-      "severity": "high"
+      "issue": "De claim dat 70-75 °C wordt bereikt zonder elektrisch bijverwarmen mist nuance voor situaties met extreme buitenkoudes waarin het elektrisch bijverwarmingselement toch kan bijspringen.",
+      "severity": "medium"
     },
     {
-      "issue": "Bij de uitleg over de maximale DC-ingangsspanning (Vmax) ontbreekt het effect van lage temperaturen op de stijging van de openklemspanning (Voc).",
+      "issue": "Het expliciet benoemen van de verplichte werkschakelaar (NEN 1010) en dat deze buiten de ex-zone geplaatst moet worden is een waardevolle toevoeging, al vermeldt de tekst wel al in algemene zin dat er geen schakelaars in de ex-zone mogen staan.",
       "severity": "medium"
+    },
+    {
+      "issue": "De elektrotechnische richtlijnen voor de groepenkast kunnen nader gespecificeerd worden (zoals C-karakteristiek en Type B aardlekschakelaar voor omvormers).",
+      "severity": "low"
     }
   ]
-=======
-  "passed": true,
-  "confidence": 100,
-  "issues": []
->>>>>>> Stashed changes
 }

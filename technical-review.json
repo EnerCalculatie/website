@@ -1,21 +1,17 @@
-<<<<<<< Updated upstream
 [
   {
-    "issue": "De stelling dat overdimensionering zorgt voor een eerdere opstart doordat de opstartspanning (start-up voltage) sneller wordt bereikt is technisch incorrect.",
+    "issue": "De claim dat 70-75 °C wordt bereikt zonder dat elektrisch bijverwarmen nodig is, negeert het feit dat een elektrisch bijverwarmingselement (back-up heater) bij zeer lage buitentemperaturen alsnog kan bijspringen, wat een forse impact heeft op de elektrische belasting.",
     "severity": "medium",
-    "recommendation": "Verduidelijk dat de opstartspanning wordt bepaald door de ketenspanning (het aantal panelen in serie in een string), en niet direct door overdimensionering in Wattpiek. Overdimensionering zorgt bij lage instraling voor meer stroom en vermogen, maar verlaagt de fysieke opstartspanning van de omvormer niet."
+    "recommendation": "Nuanceer dat bij extreme kou het elektrische bijverwarmingselement (vaak 3 tot 6 kW) ingeschakeld kan worden. Dit vereist een correcte berekening van het piekvermogen, de selectiviteit van de hoofdzekering en eventueel een 3-fase aansluiting met load balancing."
   },
   {
-    "issue": "Bij de uitleg over de maximale DC-ingangsspanning (Vmax) ontbreekt de invloed van temperatuur op de openklemspanning (Voc).",
-    "severity": "medium",
-    "recommendation": "Voeg toe dat de maximale spanning (Voc) berekend dient te worden bij de laagste verwachte omgevingstemperatuur (bijvoorbeeld -10 °C conform NPR 5310 / NEN 1010), omdat de spanning van zonnepanelen stijgt bij dalende temperaturen."
+    "issue": "Er wordt gesproken over een veiligheidszone (ex-zone) die vrij moet zijn van ontstekingsbronnen, maar de verplichte elektrische werkschakelaar nabij de buitenunit wordt niet genoemd.",
+    "severity": "high",
+    "recommendation": "Voeg toe dat volgens NEN 1010 een werkschakelaar nabij de buitenunit verplicht is voor veilig onderhoud. Benadruk dat deze schakelaar buiten de R290-veiligheidszone moet worden geplaatst om te voorkomen dat deze als ontstekingsbron fungeert bij eventuele koudemiddellekkage."
   },
   {
-    "issue": "Bij de vermelding van EMS en load balancing ontbreekt de technische nuance over hoe het systeem de netbelasting meet.",
-    "severity": "low",
-    "recommendation": "Specificeer dat een EMS of load balancing systeem pas effectief kan sturen als er een actieve meting plaatsvindt op de hoofdaansluiting, bijvoorbeeld via een P1-poort uitlezing van de slimme meter of via externe stroomtransformatoren (CT-spoelen) / MID-meters in de groepenkast."
+    "issue": "De elektrotechnische richtlijnen voor de aansluiting in de groepenkast zijn te algemeen en missen cruciale eisen voor omvormers/inverters.",
+    "severity": "medium",
+    "recommendation": "Specificeer dat een warmtepomp op een eigen dedicated eindgroep moet worden aangesloten. Noem hierbij de benodigde karakteristiek van de installatieautomaat (vaak C-karakteristiek voor inschakelstromen) en het juiste type aardlekschakelaar (zoals Type B ter bescherming tegen gladde gelijkstroomfoutstromen door de frequentieregelaar)."
   }
 ]
-=======
-[]
->>>>>>> Stashed changes
