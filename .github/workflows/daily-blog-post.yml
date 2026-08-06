@@ -26,15 +26,6 @@ on:
     # 2 = dinsdag, 4 = donderdag.
     - cron: '0 5 * * 2,4'
   workflow_dispatch:
-    inputs:
-      gemini_tier:
-        description: 'API Tier (free of paid)'
-        required: true
-        default: 'free'
-        type: choice
-        options:
-          - free
-          - paid
 
 permissions:
   contents: write
@@ -59,18 +50,14 @@ jobs:
 
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         env:
-          GEMINI_TIER: ${{ github.event_name == 'schedule' && 'free' || github.event.inputs.gemini_tier || 'free' }}
-          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
       - name: "4-7. Multi-Agent Pipeline (Research, Write, Review, SEO, Publish)"
         id: generate
         env:
-          GEMINI_TIER: ${{ github.event_name == 'schedule' && 'free' || github.event.inputs.gemini_tier || 'free' }}
-          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: npx tsx scripts/content-engine/run-pipeline.ts
 
