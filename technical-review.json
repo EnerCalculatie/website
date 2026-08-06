@@ -1,17 +1,17 @@
 [
   {
-    "issue": "De claim dat 70-75 °C wordt bereikt zonder dat elektrisch bijverwarmen nodig is, negeert het feit dat een elektrisch bijverwarmingselement (back-up heater) bij zeer lage buitentemperaturen alsnog kan bijspringen, wat een forse impact heeft op de elektrische belasting.",
+    "issue": "Het stellen dat een hogere DC/AC-verhouding altijd zorgt voor een 'snellere opstart' is technisch onjuist.",
     "severity": "medium",
-    "recommendation": "Nuanceer dat bij extreme kou het elektrische bijverwarmingselement (vaak 3 tot 6 kW) ingeschakeld kan worden. Dit vereist een correcte berekening van het piekvermogen, de selectiviteit van de hoofdzekering en eventueel een 3-fase aansluiting met load balancing."
+    "recommendation": "Nuanceer dat het bereiken van de opstartspanning (V_start) afhangt van de klemspanning (V_oc) van de string (het aantal panelen in serie) en niet van het totale DC-vermogen. Overdimensionering door parallelle strings of zwaardere Wp-panelen verandert de opstartspanning niet."
   },
   {
-    "issue": "Er wordt gesproken over een veiligheidszone (ex-zone) die vrij moet zijn van ontstekingsbronnen, maar de verplichte elektrische werkschakelaar nabij de buitenunit wordt niet genoemd.",
+    "issue": "Het noemen van 17,25 kW als realistisch continu terugleververmogen op een 3x25A aansluiting negeert NEN 1010 ontwerpregels voor selectiviteit en spanningsopdrijving.",
     "severity": "high",
-    "recommendation": "Voeg toe dat volgens NEN 1010 een werkschakelaar nabij de buitenunit verplicht is voor veilig onderhoud. Benadruk dat deze schakelaar buiten de R290-veiligheidszone moet worden geplaatst om te voorkomen dat deze als ontstekingsbron fungeert bij eventuele koudemiddellekkage."
+    "recommendation": "Voeg toe dat 17,25 kW het theoretische maximum van de aansluiting is, maar dat volgens NEN 1010 ivm selectiviteit t.o.v. de 25A smeltveiligheden/hoofdautomaten de maximale eindgroepzekering 16A bedraagt. Dit beperkt het maximaal aan te sluiten 3-fase omvormervermogen in de praktijk tot circa 11 kVA (3x16A x 230V) om continue overbelasting en uitval van hoofdzekeringen te voorkomen."
   },
   {
-    "issue": "De elektrotechnische richtlijnen voor de aansluiting in de groepenkast zijn te algemeen en missen cruciale eisen voor omvormers/inverters.",
-    "severity": "medium",
-    "recommendation": "Specificeer dat een warmtepomp op een eigen dedicated eindgroep moet worden aangesloten. Noem hierbij de benodigde karakteristiek van de installatieautomaat (vaak C-karakteristiek voor inschakelstromen) en het juiste type aardlekschakelaar (zoals Type B ter bescherming tegen gladde gelijkstroomfoutstromen door de frequentieregelaar)."
+    "issue": "De claim dat een 3-fase aansluiting pas 'boven 5 kW in veel gevallen noodzakelijk is' ontbreekt normatieve en installatietechnische onderbouwing qua selectiviteit.",
+    "severity": "high",
+    "recommendation": "Verduidelijk dat volgens de Netcode Elektriciteit en NEN 1010 een enkelfasige omvormer op een 3x25A of 1x35A aansluiting maximaal 16A (3,68 kVA) mag invoeden om selectiviteit t.o.v. de hoofdzekering te waarborgen en fasedisbalans te beperken. Een omvormer van 5 kW vereist een 25A eindgroep, wat bij een 25A hoofdaansluiting niet toegestaan is."
   }
 ]

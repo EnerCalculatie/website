@@ -1,40 +1,40 @@
 {
-  "topic": "R290 koudemiddel in warmtepompen: wat betekent de overstap naar propaan voor uw plaatsingsadvies?",
+  "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
   "facts": [
     {
-      "claim": "R290 (propaan) heeft een Global Warming Potential (GWP) van 3, wat aanzienlijk lager is dan synthetische koudemiddelen zoals R410A (GWP 2088) en R32 (GWP 675).",
-      "source": "RVO",
-      "confidence": 100,
-      "datum": "2024"
-    },
-    {
-      "claim": "R290 is geclassificeerd onder de A3-veiligheidscategorie (veiligheidsgroep NEN-EN 378), wat betekent dat het een niet-giftig maar wel zeer ontvlambaar koudemiddel is.",
-      "source": "NEN",
-      "confidence": 100,
-      "datum": "2024"
-    },
-    {
-      "claim": "Vanwege de brandbaarheid van R290 moeten installateurs bij plaatsing van de buitenunit een veiligheidszone (ex-zone) aanhouden vrij van ontstekingsbronnen, openingen naar het gebouw (ramen, deuren) en afvoerputten.",
-      "source": "NEN",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "Herziene Europese F-gassenverordening verplicht de geleidelijke uitfasering van koudemiddelen met een hoog GWP, waardoor R290 de standaardoplossing wordt voor monobloc warmtepompen.",
-      "source": "Rijksoverheid",
-      "confidence": 100,
-      "datum": "2024"
-    },
-    {
-      "claim": "Bij monobloc warmtepompen met R290 bevindt het volledige koudemiddelcircuit zich hermetisch afgesloten in de buitenunit, waardoor enkel watervoerende leidingen de woning binnengaan.",
+      "claim": "Zonnepanelen behalen in het Nederlandse klimaat zelden hun theoretische piekvermogen (Standard Test Conditions / STC) vanwege temperatuurstijging, niet-optimale oriëntatie en de gemiddelde instraling.",
       "source": "Milieu Centraal",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Warmtepompen met R290 kunnen hogere aanvoertemperaturen (tot 70-75 °C) bereiken zonder elektrisch bijverwarmen, wat ze geschikt maakt voor bestaande bouw met traditionele radiatoren.",
+      "claim": "SolarEdge staat op het HD-Wave platform een overdimensionering van de DC-zijde ten opzichte van het nominale AC-vermogen van de omvormer toe tot maximaal 155%.",
+      "source": "SolarEdge",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Door de DC-zijde over te dimensioneren (DC/AC-verhouding > 100%) bereikt de omvormer 's ochtends sneller de opstartspanning en blijft deze 's avonds langer op een efficiënt werkpunt produceren bij lage instraling.",
+      "source": "SolarEdge",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Het jaarlijkse opbrengstverlies als gevolg van aftoppen ('clipping') op zonnige piekmomenten bedraagt bij een gebruikelijke overdimensionering van 110% tot 130% gemiddeld minder dan 1% tot 2% van de totale jaaropbrengst.",
       "source": "Milieu Centraal",
       "confidence": 90,
+      "datum": "2024"
+    },
+    {
+      "claim": "Het maximale vermogen dat kan worden ingevoerd op het elektriciteitsnet wordt uitsluitend begrensd door het nominale AC-vermogen van de omvormer, niet door de som van het Wp-vermogen van de zonnepanelen op het dak.",
+      "source": "Netbeheer Nederland",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Bij een standaard kleinverbruikaansluiting van 3x25A bedraagt het maximale continue terugleververmogen aan het net 17,25 kW (AC).",
+      "source": "Liander",
+      "confidence": 100,
       "datum": "2024"
     }
   ]

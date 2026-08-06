@@ -1,39 +1,37 @@
 {
-  "content": "# R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheidsrichtlijnen\n\n**Wat betekent de overstap naar R290 (propaan) voor het plaatsingsadvies van een warmtepomp?** Door de herziene Europese F-gassenverordening vindt er een geleidelijke uitfasering plaats van koudemiddelen met een hoog Global Warming Potential (GWP). Hierdoor wordt R290 (propaan) in veel gevallen de standaardoplossing voor [monobloc warmtepompen](/kennisbank/monobloc-warmtepomp). Het gebruik van dit milieuvriendelijke koudemiddel brengt echter specifieke veiligheidseisen en aandachtspunten voor de installateur met zich mee.\n\n---\n\n## Waarom R290? Milieueigenschappen en Prestaties vergeleken\n\nR290 heeft een **GWP van 3**. Dit is aanzienlijk lager dan de waarden van traditionele synthetische koudemiddelen:\n* **R32:** GWP van 675\n* **R410A:** GWP van 2088\n\nNaast de extreem lage milieu-impact presteren R290-systemen uitstekend bij renovaties. Warmtepompen met R290 kunnen **hoge aanvoertemperaturen bereiken tot 70-75 °C**, zonder dat elektrisch bijverwarmen nodig is. Dit maakt deze systemen uitermate geschikt voor toepassing in bestaande bouw met traditionele radiatoren.\n\n## Systeemopzet van een R290 Monobloc Warmtepomp\n\nBij [monobloc warmtepompen](/kennisbank/monobloc-warmtepomp) die gebruikmaken van R290 bevindt het volledige koudemiddelcircuit zich hermetisch afgesloten in de buitenunit. Dit houdt in dat er enkel watervoerende leidingen de woning binnengaan, wat de veiligheid binnenshuis verhoogt.\n\n## Veiligheidsclassificatie (NEN-EN 378) en Plaatsingsadvies buitenunit\n\nVolgens de veiligheidsnorm **NEN-EN 378** is R290 geclassificeerd onder de **A3-veiligheidscategorie**. Dit betekent dat het koudemiddel niet-giftig is, maar wel zeer ontvlambaar.\n\nVanwege deze brandbaarheid dienen installateurs bij het opstellen van het plaatsingsadvies voor de buitenunit rekening te houden met specifieke richtlijnen:\n\n1. **Veiligheidszone (ex-zone):** Rondom de buitenunit moet een gecertificeerde veiligheidszone worden aangehouden.\n2. **Vrij van ontstekingsbronnen:** Binnen deze zone mogen zich absoluut geen ontstekingsbronnen bevinden (zoals verlichting, schakelaars of buitenstopcontacten).\n3. **Afstand tot openingen en afvoeren:** De ex-zone moet vrij blijven van openingen naar het gebouw (zoals ramen, deuren en ventilatieroosters) en mag geen onafgedekte afvoerputten of kelderkoekoeken bevatten.\n\nDaarnaast eist de **NEN 1010** dat elektrische installaties adequaat beveiligd zijn tegen overstroom, waarbij de gelijktijdigheid exact moet worden berekend. Raadpleeg voor specifieke vragen over de elektrische aansluiting een [erkend installateur](/installateurs).\n\n## Veelgestelde vragen over R290 in warmtepompen (FAQ)\n\n### Waarom wordt R290 (propaan) gebruikt in warmtepompen?\nVanwege de herziene F-gassenverordening worden koudemiddelen met een hoog GWP uitgefaseerd. R290 heeft een GWP van slechts 3 en kan hoge aanvoertemperaturen (tot 70-75 °C) leveren.\n\n### Waar moet een buitenunit met R290 koudemiddel geplaatst worden?\nDe buitenunit moet geplaatst worden op een plek waar een veiligheidszone kan worden aangehouden. Deze zone moet vrij zijn van ontstekingsbronnen, gebouwopeningen (ramen/deuren) en afvoerputten.\n\n### Is R290 koudemiddel gevaarlijk binnenshuis?\nBij monobloc systemen bevindt het R290-koudemiddel zich uitsluitend in de buitenunit. Er lopen enkel watervoerende leidingen naar de binnenruimte.\n\n## Conclusie\n\nDe overstap naar R290 zorgt voor een zeer lage GWP-waarde (3) en maakt hogere aanvoertemperaturen tot 70-75 °C mogelijk voor bestaande bouw. Vanwege de A3-classificatie (niet-giftig, zeer ontvlambaar) vraagt het plaatsingsadvies bij monobloc buitenunits om het strikt aanhouden van een veiligheidszone die vrij is van ontstekingsbronnen, gebouwopeningen en afvoerputten.",
-  "slug": "r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies",
-  "title": "R290 Koudemiddel (Propaan) in Warmtepompen: Plaatsingsadvies & Veiligheid",
-  "seoTitle": "R290 Koudemiddel in Warmtepompen: Plaatsingsadvies & Regels",
-  "description": "Wat betekent R290 (propaan) voor het plaatsingsadvies van monobloc warmtepompen? Lees alles over GWP, NEN-EN 378 A3-veiligheidszones en aanvoertemperaturen.",
-  "excerpt": "Door de F-gassenverordening wordt R290 (propaan) de norm voor monobloc warmtepompen. Ontdek de impact van de A3-veiligheidsclassificatie op het plaatsingsadvies en de buitenunit.",
+  "content": "# DC/AC-verhouding en overdimensionering bij zonnepanelen\n\nDe **DC/AC-verhouding** geeft de verhouding aan tussen het totale gelijkstroomvermogen (DC) van de zonnepanelen en het nominale wisselstroomvermogen (AC) van de [omvormer](/kennisbank/omvormers). In het Nederlandse klimaat behalen zonnepanelen zelden hun theoretische piekvermogen (Standard Test Conditions / STC) door temperatuurstijging, een niet-optimale oriëntatie en de gemiddelde zoninstraling. Om een installatie efficiënt te laten functioneren, kan de DC-zijde overgedimensioneerd worden ten opzichte van het nominale AC-vermogen van de omvormer, waarbij de DC/AC-verhouding groter is dan 100%.\n\n## Waarom kies je voor een hogere DC/AC-verhouding?\n\nHet overdimensioneren van de DC-zijde brengt specifieke voordelen met zich mee voor de werking van de omvormer:\n* **Snellere opstart:** De omvormer bereikt 's ochtends vaak sneller de vereiste opstartspanning.\n* **Langere productie:** 's Avonds kan de omvormer bij lage instraling langer op een efficiënt werkpunt blijven produceren.\n\nFabrikanten bieden hiervoor specifieke marges. Zo staat SolarEdge op het HD-Wave platform een overdimensionering van de DC-zijde toe tot maximaal 155% ten opzichte van het nominale AC-vermogen.\n\n## Rendementsverlies door aftoppen ('clipping')\n\nOp zonnige piekmomenten kan het voorkomen dat de zonnepanelen meer vermogen aanbieden dan het maximale AC-vermogen dat de omvormer kan omzetten. Dit verschijnsel wordt **aftoppen** of **'clipping'** genoemd.\n\nIn de praktijk valt het rendementsverlies door dit effect mee: bij een gebruikelijke overdimensionering van 110% tot 130% bedraagt het jaarlijkse opbrengstverlies door aftoppen gemiddeld minder dan 1% tot 2% van de totale jaaropbrengst.\n\n## Impact van overdimensionering op de netinvoeding en aansluiting\n\nHet vermogen dat maximaal aan het elektriciteitsnet kan worden teruggeleverd, wordt uitsluitend begrensd door het nominale AC-vermogen van de omvormer. De som van het totale Wp-vermogen van de zonnepanelen op het dak is hierin niet de bepalende factor.\n\nVoor de [netaansluiting](/kennisbank/netaansluiting) geldt in de praktijk:\n* Bij een standaard kleinverbruikaansluiting van **3x25A** bedraagt het maximale continue terugleververmogen **17,25 kW (AC)**. In de praktijk kunnen net- en installatiegebonden beperkingen invloed hebben op de belastbaarheid; raadpleeg een erkend installateur om te bepalen of een marge of vermogensbegrenzing noodzakelijk is.\n* Boven een omvormervermogen van **5 kW** is in veel gevallen een [3-fase aansluiting](/kennisbank/3-fase-aansluiting) noodzakelijk om onbalans op het net te voorkomen.\n\n## Veelgestelde vragen over DC/AC-verhouding\n\n### Wat is een goede DC/AC-verhouding voor zonnepanelen?\nEen gebruikelijke DC/AC-verhouding ligt tussen de 110% en 130%. Hierdoor start de omvormer sneller op en werkt deze langer op efficiënt vermogen, met minimaal opbrengstverlies.\n\n### Hoeveel opbrengstverlies veroorzaakt 'clipping'?\nBij een overdimensionering van 110% tot 130% bedraagt het jaarlijkse opbrengstverlies door aftoppen (clipping) gemiddeld minder dan 1% tot 2% van de totale jaaropbrengst.\n\n### Bepaalt het Wp-vermogen van de zonnepanelen de maximale netinvoeding?\nNee, het vermogen dat maximaal kan worden teruggeleverd aan het elektriciteitsnet wordt uitsluitend begrensd door het nominale AC-vermogen van de omvormer.",
+  "slug": "dc-ac-verhouding-overdimensionering-zonnepanelen",
+  "title": "DC/AC-verhouding en overdimensionering bij zonnepanelen",
+  "seoTitle": "DC/AC-verhouding Zonnepanelen: Overdimensionering Uitleg",
+  "description": "Ontdek alles over de DC/AC-verhouding en het overdimensioneren van zonnepanelen. Lees hoe clipping werkt en wat de impact is op je netaansluiting.",
+  "excerpt": "Een DC/AC-verhouding boven 100% verhoogt de efficiëntie van een zonne-energiesysteem in het Nederlandse klimaat. Lees alles over de voordelen, clipping en de maximale netinvoeding.",
   "tags": [
-    "R290",
-    "Propaan",
-    "Monobloc warmtepomp",
-    "Koudemiddel",
-    "F-gassen",
-    "Plaatsingsadvies",
-    "NEN-EN 378"
+    "DC/AC-verhouding",
+    "overdimensionering",
+    "zonnepanelen",
+    "omvormer",
+    "clipping",
+    "netinvoeding"
   ],
   "keyPoints": [
-    "R290 heeft een extreem lage GWP van 3 vergeleken met R32 (675) en R410A (2088).",
-    "Aanvoertemperaturen tot 70-75 °C zijn mogelijk zonder elektrisch bijverwarmen, ideaal voor bestaande bouw.",
-    "Bij monobloc systemen bevindt het R290 koudemiddelcircuit zich volledig in de buitenunit.",
-    "R290 valt in A3-veiligheidscategorie (niet-giftig, zeer ontvlambaar volgens NEN-EN 378).",
-    "Plaatsing van de buitenunit vereist een veiligheidszone vrij van ontstekingsbronnen, gebouwopeningen en afvoerputten."
+    "Overdimensionering (DC/AC > 100%) compenseert suboptimale omstandigheden in het Nederlandse klimaat.",
+    "Zorgt voor snellere opstart 's ochtends en langer efficiënte productie 's avonds.",
+    "Bij 110% tot 130% overdimensionering is het jaarlijkse verlies door clipping minder dan 1% tot 2%.",
+    "Het maximale terugleververmogen wordt begrensd door het AC-vermogen van de omvormer, niet door het Wp-vermogen."
   ],
   "category": "Kennisbank",
   "faq": [
     {
-      "question": "Waarom wordt R290 (propaan) gebruikt in warmtepompen?",
-      "answer": "Vanwege de herziene F-gassenverordening worden koudemiddelen met een hoog GWP uitgefaseerd. R290 heeft een GWP van slechts 3 en kan hoge aanvoertemperaturen (tot 70-75 °C) leveren."
+      "question": "Wat is een goede DC/AC-verhouding voor zonnepanelen?",
+      "answer": "Een gebruikelijke DC/AC-verhouding ligt tussen de 110% en 130%. Hierdoor start de omvormer sneller op en werkt deze langer op efficiënt vermogen, met minimaal opbrengstverlies."
     },
     {
-      "question": "Waar moet een buitenunit met R290 koudemiddel geplaatst worden?",
-      "answer": "De buitenunit moet geplaatst worden op een plek waar een veiligheidszone kan worden aangehouden. Deze zone moet vrij zijn van ontstekingsbronnen, gebouwopeningen (ramen/deuren) en afvoerputten."
+      "question": "Hoeveel opbrengstverlies veroorzaakt 'clipping'?",
+      "answer": "Bij een overdimensionering van 110% tot 130% bedraagt het jaarlijkse opbrengstverlies door aftoppen (clipping) gemiddeld minder dan 1% tot 2% van de totale jaaropbrengst."
     },
     {
-      "question": "Is R290 koudemiddel gevaarlijk binnenshuis?",
-      "answer": "Bij monobloc systemen bevindt het R290-koudemiddel zich uitsluitend in de buitenunit. Er lopen enkel watervoerende leidingen naar de binnenruimte."
+      "question": "Bepaalt het Wp-vermogen van de zonnepanelen de maximale netinvoeding?",
+      "answer": "Nee, het vermogen dat maximaal kan worden teruggeleverd aan het elektriciteitsnet wordt uitsluitend begrensd door het nominale AC-vermogen van de omvormer."
     }
   ]
 }
