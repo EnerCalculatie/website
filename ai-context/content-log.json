@@ -569,5 +569,19 @@
     "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
     "slug": "dc-ac-verhouding-omvormer-overdimensionering",
     "status": "generated"
+  },
+  {
+    "date": "2026-08-06",
+    "topic": "Brutomarge berekenen voor uw installatiebedrijf: zo onderbouwt u elke offerte",
+    "slug": "brutomarge-berekenen-installatiebedrijf",
+    "model": "gemini-3.6-flash",
+    "seoScore": 92,
+    "geoScore": 83,
+    "factScore": 100,
+    "claimsCount": 2,
+    "sourcesCount": 2,
+    "sourceQuality": 100,
+    "repairAttempts": 0,
+    "status": "generated"
   }
 ]

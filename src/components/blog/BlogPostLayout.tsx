@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { blogPosts, type BlogPostMeta } from '../../content/blogPosts';
 import { author } from '../../content/author';
 import { buildBlogPostingSchema, buildFaqSchema } from '../../content/blogSchema';
-import { LeadMagnet } from '../LeadMagnet';
+import { FreeIntakeCTA } from '../FreeIntakeCTA';
 import { SEO } from '../SEO';
 
 // Te generieke tags tellen niet mee voor 'verwantschap' bij Lees ook.
@@ -165,7 +165,7 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
       )}
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">
-        <LeadMagnet />
+        <FreeIntakeCTA />
       </div>
     </div>
   );

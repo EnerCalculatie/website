@@ -6,6 +6,7 @@
  */
 
 export const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+export const GEMINI_TIER = process.env.GEMINI_TIER || 'default';
 
 if (!GEMINI_API_KEY) {
   console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');

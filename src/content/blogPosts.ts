@@ -1229,4 +1229,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is overdimensionering van een omvormer veilig volgens NEN 1010?', answer: 'Ja, mits het ontwerp binnen de fabrieksspecificaties van de omvormer blijft, met name de maximale ingangsspanning (Vdc max) en maximale ingangsstroom (Idc max).' },
     ],
   },
+  {
+    slug: 'brutomarge-berekenen-installatiebedrijf',
+    readingTimeMinutes: 7,
+    title: 'Brutomarge berekenen voor uw installatiebedrijf: zo onderbouwt u elke offerte',
+    seoTitle: 'Brutomarge berekenen installatiebedrijf | Advies',
+    description:
+      'Brutomarge berekenen voor uw installatiebedrijf? Ontdek hoe u indirecte kosten, arbeid en materiaal correct opneemt in uw verduurzamingsofferte.',
+    date: '2026-08-06',
+    excerpt:
+      'Het berekenen van een gezonde brutomarge op verduurzamingsprojecten vereist meer dan de inkoopprijs van hardware vermeerderen met een vaste opslag. Ontdek hoe u directe kosten, arbeid en risico\'s nauwkeurig onderbouwt.',
+    tags: ['Bedrijfsvoering', 'Installatiebranche', 'Offerteproces'],
+    keyPoints: [
+      'Het verschil tussen brutomarge en nettowinst op verduurzamingsprojecten',
+      'De vier verborgen kostenposten die de projectmarge ongemerkt uithollen',
+      'Een stapsgewijze aanpak voor een waterdichte kostprijsberekening',
+      'Hoe onderbouwde calculaties zorgen voor hogere conversie bij offertes',
+    ],
+    category: 'Subsidies',
+    faq: [
+      { question: 'Wat is het verschil tussen brutomarge en nettomarge voor een installatiebedrijf?', answer: 'De brutomarge is het verschil tussen de netto omzet van een project en de directe projectkosten (hardware, direct materiaal, onderaanneming en directe montage-uren). De nettomarge blijft over nadat ook alle indirecte bedrijfskosten, zoals bedrijfswagens, kantoorhuisvesting, softwarelicenties en algemene overhead, van de brutomarge zijn afgetrokken.' },
+      { question: 'Welke directe kosten worden het vaakst vergeten bij het berekenen van de brutomarge?', answer: 'Installateurs vergeten in de calculatie frequent klein montagemateriaal, het inmeten en de technische engineering vooraf, steigerhuur of hoogwerkers, afvalafvoer, extra meters bekabeling, en een reservering voor garantie- en servicemomenten achteraf.' },
+      { question: 'Hoe voorkomt u dat onvoorziene uren op de installatiedag de marge verdampen?', answer: 'Door voorafgaand aan de offerte een gestandaardiseerde inventarisatie uit te voeren van de meterkast, kabeltrajecten en daksituatie. Met duidelijke voorwaarden over stelposten en een normering op basis van eerdere projectdata voorkomt u dat extra werkuren ten laste van de brutomarge komen.' },
+    ],
+  },
 ];

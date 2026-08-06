@@ -1,30 +1,30 @@
 {
-  "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
-  "generatedAt": "2026-08-04T15:37:34.647Z",
-  "seoScore": 95,
-  "geoScore": 95,
+  "title": "Brutomarge berekenen voor uw installatiebedrijf: zo onderbouwt u elke offerte",
+  "generatedAt": "2026-08-06T12:06:25.989Z",
+  "seoScore": 92,
+  "geoScore": 83,
   "factScore": 100,
-  "sourceQuality": 95,
+  "sourceQuality": 100,
   "claims": [
     {
-      "claim": "NEN 1010 bevat de normen en installatievoorschriften voor laagspanningsinstallaties.",
+      "claim": "De salderingsregeling voor zonnepanelen wordt per 1 januari 2027 afgeschaft.",
       "status": "SUPPORTED",
       "sources": [
         {
-          "title": "NEN 1010 — Dé norm voor laagspanningsinstallaties",
-          "url": "https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties",
-          "quality": 95
+          "title": "Salderingsregeling zonnepanelen",
+          "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling",
+          "quality": 100
         }
       ]
     },
     {
-      "claim": "Netbeheer Nederland biedt via de capaciteitskaart inzicht in de netcapaciteit en netcongestie in Nederland.",
+      "claim": "ISDE-subsidie wordt verstrekt door RVO voor verduurzamingsmaatregelen zoals warmtepompen.",
       "status": "SUPPORTED",
       "sources": [
         {
-          "title": "Capaciteitskaart — Netbeheer Nederland",
-          "url": "https://www.netbeheernederland.nl/netcapaciteit-en-flexibiliteit/capaciteitskaart",
-          "quality": 95
+          "title": "ISDE — Investeringssubsidie duurzame energie en energiebesparing",
+          "url": "https://www.rvo.nl/subsidies-financiering/isde",
+          "quality": 100
         }
       ]
     }

@@ -27,8 +27,11 @@
     "intent": "commercieel",
     "priority": 7,
     "slug": "brutomarge-berekenen-op-verduurzamingsprojecten-zo-onderbouwt-u-uw-calculatie-en-offerte",
-    "status": "planned",
-    "createdAt": "2026-08-05T07:34:09.361Z"
+    "status": "generated",
+    "createdAt": "2026-08-05T07:34:09.361Z",
+    "generatedSlug": "brutomarge-berekenen-installatiebedrijf",
+    "generatedAt": "2026-08-06T12:06:25.986Z",
+    "seoGeoScore": 88
   },
   {
     "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
