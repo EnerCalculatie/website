@@ -89,7 +89,7 @@ async function run() {
   console.log(`📝 Nieuwste blog gevonden: ${blog.name}`);
   const socialPosts = await generateSocialPosts(blog.content);
   
-  const outputFileName = blog.name.replace('.mdx', '-social.md');
+  const outputFileName = blog.name.replace('.tsx', '-social.md');
   const outputPath = path.join(SOCIAL_DIR, outputFileName);
   
   await fs.writeFile(outputPath, socialPosts, 'utf-8');
