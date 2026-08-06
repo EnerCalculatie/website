@@ -5,7 +5,7 @@ description: Regels en workflow voor blogartikelen op de EnerCalculatie website 
 
 ## Nieuw Blogartikel — Verplichte Checklist
 Een nieuw blogartikel vereist wijzigingen op precies drie plekken:
-1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent. **Geen `<SEO />`-call**: `BlogPostLayout` regelt title/description/canonical centraal uit de metadata. **Geen `<h1>`**: die rendert `BlogPostLayout` uit `post.title` — een eigen h1 geeft een dubbele H1 en faalt de QC.
+1. `src/components/blog/<Naam>Article.tsx` — artikelcomponent. **Geen `<SEO />`-call**: `BlogPostLayout` regelt title/description/canonical centraal uit de metadata. **Geen `<h1>`**: die rendert `BlogPostLayout` uit `post.title` — een eigen h1 geeft een dubbele H1 en faalt de QC. **Geen dubbele FAQ in markdown**: als `faq` in de metadata is ingevuld, tekent `BlogPostLayout` dit al als een mooi opgemaakt FAQ-blok onderaan; zet dit dus niet óók in de raw markdown body. **Tailwind via ReactMarkdown**: Omdat de site Tailwind v4 gebruikt zónder `@tailwindcss/typography` plugin, moeten HTML-elementen (`p`, `h2`, `ul`, `a`, etc.) in de `components` prop van `<ReactMarkdown>` expliciet gestyled worden met classes (bijv. `text-slate-700 leading-relaxed mb-4` voor `p`), anders rendert de tekst zonder enige witruimte of styling.
 2. `src/content/blogPosts.ts` — metadata-entry (slug/title/seoTitle/description/excerpt/tags/date).
 3. `src/App.tsx` — `lazyRoute('/blog/<slug>', () => import(...))`-declaratie + `<Route path="/blog/<slug>">`. Gebruik ALTIJD `lazyRoute` (niet een statische import): dat houdt de artikelcode uit de initiële bundle én registreert het pad in `routePreloads`, waarop `entry-server.tsx` (prerender) en `main.tsx` (hydration zonder content-flash) vertrouwen.
 
