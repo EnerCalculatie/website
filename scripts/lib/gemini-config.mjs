@@ -12,5 +12,5 @@ if (!GEMINI_API_KEY) {
   process.exit(1);
 }
 
-// Kies zelf een model via de GEMINI_MODEL env var/secret, bv. 'gemini-1.5-flash'.
-export const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-flash-latest';
+// Kies zelf een model via de GEMINI_MODEL env var/secret, bv. 'gemini-3.6-flash'.
+export const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash';
