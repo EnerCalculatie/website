@@ -2,40 +2,52 @@
   "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
   "facts": [
     {
-      "claim": "Zonnepanelen behalen in het Nederlandse klimaat zelden hun theoretische piekvermogen (Standard Test Conditions / STC) vanwege temperatuurstijging, niet-optimale oriëntatie en de gemiddelde instraling.",
-      "source": "Milieu Centraal",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "SolarEdge staat op het HD-Wave platform een overdimensionering van de DC-zijde ten opzichte van het nominale AC-vermogen van de omvormer toe tot maximaal 155%.",
+      "claim": "Overdimensionering houdt in dat het totale piekvermogen van de zonnepanelen (DC-vermogen in Wattpiek) hoger is dan het maximale wisselstroomvermogen (AC-vermogen in Watt) van de omvormer.",
       "source": "SolarEdge",
       "confidence": 100,
       "datum": "2024"
     },
     {
-      "claim": "Door de DC-zijde over te dimensioneren (DC/AC-verhouding > 100%) bereikt de omvormer 's ochtends sneller de opstartspanning en blijft deze 's avonds langer op een efficiënt werkpunt produceren bij lage instraling.",
+      "claim": "Zonnepanelen bereiken in het Nederlandse klimaat zelden hun theoretische piekvermogen (STC-waarde) door factoren zoals hitte, niet-optimale oriëntatie, hellingshoek en wisselende instraling.",
+      "source": "Milieu Centraal",
+      "confidence": 98,
+      "datum": "2024"
+    },
+    {
+      "claim": "Fabrikanten zoals SolarEdge ondersteunen bij residentiële enkelfase- en driefase-omvormers een DC/AC-verhouding van 135% tot 200% (afhankelijk van het type omvormer en opslagsysteem) zonder dat de garantie vervalt.",
+      "source": "SolarEdge",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Het verlies door aftoppen ('clipping') bij een DC/AC-verhouding van 120% tot 130% bedraagt op jaarbasis doorgaans minder dan 1% tot 2% van de totale energie-opbrengst.",
       "source": "SolarEdge",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Het jaarlijkse opbrengstverlies als gevolg van aftoppen ('clipping') op zonnige piekmomenten bedraagt bij een gebruikelijke overdimensionering van 110% tot 130% gemiddeld minder dan 1% tot 2% van de totale jaaropbrengst.",
-      "source": "Milieu Centraal",
-      "confidence": 90,
+      "claim": "Door een hogere DC/AC-verhouding start de omvormer 's ochtends eerder op en blijft deze 's avonds langer op een hoger vermogen produceren, wat de totale dagelijkse energie-opbrengst verhoogt.",
+      "source": "SolarEdge",
+      "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Het maximale vermogen dat kan worden ingevoerd op het elektriciteitsnet wordt uitsluitend begrensd door het nominale AC-vermogen van de omvormer, niet door de som van het Wp-vermogen van de zonnepanelen op het dak.",
+      "claim": "Door het AC-vermogen van de omvormer lager te houden via overdimensionering, kan overschrijding van de maximale capaciteit van de netvoedingsaansluiting (zoals 3x25A) en daarmee een dure netverzwaring worden voorkomen.",
       "source": "Netbeheer Nederland",
-      "confidence": 100,
+      "confidence": 98,
       "datum": "2024"
     },
     {
-      "claim": "Bij een standaard kleinverbruikaansluiting van 3x25A bedraagt het maximale continue terugleververmogen aan het net 17,25 kW (AC).",
+      "claim": "Het beperken van het maximale AC-vermogen helpt spanningspieken op het lokale net te verminderen, waardoor de omvormer minder snel uitschakelt wegens overspanning (253V-problematiek).",
       "source": "Liander",
-      "confidence": 100,
+      "confidence": 95,
       "datum": "2024"
+    },
+    {
+      "claim": "Volgens de NEN 1010-normen moet de bedrading en beveiliging aan de AC-zijde van het PV-systeem worden gedimensioneerd op basis van de maximale uitgangsstroom van de omvormer en niet op de DC-capaciteit van de panelen.",
+      "source": "NEN",
+      "confidence": 100,
+      "datum": "2023"
     }
   ]
 }

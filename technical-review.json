@@ -1,17 +1,22 @@
 [
   {
-    "issue": "Het stellen dat een hogere DC/AC-verhouding altijd zorgt voor een 'snellere opstart' is technisch onjuist.",
+    "issue": "De stelling dat een hogere DC/AC-verhouding zorgt dat de omvormer 's ochtends sneller opstart is technisch incorrect. De opstart van een omvormer wordt bepaald door de minimale opstartspanning (DC-spanning), welke afhankelijk is van het aantal in serie geschakelde panelen (stringlengte) en niet van het totale DC-vermogen of overdimensionering in de vorm van extra parallelle strings.",
     "severity": "medium",
-    "recommendation": "Nuanceer dat het bereiken van de opstartspanning (V_start) afhangt van de klemspanning (V_oc) van de string (het aantal panelen in serie) en niet van het totale DC-vermogen. Overdimensionering door parallelle strings of zwaardere Wp-panelen verandert de opstartspanning niet."
+    "recommendation": "Verduidelijk dat sneller opstarten alleen aan de orde is wanneer de overdimensionering wordt gerealiseerd door langere strings te maken (hogere klemspanning bij lage instraling) en niet simpelweg door meer vermogen/parallelle takken aan te sluiten."
   },
   {
-    "issue": "Het noemen van 17,25 kW als realistisch continu terugleververmogen op een 3x25A aansluiting negeert NEN 1010 ontwerpregels voor selectiviteit en spanningsopdrijving.",
-    "severity": "high",
-    "recommendation": "Voeg toe dat 17,25 kW het theoretische maximum van de aansluiting is, maar dat volgens NEN 1010 ivm selectiviteit t.o.v. de 25A smeltveiligheden/hoofdautomaten de maximale eindgroepzekering 16A bedraagt. Dit beperkt het maximaal aan te sluiten 3-fase omvormervermogen in de praktijk tot circa 11 kVA (3x16A x 230V) om continue overbelasting en uitval van hoofdzekeringen te voorkomen."
+    "issue": "Bij de NEN 1010 richtlijnen ontbreekt de cruciale eis omtrent aardlekbeveiliging en DC-foutstromen (NEN 1010 rubriek 712).",
+    "severity": "medium",
+    "recommendation": "Voeg toe dat volgens NEN 1010 rubriek 712 gekeken moet worden naar de aanwezigheid van galvanische scheiding in de omvormer en/of geïntegreerde RCMU-beveiliging (6mA DC-detectie), wat bepaalt of er een Type A of Type B aardlekschakelaar voorgeschreven is."
   },
   {
-    "issue": "De claim dat een 3-fase aansluiting pas 'boven 5 kW in veel gevallen noodzakelijk is' ontbreekt normatieve en installatietechnische onderbouwing qua selectiviteit.",
-    "severity": "high",
-    "recommendation": "Verduidelijk dat volgens de Netcode Elektriciteit en NEN 1010 een enkelfasige omvormer op een 3x25A of 1x35A aansluiting maximaal 16A (3,68 kVA) mag invoeden om selectiviteit t.o.v. de hoofdzekering te waarborgen en fasedisbalans te beperken. Een omvormer van 5 kW vereist een 25A eindgroep, wat bij een 25A hoofdaansluiting niet toegestaan is."
+    "issue": "Bij de vermelding van de 253V-problematiek ontbreekt de specifieke NEN 1010-eisen inzake spanningsval over de AC-leiding.",
+    "severity": "medium",
+    "recommendation": "Voeg toe dat conform NEN 1010 de spanningsval in de AC-kabel tussen omvormer en verdelingsinrichting zo laag mogelijk gehouden moet worden (bij voorkeur < 1%) door de juiste aderdiameter te kiezen, aangezien kabelweerstand direct bijdraagt aan het bereiken van de 253V-grens."
+  },
+  {
+    "issue": "De term 'selectiviteit' wordt ongenuanceerd gebruikt bij het afzekeren van 16A op een 3x25A hoofdaansluiting. Een B16/C16 installatieautomaat achter een 25A gG-smeltveiligheid is bij hoge kortsluitstromen niet gegarandeerd kortsluitselectief (factor 1,6 regel).",
+    "severity": "low",
+    "recommendation": "Nuanceer dat 16A de maximale nominale stroom is die men op een 25A hoofdzekering kan aansluiten om overbelasting te voorkomen, maar dat voor volledige kortsluitselectiviteit specifieke beveiligingskarakteristieken noodzakelijk zijn."
   }
 ]
