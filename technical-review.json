@@ -1,22 +1,17 @@
 [
   {
-    "issue": "De stelling dat een hogere DC/AC-verhouding zorgt dat de omvormer 's ochtends sneller opstart is technisch incorrect. De opstart van een omvormer wordt bepaald door de minimale opstartspanning (DC-spanning), welke afhankelijk is van het aantal in serie geschakelde panelen (stringlengte) en niet van het totale DC-vermogen of overdimensionering in de vorm van extra parallelle strings.",
+    "issue": "Er wordt gesteld dat bij zowel een 1x35A als een 3x25A hoofdaansluiting de omvormer ter waarborging van de selectiviteit op maximaal 16A afgezekerd dient te worden. Bij een 1x35A aansluiting is afzekering op 20A of 25A echter wel mogelijk met behoud van selectiviteit t.o.v. de hoofdzekering.",
     "severity": "medium",
-    "recommendation": "Verduidelijk dat sneller opstarten alleen aan de orde is wanneer de overdimensionering wordt gerealiseerd door langere strings te maken (hogere klemspanning bij lage instraling) en niet simpelweg door meer vermogen/parallelle takken aan te sluiten."
+    "recommendation": "Nuanceer dat de 16A grens voor selectiviteit primair geldt voor een 3x25A hoofdaansluiting (vanwege de 1,6 factor bij smeltveiligheden). Bij een 1x35A hoofdaansluiting kan een hogere AC-stroom (zoals 20A/4,6kW) selectief worden aangesloten, mits kabeldiameter en beveiliging hierop zijn afgestemd."
   },
   {
-    "issue": "Bij de NEN 1010 richtlijnen ontbreekt de cruciale eis omtrent aardlekbeveiliging en DC-foutstromen (NEN 1010 rubriek 712).",
-    "severity": "medium",
-    "recommendation": "Voeg toe dat volgens NEN 1010 rubriek 712 gekeken moet worden naar de aanwezigheid van galvanische scheiding in de omvormer en/of geïntegreerde RCMU-beveiliging (6mA DC-detectie), wat bepaalt of er een Type A of Type B aardlekschakelaar voorgeschreven is."
+    "issue": "Bij de technische randvoorwaarden conform NEN 1010 worden alleen de maximale ingangsspanning (Vdc max) en maximale ingangsstroom (Idc max) genoemd, terwijl de maximale kortsluitstroom (Isc max) ontbreekt.",
+    "severity": "high",
+    "recommendation": "Voeg expliciet de maximale kortsluitstroom van de omvormer (Isc max) toe aan de randvoorwaarden. Bij het overdimensioneren en eventueel parallel schakelen van strings mag de maximale Isc van de zonnepanelen de Isc max van de omvormeringang nooit overschrijden om brandschade en vervallen van garantie te voorkomen."
   },
   {
-    "issue": "Bij de vermelding van de 253V-problematiek ontbreekt de specifieke NEN 1010-eisen inzake spanningsval over de AC-leiding.",
-    "severity": "medium",
-    "recommendation": "Voeg toe dat conform NEN 1010 de spanningsval in de AC-kabel tussen omvormer en verdelingsinrichting zo laag mogelijk gehouden moet worden (bij voorkeur < 1%) door de juiste aderdiameter te kiezen, aangezien kabelweerstand direct bijdraagt aan het bereiken van de 253V-grens."
-  },
-  {
-    "issue": "De term 'selectiviteit' wordt ongenuanceerd gebruikt bij het afzekeren van 16A op een 3x25A hoofdaansluiting. Een B16/C16 installatieautomaat achter een 25A gG-smeltveiligheid is bij hoge kortsluitstromen niet gegarandeerd kortsluitselectief (factor 1,6 regel).",
+    "issue": "De claim dat overdimensioneren van de DC-zijde zorgt voor een 'snellere opstart' is technisch onnauwkeurig. De opstart van een omvormer wordt bepaald door de opstartspanning (Vstart) van de string, niet door het vermogen (Wp).",
     "severity": "low",
-    "recommendation": "Nuanceer dat 16A de maximale nominale stroom is die men op een 25A hoofdzekering kan aansluiten om overbelasting te voorkomen, maar dat voor volledige kortsluitselectiviteit specifieke beveiligingskarakteristieken noodzakelijk zijn."
+    "recommendation": "Pas de tekst aan: verduidelijk dat opstarten afhangt van de opstartspanning (Vstart) en dat overdimensionering (meer/zwaardere panelen) er primair voor zorgt dat het minimale werkvermogen bij lage instraling sneller bereikt en langer vastgehouden wordt."
   }
 ]

@@ -1,40 +1,41 @@
 # DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?
 
-Bij het ontwerpen van een zonne-energie-installatie krijgen installateurs regelmatig vragen van klanten over overdimensionering. Klanten vragen zich af waarom het vermogen van de zonnepanelen hoger is dan het vermogen van de omvormer en of dit niet leidt tot veel verlies. In dit artikel leest u de feitelijke onderbouwing van overdimensionering, zodat u dit helder kunt uitleggen.
+Bij het ontwerpen van een zonne-energiesysteem komt de verhouding tussen het vermogen van de zonnepanelen en de omvormer regelmatig ter sprake. In veel situaties wordt gekozen voor overdimensionering. Maar wat houdt dit precies in, welke voordelen biedt het en hoe zit het met opbrengstverlies?
 
-## Wat is overdimensionering?
+## Wat is overdimensionering van een omvormer?
 
-Overdimensionering houdt in dat het totale piekvermogen van de zonnepanelen (het DC-vermogen in Wattpiek) hoger is dan het maximale wisselstroomvermogen (het AC-vermogen in Watt) van de omvormer. De verhouding tussen deze twee waarden noemt men de DC/AC-verhouding.
+Overdimensionering houdt in dat het totale vermogen van de zonnepanelen aan de gelijkstroomzijde (het DC-vermogen in Wattpiek/Wp) hoger is dan het maximale uitgangsvermogen van de omvormer aan de wisselstroomzijde (het AC-vermogen in Watt/W). 
 
-## Waarom overdimensioneren in het Nederlandse klimaat?
+Voor residentiële zonne-energiesystemen ligt een gebruikelijke DC/AC-verhouding doorgaans tussen de 110% en 130% (een verhouding van 1,1 tot 1,3).
 
-In het Nederlandse klimaat bereiken zonnepanelen zelden hun theoretische piekvermogen (de STC-waarde). Dit heeft te maken met invloeden zoals hitte, een niet-optimale oriëntatie, de hellingshoek en wisselende instraling.
+## De voordelen van een hogere DC/AC-verhouding
 
-Het toepassen van een hogere DC/AC-verhouding heeft duidelijke voordelen voor de energie-opbrengst:
-- **Eerdere opstart en langere productie:** Door een hogere DC/AC-verhouding start de omvormer 's ochtends sneller op en blijft deze 's avonds langer op een hoger vermogen produceren. Dit kan de totale dagelijkse energie-opbrengst verhogen.
-- **Garantievoorwaarden van fabrikanten:** Fabrikanten zoals SolarEdge ondersteunen bij residentiële enkelfase- en driefase-omvormers een DC/AC-verhouding van 135% tot 200% (afhankelijk van het type omvormer en opslagsysteem) zonder dat de garantie vervalt.
+Het overdimensioneren van de DC-zijde brengt in de praktijk verschillende voordelen met zich mee:
 
-## Hoe zit het met aftoppen ('clipping')?
+* **Snellere opstart en langere productie:** Door de DC-zijde te overdimensioneren start de omvormer 's ochtends vaak sneller op. Daarnaast kan de omvormer 's avonds bij een lage instraling langer op vol vermogen blijven produceren.
+* **Voorkomen van netoverbelasting:** Een omvormer met een lager AC-vermogen voorkomt onnodige overbelasting van de hoofdaansluiting. Dit beperkt tevens het risico op uitschakeling van de installatie door overspanning op het elektriciteitsnet.
 
-Een veelgehoorde zorg van klanten is dat het systeem energie verliest op zonnige piekmomenten wanneer de omvormer de uitgang begrenst op zijn maximale AC-vermogen. 
+### Netinpassing en selectiviteit
+In de praktijk spelen ook nettechnische richtlijnen een rol bij het bepalen van het maximale AC-vermogen:
+* Volgens NEN 1010-richtlijnen wordt ter waarborging van selectiviteit bij een hoofdaansluiting van 1x35A of 3x25A een omvormer doorgaans op maximaal 16A afgezekerd. Dit komt overeen met een maximaal vermogen van 3,68 kW (3.680 Watt) per fase.
+* Om fase-onbalans te voorkomen geldt volgens de Netcode Elektriciteit dat invoeding boven de 16A (3,68 kVA) over meerdere fases verdeeld dient te worden. Vanaf omvormers groter dan circa 3,68 kW (of 4 kW) wordt daarom doorgaans overgestapt op een 3-fase omvormer.
 
-In de praktijk valt dit verlies erg mee. Het verlies door aftoppen bij een DC/AC-verhouding van 120% tot 130% bedraagt op jaarbasis doorgaans minder dan 1% tot 2% van de totale energie-opbrengst. De extra opbrengst in de ochtend, avond en op bewolkte dagen weegt in veel gevallen ruimschoots op tegen dit beperkte piekverlies.
+## Wat is 'clipping' en hoeveel invloed heeft het?
 
-## Voordelen voor de netaansluiting en netstabiliteit
+Wanneer het aanbod van het DC-vermogen op zonnige momenten groter is dan het maximale AC-vermogen van de omvormer, treedt er **clipping** op. Hierbij begrenst de omvormer het overtollige vermogen om binnen zijn maximale AC-capaciteit te blijven.
 
-Het bewust lager houden van het AC-vermogen van de omvormer biedt ook praktische en technische voordelen ten aanzien van de netvoedingsaansluiting:
+Hoewel dit klinkt als verlies van energie, valt het rendementsverlies in de praktijk erg mee:
+* Bij een DC/AC-verhouding van 120% is het rendementsverlies door clipping doorgaans nihil tot minimaal (vaak minder dan 1 tot 2% op jaarbasis).
+* Dit geringe verlies op de piekmomenten wordt in veel gevallen gecompenseerd door de hogere stroomproductie tijdens de randuren ('s ochtends en 's avonds).
 
-- **Voorkomen van netverzwaring:** Door het AC-vermogen van de omvormer te begrenzen via overdimensionering, kan overschrijding van de maximale capaciteit van de huisaansluiting (zoals 3x25A) en een kostbare netverzwaring worden voorkomen.
-- **Verminderen van 253V-problematiek:** Het beperken van het maximale AC-vermogen helpt spanningspieken op het lokale net te verminderen. Hierdoor schakelt de omvormer minder snel uit wegens overspanning.
+## Technische randvoorwaarden (NEN 1010)
 
-## Richtlijnen volgens NEN 1010 en Netcode Elektriciteit
+Bij het ontwerpen van een overgedimensioneerd systeem is het van belang de grenzen van de apparatuur te bewaken. Conform de NEN 1010-eisen moeten bij overdimensionering de waarden binnen de fabrieksspecificaties van de omvormer blijven, waaronder:
+* De maximale ingangsspanning ($V_{dc\ \text{max}}$)
+* De maximale ingangsstroom ($I_{dc\ \text{max}}$)
 
-Bij de installatie en dimensionering van de beveiliging gelden specifieke technische regels:
+Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een erkend installateur.
 
-- **Dimensionering van AC-kabels en beveiliging:** Volgens de NEN 1010-normen moet de bedrading en beveiliging aan de AC-zijde van het PV-systeem worden gedimensioneerd op basis van de maximale uitgangsstroom van de omvormer, en uitdrukkelijk niet op de DC-capaciteit van de zonnepanelen.
-- **Selectiviteit op de hoofdaansluiting:** Om selectiviteit te waarborgen geldt dat bij een hoofdaansluiting van 1x35A of 3x25A een omvormer doorgaans op maximaal 16A mag worden afgezekerd. Dit komt neer op een maximaal vermogen van 3,68 kW (16A × 230V) per fase, of circa 11 kW totaal op een 3-fase aansluiting.
-- **Fase-onbalans:** Op basis van de Netcode Elektriciteit dient invoeding boven de 16A (3,68 kVA) over meerdere fases te worden verdeeld om fase-onbalans te voorkomen. Vanaf omvormers groter dan ongeveer 3,68 kW (of 4 kW in de praktijk) dient men daarom over te stappen op een 3-fase omvormer.
+## Samenvatting
 
-## Conclusie
-
-Overdimensionering zorgt ervoor dat een zonne-energiesysteem gedurende de dag sneller en langer op een hoger vermogen levert. Het jaarlijkse verlies door aftoppen blijft bij een DC/AC-verhouding van 120% tot 130% beperkt tot doorgaans minder dan 1% tot 2%. Daarnaast helpt het om de belasting op de hoofdaansluiting en het net te beperken, waarbij de kabel- en beveiligingsdiameter conform NEN 1010 wordt bepaald door de maximale AC-uitgangsstroom van de omvormer.
+Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties ($V_{dc\ \text{max}}$ en $I_{dc\ \text{max}}$) en NEN 1010-richtlijnen blijft.

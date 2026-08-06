@@ -1205,4 +1205,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is R290 koudemiddel gevaarlijk binnenshuis?', answer: 'Bij monobloc systemen bevindt het R290-koudemiddel zich uitsluitend in de buitenunit. Er lopen enkel watervoerende leidingen naar de binnenruimte.' },
     ],
   },
+  {
+    slug: 'dc-ac-verhouding-omvormer-overdimensionering',
+    readingTimeMinutes: 4,
+    title: 'DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?',
+    seoTitle: 'DC/AC-verhouding Omvormer & Overdimensionering Uitgelegd',
+    description:
+      'Wat is de optimale DC/AC-verhouding voor een omvormer? Ontdek de voordelen van overdimensionering, de impact van clipping en de NEN 1010 richtlijnen.',
+    date: '2026-08-06',
+    excerpt:
+      'Ontdek hoe overdimensionering van een omvormer werkt, wat een ideale DC/AC-verhouding is (110%-130%) en waarom opbrengstverlies door clipping minimaal is.',
+    tags: ['DC/AC-verhouding', 'omvormer', 'overdimensionering', 'clipping', 'zonnepanelen', 'NEN 1010'],
+    keyPoints: [
+      'Een gebruikelijke DC/AC-verhouding ligt tussen de 110% en 130%.',
+      'Overdimensionering zorgt voor snellere opstart en langere doorproductie bij lage instraling.',
+      'Rendementsverlies door clipping is bij 120% overdimensionering meestal minder dan 1 tot 2% per jaar.',
+      'Fabrieksspecificaties zoals Vdc max en Idc max mogen conform NEN 1010 niet overschreden worden.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is de ideale DC/AC-verhouding voor een omvormer?', answer: 'Voor residentiële zonne-energiesystemen ligt een gebruikelijke en ideale DC/AC-verhouding doorgaans tussen de 110% en 130% (een verhouding van 1,1 tot 1,3).' },
+      { question: 'Hoeveel opbrengstverlies treedt er op door clipping?', answer: 'Bij een DC/AC-verhouding van 120% is het rendementsverlies door clipping doorgaans nihil tot minimaal, vaak minder dan 1 tot 2% op jaarbasis. Dit wordt gecompenseerd in de randuren.' },
+      { question: 'Is overdimensionering van een omvormer veilig volgens NEN 1010?', answer: 'Ja, mits het ontwerp binnen de fabrieksspecificaties van de omvormer blijft, met name de maximale ingangsspanning (Vdc max) en maximale ingangsstroom (Idc max).' },
+    ],
+  },
 ];
