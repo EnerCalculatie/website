@@ -43,16 +43,16 @@ export function R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle() {
     <BlogPostLayout post={post}>
       <ReactMarkdown
         components={{
-          h2: ({node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
-          h3: ({node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
-          p: ({node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
-          ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-          ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-          li: ({node, ...props}) => <li className="leading-relaxed" {...props} />,
-          strong: ({node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
-          a: ({node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
-          hr: ({node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
-          blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
+          h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
+          h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
+          p: ({node: _node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
+          ul: ({node: _node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          ol: ({node: _node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          li: ({node: _node, ...props}) => <li className="leading-relaxed" {...props} />,
+          strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
+          a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
+          hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
+          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
         }}
       >
         {markdown}

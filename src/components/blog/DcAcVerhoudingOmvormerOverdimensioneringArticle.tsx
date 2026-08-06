@@ -42,14 +42,14 @@ Hoewel dit klinkt als verlies van energie, valt het rendementsverlies in de prak
 ## Technische randvoorwaarden en NEN 1010 veiligheidseisen
 
 Bij het ontwerpen van een overgedimensioneerd systeem is het van belang de grenzen van de apparatuur te bewaken. Conform de NEN 1010-eisen moeten bij overdimensionering de waarden binnen de fabrieksspecificaties van de omvormer blijven, waaronder:
-* De maximale ingangsspanning (\$V_{dc\ \text{max}}\$)
-* De maximale ingangsstroom (\$I_{dc\ \text{max}}\$)
+* De maximale ingangsspanning ($V_{dc \text{max}}$)
+* De maximale ingangsstroom ($I_{dc \text{max}}$)
 
 Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een [erkend installateur](/kennisbank/installateur-kiezen).
 
 ## Samenvatting
 
-Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties (\$V_{dc\ \text{max}}\$ en \$I_{dc\ \text{max}}\$) en NEN 1010-richtlijnen blijft.
+Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties ($V_{dc \text{max}}$ en $I_{dc \text{max}}$) en NEN 1010-richtlijnen blijft.
 
 ---
 
@@ -62,7 +62,7 @@ Voor residentiële zonne-energiesystemen ligt een gebruikelijke en ideale DC/AC-
 Bij een DC/AC-verhouding van 120% is het rendementsverlies door clipping doorgaans nihil tot minimaal, vaak minder dan 1 tot 2% op jaarbasis. Dit wordt gecompenseerd in de randuren.
 
 ### Is overdimensionering van een omvormer veilig volgens NEN 1010?
-Ja, mits het ontwerp binnen de fabrieksspecificaties van de omvormer blijft, met name de maximale ingangsspanning (\$V_{dc\ \text{max}}\$) en maximale ingangsstroom (\$I_{dc\ \text{max}}\$).
+Ja, mits het ontwerp binnen de fabrieksspecificaties van de omvormer blijft, met name de maximale ingangsspanning ($V_{dc \text{max}}$) en maximale ingangsstroom ($I_{dc \text{max}}$).
 `;
 
 export function DcAcVerhoudingOmvormerOverdimensioneringArticle() {
@@ -70,16 +70,16 @@ export function DcAcVerhoudingOmvormerOverdimensioneringArticle() {
     <BlogPostLayout post={post}>
       <ReactMarkdown
         components={{
-          h2: ({node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
-          h3: ({node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
-          p: ({node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
-          ul: ({node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-          ol: ({node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-          li: ({node, ...props}) => <li className="leading-relaxed" {...props} />,
-          strong: ({node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
-          a: ({node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
-          hr: ({node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
-          blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
+          h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
+          h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
+          p: ({node: _node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
+          ul: ({node: _node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          ol: ({node: _node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          li: ({node: _node, ...props}) => <li className="leading-relaxed" {...props} />,
+          strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
+          a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
+          hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
+          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
         }}
       >
         {markdown}
