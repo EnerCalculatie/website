@@ -35,19 +35,36 @@ export class LLMService {
       (body.generationConfig as Record<string, unknown>).responseMimeType = 'application/json';
     }
 
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    });
+    let retries = 3;
+    let delayMs = 2000;
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Gemini API Error (${response.status}): ${errorText}`);
+    while (retries >= 0) {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        const isTemporary = response.status === 503 || response.status === 429;
+        
+        if (isTemporary && retries > 0) {
+          console.warn(`[LLMService] Gemini API overloaded (${response.status}). Retrying in ${delayMs}ms... (${retries} attempts left)`);
+          await new Promise(resolve => setTimeout(resolve, delayMs));
+          retries--;
+          delayMs *= 2; // Exponential backoff
+          continue;
+        }
+        
+        throw new Error(`Gemini API Error (${response.status}): ${errorText}`);
+      }
+
+      const data = await response.json();
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
     }
-
-    const data = await response.json();
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    
+    throw new Error('LLMService failed after max retries.');
   }
 
   private getMockResponse(prompt: string): string {
