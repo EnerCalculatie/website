@@ -5,9 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'dc-ac-verhouding-omvormer-overdimensionering')!;
 
 const markdown = `
-# DC/AC-verhouding van een omvormer: Hoe legt u overdimensionering uit aan uw klant?
-
-Bij het ontwerpen van een [zonne-energiesysteem](/kennisbank/zonne-energiesysteem) komt de verhouding tussen het vermogen van de zonnepanelen en de omvormer regelmatig ter sprake. In veel situaties wordt gekozen voor overdimensionering van de omvormer om het totale rendement van de zonne-installatie te optimaliseren.
+Bij het ontwerpen van een zonne-energiesysteem komt de verhouding tussen het vermogen van de zonnepanelen en de omvormer regelmatig ter sprake. In veel situaties wordt gekozen voor overdimensionering van de omvormer om het totale rendement van de zonne-installatie te optimaliseren.
 
 > **Snelle definitie:** **Overdimensionering van een omvormer** betekent dat het totale gelijkstroomvermogen (DC-vermogen in Wp) van de zonnepanelen hoger is dan het maximale wisselstroomvermogen (AC-vermogen in W) van de omvormer. De optimale DC/AC-verhouding voor residentiële installaties ligt doorgaans tussen **110% en 130%**.
 
@@ -21,7 +19,7 @@ Voor residentiële zonne-energiesystemen ligt een gebruikelijke DC/AC-verhouding
 
 ## De belangrijkste voordelen van een hogere DC/AC-verhouding
 
-Het overdimensioneren van de DC-zijde van uw [omvormer](/kennisbank/omvormers) brengt in de praktijk verschillende voordelen met zich mee:
+Het overdimensioneren van de DC-zijde van uw omvormer brengt in de praktijk verschillende voordelen met zich mee:
 
 * **Snellere opstart en langere productie:** Door de DC-zijde te overdimensioneren start de omvormer 's ochtends vaak sneller op. Daarnaast kan de omvormer 's avonds bij een lage instraling langer op vol vermogen blijven produceren.
 * **Voorkomen van netoverbelasting:** Een omvormer met een lager AC-vermogen voorkomt onnodige overbelasting van de hoofdaansluiting. Dit beperkt tevens het risico op uitschakeling van de installatie door overspanning op het elektriciteitsnet.
@@ -45,7 +43,7 @@ Bij het ontwerpen van een overgedimensioneerd systeem is het van belang de grenz
 * De maximale ingangsspanning ($V_{dc \text{max}}$)
 * De maximale ingangsstroom ($I_{dc \text{max}}$)
 
-Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een [erkend installateur](/kennisbank/installateur-kiezen).
+Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een erkend installateur.
 
 ## Samenvatting
 
