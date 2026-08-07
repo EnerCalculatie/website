@@ -1,41 +1,35 @@
-# DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?
+# Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?
 
-Bij het ontwerpen van een zonne-energiesysteem komt de verhouding tussen het vermogen van de zonnepanelen en de omvormer regelmatig ter sprake. In veel situaties wordt gekozen voor overdimensionering. Maar wat houdt dit precies in, welke voordelen biedt het en hoe zit het met opbrengstverlies?
+Het adviseren over dynamische energiecontracten en de bijbehorende aansturing van installaties vraagt om een onderbouwing van zowel financiële als technische aspecten. Hierbij spelen markttarieven, regelgeving en de capaciteit van de elektrische aansluiting een centrale rol.
 
-## Wat is overdimensionering van een omvormer?
+## Werking van dynamische energiecontracten
 
-Overdimensionering houdt in dat het totale vermogen van de zonnepanelen aan de gelijkstroomzijde (het DC-vermogen in Wattpiek/Wp) hoger is dan het maximale uitgangsvermogen van de omvormer aan de wisselstroomzijde (het AC-vermogen in Watt/W). 
+Dynamische elektriciteitscontracten werken met uurprijzen die direct gekoppeld zijn aan de spotmarkt (EPEX Spot Day-Ahead). Leveranciers van deze contracten zijn wettelijk gehouden om de inkoopvergoeding en opslagen bovenop de spotmarktprijs transparant te vermelden.
 
-Voor residentiële zonne-energiesystemen ligt een gebruikelijke DC/AC-verhouding doorgaans tussen de 110% en 130% (een verhouding van 1,1 tot 1,3).
+Daarnaast staat de markt voor een verandering: de salderingsregeling voor kleinverbruikers wordt per 1 januari 2027 afgeschaft. Hierdoor verschuift het financiële rendement van zelfopgewekte stroom naar directe consumptie en slimme opslag.
 
-## De voordelen van een hogere DC/AC-verhouding
+## De rol van een Energy Management System (EMS)
 
-Het overdimensioneren van de DC-zijde brengt in de praktijk verschillende voordelen met zich mee:
+Een Energy Management System (EMS) regelt de belasting in huis dynamisch via load balancing. Dit helpt om piekstromen en afschakeling van de hoofdzekering te voorkomen. 
 
-* **Snellere opstart en langere productie:** Door de DC-zijde te overdimensioneren start de omvormer 's ochtends vaak sneller op. Daarnaast kan de omvormer 's avonds bij een lage instraling langer op vol vermogen blijven produceren.
-* **Voorkomen van netoverbelasting:** Een omvormer met een lager AC-vermogen voorkomt onnodige overbelasting van de hoofdaansluiting. Dit beperkt tevens het risico op uitschakeling van de installatie door overspanning op het elektriciteitsnet.
+Daarnaast kan een EMS warmtepompen en thuisbatterijen automatisch aansturen op basis van de actuele uurtarieven. Stroomverbruik kan hiermee worden verplaatst naar goedkope of negatieve uren. Deze slimme sturing vermindert de piekbelasting op het lokale elektriciteitsnet, wat bijdraagt aan het tegengaan van netcongestie.
 
-### Netinpassing en selectiviteit
-In de praktijk spelen ook nettechnische richtlijnen een rol bij het bepalen van het maximale AC-vermogen:
-* Volgens NEN 1010-richtlijnen wordt ter waarborging van selectiviteit bij een hoofdaansluiting van 1x35A of 3x25A een omvormer doorgaans op maximaal 16A afgezekerd. Dit komt overeen met een maximaal vermogen van 3,68 kW (3.680 Watt) per fase.
-* Om fase-onbalans te voorkomen geldt volgens de Netcode Elektriciteit dat invoeding boven de 16A (3,68 kVA) over meerdere fases verdeeld dient te worden. Vanaf omvormers groter dan circa 3,68 kW (of 4 kW) wordt daarom doorgaans overgestapt op een 3-fase omvormer.
+## Sturing van warmtepompen en thuisbatterijen
 
-## Wat is 'clipping' en hoeveel invloed heeft het?
+Bij het aansturen van warmtepompen en thuisbatterijen gelden de volgende mogelijkheden en eigenschappen:
 
-Wanneer het aanbod van het DC-vermogen op zonnige momenten groter is dan het maximale AC-vermogen van de omvormer, treedt er **clipping** op. Hierbij begrenst de omvormer het overtollige vermogen om binnen zijn maximale AC-capaciteit te blijven.
+* **Warmtepompen:** Warmtepompen die gekoppeld zijn aan een thermisch buffervat kunnen warmte voor ruimtes of warm tapwater voorproduceren tijdens uren met lage elektriciteitsprijzen.
+* **Thuisbatterijen:** Thuisbatterijen kunnen worden ingezet voor handel op de onbalansmarkt of de dynamische dag-vooruitmarkt. Het aansturingsalgoritme dient hierbij rekening te houden met de degradatie van de batterijcellen. 1-fase thuisbatterijen kunnen over het algemeen met maximaal 3,68 kW tot 5 kW laden of ontladen, afhankelijk van de netbeheerder.
 
-Hoewel dit klinkt als verlies van energie, valt het rendementsverlies in de praktijk erg mee:
-* Bij een DC/AC-verhouding van 120% is het rendementsverlies door clipping doorgaans nihil tot minimaal (vaak minder dan 1 tot 2% op jaarbasis).
-* Dit geringe verlies op de piekmomenten wordt in veel gevallen gecompenseerd door de hogere stroomproductie tijdens de randuren ('s ochtends en 's avonds).
+## Technische randvoorwaarden en netcapaciteit
 
-## Technische randvoorwaarden (NEN 1010)
+Bij het adviseren van sturing moet rekening gehouden worden met de technische grenzen van de elektrische installatie:
 
-Bij het ontwerpen van een overgedimensioneerd systeem is het van belang de grenzen van de apparatuur te bewaken. Conform de NEN 1010-eisen moeten bij overdimensionering de waarden binnen de fabrieksspecificaties van de omvormer blijven, waaronder:
-* De maximale ingangsspanning ($V_{dc\ \text{max}}$)
-* De maximale ingangsstroom ($I_{dc\ \text{max}}$)
+* **Beveiliging en selectiviteit (NEN 1010):** De NEN 1010 eist dat installaties adequaat beveiligd zijn tegen overstroom. Gelijktijdigheid moet hierin worden berekend, waarbij selectiviteit als belangrijke vuistregel geldt.
+* **Maximaal vermogen op de aansluiting:** Bij een hoofdaansluiting van 1x35A of 3x25A mag een omvormer of laadpaal doorgaans op maximaal 16A worden afgezekerd (rekening houdend met de veiligheidsmarge/factor 1.6). Dit betekent een maximaal vermogen van 3,68 kW (16A × 230V) per fase. Op een 3x25A aansluiting bedraagt het maximale 3-fase vermogen daarmee ~11 kW (3 × 16A). Hoewel een 3x25A aansluiting een continu vermogen van 17,25 kW heeft, is het onjuist om te claimen dat dit volledige vermogen zomaar aangesloten kan worden; hogere vermogens vereisen verzwaring van de aansluiting (bijvoorbeeld naar 3x35A).
+* **Fase-onbalans en Netcode Elektriciteit:** Om fase-onbalans te voorkomen, geldt op basis van de Netcode Elektriciteit dat invoeding boven de 16A (3,68 kVA) over meerdere fases verdeeld dient te worden. Vanaf omvormers groter dan ~3,68 kW (in de praktijk vaak vanaf 4 kW) moet daarom worden overgestapt op een 3-fase omvormer. Bij zonnepanelen is boven de 5 kW aan omvormervermogen veelal een 3-fase aansluiting noodzakelijk.
+* **Laadpalen:** Het maximale vermogen op een 3x25A aansluiting is doorgaans 11 kW per lader zonder slimme sturing, tenzij load balancing actief is.
 
-Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een erkend installateur.
+## Conclusie
 
-## Samenvatting
-
-Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties ($V_{dc\ \text{max}}$ en $I_{dc\ \text{max}}$) en NEN 1010-richtlijnen blijft.
+Het onderbouwen van een advies voor dynamische contracten rust op het combineren van tariefstructuren met de technische grenzen van de installatie. Met een EMS kan het verbruik van warmtepompen en batterijen afgestemd worden op uurprijzen van de spotmarkt en het vervallen van de salderingsregeling per 2027. De bepalingen uit de NEN 1010 en de Netcode Elektriciteit stellen hierbij duidelijke kaderrichtlijnen voor wat betreft selectiviteit, vermogensgrenzen en faseverdeling.

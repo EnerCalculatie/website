@@ -1,46 +1,46 @@
 {
-  "topic": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
+  "topic": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
   "facts": [
     {
-      "claim": "Overdimensionering houdt in dat het totale vermogen van de zonnepanelen (DC-vermogen in Wp) hoger is dan het maximale uitgangsvermogen van de omvormer (AC-vermogen in W).",
-      "source": "SolarEdge",
-      "confidence": 100,
-      "datum": "2025"
-    },
-    {
-      "claim": "Een gebruikelijke DC/AC-verhouding voor residentiële zonne-energiesystemen ligt tussen de 110% en 130% (verhouding 1,1 tot 1,3).",
-      "source": "SolarEdge",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "Door de DC-zijde te overdimensioneren start de omvormer 's ochtends eerder op en blijft hij 's avonds langer op vol vermogen produceren bij lage instraling.",
-      "source": "Milieu Centraal",
-      "confidence": 95,
-      "datum": "2025"
-    },
-    {
-      "claim": "Wanneer het aanbod van het DC-vermogen het maximale AC-vermogen van de omvormer overschrijdt, treedt 'clipping' op, waarbij de omvormer het overtollige vermogen begrenst.",
-      "source": "SolarEdge",
+      "claim": "Dynamische elektriciteitscontracten werken met uurprijzen die direct gekoppeld zijn aan de spotmarkt (EPEX Spot Day-Ahead).",
+      "source": "ACM",
       "confidence": 100,
       "datum": "2024"
     },
     {
-      "claim": "Het rendementsverlies door clipping bij een DC/AC-verhouding van 120% is in de praktijk nihil tot minimaal (vaak minder dan 1-2% op jaarbasis), wat wordt gecompenseerd door hogere winst in de randuren.",
-      "source": "Milieu Centraal",
-      "confidence": 90,
-      "datum": "2025"
+      "claim": "De salderingsregeling voor kleinverbruikers wordt per 1 januari 2027 afgeschaft, waardoor het financieel rendement verschuift naar directe consumptie en slimme opslag.",
+      "source": "Rijksoverheid",
+      "confidence": 100,
+      "datum": "2024"
     },
     {
-      "claim": "Een omvormer met een lager AC-vermogen voorkomt onnodige overbelasting van de hoofdaansluiting en beperkt het risico op uitschakeling door overspanning op het elektriciteitsnet.",
+      "claim": "Een Energy Management System (EMS) kan warmtepompen en thuisbatterijen automatisch aansturen op basis van actuele uurtarieven om stroomverbruik te verplaatsen naar goedkope of negatieve uren.",
+      "source": "Milieu Centraal",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Slimme sturing van batterijen en warmtepompen vermindert piekbelasting op het lokale elektriciteitsnet en helpt netcongestie tegen te gaan.",
       "source": "Netbeheer Nederland",
+      "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Warmtepompen gekoppeld aan een thermisch buffervat kunnen warmte voorruimtes of warm tapwater voorproduceren tijdens uren met lage elektriciteitsprijzen.",
+      "source": "RVO",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Bij het ontwerpen van een overgedimensioneerd systeem moeten de maximale ingangsspanning (Vdc max) en maximale ingangsstroom (Idc max) van de omvormer conform NEN 1010-eisen binnen de fabrieksspecificaties blijven.",
-      "source": "NEN",
+      "claim": "Leveranciers van dynamische energiecontracten zijn wettelijk verplicht om de inkoopvergoeding en opslagen bovenop de spotmarktprijs transparant te vermelden.",
+      "source": "ACM",
       "confidence": 100,
+      "datum": "2024"
+    },
+    {
+      "claim": "Thuisbatterijen kunnen worden ingezet voor handel op de onbalansmarkt of dynamische dag-vooruitmarkt, mits het aansturingsalgoritme rekening houdt met de degradatie van de batterijcellen.",
+      "source": "RVO",
+      "confidence": 90,
       "datum": "2024"
     }
   ]

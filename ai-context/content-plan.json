@@ -1,37 +1,30 @@
 [
   {
-    "title": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
-    "keyword": "DC AC verhouding omvormer",
+    "title": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
+    "keyword": "dynamisch energiecontract adviseren",
     "intent": "informatief",
-    "priority": 8,
-    "slug": "dcac-verhouding-van-een-omvormer-hoe-legt-u-overdimensionering-uit-aan-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-08-05T07:34:09.356Z",
-    "generatedSlug": "dc-ac-verhouding-omvormer-overdimensionering",
-    "generatedAt": "2026-08-06T09:15:28.783Z"
+    "priority": 9,
+    "slug": "dynamische-energiecontracten-adviseren-hoe-onderbouwt-u-de-sturing-van-batterij-en-warmtepomp",
+    "status": "planned",
+    "createdAt": "2026-08-07T12:42:41.888Z"
   },
   {
-    "title": "R290 koudemiddel in warmtepompen: wat betekent de overstap naar propaan voor uw plaatsingsadvies?",
-    "keyword": "R290 warmtepomp veiligheidsafstanden",
-    "intent": "informatief",
-    "priority": 8,
-    "slug": "r290-koudemiddel-in-warmtepompen-wat-betekent-de-overstap-naar-propaan-voor-uw-plaatsingsadvies",
-    "status": "generated",
-    "createdAt": "2026-08-05T07:34:09.358Z",
-    "generatedSlug": "r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies",
-    "generatedAt": "2026-08-05T09:42:11.696Z"
-  },
-  {
-    "title": "Brutomarge berekenen op verduurzamingsprojecten: zo onderbouwt u uw calculatie en offerte",
-    "keyword": "brutomarge berekenen installatiebedrijf",
+    "title": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",
+    "keyword": "bodem warmtepomp of lucht water adviseren",
     "intent": "commercieel",
+    "priority": 8,
+    "slug": "bodemgebonden-warmtepomp-versus-lucht-water-warmtepomp-zo-onderbouwt-u-de-meerkosten-en-het-rendement",
+    "status": "planned",
+    "createdAt": "2026-08-07T12:42:41.894Z"
+  },
+  {
+    "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
+    "keyword": "infraroodpanelen verduurzamingsadvies",
+    "intent": "informatief",
     "priority": 7,
-    "slug": "brutomarge-berekenen-op-verduurzamingsprojecten-zo-onderbouwt-u-uw-calculatie-en-offerte",
-    "status": "generated",
-    "createdAt": "2026-08-05T07:34:09.361Z",
-    "generatedSlug": "brutomarge-berekenen-installatiebedrijf",
-    "generatedAt": "2026-08-06T12:06:25.986Z",
-    "seoGeoScore": 88
+    "slug": "infraroodverwarming-combineren-met-warmtepompen-wanneer-past-het-binnen-een-realistisch-energieprofiel",
+    "status": "planned",
+    "createdAt": "2026-08-07T12:42:41.900Z"
   },
   {
     "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
@@ -197,6 +190,28 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
+    "keyword": "DC AC verhouding omvormer",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "dcac-verhouding-van-een-omvormer-hoe-legt-u-overdimensionering-uit-aan-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-08-05T07:34:09.356Z",
+    "generatedSlug": "dc-ac-verhouding-omvormer-overdimensionering",
+    "generatedAt": "2026-08-06T09:15:28.783Z"
+  },
+  {
+    "title": "R290 koudemiddel in warmtepompen: wat betekent de overstap naar propaan voor uw plaatsingsadvies?",
+    "keyword": "R290 warmtepomp veiligheidsafstanden",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "r290-koudemiddel-in-warmtepompen-wat-betekent-de-overstap-naar-propaan-voor-uw-plaatsingsadvies",
+    "status": "generated",
+    "createdAt": "2026-08-05T07:34:09.358Z",
+    "generatedSlug": "r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies",
+    "generatedAt": "2026-08-05T09:42:11.696Z"
   },
   {
     "title": "Sanitair warm water bij warmtepompen: hoe berekent u de juiste boilerinhoud voor uw klant?",
@@ -397,6 +412,18 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Brutomarge berekenen op verduurzamingsprojecten: zo onderbouwt u uw calculatie en offerte",
+    "keyword": "brutomarge berekenen installatiebedrijf",
+    "intent": "commercieel",
+    "priority": 7,
+    "slug": "brutomarge-berekenen-op-verduurzamingsprojecten-zo-onderbouwt-u-uw-calculatie-en-offerte",
+    "status": "generated",
+    "createdAt": "2026-08-05T07:34:09.361Z",
+    "generatedSlug": "brutomarge-berekenen-installatiebedrijf",
+    "generatedAt": "2026-08-06T12:06:25.986Z",
+    "seoGeoScore": 88
   },
   {
     "title": "Afgiftesysteem en warmtepomp: hoe controleert u of de radiatoren geschikt zijn voor lage temperatuur?",

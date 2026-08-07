@@ -1,17 +1,17 @@
 {
-  "passed": true,
+  "passed": false,
   "confidence": 92,
   "issues": [
     {
-      "issue": "De maximale kortsluitstroom (Isc max) ontbreekt in de opbrengst- en veiligheidsparameters. Dit betreft een ontbrekende nuance/uitbreiding op een opsomming, maar maakt de genoemde parameters (Vdc max en Idc max) feitelijk niet onjuist.",
+      "issue": "Het artikel mist een cruciale NEN 1010-veiligheidseis betreft somstromen bij gelijktijdige invoeding van net en batterij/PV. Het optellen van stromen (bijv. 25A net + 16A omvormer = 41A) door standaard 40A-aardlekschakelaars veroorzaakt overbelastings- en brandgevaar.",
+      "severity": "high"
+    },
+    {
+      "issue": "Het artikel bevat tegenstrijdige en feitelijk onjuiste claims over 1-fase vermogensgrenzen (bewering dat 1-fase tot 5 kW kan laden/ontladen spreekt de vermelde Netcode-grens van 16A / 3,68 kVA tegen).",
       "severity": "medium"
     },
     {
-      "issue": "Bij een 1x35A hoofdaansluiting is afzekering boven 16A (zoals 20A) technisch mogelijk met behoud van selectiviteit. Het artikel geeft een vereenvoudigde weergave, maar noemt dit 'doorgaans', waardoor het niet direct onjuist is.",
-      "severity": "medium"
-    },
-    {
-      "issue": "De claim van 'snellere opstart' door overdimensionering is technisch licht onnauwkeurig (opstart is voornamelijk afhankelijk van de opstartspanning Vstart), maar leidt niet tot een misleidend of gevaarlijk advies.",
+      "issue": "Toelichting op de vereiste meetinfrastructuur (zoals P1-poort, CT-spoelen of kWh-meters) voor de werking van het EMS ontbreekt.",
       "severity": "low"
     }
   ]

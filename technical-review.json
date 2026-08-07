@@ -1,17 +1,17 @@
 [
   {
-    "issue": "Er wordt gesteld dat bij zowel een 1x35A als een 3x25A hoofdaansluiting de omvormer ter waarborging van de selectiviteit op maximaal 16A afgezekerd dient te worden. Bij een 1x35A aansluiting is afzekering op 20A of 25A echter wel mogelijk met behoud van selectiviteit t.o.v. de hoofdzekering.",
-    "severity": "medium",
-    "recommendation": "Nuanceer dat de 16A grens voor selectiviteit primair geldt voor een 3x25A hoofdaansluiting (vanwege de 1,6 factor bij smeltveiligheden). Bij een 1x35A hoofdaansluiting kan een hogere AC-stroom (zoals 20A/4,6kW) selectief worden aangesloten, mits kabeldiameter en beveiliging hierop zijn afgestemd."
-  },
-  {
-    "issue": "Bij de technische randvoorwaarden conform NEN 1010 worden alleen de maximale ingangsspanning (Vdc max) en maximale ingangsstroom (Idc max) genoemd, terwijl de maximale kortsluitstroom (Isc max) ontbreekt.",
+    "issue": "Ontbreken van een essentiële NEN 1010-veiligheidseis met betrekking tot somstromen in de groepenkast bij gelijktijdige voeding vanuit het net en de batterij/PV-omvormer.",
     "severity": "high",
-    "recommendation": "Voeg expliciet de maximale kortsluitstroom van de omvormer (Isc max) toe aan de randvoorwaarden. Bij het overdimensioneren en eventueel parallel schakelen van strings mag de maximale Isc van de zonnepanelen de Isc max van de omvormeringang nooit overschrijden om brandschade en vervallen van garantie te voorkomen."
+    "recommendation": "Voeg toe dat wanneer een batterij of omvormer energie invoedt (bijv. 16A) terwijl er tegelijk stroom uit het net wordt afgenomen (bijv. 25A), de stromen zich in de groepenkast optellen tot 41A. Standaard aardlekschakelaars en intern gekozen bedrading/kamrails van 40A kunnen hierdoor overbelast raken. Er moet gewezen worden op het toepassen van 63A-componenten, geschikte hoofdbedrading of een somstroombeveiliging conform NEN 1010."
   },
   {
-    "issue": "De claim dat overdimensioneren van de DC-zijde zorgt voor een 'snellere opstart' is technisch onnauwkeurig. De opstart van een omvormer wordt bepaald door de opstartspanning (Vstart) van de string, niet door het vermogen (Wp).",
-    "severity": "low",
-    "recommendation": "Pas de tekst aan: verduidelijk dat opstarten afhangt van de opstartspanning (Vstart) en dat overdimensionering (meer/zwaardere panelen) er primair voor zorgt dat het minimale werkvermogen bij lage instraling sneller bereikt en langer vastgehouden wordt."
+    "issue": "Onjuiste en verwarrende vermogensgrenzen voor 1-fase invoeding volgens de Nederlandse Netcode Elektriciteit.",
+    "severity": "medium",
+    "recommendation": "Corrigeer de vermelde vermogensgrenzen. In Nederland geldt op basis van de Netcode Elektriciteit een maximale enkelfasige invoeding van 16A (3,68 kVA) om fase-onbalans te voorkomen. Beweringen dat een 1-fase thuisbatterij tot 5 kW kan laden/ontladen of dat pas boven 5 kW zonnepanelen een 3-fase aansluiting nodig is, zijn technisch onjuist voor de Nederlandse markt (5 kW heeft betrekking op de Belgische Synergrid C10/11-norm)."
+  },
+  {
+    "issue": "Ontbrekende technische nuance over de vereiste meetinfrastructuur voor een EMS en load balancing.",
+    "severity": "medium",
+    "recommendation": "Licht toe dat een EMS of load balancing systeem niet uit het niets kan sturen: er is een realtime uitlezing van de hoofdaansluiting nodig. Vermeld expliciet de noodzaak van een P1-poortkoppeling op de slimme meter, of het plaatsen van stroomtrafo's (CT-spoelen) of MID-gecertificeerde kWh-meters in de groepenkast."
   }
 ]
