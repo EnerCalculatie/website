@@ -52,7 +52,7 @@ export function ComparisonTable() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Nog werken met Excel, losse tools of een externe adviseur?
+            Nog werken met spreadsheets, losse tools of een externe adviseur?
           </h2>
           <p className="text-lg text-slate-600">
             Zie het verschil in snelheid, kosten en professionaliteit.
@@ -73,7 +73,7 @@ export function ComparisonTable() {
                     Vergelijking
                   </th>
                   <th className="p-6 text-base font-bold text-slate-400 bg-slate-50/30 w-1/4">
-                    Excel + handmatig
+                    Spreadsheet + handmatig
                   </th>
                   <th className="p-6 text-base font-bold text-slate-400 bg-amber-50/40 w-1/4">
                     Externe adviseur

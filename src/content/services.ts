@@ -66,7 +66,7 @@ export const services: ServiceMeta[] = [
     metaDescription:
       'Automatiseer de offerte voor zonnepanelen: aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening.',
     badge: 'Rekentool zonnepanelen',
-    headline: 'Offerte zonnepanelen onderbouwd in 5 minuten, niet in een avond Excel',
+    headline: 'Offerte zonnepanelen onderbouwd in 5 minuten, niet in een avond puzzelen',
     intro:
       'Van dakoriëntatie tot rendementsberekening: EnerCalculatie berekent het optimale aantal panelen, het piekvermogen (Wp) en de jaaropbrengst, en houdt daarbij rekening met het 0%-btw-tarief en de aankomende afschaffing van de salderingsregeling per 2027.',
     serviceType: 'Offerte- en adviessoftware voor zonnepanelen',

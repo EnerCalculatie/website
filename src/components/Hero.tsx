@@ -30,7 +30,7 @@ export function Hero() {
 
           {/* Doelgroep + resultaat */}
           <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
-            Upload de energierekening van uw klant. Wij lezen 'm uit, rekenen het optimale systeem door en leveren een professioneel adviesrapport — inclusief terugverdientijd, subsidies en saldering 2027. Zonder typfouten, zonder Excel, zonder wachten.
+            Upload de energierekening van uw klant. Wij lezen 'm uit, rekenen het optimale systeem door en leveren een professioneel adviesrapport — inclusief terugverdientijd, subsidies en saldering 2027. Zonder typfouten, zonder puzzelen, zonder wachten.
           </p>
 
           {/* Resultaten direct zichtbaar */}

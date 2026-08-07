@@ -4,7 +4,7 @@ import { XCircle, CheckCircle } from 'lucide-react';
 export function ProblemSolution() {
   const problems = [
     "Kritische consument: Klanten zijn steeds beter ingelezen en vragen om een harde, kloppende financiële onderbouwing.",
-    "Tijdrovend en foutgevoelig: Tarieven overtypen in Excel kost tijd en leidt snel tot rekenfouten. Dat schaadt het vertrouwen.",
+    "Tijdrovend en foutgevoelig: Tarieven handmatig overtypen kost tijd en leidt snel tot rekenfouten. Dat schaadt het vertrouwen.",
     "Complexe regelgeving: Door wisselende salderingsregels en terugleverkosten is het lastig om het exacte rendement uit te rekenen.",
     "Rommelige presentatie: Losse documentjes en bijgevoegde screenshots maken geen professionele indruk aan de keukentafel.",
     "Twijfel bij warmtepompkeuze: een verkeerd gedimensioneerde installatie kost u een terugkomst en uw reputatie.",

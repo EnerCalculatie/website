@@ -6,7 +6,7 @@ const faqs = [
   {
     question: 'Is EnerCalculatie offertesoftware of calculatiesoftware?',
     answer:
-      'Allebei. EnerCalculatie is offerte- en calculatiesoftware voor verduurzamingsinstallateurs in één: van de calculatie en configuratie van zonnepanelen, thuisbatterij, warmtepomp, airco en laadpaal tot een afgerond adviesrapport. U vervangt losse Excel-bestanden en een externe adviseur door één verduurzamingssoftware.',
+      'Allebei. EnerCalculatie is offerte- en calculatiesoftware voor verduurzamingsinstallateurs in één: van de calculatie en configuratie van zonnepanelen, thuisbatterij, warmtepomp, airco en laadpaal tot een afgerond adviesrapport. U vervangt losse spreadsheets en een externe adviseur door één verduurzamingssoftware.',
   },
   {
     question: 'Is dit geschikt als software voor een zzp-installateur of klein installatiebedrijf?',

@@ -30,7 +30,7 @@ export function Technology() {
     {
       icon: <Database size={24} />,
       title: 'Altijd een veilige back-up',
-      description: 'Uw gegevens worden continu geback-upt. Zo raakt u nooit belangrijke klantgegevens of gemaakte berekeningen kwijt door een defecte laptop of verloren Excel-bestand.',
+      description: 'Uw gegevens worden continu geback-upt. Zo raakt u nooit belangrijke klantgegevens of gemaakte berekeningen kwijt door een defecte laptop of verloren bestand.',
       color: 'bg-sky-500/10 text-sky-400',
     },
     {
