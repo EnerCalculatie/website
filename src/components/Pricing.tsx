@@ -22,12 +22,11 @@ const PRICING_TIERS: PricingTier[] = [
     setupFee: 0,
     description: 'Voor solar- en batterijinstallateurs die sneller offertes willen maken en meer opdrachten willen winnen.',
     includedFeatures: [
-      'Zonnepanelen (Solar)',
-      'Thuisbatterij (Battery)',
-      'AI-documentanalyse (OCR energierekening)',
-      'Deelbare rapporten & PDF-export',
-      'Onbeperkt dossiers',
-      'Saldering 2027 automatisch verwerkt'
+      'Offerte in 5 minuten — zonnepanelen en thuisbatterij in één advies',
+      'Energierekening automatisch uitgelezen (AI OCR), niet handmatig overtypen',
+      'Deelbaar PDF-rapport — sneller akkoord van de klant',
+      'Onbeperkt dossiers, geen kosten per project',
+      'Saldering 2027 automatisch correct verwerkt'
     ],
     excludedFeatures: [
       'Warmtepomp',
@@ -46,8 +45,9 @@ const PRICING_TIERS: PricingTier[] = [
     description: 'Voor installateurs die ook warmtepompen adviseren en een hogere orderwaarde per klant willen realiseren.',
     includedFeatures: [
       'Alles uit Business',
-      'Warmtepomp (incl. ISDE-subsidieberekening)',
-      'Technische opname (bouwkundige schouw)'
+      'Ook warmtepompen adviseren — grotere pakketten verkopen in 1 gesprek',
+      'ISDE-subsidie automatisch meegerekend, geen losse berekening',
+      'Technische opname erbij — minder terugkomen voor een schouw'
     ],
     excludedFeatures: [
       'Airco',
@@ -64,10 +64,9 @@ const PRICING_TIERS: PricingTier[] = [
     description: 'Voor bedrijven die complete verduurzaming aanbieden — van solar en batterij tot warmtepomp, airco en laadpaal.',
     includedFeatures: [
       'Alles uit Business PRO',
-      'Airco (koellastberekening)',
-      'Laadpaal (capaciteitscheck aansluiting)',
-      'Alle toekomstige modules',
-      'Priority support'
+      'Volledige verduurzaming aanbieden — airco en laadpaal erbij',
+      'Nooit een nieuwe module missen — automatisch toegang bij lancering',
+      'Sneller geholpen bij vragen — priority support'
     ],
     excludedFeatures: [
     ],
