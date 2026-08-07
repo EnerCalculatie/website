@@ -43,7 +43,7 @@ export interface ServiceMeta {
 // scoort het hoogst van alle content-types voor AI-citaties).
 const PAKKET_COMPARISON: ServiceComparison = {
   caption: 'Welk pakket bevat welke module?',
-  columns: ['Business (€ 99/mnd)', 'Business PRO (€ 179/mnd)', 'Compleet (€ 299/mnd)'],
+  columns: ['Business (€ 99/mnd)', 'Business PRO (€ 149/mnd)', 'Compleet (€ 299/mnd)'],
   rows: [
     { label: 'Zonnepanelen', values: ['✓', '✓', '✓'] },
     { label: 'Thuisbatterij', values: ['✓', '✓', '✓'] },
