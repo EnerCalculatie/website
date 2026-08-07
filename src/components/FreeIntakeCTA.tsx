@@ -18,17 +18,17 @@ export function FreeIntakeCTA() {
           Zelf ervaren hoe geautomatiseerd advies werkt?
         </h3>
         <p className="text-slate-300 leading-relaxed mb-8 text-lg">
-          Stop met handmatig gegevens overtypen. Gebruik de gratis AI-scan en genereer binnen 2 minuten een compleet, gepersonaliseerd verduurzamingsrapport voor uw klant.
+          Vul postcode en jaarverbruik in en zie binnen enkele seconden een echte, live berekening — geen account, geen upload nodig. Wilt u daarna het volledige whitelabel-rapport voor uw klant? Upload dan de energienota en genereer het in 2 minuten.
         </p>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 text-slate-300">
           <li className="flex items-center gap-3">
             <CheckCircle2 size={20} className="text-brand-primary shrink-0" />
-            <span>Upload een factuur of PDF</span>
+            <span>Direct resultaat op postcode + kWh</span>
           </li>
           <li className="flex items-center gap-3">
             <CheckCircle2 size={20} className="text-brand-primary shrink-0" />
-            <span>Direct een whitelabel adviesrapport</span>
+            <span>Optioneel: volledig whitelabel adviesrapport</span>
           </li>
           <li className="flex items-center gap-3">
             <CheckCircle2 size={20} className="text-brand-primary shrink-0" />
@@ -45,7 +45,7 @@ export function FreeIntakeCTA() {
           className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-primary-text hover:bg-white hover:text-slate-900 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl text-lg group"
         >
           <FileText size={20} />
-          Genereer Nu Uw Eerste Rapport
+          Probeer Direct Gratis
           <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
