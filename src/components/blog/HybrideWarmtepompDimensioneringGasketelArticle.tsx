@@ -72,6 +72,7 @@ export function HybrideWarmtepompDimensioneringGasketelArticle() {
         <th className="border border-slate-300 p-3 text-left font-semibold text-slate-800">Parameter</th>
         <th className="border border-slate-300 p-3 text-left font-semibold text-slate-800">Hybride opstelling (Bivalent)</th>
         <th className="border border-slate-300 p-3 text-left font-semibold text-slate-800">All-Electric opstelling (Monovalent)</th>
+        <th className="border border-slate-300 p-3 text-left font-semibold text-slate-800">Toelichting</th>
       </tr>
     </thead>
     <tbody>

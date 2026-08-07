@@ -174,13 +174,6 @@ export function Van1FaseNaar3FaseVerduurzamingAdviesArticle() {
   </li>
 </ol>
 
-<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-  Bronnen
-</h2>
-<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
-  <li className="mb-2"><a href="https://www.netbeheernederland.nl/netcapaciteit-en-flexibiliteit/capaciteitskaart" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Capaciteitskaart — Netbeheer Nederland</a> — geraadpleegd 2026-08-04</li>
-  <li className="mb-2"><a href="https://www.nen.nl/elektrotechniek/installatievoorschriften/nen-1010-laagspanningsinstallaties" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">NEN 1010 — Dé norm voor laagspanningsinstallaties</a> — geraadpleegd 2026-08-04</li>
-</ol>
     </BlogPostLayout>
   );
 }

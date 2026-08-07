@@ -22,7 +22,7 @@ export function ThuisbatterijCapaciteitArticle() {
           <li><strong>Vermogen in kW</strong> bepaalt hoe snel de batterij laadt of ontlaadt. Een batterij met 5 kWh en een laadvermogen van 3,6 kW is in minder dan anderhalf uur vol als het aanbod toereikend is; een batterij met hetzelfde vermogen maar 10 kWh heeft daarvoor bijna drie uur nodig.</li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Voor een woninginstallateur is het vermogen relevant in combinatie met de groepenkast: als de aansluiting 1×25 A is, kunt u maximaal circa 5,75 kW gelijktijdig laden. Bij een systeem met zonnepanelen én een laadpaal én een batterij is het belangrijk te controleren of het laadvermogen van de batterij geen overbelasting veroorzaakt.
+          Voor een woninginstallateur is het vermogen relevant in combinatie met de groepenkast: als de aansluiting 1×25 A is, kunt u maximaal circa 5,75 kW gelijktijdig laden. Let op: dit is de aansluitcapaciteit, niet wat een los apparaat zoals een batterij zonder verzwaring mag trekken — zonder verzwaring van de aansluiting geldt in de praktijk een lagere selectiviteitsgrens van 16A/3,68 kW (conform NEN1010, als marge ten opzichte van de hoofdzekering). Bij een systeem met zonnepanelen én een laadpaal én een batterij is het belangrijk te controleren of het laadvermogen van de batterij geen overbelasting veroorzaakt.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">Het zelfconsumptieprofiel als startpunt</h2>

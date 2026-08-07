@@ -11,7 +11,7 @@ export function MiaVamilLaadpaalAdviserenZakelijkArticle() {
   Zakelijke klanten verduurzamen hun wagenpark alleen als de business case klopt. MIA en VAMIL waren jarenlang de standaard fiscale instrumenten om laadpalen aantrekkelijk te offreren. Dat is voorbij. Sinds 2025/2026 is de MIA/Vamil voor personenwagen-laadpalen volledig vervallen.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Belooft u dit nog steeds in uw offertes? Dan riskeert u boze klanten en afgewezen belastingaangiften. Gelukkig is er een alternatief. Door de nieuwe **SPRILA-subsidie** en de Kleinschaligheidsinvesteringsaftrek (KIA) slim te combineren, rekent u alsnog een ijzersterk rendement door.
+  Belooft u dit nog steeds in uw offertes? Dan riskeert u boze klanten en afgewezen belastingaangiften. Gelukkig is er een alternatief. Door de nieuwe <strong>SPRILA-subsidie</strong> en de Kleinschaligheidsinvesteringsaftrek (KIA) slim te combineren, rekent u alsnog een ijzersterk rendement door.
 </p>
 
 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
@@ -36,7 +36,7 @@ export function MiaVamilLaadpaalAdviserenZakelijkArticle() {
   De SPRILA-subsidie: de nieuwe rekensom voor het Mkb
 </h2>
 <p className="text-slate-700 leading-relaxed mb-4">
-  De SPRILA (Subsidieregeling Private Laadinfrastructuur bij bedrijven) is het centrale subsidiepotje voor 2026. Het budget is door de Eerste Kamer vastgesteld op € 122,5 miljoen en de regeling loopt tot en met 18 december 2026.
+  De SPRILA (Subsidieregeling Private Laadinfrastructuur bij bedrijven) is het centrale subsidiepotje voor 2026. Het totaalbudget bedraagt € 113,5 miljoen (€ 68,5 miljoen voor nieuwe laadpunten en € 45 miljoen voor stationaire batterijsystemen) en de regeling loopt van 20 januari tot en met 18 december 2026.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
   Voor een Mkb-onderneming gelden de volgende vaste subsidiebedragen:
@@ -45,14 +45,14 @@ export function MiaVamilLaadpaalAdviserenZakelijkArticle() {
   <li><strong>AC-laadstation (enkel, ≥ 11 kW):</strong> € 800 subsidie (grootbedrijf krijgt € 400).</li>
   <li><strong>AC-duopaal (2 laadpunten, ≥ 11 kW):</strong> € 1.600 subsidie (grootbedrijf krijgt € 800).</li>
   <li><strong>Basislaadinfrastructuur:</strong> U krijgt tot 40% van de kosten voor de verdeelkast, bekabeling en het graafwerk vergoed.</li>
-  <li><strong>Batterijkoppeling:</strong> Kiest de klant voor een gekoppelde stationaire batterij (10 tot 1.000 kWh)? Dan ontvangt het Mkb € 160 per kWh subsidie.</li>
+  <li><strong>Batterijkoppeling:</strong> Kiest de klant voor een gekoppelde stationaire batterij (10 tot 1.000 kWh)? Dan ontvangt het Mkb € 85 per kWh subsidie (grootbedrijf € 60 per kWh), tot maximaal 1.000 kWh per laadplek.</li>
 </ul>
 
 <h3 className="text-lg font-bold text-slate-800 mt-6 mb-3">
   Rekenvoorbeeld: Voldoen aan de SPRILA-subsidiedrempel
 </h3>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Om in aanmerking te komen voor de SPRILA, moet de aanvraag voldoen aan de minimale drempel van **€ 2.500 per locatie**. We berekenen de subsidiehoogte met de volgende formule:
+  Om in aanmerking te komen voor de SPRILA, moet de aanvraag voldoen aan de minimale drempel van <strong>€ 2.500 per locatie</strong>. We berekenen de subsidiehoogte met de volgende formule:
 </p>
 <div className="bg-slate-50 p-4 rounded-lg mb-4 font-mono text-sm border border-slate-200">
   S_totaal = (N_duopaal * 1600) + (L_infra * 40)

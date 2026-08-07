@@ -10,23 +10,23 @@ export function EnergielabelCPlicht2030Article() {
 
       <BlogPostLayout post={post}>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Per 1 januari 2030 moeten particuliere huurwoningen in Nederland minimaal energielabel C hebben bij aanvang van een nieuwe huurovereenkomst. Deze verplichting, vastgelegd in het Besluit kwaliteit energieprestatie woningen (BKE), geldt voor alle particuliere verhuurders en raakt direct aan uw werkterrein als installateur. Een verhuurder met een portefeuille van woningen met label D, E, F of G moet vóór 2030 in actie komen om aan deze norm te voldoen — en dat vraagt om een onderbouwd advies over welke maatregelen de labelstap mogelijk maken, en tegen welke kosten.
+          Rondom de verduurzaming van de particuliere huursector klinkt al langere tijd de roep om een verplicht minimum energielabel, naar analogie van de label C-plicht die per 2023 voor kantoorgebouwen ging gelden. Concrete wetgeving met een harde datum en een afdwingbare norm voor particuliere huurwoningen is er op dit moment niet, maar de politieke en maatschappelijke druk om ook in deze sector een ondergrens te stellen aan de energieprestatie is reëel. Voor u als installateur is dat reden genoeg om verhuurders nu al te wijzen op het risico van woningen met label D, E, F of G, en te adviseren over welke maatregelen een labelstap mogelijk maken en tegen welke kosten.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
-          In dit artikel leest u wat de label C-plicht concreet betekent, welke maatregelen doorgaans nodig zijn om van label D naar C te komen, welke uitzonderingen er gelden, en hoe u het adviesgesprek met een verhuurder voert op basis van rendement en terugverdientijd.
+          In dit artikel leest u welke maatregelen doorgaans nodig zijn om van label D naar C te komen, waar de discussie over een verplichting voor de huursector op dit moment staat, en hoe u het adviesgesprek met een verhuurder voert op basis van rendement en terugverdientijd.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-          Wat houdt de label C-plicht precies in?
+          Waar staat de discussie over een label C-plicht voor huurwoningen?
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          De wettelijke eis geldt vanaf 1 januari 2030 voor particuliere verhuurders bij het aangaan van een nieuwe huurovereenkomst. Een bestaande huurovereenkomst hoeft niet tussentijds aangepast te worden, maar zodra een woning weer verhuurd wordt, moet het energielabel minimaal C zijn. De verplichting geldt niet voor sociale verhuurders (woningcorporaties), die onder een eigen regeltraject vallen.
+          Voor kantoorgebouwen geldt sinds 1 januari 2023 al een wettelijke verplichting tot minimaal energielabel C. Voor particuliere huurwoningen bestaat een dergelijke wettelijke verplichting op dit moment niet, maar de wens om de verduurzaming van de huursector te versnellen staat wel op de politieke agenda. Voor verhuurders is het verstandig om hier tijdig op te anticiperen in plaats van te wachten op definitieve wetgeving, zeker omdat verduurzamingsmaatregelen vaak een lange voorbereidings- en uitvoeringstijd kennen.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
           Een energielabel wordt toegekend op basis van de EPA-methode (Energieprestatie Advies), waarin de gebouwschil, het verwarmingssysteem, de aanwezigheid van zonnepanelen en andere energiebesparende voorzieningen worden meegewogen. Het label loopt van A++++ (zeer zuinig) tot en met G (zeer onzuinig). Een woning met label D voldoet niet aan de norm; een woning met label C of hoger wel.
         </p>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Verhuurders die zich niet aan de norm houden, riskeren dat huurders een klacht indienen bij de huurcommissie. De huurcommissie kan dan een lagere huurprijs vaststellen of de verhuurder verplichten alsnog maatregelen te nemen. Boetes worden niet direct opgelegd, maar de druk op naleving is reëel.
+          Ook zonder een specifieke wettelijke verplichting voor huurwoningen spelen energieprestatie en huurprijs al een rol via het puntensysteem van de Huurcommissie: een slecht energielabel kan leiden tot een lagere maximale huurprijs of een klacht van de huurder. Verhuurders die niets doen aan een slecht presterende woning lopen dus nu al een risico op de huurprijs, los van eventuele toekomstige regelgeving.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
@@ -48,18 +48,18 @@ export function EnergielabelCPlicht2030Article() {
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-          Uitzonderingen: wanneer geldt de plicht niet?
+          Praktische afwegingen: wanneer is verduurzamen (nog) niet aan de orde?
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          De label C-plicht kent een aantal uitzonderingen. Verhuurders hoeven niet te voldoen aan de eis als:
+          Ook zonder harde wettelijke verplichting zijn er situaties waarin een verhuurder verduurzaming van een huurwoning terecht uitstelt of afweegt tegen andere prioriteiten:
         </p>
         <ul className="list-disc pl-6 mb-6 text-slate-700">
-          <li>De woning een rijksmonument is of binnen een beschermd stads- of dorpsgezicht valt, en verduurzaming in strijd is met de monumentale waarde;</li>
-          <li>De benodigde maatregelen technisch niet haalbaar zijn (bijvoorbeeld bij constructieve beperkingen);</li>
-          <li>De benodigde maatregelen naar redelijke inschatting niet binnen een termijn van tien jaar terugverdiend kunnen worden.</li>
+          <li>De woning is een rijksmonument of valt binnen een beschermd stads- of dorpsgezicht, waardoor verduurzaming in strijd kan zijn met de monumentale waarde;</li>
+          <li>De benodigde maatregelen zijn technisch niet haalbaar (bijvoorbeeld bij constructieve beperkingen);</li>
+          <li>De benodigde maatregelen zijn naar redelijke inschatting niet binnen een aanvaardbare termijn terug te verdienen via besparingen of huurprijsverhoging.</li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Die laatste uitzondering — de tien-jaars-terugverdienregel — is voor verhuurders de meest relevante. Als de verhuurder kan aantonen dat de investering niet binnen tien jaar terugverdiend wordt via besparingen of een hogere huurprijs, dan geldt de plicht niet. Dit vereist wel een onderbouwde berekening, die u als installateur kunt leveren.
+          Juist die laatste afweging — de terugverdientijd — is voor verhuurders het meest bepalend. Een onderbouwde berekening van investering tegenover besparing en huurpotentie helpt de verhuurder een weloverwogen keuze te maken, ook zolang er geen concrete wettelijke deadline geldt.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
@@ -81,12 +81,12 @@ export function EnergielabelCPlicht2030Article() {
           Wat betekent dit voor uw adviesgesprek?
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          Een verhuurder die nu nog woningen met label D, E, F of G in de portefeuille heeft, moet vóór 2030 in actie komen. Het adviesgesprek draait om drie kernvragen:
+          Een verhuurder die nu nog woningen met label D, E, F of G in de portefeuille heeft, doet er verstandig aan om niet te wachten op definitieve wetgeving. Het adviesgesprek draait om drie kernvragen:
         </p>
         <ul className="list-disc pl-6 mb-6 text-slate-700">
           <li>Welke maatregelen zijn nodig om label C te bereiken, en wat kosten deze maatregelen?</li>
           <li>Hoe verhoudt de investering zich tot de potentiële huurprijsverhoging en de versnelde verhuurbaarheid?</li>
-          <li>Kan de verhuurder gebruikmaken van de uitzondering op basis van de tien-jaars-terugverdienregel, en zo ja, hoe wordt dat onderbouwd?</li>
+          <li>Is de investering binnen een aanvaardbare termijn terug te verdienen, en zo ja, hoe wordt dat onderbouwd?</li>
         </ul>
         <p className="text-slate-700 leading-relaxed mb-4">
           Een onderbouwde berekening die de labelstap, de investering en de potentiële huurprijsverhoging inzichtelijk maakt, is voor een verhuurder het verschil tussen een advies dat abstract blijft en een advies dat besluitvorming mogelijk maakt.
@@ -96,7 +96,7 @@ export function EnergielabelCPlicht2030Article() {
           Hoe EnerCalculatie hiermee omgaat
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
-          EnerCalculatie berekent de labelstap op basis van de ingevoerde maatregelen en toont het verwachte nieuwe energielabel in het adviesrapport. Voor verhuurders is het mogelijk om de investering te koppelen aan een realistische inschatting van de terugverdientijd via huurprijsverhoging, zodat de tien-jaars-terugverdienregel onderbouwd kan worden. De berekening houdt rekening met de combinatie van isolatie, zonnepanelen en verwarmingssystemen, zoals beschreven in het artikel over{' '}
+          EnerCalculatie berekent de labelstap op basis van de ingevoerde maatregelen en toont het verwachte nieuwe energielabel in het adviesrapport. Voor verhuurders is het mogelijk om de investering te koppelen aan een realistische inschatting van de terugverdientijd via huurprijsverhoging, zodat die afweging onderbouwd gemaakt kan worden. De berekening houdt rekening met de combinatie van isolatie, zonnepanelen en verwarmingssystemen, zoals beschreven in het artikel over{' '}
           <a href="/blog/van-excel-naar-geautomatiseerd-advies" className="text-brand-primary-text font-semibold hover:underline">
             geautomatiseerd advies
           </a>

@@ -145,6 +145,8 @@ export function VerduurzamingsadviesVveCollectiefPlanArticle() {
 </h2>
 <ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
   <li className="mb-2"><a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderingsregeling zonnepanelen</a> — geraadpleegd 2026-08-03</li>
+  <li className="mb-2"><a href="https://www.warmtefonds.nl" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Nationaal Warmtefonds</a> — warmtefonds.nl</li>
+  <li className="mb-2"><a href="https://www.svve.nl" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">SVVE</a> — svve.nl</li>
 </ol>
       </BlogPostLayout>
   );

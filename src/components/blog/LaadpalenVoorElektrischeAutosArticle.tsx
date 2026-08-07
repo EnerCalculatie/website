@@ -23,7 +23,7 @@ export function LaadpalenVoorElektrischeAutosArticle() {
       Hoe kiest u de juiste laadpaal voor uw klant?
     </h2>
     <p className="text-slate-700 leading-relaxed mb-4">
-      Om de juiste laadpaal te kiezen, moet u eerst het laadvermogen van de auto van uw klant bepalen. Vervolgens moet u de capaciteit van de aansluiting controleren en de beschikbare ruimte in de woning in kaart brengen. Op basis van deze gegevens kunt u de juiste laadpaal Selecteren.
+      Om de juiste laadpaal te kiezen, moet u eerst het laadvermogen van de auto van uw klant bepalen. Vervolgens moet u de capaciteit van de aansluiting controleren en de beschikbare ruimte in de woning in kaart brengen. Op basis van deze gegevens kunt u de juiste laadpaal selecteren.
     </p>
 
     <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">

@@ -91,7 +91,7 @@ export function BrutomargeBerekenenInstallatiebedrijfArticle() {
   Stap 4: Bepaal de vereiste brutomarge en bereken de verkoopprijs
 </h3>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Zodra de totale directe kostprijs (materiaal + arbeid + extern + risico) bekend is, berekent u de verkoopprijs op basis van de gewenste brutomarge. Let hierbij op het verschil tussen een opslag op de kostprijs en de marge op de verkoopprijs: om een brutomarge van 30% op de omzet te realiseren, heeft u een kostprijsopslag van circa 42,8% nodig.
+  Zodra de totale directe kostprijs (materiaal + arbeid + extern + risico) bekend is, berekent u de verkoopprijs op basis van de gewenste brutomarge. Let hierbij op het verschil tussen een opslag op de kostprijs en de marge op de verkoopprijs: om een brutomarge van 30% op de omzet te realiseren, heeft u een kostprijsopslag van circa 42,9% nodig.
 </p>
 
 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
@@ -183,23 +183,15 @@ export function BrutomargeBerekenenInstallatiebedrijfArticle() {
 </h2>
 <ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
   <li className="mb-2">
-    <a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">
-      Salderingsregeling zonnepanelen — Rijksoverheid
-    </a>
+    <a href="https://www.rvo.nl/subsidies-financiering/isde" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">
+      ISDE — Investeringssubsidie duurzame energie en energiebesparing
+    </a> — geraadpleegd 2026-08-06
   </li>
   <li className="mb-2">
-    <a href="https://www.rvo.nl/subsidies-financiering/isde" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">
-      ISDE — Investeringssubsidie duurzame energie en energiebesparing — RVO
-    </a>
+    <a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">
+      Salderingsregeling zonnepanelen — Rijksoverheid
+    </a> — geraadpleegd 2026-08-06
   </li>
-</ol>
-
-<h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-  Bronnen
-</h2>
-<ol className="list-decimal pl-6 mb-6 text-slate-700 text-sm">
-  <li className="mb-2"><a href="https://www.rvo.nl/subsidies-financiering/isde" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">ISDE — Investeringssubsidie duurzame energie en energiebesparing</a> — geraadpleegd 2026-08-06</li>
-  <li className="mb-2"><a href="https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/energie-thuis/salderingsregeling" target="_blank" rel="noopener noreferrer" className="text-brand-primary-text font-semibold hover:underline">Salderingsregeling zonnepanelen</a> — geraadpleegd 2026-08-06</li>
 </ol>
     </BlogPostLayout>
   );

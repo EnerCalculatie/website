@@ -46,7 +46,7 @@ export function TrendsVerduurzaming2026Article() {
         <p className="text-slate-700 leading-relaxed mb-4">
           Terwijl het aantal nieuwe residentiële zonnepaneel-installaties in 2025 daalde met ruim 16% in de
           categorie kleine installaties, steeg het aantal thuisbatterij-installaties in datzelfde jaar met circa
-          140% (bron: marktdata 2025). Dit is een directe reactie op de naderende afschaffing van de
+          140% (branchecijfers, actuele bron per publicatiedatum te verifiëren). Dit is een directe reactie op de naderende afschaffing van de
           salderingsregeling per 1 januari 2027 en de toenemende bewustwording rondom terugleverkosten die
           energieleveranciers doorberekenen.
         </p>
@@ -90,7 +90,8 @@ export function TrendsVerduurzaming2026Article() {
         </h2>
         <p className="text-slate-700 leading-relaxed mb-4">
           De Nederlandse zonne-energiemarkt heeft aan het einde van 2025 een totale geïnstalleerde capaciteit
-          van ruim 29,4 gigawattpiek bereikt, verdeeld over meer dan 3,3 miljoen installaties. Daarmee heeft
+          van ruim 29,4 gigawattpiek bereikt, verdeeld over meer dan 3,3 miljoen installaties (branchecijfers,
+          actuele bron per publicatiedatum te verifiëren). Daarmee heeft
           Nederland zijn klimaatdoel voor zonne-energie voor 2030 al behaald. De markt voor nieuwe residentiële
           installaties raakt daardoor geleidelijk verzadigd in een deel van het woningbestand, al blijft de
           totale capaciteitsgroei — mede dankzij grote commerciële daken en zonneweides — aanzienlijk.
