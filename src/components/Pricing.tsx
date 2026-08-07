@@ -65,8 +65,7 @@ const PRICING_TIERS: PricingTier[] = [
     includedFeatures: [
       'Alles uit Business PRO',
       'Volledige verduurzaming aanbieden — airco en laadpaal erbij',
-      'Nooit een nieuwe module missen — automatisch toegang bij lancering',
-      'Sneller geholpen bij vragen — priority support'
+      'Nooit een nieuwe module missen — automatisch toegang bij lancering'
     ],
     excludedFeatures: [
     ],
