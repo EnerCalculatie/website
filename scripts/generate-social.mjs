@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -10,30 +11,34 @@ const rootDir = path.resolve(__dirname, '..');
 dotenv.config({ path: path.join(rootDir, '.env') });
 dotenv.config({ path: path.join(rootDir, '.env.local') });
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash';
-
-if (!GEMINI_API_KEY) {
-  console.error('MISLUKT — Reden: GEMINI_API_KEY ontbreekt als environment variable.');
-  process.exit(1);
-}
-
 const BLOG_DIR = path.join(rootDir, 'src', 'components', 'blog');
 const SOCIAL_DIR = path.join(rootDir, 'src', 'content', 'social');
+const APP_TSX_PATH = path.join(rootDir, 'src', 'App.tsx');
 
-async function getLatestBlogPost() {
+// Zoekt het componentbestand voor een slug via de route-registratie in App.tsx
+// (`lazyRoute('/blog/<slug>', () => import('./components/blog/<Naam>')...)`) i.p.v.
+// de slug zelf om te zetten naar een bestandsnaam: 11 van de 54 bestaande artikelen
+// (legacy, van vóór de PublishAgent-conventie) hebben een componentnaam die niet
+// 1-op-1 uit de slug volgt (bv. slug 'salderingsregeling-2027' → component
+// 'SalderingsregelingArticle.tsx', zonder het jaartal). App.tsx is de bron die de
+// router zelf gebruikt, dus deze koppeling kan niet uit de pas lopen.
+async function getBlogPostBySlug(slug) {
+  const appTsx = await fs.readFile(APP_TSX_PATH, 'utf-8');
+  const routeRegex = new RegExp(
+    `lazyRoute\\('/blog/${slug}',\\s*\\(\\)\\s*=>\\s*import\\('\\./components/blog/([^']+)'\\)`
+  );
+  const match = appTsx.match(routeRegex);
+  if (!match) {
+    console.error(`Geen route voor slug '${slug}' gevonden in App.tsx.`);
+    return null;
+  }
+
+  const fileName = `${match[1]}.tsx`;
   try {
-    const files = await fs.readdir(BLOG_DIR);
-    const tsxFiles = files.filter(f => f.endsWith('.tsx') && f.includes('Article'));
-    if (tsxFiles.length === 0) return null;
-    
-    tsxFiles.sort().reverse();
-    const latestFile = tsxFiles[0];
-    
-    const content = await fs.readFile(path.join(BLOG_DIR, latestFile), 'utf-8');
-    return { name: latestFile, content };
+    const content = await fs.readFile(path.join(BLOG_DIR, fileName), 'utf-8');
+    return { name: fileName, content };
   } catch (error) {
-    console.error("Kon blog directory niet uitlezen:", error);
+    console.error(`Kon ${fileName} niet lezen voor slug '${slug}':`, error.message);
     return null;
   }
 }
@@ -58,7 +63,13 @@ Geef ALTIJD pure Markdown tekst terug (zonder extra uitleg).`;
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         contents: [{ role: 'user', parts: [{ text: `${systemPrompt}\n\n--- ARTIKEL ---\n${blogContent}` }] }],
-        generationConfig: { temperature: 0.7, maxOutputTokens: 1000 }
+        // 4000 i.p.v. 1000: gemini-3.6-flash denkt standaard (thoughtsTokenCount, niet
+        // uit te zetten voor dit model — thinkingBudget: 0 gaf een 400 INVALID_ARGUMENT
+        // bij een testrun 2026-08-07) en telt dat mee in maxOutputTokens. Op 1000 stopte
+        // de call op MAX_TOKENS tijdens het denken zelf, vóór er ook maar iets van de
+        // 3 posts gegenereerd was — data.candidates[0].content.parts[0].text bevatte dan
+        // een afgekapt fragment van de interne redenering i.p.v. bruikbare output.
+        generationConfig: { temperature: 0.7, maxOutputTokens: 4000 }
       })
     });
     
@@ -68,7 +79,14 @@ Geef ALTIJD pure Markdown tekst terug (zonder extra uitleg).`;
     }
     
     const data = await res.json();
-    return data.candidates[0].content.parts[0].text;
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) {
+      throw new Error(`Geen tekst in Gemini-response (mogelijk geblokkeerd door safety-filter): ${JSON.stringify(data).slice(0, 500)}`);
+    }
+    if (data.candidates[0].finishReason === 'MAX_TOKENS') {
+      throw new Error('Response afgekapt op MAX_TOKENS — output is onvolledig, niet bruikbaar als LinkedIn-post.');
+    }
+    return text;
   } catch (err) {
     console.error("❌ Fout bij Gemini API:", err.message);
     process.exit(1);
@@ -76,22 +94,27 @@ Geef ALTIJD pure Markdown tekst terug (zonder extra uitleg).`;
 }
 
 async function run() {
-  console.log("🚀 Start Social Media Repurposing Pipeline...");
-  
-  await fs.mkdir(SOCIAL_DIR, { recursive: true });
-  
-  const blog = await getLatestBlogPost();
-  if (!blog) {
-    console.log("Geen blog posts gevonden om te verwerken.");
-    return;
+  const slug = process.argv[2];
+  if (!slug) {
+    console.error('MISLUKT — Reden: geen slug meegegeven. Gebruik: node scripts/generate-social.mjs <slug>');
+    process.exit(1);
   }
-  
-  console.log(`📝 Nieuwste blog gevonden: ${blog.name}`);
+
+  console.log(`🚀 Start Social Media Repurposing Pipeline voor '${slug}'...`);
+
+  await fs.mkdir(SOCIAL_DIR, { recursive: true });
+
+  const blog = await getBlogPostBySlug(slug);
+  if (!blog) {
+    process.exit(1);
+  }
+
+  console.log(`📝 Artikel gevonden: ${blog.name}`);
   const socialPosts = await generateSocialPosts(blog.content);
-  
+
   const outputFileName = blog.name.replace('.tsx', '-social.md');
   const outputPath = path.join(SOCIAL_DIR, outputFileName);
-  
+
   await fs.writeFile(outputPath, socialPosts, 'utf-8');
   console.log(`✅ Succes! 3 LinkedIn posts gegenereerd in: src/content/social/${outputFileName}`);
 }

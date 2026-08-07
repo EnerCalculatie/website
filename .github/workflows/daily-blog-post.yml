@@ -20,6 +20,10 @@ name: Kennisbank-artikel (di/do)
 # 8. Commit naar main (content-plan/content-log worden altijd gecommit, ook bij
 #    afkeuring, voor zichtbare geschiedenis)
 # 9. Deploy — Railway deployt automatisch bij push naar main (buiten deze workflow)
+# 10-11. Bij een nieuw artikel (slug bekend): generate-social.mjs zet het artikel om
+#    in 3 LinkedIn-posts (scripts/generate-social.mjs, Gemini) en commit dat apart naar
+#    src/content/social/. continue-on-error: mislukt de repurposing (bv. safety-filter,
+#    rate limit), dan blijft het artikel zelf gewoon gepubliceerd.
 #
 # Oudere, losstaande scripts (generate-blog-post.mjs, seo-geo-validator.mjs,
 # claim-extractor/source-validator/fact-check.mjs) bestaan nog in de repo maar
@@ -130,6 +134,30 @@ jobs:
         if: steps.push.outputs.slug != ''
         continue-on-error: true
         run: node scripts/indexnow-submit.mjs "/blog/${{ steps.push.outputs.slug }}"
+
+      - name: "10. LinkedIn-repurposing genereren"
+        id: social
+        if: steps.push.outputs.slug != ''
+        continue-on-error: true
+        env:
+          GEMINI_TIER: ${{ github.event.inputs.tier || 'free' }}
+          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: node scripts/generate-social.mjs "${{ steps.push.outputs.slug }}"
+
+      - name: "11. Commit en push LinkedIn-repurposing"
+        if: steps.social.outcome == 'success'
+        run: |
+          git config user.name "enercalculatie-bot"
+          git config user.email "bot@enercalculatie.nl"
+          git add src/content/social
+          if git diff --cached --quiet; then
+            echo "Geen social-bestand om te committen."
+            exit 0
+          fi
+          git commit -m "chore: LinkedIn-repurposing voor ${{ steps.push.outputs.slug }}"
+          git push origin HEAD:main
 
       - name: Samenvatting
         if: always()
