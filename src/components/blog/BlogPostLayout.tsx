@@ -1,10 +1,28 @@
 import { ArrowLeft, ArrowRight, Linkedin, Check, Clock } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { Children, isValidElement, type ReactNode } from 'react';
 import { blogPosts, type BlogPostMeta } from '../../content/blogPosts';
 import { author } from '../../content/author';
 import { buildBlogPostingSchema, buildFaqSchema } from '../../content/blogSchema';
 import { FreeIntakeCTA } from '../FreeIntakeCTA';
+import { InlineCTA } from './InlineCTA';
 import { SEO } from '../SEO';
+
+// Splitst de artikel-body (platte lijst van <p>/<h2>/<ul>/... siblings) op de
+// eerstvolgende alinea-grens na de helft, zodat de InlineCTA altijd tussen
+// twee alinea's landt en nooit een <h2>/<table>/<ul> doormidden knipt.
+function splitAtMidpoint(children: ReactNode): [ReactNode[], ReactNode[]] {
+  const items = Children.toArray(children);
+  const target = Math.ceil(items.length / 2);
+  let cut = target;
+  for (let i = target; i < items.length; i++) {
+    const el = items[i];
+    if (isValidElement(el) && el.type === 'p') {
+      cut = i + 1;
+      break;
+    }
+  }
+  return [items.slice(0, cut), items.slice(cut)];
+}
 
 // Te generieke tags tellen niet mee voor 'verwantschap' bij Lees ook.
 const GENERIC_TAGS = ['Installatiebranche', 'EnergieAdvies'];
@@ -120,7 +138,19 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
             </div>
           )}
 
-          {children}
+          {(() => {
+            const [firstHalf, secondHalf] = splitAtMidpoint(children);
+            // Te korte artikelen (< 6 alinea's/koppen) niet opknippen — een
+            // CTA na 2 zinnen oogt opdringerig i.p.v. behulpzaam.
+            if (secondHalf.length === 0 || firstHalf.length < 3) return children;
+            return (
+              <>
+                {firstHalf}
+                <InlineCTA slug={post.slug} />
+                {secondHalf}
+              </>
+            );
+          })()}
 
           {/* Zichtbaar FAQ-blok — naast het FAQPage-schema hierboven ook een
               citeerbaar, leesbaar antwoordformaat voor bezoekers én AI-engines (GEO). */}
@@ -165,7 +195,7 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
       )}
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">
-        <FreeIntakeCTA />
+        <FreeIntakeCTA slug={post.slug} />
       </div>
     </div>
   );

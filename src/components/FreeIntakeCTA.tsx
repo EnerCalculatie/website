@@ -1,7 +1,15 @@
 import { motion } from 'motion/react';
 import { ArrowRight, FileText, CheckCircle2, Zap } from 'lucide-react';
+import { blogCtaUrl } from './blogCtaUrl';
 
-export function FreeIntakeCTA() {
+interface FreeIntakeCTAProps {
+  /** Blogartikel-slug, voor UTM-attributie op de CTA-link. Optioneel zodat
+   *  de component ook buiten blogcontext (bv. andere pagina's) bruikbaar blijft. */
+  slug?: string;
+}
+
+export function FreeIntakeCTA({ slug }: FreeIntakeCTAProps) {
+  const href = slug ? blogCtaUrl(slug, 'bottom') : 'https://app.enercalculatie.nl/gratis';
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -41,7 +49,7 @@ export function FreeIntakeCTA() {
         </ul>
 
         <a
-          href="https://app.enercalculatie.nl/gratis"
+          href={href}
           className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-primary-text hover:bg-white hover:text-slate-900 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl text-lg group"
         >
           <FileText size={20} />

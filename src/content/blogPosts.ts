@@ -31,8 +31,8 @@ export interface BlogPostMeta {
    *  (JSON-LD) — rich results en citeerbare Q&A voor AI-engines (GEO). */
   faq?: { question: string; answer: string }[];
   /** Geschatte leestijd in minuten (woordental artikel-body / 200 wpm,
-   *  afgerond, minimaal 1). Wordt automatisch berekend door
-   *  scripts/generate-blog-post.mjs bij nieuwe artikelen; voor bestaande
+   *  afgerond, minimaal 1). Wordt automatisch berekend door de content-engine-
+   *  pipeline (scripts/content-engine/) bij nieuwe artikelen; voor bestaande
    *  artikelen eenmalig gevuld door scripts/backfill-reading-time.mjs. */
   readingTimeMinutes?: number;
 }
