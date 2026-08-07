@@ -9,7 +9,7 @@ const liveIntegrations = [
     logo: (
       <svg viewBox="0 0 120 40" className="h-10 w-auto" aria-label="PDOK Kadaster">
         <rect width="120" height="40" rx="6" fill="#154273" />
-        <text x="8" y="27" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="18" fill="#ffffff">PDOK</text>
+        <text x="60" y="21" textAnchor="middle" dominantBaseline="central" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="18" fill="#ffffff">PDOK</text>
       </svg>
     ),
   },
