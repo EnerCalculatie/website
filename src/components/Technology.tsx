@@ -5,38 +5,38 @@ export function Technology() {
   const technicalFeatures = [
     {
       icon: <Server size={24} />,
-      title: 'Nederlandse Servers & AVG',
-      description: 'Alle klantdossiers en offertes worden veilig opgeslagen op streng beveiligde servers in Amsterdam en Frankfurt. Volledig AVG-compliant met end-to-end encryptie.',
+      title: 'EU-servers & AVG',
+      description: 'Alle klantdossiers en offertes staan veilig opgeslagen op beveiligde servers binnen de EU (Nederland en Duitsland), volledig AVG-compliant. Uw dataverkeer en opslag zijn versleuteld.',
       color: 'bg-blue-500/10 text-blue-400',
     },
     {
       icon: <Webhook size={24} />,
-      title: 'Naadloze Integraties',
-      description: 'Koppel EnerCalculatie aan uw bestaande werkomgeving. Synchroniseer relaties en projecten automatisch met uw eigen CRM- of ERP-pakket via onze veilige koppelingen.',
+      title: 'Koppelingen met uw pakketten',
+      description: 'Koppelingen met boekhoud- en planningspakketten zoals Exact Online, Teamleader en AFAS zijn in ontwikkeling en komen later dit jaar beschikbaar. De koppeling met PDOK Kadaster (adres- en dakgegevens) is nu al live.',
       color: 'bg-purple-500/10 text-purple-400',
     },
     {
       icon: <Shield size={24} />,
-      title: 'Strikte Datascheiding',
-      description: 'Uw klantgegevens zijn strikt gescheiden van andere installateurs. Onze architectuur garandeert dat alleen u en uw medewerkers bij uw eigen dossiers kunnen.',
+      title: 'Strikte datascheiding',
+      description: 'Uw klantgegevens zijn strikt gescheiden van andere installateurs. Alleen u en uw medewerkers hebben toegang tot uw eigen dossiers.',
       color: 'bg-emerald-500/10 text-emerald-400',
     },
     {
       icon: <Cpu size={24} />,
-      title: 'Slimme Documentherkenning',
-      description: 'Facturen en energierekeningen worden automatisch en nauwkeurig uitgelezen. U hoeft geen gegevens meer handmatig over te typen of te corrigeren.',
+      title: 'Slimme documentherkenning',
+      description: 'Upload een energierekening en wij lezen automatisch het verbruik eruit. Geen rekenfouten meer door handmatig overtypen.',
       color: 'bg-orange-500/10 text-orange-400',
     },
     {
       icon: <Database size={24} />,
       title: 'Altijd een veilige back-up',
-      description: 'Uw gegevens worden continu en tot op de seconde veiliggesteld. Zo raakt u nooit belangrijke klantgegevens of gemaakte berekeningen kwijt.',
+      description: 'Uw gegevens worden continu geback-upt. Zo raakt u nooit belangrijke klantgegevens of gemaakte berekeningen kwijt door een defecte laptop of verloren Excel-bestand.',
       color: 'bg-sky-500/10 text-sky-400',
     },
     {
       icon: <Lock size={24} />,
-      title: 'Hoogste Veiligheidsstandaarden',
-      description: 'Standaard beschermd tegen cyberaanvallen en voorzien van de strengste versleuteling. U kunt met een gerust hart werken, wetende dat uw data veilig is.',
+      title: 'Veilig door versleuteling',
+      description: 'Uw dataverkeer en opgeslagen gegevens zijn versleuteld, en toegang tot uw dossiers is beveiligd met inloggegevens per gebruiker. U werkt met een gerust hart.',
       color: 'bg-rose-500/10 text-rose-400',
     }
   ];
@@ -56,30 +56,30 @@ export function Technology() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium text-sm mb-6"
           >
             <Server size={16} className="text-brand-primary" />
-            Veiligheid & Architectuur
+            Veiligheid & privacy
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-2xl md:text-5xl font-display font-bold text-white mb-6 leading-tight"
           >
-            Nederlandse data. Veilige architectuur.<br className="hidden md:block"/>
+            Uw klantgegevens zijn veilig.<br className="hidden md:block"/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-400">
-              Klaar voor uw werkomgeving.
+              Zo werkt dat in de praktijk.
             </span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            Alle klantdossiers staan op streng beveiligde servers in onder andere Amsterdam, volledig AVG-compliant. EnerCalculatie past naadloos in uw bestaande werkwijze via slimme koppelingen.
+            Alle klantdossiers staan op beveiligde servers binnen de EU, volledig AVG-compliant. EnerCalculatie past straks naadloos in uw bestaande werkwijze — de eerste koppelingen met boekhoud- en planningspakketten zijn onderweg.
           </motion.p>
         </div>
 

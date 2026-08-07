@@ -44,17 +44,17 @@ const steps: DemoStep[] = [
   },
   {
     id: 'ai-scan',
-    label: 'AI Scan & OCR',
+    label: 'Rekening scannen',
     icon: <Cpu size={16} />,
     screenshot: imgAiScan,
-    description: 'Upload energienota\'s of foto\'s. Het AI-model leest ze direct uit naar gestructureerde verbruiksdata.'
+    description: 'Upload de energienota of maak een foto. Wij lezen automatisch het verbruik eruit — geen typwerk.'
   },
   {
     id: 'energieprofiel',
     label: 'Energieprofiel',
     icon: <Zap size={16} />,
     screenshot: imgEnergieprofiel,
-    description: 'Stel historisch verbruik en energiekosten in als referentie voor alle besparing- en ROI-berekeningen.'
+    description: 'Stel historisch verbruik en energiekosten in als referentie voor alle besparing- en terugverdientijd-berekeningen.'
   },
   {
     id: 'zonnepanelen',
@@ -82,18 +82,18 @@ const steps: DemoStep[] = [
     label: 'Airco',
     icon: <Wind size={16} />,
     screenshot: imgAirco,
-    description: 'Configureer actieve koeling en efficiënte bijverwarming per ruimte met SCOP-berekeningen.'
+    description: 'Configureer actieve koeling en efficiënte bijverwarming per ruimte, inclusief het jaarrond energieverbruik van de airco (SCOP).'
   },
   {
     id: 'laadpalen',
     label: 'Laadpalen',
     icon: <Car size={16} />,
     screenshot: imgLaadpalen,
-    description: 'Configureer een EV-laadstation inclusief load balancing, laadvermogen en installatie-eisen.'
+    description: 'Configureer een laadstation voor elektrische auto\'s inclusief slimme sturing bij meerdere laadpunten, laadvermogen en installatie-eisen.'
   },
   {
     id: 'roi',
-    label: 'Rendement & ROI',
+    label: 'Rendement & terugverdientijd',
     icon: <TrendingUp size={16} />,
     screenshot: imgRoi,
     description: 'Volledig gevalideerde doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
@@ -117,7 +117,7 @@ const steps: DemoStep[] = [
     label: 'Werkvoorbereiding',
     icon: <HardHat size={16} />,
     screenshot: imgWerkvoorbereiding,
-    description: 'Bill of Materials en logistieke instructies voor de monteur — direct vanuit het adviestraject.'
+    description: 'Materiaallijst en logistieke instructies voor de monteur — direct vanuit het adviestraject.'
   },
 ];
 

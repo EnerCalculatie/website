@@ -69,7 +69,7 @@ export function Footer() {
             <ul className="space-y-2 text-base text-slate-400">
               <li><a href="/#functies" className="hover:text-white transition-colors block py-1 break-words">Functies</a></li>
               <li><a href="/#demo-video" className="hover:text-white transition-colors block py-1 break-words">App Video</a></li>
-              <li><a href="/#pricing-calculator" className="hover:text-white transition-colors block py-1 break-words">ROI Calculator</a></li>
+              <li><a href="/#pricing-calculator" className="hover:text-white transition-colors block py-1 break-words">Terugverdientijd berekenen</a></li>
               <li><a href="/#prijzen" className="hover:text-white transition-colors block py-1 break-words">Prijzen</a></li>
               <li><a href="/blog" className="hover:text-white transition-colors block py-1 break-words">Blog</a></li>
               <li><a href="/over-ons" className="hover:text-white transition-colors block py-1 break-words">Over ons</a></li>
@@ -92,10 +92,10 @@ export function Footer() {
           <div>
             <p className="text-white font-semibold mb-4">Integraties</p>
             <ul className="space-y-2 text-base text-slate-400">
-              <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Exact Online</a></li>
-              <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Teamleader</a></li>
-              <li><a href="https://www.afas.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">AFAS</a></li>
               <li><a href="https://www.pdok.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">PDOK Kadaster</a></li>
+              <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Exact Online <span className="text-slate-500">(binnenkort)</span></a></li>
+              <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Teamleader <span className="text-slate-500">(binnenkort)</span></a></li>
+              <li><a href="https://www.afas.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">AFAS <span className="text-slate-500">(binnenkort)</span></a></li>
             </ul>
           </div>
 

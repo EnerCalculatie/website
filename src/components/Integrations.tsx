@@ -22,7 +22,7 @@ const comingSoonIntegrations = [
   },
   {
     name: 'Teamleader',
-    description: 'Dossiers koppelen aan uw CRM en agenda voor een naadloze workflow.',
+    description: 'Dossiers koppelen aan uw klantenbeheer en agenda, zonder dubbel werk.',
   },
   {
     name: 'AFAS',
@@ -63,7 +63,7 @@ export function Integrations() {
             Werkt samen met uw bestaande software
           </h2>
           <p className="text-lg text-slate-600">
-            PDOK Kadaster is vandaag beschikbaar. Koppelingen met boekhoud- en CRM-software volgen later dit jaar.
+            PDOK Kadaster is vandaag beschikbaar. Koppelingen met boekhoud- en klantbeheerpakketten volgen later dit jaar.
           </p>
         </div>
 

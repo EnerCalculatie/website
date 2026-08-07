@@ -47,7 +47,7 @@ export function LeadMagnet() {
           <Mail size={16} /> Gratis PDF
         </div>
         <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-          Ontvang de ROI-gids voor installateurs
+          Ontvang de terugverdientijd-gids voor installateurs
         </h3>
         <p className="text-slate-300 leading-relaxed mb-6">
           Een praktische gids met rekenmethodes en voorbeeldberekeningen voor de terugverdientijd van zonnepanelen, thuisbatterijen en warmtepompen. Meld u aan en ontvang de PDF direct in uw inbox.

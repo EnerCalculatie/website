@@ -44,7 +44,7 @@ export function FreeIntakeCTA({ slug, category }: FreeIntakeCTAProps) {
           </li>
           <li className="flex items-center gap-3">
             <CheckCircle2 size={20} className="text-brand-primary shrink-0" />
-            <span>Slimme ROI en terugverdientijd</span>
+            <span>Direct de terugverdientijd inzichtelijk</span>
           </li>
           <li className="flex items-center gap-3">
             <CheckCircle2 size={20} className="text-brand-primary shrink-0" />

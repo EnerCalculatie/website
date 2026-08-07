@@ -47,7 +47,7 @@ export function ExcelNaarAdviesArticle() {
         <p className="text-slate-700 leading-relaxed mb-4">
           De makkelijkste manier om te zien wat dit voor uw eigen werkdag betekent, is door uw huidige aantal dossiers per maand naast de tijd te zetten die u daar nu aan kwijt bent. Gebruik de{' '}
           <a href="/#pricing-calculator" className="text-brand-primary-text font-semibold hover:underline">
-            ROI-calculator op de homepage
+            terugverdientijd-rekentool op de homepage
           </a>
           {' '}om dit voor uw situatie te berekenen, of{' '}
           <a href="/#contact" className="text-brand-primary-text font-semibold hover:underline">

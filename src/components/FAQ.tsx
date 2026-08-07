@@ -16,7 +16,7 @@ const faqs = [
   {
     question: 'Is mijn klantdata veilig?',
     answer:
-      'Alle dossiers worden opgeslagen op servers in Nederland, zijn volledig AVG-compliant en end-to-end versleuteld. U bent eigenaar van uw data — altijd exporteerbaar, nooit gedeeld met derden.',
+      'Alle dossiers worden opgeslagen op servers binnen de EU (Nederland en Duitsland), zijn volledig AVG-compliant en versleuteld. U bent eigenaar van uw data — altijd exporteerbaar, nooit gedeeld met derden.',
   },
   {
     question: 'Werkt het met mijn huidige software?',
@@ -26,12 +26,12 @@ const faqs = [
   {
     question: 'Wat als ik vastloop?',
     answer:
-      'Elke klant krijgt een persoonlijke onboarding. Daarna kunt u ons altijd bereiken via e-mail (reactie binnen 24 uur) of telefonisch (vanaf het Business PRO-pakket: binnen 4 uur).',
+      'Elke klant krijgt een persoonlijke onboarding. Daarna kunt u ons altijd bereiken via e-mail (reactie binnen 24 uur) of telefonisch.',
   },
   {
     question: 'Kost de overstap mij meer tijd dan het oplevert?',
     answer:
-      'Gebruik de ROI-calculator op deze pagina. Bij 10 dossiers per maand verdient u de abonnementskosten vaak al in de eerste week terug.',
+      'Gebruik de terugverdientijd-rekentool op deze pagina. Bij 10 dossiers per maand verdient u de abonnementskosten vaak al in de eerste week terug.',
   },
   {
     question: 'Hoe gaat de software om met de aankomende afschaffing van de salderingsregeling?',
@@ -56,7 +56,7 @@ const faqs = [
   {
     question: 'Voldoet een EnerCalculatie-rapport aan de eisen voor de ISDE-subsidie?',
     answer:
-      'De rapporten bevatten alle benodigde technische specificaties, vermogens en berekeningen die de RVO vraagt bij ISDE-aanvragen voor warmtepompen (waaronder ondersteuning voor meldcodes). Voor de daadwerkelijke aanvraag heeft de eindklant altijd een installatie- en betaalbewijs van uw erkende installatiebedrijf nodig — EnerCalculatie levert de perfecte projectonderbouwing in het traject daarvóór.',
+      'De rapporten bevatten alle benodigde technische specificaties, vermogens en berekeningen die de RVO vraagt bij ISDE-aanvragen voor warmtepompen — inclusief de juiste meldcode (de RVO-productcode van het toestel) voor de aanvraag. Voor de daadwerkelijke aanvraag heeft de eindklant altijd een installatie- en betaalbewijs van uw erkende installatiebedrijf nodig — EnerCalculatie levert de perfecte projectonderbouwing in het traject daarvóór.',
   },
   {
     question: 'Hoe actueel zijn de energieprijzen in de berekeningen?',

@@ -30,12 +30,12 @@ export function Hero() {
 
           {/* Doelgroep + resultaat */}
           <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
-            Upload de energierekening van uw klant. Wij lezen 'm uit, rekenen het optimale systeem door en leveren een professioneel adviesrapport — inclusief ROI, subsidies en saldering 2027. Zonder typfouten, zonder Excel, zonder wachten.
+            Upload de energierekening van uw klant. Wij lezen 'm uit, rekenen het optimale systeem door en leveren een professioneel adviesrapport — inclusief terugverdientijd, subsidies en saldering 2027. Zonder typfouten, zonder Excel, zonder wachten.
           </p>
 
           {/* Resultaten direct zichtbaar */}
           <div className="animate-fade-up anim-delay-300 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 text-sm font-semibold text-slate-500">
-            <span>✔ Bespaar 3 uur per offerte</span>
+            <span>✔ Bespaar 2,5 uur per offerte</span>
             <span className="text-slate-300">·</span>
             <span>✔ Hogere orderwaarde per klant</span>
             <span className="text-slate-300">·</span>
@@ -77,7 +77,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
               <CheckCircle2 size={18} className="text-[#00a669]" />
-              AVG-proof · Nederlandse servers
+              AVG-proof · data binnen de EU
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ export function Privacy() {
 
           <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">6. Sub-verwerkers & Beveiliging</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
-            Uw data wordt veilig en end-to-end versleuteld opgeslagen in de Europese Unie. Wij maken gebruik van de volgende sub-verwerkers:
+            Uw data wordt veilig en versleuteld opgeslagen in de Europese Unie. Wij maken gebruik van de volgende sub-verwerkers:
           </p>
           <ul className="list-disc pl-6 mb-6 text-slate-700">
             <li><strong>Supabase (Frankfurt, EER)</strong> - Database, opslag en authenticatie.</li>

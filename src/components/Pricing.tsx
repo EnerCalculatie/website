@@ -23,7 +23,7 @@ const PRICING_TIERS: PricingTier[] = [
     description: 'Voor solar- en batterijinstallateurs die sneller offertes willen maken en meer opdrachten willen winnen.',
     includedFeatures: [
       'Offerte in 5 minuten — zonnepanelen en thuisbatterij in één advies',
-      'Energierekening automatisch uitgelezen (AI OCR), niet handmatig overtypen',
+      'Energierekening automatisch uitgelezen, niet handmatig overtypen',
       'Deelbaar PDF-rapport — sneller akkoord van de klant',
       'Onbeperkt dossiers, geen kosten per project',
       'Saldering 2027 automatisch correct verwerkt'
