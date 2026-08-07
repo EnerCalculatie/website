@@ -1,15 +1,19 @@
 import { motion } from 'motion/react';
 import { ArrowRight, FileText, CheckCircle2, Zap } from 'lucide-react';
 import { blogCtaUrl } from './blogCtaUrl';
+import { categoryCta } from './blog/categoryCta';
 
 interface FreeIntakeCTAProps {
-  /** Blogartikel-slug, voor UTM-attributie op de CTA-link. Optioneel zodat
-   *  de component ook buiten blogcontext (bv. andere pagina's) bruikbaar blijft. */
+  /** Blogartikel-slug + categorie, voor UTM-attributie en categorie-
+   *  specifieke headline. Optioneel zodat de component ook buiten
+   *  blogcontext (bv. andere pagina's) bruikbaar blijft. */
   slug?: string;
+  category?: string;
 }
 
-export function FreeIntakeCTA({ slug }: FreeIntakeCTAProps) {
+export function FreeIntakeCTA({ slug, category }: FreeIntakeCTAProps) {
   const href = slug ? blogCtaUrl(slug, 'bottom') : 'https://app.enercalculatie.nl/gratis';
+  const headline = slug ? categoryCta(category).headline : 'Zelf ervaren hoe geautomatiseerd advies werkt?';
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,7 +27,7 @@ export function FreeIntakeCTA({ slug }: FreeIntakeCTAProps) {
           <Zap size={16} /> Gratis Proberen
         </div>
         <h3 className="text-xl md:text-3xl font-black text-white mb-4">
-          Zelf ervaren hoe geautomatiseerd advies werkt?
+          {headline}
         </h3>
         <p className="text-slate-300 leading-relaxed mb-8 text-lg">
           Vul postcode en jaarverbruik in en zie binnen enkele seconden een echte, live berekening — geen account, geen upload nodig. Wilt u daarna het volledige whitelabel-rapport voor uw klant? Upload dan de energienota en genereer het in 2 minuten.

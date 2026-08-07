@@ -146,7 +146,7 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
             return (
               <>
                 {firstHalf}
-                <InlineCTA slug={post.slug} />
+                <InlineCTA post={post} />
                 {secondHalf}
               </>
             );
@@ -195,7 +195,7 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
       )}
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 print:hidden">
-        <FreeIntakeCTA slug={post.slug} />
+        <FreeIntakeCTA slug={post.slug} category={post.category} />
       </div>
     </div>
   );
