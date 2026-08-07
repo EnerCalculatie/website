@@ -62,6 +62,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Reken in offertes met een terugverdientijd over 10 of 25 jaar altijd het 2027-scenario mee, niet alleen de huidige regeling.',
       'Zelfconsumptie verhogen (warmtepomp, laadpaal, thuisbatterij) wordt na 2027 het belangrijkste rendementsargument.',
     ],
+    category: 'Zonnepanelen',
   },
   {
     slug: 'btw-zonnepanelen',
@@ -82,6 +83,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Buiten het nultarief (21%): dakversterking, thuisbatterij, laadpaal, zonneboiler en PVT-systemen — splits die apart in de offerte.',
       'Vermeld het installatieadres en het btw-tarief per regel; een onjuiste toepassing kan tot een naheffing leiden.',
     ],
+    category: 'Zonnepanelen',
   },
   {
     slug: 'terugleverkosten-thuisbatterij',
@@ -102,6 +104,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een thuisbatterij verhoogt de zelfconsumptie en verlaagt de teruglevering, en daarmee direct de terugleverkosten.',
       'Neem de terugleverkosten van het huidige contract mee in de terugverdientijd, niet alleen de salderingstarieven.',
     ],
+    category: 'Thuisbatterijen',
   },
   {
     slug: 'isde-subsidie-warmtepompen',
@@ -123,6 +126,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Scheid advies (vooraf) en subsidieaanvraag (achteraf) expliciet, anders denkt de klant dat de subsidie al geregeld is.',
       'Veelgemaakte fout: een generieke meldcode noemen in plaats van de exacte code van het geoffreerde model.',
     ],
+    category: 'Warmtepompen',
   },
   {
     slug: 'warmtepomp-rendement-aannames',
@@ -142,6 +146,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Bij een hybride systeem blijven warmwater en bijstook op de gasketel; de besparing geldt alleen over het door de warmtepomp overgenomen deel.',
       'Transparantie over deze aannames is het verkoopargument: een klant die het getal begrijpt, vertrouwt het meer.',
     ],
+    category: 'Warmtepompen',
   },
   {
     slug: 'van-excel-naar-geautomatiseerd-advies',
@@ -162,6 +167,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Tarieven pas je centraal op één plek aan in plaats van in elk los bestand; dezelfde invoer geeft altijd dezelfde uitkomst.',
       'Vooral relevant voor MKB-installateurs met meerdere offertes per week en meerdere medewerkers die dossiers overnemen.',
     ],
+    category: 'Bedrijfsvoering',
   },
   {
     slug: 'laadpaal-advies-thuis',
@@ -182,6 +188,7 @@ export const blogPosts: BlogPostMeta[] = [
       '(Dynamische) load balancing voorkomt dat de hoofdzekering afslaat als warmtepomp, airco of batterij gelijktijdig verbruiken.',
       'Bij structureel capaciteitstekort is een verzwaring bij de netbeheerder nodig — een aparte aanvraagstap met doorlooptijd die je vooraf benoemt.',
     ],
+    category: 'Laadpalen',
   },
   {
     slug: 'airco-vs-warmtepomp',
@@ -202,6 +209,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een hybride warmtepomp is de tussenstap voor bestaande bouw met hogere aanvoertemperaturen of matige isolatie; ISDE geldt mits de SCOP-drempel wordt gehaald.',
       'Een volledig elektrische warmtepomp geeft de hoogste besparing, maar alleen bij goede isolatie en lagetemperatuurverwarming (circa 35 °C).',
     ],
+    category: 'Warmtepompen',
   },
   {
     slug: 'trends-verduurzaming-2026',
@@ -222,6 +230,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Vanaf 1 juli 2026 geldt een nieuw ACM-prioriteringskader voor netcongestie; load balancing wordt bij zakelijke laadpalen een voorwaarde.',
       'De zonnemarkt verzadigt (29,4 GWp, 3,3 miljoen installaties); de combinatieofferte (zon met batterij of laadpaal) wordt de standaard.',
     ],
+    category: 'Kennisbank',
   },
   {
     slug: 'thuisbatterij-capaciteit-kiezen',
@@ -242,6 +251,7 @@ export const blogPosts: BlogPostMeta[] = [
       '8–10 kWh is de gangbare keuze voor een doorsnee woning met 6–10 kWp zonnepanelen.',
       'Na afschaffing van de saldering (2027) wordt zelfconsumptie waardevoller, wat de terugverdientijd verkort.',
     ],
+    category: 'Thuisbatterijen',
   },
   {
     slug: 'dakorientatie-zonnepanelen-opbrengst',
@@ -261,6 +271,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een oost-westdak heeft twee productiepieken, wat de zelfconsumptie beter spreidt en terugleverkosten kan verlagen.',
       'Permanente schaduw neem je als reductiefactor mee; bij meer dan 20% schaduw tijdens productieve uren lonen optimizers of micro-omvormers.',
     ],
+    category: 'Zonnepanelen',
   },
   {
     slug: 'netcongestie-wachtlijst-zakelijk-2026',
@@ -281,6 +292,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Het ACM-prioriteringskader geeft alleen voorrang aan congestieverlichters, kritieke voorzieningen en basisbehoeften.',
       'Overbruggen kan met een capaciteitsbeperkend contract (CBC), GOPACS/congestiemanagement of batterijopslag (telt als congestieverlichter).',
     ],
+    category: 'Thuisbatterijen',
   },
   {
     slug: 'thuisbatterij-veiligheid-verzekering',
@@ -300,6 +312,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Meld de thuisbatterij aan bij Energieleveren.nl en bewaar het opleverrapport, garantiebewijs en model-/serienummers — verzekeraars vragen dit dossier steeds vaker op.',
       'Vanaf 29 mei 2026 kan een vast aangesloten thuisbatterij (minimaal 5 kWh, met lokale opwek) meetellen voor het energielabel van de woning.',
     ],
+    category: 'Thuisbatterijen',
   },
   {
     slug: 'energie-investeringsaftrek-eia-2026',
@@ -319,6 +332,7 @@ export const blogPosts: BlogPostMeta[] = [
       'De Energielijst 2026 stelt per categorie eigen eisen: zonnepanelen vanaf 15 kWp gecombineerd piekvermogen, warmtepompen met SCOP ≥ 4,5 en halogeenvrij koudemiddel, laadpalen die publiek toegankelijk zijn (AC ≥ 11 kW, DC ≥ 20 kW).',
       'Meld de investering binnen drie maanden na het aangaan van de verplichting (opdrachtbevestiging) bij de RVO — een te late melding kost de aftrek definitief, ook als de investering verder aan alle eisen voldoet.',
     ],
+    category: 'Subsidies',
   },
   {
     slug: 'bidirectioneel-laden-v2g',
@@ -338,6 +352,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Sinds H1 2026 is Renault de eerste fabrikant met een opschaalbare V2G-dienst voor Nederlandse particulieren; een landelijke subsidie voor particuliere bidirectionele laadpalen ontbreekt vooralsnog.',
       'Voor zakelijk gebruik gelden wel de SPRILA-subsidie en, sinds 1 juli 2026, ERE-certificaten voor bidirectionele laadpalen met een MID-gecertificeerde meter.',
     ],
+    category: 'Laadpalen',
   },
   {
     slug: 'energiemanagementsysteem-p1-poort',
@@ -357,6 +372,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een EMS combineert P1-, omvormer-, batterij- en laadpaaldata om te bepalen welk apparaat op welk moment stroom krijgt, vaak via een lokaal protocol zoals Modbus zodat sturing ook zonder internetverbinding werkt.',
       'EMS-sturing kan bij zakelijke klanten een kostbare capaciteitsuitbreiding van de aansluiting overbodig maken en wordt relevanter door de salderingsafschaffing (2027), dynamische contracten en netcongestie.',
     ],
+    category: 'Kennisbank',
   },
   {
     slug: 'energielabel-c-plicht-2030',
@@ -376,6 +392,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Uitzonderingen gelden voor monumenten, beschermde stads- en dorpsgezichten, en woningen waar maatregelen niet technisch of financieel haalbaar zijn',
       'Een rendementsberekening voor een verhuurder wijkt af van die voor een eigenaar-bewoner: de verhuurder investeert, maar de huurder profiteert van lagere energielasten',
     ],
+    category: 'Kennisbank',
   },
   {
     slug: 'netontwikkelingsbijdrage-zonnepanelen-2026',
@@ -395,6 +412,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een berekening zonder deze vaste last geeft een te optimistisch beeld van de terugverdientijd',
       'EnerCalculatie verwerkt de bijdrage automatisch in uw dossier, zodat het rendement altijd kloppend is',
     ],
+    category: 'Zonnepanelen',
   },
   {
     slug: 'rendementsverlies-schaduw-vervuiling-zonnepanelen',
