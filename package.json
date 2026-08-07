@@ -22,7 +22,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "plan:content": "node scripts/plan-content.mjs",
-    "generate:blog": "node --env-file=.env scripts/generate-blog-post.mjs",
+    "generate:blog": "npx tsx scripts/content-engine/run-pipeline.ts",
     "indexnow": "node scripts/indexnow-submit.mjs",
     "report:ai-referrers": "node scripts/ai-referrer-report.mjs"
   },
