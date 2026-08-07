@@ -1,17 +1,21 @@
 {
-  "passed": false,
-  "confidence": 92,
+  "passed": true,
+  "confidence": 90,
   "issues": [
     {
-      "issue": "Het artikel mist een cruciale NEN 1010-veiligheidseis betreft somstromen bij gelijktijdige invoeding van net en batterij/PV. Het optellen van stromen (bijv. 25A net + 16A omvormer = 41A) door standaard 40A-aardlekschakelaars veroorzaakt overbelastings- en brandgevaar.",
-      "severity": "high"
-    },
-    {
-      "issue": "Het artikel bevat tegenstrijdige en feitelijk onjuiste claims over 1-fase vermogensgrenzen (bewering dat 1-fase tot 5 kW kan laden/ontladen spreekt de vermelde Netcode-grens van 16A / 3,68 kVA tegen).",
+      "issue": "Verwarring tussen thermisch vermogen (kWth) en elektrisch vermogen (kWe) bij warmtepompen. De elektrisch opgestelde capaciteit bepaalt de benodigde fase-indeling.",
       "severity": "medium"
     },
     {
-      "issue": "Toelichting op de vereiste meetinfrastructuur (zoals P1-poort, CT-spoelen of kWh-meters) voor de werking van het EMS ontbreekt.",
+      "issue": "Het EMS vereist voor snelle load balancing een directe P1-koppeling of CT-spoelen/MID-meter, wat niet expliciet genoemd wordt bij de randvoorwaarden.",
+      "severity": "medium"
+    },
+    {
+      "issue": "De vermelding dat 1-fase thuisbatterijen tot 5 kW kunnen laden/ontladen is onnuanceerd ivm de maximale fase-onbalans van 16A (3,68 kVA) volgens de Nederlandse Netcode Elektriciteit.",
+      "severity": "medium"
+    },
+    {
+      "issue": "Suggestie dat netverzwaring naar 3x35A nodig is voor 17,25 kW, terwijl een EMS netverzwaring juist voorkomt door dynamische sturing.",
       "severity": "low"
     }
   ]

@@ -1,31 +1,46 @@
 name: Kennisbank-artikel (di/do)
 
-# Evidence-based SEO/GEO content engine-pipeline:
+# Multi-agent content-engine-pipeline (scripts/content-engine/, TypeScript):
 # 1. Cronjob start (of handmatig via workflow_dispatch)
-# 2. ai-context/*.md wordt gelezen door plan-content.mjs en generate-blog-post.mjs
-# 3. Onderwerp gekozen: hoogste-prioriteit 'planned' item uit ai-context/content-plan.json
-# 4. Artikel gegenereerd via Gemini (generate-blog-post.mjs), incl. verplichte
-#    claims-array die elke feitelijke claim aan een sourceKey uit
-#    ai-context/trusted-sources.json koppelt
-# 5. SEO/GEO-controle (seo-geo-validator.mjs) — score < 80 op SEO of GEO triggert
-#    één automatische verbeterpoging, daarna definitieve afkeuring
-# 6. Fact-check: elke claim wordt getoetst tegen live gefetchte brontekst van de
-#    opgegeven bron (claim-extractor/source-validator/fact-check.mjs). Één claim
-#    die niet SUPPORTED is, triggert een zelfherstel-poging (max 3), daarna
-#    definitieve afkeuring — correctheid boven publicatiefrequentie
-# 7. Zelfherstel zit in stap 5/6 (self-correcting binnen hetzelfde script-proces)
-# 8. Commit naar main (alleen bij goedgekeurd + fact-checked artikel;
-#    content-plan/content-log worden altijd gecommit, ook bij afkeuring, voor
-#    zichtbare geschiedenis)
+# 2. plan-content.mjs vult ai-context/content-plan.json aan als er te weinig
+#    'planned' items over zijn (via Gemini, apart van de artikel-pipeline zelf)
+# 3. run-pipeline.ts kiest het hoogste-prioriteit 'planned' item uit
+#    ai-context/content-plan.json (of een expliciet meegegeven onderwerp)
+# 4. ResearchAgent verzamelt feiten, WriterAgent schrijft het artikel — uitsluitend
+#    op basis van de statische kennisbank (scripts/content-engine/knowledge/*.md)
+#    en de researchfeiten; mag niets verzinnen buiten die bronnen
+# 5. Kwaliteitsloop (max 2 herschrijf-iteraties): FactCheckerAgent +
+#    TechnicalReviewerAgent beoordelen het concept, blokkerende issues gaan als
+#    feedback terug naar WriterAgent
+# 6. SeoGeoAgent optimaliseert (title/meta/slug/FAQ), QualityGateAgent geeft het
+#    definitieve oordeel (passed/confidence) — alleen high-severity issues blokkeren
+#    publicatie na alle iteraties
+# 7. PublishAgent schrijft het React-component, werkt blogPosts.ts/App.tsx bij en
+#    verifieert de build (vite build + prerender) vóór er iets gecommit wordt
+# 8. Commit naar main (content-plan/content-log worden altijd gecommit, ook bij
+#    afkeuring, voor zichtbare geschiedenis)
 # 9. Deploy — Railway deployt automatisch bij push naar main (buiten deze workflow)
+#
+# Oudere, losstaande scripts (generate-blog-post.mjs, seo-geo-validator.mjs,
+# claim-extractor/source-validator/fact-check.mjs) bestaan nog in de repo maar
+# worden door DEZE workflow niet meer aangeroepen — vervangen door de
+# TypeScript-agent-pipeline hierboven. Nog niet opgeruimd, zie audit 2026-08-07.
 on:
   schedule:
-    # 05:00 UTC = 06:00 CET (winter) / 07:00 CEST (zomer).
-    # GitHub Actions cron kent geen tijdzones/DST; pas aan als 06:00 lokale tijd
-    # het hele jaar exact nodig is (bv. twee cronregels, zomer/winter).
-    # 2 = dinsdag, 4 = donderdag.
+    # Twee cronregels (04:00 én 05:00 UTC) i.p.v. één — GitHub Actions cron kent
+    # geen tijdzones/DST, dus 05:00 UTC is 06:00 CET in de winter maar 07:00 CEST
+    # in de zomer. De "Sta alleen toe rond 06:00 Europe/Amsterdam"-stap hieronder
+    # bepaalt welke van de twee triggers daadwerkelijk een artikel genereert —
+    # de andere stopt zichzelf vroeg af. 2 = dinsdag, 4 = donderdag.
+    - cron: '0 4 * * 2,4'
     - cron: '0 5 * * 2,4'
   workflow_dispatch:
+    inputs:
+      tier:
+        description: "Gemini-tier: 'free' voor de normale gratis key, 'paid' voor een extra handmatige run op de betaalde backup-key"
+        type: choice
+        options: [free, paid]
+        default: free
 
 permissions:
   contents: write
@@ -34,36 +49,65 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - name: "0. Alleen doorgaan rond 06:00 Europe/Amsterdam (DST-guard voor de dubbele cron)"
+        id: guard
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          HOUR=$(TZ=Europe/Amsterdam date +%H)
+          echo "Lokale tijd (Europe/Amsterdam): $(TZ=Europe/Amsterdam date)"
+          if [ "$HOUR" = "06" ]; then
+            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "Niet 06:00 lokale tijd (is $HOUR:00) — dit is de andere cronregel voor de andere DST-stand. Rest van de job wordt overgeslagen (geen failure, gewoon niets te doen)."
+          fi
+
       - name: "1. Checkout"
+        if: steps.guard.outputs.proceed == 'true'
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Node
+        if: steps.guard.outputs.proceed == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
       - name: Install dependencies
+        if: steps.guard.outputs.proceed == 'true'
         run: npm ci
 
+      # GEMINI_TIER komt bewust NIET uit de gedeelde repo-variabele vars.GEMINI_TIER
+      # (die staat nu op 'paid' — dat zou de geplande di/do-run per ongeluk op de
+      # betaalde key laten draaien). Cron = altijd 'free'. Handmatig = kiesbaar
+      # via workflow_dispatch input, default 'free'.
       - name: "2-3. Lees ai-context en vul content-backlog aan"
+        if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_TIER: ${{ github.event.inputs.tier || 'free' }}
+          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
       - name: "4-7. Multi-Agent Pipeline (Research, Write, Review, SEO, Publish)"
         id: generate
+        if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_TIER: ${{ github.event.inputs.tier || 'free' }}
+          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: npx tsx scripts/content-engine/run-pipeline.ts
 
       - name: "8. Commit en push (main → Railway deployt automatisch)"
         id: push
-        if: always()
+        if: always() && steps.guard.outputs.proceed == 'true'
         run: |
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
@@ -92,7 +136,9 @@ jobs:
         run: |
           echo "## Kennisbank-generator — resultaat" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          if [ "${{ steps.generate.outcome }}" != "success" ]; then
+          if [ "${{ steps.guard.outputs.proceed }}" != "true" ]; then
+            echo "**Status:** overgeslagen — verkeerde DST-cronregel voor dit moment, niets te doen." >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.generate.outcome }}" != "success" ]; then
             echo "**Status:** mislukt of afgekeurd door Quality Gate" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "**Status:** geslaagd en gepubliceerd" >> "$GITHUB_STEP_SUMMARY"

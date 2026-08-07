@@ -1253,4 +1253,51 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkomt u dat onvoorziene uren op de installatiedag de marge verdampen?', answer: 'Door voorafgaand aan de offerte een gestandaardiseerde inventarisatie uit te voeren van de meterkast, kabeltrajecten en daksituatie. Met duidelijke voorwaarden over stelposten en een normering op basis van eerdere projectdata voorkomt u dat extra werkuren ten laste van de brutomarge komen.' },
     ],
   },
+  {
+    slug: 'zonnepanelen-flats-appartementen-vve-installateurs',
+    readingTimeMinutes: 4,
+    title: 'Zonnepanelen op flats en appartementen: gids voor installateurs',
+    seoTitle: 'Zonnepanelen op flats & VvE: Eisen, NEN 1010 & NEN 7250',
+    description:
+      'Ontdek de technische, bouwkundige en juridische eisen voor het installeren van zonnepanelen op flats en appartementencomplexen. Inclusief NEN 1010 en...',
+    date: '2026-08-07',
+    excerpt:
+      'Het installeren van zonnepanelen op flats en appartementen vereist specifieke kennis van VvE-besluitvorming, NEN 7250 windbelasting en NEN 1010 elektrische veiligheid.',
+    tags: ['Zonnepanelen', 'VvE', 'NEN 1010', 'NEN 7250', 'Installatietechniek', 'Netcode Elektriciteit'],
+    keyPoints: [
+      'VvE-besluitvorming volgens de splitsingsakte en SVVE-subsidie zijn essentieel bij de projectvoorbereiding.',
+      'Bouwkundige eisen conform NEN 7250 bepalen de wind- en dakbelasting op hoge gebouwen.',
+      'Elektrische veiligheid volgens NEN 1010 vereist aandacht voor selectiviteit (16A / 3,68 kW), 3-fase fase-verdeling en somstromen.',
+      'Saldering geldt uitsluitend per individuele kleinverbruikeraansluiting en is niet direct te verrekenen via een centrale VvE-meter.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Welke NEN-normen gelden voor zonnepanelen op flats?', answer: 'Voor de bouwkundige constructie en windbelasting geldt NEN 7250. Voor de elektrische installatie en bekabeling geldt de NEN 1010 norm voor laagspanningsinstallaties.' },
+      { question: 'Hoe werkt de salderingsregeling bij een VvE?', answer: 'De wettelijke salderingsregeling geldt specifiek per individuele kleinverbruikeraansluiting achter de energiemeter. Dit kan niet zonder meer verrekend worden tussen een centrale VvE-meter en individuele appartementen.' },
+      { question: 'Waarom is toetsing op somstromen belangrijk bij zonnepanelen?', answer: 'Wanneer het net én een omvormer op dezelfde groep kunnen invoeden, tellen de stromen bij elkaar op. Bij een situatie van 25A van het net en 16A van de omvormer (totaal 41A) kan een standaard 40A-aardlekschakelaar overbelast raken, wat een brandrisico vormt.' },
+    ],
+  },
+  {
+    slug: 'dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp',
+    readingTimeMinutes: 4,
+    title: 'Dynamisch energiecontract adviseren: slimme sturing van thuisbatterij en warmtepomp onderbouwen',
+    seoTitle: 'Dynamisch Energiecontract Adviseren: Thuisbatterij & Warmtepomp Sturing',
+    description:
+      'Adviseer vakkundig over dynamische energiecontracten, de sturing van thuisbatterijen en warmtepompen via EMS, en NEN 1010 richtlijnen voor somstromen en...',
+    date: '2026-08-07',
+    excerpt:
+      'Een onderbouwd advies over dynamische energiecontracten en de slimme sturing van thuisbatterijen en warmtepompen rust op kennis van uurprijzen, Energiemanagementsystemen (EMS) en installatieveiligheid conform NEN 1010.',
+    tags: ['dynamisch energiecontract', 'thuisbatterij', 'warmtepomp', 'EMS', 'NEN 1010', 'netcongestie'],
+    keyPoints: [
+      'Uurprijzen (EPEX Spot) sturen thuisbatterij en warmtepomp via een slim Energiemanagementsysteem (EMS).',
+      'Thermosche opslag in een buffer- of boilervat maakt efficiënte warmtepompsturing mogelijk bij lage stroomtarieven.',
+      'Bij vermogens boven 3,68 kW / 16A is een 3-fase aansluiting vereist om fase-onbalans te voorkomen volgens de Netcode Elektriciteit.',
+      'Controleer NEN 1010 normen op somstromen bij gelijktijdige invoeding om overbelasting van 40A-aardlekschakelaars te voorkomen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is nodig voor het aansturen van apparatuur op een dynamisch contract?', answer: 'Voor het aansturen van een thuisbatterij of warmtepomp op dynamische tarieven is een werkende slimme meter nodig, gecombineerd met een Energiemanagementsysteem (EMS) dat de apparaten aanstuurt op basis van de EPEX Spot- en EEX-beursprijzen.' },
+      { question: 'Waar moet op worden gelet bij somstromen volgens NEN 1010?', answer: 'Bij gelijktijdige invoeding van netstroom en een omvormer/batterij op dezelfde aardlekschakelaar tellen de stromen op. Indien 25A van het net en 16A van de omvormer samenkomen (41A), kan een standaard 40A-aardlekschakelaar overbelast raken en brandgevaar opleveren.' },
+    ],
+  },
 ];

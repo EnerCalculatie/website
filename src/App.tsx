@@ -113,6 +113,8 @@ const Van1FaseNaar3FaseVerduurzamingAdviesArticle = lazyRoute('/blog/van-1-fase-
 const R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle = lazyRoute('/blog/r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies', () => import('./components/blog/R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle').then(m => ({ default: m.R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle })));
 const DcAcVerhoudingOmvormerOverdimensioneringArticle = lazyRoute('/blog/dc-ac-verhouding-omvormer-overdimensionering', () => import('./components/blog/DcAcVerhoudingOmvormerOverdimensioneringArticle').then(m => ({ default: m.DcAcVerhoudingOmvormerOverdimensioneringArticle })));
 const BrutomargeBerekenenInstallatiebedrijfArticle = lazyRoute('/blog/brutomarge-berekenen-installatiebedrijf', () => import('./components/blog/BrutomargeBerekenenInstallatiebedrijfArticle').then(m => ({ default: m.BrutomargeBerekenenInstallatiebedrijfArticle })));
+const ZonnepanelenFlatsAppartementenVveInstallateursArticle = lazyRoute('/blog/zonnepanelen-flats-appartementen-vve-installateurs', () => import('./components/blog/ZonnepanelenFlatsAppartementenVveInstallateursArticle').then(m => ({ default: m.ZonnepanelenFlatsAppartementenVveInstallateursArticle })));
+const DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle = lazyRoute('/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp', () => import('./components/blog/DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle').then(m => ({ default: m.DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -245,6 +247,8 @@ export function AppContent() {
             <Route path="/blog/r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies" element={<R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle />} />
             <Route path="/blog/dc-ac-verhouding-omvormer-overdimensionering" element={<DcAcVerhoudingOmvormerOverdimensioneringArticle />} />
             <Route path="/blog/brutomarge-berekenen-installatiebedrijf" element={<BrutomargeBerekenenInstallatiebedrijfArticle />} />
+            <Route path="/blog/zonnepanelen-flats-appartementen-vve-installateurs" element={<ZonnepanelenFlatsAppartementenVveInstallateursArticle />} />
+            <Route path="/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp" element={<DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

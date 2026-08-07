@@ -32,8 +32,10 @@
     "intent": "commercieel",
     "priority": 6,
     "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
-    "status": "planned",
-    "createdAt": "2026-07-15T16:51:08.182Z"
+    "status": "generated",
+    "createdAt": "2026-07-15T16:51:08.182Z",
+    "generatedSlug": "zonnepanelen-flats-appartementen-vve-installateurs",
+    "generatedAt": "2026-08-07T13:07:19.446Z"
   },
   {
     "title": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
@@ -41,7 +43,7 @@
     "intent": "informatief",
     "priority": 5,
     "slug": "zakelijke-laadpalen-en-fiscale-stimulering-hoe-adviseert-u-uw-klant-over-mia-en-vamil",
-    "status": "planned",
+    "status": "generated",
     "createdAt": "2026-08-03T12:09:00.123Z",
     "lastScore": 81,
     "lastImprovements": [
@@ -51,7 +53,9 @@
     ],
     "retryCount": 2,
     "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 90, GEO 72)",
-    "lastRejectedAt": "2026-08-03T19:01:04.358Z"
+    "lastRejectedAt": "2026-08-03T19:01:04.358Z",
+    "generatedSlug": "dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp",
+    "generatedAt": "2026-08-07T13:09:43.541Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",

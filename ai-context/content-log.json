@@ -583,5 +583,17 @@
     "sourceQuality": 100,
     "repairAttempts": 0,
     "status": "generated"
+  },
+  {
+    "date": "2026-08-07",
+    "topic": "Zonnepanelen op flats en appartementen: gids voor installateurs",
+    "slug": "zonnepanelen-flats-appartementen-vve-installateurs",
+    "status": "generated"
+  },
+  {
+    "date": "2026-08-07",
+    "topic": "Dynamisch energiecontract adviseren: slimme sturing van thuisbatterij en warmtepomp onderbouwen",
+    "slug": "dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp",
+    "status": "generated"
   }
 ]
