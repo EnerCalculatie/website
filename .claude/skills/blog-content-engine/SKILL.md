@@ -1,6 +1,6 @@
 ---
 name: blog-content-engine
-description: Regels en workflow voor blogartikelen op de EnerCalculatie website — nieuw artikel toevoegen, titel/meta-limieten, QC-gates op AI-content, samenvoegen van artikelen (301-redirects), IndexNow, en de geautomatiseerde SEO/GEO content-pipeline (daily-blog-post.yml). Gebruik deze skill bij het schrijven, reviewen of debuggen van blogartikelen of de content-generatie-pipeline.
+description: Regels en workflow voor blogartikelen op de EnerCalculatie website — nieuw artikel toevoegen, titel/meta-limieten, QC-gates op AI-content, samenvoegen van artikelen (301-redirects), IndexNow, de multi-agent content-pipeline (daily-blog-post.yml, scripts/content-engine/) en de LinkedIn-repurposing erna. Gebruik deze skill bij het schrijven, reviewen of debuggen van blogartikelen of de content-generatie-pipeline.
 ---
 
 ## Nieuw Blogartikel — Verplichte Checklist
@@ -75,63 +75,106 @@ Bing-verificatie (HTML meta tag of XML-bestand) kan falen met misleidende foutme
 
 Los van IndexNow (auto per artikel via de workflow) heeft Bing WMT een **URL Submission**-tool (Configuration → URL Submission) voor handmatige bulk-indiening, max 100 URL's/dag, los quotum van IndexNow. Handig bij een backlog van meerdere artikelen tegelijk of na het herstellen van een crawler-block.
 
-## SEO/GEO Content Engine (blog-automatisering)
-De blog-cronjob (`.github/workflows/daily-blog-post.yml`, di+do 05:00 UTC) is uitgebreid met een gestuurde content-pipeline, niet langer vrije onderwerpkeuze door het model:
+## Content Engine (blog-automatisering) — multi-agent TS-pipeline
 
-1. **`ai-context/`** — bevat `company.md`, `products.md`, `audience.md`, `topics.md` (bedrijfscontext, handmatig onderhouden), en drie gegenereerde/gelogde bestanden:
-   - `content-plan.json` — backlog. Items hebben `status`: `planned` → `generated` | `rejected` (met `retryCount`, max 2 pogingen daarna `abandoned`) | `abandoned`. Git-getrackt.
-   - `content-log.json` — append-only run-log (datum, topic, model, seoScore, geoScore, status). Git-getrackt.
-   - `content-map.json` — **niet** git-getrackt (`.gitignore`), puur afgeleid uit `blogPosts.ts`/`services.ts` bij elke run, voor interne-link-suggesties.
-2. **`scripts/plan-content.mjs`** — vult `content-plan.json` aan zolang er <5 `planned`-items zijn, via Gemini + `ai-context/*.md`.
-3. **`scripts/generate-blog-post.mjs`** — pakt het hoogste-prioriteit `planned`-item, genereert het artikel, valideert via `scripts/seo-geo-validator.mjs` (score-gate: SEO **én** GEO moeten ≥80, twee auto-verbeterpogingen), draait een JSX-preflight-check (esbuild transform) vóórdat er iets naar schijf gaat — voorkomt orphan-bestanden bij een ongeldige AI-output. Schrijft bij succes dezelfde 3 bestanden als de bestaande blog-flow (component/`blogPosts.ts`-entry/`App.tsx`-route) plus `category`, `faq[]` en `readingTimeMinutes` op de entry. **Best-of-N over de verbeterpogingen:** de validator-LLM scoort niet monotoon stabiel — een meetrun zag GEO terugzakken van 94 (poging 1) naar 72 (poging 2, ná een op zichzelf terechte fix). Elke poging wordt bewaard met een kwaliteitsscore (`goedgekeurd` weegt zwaarder dan score, contentchecks tellen als straf); na de loop wint de beste poging, niet per se de laatste.
-4. **`scripts/lib/json-sanitizer.mjs`** — gedeelde `sanitizeJsonString()`, want niet elk LLM-model (bv. Llama) levert geldige JSON: rauwe newlines/tabs en ongeldige escapes (`\'`) in stringwaarden worden hier gerepareerd vóór `JSON.parse`.
-5. **`scripts/backfill-reading-time.mjs`** — eenmalig backfill-script + geëxporteerde `estimateReadingMinutes()` die ook `generate-blog-post.mjs` gebruikt voor nieuwe artikelen. **Let op:** isoleert eerst de body tussen `<BlogPostLayout>`-tags vóórdat het JS-expressies opschoont — anders vangt de niet-brace-matching `{...}`-regex de functie's eigen `{` en eet bijna de hele body op.
-6. **Model & tier-switch:** key-resolutie zit in `scripts/lib/gemini-config.mjs`, gedeeld door `plan-content.mjs` en `generate-blog-post.mjs`. `GEMINI_TIER` (GitHub Actions variable, `free` default of `paid`) bepaalt welke secret gebruikt wordt: `free` → `GEMINI_API_KEY_FREE` (met `GEMINI_API_KEY` als fallback voor bestaande setups), `paid` → `GEMINI_API_KEY_PAID`. Switchen tussen gratis en betaald is dus alleen `GEMINI_TIER` omzetten in de repo-variables, geen secret-waarden aanpassen. Optionele `GEMINI_MODEL` env var/variable, default `gemini-flash-latest`. Calls gaan naar `generativelanguage.googleapis.com`.
-7. **Regels voor AI-gegenereerde JSX:** nooit kale `<`/`>` als vergelijkingsteken in lopende tekst (bv. "< 10 jaar") — breekt de JSX-parser; schrijf "minder dan 10 jaar".
-8. **Cloud-fallback:** er is een disabled Claude Code-routine (`trig_01XyrunYbmJQg9m7haGzfvv7`, zelfde cron-schema) die dezelfde pipeline **zonder Gemini** draait — de agent schrijft/beoordeelt het artikel zelf met zijn eigen model. Alleen te activeren als de GitHub Actions-workflow structureel kapot is.
+**Vervangt de oudere, losstaande scripts** (`generate-blog-post.mjs`, `scripts/seo-geo-validator.mjs`,
+`claim-extractor.mjs`/`source-validator.mjs`/`fact-check.mjs` als los aangeroepen stappen).
+Die bestaan nog in de repo maar worden door `daily-blog-post.yml` niet meer aangeroepen — deze
+sectie beschreef tot 2026-08-07 nog de oude flow, was niet meegesynct met de vervanging.
+Opruimen van de dode bestanden staat nog open.
 
-Windows-ontwikkelaars: dit repo gebruikt CRLF lokaal (`core.autocrlf=true` is gangbaar), maar de GitHub Actions-runner (Ubuntu) checkt uit met LF. Regexes in de scripts die met bestandsinhoud werken (App.tsx-route-anchors, content-map-parsing) moeten `\r?\n` gebruiken, niet kale `\n` — een eerdere bug werkte toevallig op CI maar faalde lokaal.
+De blog-cronjob (`.github/workflows/daily-blog-post.yml`, di+do 05:00 UTC) draait nu
+`npx tsx scripts/content-engine/run-pipeline.ts` (`scripts/content-engine/`, TypeScript,
+`run-pipeline.ts` orkestreert 7 agents onder `agents/`):
 
-## Evidence-based fact-check-fase (na SEO/GEO, vóór schrijven)
+1. **`scripts/plan-content.mjs`** — vult `ai-context/content-plan.json` aan zolang er <5
+   `planned`-items zijn, via Gemini + `ai-context/*.md` (bedrijfscontext). Ongewijzigd t.o.v. de
+   oude flow — draait vóór `run-pipeline.ts` als losse stap in de workflow.
+2. **`ResearchAgent`** — verzamelt feiten over het gekozen onderwerp (hoogste-prioriteit
+   `planned`-item, of een expliciet meegegeven onderwerp), schrijft `research.json`. Vraagt het
+   model feiten te putten uit "betrouwbare bronnen genoemd in de systeeminstructie"
+   (`prompts/research.md`) — geen live fetch, geen zoekmachine-API.
+3. **`WriterAgent`** — schrijft `draft.md`, uitsluitend op basis van de statische kennisbank
+   (`scripts/content-engine/knowledge/*.md` — EMS, NEN1010, laadpalen, netbeheer,
+   thuisbatterijen, warmtepompen, zonnepanelen; via `services/KnowledgeBase.ts`,
+   `getCombinedContext()` leest alle `.md`-bestanden in die map) en de researchfeiten uit stap 2.
+   Mag niets verzinnen buiten die twee bronnen.
+4. **Kwaliteitsloop (max 2 herschrijf-iteraties):** `FactCheckerAgent` (checkt de draft tegen
+   kennisbank + researchfeiten, `fact-check.json`) en `TechnicalReviewerAgent`
+   (`technical-review.json`) draaien parallel aan elkaar. Blokkerende issues (`status: 'incorrect'`
+   resp. `severity: 'high'`) gaan als feedback terug naar `WriterAgent` voor een herschrijfronde.
+   Na 2 pogingen gaat de pipeline door met de beste versie, ook als er nog issues open staan.
+5. **`SeoGeoAgent`** — optimaliseert title/meta/slug/FAQ ná de inhoudelijke loop, schrijft
+   `seo-optimized.json`. Genereert hier ook `category` (optioneel veld, vrije modelkeuze — zie
+   `schemas/seo.ts`) en `keyPoints`.
+6. **`QualityGateAgent`** — definitief oordeel (`passed`/`confidence`), leest `seo-optimized.json`
+   + de fact-check/tech-review-uitkomsten, schrijft `quality-report.json`. Alleen high-severity
+   issues blokkeren publicatie na alle iteraties; medium/low publiceert door met een waarschuwing
+   in de workflow-log.
+7. **`PublishAgent`** — schrijft bij een `passed`-oordeel het React-component
+   (`src/components/blog/<Naam>Article.tsx`, componentnaam = `pascalCase(slug) + 'Article'`),
+   werkt `blogPosts.ts`-entry en `App.tsx`-route bij (`lazyRoute` + `<Route>`, zie checklist
+   bovenaan dit document), en verifieert de build (`vite build` + prerender) vóórdat er iets
+   gecommit wordt.
 
-**Aanleiding:** ná de bedragen-fout (zie "Geen bedragen in AI-content" hierboven) bleken losse
-handmatige checks van live artikelen nog steeds fouten op te leveren die géén bedrag zijn: een
-verzonnen "20-50% gasreductie"-cijfer zonder bron, en een verkeerd gespelde subsidienaam (SVVE)
-in het VvE-artikel (2026-08-03). `checkNoAmounts` blokkeert alleen euro-bedragen — percentages,
-regelnamen, normen en jaartallen glipten er nog steeds doorheen. Vandaar een systematische
-fact-check-fase i.p.v. losse verboden-woordenlijsten.
+**Gedeeld met de rest van de pipeline:** `scripts/lib/gemini-config.mjs` (tier/key-resolutie,
+zie hieronder), `scripts/lib/json-sanitizer.mjs` (LLM-JSON-reparatie), regels voor AI-JSX (geen
+kale `<`/`>` als vergelijkingsteken in lopende tekst — breekt de JSX-parser, schrijf "minder dan
+10 jaar"). Windows-ontwikkelaars: repo gebruikt CRLF lokaal, CI (Ubuntu) checkt uit met LF —
+regexes op bestandsinhoud (bv. App.tsx-route-anchors) moeten `\r?\n` gebruiken, niet kale `\n`.
 
-**Hoe het werkt:**
-1. **`ai-context/trusted-sources.json`** — vaste, handmatig gecureerde bronnenlijst (RVO/ISDE,
-   Rijksoverheid/saldering, ACM, Netbeheer Nederland, NEN). Geen zoekmachine-API in dit project
-   (geen secret/budget daarvoor) — het model moet elke feitelijke claim koppelen aan één van deze
-   vaste `sourceKey`'s, nooit een zelfverzonnen URL.
-2. De generatieprompt (`generate-blog-post.mjs`) eist een `claims`-array in de JSON-output:
-   `[{text, sourceKey}]`. Een claim zonder geldige sourceKey uit de lijst moet generiek
-   geschreven worden (zonder het specifieke cijfer/regelnaam) of weggelaten.
-3. **`scripts/lib/claim-extractor.mjs`** normaliseert/dedupliceert de claims en valideert de
-   sourceKey tegen de registry.
-4. **`scripts/lib/source-validator.mjs`** fetcht de bijbehorende bron live (native `fetch()`,
-   geen nieuwe dependency, in-memory cache per run) en strip de HTML naar platte tekst.
-5. **`scripts/lib/fact-check.mjs`** laat Gemini per claim + gefetchte brontekst een status geven:
-   `SUPPORTED`/`PARTIALLY_SUPPORTED`/`OUTDATED`/`CONFLICTING`/`NO_SOURCE`.
-6. **Publicatiegate:** elke claim moet exact `SUPPORTED` zijn — geen gemiddelde-score-gate zoals
-   bij SEO/GEO. Eén claim die niet SUPPORTED is, triggert een zelfherstel-poging (her-prompt met
-   de falende claims als feedback, max `MAX_FACTCHECK_ATTEMPTS = 3`), daarna definitieve
-   afkeuring via hetzelfde `rejectPlanItem`-mechanisme als de bestaande SEO/GEO-afkeuring.
-7. Bij succes: **`scripts/lib/citation-generator.mjs`** voegt automatisch een "Bronnen"-blok toe
-   onderaan `componentBody` (gededupliceerd, met geraadpleegd-datum) — geen apart
-   `blogPosts.ts`-veld, gewoon JSX-tekst.
-8. **`scripts/lib/article-audit.mjs`** schrijft `ai-context/article-audit.json` (overschreven per
-   run, geen append-only log) met scores + per-claim-detail. `content-log.json` krijgt extra
-   velden: `factScore`, `claimsCount`, `sourcesCount`, `sourceQuality`, `repairAttempts`.
+**Model & tier-switch:** key-resolutie zit in `scripts/lib/gemini-config.mjs`. `GEMINI_TIER`
+(GitHub Actions variable, `free` default of `paid`) bepaalt welke secret gebruikt wordt: `free` →
+`GEMINI_API_KEY_FREE` (met `GEMINI_API_KEY` als fallback), `paid` → `GEMINI_API_KEY_PAID`. Cron
+draait altijd op `free`; `workflow_dispatch` laat je kiezen (default `free`) — nooit via de losse
+repo-variabele `vars.GEMINI_TIER` (staat op `paid`, zou de geplande run anders per ongeluk op de
+betaalde key laten draaien). Optionele `GEMINI_MODEL`-variable. Calls naar
+`generativelanguage.googleapis.com`.
 
-**Harde grens, geen bug:** NEN/ISSO-bronnen in de registry zijn overzichtspagina's — de volledige
-normtekst is betaald. Fact-check op een NEN/ISSO-claim kan dus alleen "de norm bestaat, de naam
-klopt" verifiëren, niet gedetailleerde normwaarden. Claims die een specifiek getal uit een
-betaalde norm nodig hebben, kunnen niet automatisch geverifieerd worden en moeten generiek
-blijven of weggelaten worden.
+**Cloud-fallback:** er is een disabled Claude Code-routine (`trig_01XyrunYbmJQg9m7haGzfvv7`,
+zelfde cron-schema) die dezelfde pipeline **zonder Gemini** draait — de agent schrijft/beoordeelt
+het artikel zelf met zijn eigen model. Alleen te activeren als de GitHub Actions-workflow
+structureel kapot is.
 
-**Geen nieuwe workflow-stappen:** de fact-check-lus zit, net als de SEO/GEO-validatie, ín
-`generate-blog-post.mjs` (niet als aparte GitHub Actions-stap). De bestaande rollback (git
-checkout bij falen) en `if: always()`-commit werken ongewijzigd voor een fact-check-afkeuring.
+**Bronnen-fact-check (`checkNoAmounts`, "Bronnen"-sectie):** de oudere evidence-based
+fact-check-fase (`ai-context/trusted-sources.json`, `claim-extractor.mjs`/`source-validator.mjs`/
+`fact-check.mjs`/`citation-generator.mjs`, live URL-fetch per claim) draait **niet** meer als
+onderdeel van de dagelijkse generatie — die logica leefde in `generate-blog-post.mjs`, dat niet
+meer wordt aangeroepen. Wél nog actief: `scripts/backfill-sources.mjs` (zie hieronder), dat
+dezelfde `trusted-sources.json`-registry en fact-check-aanpak gebruikt, maar als losse,
+handmatig-getriggerde workflow. De huidige `FactCheckerAgent` (stap 4 hierboven) checkt tegen de
+statische kennisbank, niet tegen live-gefetchte bronnen — geen aparte "Bronnen"-sectie-generatie
+in de dagelijkse flow.
+
+## LinkedIn-repurposing (na publicatie)
+
+Na een geslaagde publicatie (nieuwe slug bekend) zet `scripts/generate-social.mjs` het artikel om
+in 3 LinkedIn-posts (Gemini) en committeert dat apart naar `src/content/social/<Naam>Article-social.md`
+(twee losse stappen ná IndexNow in `daily-blog-post.yml`, `continue-on-error: true` — mislukt de
+repurposing, dan blijft het artikel zelf gewoon gepubliceerd).
+
+- **Slug-lookup via `App.tsx`**, niet via bestandsnaam-conventie: de route-registratie
+  (`lazyRoute('/blog/<slug>', () => import('./components/blog/<Naam>')...)`) is de enige bron die
+  gegarandeerd klopt. Een pascalCase(slug)-conversie faalt voor 11 van de 54 (oudere, pre-pipeline)
+  artikelen waarvan de componentnaam niet 1-op-1 uit de slug volgt (bv. slug
+  `salderingsregeling-2027` → component `SalderingsregelingArticle.tsx`, zonder jaartal).
+- **`maxOutputTokens: 4000`, niet 1000:** `gemini-3.6-flash` denkt standaard
+  (`thoughtsTokenCount`, niet uitzetbaar voor dit model — `thinkingBudget: 0` geeft een 400
+  INVALID_ARGUMENT), en dat verbruikt het `maxOutputTokens`-budget vóórdat er ook maar iets van de
+  3 posts gegenereerd is. Op 1000 stopte de call op `finishReason: MAX_TOKENS` tijdens het denken
+  zelf — output was een afgekapt fragment van de interne redenering, niet bruikbaar. Een expliciete
+  check op `finishReason === 'MAX_TOKENS'` laat een toekomstige afgekapte response hard falen i.p.v.
+  half publiceren.
+- Handmatig testen: `node scripts/generate-social.mjs <slug>` (vereist `GEMINI_API_KEY` — staat
+  niet in dit Railway-project maar in `EnerCalculatie` (app-repo, service `enercalculatie`); ophalen
+  via `railway run` in die project-link).
+
+## Redactionele categorie (`category`-veld)
+
+Alle 54 artikelen hebben sinds 2026-08-07 een `category` (voedt het filter en de
+categorie-specifieke CTA op `/blog`, zie `categoryCta.ts`) — de 18 die dit misten (grotendeels
+pre-pipeline artikelen) zijn handmatig ingedeeld op basis van titel/tags, consistent met de
+bestaande indeling (bv. ISDE-getagde warmtepomp-artikelen vallen onder `Warmtepompen`, niet
+`Subsidies`). Nieuwe artikelen krijgen dit veld automatisch van `SeoGeoAgent` (stap 5 hierboven,
+optioneel modelveld) — geen handmatige actie meer nodig, maar niet gegarandeerd gevuld: check bij
+een nieuw artikel of `category` echt is meegekomen in de `blogPosts.ts`-entry.
