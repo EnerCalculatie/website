@@ -20,12 +20,14 @@ const PRICING_TIERS: PricingTier[] = [
     priceMonthly: 99,
     priceYearly: 990,
     setupFee: 0,
-    description: 'Voor de installateur met focus op zonnepanelen en thuisbatterijen.',
+    description: 'Voor solar- en batterijinstallateurs die sneller offertes willen maken en meer opdrachten willen winnen.',
     includedFeatures: [
       'Zonnepanelen (Solar)',
       'Thuisbatterij (Battery)',
-      'AI-documentanalyse',
-      'Deelbare rapporten'
+      'AI-documentanalyse (OCR energierekening)',
+      'Deelbare rapporten & PDF-export',
+      'Onbeperkt dossiers',
+      'Saldering 2027 automatisch verwerkt'
     ],
     excludedFeatures: [
       'Warmtepomp',
@@ -38,14 +40,14 @@ const PRICING_TIERS: PricingTier[] = [
   },
   {
     name: 'Business PRO',
-    priceMonthly: 179,
-    priceYearly: 1790,
-    setupFee: 199,
-    description: 'Voor de all-round installateur inclusief warmtepompen en technische opname.',
+    priceMonthly: 149,
+    priceYearly: 1490,
+    setupFee: 0,
+    description: 'Voor installateurs die ook warmtepompen adviseren en een hogere orderwaarde per klant willen realiseren.',
     includedFeatures: [
       'Alles uit Business',
-      'Warmtepomp',
-      'Technische opname'
+      'Warmtepomp (incl. ISDE-subsidieberekening)',
+      'Technische opname (bouwkundige schouw)'
     ],
     excludedFeatures: [
       'Airco',
@@ -58,17 +60,18 @@ const PRICING_TIERS: PricingTier[] = [
     name: 'Compleet',
     priceMonthly: 299,
     priceYearly: 2990,
-    setupFee: 299,
-    description: 'Het complete pakket voor volledige verduurzaming.',
+    setupFee: 0,
+    description: 'Voor bedrijven die complete verduurzaming aanbieden — van solar en batterij tot warmtepomp, airco en laadpaal.',
     includedFeatures: [
       'Alles uit Business PRO',
-      'Airco',
-      'Laadpaal',
-      'Volledige verduurzaming'
+      'Airco (koellastberekening)',
+      'Laadpaal (capaciteitscheck aansluiting)',
+      'Alle toekomstige modules',
+      'Priority support'
     ],
     excludedFeatures: [
     ],
-    cta: 'Plan een adviesgesprek',
+    cta: 'Start gratis proefperiode',
     mostPopular: false
   }
 ];
@@ -85,7 +88,7 @@ export function Pricing() {
             Eerlijke prijzen. Geen verrassingen.
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Business heeft geen setup fee — Business PRO en Compleet rekenen een eenmalige onboarding.
+            Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Geen setupkosten. 30 dagen gratis proberen, maandelijks opzegbaar.
           </p>
         </div>
 
@@ -184,9 +187,7 @@ export function Pricing() {
                 </a>
                 <div className="mt-4 text-center">
                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-                    {tier.name === 'Compleet'
-                      ? 'Complete pakket · eerst persoonlijk gesprek'
-                      : 'Maandelijks opzegbaar · Geen verborgen kosten'}
+                    {'Maandelijks opzegbaar · Geen setupkosten · Geen verborgen kosten'}
                   </p>
                 </div>
               </div>
@@ -274,9 +275,9 @@ export function Pricing() {
                         </tr>
                         <tr className="hover:bg-slate-50/50 transition-colors bg-slate-50/30">
                           <td className="py-4 px-4 font-bold text-slate-900">Setup kosten</td>
-                          <td className="py-4 px-4 font-bold text-slate-700">Gratis</td>
-                          <td className="py-4 px-4 font-bold text-slate-700">€ 199</td>
-                          <td className="py-4 px-4 font-bold text-slate-700">€ 299</td>
+                          <td className="py-4 px-4 font-bold text-brand-primary">Gratis</td>
+                          <td className="py-4 px-4 font-bold text-brand-primary">Gratis</td>
+                          <td className="py-4 px-4 font-bold text-brand-primary">Gratis</td>
                         </tr>
                       </tbody>
                     </table>
