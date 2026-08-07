@@ -5,6 +5,7 @@ import { author } from '../../content/author';
 import { buildBlogPostingSchema, buildFaqSchema } from '../../content/blogSchema';
 import { FreeIntakeCTA } from '../FreeIntakeCTA';
 import { InlineCTA } from './InlineCTA';
+import { ChecklistOptIn } from './ChecklistOptIn';
 import { SEO } from '../SEO';
 
 // Splitst de artikel-body (platte lijst van <p>/<h2>/<ul>/... siblings) op de
@@ -166,6 +167,13 @@ export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
                 ))}
               </div>
             </div>
+          )}
+
+          {/* Gated checklist-content-magneet: alleen relevant voor categorieën
+              waar NEN1010-selectiviteit/gelijktijdige-invoeding daadwerkelijk
+              speelt (zon/laadpaal/batterij op een bestaande aansluiting). */}
+          {post.category && ['Zonnepanelen', 'Laadpalen', 'Thuisbatterijen'].includes(post.category) && (
+            <ChecklistOptIn slug={post.slug} checklist="nen1010" />
           )}
         </div>
       </div>
