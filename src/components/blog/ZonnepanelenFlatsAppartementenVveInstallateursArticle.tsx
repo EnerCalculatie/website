@@ -5,21 +5,19 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'zonnepanelen-flats-appartementen-vve-installateurs')!;
 
 const markdown = `
-# Zonnepanelen op flats en appartementen: gids voor installateurs
-
 Het plaatsen van zonnepanelen op appartementencomplexen en flatgebouwen vraagt om een specifieke aanpak. Installateurs krijgen te maken met zowel bestuurlijke processen (VvE) als technische eisen rondom bouwkunde (NEN 7250), brandveiligheid en de elektrische infrastructuur (NEN 1010).
 
 ## Besluitvorming en financiële kaders bij de VvE
 
 Voor het realiseren van een zonnestroominstallatie op het gemeenschappelijke dak van een appartementencomplex is doorgaans een formeel besluit van de Vereniging van Eigenaars (VvE) vereist. Dit besluit wordt genomen op basis van de toepasselijke splitsingsakte en de daarin vastgelegde stemverhoudingen.
 
-Daarnaast kunnen VvE's en appartementseigenaren in veel gevallen gebruikmaken van de [Subsidie verduurzaming voor Verenigingen van Eigenaars (SVVE)](/kennisbank/svve-subsidie). Deze regeling van de RVO biedt subsidie voor verduurzamingsmaatregelen en oplaadpuntenadvies.
+Daarnaast kunnen VvE's en appartementseigenaren in veel gevallen gebruikmaken van de Subsidie verduurzaming voor Verenigingen van Eigenaars (SVVE). Deze regeling van de RVO biedt subsidie voor verduurzamingsmaatregelen en oplaadpuntenadvies.
 
 ## Bouwkundige eisen en brandveiligheid op platte daken
 
 De bouwkundige integratie van zonne-energiesystemen op platte daken van hoge gebouwen vraagt om nauwkeurige berekeningen. De norm NEN 7250 geeft hiervoor de normen en rekenmethodes met betrekking tot de bouwkundige constructie, zoals de wind- en dakbelasting.
 
-Bij het aanleggen van bekabeling van het dak naar de meterkasten passeren de kabels doorgaans verschillende brandcompartimenten. Conform het Bouwbesluit / Besluit bouwwerken leefomgeving dient de brandwerendheid van deze scheidingsconstructies behouden te blijven bij het doorvoeren van kabels. Lees ook onze richtlijnen over [brandveiligheid bij PV-installaties](/kennisbank/brandveiligheid-pv).
+Bij het aanleggen van bekabeling van het dak naar de meterkasten passeren de kabels doorgaans verschillende brandcompartimenten. Conform het Bouwbesluit / Besluit bouwwerken leefomgeving dient de brandwerendheid van deze scheidingsconstructies behouden te blijven bij het doorvoeren van kabels. Zorg dat de brandwerendheid van deze scheidingsconstructies expliciet is meegenomen in het installatieplan.
 
 ## Elektrische installatie, bekabeling en NEN 1010
 

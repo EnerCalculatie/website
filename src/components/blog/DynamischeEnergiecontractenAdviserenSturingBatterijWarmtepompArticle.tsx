@@ -5,9 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp')!;
 
 const markdown = `
-# Dynamisch energiecontract adviseren: slimme sturing van thuisbatterij en warmtepomp onderbouwen
-
-Bij het adviseren over een dynamisch energiecontract en de slimme sturing van een [thuisbatterij](/kennisbank/thuisbatterij) en [warmtepomp](/kennisbank/warmtepomp) spelen zowel markttechnische als installatietechnische factoren een cruciale rol. Een onderbouwd installatie-advies rust op inzicht in dynamische tariefstructuren, geautomatiseerde sturingsmogelijkheden via een EMS en de bijbehorende veiligheids- en capaciteitsnormen conform NEN 1010 en de Netcode Elektriciteit.
+Bij het adviseren over een dynamisch energiecontract en de slimme sturing van een thuisbatterij en warmtepomp spelen zowel markttechnische als installatietechnische factoren een cruciale rol. Een onderbouwd installatie-advies rust op inzicht in dynamische tariefstructuren, geautomatiseerde sturingsmogelijkheden via een EMS en de bijbehorende veiligheids- en capaciteitsnormen conform NEN 1010 en de Netcode Elektriciteit.
 
 ## Hoe werkt een dynamisch energiecontract?
 
@@ -17,7 +15,7 @@ Voor het optimaal laten functioneren van geautomatiseerde sturing op basis van d
 
 ## Slimme sturing via een Energiemanagementsysteem (EMS)
 
-Een [Energiemanagementsysteem (EMS)](/kennisbank/energiemanagementsysteem) regelt de belasting in huis dynamisch (load balancing) om piekstromen en afschakeling van de hoofdzekering te voorkomen. Via een EMS kunnen apparaten geautomatiseerd worden aangestuurd op basis van marktcurves:
+Een Energiemanagementsysteem (EMS) regelt de belasting in huis dynamisch (load balancing) om piekstromen en afschakeling van de hoofdzekering te voorkomen. Via een EMS kunnen apparaten geautomatiseerd worden aangestuurd op basis van marktcurves:
 
 - **Thuisbatterij:** Een thuisbatterij kan geautomatiseerd laden tijdens uren met lage of negatieve beursprijzen en ontladen tijdens piekuren met hoge tarieven.
 - **Warmtepomp:** De sturing van een warmtepomp op dynamische tarieven maakt gebruik van thermische opslag in een buffer- of boilervat om warmte te produceren en op te slaan gedurende goedkope of negatieve stroomuren.

@@ -1257,7 +1257,7 @@ export const blogPosts: BlogPostMeta[] = [
     slug: 'zonnepanelen-flats-appartementen-vve-installateurs',
     readingTimeMinutes: 4,
     title: 'Zonnepanelen op flats en appartementen: gids voor installateurs',
-    seoTitle: 'Zonnepanelen op flats & VvE: Eisen, NEN 1010 & NEN 7250',
+    seoTitle: 'Zonnepanelen op flats en VvE: NEN 1010-eisen',
     description:
       'Ontdek de technische, bouwkundige en juridische eisen voor het installeren van zonnepanelen op flats en appartementencomplexen. Inclusief NEN 1010 en...',
     date: '2026-08-07',
@@ -1281,7 +1281,7 @@ export const blogPosts: BlogPostMeta[] = [
     slug: 'dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp',
     readingTimeMinutes: 4,
     title: 'Dynamisch energiecontract adviseren: slimme sturing van thuisbatterij en warmtepomp onderbouwen',
-    seoTitle: 'Dynamisch Energiecontract Adviseren: Thuisbatterij & Warmtepomp Sturing',
+    seoTitle: 'Dynamisch Contract: Batterij en Warmtepomp Sturen',
     description:
       'Adviseer vakkundig over dynamische energiecontracten, de sturing van thuisbatterijen en warmtepompen via EMS, en NEN 1010 richtlijnen voor somstromen en...',
     date: '2026-08-07',
