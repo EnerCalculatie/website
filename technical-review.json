@@ -1,22 +1,22 @@
 [
   {
-    "issue": "Er wordt verwarring gemaakt tussen thermisch vermogen (kWth) en elektrisch vermogen (kWe) bij warmtepompen. Een warmtepomp van 5 kW thermisch heeft bij een COP van 4 slechts een elektrisch opgesteld vermogen van circa 1,25 kW, wat prima op een 1-fase eindgroep past. Pas bij een groter elektrisch vermogen (of bij een hoog vermogen aan elektrische bijverwarming/elektrisch element) is een 3-fase aansluiting noodzakelijk.",
+    "issue": "Het artikel noemt het risico op overbelasting door somstromen (41A op een 40A aardlekschakelaar), maar biedt geen concrete installatietechnische oplossingen conform NEN 1010.",
     "severity": "medium",
-    "recommendation": "Maak expliciet onderscheid tussen thermisch en elektrisch vermogen. Geef aan dat de fasering en groepenindeling in de groepenkast worden bepaald door het elektrische opgesteld vermogen (kWe) en eventuele piekstromen van het bijverwarmingselement."
+    "recommendation": "Voeg concrete oplossingen toe voor het somstroomprobleem, zoals het verzwaren van de aardlekschakelaars en interne bedrading naar 63A, of het plaatsen van een herverdelingsautomaat (hoofdbeveiligingsautomaat) om de maximale stroom door de aardlekschakelaars te begrenzen op 40A."
   },
   {
-    "issue": "De eis voor het realtime uitlezen van de slimme meter door een Energiemanagementsysteem (EMS) mist een essentiële installatietechnische nuance. Een slimme meter alleen is onvoldoende; voor snelle load balancing is een actieve koppeling met de P1-poort of de toepassing van externe stroomtransformatoren (CT-spoelen/MID-meter) in de groepenkast vereist.",
-    "severity": "medium",
-    "recommendation": "Voeg toe dat het EMS voor directe en veilige load balancing gekoppeld moet zijn via de P1-poort (met voldoende hoge uitleessnelheid/DSMR-versie) of gebruik moet maken van eigen meetspoelen/MID-meters direct achter de hoofdschakelaar."
+    "issue": "Er wordt niet gesproken over het type aardlekschakelaar en DC-foutstromen bij omvormers (batterij/PV) en laadpalen.",
+    "severity": "high",
+    "recommendation": "Vermeld dat conform NEN 1010 rekening gehouden moet worden met gelijkstroomfoutstromen (>6mA DC). Als de omvormer of laadpaal geen geïntegreerde DC-beveiliging heeft, is een Type B aardlekschakelaar verplicht om te voorkomen dat Type A aardlekschakelaars 'blind' worden voor wisselstroomfouten."
   },
   {
-    "issue": "De stelling dat 1-fase thuisbatterijen tot 5 kW kunnen laden/ontladen strookt niet met de Nederlandse Netcode Elektriciteit. In Nederland geldt een maximale fase-onbalans van 16A (3,68 kVA) voor invoeding op één fase. Een 1-fase batterij van 5 kW (ca. 21,7A) overschrijdt deze norm op het Nederlandse net.",
+    "issue": "Bij de uitleg van het Home Energy Management System (EMS) en load balancing ontbreekt de technische onderbouwing van de benodigde meetinrichting.",
     "severity": "medium",
-    "recommendation": "Verduidelijk dat volgens de Nederlandse Netcode Elektriciteit de maximale invoedingscapaciteit per fase begrensd is op 16A (3,68 kVA) om fase-onbalans te voorkomen, en dat voor vermogens boven 3,68 kW een 3-fase omvormer/batterijstelsel verplicht is."
+    "recommendation": "Licht toe dat een EMS voor het uitvoeren van load balancing afhankelijk is van real-time data. Dit vereist een fysieke koppeling met de P1-poort van de slimme meter of de installatie van externe stroomtransformatoren (CT-spoelen) respectievelijk MID-gecertificeerde kWu-meters."
   },
   {
-    "issue": "De passage over de 3x25A aansluiting suggereert dat verzwaring naar 3x35A nodig is om het vermogen van 17,25 kW te kunnen benutten. Dit is tegenstrijdig met de werking van een EMS. Een EMS zorgt er juist voor dat het beschikbare vermogen van 3x25A (17,25 kW) optimaal benut wordt zonder dat de hoofdzekering aanspreekt en zonder dat kostbare netverzwaring naar 3x35A (met hogere gecontracteerde vastrechtkosten) noodzakelijk is.",
+    "issue": "De claim over selectiviteit (16A maximaal afzekeren bij een 25A hoofdaansluiting) is te kort door de bocht bij moderne installaties met hoofdautomaten.",
     "severity": "low",
-    "recommendation": "Herschrijf dit onderdeel om uit te leggen dat dynamische sturing/load balancing door het EMS netverzwaring naar 3x35A juist kan voorkomen, mits alle grote verbruikers en opwekkers dynamisch geregeld kunnen worden binnen de fysieke grens van 3x25A."
+    "recommendation": "Nuanceer dat de factor 1,6 voor selectiviteit geldt bij smeltpatronen (smeltveiligheden). Bij moderne aansluitingen met een installatieautomaat als hoofdzekering (bijv. 3x25A C-karakteristiek) is volledige kortsluitselectiviteit met een 16A B-karakteristiek aftakking vaak niet te waarborgen."
   }
 ]

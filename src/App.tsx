@@ -115,6 +115,7 @@ const DcAcVerhoudingOmvormerOverdimensioneringArticle = lazyRoute('/blog/dc-ac-v
 const BrutomargeBerekenenInstallatiebedrijfArticle = lazyRoute('/blog/brutomarge-berekenen-installatiebedrijf', () => import('./components/blog/BrutomargeBerekenenInstallatiebedrijfArticle').then(m => ({ default: m.BrutomargeBerekenenInstallatiebedrijfArticle })));
 const ZonnepanelenFlatsAppartementenVveInstallateursArticle = lazyRoute('/blog/zonnepanelen-flats-appartementen-vve-installateurs', () => import('./components/blog/ZonnepanelenFlatsAppartementenVveInstallateursArticle').then(m => ({ default: m.ZonnepanelenFlatsAppartementenVveInstallateursArticle })));
 const DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle = lazyRoute('/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp', () => import('./components/blog/DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle').then(m => ({ default: m.DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle })));
+const DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle = lazyRoute('/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp', () => import('./components/blog/DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle').then(m => ({ default: m.DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -249,6 +250,7 @@ export function AppContent() {
             <Route path="/blog/brutomarge-berekenen-installatiebedrijf" element={<BrutomargeBerekenenInstallatiebedrijfArticle />} />
             <Route path="/blog/zonnepanelen-flats-appartementen-vve-installateurs" element={<ZonnepanelenFlatsAppartementenVveInstallateursArticle />} />
             <Route path="/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp" element={<DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle />} />
+            <Route path="/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp" element={<DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

@@ -5,8 +5,10 @@
     "intent": "informatief",
     "priority": 9,
     "slug": "dynamische-energiecontracten-adviseren-hoe-onderbouwt-u-de-sturing-van-batterij-en-warmtepomp",
-    "status": "planned",
-    "createdAt": "2026-08-07T12:42:41.888Z"
+    "status": "generated",
+    "createdAt": "2026-08-07T12:42:41.888Z",
+    "generatedSlug": "dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp",
+    "generatedAt": "2026-08-08T00:39:03.745Z"
   },
   {
     "title": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",

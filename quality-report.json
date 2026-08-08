@@ -1,21 +1,21 @@
 {
   "passed": true,
-  "confidence": 90,
+  "confidence": 95,
   "issues": [
     {
-      "issue": "Verwarring tussen thermisch vermogen (kWth) en elektrisch vermogen (kWe) bij warmtepompen. De elektrisch opgestelde capaciteit bepaalt de benodigde fase-indeling.",
+      "issue": "Het artikel behandelt geen DC-foutstromen en het type aardlekschakelaar (Type B) bij omvormers en laadpalen. Dit is nuttige aanvullende context, maar het ontbreken ervan maakt de bestaande tekst niet feitelijk onjuist.",
       "severity": "medium"
     },
     {
-      "issue": "Het EMS vereist voor snelle load balancing een directe P1-koppeling of CT-spoelen/MID-meter, wat niet expliciet genoemd wordt bij de randvoorwaarden.",
+      "issue": "Concrete installatietechnische oplossingen voor het somstroomprobleem (zoals verzwaren naar 63A of een herverdelingsautomaat) ontbreken, wat het advies praktisch completer zou maken.",
       "severity": "medium"
     },
     {
-      "issue": "De vermelding dat 1-fase thuisbatterijen tot 5 kW kunnen laden/ontladen is onnuanceerd ivm de maximale fase-onbalans van 16A (3,68 kVA) volgens de Nederlandse Netcode Elektriciteit.",
+      "issue": "Technische toelichting op de benodigde meetinrichting (P1-poort, CT-spoelen/MID-meters) voor het EMS ontbreekt.",
       "severity": "medium"
     },
     {
-      "issue": "Suggestie dat netverzwaring naar 3x35A nodig is voor 17,25 kW, terwijl een EMS netverzwaring juist voorkomt door dynamische sturing.",
+      "issue": "De uitleg over selectiviteit is gebaseerd op een algemene vuistregel; bij moderne hoofdautomaten met C-karakteristiek kan nuance wenselijk zijn.",
       "severity": "low"
     }
   ]

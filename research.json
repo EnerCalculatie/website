@@ -2,44 +2,38 @@
   "topic": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
   "facts": [
     {
-      "claim": "Bij een dynamisch energiecontract veranderen de elektriciteitstarieven elk uur op basis van de spotmarkt (EPEX Spot) en de gastarieven elke 24 uur op basis van de EEX-beurs.",
+      "claim": "Bij dynamische energiecontracten zijn de leveringstarieven voor elektriciteit direct gekoppeld aan de spotmarkt (EPEX Spot) en wijzigen deze per uur.",
       "source": "ACM",
-      "confidence": 100,
-      "datum": "2024"
-    },
-    {
-      "claim": "Voor het optimaal laten functioneren van geautomatiseerde sturing via dynamische tarieven is een werkende slimme meter vereist die gedetailleerde meetdata uitleest.",
-      "source": "ACM",
-      "confidence": 100,
-      "datum": "2024"
-    },
-    {
-      "claim": "Sturing van een warmtepomp op dynamische tarieven maakt gebruik van thermische opslag in een buffer- of boilervat om warmte te produceren en op te slaan gedurende goedkope of negatieve stroomuren.",
-      "source": "RVO",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Een thuisbatterij kan geautomatiseerd laden tijdens uren met lage of negatieve beursprijzen en ontladen tijdens piekuren met hoge tarieven via een Energiemanagementsysteem (EMS).",
-      "source": "Milieu Centraal",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "Het afschaffen van de salderingsregeling per 2027 verhoogt de economische noodzaak om opgewekte zonne-energie direct te verbruiken of op te slaan via slim gestuurde apparaten.",
+      "claim": "De salderingsregeling voor zonnepanelen wordt volgens het kabinetsvoorstel per 1 januari 2027 beëindigd, wat direct eigenverbruik en opslag financieel noodzakelijk maakt.",
       "source": "Rijksoverheid",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Slimme, dynamische sturing van warmtepompen en batterijen helpt bij het beperken van piekbelastingen op het lokale laagspanningsnet (netcongestie).",
-      "source": "Netbeheer Nederland",
+      "claim": "Een slim angestuurde warmtepomp kan de woning extra opwarmen of een geiser/boiler opwarmen tijdens uren met lage of negatieve stroomprijzen op de dynamische markt.",
+      "source": "Milieu Centraal",
       "confidence": 90,
       "datum": "2024"
     },
     {
-      "claim": "Leveranciers van dynamische contracten mogen per kWh en m³ een inkoopvergoeding en vaste leveringskosten in rekening brengen bovenop de kale beursprijs.",
-      "source": "ACM",
+      "claim": "Een thuisbatterij kan op goedkope of negatieve uren laden vanaf het net en op duurder geprijsde uren ontladen om netafname te vermijden.",
+      "source": "Milieu Centraal",
+      "confidence": 90,
+      "datum": "2024"
+    },
+    {
+      "claim": "Netbeheerders kampen met netcongestie op het laagspanningsnet en stimuleren flexibiliteit om gelijktijdige piekbelasting bij het laden van batterijen en inschakelen van warmtepompen te voorkomen.",
+      "source": "Netbeheer Nederland",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Voor het aanschaffen van een thuisbatterij voor kleinverbruikers is er in Nederland geen landelijke ISDE- of andere aankoopsubsidie beschikbaar.",
+      "source": "RVO",
       "confidence": 100,
       "datum": "2024"
     }
