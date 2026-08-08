@@ -1343,4 +1343,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat zijn somstromen en hoe beïnvloeden ze de veiligheid?', answer: 'Somstromen ontstaan wanneer stroom uit het net én van een omvormer op dezelfde groep of aardlekschakelaar invoeden. De stromen tellen bij elkaar op (bijv. 25A + 16A = 41A). Dit kan standaard 40A-aardlekschakelaars overbelasten en brandgevaar opleveren.' },
     ],
   },
+  {
+    slug: 'bodemgebonden-vs-lucht-water-warmtepomp-rendement',
+    readingTimeMinutes: 3,
+    title: 'Bodemgebonden warmtepomp vs. lucht-water warmtepomp: Meerkosten en rendement onderbouwd',
+    seoTitle: 'Bodemgebonden vs Lucht-Water Warmtepomp: Rendement & Kosten',
+    description:
+      'Vergelijk bodemgebonden en lucht-water warmtepompen op SCOP-rendement, boorkosten, geluidsnormen (Bbl) en ISDE-subsidie voor een onderbouwde keuze.',
+    date: '2026-08-08',
+    excerpt:
+      'Ontdek het verschil in seizoensrendement (SCOP 4,5-5,5+ vs 3,5-4,5), investeringskosten en regelgeving tussen een bodemgebonden en lucht-water warmtepomp.',
+    tags: ['bodemgebonden warmtepomp', 'lucht-water warmtepomp', 'SCOP rendement', 'ISDE subsidie', 'passieve koeling', 'Bbl geluidsnormen'],
+    keyPoints: [
+      'Bodemgebonden warmtepompen behalen een hogere SCOP (4,5 tot 5,5+) dan lucht-water warmtepompen (3,5 tot 4,5).',
+      'De broninfrastructuur van een bodem warmtepomp gaat 30 tot 50 jaar mee; de unit zelf 15 tot 20 jaar.',
+      'Bodemgebonden systemen bieden de mogelijkheid tot energiezuinige passieve koeling.',
+      'Buitenunits van lucht-water warmtepompen moeten op de perceelgrens voldoen aan Bbl-geluidsnormen (max. 40 dB(A) \'s nachts / 45 dB(A) overdag).',
+      'Beide typen warmtepompen komen in aanmerking voor ISDE-subsidie.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het verschil in seizoensrendement (SCOP) tussen een bodem- en lucht-water warmtepomp?', answer: 'Een bodemgebonden warmtepomp behaalt gemiddeld een SCOP van 4,5 tot 5,5 of hoger. Een lucht-water warmtepomp behaalt een gemiddelde SCOP van 3,5 tot 4,5.' },
+      { question: 'Hoe lang gaat een bodembron mee?', answer: 'De bodembron en de bijbehorende bronlussen hebben een verwachte levensduur van 30 tot 50 jaar. De warmtepompunit zelf gaat bij beide systemen circa 15 tot 20 jaar mee.' },
+      { question: 'Welke geluidsnormen gelden voor een buitenunit van een lucht-water warmtepomp?', answer: 'Volgens het Besluit bouwwerken leefomgeving (Bbl) mag de geluidsdruk van een buitenunit op de perceelgrens maximaal 40 dB(A) bedragen tijdens de nachtperiode en maximaal 45 dB(A) overdag.' },
+    ],
+  },
 ];

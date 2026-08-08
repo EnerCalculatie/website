@@ -1,40 +1,46 @@
 {
-  "topic": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
+  "topic": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",
   "facts": [
     {
-      "claim": "Bij dynamische energiecontracten zijn de leveringstarieven voor elektriciteit direct gekoppeld aan de spotmarkt (EPEX Spot) en wijzigen deze per uur.",
-      "source": "ACM",
+      "claim": "Een bodemgebonden warmtepomp behaalt een hoger seizoensrendement (SCOP/SPF van gemiddeld 4,5 tot 5,5 of hoger) dan een lucht-water warmtepomp (SCOP van gemiddeld 3,5 tot 4,5) vanwege de stabiele temperatuur van de bodem.",
+      "source": "Milieu Centraal",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "De salderingsregeling voor zonnepanelen wordt volgens het kabinetsvoorstel per 1 januari 2027 beëindigd, wat direct eigenverbruik en opslag financieel noodzakelijk maakt.",
+      "claim": "De initiële investering van een bodemgebonden warmtepomp ligt hoger dan die van een lucht-water warmtepomp, voornamelijk door de kosten voor het uitvoeren van de bodemboring of het aanleggen van een bronnetwerk.",
+      "source": "Milieu Centraal",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "De bodembron/bronlussen van een bodemgebonden warmtepompinstallatie hebben een verwachte levensduur van 30 tot 50 jaar, terwijl de warmtepompunit zelf circa 15 tot 20 jaar meegaat.",
+      "source": "Milieu Centraal",
+      "confidence": 90,
+      "datum": "2024"
+    },
+    {
+      "claim": "Een bodemgebonden warmtepomp maakt passieve koeling (vrije koeling) mogelijk, waarbij met een zeer laag stroomverbruik koud water uit de bodem door de vloerverwarming wordt gepompt.",
+      "source": "Milieu Centraal",
+      "confidence": 95,
+      "datum": "2024"
+    },
+    {
+      "claim": "Volgens de regelgeving in het Besluit bouwwerken leefomgeving (Bbl) mag de geluidsdruk van een buitenunit (zoals bij een lucht-water warmtepomp) op de perceelgrens maximaal 40 dB(A) bedragen in de nachtperiode en maximaal 45 dB(A) overdag.",
       "source": "Rijksoverheid",
-      "confidence": 95,
+      "confidence": 100,
       "datum": "2024"
     },
     {
-      "claim": "Een slim angestuurde warmtepomp kan de woning extra opwarmen of een geiser/boiler opwarmen tijdens uren met lage of negatieve stroomprijzen op de dynamische markt.",
-      "source": "Milieu Centraal",
-      "confidence": 90,
-      "datum": "2024"
-    },
-    {
-      "claim": "Een thuisbatterij kan op goedkope of negatieve uren laden vanaf het net en op duurder geprijsde uren ontladen om netafname te vermijden.",
-      "source": "Milieu Centraal",
-      "confidence": 90,
-      "datum": "2024"
-    },
-    {
-      "claim": "Netbeheerders kampen met netcongestie op het laagspanningsnet en stimuleren flexibiliteit om gelijktijdige piekbelasting bij het laden van batterijen en inschakelen van warmtepompen te voorkomen.",
-      "source": "Netbeheer Nederland",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "Voor het aanschaffen van een thuisbatterij voor kleinverbruikers is er in Nederland geen landelijke ISDE- of andere aankoopsubsidie beschikbaar.",
+      "claim": "Zowel lucht-water warmtepompen als bodemgebonden warmtepompen komen in aanmerking voor de ISDE-subsidie, waarbij de hoogte van het subsidiebedrag afhangt van het vermogen en de energielabel-prestatie van het apparaat.",
       "source": "RVO",
       "confidence": 100,
+      "datum": "2025"
+    },
+    {
+      "claim": "Voor het maken van een bodemboring voor een bodemgebonden warmtepomp geldt een meldings- of vergunningsplicht en is de uitvoering onderworpen aan strikte regelgeving rondom grondwaterbeschermingsgebieden.",
+      "source": "RVO",
+      "confidence": 95,
       "datum": "2024"
     }
   ]

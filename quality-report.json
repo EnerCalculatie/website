@@ -3,20 +3,12 @@
   "confidence": 95,
   "issues": [
     {
-      "issue": "Het artikel behandelt geen DC-foutstromen en het type aardlekschakelaar (Type B) bij omvormers en laadpalen. Dit is nuttige aanvullende context, maar het ontbreken ervan maakt de bestaande tekst niet feitelijk onjuist.",
+      "issue": "Het artikel behandelt geen elektrotechnische randvoorwaarden (zoals NEN1010, groepenkastaanpassingen of mogelijke netverzwaring naar 3-fase). Dit is geen feitelijke onjuistheid in de huidige tekst, maar een nuttige nuance om in de toekomst toe te voegen.",
       "severity": "medium"
     },
     {
-      "issue": "Concrete installatietechnische oplossingen voor het somstroomprobleem (zoals verzwaren naar 63A of een herverdelingsautomaat) ontbreken, wat het advies praktisch completer zou maken.",
+      "issue": "Geen vermelding van piekbelasting of slimme sturing (Load Balancing / EMS) voor het voorkomen van overbelasting bij het inschakelen van een elektrisch bijelement.",
       "severity": "medium"
-    },
-    {
-      "issue": "Technische toelichting op de benodigde meetinrichting (P1-poort, CT-spoelen/MID-meters) voor het EMS ontbreekt.",
-      "severity": "medium"
-    },
-    {
-      "issue": "De uitleg over selectiviteit is gebaseerd op een algemene vuistregel; bij moderne hoofdautomaten met C-karakteristiek kan nuance wenselijk zijn.",
-      "severity": "low"
     }
   ]
 }

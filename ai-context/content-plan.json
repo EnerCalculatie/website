@@ -1,23 +1,14 @@
 [
   {
-    "title": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
-    "keyword": "dynamisch energiecontract adviseren",
-    "intent": "informatief",
-    "priority": 9,
-    "slug": "dynamische-energiecontracten-adviseren-hoe-onderbouwt-u-de-sturing-van-batterij-en-warmtepomp",
-    "status": "generated",
-    "createdAt": "2026-08-07T12:42:41.888Z",
-    "generatedSlug": "dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp",
-    "generatedAt": "2026-08-08T00:39:03.745Z"
-  },
-  {
     "title": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",
     "keyword": "bodem warmtepomp of lucht water adviseren",
     "intent": "commercieel",
     "priority": 8,
     "slug": "bodemgebonden-warmtepomp-versus-lucht-water-warmtepomp-zo-onderbouwt-u-de-meerkosten-en-het-rendement",
-    "status": "planned",
-    "createdAt": "2026-08-07T12:42:41.894Z"
+    "status": "generated",
+    "createdAt": "2026-08-07T12:42:41.894Z",
+    "generatedSlug": "bodemgebonden-vs-lucht-water-warmtepomp-rendement",
+    "generatedAt": "2026-08-08T12:39:37.728Z"
   },
   {
     "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
@@ -29,35 +20,13 @@
     "createdAt": "2026-08-07T12:42:41.900Z"
   },
   {
-    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
-    "keyword": "zonnepanelen flats",
+    "title": "Ventilatiewarmtepomp adviseren: hoe onderbouwt u de besparing bij woningen met mechanische ventilatie?",
+    "keyword": "ventilatiewarmtepomp adviseren",
     "intent": "commercieel",
-    "priority": 6,
-    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
-    "status": "generated",
-    "createdAt": "2026-07-15T16:51:08.182Z",
-    "generatedSlug": "zonnepanelen-flats-appartementen-vve-installateurs",
-    "generatedAt": "2026-08-07T13:07:19.446Z"
-  },
-  {
-    "title": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
-    "keyword": "mia vamil laadpaal adviseren",
-    "intent": "informatief",
-    "priority": 5,
-    "slug": "zakelijke-laadpalen-en-fiscale-stimulering-hoe-adviseert-u-uw-klant-over-mia-en-vamil",
-    "status": "generated",
-    "createdAt": "2026-08-03T12:09:00.123Z",
-    "lastScore": 81,
-    "lastImprovements": [
-      "Verwijder de absolute claim 'foutloos' uit de alinea 'Hoe EnerCalculatie hiermee omgaat' (GEO-criterium: geen claims zoals foutloos/0% foutmarge).",
-      "Plaats direct in de eerste alinea een korte, citeerbare definitie/samenvatting van MIA en VAMIL voor snellere AI-conversatiedetectie (GEO).",
-      "Kort de SEO-titel iets in (huidige lengte is 85 tekens; streef naar maximaal 60-65 tekens om afkappen in zoekresultaten te voorkomen)."
-    ],
-    "retryCount": 2,
-    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 90, GEO 72)",
-    "lastRejectedAt": "2026-08-03T19:01:04.358Z",
-    "generatedSlug": "dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp",
-    "generatedAt": "2026-08-07T13:09:43.541Z"
+    "priority": 7,
+    "slug": "ventilatiewarmtepomp-adviseren-hoe-onderbouwt-u-de-besparing-bij-woningen-met-mechanische-ventilatie",
+    "status": "planned",
+    "createdAt": "2026-08-08T12:37:55.754Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -100,6 +69,17 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
+  },
+  {
+    "title": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
+    "keyword": "dynamisch energiecontract adviseren",
+    "intent": "informatief",
+    "priority": 9,
+    "slug": "dynamische-energiecontracten-adviseren-hoe-onderbouwt-u-de-sturing-van-batterij-en-warmtepomp",
+    "status": "generated",
+    "createdAt": "2026-08-07T12:42:41.888Z",
+    "generatedSlug": "dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp",
+    "generatedAt": "2026-08-08T00:39:03.745Z"
   },
   {
     "title": "Selectiviteit en hoofdzekering: hoe voorkomt u overbelasting bij een all-electric verduurzamingsadvies?",
@@ -556,6 +536,17 @@
     "seoGeoScore": 84
   },
   {
+    "title": "Zonnepanelen op flats en appartementen: specifieke uitdagingen en kansen voor installateurs",
+    "keyword": "zonnepanelen flats",
+    "intent": "commercieel",
+    "priority": 6,
+    "slug": "zonnepanelen-op-flats-en-appartementen-specifieke-uitdagingen-en-kansen-voor-installateurs",
+    "status": "generated",
+    "createdAt": "2026-07-15T16:51:08.182Z",
+    "generatedSlug": "zonnepanelen-flats-appartementen-vve-installateurs",
+    "generatedAt": "2026-08-07T13:07:19.446Z"
+  },
+  {
     "title": "Van 1-fase naar 3-fase netaansluiting: hoe adviseert u uw klant over netverzwaarde verduurzaming?",
     "keyword": "1 fase naar 3 fase verduurzaming advies",
     "intent": "informatief",
@@ -633,5 +624,25 @@
     "generatedSlug": "seizoensvariabiliteit-zonnepanelen-rendement",
     "generatedAt": "2026-07-16T03:52:20.116Z",
     "seoGeoScore": 95
+  },
+  {
+    "title": "Zakelijke laadpalen en fiscale stimulering: hoe adviseert u uw klant over MIA en VAMIL?",
+    "keyword": "mia vamil laadpaal adviseren",
+    "intent": "informatief",
+    "priority": 5,
+    "slug": "zakelijke-laadpalen-en-fiscale-stimulering-hoe-adviseert-u-uw-klant-over-mia-en-vamil",
+    "status": "generated",
+    "createdAt": "2026-08-03T12:09:00.123Z",
+    "lastScore": 81,
+    "lastImprovements": [
+      "Verwijder de absolute claim 'foutloos' uit de alinea 'Hoe EnerCalculatie hiermee omgaat' (GEO-criterium: geen claims zoals foutloos/0% foutmarge).",
+      "Plaats direct in de eerste alinea een korte, citeerbare definitie/samenvatting van MIA en VAMIL voor snellere AI-conversatiedetectie (GEO).",
+      "Kort de SEO-titel iets in (huidige lengte is 85 tekens; streef naar maximaal 60-65 tekens om afkappen in zoekresultaten te voorkomen)."
+    ],
+    "retryCount": 2,
+    "lastRejectionReason": "SEO/GEO-score onvoldoende (SEO 90, GEO 72)",
+    "lastRejectedAt": "2026-08-03T19:01:04.358Z",
+    "generatedSlug": "dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp",
+    "generatedAt": "2026-08-07T13:09:43.541Z"
   }
 ]

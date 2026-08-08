@@ -1,39 +1,31 @@
-# Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?
+# Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement
 
-Bij dynamische energiecontracten zijn de leveringstarieven voor elektriciteit direct gekoppeld aan de spotmarkt (EPEX Spot). Deze tarieven wijzigen per uur. Dit biedt mogelijkheden voor het slim aansturen van apparatuur zoals thuisbatterijen en warmtepompen. Daarnaast staat de markt voor veranderingen: volgens een kabinetsvoorstel wordt de salderingsregeling voor zonnepanelen per 1 januari 2027 beëindigd. Dit maakt direct eigenverbruik en lokale opslag van energie in veel gevallen financieel aantrekkelijk.
+Bij het vergelijken van een bodemgebonden warmtepomp en een lucht-water warmtepomp spelen het seizoensrendement, de investeringskosten en de randvoorwaarden op het gebied van installatie en regelgeving een belangrijke rol. Door deze factoren onder elkaar te zetten, kan een onderbouwde afweging worden gemaakt over de meerkosten en de prestaties van beide systemen.
 
-## Slimme sturing van warmtepompen en thuisbatterijen
+## Rendement en seizoensprestatie
+Door de stabiele temperatuur van de bodem behaalt een bodemgebonden warmtepomp doorgaans een hoger seizoensrendement dan een lucht-water warmtepomp.
 
-Een slim aangestuurde warmtepomp kan worden ingezet om in te spelen op de schommelende uurtarieven. De installatie kan de woning extra opwarmen of een geiser of boiler verwarmen tijdens uren met lage of negatieve stroomprijzen.
+- **Bodemgebonden warmtepomp:** Behaalt een seizoensrendement (SCOP/SPF) van gemiddeld 4,5 tot 5,5 of hoger.
+- **Lucht-water warmtepomp:** Behaalt een SCOP van gemiddeld 3,5 tot 4,5.
 
-Voor thuisbatterijen geldt een vergelijkbaar principe. Een thuisbatterij kan op goedkope of negatieve uren stroom laden vanaf het net en op duurder geprijsde uren ontladen om netafname te vermijden. Voor het aanschaffen van een thuisbatterij is voor kleinverbruikers in Nederland geen landelijke ISDE- of andere aankoopsubsidie beschikbaar.
+## Initiële investering en levensduur
+De initiële investering van een bodemgebonden warmtepomp ligt hoger dan die van een lucht-water warmtepomp. Dit verschil wordt voornamelijk veroorzaakt door de kosten voor het uitvoeren van de bodemboring of het aanleggen van een bronnetwerk.
 
-## Netcongestie en de rol van een Home Energy Management System (EMS)
+Tegenover de hogere opstartkosten staat een lange levensduur van de broninfrastructuur:
+- **Bodembron en bronlussen:** Hebben een verwachte levensduur van 30 tot 50 jaar.
+- **Warmtepompunit:** De unit zelf gaat zowel bij bodem- als luchtsystemen circa 15 tot 20 jaar mee.
 
-Netbeheerders kampen met netcongestie op het laagspanningsnet en stimuleren flexibiliteit om gelijktijdige piekbelasting — zoals bij het laden van batterijen en het inschakelen van warmtepompen — te voorkomen. 
+## Passieve koeling
+Een specifiek voordeel van een bodemgebonden warmtepomp is de mogelijkheid tot passieve koeling (ook wel vrije koeling genoemd). Hierbij wordt met een zeer laag stroomverbruik koud water uit de bodem door de vloerverwarming gepompt om het gebouw te koelen.
 
-Een Home Energy Management System (EMS) regelt de elektrische belasting in de woning dynamisch via load balancing. Hiermee worden piekstromen opgevangen en kan het afschakelen van de hoofdzekering worden voorkomen.
+## Wet- en regelgeving: geluid en vergunningen
+Bij de keuze en plaatsing van een systeem spelen de geldende regels een rol:
 
-## Technische randvoorwaarden en veiligheid (NEN 1010)
+- **Geluidsnormen buitenunit:** Volgens het Besluit bouwwerken leefomgeving (Bbl) mag de geluidsdruk van een buitenunit (zoals toegepast bij een lucht-water warmtepomp) op de perceelgrens maximaal 40 dB(A) bedragen in de nachtperiode en maximaal 45 dB(A) overdag.
+- **Bodemboringen:** Voor het uitvoeren van een bodemboring ten behoeve van een bodemgebonden warmtepomp geldt een meldings- of vergunningsplicht. De uitvoering hiervan is onderworpen aan strikte regelgeving in grondwaterbeschermingsgebieden.
 
-Bij het combineren van warmtepompen, thuisbatterijen en zonnepanelen dient de installatie te voldoen aan technische grenzen en de veiligheidseisen uit de NEN 1010.
-
-### Selectiviteit en vermogensgrenzen
-Om de selectiviteit ten opzichte van de hoofdzekering te waarborgen, geldt in de praktijk bij een hoofdaansluiting van 1x35A of 3x25A (met een veiligheidsmarge) dat een omvormer of laadpaal op maximaal 16A mag worden afgezekerd.
-- **Maximaal vermogen per fase:** 16A × 230V = 3,68 kW (3.680 Watt).
-- **Maximaal 3-fase vermogen op 3x25A:** 3 × 16A = 48A totaal, wat neerkomt op circa 11 kW.
-- Hoewel het continue vermogen van een 3x25A-aansluiting 17,25 kW bedraagt, kan er niet zomaar 17,25 kW op worden aangesloten. Dit vraagt om verzwaring van de aansluiting (bijvoorbeeld naar 3x35A of hoger).
-- **Vermogens boven 3,68 kW:** Aangezien een 1-fase groep voor selectiviteit begrensd is op 16A (3,68 kW), dienen installaties of omvormers met een hoger elektrisch vermogen op een 3-fase omvormer of 3-fase aansluiting te worden aangesloten.
-
-### Fase-onbalans en Netcode Elektriciteit
-Vanwege de Netcode Elektriciteit dient invoeding boven de 16A (3,68 kVA) over meerdere fases te worden verdeeld om fase-onbalans op het net te voorkomen. Dit betekent dat bij omvormers van bijvoorbeeld thuisbatterijen of zonnepanelen groter dan circa 3,68 kW (in de praktijk 4 kW) een 3-fase omvormer moet worden toegepast.
-
-### Somstromen bij gelijktijdige invoeding
-Wanneer het net én een omvormer (van een thuisbatterij of PV-installatie) op dezelfde groep of op dezelfde aardlekschakelaar kunnen invoeden, tellen de stromen van beide bronnen bij elkaar op:
-- **Rekenvoorbeeld:** 25A vanaf het net + 16A vanaf de omvormer = 41A. 
-- Een standaard 40A-aardlekschakelaar is niet berekend op deze 41A, wat kan leiden tot overbelasting en brandgevaar.
-- **Consequentie voor het advies:** Bei gelijktijdige invoeding (zoals een ontladende batterij terwijl het net ook belast wordt) moet de optelsom van alle gelijktijdig actieve stromen getoetst worden aan de nominale stroom van elke gedeelde beveiliging.
+## ISDE-subsidie
+Zowel lucht-water warmtepompen als bodemgebonden warmtepompen komen in aanmerking voor de ISDE-subsidie. De exacte hoogte van het subsidiebedrag hangt af van het vermogen en de energielabel-prestatie van het gekozen apparaat.
 
 ## Conclusie
-
-Het adviseren over sturing bij dynamische energiecontracten vereist een zorgvuldige afweging van uurtarieven, de capaciteit van de aansluiting en installatietechnische beveiliging. Door slimme sturing (zoals een EMS) te combineren met correct afgestemde installaties conform NEN 1010 en de Netcode Elektriciteit, kan flexibiliteit worden benut zonder de veiligheid of continuïteit van de installatie in gevaar te brengen.
+De hogere initiële investering van een bodemgebonden warmtepomp wordt veroorzaakt door de bodemboring of het bronnetwerk, maar levert een hoger seizoensrendement op en biedt de mogelijkheid tot energiezuinige passieve koeling. De bronlussen hebben daarnaast een verwachte levensduur van 30 tot 50 jaar. Een lucht-water warmtepomp heeft een lagere instapinvestering, waarbij rekening moet worden gehouden met geluidsnormen voor de buitenunit op de perceelgrens. Voor beide types warmtepompen is ISDE-subsidie beschikbaar.

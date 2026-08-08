@@ -1,22 +1,12 @@
 [
   {
-    "issue": "Het artikel noemt het risico op overbelasting door somstromen (41A op een 40A aardlekschakelaar), maar biedt geen concrete installatietechnische oplossingen conform NEN 1010.",
-    "severity": "medium",
-    "recommendation": "Voeg concrete oplossingen toe voor het somstroomprobleem, zoals het verzwaren van de aardlekschakelaars en interne bedrading naar 63A, of het plaatsen van een herverdelingsautomaat (hoofdbeveiligingsautomaat) om de maximale stroom door de aardlekschakelaars te begrenzen op 40A."
-  },
-  {
-    "issue": "Er wordt niet gesproken over het type aardlekschakelaar en DC-foutstromen bij omvormers (batterij/PV) en laadpalen.",
+    "issue": "Het artikel negeert de impact op de elektrische installatie en de groepenkast (NEN1010). Warmtepompen (zeker systemen met een elektrisch bijelement) vereisen vaak een verzwaarde 3-fase aansluiting (bijv. 3x25A), een eigen dedicated (kracht)groep en afgestemde aardlekbeveiliging (type A of B afhankelijk van de frequentieregelaar).",
     "severity": "high",
-    "recommendation": "Vermeld dat conform NEN 1010 rekening gehouden moet worden met gelijkstroomfoutstromen (>6mA DC). Als de omvormer of laadpaal geen geïntegreerde DC-beveiliging heeft, is een Type B aardlekschakelaar verplicht om te voorkomen dat Type A aardlekschakelaars 'blind' worden voor wisselstroomfouten."
+    "recommendation": "Voeg een sectie of technische nuance toe over de elektrotechnische randvoorwaarden: de mogelijke noodzaak van een netverzwaring, aanpassingen in de groepenkast conform NEN1010 en het opnemen van een hoofdschakelaar/eigen kook- of krachtgroep."
   },
   {
-    "issue": "Bij de uitleg van het Home Energy Management System (EMS) en load balancing ontbreekt de technische onderbouwing van de benodigde meetinrichting.",
+    "issue": "Er wordt geen rekening gehouden met piekbelasting, fasebalancering en slimme sturing (Load Balancing / EMS). Bij het inschakelen van het elektrische bijelement van de warmtepomp tijdens piekuren kan de hoofdzekering trippen als er geen afstemming is met overige grootverbruikers.",
     "severity": "medium",
-    "recommendation": "Licht toe dat een EMS voor het uitvoeren van load balancing afhankelijk is van real-time data. Dit vereist een fysieke koppeling met de P1-poort van de slimme meter of de installatie van externe stroomtransformatoren (CT-spoelen) respectievelijk MID-gecertificeerde kWu-meters."
-  },
-  {
-    "issue": "De claim over selectiviteit (16A maximaal afzekeren bij een 25A hoofdaansluiting) is te kort door de bocht bij moderne installaties met hoofdautomaten.",
-    "severity": "low",
-    "recommendation": "Nuanceer dat de factor 1,6 voor selectiviteit geldt bij smeltpatronen (smeltveiligheden). Bij moderne aansluitingen met een installatieautomaat als hoofdzekering (bijv. 3x25A C-karakteristiek) is volledige kortsluitselectiviteit met een 16A B-karakteristiek aftakking vaak niet te waarborgen."
+    "recommendation": "Benoem dat bij de installatie van een warmtepomp het toepassen van load balancing (uitlezing via P1-poort) of integratie in een Energy Management System (EMS) aan te raden is om piekbelasting op de hoofdaansluiting te voorkomen."
   }
 ]
