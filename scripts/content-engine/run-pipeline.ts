@@ -9,7 +9,7 @@ import { PublishAgent } from './agents/PublishAgent';
 
 import { readFileSync } from 'node:fs';
 
-function pickNextPlannedItem(cwd: string) {
+export function pickNextPlannedItem(cwd: string) {
   const planPath = path.join(cwd, 'ai-context/content-plan.json');
   try {
     const plan = JSON.parse(readFileSync(planPath, 'utf-8'));
@@ -135,4 +135,9 @@ async function run() {
   }
 }
 
-run();
+// Alleen automatisch draaien bij directe CLI-aanroep (npx tsx run-pipeline.ts),
+// niet bij een import — anders triggert bv. een test die pickNextPlannedItem
+// importeert de hele live pipeline als bijwerking van het importeren.
+if (process.argv[1] && process.argv[1].endsWith('run-pipeline.ts')) {
+  run();
+}
