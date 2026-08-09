@@ -161,16 +161,27 @@ ${keyPointsJs}
       console.error('[PublishAgent] Kon plan/log niet bijwerken:', _e);
     }
 
-    // 5. Verifieer build
+    // 5. Verifieer build + SEO-QC
+    //
+    // qc:seo draait hier bewust ook — niet alleen in de losse CI-workflow. De
+    // dagelijkse pipeline commit't/pusht met de standaard GITHUB_TOKEN, en
+    // GitHub Actions triggert geen vervolgworkflows (dus ook niet de CI-workflow
+    // met de qc:seo-gate) op pushes die met dat token zijn gedaan — de CI-check
+    // valideert de eigen output van deze pipeline dus nooit. Ontdekt 2026-08-09
+    // toen een vers gegenereerd artikel dezelfde /kennisbank/*-fantoomlinks,
+    // te lange title en dubbele <h1> bleek te hebben als twee eerdere, alleen
+    // bij toeval gevonden via een handmatige workflow_dispatch-run.
     console.log('[PublishAgent] Build verifiëren...');
     try {
       execSync('npm run build', { cwd: rootDir, stdio: 'inherit' });
-      console.log(`✅ Publicatie succesvol, build geslaagd!`);
+      console.log('[PublishAgent] Build geslaagd. SEO-QC verifiëren...');
+      execSync('npm run qc:seo', { cwd: rootDir, stdio: 'inherit' });
+      console.log(`✅ Publicatie succesvol, build en SEO-QC geslaagd!`);
     } catch (err) {
-      console.error('[PublishAgent] Build gefaald! Reverting files...');
+      console.error('[PublishAgent] Build of SEO-QC gefaald! Reverting files...');
       execSync(`git checkout -- ${appTsxPath} ${blogPostsPath} ${planPath} ${logPath}`, { cwd: rootDir });
       execSync(`rm ${componentPath}`, { cwd: rootDir });
-      throw new Error(`Build gefaald na integratie: ${err}`, { cause: err });
+      throw new Error(`Build of SEO-QC gefaald na integratie: ${err}`, { cause: err });
     }
   }
 }
