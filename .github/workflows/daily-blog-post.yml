@@ -25,10 +25,13 @@ name: Kennisbank-artikel (di/do)
 #    src/content/social/. continue-on-error: mislukt de repurposing (bv. safety-filter,
 #    rate limit), dan blijft het artikel zelf gewoon gepubliceerd.
 #
-# Oudere, losstaande scripts (generate-blog-post.mjs, seo-geo-validator.mjs,
-# claim-extractor/source-validator/fact-check.mjs) bestaan nog in de repo maar
-# worden door DEZE workflow niet meer aangeroepen — vervangen door de
-# TypeScript-agent-pipeline hierboven. Nog niet opgeruimd, zie audit 2026-08-07.
+# scripts/lib/claim-extractor.mjs en scripts/lib/source-validator.mjs worden
+# NIET door deze workflow aangeroepen (wel door het losse scripts/backfill-sources.mjs)
+# — nog niet opgeruimd/samengevoegd, zie audit 2026-08-07. scripts/lib/fact-check.mjs
+# wordt WEL actief gebruikt door de huidige pipeline (FactCheckerAgent.ts,
+# QualityGateAgent.ts) — stond hier eerder ten onrechte als ongebruikt vermeld
+# (gecorrigeerd 2026-08-09). generate-blog-post.mjs en seo-geo-validator.mjs
+# bestaan niet meer in de repo.
 on:
   schedule:
     # Twee cronregels (04:00 én 05:00 UTC) i.p.v. één — GitHub Actions cron kent
@@ -109,6 +112,22 @@ jobs:
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: npx tsx scripts/content-engine/run-pipeline.ts
 
+      - name: "7b. Pipeline-debugbestanden als CI-artifact bewaren (i.p.v. committen)"
+        if: always() && steps.guard.outputs.proceed == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-debug-${{ github.run_id }}
+          path: |
+            research.json
+            draft.md
+            fact-check.json
+            technical-review.json
+            seo-optimized.json
+            quality-report.json
+          if-no-files-found: ignore
+          retention-days: 14
+
       - name: "8. Commit en push (main → Railway deployt automatisch)"
         id: push
         if: always() && steps.guard.outputs.proceed == 'true'
@@ -116,7 +135,6 @@ jobs:
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
           git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json
-          git add research.json draft.md fact-check.json technical-review.json seo-optimized.json quality-report.json || true
           if git diff --cached --quiet; then
             echo "Geen wijzigingen om te committen."
             exit 0

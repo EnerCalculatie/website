@@ -14,3 +14,14 @@ ai-context/content-map.json
 
 # Geinstalleerde skill-library (28 bestanden, herinstalleerbaar), geen projectinhoud
 .agents/
+
+# Tussentijdse handoff-bestanden tussen content-engine-pipeline-agents
+# (scripts/content-engine/run-pipeline.ts), overschreven bij elke run — geen
+# permanente content. Bij een mislukte run als CI-artifact te downloaden i.p.v.
+# gecommit naar de repo-root.
+/research.json
+/draft.md
+/fact-check.json
+/technical-review.json
+/seo-optimized.json
+/quality-report.json
