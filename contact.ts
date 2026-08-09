@@ -33,11 +33,7 @@ router.post('/contact', async (req, res) => {
 
   try {
     const { data, error } = await resend.emails.send({
-      // BELANGRIJK: Vervang 'info@enercalculatie.nl' door het e-mailadres waar je de aanvragen wilt ontvangen.
       to: ['info@enercalculatie.nl'],
-
-      // BELANGRIJK: Vervang 'website@enercalculatie.nl' door een geverifieerd domein in Resend.
-      // Voor testen kun je 'onboarding@resend.dev' gebruiken.
       from: 'EnerCalculatie Website <website@enercalculatie.nl>',
 
       subject: 'Aanvraag via website',
