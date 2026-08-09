@@ -5,9 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp')!;
 
 const markdown = `
-# Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?
-
-**Hoe onderbouwt u het advies over de sturing van apparatuur bij dynamische energiecontracten?** Bij dynamische energiecontracten zijn de leveringstarieven voor elektriciteit direct gekoppeld aan de spotmarkt (EPEX Spot). Doordat deze tarieven per uur wijzigen, ontstaat er ruimte voor de slimme aansturing van [thuisbatterijen](/kennisbank/thuisbatterij) en [warmtepompen](/kennisbank/warmtepomp). Gecombineerd met het kabinetsvoorstel om de salderingsregeling voor zonnepanelen per 1 januari 2027 te beëindigen, wordt direct eigenverbruik en lokale energie-opslag financieel steeds aantrekkelijker.
+**Hoe onderbouwt u het advies over de sturing van apparatuur bij dynamische energiecontracten?** Bij dynamische energiecontracten zijn de leveringstarieven voor elektriciteit direct gekoppeld aan de spotmarkt (EPEX Spot). Doordat deze tarieven per uur wijzigen, ontstaat er ruimte voor de slimme aansturing van [thuisbatterijen](/blog/thuisbatterij-capaciteit-kiezen) en [warmtepompen](/blog/warmtepomp-rendement-aannames). Gecombineerd met het kabinetsvoorstel om de salderingsregeling voor zonnepanelen per 1 januari 2027 te beëindigen, wordt direct eigenverbruik en lokale energie-opslag financieel steeds aantrekkelijker.
 
 ## Hoe werkt slimme sturing van warmtepompen en thuisbatterijen?
 
@@ -19,7 +17,7 @@ Voor thuisbatterijen geldt een vergelijkbaar principe. Een thuisbatterij kan op 
 
 Netbeheerders kampen met netcongestie op het laagspanningsnet en stimuleren flexibiliteit om gelijktijdige piekbelasting — zoals bij het laden van batterijen en het inschakelen van warmtepompen — te voorkomen. 
 
-Een [Home Energy Management System (EMS)](/kennisbank/ems) regelt de elektrische belasting in de woning dynamisch via load balancing. Hiermee worden piekstromen opgevangen en kan het afschakelen van de hoofdzekering worden voorkomen.
+Een [Home Energy Management System (EMS)](/blog/energiemanagementsysteem-p1-poort) regelt de elektrische belasting in de woning dynamisch via load balancing. Hiermee worden piekstromen opgevangen en kan het afschakelen van de hoofdzekering worden voorkomen.
 
 ## Technische NEN 1010 randvoorwaarden en veiligheidseisen
 

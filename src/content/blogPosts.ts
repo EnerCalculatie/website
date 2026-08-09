@@ -1322,7 +1322,7 @@ export const blogPosts: BlogPostMeta[] = [
     slug: 'dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp',
     readingTimeMinutes: 4,
     title: 'Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?',
-    seoTitle: 'Dynamisch Energiecontract Adviseren: Sturing Batterij & Warmtepomp',
+    seoTitle: 'Dynamisch Energiecontract: Sturing Batterij en Warmtepomp',
     description:
       'Onderbouw uw advies over dynamische energiecontracten, thuisbatterijen en warmtepompen volgens NEN 1010, selectiviteit en de Netcode Elektriciteit.',
     date: '2026-08-08',
@@ -1347,7 +1347,7 @@ export const blogPosts: BlogPostMeta[] = [
     slug: 'bodemgebonden-vs-lucht-water-warmtepomp-rendement',
     readingTimeMinutes: 3,
     title: 'Bodemgebonden warmtepomp vs. lucht-water warmtepomp: Meerkosten en rendement onderbouwd',
-    seoTitle: 'Bodemgebonden vs Lucht-Water Warmtepomp: Rendement & Kosten',
+    seoTitle: 'Bodemgebonden vs Lucht-Water Warmtepomp: Rendement en Kosten',
     description:
       'Vergelijk bodemgebonden en lucht-water warmtepompen op SCOP-rendement, boorkosten, geluidsnormen (Bbl) en ISDE-subsidie voor een onderbouwde keuze.',
     date: '2026-08-08',
