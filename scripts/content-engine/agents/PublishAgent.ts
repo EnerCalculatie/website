@@ -2,20 +2,20 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 
-function estimateReadingMinutes(text: string) {
+export function estimateReadingMinutes(text: string) {
   const wpm = 225;
   const words = text.trim().split(/\s+/).length;
   return Math.max(1, Math.ceil(words / wpm));
 }
 
-function truncateAtWord(str: string, maxLen: number) {
+export function truncateAtWord(str: string, maxLen: number) {
   if (str.length <= maxLen) return str;
   const sub = str.slice(0, maxLen);
   const lastSpace = sub.lastIndexOf(' ');
   return lastSpace > 0 ? sub.slice(0, lastSpace) + '...' : sub + '...';
 }
 
-function pascalCase(slug: string) {
+export function pascalCase(slug: string) {
   const c = slug
     .split('-')
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
@@ -23,22 +23,28 @@ function pascalCase(slug: string) {
   return /^\d/.test(c) ? `Post${c}` : c;
 }
 
-export class PublishAgent {
-  async run(seoJsonPath: string, rootDir: string) {
-    console.log(`[PublishAgent] Start publicatie...`);
+/** Escaped voor gebruik binnen een enkelquote-JS-string-literal in blogPosts.ts. */
+export function escapeJsString(s: string) {
+  return s.replace(/'/g, "\\'");
+}
 
-    const seoJson = JSON.parse(readFileSync(seoJsonPath, 'utf-8'));
-    const { content, slug, title, seoTitle, description, excerpt, tags, keyPoints, category, faq } = seoJson;
+export interface SeoJson {
+  content: string;
+  slug: string;
+  title: string;
+  seoTitle?: string;
+  description?: string;
+  excerpt: string;
+  tags?: string[];
+  keyPoints?: string[];
+  category?: string;
+  faq?: Array<{ question: string; answer: string }>;
+}
 
-    const componentName = `${pascalCase(slug)}Article`;
-    const blogDir = path.join(rootDir, 'src/components/blog');
-    const componentPath = path.join(blogDir, `${componentName}.tsx`);
-    const blogPostsPath = path.join(rootDir, 'src/content/blogPosts.ts');
-    const appTsxPath = path.join(rootDir, 'src/App.tsx');
-
-    // 1. Maak React Component
-    const bodyEscapedForTemplate = content.replace(/`/g, '\\`').replace(/\$/g, '\\$');
-    const componentSource = `import { BlogPostLayout } from './BlogPostLayout';
+/** Genereert de .tsx-broncode voor een blogartikel-component. Puur — geen I/O. */
+export function buildComponentSource(componentName: string, slug: string, content: string) {
+  const bodyEscapedForTemplate = content.replace(/`/g, '\\`').replace(/\$/g, '\\$');
+  return `import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 import ReactMarkdown from 'react-markdown';
 
@@ -71,66 +77,100 @@ export function ${componentName}() {
   );
 }
 `;
+}
+
+/** Genereert het blogPosts.ts-array-entry voor een artikel. Puur — geen I/O. */
+export function buildBlogPostsEntry(seo: SeoJson, readingTimeMinutes: number) {
+  const { slug, title, seoTitle, description, excerpt, tags, keyPoints, category, faq } = seo;
+  const tagsJs = (tags || []).map((t: string) => `'${escapeJsString(t)}'`).join(', ');
+  const keyPointsJs = (keyPoints || []).map((k: string) => `      '${escapeJsString(k)}',`).join('\n');
+
+  const faqItems = Array.isArray(faq) ? faq : [];
+  const faqJs = faqItems
+    .map((f) => `      { question: '${escapeJsString(f.question)}', answer: '${escapeJsString(f.answer)}' },`)
+    .join('\n');
+
+  const safeDesc = truncateAtWord(description || excerpt || '', 155);
+
+  return `  {
+    slug: '${slug}',
+    readingTimeMinutes: ${readingTimeMinutes},
+    title: '${escapeJsString(title)}',
+    seoTitle: '${escapeJsString(seoTitle || title)}',
+    description:
+      '${escapeJsString(safeDesc)}',
+    date: '${new Date().toISOString().slice(0, 10)}',
+    excerpt:
+      '${escapeJsString(excerpt)}',
+    tags: [${tagsJs}],
+    keyPoints: [
+${keyPointsJs}
+    ],${category ? `\n    category: '${escapeJsString(category)}',` : ''}${faqItems.length ? `\n    faq: [\n${faqJs}\n    ],` : ''}
+  },
+];`;
+}
+
+/** Voegt een nieuw blogPosts.ts-entry toe vóór de afsluitende `];`. Puur — geen I/O. */
+export function insertBlogPostsEntry(blogPostsSource: string, entry: string) {
+  return blogPostsSource.replace(/\n\];\s*$/, `\n${entry}\n`);
+}
+
+/**
+ * Voegt de lazyRoute-import en de <Route>-regel voor een nieuw artikel toe aan
+ * App.tsx, na de laatst bestaande van elk als ankerpunt. Puur — geen I/O. Gooit
+ * als een van beide ankerpunten niet gevonden wordt (App.tsx-structuur gewijzigd).
+ */
+export function insertAppRoutes(appSource: string, componentName: string, slug: string) {
+  const lastLazyRouteMatch = [...appSource.matchAll(/^const \w+Article = lazyRoute\([^\n]+\n/gm)].pop();
+  if (!lastLazyRouteMatch) throw new Error('Kon geen bestaande lazyRoute-declaratie vinden als ankerpunt in App.tsx.');
+  const appLineEnding = lastLazyRouteMatch[0].endsWith('\r\n') ? '\r\n' : '\n';
+  const lazyImportLine = `const ${componentName} = lazyRoute('/blog/${slug}', () => import('./components/blog/${componentName}').then(m => ({ default: m.${componentName} })));${appLineEnding}`;
+
+  let updated = appSource.slice(0, (lastLazyRouteMatch.index as number) + lastLazyRouteMatch[0].length)
+    + lazyImportLine
+    + appSource.slice((lastLazyRouteMatch.index as number) + lastLazyRouteMatch[0].length);
+
+  const lastRouteMatch = [...updated.matchAll(/^(\s*)<Route path="\/blog\/[^"]+" element=\{<\w+Article \/>\} \/>\r?\n/gm)].pop();
+  if (!lastRouteMatch) throw new Error('Kon geen bestaande blog-<Route> vinden als ankerpunt in App.tsx.');
+  const indent = lastRouteMatch[1];
+  const lineEnding = lastRouteMatch[0].endsWith('\r\n') ? '\r\n' : '\n';
+  const routeLine = `${indent}<Route path="/blog/${slug}" element={<${componentName} />} />${lineEnding}`;
+
+  updated = updated.slice(0, (lastRouteMatch.index as number) + lastRouteMatch[0].length)
+    + routeLine
+    + updated.slice((lastRouteMatch.index as number) + lastRouteMatch[0].length);
+
+  return updated;
+}
+
+export class PublishAgent {
+  async run(seoJsonPath: string, rootDir: string) {
+    console.log(`[PublishAgent] Start publicatie...`);
+
+    const seoJson: SeoJson = JSON.parse(readFileSync(seoJsonPath, 'utf-8'));
+    const { content, slug, title } = seoJson;
+
+    const componentName = `${pascalCase(slug)}Article`;
+    const blogDir = path.join(rootDir, 'src/components/blog');
+    const componentPath = path.join(blogDir, `${componentName}.tsx`);
+    const blogPostsPath = path.join(rootDir, 'src/content/blogPosts.ts');
+    const appTsxPath = path.join(rootDir, 'src/App.tsx');
+
+    // 1. Maak React Component
+    const componentSource = buildComponentSource(componentName, slug, content);
     writeFileSync(componentPath, componentSource, 'utf-8');
     console.log(`[PublishAgent] Component geschreven: ${componentPath}`);
 
     // 2. Update blogPosts.ts
-    const escape = (s: string) => s.replace(/'/g, "\\'");
-    const tagsJs = (tags || []).map((t: string) => `'${escape(t)}'`).join(', ');
-    const keyPointsJs = (keyPoints || []).map((k: string) => `      '${escape(k)}',`).join('\n');
-    
-    const faqItems = Array.isArray(faq) ? faq : [];
-    const faqJs = faqItems
-      .map((f: { question: string, answer: string }) => `      { question: '${escape(f.question)}', answer: '${escape(f.answer)}' },`)
-      .join('\n');
-      
-    const safeDesc = truncateAtWord(description || excerpt || '', 155);
     const readingTimeMinutes = estimateReadingMinutes(content);
-
-    const entry = `  {
-    slug: '${slug}',
-    readingTimeMinutes: ${readingTimeMinutes},
-    title: '${escape(title)}',
-    seoTitle: '${escape(seoTitle || title)}',
-    description:
-      '${escape(safeDesc)}',
-    date: '${new Date().toISOString().slice(0, 10)}',
-    excerpt:
-      '${escape(excerpt)}',
-    tags: [${tagsJs}],
-    keyPoints: [
-${keyPointsJs}
-    ],${category ? `\n    category: '${escape(category)}',` : ''}${faqItems.length ? `\n    faq: [\n${faqJs}\n    ],` : ''}
-  },
-];`;
-
-    let blogPostsSource = readFileSync(blogPostsPath, 'utf-8');
-    blogPostsSource = blogPostsSource.replace(/\n\];\s*$/, `\n${entry}\n`);
-    writeFileSync(blogPostsPath, blogPostsSource, 'utf-8');
+    const entry = buildBlogPostsEntry(seoJson, readingTimeMinutes);
+    const blogPostsSource = readFileSync(blogPostsPath, 'utf-8');
+    writeFileSync(blogPostsPath, insertBlogPostsEntry(blogPostsSource, entry), 'utf-8');
     console.log('[PublishAgent] blogPosts.ts bijgewerkt.');
 
     // 3. Update App.tsx
-    let appSource = readFileSync(appTsxPath, 'utf-8');
-    const lastLazyRouteMatch = [...appSource.matchAll(/^const \w+Article = lazyRoute\([^\n]+\n/gm)].pop();
-    if (!lastLazyRouteMatch) throw new Error('Kon geen bestaande lazyRoute-declaratie vinden als ankerpunt in App.tsx.');
-    const appLineEnding = lastLazyRouteMatch[0].endsWith('\r\n') ? '\r\n' : '\n';
-    const lazyImportLine = `const ${componentName} = lazyRoute('/blog/${slug}', () => import('./components/blog/${componentName}').then(m => ({ default: m.${componentName} })));${appLineEnding}`;
-    
-    appSource = appSource.slice(0, (lastLazyRouteMatch.index as number) + lastLazyRouteMatch[0].length)
-      + lazyImportLine
-      + appSource.slice((lastLazyRouteMatch.index as number) + lastLazyRouteMatch[0].length);
-
-    const lastRouteMatch = [...appSource.matchAll(/^(\s*)<Route path="\/blog\/[^"]+" element=\{<\w+Article \/>\} \/>\r?\n/gm)].pop();
-    if (!lastRouteMatch) throw new Error('Kon geen bestaande blog-<Route> vinden als ankerpunt in App.tsx.');
-    const indent = lastRouteMatch[1];
-    const lineEnding = lastRouteMatch[0].endsWith('\r\n') ? '\r\n' : '\n';
-    const routeLine = `${indent}<Route path="/blog/${slug}" element={<${componentName} />} />${lineEnding}`;
-    
-    appSource = appSource.slice(0, (lastRouteMatch.index as number) + lastRouteMatch[0].length)
-      + routeLine
-      + appSource.slice((lastRouteMatch.index as number) + lastRouteMatch[0].length);
-
-    writeFileSync(appTsxPath, appSource, 'utf-8');
+    const appSource = readFileSync(appTsxPath, 'utf-8');
+    writeFileSync(appTsxPath, insertAppRoutes(appSource, componentName, slug), 'utf-8');
     console.log('[PublishAgent] App.tsx bijgewerkt.');
 
     // 4. Update content-plan.json and content-log.json
