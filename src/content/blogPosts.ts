@@ -1372,7 +1372,7 @@ export const blogPosts: BlogPostMeta[] = [
     slug: 'pvt-panelen-combineren-met-warmtepomp-rendement-eisen',
     readingTimeMinutes: 3,
     title: 'PVT-panelen combineren met een warmtepomp: Zo onderbouwt u de jaarrond efficiëntie voor uw klant',
-    seoTitle: 'PVT-panelen en Warmtepomp Combineren: Rendement & Eisen | Kennisbank',
+    seoTitle: 'PVT-panelen en Warmtepomp Combineren: Rendement en Eisen',
     description:
       'Hoe onderbouwt u de efficiëntie van een PVT-paneel met warmtepomp? Ontdek de werking, NTA 8800-borging, BBL-geluidseisen, NEN 1010-inpassing en...',
     date: '2026-08-09',
