@@ -7,7 +7,7 @@
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { sanitizeJsonString } from './lib/json-sanitizer.mjs';
+import { sanitizeJsonString, extractCompleteJsonObjects } from './lib/json-sanitizer.mjs';
 import { findDuplicateTopic, checkPlanItem } from './lib/content-checks.mjs';
 import { GEMINI_TIER, GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
 
@@ -58,7 +58,11 @@ async function callGemini(system, user) {
     body: JSON.stringify({
       contents: [{ role: 'user', parts: [{ text: user }] }],
       systemInstruction: { role: 'system', parts: [{ text: system }] },
-      generationConfig: { maxOutputTokens: 3000 },
+      // Was 3000 — te krap voor 5 items met lange NL SEO-titels, sneed de
+      // JSON-array soms halverwege af (finishReason MAX_TOKENS) en liet de
+      // hele run falen. 8192 geeft ruim marge, blijft binnen wat gemini
+      // *-flash-modellen aankunnen.
+      generationConfig: { maxOutputTokens: 8192 },
     }),
   });
   if (!res.ok) {
@@ -81,11 +85,27 @@ async function callGemini(system, user) {
 
 function extractJsonArray(raw) {
   const match = raw.match(/```json\s*([\s\S]*?)```/) || raw.match(/\[[\s\S]*\]/);
-  if (!match) {
+  if (match) {
+    try {
+      return JSON.parse(sanitizeJsonString(match[1] ?? match[0]));
+    } catch {
+      // Val door naar de salvage-poging hieronder — een match met een
+      // ongeldige body (bv. corrupte escape) is niet per se onherstelbaar.
+    }
+  }
+
+  // Geen (geldige) volledige array gevonden — meestal doordat het antwoord is
+  // afgekapt op maxOutputTokens vóórdat de sluit-`]` kwam. Red wat er te
+  // redden valt: complete objecten vóór het afkappunt zijn prima bruikbaar,
+  // een halve batch is beter dan de hele run laten falen.
+  try {
+    const salvaged = extractCompleteJsonObjects(raw);
+    console.warn(`Waarschuwing: JSON-array was niet compleet/geldig — ${salvaged.length} object(en) gered uit het (afgekapte) antwoord.`);
+    return salvaged;
+  } catch {
     console.error(`Model-antwoord (geen JSON-array gevonden):\n${raw}`);
     throw new Error('Kon geen JSON-array uit het model-antwoord halen.');
   }
-  return JSON.parse(sanitizeJsonString(match[1] ?? match[0]));
 }
 
 async function main() {
