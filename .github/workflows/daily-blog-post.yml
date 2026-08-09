@@ -74,13 +74,13 @@ jobs:
 
       - name: "1. Checkout"
         if: steps.guard.outputs.proceed == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
       - name: Setup Node
         if: steps.guard.outputs.proceed == 'true'
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -115,7 +115,7 @@ jobs:
       - name: "7b. Pipeline-debugbestanden als CI-artifact bewaren (i.p.v. committen)"
         if: always() && steps.guard.outputs.proceed == 'true'
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: pipeline-debug-${{ github.run_id }}
           path: |
