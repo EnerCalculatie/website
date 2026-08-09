@@ -25,20 +25,32 @@ export function getRouteHandler(router: Router, method: 'get' | 'post', routePat
 export interface MockResponse {
   statusCode: number;
   body: unknown;
+  headers: Record<string, string>;
   status(code: number): MockResponse;
   json(payload: unknown): MockResponse;
+  send(payload: unknown): MockResponse;
+  set(header: string, value: string): MockResponse;
 }
 
 export function mockResponse(): MockResponse {
   return {
     statusCode: 200,
     body: undefined,
+    headers: {},
     status(code: number) {
       this.statusCode = code;
       return this;
     },
     json(payload: unknown) {
       this.body = payload;
+      return this;
+    },
+    send(payload: unknown) {
+      this.body = payload;
+      return this;
+    },
+    set(header: string, value: string) {
+      this.headers[header] = value;
       return this;
     },
   };
