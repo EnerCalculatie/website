@@ -1368,4 +1368,31 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Welke geluidsnormen gelden voor een buitenunit van een lucht-water warmtepomp?', answer: 'Volgens het Besluit bouwwerken leefomgeving (Bbl) mag de geluidsdruk van een buitenunit op de perceelgrens maximaal 40 dB(A) bedragen tijdens de nachtperiode en maximaal 45 dB(A) overdag.' },
     ],
   },
+  {
+    slug: 'pvt-panelen-combineren-met-warmtepomp-rendement-eisen',
+    readingTimeMinutes: 3,
+    title: 'PVT-panelen combineren met een warmtepomp: Zo onderbouwt u de jaarrond efficiëntie voor uw klant',
+    seoTitle: 'PVT-panelen en Warmtepomp Combineren: Rendement & Eisen | Kennisbank',
+    description:
+      'Hoe onderbouwt u de efficiëntie van een PVT-paneel met warmtepomp? Ontdek de werking, NTA 8800-borging, BBL-geluidseisen, NEN 1010-inpassing en...',
+    date: '2026-08-09',
+    excerpt:
+      'Het combineren van PVT-panelen met een water-water warmtepomp biedt een geïntegreerde oplossing voor elektriciteit en warmte. Ontdek de onderbouwing voor jaarrond efficiëntie, NTA 8800, BBL-geluidseisen en NEN 1010-richtlijnen.',
+    tags: ['PVT-panelen', 'Warmtepomp', 'NTA 8800', 'NEN 1010', 'BBL geluidseisen', 'ISDE subsidie'],
+    keyPoints: [
+      'Jaarrond energiewinning uit zonlicht, omgevingslucht, wind en condensatiewarmte (ook \'s nachts en in de winter).',
+      'Geen geluidsoverlast door ontbreken van een draaiende buitenunit met ventilator (voldoet eenvoudig aan BBL).',
+      'Gestandaardiseerde rekenmethodiek binnen NTA 8800 voor BENG-indicatoren.',
+      'Elektrische inpassing volgens NEN 1010 en Netcode (fase-onbalans, selectiviteit en beveiliging tegen somstromen).',
+      'ISDE-subsidie mogelijk bij opname op de RVO apparatenlijst.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoe leveren PVT-panelen warmte in de winter en \'s nachts?', answer: 'PVT-panelen benutten naast direct zonlicht ook omgevingslucht, wind en condensatiewarmte als bron voor de water-water warmtepomp, waardoor ze ook zonder zonlicht en bij lage temperaturen warmte leveren.' },
+      { question: 'Voldoet een PVT-warmtepompsysteem aan de BBL geluidseisen?', answer: 'Ja, doordat een PVT-systeem geen draaiende buitenunit met een ventilator heeft, veroorzaakt het geen geluidsoverlast en voldoet het doorgaans eenvoudig aan de BBL-normen.' },
+      { question: 'Hoe worden de prestaties van PVT-panelen meegenomen in de BENG-berekening?', answer: 'De werking en het rendement van PVT-panelen als bron voor warmtepompen zijn gestandaardiseerd binnen de NTA 8800 rekenmethodiek voor het bepalen van de BENG-indicatoren.' },
+      { question: 'Welke NEN 1010-eisen gelden voor de elektrische installatie van PVT met een warmtepomp?', answer: 'Belangrijke richtlijnen betreffen de fasering (3-fase bij warmtepompen >5 kW en omvormers >3,68 kW), selectiviteit bij afzekering, beveiliging tegen somstromen bij gelijktijdige invoeding en het eventueel toepassen van een EMS.' },
+      { question: 'Is er ISDE-subsidie beschikbaar voor een warmtepomp met PVT-bron?', answer: 'Ja, warmtepompen met een PVT-bron komen in aanmerking voor de ISDE-subsidie, mits de specifieke combinatie of de warmtepomp vermeld staat op de goedgekeurde apparatenlijst van de RVO.' },
+    ],
+  },
 ];

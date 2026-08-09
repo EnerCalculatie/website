@@ -1,46 +1,40 @@
 {
-  "topic": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",
+  "topic": "PVT-panelen combineren met een warmtepomp: zo onderbouwt u de jaarrond efficiëntie voor uw klant",
   "facts": [
     {
-      "claim": "Een bodemgebonden warmtepomp behaalt een hoger seizoensrendement (SCOP/SPF van gemiddeld 4,5 tot 5,5 of hoger) dan een lucht-water warmtepomp (SCOP van gemiddeld 3,5 tot 4,5) vanwege de stabiele temperatuur van de bodem.",
-      "source": "Milieu Centraal",
+      "claim": "PVT-panelen combineren fotovoltaïsche stroomopwekking en thermische energiewinning in hetzelfde paneel, waarbij de thermische achterzijde dient als bron voor een water-water warmtepomp.",
+      "source": "RVO",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "De initiële investering van een bodemgebonden warmtepomp ligt hoger dan die van een lucht-water warmtepomp, voornamelijk door de kosten voor het uitvoeren van de bodemboring of het aanleggen van een bronnetwerk.",
-      "source": "Milieu Centraal",
-      "confidence": 95,
-      "datum": "2024"
-    },
-    {
-      "claim": "De bodembron/bronlussen van een bodemgebonden warmtepompinstallatie hebben een verwachte levensduur van 30 tot 50 jaar, terwijl de warmtepompunit zelf circa 15 tot 20 jaar meegaat.",
+      "claim": "Het afvoeren van warmte aan de achterzijde van het PVT-paneel koelt de zonnecellen, wat het elektrische rendement van de PV-cellen op warme dagen verhoogt.",
       "source": "Milieu Centraal",
       "confidence": 90,
       "datum": "2024"
     },
     {
-      "claim": "Een bodemgebonden warmtepomp maakt passieve koeling (vrije koeling) mogelijk, waarbij met een zeer laag stroomverbruik koud water uit de bodem door de vloerverwarming wordt gepompt.",
-      "source": "Milieu Centraal",
+      "claim": "Een PVT-warmtepompsysteem heeft geen draaiende buitenunit met ventilator nodig, waardoor er geen geluidsoverlast is en het systeem eenvoudig voldoet aan de geluidseisen van het Besluit bouwwerken leefomgeving (BBL).",
+      "source": "Rijksoverheid",
       "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Volgens de regelgeving in het Besluit bouwwerken leefomgeving (Bbl) mag de geluidsdruk van een buitenunit (zoals bij een lucht-water warmtepomp) op de perceelgrens maximaal 40 dB(A) bedragen in de nachtperiode en maximaal 45 dB(A) overdag.",
-      "source": "Rijksoverheid",
-      "confidence": 100,
+      "claim": "In de NTA 8800 rekenmethodiek is de energieprestatie en het rendement van PVT-panelen als bron voor warmtepompen gestandaardiseerd voor de bepaling van de BENG-indicatoren.",
+      "source": "NEN",
+      "confidence": 95,
       "datum": "2024"
     },
     {
-      "claim": "Zowel lucht-water warmtepompen als bodemgebonden warmtepompen komen in aanmerking voor de ISDE-subsidie, waarbij de hoogte van het subsidiebedrag afhangt van het vermogen en de energielabel-prestatie van het apparaat.",
+      "claim": "Warmtepompen die gebruikmaken van een PVT-bron komen in aanmerking voor de Investeringssubsidie duurzame energie en energiebesparing (ISDE) mits de combinatie of de warmtepomp vermeld staat op de goedgekeurde apparatenlijst.",
       "source": "RVO",
       "confidence": 100,
       "datum": "2025"
     },
     {
-      "claim": "Voor het maken van een bodemboring voor een bodemgebonden warmtepomp geldt een meldings- of vergunningsplicht en is de uitvoering onderworpen aan strikte regelgeving rondom grondwaterbeschermingsgebieden.",
-      "source": "RVO",
-      "confidence": 95,
+      "claim": "PVT-panelen benutten naast zonlicht ook omgevingslucht, wind en condensatiewarmte als energiebron, waardoor de bron ook gedurende de nacht en in de winter warmte levert aan de warmtepomp.",
+      "source": "Milieu Centraal",
+      "confidence": 90,
       "datum": "2024"
     }
   ]

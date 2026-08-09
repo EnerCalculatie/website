@@ -1,12 +1,17 @@
 [
   {
-    "issue": "Het artikel negeert de impact op de elektrische installatie en de groepenkast (NEN1010). Warmtepompen (zeker systemen met een elektrisch bijelement) vereisen vaak een verzwaarde 3-fase aansluiting (bijv. 3x25A), een eigen dedicated (kracht)groep en afgestemde aardlekbeveiliging (type A of B afhankelijk van de frequentieregelaar).",
-    "severity": "high",
-    "recommendation": "Voeg een sectie of technische nuance toe over de elektrotechnische randvoorwaarden: de mogelijke noodzaak van een netverzwaring, aanpassingen in de groepenkast conform NEN1010 en het opnemen van een hoofdschakelaar/eigen kook- of krachtgroep."
+    "issue": "Thermisch vermogen wordt verward met elektrisch vermogen bij de onderbouwing voor een 3-fase aansluiting van de warmtepomp. Een warmtepomp met een thermisch vermogen van 5 kW neemt bij een COP van 4 tot 5 slechts circa 1 tot 1,2 kW elektrisch vermogen op, wat probleemloos op een 1-fase eindgroep past.",
+    "severity": "medium",
+    "recommendation": "Specificeer dat de noodzaak voor een 3-fase aansluiting wordt bepaald door het elektrisch opgenomen vermogen (inclusief eventuele elektrische bijverwarming/elektrisch element) en aanloopstromen, in plaats van het thermische vermogen."
   },
   {
-    "issue": "Er wordt geen rekening gehouden met piekbelasting, fasebalancering en slimme sturing (Load Balancing / EMS). Bij het inschakelen van het elektrische bijelement van de warmtepomp tijdens piekuren kan de hoofdzekering trippen als er geen afstemming is met overige grootverbruikers.",
+    "issue": "Bij het beschrijven van het risico op overbelasting door somstromen (41A op een 40A aardlekschakelaar) ontbreken de vereiste installatietechnische maatregelen om te voldoen aan de NEN 1010.",
     "severity": "medium",
-    "recommendation": "Benoem dat bij de installatie van een warmtepomp het toepassen van load balancing (uitlezing via P1-poort) of integratie in een Energy Management System (EMS) aan te raden is om piekbelasting op de hoofdaansluiting te voorkomen."
+    "recommendation": "Vul aan met concrete oplossingen zoals het toepassen van een remautomaat, het verzwaren van de aardlekschakelaars en interne bedrading naar 63A, of het plaatsen van de PV- omvormer op een dedicated aardlekautomaat rechtstreeks achter de hoofdschakelaar."
+  },
+  {
+    "issue": "Bij de uitleg over Home Energy Management Systems (EMS) en dynamic load balancing ontbreekt de meettechnische randvoorwaarde.",
+    "severity": "low",
+    "recommendation": "Licht toe dat een EMS voor accurate load balancing een directe interface vereist met de netaansluiting, zoals een P1-poort koppeling met de slimme meter of extern geplaatste stroomtransformatoren (CT-spoelen) op de hoofdleidingen."
   }
 ]

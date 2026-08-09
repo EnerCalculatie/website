@@ -1,31 +1,37 @@
-# Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement
+# PVT-panelen combineren met een warmtepomp: zo onderbouwt u de jaarrond efficiëntie voor uw klant
 
-Bij het vergelijken van een bodemgebonden warmtepomp en een lucht-water warmtepomp spelen het seizoensrendement, de investeringskosten en de randvoorwaarden op het gebied van installatie en regelgeving een belangrijke rol. Door deze factoren onder elkaar te zetten, kan een onderbouwde afweging worden gemaakt over de meerkosten en de prestaties van beide systemen.
+Het combineren van PVT-panelen met een warmtepomp biedt een geïntegreerde oplossing voor het opwekken van zowel elektriciteit als warmte. Voor installateurs en adviseurs is het van belang om te onderbouwen hoe dit systeem gedurende het hele jaar presteert en aan welke elektrische en regeltechnische randvoorwaarden moet worden voldaan.
 
-## Rendement en seizoensprestatie
-Door de stabiele temperatuur van de bodem behaalt een bodemgebonden warmtepomp doorgaans een hoger seizoensrendement dan een lucht-water warmtepomp.
+## Wat zijn PVT-panelen en hoe werken ze?
+PVT-panelen combineren fotovoltaïsche stroomopwekking (PV) en thermische energiewinning in hetzelfde paneel. De thermische achterzijde van het paneel dient hierbij als bron voor een water-water warmtepomp. 
 
-- **Bodemgebonden warmtepomp:** Behaalt een seizoensrendement (SCOP/SPF) van gemiddeld 4,5 tot 5,5 of hoger.
-- **Lucht-water warmtepomp:** Behaalt een SCOP van gemiddeld 3,5 tot 4,5.
+Door warmte aan de achterzijde van het PVT-paneel af te voeren, worden de zonnecellen gekoeld. Dit koelende effect verhoogt het elektrische rendement van de PV-cellen op warme dagen.
 
-## Initiële investering en levensduur
-De initiële investering van een bodemgebonden warmtepomp ligt hoger dan die van een lucht-water warmtepomp. Dit verschil wordt voornamelijk veroorzaakt door de kosten voor het uitvoeren van de bodemboring of het aanleggen van een bronnetwerk.
+## Jaarrond energiebron: ook in de winter en 's nachts
+In tegenstelling tot systemen die uitsluitend afhankelijk zijn van direct zonlicht, benutten PVT-panelen meerdere energiebronnen uit de omgeving:
+- Zonlicht
+- Omgevingslucht
+- Wind
+- Condensatiewarmte
 
-Tegenover de hogere opstartkosten staat een lange levensduur van de broninfrastructuur:
-- **Bodembron en bronlussen:** Hebben een verwachte levensduur van 30 tot 50 jaar.
-- **Warmtepompunit:** De unit zelf gaat zowel bij bodem- als luchtsystemen circa 15 tot 20 jaar mee.
+Dankzij de benutting van omgevingslucht, wind en condensatiewarmte levert de bron ook gedurende de nacht en in de winterperiode warmte aan de warmtepomp.
 
-## Passieve koeling
-Een specifiek voordeel van een bodemgebonden warmtepomp is de mogelijkheid tot passieve koeling (ook wel vrije koeling genoemd). Hierbij wordt met een zeer laag stroomverbruik koud water uit de bodem door de vloerverwarming gepompt om het gebouw te koelen.
+## Geluidseisen (BBL) en energieprestatie (NTA 8800)
+Een kenmerk van een PVT-warmtepompsysteem is het ontbreken van een draaiende buitenunit met een ventilator. Hierdoor is er geen sprake van geluidsoverlast door een buitenunit, waardoor het systeem doorgaans eenvoudig voldoet aan de geluidseisen uit het Besluit bouwwerken leefomgeving (BBL).
 
-## Wet- en regelgeving: geluid en vergunningen
-Bij de keuze en plaatsing van een systeem spelen de geldende regels een rol:
+Wat betreft de energieprestatie is de werking en het rendement van PVT-panelen als bron voor warmtepompen gestandaardiseerd binnen de NTA 8800 rekenmethodiek. Hiermee kan de prestatie officieel en onderbouwd worden meegenomen bij het bepalen van de BENG-indicatoren.
 
-- **Geluidsnormen buitenunit:** Volgens het Besluit bouwwerken leefomgeving (Bbl) mag de geluidsdruk van een buitenunit (zoals toegepast bij een lucht-water warmtepomp) op de perceelgrens maximaal 40 dB(A) bedragen in de nachtperiode en maximaal 45 dB(A) overdag.
-- **Bodemboringen:** Voor het uitvoeren van een bodemboring ten behoeve van een bodemgebonden warmtepomp geldt een meldings- of vergunningsplicht. De uitvoering hiervan is onderworpen aan strikte regelgeving in grondwaterbeschermingsgebieden.
+## Elektrische inpassing en veiligheidsnormen
+Bij het installeren en dimensioneren van de combinatie van een warmtepomp en PV/PVT-omvormers spelen elektrotechnische richtlijnen uit de NEN 1010 en de Netcode Elektriciteit een rol:
 
-## ISDE-subsidie
-Zowel lucht-water warmtepompen als bodemgebonden warmtepompen komen in aanmerking voor de ISDE-subsidie. De exacte hoogte van het subsidiebedrag hangt af van het vermogen en de energielabel-prestatie van het gekozen apparaat.
+- **Fasering van de warmtepomp:** Een warmtepomp met een thermisch vermogen boven de 5 kW vraagt in veel gevallen om een 3-fase aansluiting om een optimale verdeling van de belasting te waarborgen.
+- **Fase-onbalans en omvormervermogen:** Volgens de Netcode Elektriciteit dient invoeding boven de 16A (3,68 kVA) over meerdere fases te worden verdeeld om fase-onbalans te voorkomen. Vanaf omvormervermogens groter dan circa 3,68 kW wordt daarom gebruikgemaakt van een 3-fase omvormer.
+- **Selectiviteit en maximaal vermogen:** Bij een hoofdaansluiting van 1x35A of 3x25A mag een omvormer met het oog op selectiviteit (rekening houdend met de veiligheidsfactor 1.6) op maximaal 16A worden afgezekerd. Dit komt neer op maximaal 3.680 Watt (3,68 kW) per fase, of circa 11 kW totaal op een 3-fase 3x25A aansluiting.
+- **Beveiliging tegen somstromen:** Wanneer het net én een omvormer gelijktijdig kunnen invoeden op dezelfde groep of aardlekschakelaar, tellen de stromen bij elkaar op. Bij een netstroom van 25A en een omvormerstroom van 16A ontstaat bijvoorbeeld een optelsom van 41A. Een standaard 40A-aardlekschakelaar is hier niet op berekend. De optelsom van alle gelijktijdig actieve stromen moet daarom worden getoetst aan de nominale stroom van elke gedeelde beveiliging.
+- **Home Energy Management (EMS):** Een EMS kan de belasting in de woning dynamisch regelen (load balancing) om piekstromen en het afschakelen van de hoofdzekering te voorkomen.
+
+## Subsidiemogelijkheden (ISDE)
+Warmtepompen die gebruikmaken van een PVT-bron komen in aanmerking voor de Investeringssubsidie duurzame energie en energiebesparing (ISDE). Hierbij geldt de voorwaarde dat de specifieke combinatie of de warmtepomp vermeld staat op de goedgekeurde apparatenlijst van de RVO.
 
 ## Conclusie
-De hogere initiële investering van een bodemgebonden warmtepomp wordt veroorzaakt door de bodemboring of het bronnetwerk, maar levert een hoger seizoensrendement op en biedt de mogelijkheid tot energiezuinige passieve koeling. De bronlussen hebben daarnaast een verwachte levensduur van 30 tot 50 jaar. Een lucht-water warmtepomp heeft een lagere instapinvestering, waarbij rekening moet worden gehouden met geluidsnormen voor de buitenunit op de perceelgrens. Voor beide types warmtepompen is ISDE-subsidie beschikbaar.
+De combinatie van PVT-panelen en een water-water warmtepomp levert een constante energiebron doordat het systeem naast zonlicht ook wind, omgevingslucht en condensatiewarmte benut. Dit maakt warmtelevering in de winter en 's nachts mogelijk, terwijl de celkoeling het elektrische rendement op warme dagen verhoogt. Binnen de NTA 8800 zijn deze prestaties gestandaardiseerd voor de BENG-bepaling, en het ontbreken van een ventilator-buitenunit vereenvoudigt het voldoen aan de BBL-geluidseisen. Bij de aanleg dient de installateur de NEN 1010-richtlijnen te volgen voor wat betreft faseverdeling, selectiviteit en somstromen.

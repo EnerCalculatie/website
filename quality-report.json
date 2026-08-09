@@ -3,12 +3,16 @@
   "confidence": 95,
   "issues": [
     {
-      "issue": "Het artikel behandelt geen elektrotechnische randvoorwaarden (zoals NEN1010, groepenkastaanpassingen of mogelijke netverzwaring naar 3-fase). Dit is geen feitelijke onjuistheid in de huidige tekst, maar een nuttige nuance om in de toekomst toe te voegen.",
+      "issue": "Thermisch vermogen wordt verward met elektrisch vermogen bij de onderbouwing voor een 3-fase aansluiting van de warmtepomp.",
       "severity": "medium"
     },
     {
-      "issue": "Geen vermelding van piekbelasting of slimme sturing (Load Balancing / EMS) voor het voorkomen van overbelasting bij het inschakelen van een elektrisch bijelement.",
+      "issue": "Bij het risico op overbelasting door somstromen ontbreken de concrete NEN 1010 oplossingsrichtlijnen (zoals een remautomaat of verzwaren naar 63A).",
       "severity": "medium"
+    },
+    {
+      "issue": "Bij de uitleg over EMS en dynamic load balancing ontbreekt de vermelding van de benodigde meetinterface (zoals een P1-poort koppeling of CT-spoelen).",
+      "severity": "low"
     }
   ]
 }

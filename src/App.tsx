@@ -117,6 +117,7 @@ const ZonnepanelenFlatsAppartementenVveInstallateursArticle = lazyRoute('/blog/z
 const DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle = lazyRoute('/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp', () => import('./components/blog/DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle').then(m => ({ default: m.DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle })));
 const DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle = lazyRoute('/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp', () => import('./components/blog/DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle').then(m => ({ default: m.DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle })));
 const BodemgebondenVsLuchtWaterWarmtepompRendementArticle = lazyRoute('/blog/bodemgebonden-vs-lucht-water-warmtepomp-rendement', () => import('./components/blog/BodemgebondenVsLuchtWaterWarmtepompRendementArticle').then(m => ({ default: m.BodemgebondenVsLuchtWaterWarmtepompRendementArticle })));
+const PvtPanelenCombinerenMetWarmtepompRendementEisenArticle = lazyRoute('/blog/pvt-panelen-combineren-met-warmtepomp-rendement-eisen', () => import('./components/blog/PvtPanelenCombinerenMetWarmtepompRendementEisenArticle').then(m => ({ default: m.PvtPanelenCombinerenMetWarmtepompRendementEisenArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -253,6 +254,7 @@ export function AppContent() {
             <Route path="/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp" element={<DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle />} />
             <Route path="/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp" element={<DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle />} />
             <Route path="/blog/bodemgebonden-vs-lucht-water-warmtepomp-rendement" element={<BodemgebondenVsLuchtWaterWarmtepompRendementArticle />} />
+            <Route path="/blog/pvt-panelen-combineren-met-warmtepomp-rendement-eisen" element={<PvtPanelenCombinerenMetWarmtepompRendementEisenArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

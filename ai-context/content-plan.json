@@ -1,14 +1,23 @@
 [
   {
-    "title": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",
-    "keyword": "bodem warmtepomp of lucht water adviseren",
+    "title": "PVT-panelen combineren met een warmtepomp: zo onderbouwt u de jaarrond efficiëntie voor uw klant",
+    "keyword": "pvt panelen warmtepomp rendement",
     "intent": "commercieel",
     "priority": 8,
-    "slug": "bodemgebonden-warmtepomp-versus-lucht-water-warmtepomp-zo-onderbouwt-u-de-meerkosten-en-het-rendement",
+    "slug": "pvt-panelen-combineren-met-een-warmtepomp-zo-onderbouwt-u-de-jaarrond-efficientie-voor-uw-klant",
     "status": "generated",
-    "createdAt": "2026-08-07T12:42:41.894Z",
-    "generatedSlug": "bodemgebonden-vs-lucht-water-warmtepomp-rendement",
-    "generatedAt": "2026-08-08T12:39:37.728Z"
+    "createdAt": "2026-08-09T17:33:31.091Z",
+    "generatedSlug": "pvt-panelen-combineren-met-warmtepomp-rendement-eisen",
+    "generatedAt": "2026-08-09T17:35:10.830Z"
+  },
+  {
+    "title": "SVOH-subsidie voor verduurzaming van huurwoningen: hoe adviseert u particuliere verhuurders?",
+    "keyword": "svoh subsidie verduurzaming",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "svoh-subsidie-voor-verduurzaming-van-huurwoningen-hoe-adviseert-u-particuliere-verhuurders",
+    "status": "planned",
+    "createdAt": "2026-08-09T17:33:31.102Z"
   },
   {
     "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
@@ -176,6 +185,17 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",
+    "keyword": "bodem warmtepomp of lucht water adviseren",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "bodemgebonden-warmtepomp-versus-lucht-water-warmtepomp-zo-onderbouwt-u-de-meerkosten-en-het-rendement",
+    "status": "generated",
+    "createdAt": "2026-08-07T12:42:41.894Z",
+    "generatedSlug": "bodemgebonden-vs-lucht-water-warmtepomp-rendement",
+    "generatedAt": "2026-08-08T12:39:37.728Z"
   },
   {
     "title": "DC/AC-verhouding van een omvormer: hoe legt u overdimensionering uit aan uw klant?",
