@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { SEO } from '../SEO';
 import { LeadMagnet } from '../LeadMagnet';
 import { services } from '../../content/services';
+import { trackEvent } from '../../analytics';
 
 interface ServiceLandingPageProps {
   slug: string;
@@ -66,12 +67,14 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <a
                 href={`https://app.enercalculatie.nl/gratis?utm_source=website&utm_medium=landingpage&utm_campaign=rekentool-${service.slug}`}
+                onClick={() => trackEvent('CTA Gratis Klik', { module: service.slug })}
                 className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]"
               >
                 Maak gratis je eerste calculatie
               </a>
               <a
                 href="/#contact"
+                onClick={() => trackEvent('CTA Demo Klik', { module: service.slug })}
                 className="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center min-h-[48px]"
               >
                 Liever eerst een demo (15 min)
