@@ -253,8 +253,11 @@ export function AppDemoVideo() {
                 <div className="w-16" />
               </div>
 
-              {/* Screenshot area — aspect ratio matches screenshots (~1230×810) */}
-              <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '1230/810' }}>
+              {/* Screenshot area — aspect ratio matches de screenshots (1568×626, ververst 2026-08-10).
+                  Bewust breder/lager dan de oude 1230×810-ratio: bij een smallere ratio werd de
+                  content fors uitgerekt/verkleind door object-contain (te klein/onduidelijk in de
+                  demo), omdat deze screenshots op volledige viewportbreedte zijn vastgelegd. */}
+              <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '1568/626' }}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeStep.screenshot}
