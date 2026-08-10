@@ -29,10 +29,10 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://static.cloudflareinsights.com"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://static.cloudflareinsights.com", "https://cloud.umami.is"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://www.googletagmanager.com"],
-        connectSrc: ["'self'", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://*.g.doubleclick.net", "https://cloudflareinsights.com"],
+        connectSrc: ["'self'", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://*.g.doubleclick.net", "https://cloudflareinsights.com", "https://cloud.umami.is"],
         fontSrc: ["'self'", "data:"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"],
