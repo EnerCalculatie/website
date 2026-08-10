@@ -1395,4 +1395,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is er ISDE-subsidie beschikbaar voor een warmtepomp met PVT-bron?', answer: 'Ja, warmtepompen met een PVT-bron komen in aanmerking voor de ISDE-subsidie, mits de specifieke combinatie of de warmtepomp vermeld staat op de goedgekeurde apparatenlijst van de RVO.' },
     ],
   },
+  {
+    slug: 'svoh-subsidie-verduurzaming-huurwoningen-advies',
+    readingTimeMinutes: 2,
+    title: 'SVOH-subsidie voor verduurzaming van huurwoningen: adviesgids',
+    seoTitle: 'SVOH-subsidie Huurwoningen Advies & Voorwaarden',
+    description:
+      'Advies over de SVOH-subsidie voor verduurzaming van huurwoningen. Ontdek de voorwaarden, vergoedingen tot € 6.000 per woning en maatwerk energieadvies.',
+    date: '2026-08-10',
+    excerpt:
+      'De Subsidie verduurzaming en onderhoud huurwoningen (SVOH) ondersteunt particuliere en zakelijke verhuurders tot en met 31 december 2029. Bekijk alle voorwaarden en vergoedingen.',
+    tags: ['SVOH-subsidie', 'Verduurzaming huurwoningen', 'Energieadvies', 'Warmtepomp', 'Isolatie'],
+    keyPoints: [
+      'Maximaal € 6.000 subsidie per woning en € 400.000 per aanvrager',
+      'Aanvragen mogelijk tot en met 31 december 2029 na uitvoering en betaling',
+      'Geldt voor isolatie, hoogrendementsglas, warmtepompen en zonneboilers',
+      '50% vergoeding voor maatwerk energieadvies (max. € 400 per woning)',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het maximale SVOH-subsidiebedrag per woning?', answer: 'Het subsidiebedrag bedraagt in de basis maximaal € 6.000 per huurwoning, met een totaalmaximum van € 400.000 per aanvrager.' },
+      { question: 'Wanneer kan de SVOH-subsidie worden aangevraagd?', answer: 'De subsidie moet worden aangevraagd nadat de verduurzamingsmaatregelen zijn uitgevoerd en betaald. De regeling loopt tot en met 31 december 2029.' },
+      { question: 'Is er ook subsidie beschikbaar voor energieadvies?', answer: 'Ja, voor een maatwerk energieadvies door een gecertificeerd adviseur wordt 50% van de advieskosten vergoed, tot een maximum van € 400 per woning.' },
+    ],
+  },
 ];

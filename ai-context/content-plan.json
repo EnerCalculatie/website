@@ -16,8 +16,10 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "svoh-subsidie-voor-verduurzaming-van-huurwoningen-hoe-adviseert-u-particuliere-verhuurders",
-    "status": "planned",
-    "createdAt": "2026-08-09T17:33:31.102Z"
+    "status": "generated",
+    "createdAt": "2026-08-09T17:33:31.102Z",
+    "generatedSlug": "svoh-subsidie-verduurzaming-huurwoningen-advies",
+    "generatedAt": "2026-08-10T06:41:11.847Z"
   },
   {
     "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
