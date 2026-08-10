@@ -21,7 +21,7 @@ const faqs = [
   {
     question: 'Werkt het met mijn huidige software?',
     answer:
-      'PDOK Kadaster is nu al ingebouwd en live beschikbaar. Let op: Integraties met andere externe systemen (zoals Exact Online, Teamleader en AFAS) zijn momenteel nog volop in ontwikkeling en komen later dit jaar beschikbaar. Gebruikt u andere software? Neem contact op — wij kijken graag samen naar de mogelijkheden.',
+      'PDOK Kadaster is nu al ingebouwd en live beschikbaar. Let op: integraties met andere externe systemen (zoals Exact Online, Teamleader en AFAS) staan op de planning maar zijn nog niet beschikbaar. Gebruikt u andere software? Neem contact op — wij kijken graag samen naar de mogelijkheden.',
   },
   {
     question: 'Wat als ik vastloop?',
@@ -66,7 +66,7 @@ const faqs = [
   {
     question: 'Hoe werkt het opzeggen van een abonnement?',
     answer:
-      'EnerCalculatie is flexibel en maandelijks opzegbaar. U zit niet vast aan langlopende contracten. Zodra u opzegt, stopt de facturering automatisch aan het einde van uw huidige betaalperiode. U kunt uw abonnement eenvoudig zelf stopzetten of wijzigen via uw accountinstellingen, of door ons een e-mail te sturen naar info@enercalculatie.nl.',
+      'EnerCalculatie is flexibel en maandelijks opzegbaar. U zit niet vast aan langlopende contracten. Up- of downgraden van pakket regelt u zelf via het klantportaal in uw accountinstellingen. Opzeggen kan door ons een e-mail te sturen naar info@enercalculatie.nl of te bellen naar 06-30366189 — de facturering stopt dan aan het einde van uw huidige betaalperiode.',
   },
 ];
 
