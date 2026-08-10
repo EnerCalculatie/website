@@ -29,10 +29,10 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://static.cloudflareinsights.com", "https://cloud.umami.is"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://www.googletagmanager.com", "https://static.cloudflareinsights.com"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", "data:", "https://www.google-analytics.com", "https://www.googletagmanager.com"],
-        connectSrc: ["'self'", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://*.g.doubleclick.net", "https://cloudflareinsights.com", "https://cloud.umami.is"],
+        connectSrc: ["'self'", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://*.g.doubleclick.net", "https://cloudflareinsights.com"],
         fontSrc: ["'self'", "data:"],
         objectSrc: ["'none'"],
         baseUri: ["'self'"],
@@ -59,6 +59,43 @@ app.use(
 app.use((_req, res, next) => {
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
   next();
+});
+
+// Umami-analytics-proxy (2026-08-10): Safari ITP en sommige browser-ingebouwde
+// trackingbescherming blokkeren cloud.umami.is/gateway.umami.is als bekend
+// tracker-domein, ook zonder adblocker-extensie (geverifieerd: curl kreeg
+// altijd 200, echte browsers kregen 503/blocked op zowel het scriptbestand
+// als de data-endpoint). First-party proxy via eigen domein omzeilt dat —
+// zie landingpage-funnel-campagne.md in de vault. index.html gebruikt nu
+// /stats.js + data-host-url i.p.v. rechtstreeks cloud.umami.is.
+app.get('/stats.js', async (_req, res) => {
+  try {
+    const upstream = await fetch('https://cloud.umami.is/script.js');
+    const body = await upstream.text();
+    res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.send(body);
+  } catch {
+    res.status(502).end();
+  }
+});
+
+app.post('/api/send', async (req, res) => {
+  try {
+    const upstream = await fetch('https://gateway.umami.is/api/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': req.headers['user-agent'] || '',
+        'X-Forwarded-For': req.ip || '',
+      },
+      body: JSON.stringify(req.body),
+    });
+    const body = await upstream.text();
+    res.status(upstream.status).setHeader('Content-Type', 'application/json').send(body);
+  } catch {
+    res.status(502).end();
+  }
 });
 
 // Begrens formulier-inzendingen tegen spam/misbruik (contact, lead-magnet en nieuwsbrief delen dit quotum).

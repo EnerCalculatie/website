@@ -19,9 +19,15 @@
          Analytics geen custom conversion-events ondersteunt (alleen
          automatische pageviews) — Umami meet de funnel-stappen (CTA-klik
          naar /gratis, later ook stappen in de app). Gratis Hobby-tier
-         (100k events/maand, cloud.umami.is), geen creditcard nodig.
-         Zie landingpage-funnel-campagne.md in de vault. -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="499221a0-7225-4189-88a9-23f7c0628abf"></script>
+         (100k events/maand), geen creditcard nodig.
+         Geladen via /stats.js (eigen domein, server.ts proxyt naar
+         cloud.umami.is) i.p.v. rechtstreeks — Safari ITP en vergelijkbare
+         browser-trackingbescherming blokkeerden het script anders stil,
+         ook zonder adblocker-extensie (geverifieerd 2026-08-10: curl kreeg
+         altijd 200, echte browsers 503 op het directe cloud.umami.is-adres).
+         data-host-url stuurt ook de databerichten via hetzelfde eigen pad
+         (/api/send, zie server.ts). Zie landingpage-funnel-campagne.md. -->
+    <script defer src="/stats.js" data-website-id="499221a0-7225-4189-88a9-23f7c0628abf" data-host-url="https://www.enercalculatie.nl"></script>
   </head>
   <body>
     <div id="root"></div>
