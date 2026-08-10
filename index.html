@@ -13,13 +13,16 @@
     <!-- Geen Google Analytics. Bezoekersstatistiek loopt via Cloudflare Web
          Analytics (onderaan de body): cookieloos, dus geen toestemming en geen
          cookiebanner nodig. Verwijderd 2026-07-20, zie Story 1.3 in de vault. -->
-    <!-- Plausible (toegevoegd 2026-08-10): eveneens cookieloos/AVG-vriendelijk,
-         zelfde principe als Cloudflare Web Analytics hierboven. Aanvullend
-         nodig omdat Cloudflare Web Analytics geen custom conversion-events
-         ondersteunt (alleen automatische pageviews) — Plausible meet de
-         funnel-stappen (CTA-klik naar /gratis, later ook stappen in de app).
-         Zie landingpage-funnel-campagne.md in de vault. -->
-    <script defer data-domain="enercalculatie.nl" src="https://plausible.io/js/script.tagged-events.js"></script>
+    <!-- Umami (toegevoegd 2026-08-10, Plausible vervangen wegens kosten):
+         eveneens cookieloos/AVG-vriendelijk, zelfde principe als Cloudflare
+         Web Analytics hierboven. Aanvullend nodig omdat Cloudflare Web
+         Analytics geen custom conversion-events ondersteunt (alleen
+         automatische pageviews) — Umami meet de funnel-stappen (CTA-klik
+         naar /gratis, later ook stappen in de app). Gratis Hobby-tier
+         (100k events/maand, cloud.umami.is), geen creditcard nodig.
+         data-website-id hieronder is een PLACEHOLDER tot Pascal een account
+         aanmaakt — zie landingpage-funnel-campagne.md in de vault. -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="VERVANG_MET_UMAMI_WEBSITE_ID"></script>
   </head>
   <body>
     <div id="root"></div>
