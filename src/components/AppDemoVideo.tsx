@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import {
   Home, Cpu, Zap, Sun, Battery, Flame, Wind, Car,
-  TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight
+  TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight, FileSpreadsheet
 } from 'lucide-react';
 
 import imgDossier from '../assets/screenshots/dossier-overzicht.webp';
@@ -15,6 +15,7 @@ import imgWarmtepomp from '../assets/screenshots/warmtepomp.webp';
 import imgAirco from '../assets/screenshots/airco.webp';
 import imgLaadpalen from '../assets/screenshots/laadpalen.webp';
 import imgRoi from '../assets/screenshots/rendement-roi.webp';
+import imgOfferte from '../assets/screenshots/offerte.webp';
 import imgSchouw from '../assets/screenshots/schouw-overzicht.webp';
 import imgRapport from '../assets/screenshots/adviesrapport.webp';
 import imgWerkvoorbereiding from '../assets/screenshots/werkvoorbereiding.webp';
@@ -97,6 +98,13 @@ const steps: DemoStep[] = [
     icon: <TrendingUp size={16} />,
     screenshot: imgRoi,
     description: 'Volledig gevalideerde doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
+  },
+  {
+    id: 'offerte',
+    label: 'Offerte',
+    icon: <FileSpreadsheet size={16} />,
+    screenshot: imgOfferte,
+    description: 'Stel een itemized offerte samen: kies een basisproduct, vink werkzaamheden aan en zie live het totaal — inclusief automatische stapelkorting.'
   },
   {
     id: 'schouw',
