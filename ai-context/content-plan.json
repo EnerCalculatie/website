@@ -1,25 +1,14 @@
 [
   {
-    "title": "PVT-panelen combineren met een warmtepomp: zo onderbouwt u de jaarrond efficiëntie voor uw klant",
-    "keyword": "pvt panelen warmtepomp rendement",
-    "intent": "commercieel",
-    "priority": 8,
-    "slug": "pvt-panelen-combineren-met-een-warmtepomp-zo-onderbouwt-u-de-jaarrond-efficientie-voor-uw-klant",
+    "title": "Spanningsopdrijving en omvormeruitval (253V): hoe onderbouwt u het kabeltraject in uw offerte?",
+    "keyword": "omvormer valt uit 253 volt kabelberekening",
+    "intent": "informatief",
+    "priority": 9,
+    "slug": "spanningsopdrijving-en-omvormeruitval-253v-hoe-onderbouwt-u-het-kabeltraject-in-uw-offerte",
     "status": "generated",
-    "createdAt": "2026-08-09T17:33:31.091Z",
-    "generatedSlug": "pvt-panelen-combineren-met-warmtepomp-rendement-eisen",
-    "generatedAt": "2026-08-09T17:35:10.830Z"
-  },
-  {
-    "title": "SVOH-subsidie voor verduurzaming van huurwoningen: hoe adviseert u particuliere verhuurders?",
-    "keyword": "svoh subsidie verduurzaming",
-    "intent": "commercieel",
-    "priority": 8,
-    "slug": "svoh-subsidie-voor-verduurzaming-van-huurwoningen-hoe-adviseert-u-particuliere-verhuurders",
-    "status": "generated",
-    "createdAt": "2026-08-09T17:33:31.102Z",
-    "generatedSlug": "svoh-subsidie-verduurzaming-huurwoningen-advies",
-    "generatedAt": "2026-08-10T06:41:11.847Z"
+    "createdAt": "2026-08-10T12:41:14.234Z",
+    "generatedSlug": "omvormeruitval-253v-kabeltraject-offerte",
+    "generatedAt": "2026-08-10T12:43:03.153Z"
   },
   {
     "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
@@ -38,6 +27,15 @@
     "slug": "ventilatiewarmtepomp-adviseren-hoe-onderbouwt-u-de-besparing-bij-woningen-met-mechanische-ventilatie",
     "status": "planned",
     "createdAt": "2026-08-08T12:37:55.754Z"
+  },
+  {
+    "title": "Nachtverlaging bij warmtepompen: hoe onderbouwt u het effect op stroomverbruik en comfort in uw adviesrapport?",
+    "keyword": "nachtverlaging warmtepomp adviseren",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "nachtverlaging-bij-warmtepompen-hoe-onderbouwt-u-het-effect-op-stroomverbruik-en-comfort-in-uw-adviesrapport",
+    "status": "planned",
+    "createdAt": "2026-08-10T12:41:14.241Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -187,6 +185,28 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "PVT-panelen combineren met een warmtepomp: zo onderbouwt u de jaarrond efficiëntie voor uw klant",
+    "keyword": "pvt panelen warmtepomp rendement",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "pvt-panelen-combineren-met-een-warmtepomp-zo-onderbouwt-u-de-jaarrond-efficientie-voor-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-08-09T17:33:31.091Z",
+    "generatedSlug": "pvt-panelen-combineren-met-warmtepomp-rendement-eisen",
+    "generatedAt": "2026-08-09T17:35:10.830Z"
+  },
+  {
+    "title": "SVOH-subsidie voor verduurzaming van huurwoningen: hoe adviseert u particuliere verhuurders?",
+    "keyword": "svoh subsidie verduurzaming",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "svoh-subsidie-voor-verduurzaming-van-huurwoningen-hoe-adviseert-u-particuliere-verhuurders",
+    "status": "generated",
+    "createdAt": "2026-08-09T17:33:31.102Z",
+    "generatedSlug": "svoh-subsidie-verduurzaming-huurwoningen-advies",
+    "generatedAt": "2026-08-10T06:41:11.847Z"
   },
   {
     "title": "Bodemgebonden warmtepomp versus lucht-water warmtepomp: zo onderbouwt u de meerkosten en het rendement",

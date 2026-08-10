@@ -1419,4 +1419,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is er ook subsidie beschikbaar voor energieadvies?', answer: 'Ja, voor een maatwerk energieadvies door een gecertificeerd adviseur wordt 50% van de advieskosten vergoed, tot een maximum van € 400 per woning.' },
     ],
   },
+  {
+    slug: 'omvormeruitval-253v-kabeltraject-offerte',
+    readingTimeMinutes: 4,
+    title: 'Spanningsopdrijving en omvormeruitval (253V): Kabeltraject onderbouwen in de offerte',
+    seoTitle: 'Omvormeruitval (253V) Voorkomen: Kabeltraject Offerte',
+    description:
+      'Hoe voorkomt u omvormeruitval bij 253V? Ontdek NEN 1010 richtlijnen voor kabeltrajecten, aderdoorsnede en faseverdeling in uw offerte.',
+    date: '2026-08-10',
+    excerpt:
+      'Omvormeruitval bij 253 Volt ontstaat vaak door spanningsopdrijving in het AC-kabeltraject. Lees hoe u de juiste aderdoorsnede en NEN 1010-normen onderbouwt in uw offerte.',
+    tags: ['omvormeruitval', '253V', 'spanningsopdrijving', 'NEN 1010', 'kabeltraject', 'zonnepanelen'],
+    keyPoints: [
+      'Spanningsopdrijving binnenshuis valt onder de verantwoordelijkheid van de installateur en pandeigenaar.',
+      'Omvormers schakelen volgens EN 50549-1 en de Netcode Elektriciteit uit bij meer dan 253V (230V + 10%).',
+      'Conform NEN 1010 mag de spanningsstijging in het kabeltraject maximaal 1% (ca. 2,3V) bedragen.',
+      'Gebruik van grotere aderdoorsnedes (zoals 4 mm² of 6 mm²) verlaagt de kabelweerstand en helpt uitval te voorkomen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waarom valt een omvormer uit bij 253 Volt?', answer: 'Volgens norm EN 50549-1 en de Netcode Elektriciteit moet een omvormer automatisch uitschakelen bij meer dan 253V (230V + 10%) om het net en apparatuur te beschermen.' },
+      { question: 'Wie is verantwoordelijk voor spanningsopdrijving binnenshuis?', answer: 'De netbeheerder garandeert enkel de spanning tot de energiemeter (207V - 253V). Spanningsopdrijving achter de meter door kabelweerstand valt onder de verantwoordelijkheid van de installateur en pandeigenaar.' },
+      { question: 'Hoeveel spanningsstijging staat NEN 1010 toe?', answer: 'NEN 1010 adviseert een maximale spanningsstijging en spanningsverlies van 1% (ongeveer 2,3V) in het kabeltraject tussen de omvormer en de meterkast.' },
+    ],
+  },
 ];
