@@ -65,16 +65,16 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
             <p className="text-lg text-slate-600 mb-8 max-w-2xl">{service.intro}</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <a
-                href="/#contact"
+                href={`https://app.enercalculatie.nl/gratis?utm_source=website&utm_medium=landingpage&utm_campaign=rekentool-${service.slug}`}
                 className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]"
               >
-                Plan een demo (15 min)
+                Maak gratis je eerste calculatie
               </a>
               <a
-                href="/#pricing-calculator"
+                href="/#contact"
                 className="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center min-h-[48px]"
               >
-                Bereken uw tijdsbesparing
+                Liever eerst een demo (15 min)
               </a>
             </div>
           </div>
