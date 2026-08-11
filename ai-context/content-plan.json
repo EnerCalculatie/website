@@ -1,27 +1,5 @@
 [
   {
-    "title": "Spanningsopdrijving en omvormeruitval (253V): hoe onderbouwt u het kabeltraject in uw offerte?",
-    "keyword": "omvormer valt uit 253 volt kabelberekening",
-    "intent": "informatief",
-    "priority": 9,
-    "slug": "spanningsopdrijving-en-omvormeruitval-253v-hoe-onderbouwt-u-het-kabeltraject-in-uw-offerte",
-    "status": "generated",
-    "createdAt": "2026-08-10T12:41:14.234Z",
-    "generatedSlug": "omvormeruitval-253v-kabeltraject-offerte",
-    "generatedAt": "2026-08-10T12:43:03.153Z"
-  },
-  {
-    "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
-    "keyword": "infraroodpanelen verduurzamingsadvies",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "infraroodverwarming-combineren-met-warmtepompen-wanneer-past-het-binnen-een-realistisch-energieprofiel",
-    "status": "generated",
-    "createdAt": "2026-08-07T12:42:41.900Z",
-    "generatedSlug": "infraroodverwarming-combineren-met-warmtepomp",
-    "generatedAt": "2026-08-11T00:39:24.986Z"
-  },
-  {
     "title": "Ventilatiewarmtepomp adviseren: hoe onderbouwt u de besparing bij woningen met mechanische ventilatie?",
     "keyword": "ventilatiewarmtepomp adviseren",
     "intent": "commercieel",
@@ -38,6 +16,15 @@
     "slug": "nachtverlaging-bij-warmtepompen-hoe-onderbouwt-u-het-effect-op-stroomverbruik-en-comfort-in-uw-adviesrapport",
     "status": "planned",
     "createdAt": "2026-08-10T12:41:14.241Z"
+  },
+  {
+    "title": "Ontdooicyclus bij lucht-water warmtepompen: hoe verklaart u het winterse stroompiekverbruik aan uw klant?",
+    "keyword": "ontdooicyclus warmtepomp stroomverbruik",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "ontdooicyclus-bij-lucht-water-warmtepompen-hoe-verklaart-u-het-winterse-stroompiekverbruik-aan-uw-klant",
+    "status": "planned",
+    "createdAt": "2026-08-11T12:38:43.079Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -80,6 +67,17 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
+  },
+  {
+    "title": "Spanningsopdrijving en omvormeruitval (253V): hoe onderbouwt u het kabeltraject in uw offerte?",
+    "keyword": "omvormer valt uit 253 volt kabelberekening",
+    "intent": "informatief",
+    "priority": 9,
+    "slug": "spanningsopdrijving-en-omvormeruitval-253v-hoe-onderbouwt-u-het-kabeltraject-in-uw-offerte",
+    "status": "generated",
+    "createdAt": "2026-08-10T12:41:14.234Z",
+    "generatedSlug": "omvormeruitval-253v-kabeltraject-offerte",
+    "generatedAt": "2026-08-10T12:43:03.153Z"
   },
   {
     "title": "Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?",
@@ -442,6 +440,17 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",
+    "keyword": "infraroodpanelen verduurzamingsadvies",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "infraroodverwarming-combineren-met-warmtepompen-wanneer-past-het-binnen-een-realistisch-energieprofiel",
+    "status": "generated",
+    "createdAt": "2026-08-07T12:42:41.900Z",
+    "generatedSlug": "infraroodverwarming-combineren-met-warmtepomp",
+    "generatedAt": "2026-08-11T00:39:24.986Z"
   },
   {
     "title": "Brutomarge berekenen op verduurzamingsprojecten: zo onderbouwt u uw calculatie en offerte",
