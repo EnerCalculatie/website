@@ -1443,4 +1443,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoeveel spanningsstijging staat NEN 1010 toe?', answer: 'NEN 1010 adviseert een maximale spanningsstijging en spanningsverlies van 1% (ongeveer 2,3V) in het kabeltraject tussen de omvormer en de meterkast.' },
     ],
   },
+  {
+    slug: 'infraroodverwarming-combineren-met-warmtepomp',
+    readingTimeMinutes: 3,
+    title: 'Infraroodverwarming combineren met warmtepompen: Een realistisch energieprofiel',
+    seoTitle: 'Warmtepomp met Infrarood Combineren: Mogelijk?',
+    description:
+      'Is een warmtepomp combineren met infraroodpanelen verstandig? Lees alles over de COP, netbelasting, ISDE-subsidie en efficiënte bijverwarming.',
+    date: '2026-08-11',
+    excerpt:
+      'Het combineren van een warmtepomp met infraroodpanelen past binnen een realistisch energieprofiel mits de warmtepomp dient als basisverwarming en infrarood als bijverwarming. Lees hoe dit werkt qua COP en netbelasting.',
+    tags: ['warmtepomp', 'infraroodverwarming', 'energieprofiel', 'ISDE-subsidie', 'netbelasting'],
+    keyPoints: [
+      'Warmtepompen behalen een COP van 3 tot 5, terwijl infraroodpanelen een COP van 1 hebben.',
+      'Infraroodverwarming is energetisch geschikt als bijverwarming in kortstondig gebruikte ruimtes.',
+      'Elektrisch opgenomen vermogen bepaalt de netbelasting op een 3x25A-aansluiting.',
+      'ISDE-subsidie is beschikbaar voor warmtepompen, maar niet voor infraroodpanelen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is infrarood geschikt als hoofdverwarming naast een warmtepomp?', answer: 'Nee, vanwege de COP van 1 leidt infrarood als hoofdverwarming tot een aanzienlijk hoger stroomverbruik en hogere energiekosten. Een warmtepomp (COP 3 tot 5) is energetisch veel efficiënter als basisverwarming.' },
+      { question: 'Kun je ISDE-subsidie krijgen voor infraroodpanelen?', answer: 'Nee, er is geen landelijke ISDE-subsidie beschikbaar voor infraroodpanelen. Voor warmtepompen kun je wel gebruikmaken van de ISDE-subsidie.' },
+      { question: 'Hoe voorkom je overbelasting van de groepenkast bij gelijktijdig gebruik?', answer: 'Door inzet van een Home Energy Management System (EMS) kan de elektrische belasting via load balancing dynamisch geregeld worden. Dit voorkomt piekstromen en het uitslaan van de hoofdzekering bij een standaard 3x25A-aansluiting.' },
+    ],
+  },
 ];

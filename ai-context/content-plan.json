@@ -16,8 +16,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "infraroodverwarming-combineren-met-warmtepompen-wanneer-past-het-binnen-een-realistisch-energieprofiel",
-    "status": "planned",
-    "createdAt": "2026-08-07T12:42:41.900Z"
+    "status": "generated",
+    "createdAt": "2026-08-07T12:42:41.900Z",
+    "generatedSlug": "infraroodverwarming-combineren-met-warmtepomp",
+    "generatedAt": "2026-08-11T00:39:24.986Z"
   },
   {
     "title": "Ventilatiewarmtepomp adviseren: hoe onderbouwt u de besparing bij woningen met mechanische ventilatie?",
