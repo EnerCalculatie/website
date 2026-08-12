@@ -1467,4 +1467,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkom je overbelasting van de groepenkast bij gelijktijdig gebruik?', answer: 'Door inzet van een Home Energy Management System (EMS) kan de elektrische belasting via load balancing dynamisch geregeld worden. Dit voorkomt piekstromen en het uitslaan van de hoofdzekering bij een standaard 3x25A-aansluiting.' },
     ],
   },
+  {
+    slug: 'ventilatiewarmtepomp-adviseren-besparing-onderbouwen',
+    readingTimeMinutes: 2,
+    title: 'Ventilatiewarmtepomp adviseren: onderbouw besparing en energieprestatie',
+    seoTitle: 'Ventilatiewarmtepomp Advies & Besparing',
+    description:
+      'Ontdek hoe u de besparing van een ventilatiewarmtepomp bij type C ventilatie onderbouwt. Lees alles over NTA 8800, BENG-indicatoren en ISDE-subsidie.',
+    date: '2026-08-12',
+    excerpt:
+      'Adviseert u over de verduurzaming van woningen met mechanische ventilatie? Een ventilatiewarmtepomp levert 200 tot 500 m³ gasbesparing per jaar op.',
+    tags: ['ventilatiewarmtepomp', 'mechanische ventilatie', 'NTA 8800', 'ISDE subsidie', 'energieprestatie'],
+    keyPoints: [
+      'Gasbesparing van 200 tot 500 m³ aardgas per jaar in een gemiddelde eengezinswoning.',
+      'BENG 2-indicator daalt en BENG 3-indicator stijgt binnen de NTA 8800 rekenmethode.',
+      'Systeem benut afgevoerde lucht van circa 20 °C voor een constant hoog rendement.',
+      'Voldoen aan minimaal ventilatiedebiet en vermelding op de RVO-meldcodelijst (ISDE) vereist.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel gas bespaart een ventilatiewarmtepomp gemiddeld?', answer: 'In een gemiddelde eengezinswoning met mechanische ventilatie bespaart een ventilatiewarmtepomp circa 200 tot 500 m³ aardgas per jaar.' },
+      { question: 'Wat is het effect van een ventilatiewarmtepomp op BENG en NTA 8800?', answer: 'Binnen de NTA 8800 rekenmethode verlaagt een ventilatiewarmtepomp de BENG 2-indicator (fossiel primair energiegebruik) en verhoogt deze de BENG 3-indicator (aandeel hernieuwbare energie).' },
+      { question: 'Wanneer komt een ventilatiewarmtepomp in aanmerking voor ISDE-subsidie?', answer: 'Voor de ISDE-subsidie moet het specifieke type ventilatiewarmtepomp vermeld staan op de RVO-meldcodelijst en moet de installatie worden uitgevoerd door een deskundige installateur.' },
+    ],
+  },
 ];
