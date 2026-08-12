@@ -1,14 +1,23 @@
 [
   {
-    "title": "Ventilatiewarmtepomp adviseren: hoe onderbouwt u de besparing bij woningen met mechanische ventilatie?",
-    "keyword": "ventilatiewarmtepomp adviseren",
+    "title": "Laden op zonne-energie (PV-surplus laden): hoe onderbouwt u het rendement van een slimme laadpaal?",
+    "keyword": "pv surplus laden advies laadpaal",
     "intent": "commercieel",
-    "priority": 7,
-    "slug": "ventilatiewarmtepomp-adviseren-hoe-onderbouwt-u-de-besparing-bij-woningen-met-mechanische-ventilatie",
+    "priority": 9,
+    "slug": "laden-op-zonne-energie-pv-surplus-laden-hoe-onderbouwt-u-het-rendement-van-een-slimme-laadpaal",
     "status": "generated",
-    "createdAt": "2026-08-08T12:37:55.754Z",
-    "generatedSlug": "ventilatiewarmtepomp-adviseren-besparing-onderbouwen",
-    "generatedAt": "2026-08-12T00:38:32.726Z"
+    "createdAt": "2026-08-12T12:38:44.309Z",
+    "generatedSlug": "pv-surplus-laden-rendement-slimme-laadpaal",
+    "generatedAt": "2026-08-12T12:42:56.673Z"
+  },
+  {
+    "title": "Zonnepanelen-installatie uitbreiden: hoe berekent u de impact op de omvormer en het energieprofiel?",
+    "keyword": "zonnepanelen installatie uitbreiden advies",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "zonnepanelen-installatie-uitbreiden-hoe-berekent-u-de-impact-op-de-omvormer-en-het-energieprofiel",
+    "status": "planned",
+    "createdAt": "2026-08-12T12:38:44.302Z"
   },
   {
     "title": "Nachtverlaging bij warmtepompen: hoe onderbouwt u het effect op stroomverbruik en comfort in uw adviesrapport?",
@@ -442,6 +451,17 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Ventilatiewarmtepomp adviseren: hoe onderbouwt u de besparing bij woningen met mechanische ventilatie?",
+    "keyword": "ventilatiewarmtepomp adviseren",
+    "intent": "commercieel",
+    "priority": 7,
+    "slug": "ventilatiewarmtepomp-adviseren-hoe-onderbouwt-u-de-besparing-bij-woningen-met-mechanische-ventilatie",
+    "status": "generated",
+    "createdAt": "2026-08-08T12:37:55.754Z",
+    "generatedSlug": "ventilatiewarmtepomp-adviseren-besparing-onderbouwen",
+    "generatedAt": "2026-08-12T00:38:32.726Z"
   },
   {
     "title": "Infraroodverwarming combineren met warmtepompen: wanneer past het binnen een realistisch energieprofiel?",

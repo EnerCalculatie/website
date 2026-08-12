@@ -1491,4 +1491,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer komt een ventilatiewarmtepomp in aanmerking voor ISDE-subsidie?', answer: 'Voor de ISDE-subsidie moet het specifieke type ventilatiewarmtepomp vermeld staan op de RVO-meldcodelijst en moet de installatie worden uitgevoerd door een deskundige installateur.' },
     ],
   },
+  {
+    slug: 'pv-surplus-laden-rendement-slimme-laadpaal',
+    readingTimeMinutes: 3,
+    title: 'Laden op zonne-energie: hoe onderbouwt u het rendement van een slimme laadpaal?',
+    seoTitle: 'Rendement Slimme Laadpaal met PV-Surplus Laden',
+    description:
+      'Onderbouw het rendement van een slimme laadpaal met PV-surplus laden. Verhoog zelfconsumptie naar 60-70% en voorkom terugleverkosten vanaf 2027.',
+    date: '2026-08-12',
+    excerpt:
+      'Met PV-surplus laden stijgt het lokaal verbruik van zonnestroom naar 60% tot 70%. Ontdek de technische onderbouwing, IEC 61851-1 normen en netbelasting.',
+    tags: ['pv-surplus laden', 'slimme laadpaal', 'zonne-energie', 'salderingsregeling', 'dynamic load balancing', 'laadpaal installatie'],
+    keyPoints: [
+      'Zelfconsumptie van zonnestroom stijgt van 30% naar 60% - 70% met een slimme laadpaal',
+      'Stopzetting van de salderingsregeling per 1 januari 2027 vereist meer lokaal verbruik',
+      'Minimaal startvermogen voor PV-laden is 1,4 kW (1-fase, 6A) conform IEC 61851-1',
+      'Automatische faseschakeling maakt opschaling naar 3-fase laden (tot 11 kW of 22 kW) mogelijk',
+      'Dynamic Load Balancing en EMS voorkomen overbelasting van een 3x25A hoofdaansluiting',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel stijgt de zelfconsumptie door slim te laden op zonnestroom?', answer: 'Door de inzet van slimme sturing op de laadpaal kan de zelfconsumptie van eigen zonnestroom stijgen van circa 30% naar 60% tot 70%.' },
+      { question: 'Wat is de minimale stroomsterkte voor laden op zonnestroom?', answer: 'Conform IEC 61851-1 geldt voor een elektrisch voertuig een minimale stroomsterkte van 6 Ampère per fase, wat bij 1-fase overeenkomt met circa 1,4 kW surplus.' },
+      { question: 'Waarom is dynamische sturing via de P1-poort belangrijk?', answer: 'Via de P1-poort meet de laadpaal in realtime hoeveel zonnestroom er over is, waardoor het laadvermogen direct op de actuele overproductie kan worden afgestemd.' },
+    ],
+  },
 ];
