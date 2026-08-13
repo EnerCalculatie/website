@@ -1516,4 +1516,31 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is dynamische sturing via de P1-poort belangrijk?', answer: 'Via de P1-poort meet de laadpaal in realtime hoeveel zonnestroom er over is, waardoor het laadvermogen direct op de actuele overproductie kan worden afgestemd.' },
     ],
   },
+  {
+    slug: 'zonnepanelen-installatie-uitbreiden-omvormer-regels',
+    readingTimeMinutes: 4,
+    title: 'Zonnepanelen-installatie uitbreiden: impact en regels',
+    seoTitle: 'Zonnepanelen uitbreiden: omvormer & NEN 1010 regels',
+    description:
+      'Wilt u uw zonnepanelen uitbreiden? Ontdek de impact op uw omvormer, overdimensioneren, clipping en de NEN 1010 en Netcode richtlijnen.',
+    date: '2026-08-13',
+    excerpt:
+      'Het uitbreiden van uw zonnepanelen heeft direct invloed op uw omvormer, bekabeling en groepenkast. Lees alles over overdimensioneren, clipping en NEN 1010 regels.',
+    tags: ['zonnepanelen', 'omvormer', 'NEN 1010', 'clipping', 'groepenkast', 'energieleveren.nl'],
+    keyPoints: [
+      'Overdimensioneren van de omvormer geeft slechts 1 tot 3% jaarlijks verlies door clipping en zorgt voor snellere opstart bij lage instraling.',
+      'Conform NEN 1010 mag de spanningsstijging tussen omvormer en meterkast maximaal 1% bedragen.',
+      'Boven 16A (3,68 kW) is invoeding over meerdere fases verplicht via een 3-fase omvormer.',
+      'Somstromen kunnen aardlekschakelaars overbelasten (bijv. 25A net + 16A omvormer = 41A op een 40A RCD).',
+      'Aanmelden van de uitbreiding via energieleveren.nl is wettelijk verplicht.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het effect van het overdimensioneren van een omvormer?', answer: 'Overdimensioneren betekent dat het DC-vermogen van de zonnepanelen hoger is dan het nominale vermogen van de omvormer. Dit leidt op piekmomenten tot \'clipping\', wat op jaarbasis gemiddeld minder dan 1 tot 3% verlies geeft, terwijl de omvormer bij lage instraling sneller opstart.' },
+      { question: 'Waarom schakelt een omvormer uit bij 253 volt?', answer: 'Volgens de Netcode moet een omvormer automatisch uitschakelen wanneer de netspanning door overproductie stijgt boven de 253 volt (230V + 10%) om de elektrische installatie te beschermen.' },
+      { question: 'Wanneer is een 3-fase omvormer verplicht?', answer: 'Invoeding boven de 16A (3,68 kVA) moet volgens de Netcode over meerdere fases worden verdeeld. Vanaf een omvormervermogen groter dan circa 3,68 kW (in de praktijk vanaf 4 kW) is een 3-fase omvormer vereist.' },
+      { question: 'Wat zijn somstromen en waarom vormen ze een risico?', answer: 'Wanneer netstroom en omvormerstroom samenkomen op één aardlekschakelaar (zoals 25A + 16A = 41A), kan een standaard 40A-component overbelast raken. Dit zorgt voor brandgevaar als de bedrading hier niet op berekend is.' },
+      { question: 'Moet ik het uitbreiden van mijn zonnepanelen aanmelden?', answer: 'Ja, bij elke uitbreiding van de zonnepaneelinstallatie waarbij het totale omvormervermogen verandert, is registratie op energieleveren.nl wettelijk verplicht.' },
+    ],
+  },
 ];

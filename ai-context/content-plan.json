@@ -16,8 +16,10 @@
     "intent": "commercieel",
     "priority": 8,
     "slug": "zonnepanelen-installatie-uitbreiden-hoe-berekent-u-de-impact-op-de-omvormer-en-het-energieprofiel",
-    "status": "planned",
-    "createdAt": "2026-08-12T12:38:44.302Z"
+    "status": "generated",
+    "createdAt": "2026-08-12T12:38:44.302Z",
+    "generatedSlug": "zonnepanelen-installatie-uitbreiden-omvormer-regels",
+    "generatedAt": "2026-08-13T12:45:32.751Z"
   },
   {
     "title": "Nachtverlaging bij warmtepompen: hoe onderbouwt u het effect op stroomverbruik en comfort in uw adviesrapport?",
