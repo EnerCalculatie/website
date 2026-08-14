@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import {
   Home, Cpu, Zap, Sun, Battery, Flame, Wind, Car,
-  TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight, FileSpreadsheet
+  TrendingUp, ClipboardList, FileText, HardHat, Play, Pause, ChevronRight, FileSpreadsheet, Layers
 } from 'lucide-react';
 
 import imgDossier from '../assets/screenshots/dossier-overzicht.webp';
@@ -19,6 +19,7 @@ import imgOfferte from '../assets/screenshots/offerte.webp';
 import imgSchouw from '../assets/screenshots/schouw-overzicht.webp';
 import imgRapport from '../assets/screenshots/adviesrapport.webp';
 import imgWerkvoorbereiding from '../assets/screenshots/werkvoorbereiding.webp';
+import imgScenario from '../assets/screenshots/scenario.webp';
 
 interface DemoStep {
   id: string;
@@ -98,6 +99,13 @@ const steps: DemoStep[] = [
     icon: <TrendingUp size={16} />,
     screenshot: imgRoi,
     description: 'Volledig gevalideerde doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
+  },
+  {
+    id: 'scenario',
+    label: "Scenario's",
+    icon: <Layers size={16} />,
+    screenshot: imgScenario,
+    description: "Houd meerdere oplossingen naast elkaar bij en vergelijk investering, besparing en terugverdientijd per scenario."
   },
   {
     id: 'offerte',
@@ -253,11 +261,12 @@ export function AppDemoVideo() {
                 <div className="w-16" />
               </div>
 
-              {/* Screenshot area — aspect ratio matches de screenshots (1568×626, ververst 2026-08-10).
-                  Bewust breder/lager dan de oude 1230×810-ratio: bij een smallere ratio werd de
-                  content fors uitgerekt/verkleind door object-contain (te klein/onduidelijk in de
-                  demo), omdat deze screenshots op volledige viewportbreedte zijn vastgelegd. */}
-              <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '1568/626' }}>
+              {/* Screenshot area — aspect ratio matches de gecropte screenshots (ververst 2026-08-14,
+                  app-sidebar uit de screenshots weggesneden zodat er geen dubbele navigatie meer
+                  in beeld staat naast de component-eigen stappen-zijbalk; ~10/9 is het gemiddelde
+                  van de 14 gecropte content-panes). object-contain vangt de ene uitzondering
+                  (dossieroverzicht, volle breedte zonder sidebar) netjes met witte letterbox op. */}
+              <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '10/9' }}>
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeStep.screenshot}
