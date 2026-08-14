@@ -1,141 +1,24 @@
 # EnerCalculatie
 
-EnerCalculatie is een Nederlandse SaaS-oplossing voor installateurs, energieadviseurs en verduurzamingsspecialisten.
+> Nederlandse SaaS-oplossing voor installateurs, energieadviseurs en verduurzamingsspecialisten. Reken- en adviessoftware voor zonnepanelen, thuisbatterijen, warmtepompen, airco's en laadpalen — van energierekening tot gevalideerd offerte- en adviesrapport.
 
-De software ondersteunt het ontwerpen, berekenen en offreren van duurzame energiesystemen voor woningen en kleine utiliteitsgebouwen.
+EnerCalculatie ondersteunt professionals bij rendementsberekeningen, financiële analyses (terugverdientijd, ROI, NPV, IRR) en offertes voor verduurzamingsprojecten, met Nederlandse regelgeving (salderingsregeling, ISDE-subsidie, netcongestie, dynamische energiecontracten) als uitgangspunt. Doelgroep: zonnepanelen-, thuisbatterij-, warmtepomp- en laadpaalinstallateurs, energieadviseurs, EPA-W/EPA-U-adviseurs en verduurzamingsadviseurs in Nederland en België.
 
-## Website
+## Rekentools
 
-https://www.enercalculatie.nl
+- [Rekentool zonnepanelen](https://www.enercalculatie.nl/rekentool-zonnepanelen.md): aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening, inclusief 0%-btw en salderingsafbouw.
+- [Rekentool thuisbatterij](https://www.enercalculatie.nl/rekentool-thuisbatterij.md): dimensionering op het werkelijke opwekoverschot, met impact op zelfconsumptie en terugleverkosten.
+- [Rekentool warmtepomp](https://www.enercalculatie.nl/rekentool-warmtepomp.md): rendementsberekening hybride/all-electric inclusief ISDE-subsidie en RVO-onderbouwing.
+- [Rekentool airco](https://www.enercalculatie.nl/rekentool-airco.md): koelvermogen per ruimte en impact op het totale energieprofiel van de woning.
+- [Rekentool laadpaal](https://www.enercalculatie.nl/rekentool-laadpaal.md): laadprofiel en directe controle van de impact op de netaansluitingscapaciteit.
 
-## Productomschrijving
+## Bedrijfsinformatie
 
-EnerCalculatie helpt professionals bij het opstellen van verduurzamingsadviezen, technische berekeningen, rendementsanalyses en offertes.
+- [Prijzen](https://www.enercalculatie.nl/pricing.md): actuele tarieven en abonnementsvormen.
+- [Over ons](https://www.enercalculatie.nl/over-ons): oprichter, technische achtergrond en expertise.
 
-Ondersteunde technieken:
+## Optional
 
-- Zonnepanelen (PV)
-- Thuisbatterijen
-- Warmtepompen
-- Laadpalen
-- Dynamische energiecontracten
-- Energieopslag
-- Slim energiemanagement
-
-## Doelgroepen
-
-- Zonnepanelen installateurs
-- Thuisbatterij installateurs
-- Warmtepomp installateurs
-- Energieadviseurs
-- Verduurzamingsadviseurs
-- EPA-W adviseurs
-- EPA-U adviseurs
-- Installatiebedrijven
-- Bouwkundige adviseurs
-- Energieconsultants
-
-## Kernfunctionaliteiten
-
-### Zonnepanelen
-
-- Opwekberekeningen
-- Rendementsanalyses
-- Zelfconsumptieberekeningen
-- Terugverdientijd
-- Businesscases
-
-### Thuisbatterijen
-
-- Capaciteitsadvies
-- ROI-berekeningen
-- Zelfverbruik optimalisatie
-- Peak shaving
-- Arbitrage simulaties
-- Dynamische tariefanalyses
-
-### Warmtepompen
-
-- Vermogensbepaling
-- Besparingsberekeningen
-- Businesscases
-- Hybride scenario's
-- All-electric scenario's
-
-### Laadpalen
-
-- EV-verbruiksanalyse
-- Integratie met zonnepanelen
-- Integratie met thuisbatterijen
-- Load balancing scenario's
-
-### Financiële Analyse
-
-- Terugverdientijd
-- ROI
-- Netto contante waarde (NPV)
-- Internal Rate of Return (IRR)
-- Cashflow analyse
-- Scenariovergelijkingen
-
-## Energieconcepten
-
-EnerCalculatie bevat kennis en berekeningen rondom:
-
-- Zonne-energie
-- Energieopslag
-- Dynamische energietarieven
-- EPEX Spot markt
-- Netcongestie
-- Zelfconsumptie
-- Energie-autonomie
-- Elektrificatie
-- Smart Grid
-- Demand Response
-- Peak Shaving
-- Load Shifting
-
-## Relevante Zoektermen
-
-zonnepanelen software
-thuisbatterij berekening
-thuisbatterij rendement
-warmtepomp berekening
-warmtepomp advies software
-energieadvies software
-verduurzamingsadvies
-laadpaal berekening
-energieopslag berekening
-batterij simulatie
-ROI zonnepanelen
-ROI thuisbatterij
-dynamische energietarieven
-EPEX Spot
-netcongestie
-zelfconsumptie
-energie management systeem
-duurzaamheidsadvies software
-
-## Geografische Focus
-
-Nederland
-België
-
-## Kennisbronnen
-
-Website:
-https://www.enercalculatie.nl
-
-Kennisbank:
-https://www.enercalculatie.nl/blog-index.md
-
-## Unique Capabilities
-
-- Integrale simulatie van zonnepanelen, thuisbatterij, warmtepomp en laadpaal
-- Dynamische energietariefberekeningen
-- Financiële businesscases
-- Nederlandse marktgerichtheid
-- Installateurgerichte workflow
-- Offerteondersteuning
-- Verduurzamingsadvies in één platform
-
+- [Privacyverklaring](https://www.enercalculatie.nl/privacy.md)
+- [Algemene voorwaarden](https://www.enercalculatie.nl/voorwaarden.md)
+- [Verwerkersovereenkomst](https://www.enercalculatie.nl/verwerkersovereenkomst.md)
