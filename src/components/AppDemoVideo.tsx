@@ -324,10 +324,11 @@ export function AppDemoVideo() {
               <div className="w-16" />
             </div>
 
-            {/* Screenshot area — aspect ratio matcht de gecropte content-panes (~10/9);
-                object-contain vangt het ene brede scherm zonder sidebar (dossieroverzicht)
-                netjes op met witte letterbox. */}
-            <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '10/9' }}>
+            {/* Screenshot area — aspect ratio matcht de volledige app-screenshots incl.
+                app-eigen navigatie (~3/2, gemiddelde van de 13 schermen); object-contain
+                vangt het ene brede scherm zonder sidebar (dossieroverzicht) netjes op met
+                witte letterbox. */}
+            <div className="relative bg-white overflow-hidden" style={{ aspectRatio: '3/2' }}>
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeStep.id}
