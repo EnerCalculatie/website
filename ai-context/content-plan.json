@@ -16,8 +16,10 @@
     "intent": "commercieel",
     "priority": 9,
     "slug": "omvormer-afschakelen-bij-negatieve-stroomprijzen-hoe-onderbouwt-u-pv-curtailment-in-uw-adviesrapport",
-    "status": "planned",
-    "createdAt": "2026-08-14T05:15:12.228Z"
+    "status": "generated",
+    "createdAt": "2026-08-14T05:15:12.228Z",
+    "generatedSlug": "omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment",
+    "generatedAt": "2026-08-14T12:50:30.924Z"
   },
   {
     "title": "Waterzijdig inregelen bij een warmtepomp: hoe onderbouwt u de noodzaak en efficiëntiewinst bij uw klant?",

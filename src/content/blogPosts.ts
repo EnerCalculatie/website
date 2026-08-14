@@ -1567,4 +1567,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kan de omvormer lichter worden uitgevoerd bij oost-west?', answer: 'Ja, doordat de twee dakvlakken niet gelijktijdig hun maximale piekvermogen bereiken, kan de omvormer worden ondergedimensioneerd ten opzichte van het totale Wattpiek-vermogen van de panelen.' },
     ],
   },
+  {
+    slug: 'omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment',
+    readingTimeMinutes: 3,
+    title: 'Omvormer afschakelen bij negatieve stroomprijzen: PV-curtailment in het adviesrapport',
+    seoTitle: 'Omvormer afschakelen bij negatieve stroomprijs',
+    description:
+      'Hoe onderbouwt u PV-curtailment bij negatieve stroomprijzen? Ontdek de normen (NEN-EN 50549-1, NEN 1010) en technische eisen voor uw adviesrapport.',
+    date: '2026-08-14',
+    excerpt:
+      'Bij negatieve stroomprijzen kan het afschakelen van de omvormer (PV-curtailment) financieel verstandig zijn. Ontdek hoe u dit technisch en normatief onderbouwt in uw adviesrapport.',
+    tags: ['PV-curtailment', 'Omvormer afschakelen', 'Negatieve stroomprijzen', 'NEN 1010', 'Netcode Elektriciteit'],
+    keyPoints: [
+      'PV-curtailment voorkomt negatieve terugleververgoedingen en overbelasting van het net.',
+      'Omvormers moeten voldoen aan NEN-EN 50549-1 en Netcode Elektriciteit voor vermogensregeling.',
+      'Bij vermogens boven 3,68 kW (16A) is een 3-fase omvormer verplicht tegen fase-onbalans.',
+      'Let op somstromen: optelling van net- en PV-stroom mag beveiligingscomponenten (zoals 40A aardlek) niet overbelasten.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is PV-curtailment en waarom is het nodig?', answer: 'PV-curtailment is het tijdelijk verminderen of stopzetten van de stroomproductie door zonnepanelen. Dit voorkomt dat u moet betalen voor teruglevering bij negatieve dynamische stroomprijzen en beschermt het elektriciteitsnet tegen overbelasting.' },
+      { question: 'Aan welke normen moet een regelbare omvormer voldoen?', answer: 'Een regelbare omvormer moet voldoen aan de NEN-EN 50549-1 en de Netcode Elektriciteit voor vermogensregeling, evenals de spanningsbeveiliging conform NEN 1010 (uitschakeling boven 253V).' },
+      { question: 'Waarom is toetsing van somstromen belangrijk bij PV-installaties?', answer: 'Wanneer netstroom (bijv. 25A) en zonne-energie (bijv. 16A) op dezelfde groep invoeden, ontstaat een somstroom van 41A. Als de aardlekschakelaar slechts 40A verdraagt, ontstaat er overbelastings- en brandgevaar.' },
+    ],
+  },
 ];

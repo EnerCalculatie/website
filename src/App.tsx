@@ -125,6 +125,7 @@ const VentilatiewarmtepompAdviserenBesparingOnderbouwenArticle = lazyRoute('/blo
 const PvSurplusLadenRendementSlimmeLaadpaalArticle = lazyRoute('/blog/pv-surplus-laden-rendement-slimme-laadpaal', () => import('./components/blog/PvSurplusLadenRendementSlimmeLaadpaalArticle').then(m => ({ default: m.PvSurplusLadenRendementSlimmeLaadpaalArticle })));
 const ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle = lazyRoute('/blog/zonnepanelen-installatie-uitbreiden-omvormer-regels', () => import('./components/blog/ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle').then(m => ({ default: m.ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle })));
 const OostWestZonnepanelenOpbrengstZelfconsumptieArticle = lazyRoute('/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie', () => import('./components/blog/OostWestZonnepanelenOpbrengstZelfconsumptieArticle').then(m => ({ default: m.OostWestZonnepanelenOpbrengstZelfconsumptieArticle })));
+const OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle = lazyRoute('/blog/omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment', () => import('./components/blog/OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle').then(m => ({ default: m.OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -269,6 +270,7 @@ export function AppContent() {
             <Route path="/blog/pv-surplus-laden-rendement-slimme-laadpaal" element={<PvSurplusLadenRendementSlimmeLaadpaalArticle />} />
             <Route path="/blog/zonnepanelen-installatie-uitbreiden-omvormer-regels" element={<ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle />} />
             <Route path="/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie" element={<OostWestZonnepanelenOpbrengstZelfconsumptieArticle />} />
+            <Route path="/blog/omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment" element={<OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
