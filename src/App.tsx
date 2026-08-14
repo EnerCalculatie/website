@@ -124,6 +124,7 @@ const InfraroodverwarmingCombinerenMetWarmtepompArticle = lazyRoute('/blog/infra
 const VentilatiewarmtepompAdviserenBesparingOnderbouwenArticle = lazyRoute('/blog/ventilatiewarmtepomp-adviseren-besparing-onderbouwen', () => import('./components/blog/VentilatiewarmtepompAdviserenBesparingOnderbouwenArticle').then(m => ({ default: m.VentilatiewarmtepompAdviserenBesparingOnderbouwenArticle })));
 const PvSurplusLadenRendementSlimmeLaadpaalArticle = lazyRoute('/blog/pv-surplus-laden-rendement-slimme-laadpaal', () => import('./components/blog/PvSurplusLadenRendementSlimmeLaadpaalArticle').then(m => ({ default: m.PvSurplusLadenRendementSlimmeLaadpaalArticle })));
 const ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle = lazyRoute('/blog/zonnepanelen-installatie-uitbreiden-omvormer-regels', () => import('./components/blog/ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle').then(m => ({ default: m.ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle })));
+const OostWestZonnepanelenOpbrengstZelfconsumptieArticle = lazyRoute('/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie', () => import('./components/blog/OostWestZonnepanelenOpbrengstZelfconsumptieArticle').then(m => ({ default: m.OostWestZonnepanelenOpbrengstZelfconsumptieArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -267,6 +268,7 @@ export function AppContent() {
             <Route path="/blog/ventilatiewarmtepomp-adviseren-besparing-onderbouwen" element={<VentilatiewarmtepompAdviserenBesparingOnderbouwenArticle />} />
             <Route path="/blog/pv-surplus-laden-rendement-slimme-laadpaal" element={<PvSurplusLadenRendementSlimmeLaadpaalArticle />} />
             <Route path="/blog/zonnepanelen-installatie-uitbreiden-omvormer-regels" element={<ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle />} />
+            <Route path="/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie" element={<OostWestZonnepanelenOpbrengstZelfconsumptieArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

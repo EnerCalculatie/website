@@ -1543,4 +1543,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Moet ik het uitbreiden van mijn zonnepanelen aanmelden?', answer: 'Ja, bij elke uitbreiding van de zonnepaneelinstallatie waarbij het totale omvormervermogen verandert, is registratie op energieleveren.nl wettelijk verplicht.' },
     ],
   },
+  {
+    slug: 'oost-west-zonnepanelen-opbrengst-zelfconsumptie',
+    readingTimeMinutes: 3,
+    title: 'Oost-West Zonnepanelen: Opbrengst, Zelfconsumptie en Netbelasting',
+    seoTitle: 'Oost-West Zonnepanelen: Opbrengst & Voordelen',
+    description:
+      'Ontdek de voordelen van een oost-west opstelling van zonnepanelen: een vlakkere productiecurve, hogere zelfconsumptie en minder netbelasting.',
+    date: '2026-08-14',
+    excerpt:
+      'Een oost-west opstelling van zonnepanelen levert een vlakkere productiecurve op en verhoogt de directe zelfconsumptie. Ontdek de technische en praktische voordelen.',
+    tags: ['zonnepanelen', 'oost-west opstelling', 'zelfconsumptie', 'omvormer', 'netbelasting'],
+    keyPoints: [
+      'Vlakkere en bredere productiecurve over de gehele dag',
+      'Hogere directe zelfconsumptie vergeleken met een zuid-opstelling',
+      'Minder piekbelasting op het net en kleiner risico op omvormeruitval boven 253V',
+      'Hogere dakbenutting op platte daken en mogelijke onderdimensionering van de omvormer',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel minder opbrengst geeft een oost-west opstelling t.o.v. zuid?', answer: 'Een oost-west opstelling levert per geïnstalleerde Wattpiek op jaarbasis doorgaans circa 10 tot 20 procent minder totale elektriciteit op dan een optimale zuid-oriëntatie onder een hoek van 35 graden.' },
+      { question: 'Waarom zorgt een oost-west opstelling voor meer zelfconsumptie?', answer: 'Door stroom op te wekken tijdens de ochtend- en namiddaguren sluit de opbrengst beter aan op het verbruiksprofiel van een standaard huishouden, waardoor de directe zelfconsumptie stijgt ten opzichte van een zuid-opstelling.' },
+      { question: 'Kan de omvormer lichter worden uitgevoerd bij oost-west?', answer: 'Ja, doordat de twee dakvlakken niet gelijktijdig hun maximale piekvermogen bereiken, kan de omvormer worden ondergedimensioneerd ten opzichte van het totale Wattpiek-vermogen van de panelen.' },
+    ],
+  },
 ];
