@@ -16,6 +16,19 @@ const CONTEXT_DIR = path.join(ROOT, 'ai-context');
 const PLAN_PATH = path.join(CONTEXT_DIR, 'content-plan.json');
 const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
 
+// Zelfde aanpak als backfill-sources.mjs/LLMService.ts: 503 (model overbelast)
+// en 429 (rate limit) zijn van nature tijdelijk — een enkele mislukte call
+// hoeft de hele run niet te laten falen. Zag 2026-08-14 een 503 UNAVAILABLE
+// op de allereerste Gemini-call van de dag de hele workflow blokkeren, terwijl
+// de andere Gemini-aanroepers deze klasse fouten al opvingen.
+const RETRYABLE_STATUSES = new Set([429, 500, 503]);
+const GEMINI_MAX_ATTEMPTS = 3;
+const GEMINI_RETRY_DELAY_MS = 15000;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 console.log(`Gemini-tier: ${GEMINI_TIER}, model: ${GEMINI_MODEL}`);
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
@@ -50,37 +63,47 @@ async function readPlan() {
 }
 
 async function callGemini(system, user) {
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify({
-      contents: [{ role: 'user', parts: [{ text: user }] }],
-      systemInstruction: { role: 'system', parts: [{ text: system }] },
-      // Was 3000 — te krap voor 5 items met lange NL SEO-titels, sneed de
-      // JSON-array soms halverwege af (finishReason MAX_TOKENS) en liet de
-      // hele run falen. 8192 geeft ruim marge, blijft binnen wat gemini
-      // *-flash-modellen aankunnen.
-      generationConfig: { maxOutputTokens: 8192 },
-    }),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Gemini API-fout (${res.status}, model ${GEMINI_MODEL}): ${text}`);
+  let lastError;
+  for (let attempt = 1; attempt <= GEMINI_MAX_ATTEMPTS; attempt++) {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: user }] }],
+        systemInstruction: { role: 'system', parts: [{ text: system }] },
+        // Was 3000 — te krap voor 5 items met lange NL SEO-titels, sneed de
+        // JSON-array soms halverwege af (finishReason MAX_TOKENS) en liet de
+        // hele run falen. 8192 geeft ruim marge, blijft binnen wat gemini
+        // *-flash-modellen aankunnen.
+        generationConfig: { maxOutputTokens: 8192 },
+      }),
+    });
+    if (!res.ok) {
+      const text = await res.text();
+      lastError = new Error(`Gemini API-fout (${res.status}, model ${GEMINI_MODEL}): ${text}`);
+      if (RETRYABLE_STATUSES.has(res.status) && attempt < GEMINI_MAX_ATTEMPTS) {
+        console.warn(`Waarschuwing: Gemini API-fout (${res.status}) — poging ${attempt}/${GEMINI_MAX_ATTEMPTS}, retry over ${GEMINI_RETRY_DELAY_MS * attempt}ms.`);
+        await sleep(GEMINI_RETRY_DELAY_MS * attempt);
+        continue;
+      }
+      throw lastError;
+    }
+    const data = await res.json();
+    const candidate = data.candidates?.[0];
+    const message = candidate?.content?.parts?.[0]?.text;
+    if (!message) {
+      throw new Error(
+        `Geen tekstantwoord ontvangen van Gemini (model ${GEMINI_MODEL}, finishReason: ${candidate?.finishReason ?? 'onbekend'}).`
+      );
+    }
+    if (candidate.finishReason === 'MAX_TOKENS') {
+      console.warn(`Waarschuwing: Gemini-antwoord afgekapt op maxOutputTokens (model ${GEMINI_MODEL}).`);
+    }
+    return message;
   }
-  const data = await res.json();
-  const candidate = data.candidates?.[0];
-  const message = candidate?.content?.parts?.[0]?.text;
-  if (!message) {
-    throw new Error(
-      `Geen tekstantwoord ontvangen van Gemini (model ${GEMINI_MODEL}, finishReason: ${candidate?.finishReason ?? 'onbekend'}).`
-    );
-  }
-  if (candidate.finishReason === 'MAX_TOKENS') {
-    console.warn(`Waarschuwing: Gemini-antwoord afgekapt op maxOutputTokens (model ${GEMINI_MODEL}).`);
-  }
-  return message;
+  throw lastError;
 }
 
 function extractJsonArray(raw) {

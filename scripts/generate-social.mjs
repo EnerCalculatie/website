@@ -15,6 +15,19 @@ const BLOG_DIR = path.join(rootDir, 'src', 'components', 'blog');
 const SOCIAL_DIR = path.join(rootDir, 'src', 'content', 'social');
 const APP_TSX_PATH = path.join(rootDir, 'src', 'App.tsx');
 
+// Zelfde retry-aanpak als plan-content.mjs/backfill-sources.mjs: 503/429/500
+// zijn tijdelijke Gemini-fouten. Deze stap draait met continue-on-error in de
+// workflow, dus een enkele mislukking blokkeert het artikel zelf niet — maar
+// zonder retry verliezen we de LinkedIn-repurposing onnodig op een fout die
+// een paar seconden later vanzelf overgaat.
+const RETRYABLE_STATUSES = new Set([429, 500, 503]);
+const GEMINI_MAX_ATTEMPTS = 3;
+const GEMINI_RETRY_DELAY_MS = 15000;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 // Zoekt het componentbestand voor een slug via de route-registratie in App.tsx
 // (`lazyRoute('/blog/<slug>', () => import('./components/blog/<Naam>')...)`) i.p.v.
 // de slug zelf om te zetten naar een bestandsnaam: 11 van de 54 bestaande artikelen
@@ -58,27 +71,37 @@ Geef ALTIJD pure Markdown tekst terug (zonder extra uitleg).`;
 
   try {
     console.log(`🤖 Gemini (${GEMINI_MODEL}) wordt aangeroepen voor social media posts...`);
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: `${systemPrompt}\n\n--- ARTIKEL ---\n${blogContent}` }] }],
-        // 4000 i.p.v. 1000: gemini-3.6-flash denkt standaard (thoughtsTokenCount, niet
-        // uit te zetten voor dit model — thinkingBudget: 0 gaf een 400 INVALID_ARGUMENT
-        // bij een testrun 2026-08-07) en telt dat mee in maxOutputTokens. Op 1000 stopte
-        // de call op MAX_TOKENS tijdens het denken zelf, vóór er ook maar iets van de
-        // 3 posts gegenereerd was — data.candidates[0].content.parts[0].text bevatte dan
-        // een afgekapt fragment van de interne redenering i.p.v. bruikbare output.
-        generationConfig: { temperature: 0.7, maxOutputTokens: 4000 }
-      })
-    });
-    
-    if (!res.ok) {
-      const errText = await res.text();
-      throw new Error(`API Error ${res.status}: ${errText}`);
+    let data;
+    for (let attempt = 1; attempt <= GEMINI_MAX_ATTEMPTS; attempt++) {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: `${systemPrompt}\n\n--- ARTIKEL ---\n${blogContent}` }] }],
+          // 4000 i.p.v. 1000: gemini-3.6-flash denkt standaard (thoughtsTokenCount, niet
+          // uit te zetten voor dit model — thinkingBudget: 0 gaf een 400 INVALID_ARGUMENT
+          // bij een testrun 2026-08-07) en telt dat mee in maxOutputTokens. Op 1000 stopte
+          // de call op MAX_TOKENS tijdens het denken zelf, vóór er ook maar iets van de
+          // 3 posts gegenereerd was — data.candidates[0].content.parts[0].text bevatte dan
+          // een afgekapt fragment van de interne redenering i.p.v. bruikbare output.
+          generationConfig: { temperature: 0.7, maxOutputTokens: 4000 }
+        })
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        if (RETRYABLE_STATUSES.has(res.status) && attempt < GEMINI_MAX_ATTEMPTS) {
+          console.warn(`Waarschuwing: Gemini API-fout (${res.status}) — poging ${attempt}/${GEMINI_MAX_ATTEMPTS}, retry over ${GEMINI_RETRY_DELAY_MS * attempt}ms.`);
+          await sleep(GEMINI_RETRY_DELAY_MS * attempt);
+          continue;
+        }
+        throw new Error(`API Error ${res.status}: ${errText}`);
+      }
+
+      data = await res.json();
+      break;
     }
-    
-    const data = await res.json();
+
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
     if (!text) {
       throw new Error(`Geen tekst in Gemini-response (mogelijk geblokkeerd door safety-filter): ${JSON.stringify(data).slice(0, 500)}`);
