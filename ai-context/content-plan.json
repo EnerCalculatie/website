@@ -38,8 +38,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "nachtverlaging-bij-warmtepompen-hoe-onderbouwt-u-het-effect-op-stroomverbruik-en-comfort-in-uw-adviesrapport",
-    "status": "planned",
-    "createdAt": "2026-08-10T12:41:14.241Z"
+    "status": "generated",
+    "createdAt": "2026-08-10T12:41:14.241Z",
+    "generatedSlug": "nachtverlaging-warmtepomp-stroomverbruik-comfort",
+    "generatedAt": "2026-08-15T12:39:01.745Z"
   },
   {
     "title": "Ontdooicyclus bij lucht-water warmtepompen: hoe verklaart u het winterse stroompiekverbruik aan uw klant?",

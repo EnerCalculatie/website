@@ -1616,4 +1616,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat gebeurt er als het systeem niet waterzijdig is ingeregeld?', answer: 'Bij een niet-ingeregeld systeem ontstaat onbalans: nabijgelegen ruimtes krijgen te veel warm water en verstgelegen ruimtes te weinig. Hierdoor moet het systeem op een onnodig hoge temperatuur draaien en kan de warmtepomp gaan pendelen.' },
     ],
   },
+  {
+    slug: 'nachtverlaging-warmtepomp-stroomverbruik-comfort',
+    readingTimeMinutes: 3,
+    title: 'Nachtverlaging bij warmtepompen: onderbouwing van stroomverbruik en comfort',
+    seoTitle: 'Nachtverlaging Warmtepomp: Wel of Niet Doen?',
+    description:
+      'Is nachtverlaging verstandig bij een warmtepomp? Ontdek de invloed op het stroomverbruik, de COP, het comfort en het advies voor uw verwarmingssysteem.',
+    date: '2026-08-15',
+    excerpt:
+      'Nachtverlaging bij een warmtepomp werkt anders dan bij een cv-ketel. Ontdek de invloed op het stroomverbruik, het seizoensrendement (SCOP) en het thermisch comfort.',
+    tags: ['warmtepomp', 'nachtverlaging', 'stroomverbruik', 'COP', 'vloerverwarming', 'SCOP'],
+    keyPoints: [
+      'Houd de temperatuur dag en nacht constant of pas maximaal 1 tot 2 graden nachtverlaging toe.',
+      'Grote nachtverlaging verlaagt de COP en activeert mogelijk het elektrische bijverwarmingselement.',
+      'Vloerverwarming reageert traag, waardoor opwarmen na nachtverlaging uren duurt.',
+      'NEN-EN-ISO 52000 / NEN 7120 gaan uit van continue verwarming voor een optimaal seizoensrendement (SCOP).',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is nachtverlaging verstandig bij een warmtepomp?', answer: 'Nee, het wordt geadviseerd om de temperatuur dag en nacht constant te houden of een minimale nachtverlaging van maximaal 1 tot 2 graden toe te passen voor een optimaal rendement en comfort.' },
+      { question: 'Waarom stijgt het stroomverbruik bij nachtverlaging?', answer: 'Om de woning \'s ochtends snel op te warmen moet de warmtepomp op een hogere frequentie en aanvoertemperatuur draaien. Ook kan het elektrische bijverwarmingselement (back-up heater) inschakelen, wat pieken in het stroomverbruik veroorzaakt.' },
+      { question: 'Wat zegt de normering (NEN-EN-ISO 52000 / NEN 7120) over nachtverlaging?', answer: 'In energieprestatieberekeningen conform NEN-EN-ISO 52000 / NEN 7120 wordt voor laagtemperatuursystemen met een hoge thermische massa uitgegaan van continue verwarming om de optimale SCOP te behalen.' },
+    ],
+  },
 ];
