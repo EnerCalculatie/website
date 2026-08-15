@@ -1591,4 +1591,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is toetsing van somstromen belangrijk bij PV-installaties?', answer: 'Wanneer netstroom (bijv. 25A) en zonne-energie (bijv. 16A) op dezelfde groep invoeden, ontstaat een somstroom van 41A. Als de aardlekschakelaar slechts 40A verdraagt, ontstaat er overbelastings- en brandgevaar.' },
     ],
   },
+  {
+    slug: 'waterzijdig-inregelen-warmtepomp-efficientie',
+    readingTimeMinutes: 2,
+    title: 'Waterzijdig inregelen bij een warmtepomp: noodzaak en efficiëntiewinst',
+    seoTitle: 'Waterzijdig inregelen warmtepomp: COP & besparing',
+    description:
+      'Is waterzijdig inregelen bij een warmtepomp verplicht? Ontdek de EPBD III eisen, voorkom pendelen, verhoog de COP en bespaar 10 tot 15% energie.',
+    date: '2026-08-15',
+    excerpt:
+      'Waterzijdig inregelen is wettelijk verplicht onder EPBD III bij warmtepompen. Het optimaliseert debieten, verhoogt de COP en bespaart gemiddeld 10 tot 15% energie.',
+    tags: ['waterzijdig inregelen', 'warmtepomp', 'EPBD III', 'COP', 'energiebesparing'],
+    keyPoints: [
+      'Wettelijk verplicht onder de EPBD III-richtlijnen bij installatie of vervanging van warmte-opwekkers.',
+      'Voorkomt thermische onbalans tussen nabijgelegen en verstgelegen ruimtes.',
+      'Maakt een lagere aanvoertemperatuur mogelijk voor een hogere COP en lager stroomverbruik.',
+      'Voorkomt pendelen (frequent in- en uitschakelen) en verlengt de levensduur van de compressor.',
+      'Realiseert een gemiddelde energiebesparing van 10 tot 15 procent op het verwarmingsverbruik.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is waterzijdig inregelen verplicht bij een warmtepomp?', answer: 'Ja, bij het installeren of vervangen van een warmte-opwekker is waterzijdig inregelen wettelijk verplicht volgens de EPBD III-richtlijnen.' },
+      { question: 'Hoeveel bespaar je door waterzijdig inregelen?', answer: 'Het op de juiste wijze inregelen van het afgiftesysteem levert een gemiddelde energiebesparing van 10 tot 15 procent op het verwarmingsverbruik op.' },
+      { question: 'Wat gebeurt er als het systeem niet waterzijdig is ingeregeld?', answer: 'Bij een niet-ingeregeld systeem ontstaat onbalans: nabijgelegen ruimtes krijgen te veel warm water en verstgelegen ruimtes te weinig. Hierdoor moet het systeem op een onnodig hoge temperatuur draaien en kan de warmtepomp gaan pendelen.' },
+    ],
+  },
 ];

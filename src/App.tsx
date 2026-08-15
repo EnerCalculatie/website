@@ -126,6 +126,7 @@ const PvSurplusLadenRendementSlimmeLaadpaalArticle = lazyRoute('/blog/pv-surplus
 const ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle = lazyRoute('/blog/zonnepanelen-installatie-uitbreiden-omvormer-regels', () => import('./components/blog/ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle').then(m => ({ default: m.ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle })));
 const OostWestZonnepanelenOpbrengstZelfconsumptieArticle = lazyRoute('/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie', () => import('./components/blog/OostWestZonnepanelenOpbrengstZelfconsumptieArticle').then(m => ({ default: m.OostWestZonnepanelenOpbrengstZelfconsumptieArticle })));
 const OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle = lazyRoute('/blog/omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment', () => import('./components/blog/OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle').then(m => ({ default: m.OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle })));
+const WaterzijdigInregelenWarmtepompEfficientieArticle = lazyRoute('/blog/waterzijdig-inregelen-warmtepomp-efficientie', () => import('./components/blog/WaterzijdigInregelenWarmtepompEfficientieArticle').then(m => ({ default: m.WaterzijdigInregelenWarmtepompEfficientieArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -271,6 +272,7 @@ export function AppContent() {
             <Route path="/blog/zonnepanelen-installatie-uitbreiden-omvormer-regels" element={<ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle />} />
             <Route path="/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie" element={<OostWestZonnepanelenOpbrengstZelfconsumptieArticle />} />
             <Route path="/blog/omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment" element={<OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle />} />
+            <Route path="/blog/waterzijdig-inregelen-warmtepomp-efficientie" element={<WaterzijdigInregelenWarmtepompEfficientieArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
