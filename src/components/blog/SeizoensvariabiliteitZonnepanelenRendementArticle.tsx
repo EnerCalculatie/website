@@ -12,7 +12,7 @@ export function SeizoensvariabiliteitZonnepanelenRendementArticle() {
 </p>
 
 <p className="text-slate-700 leading-relaxed mb-4">
-  Wanneer een rendementsberekening louter gebaseerd is op jaarlijkse totalen, ontstaat er een vertekend beeld van de werkelijkheid. Dit geldt des te meer nu de markt verschuift naar geïntegreerde energiesystemen waarbij opwekking, opslag en verbruik (zoals warmtepompen en laadpalen) op elkaar moeten worden afgestemd. In dit artikel duiken we diep in de meteorologische en technische factoren van seizoensvariabiliteit en geven we u concrete handvatten om uw klanten te voorzien van een realistisch, gevalideerd advies.
+  Wanneer een rendementsberekening louter gebaseerd is op jaarlijkse totalen, ontstaat er een vertekend beeld van de werkelijkheid. Dit geldt des te meer nu de markt verschuift naar geïntegreerde energiesystemen waarbij opwekking, opslag en verbruik (zoals warmtepompen en laadpalen) op elkaar moeten worden afgestemd. Dit artikel bespreekt de meteorologische en technische factoren van seizoensvariabiliteit en geeft u concrete handvatten om uw klanten te voorzien van een realistisch, gevalideerd advies.
 </p>
 
 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">

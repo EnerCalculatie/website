@@ -155,7 +155,7 @@ export function LaadpaalNetaansluitingCapaciteit3x25aArticle() {
   Onze rekentool controleert direct de impact van het laadprofiel op de maximale capaciteit van de netaansluiting van uw klant. Zo ziet u in één oogopslag of een 3x25A aansluiting volstaat in combinatie met dynamische load balancing, of dat een netverzwaring technisch noodzakelijk is om aan de laadbehoefte te voldoen. Het resultaat is een deterministisch berekend en visueel aantrekkelijk adviesrapport waarmee u uw klant direct overtuigt van de juiste configuratie.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Wilt u zelf ervaren hoe u sneller en nauwkeuriger laadpaalberekeningen opstelt die naadloos aansluiten op het totale energieprofiel van de woning? Ontdek de mogelijkheden op onze{' '}
+  Wilt u zelf ervaren hoe u sneller en nauwkeuriger laadpaalberekeningen opstelt die aansluiten op het totale energieprofiel van de woning? Ontdek de mogelijkheden op onze{' '}
   <a href="/rekentool-laadpaal" className="text-brand-primary-text font-semibold hover:underline">
     rekentool laadpaal
   </a>.

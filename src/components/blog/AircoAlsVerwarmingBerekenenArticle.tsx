@@ -184,7 +184,7 @@ export function AircoAlsVerwarmingBerekenenArticle() {
   Onze rekentool modelleert de warmtebehoefte op uurbasis en brengt de opwek van zonnepanelen direct in mindering op het extra stroomverbruik van de airco. Hierdoor ziet uw klant in één oogopslag hoe de terugverdientijd wordt beïnvloed en hoe de energienota zich onderaan de streep ontwikkelt. Door deze geïntegreerde aanpak presenteert u geen losse schattingen, maar een gevalideerd en professioneel adviesrapport.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Benieuwd hoe snel u een dergelijke berekening opstelt voor uw volgende project? Bekijk direct de mogelijkheden op onze <a href="/rekentool-airco" className="text-brand-primary-text font-semibold hover:underline">rekentool airco pagina</a> of ontdek hoe u verschillende verduurzamingsmaatregelen naadloos combineert in één klantdossier.
+  Benieuwd hoe snel u een dergelijke berekening opstelt voor uw volgende project? Bekijk direct de mogelijkheden op onze <a href="/rekentool-airco" className="text-brand-primary-text font-semibold hover:underline">rekentool airco pagina</a> of ontdek hoe u verschillende verduurzamingsmaatregelen combineert in één klantdossier.
 </p>
     </BlogPostLayout>
   );

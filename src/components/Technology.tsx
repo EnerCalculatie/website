@@ -79,7 +79,7 @@ export function Technology() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400"
           >
-            Alle klantdossiers staan op beveiligde servers binnen de EU, volledig AVG-compliant. EnerCalculatie past straks naadloos in uw bestaande werkwijze — de eerste koppelingen met boekhoud- en planningspakketten zijn onderweg.
+            Alle klantdossiers staan op beveiligde servers binnen de EU, volledig AVG-compliant. Koppelingen met boekhoud- en planningspakketten staan op de planning — de eerste zijn onderweg.
           </motion.p>
         </div>
 

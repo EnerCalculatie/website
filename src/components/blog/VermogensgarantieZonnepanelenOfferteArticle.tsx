@@ -157,7 +157,7 @@ export function VermogensgarantieZonnepanelenOfferteArticle() {
   Het handmatig verwerken van verschillende degradatiecurves en garantievoorwaarden per paneeltype in Excel-spreadsheets kost veel tijd en verhoogt de kans op menselijke rekenfouten. Met de rekensoftware van EnerCalculatie wordt dit proces gestroomlijnd.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Het rekenmodel van EnerCalculatie past de specifieke vermogensdegradatie van het geselecteerde zonnepaneel automatisch toe op de meerjarige opbrengstprognose over 10 en 25 jaar. De berekende kilowatturen over de gehele levensduur zijn hierdoor deterministisch onderbouwd en sluiten naadloos aan op het advies dat u aan uw klant presenteert. Bovendien worden de product- en vermogensgaranties netjes en overzichtelijk gepresenteerd in het digitale adviesrapport.
+  Het rekenmodel van EnerCalculatie past de specifieke vermogensdegradatie van het geselecteerde zonnepaneel automatisch toe op de meerjarige opbrengstprognose over 10 en 25 jaar. De berekende kilowatturen over de gehele levensduur zijn hierdoor deterministisch onderbouwd en sluiten aan op het advies dat u aan uw klant presenteert. Bovendien worden de product- en vermogensgaranties netjes en overzichtelijk gepresenteerd in het digitale adviesrapport.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
   Wilt u ontdekken hoe u binnen vijf minuten een onderbouwd verduurzamingsrapport opstelt inclusief kloppende rendementsprognoses? Bekijk de mogelijkheden van de{' '}
