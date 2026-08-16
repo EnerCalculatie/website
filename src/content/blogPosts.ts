@@ -1640,4 +1640,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat zegt de normering (NEN-EN-ISO 52000 / NEN 7120) over nachtverlaging?', answer: 'In energieprestatieberekeningen conform NEN-EN-ISO 52000 / NEN 7120 wordt voor laagtemperatuursystemen met een hoge thermische massa uitgegaan van continue verwarming om de optimale SCOP te behalen.' },
     ],
   },
+  {
+    slug: 'isde-meldcode-warmtepomp-controleren-rvo',
+    readingTimeMinutes: 2,
+    title: 'ISDE-meldcode warmtepomp opzoeken en controleren: voorkom RVO-afwijzing',
+    seoTitle: 'ISDE-meldcode warmtepomp controleren & RVO eisen',
+    description:
+      'Voorkom afwijzing van ISDE-subsidie door de RVO. Bekijk de eisen voor de meldcode, factuur, energielabel en aanvraagtermijnen voor warmtepompen.',
+    date: '2026-08-16',
+    excerpt:
+      'Voorkom vertraging of afwijzing van de ISDE-subsidie voor warmtepompen door de meldcode te verifiëren en te voldoen aan de RVO-factuureisen en installatievoorwaarden.',
+    tags: ['ISDE subsidie', 'Warmtepomp meldcode', 'RVO apparatenlijst', 'Subsidieaanvraag', 'Installatievoorwaarden'],
+    keyPoints: [
+      'Verifieer de meldcode (KA-nummer) rechtstreeks in de RVO-apparatenlijst.',
+      'Lucht-water en hybride warmtepompen vereisen minimaal energielabel A++ bij 55°C.',
+      'Factuur moet verplicht het merk, typenummer, de installatiedatum en het adreshuisnummer bevatten.',
+      'Zelfinstallatie is niet toegestaan; plaatsing door een deskundige installateur is verplicht.',
+      'Aanvraagtermijn: particulieren binnen 24 maanden na installatie; zakelijk vóór de koopovereenkomst.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoe controleer ik de ISDE-meldcode van een warmtepomp?', answer: 'U kunt de meldcode (het KA-nummer) verifiëren in de officiële RVO-apparatenlijst. Doe dit vóór het definitief ondertekenen van de koop- of installatieovereenkomst.' },
+      { question: 'Wat te doen als de warmtepomp niet op de apparatenlijst staat?', answer: 'Als de warmtepomp ontbreekt op de RVO-lijst, dient u testrapporten van het toestel en het energielabel mee te sturen bij de aanvraag voor een handmatige beoordeling.' },
+      { question: 'Mag een consument de warmtepomp zelf installeren voor subsidie?', answer: 'Nee, zelfinstallatie is niet toegestaan. De warmtepomp moet verplicht door een deskundige installateur worden geplaatst.' },
+    ],
+  },
 ];

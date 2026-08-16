@@ -1,47 +1,14 @@
 [
   {
-    "title": "Oost-west opstelling van zonnepanelen: hoe adviseert u uw klant over profielspreiding en hogere zelfconsumptie?",
-    "keyword": "oost west zonnepanelen advies",
-    "intent": "commercieel",
-    "priority": 9,
-    "slug": "oost-west-opstelling-van-zonnepanelen-hoe-adviseert-u-uw-klant-over-profielspreiding-en-hogere-zelfconsumptie",
-    "status": "generated",
-    "createdAt": "2026-08-14T05:15:12.225Z",
-    "generatedSlug": "oost-west-zonnepanelen-opbrengst-zelfconsumptie",
-    "generatedAt": "2026-08-14T05:16:29.540Z"
-  },
-  {
-    "title": "Omvormer afschakelen bij negatieve stroomprijzen: hoe onderbouwt u PV-curtailment in uw adviesrapport?",
-    "keyword": "pv curtailment negatieve stroomprijzen",
-    "intent": "commercieel",
-    "priority": 9,
-    "slug": "omvormer-afschakelen-bij-negatieve-stroomprijzen-hoe-onderbouwt-u-pv-curtailment-in-uw-adviesrapport",
-    "status": "generated",
-    "createdAt": "2026-08-14T05:15:12.228Z",
-    "generatedSlug": "omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment",
-    "generatedAt": "2026-08-14T12:50:30.924Z"
-  },
-  {
-    "title": "Waterzijdig inregelen bij een warmtepomp: hoe onderbouwt u de noodzaak en efficiëntiewinst bij uw klant?",
-    "keyword": "waterzijdig inregelen warmtepomp",
+    "title": "ISDE-meldcode warmtepomp opzoeken en controleren: hoe voorkomt u afwijzingen bij de RVO voor uw klant?",
+    "keyword": "ISDE meldcode warmtepomp",
     "intent": "informatief",
-    "priority": 8,
-    "slug": "waterzijdig-inregelen-bij-een-warmtepomp-hoe-onderbouwt-u-de-noodzaak-en-efficientiewinst-bij-uw-klant",
+    "priority": 9,
+    "slug": "isde-meldcode-warmtepomp-opzoeken-en-controleren-hoe-voorkomt-u-afwijzingen-bij-de-rvo-voor-uw-klant",
     "status": "generated",
-    "createdAt": "2026-08-14T05:15:12.231Z",
-    "generatedSlug": "waterzijdig-inregelen-warmtepomp-efficientie",
-    "generatedAt": "2026-08-15T00:38:23.605Z"
-  },
-  {
-    "title": "Nachtverlaging bij warmtepompen: hoe onderbouwt u het effect op stroomverbruik en comfort in uw adviesrapport?",
-    "keyword": "nachtverlaging warmtepomp adviseren",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "nachtverlaging-bij-warmtepompen-hoe-onderbouwt-u-het-effect-op-stroomverbruik-en-comfort-in-uw-adviesrapport",
-    "status": "generated",
-    "createdAt": "2026-08-10T12:41:14.241Z",
-    "generatedSlug": "nachtverlaging-warmtepomp-stroomverbruik-comfort",
-    "generatedAt": "2026-08-15T12:39:01.745Z"
+    "createdAt": "2026-08-16T00:37:35.796Z",
+    "generatedSlug": "isde-meldcode-warmtepomp-controleren-rvo",
+    "generatedAt": "2026-08-16T00:38:55.322Z"
   },
   {
     "title": "Ontdooicyclus bij lucht-water warmtepompen: hoe verklaart u het winterse stroompiekverbruik aan uw klant?",
@@ -60,6 +27,15 @@
     "slug": "legionellapreventie-en-warmtepompboilers-hoe-verwerkt-u-de-elektrische-bijverwarming-in-het-energieprofiel",
     "status": "planned",
     "createdAt": "2026-08-14T05:15:12.235Z"
+  },
+  {
+    "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
+    "keyword": "single-split of multi-split airco advies",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "single-split-versus-multi-split-airco-hoe-onderbouwt-u-het-benodigd-koelvermogen-en-energieverbruik-per-zone",
+    "status": "planned",
+    "createdAt": "2026-08-16T00:37:35.808Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -102,6 +78,28 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
+  },
+  {
+    "title": "Oost-west opstelling van zonnepanelen: hoe adviseert u uw klant over profielspreiding en hogere zelfconsumptie?",
+    "keyword": "oost west zonnepanelen advies",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "oost-west-opstelling-van-zonnepanelen-hoe-adviseert-u-uw-klant-over-profielspreiding-en-hogere-zelfconsumptie",
+    "status": "generated",
+    "createdAt": "2026-08-14T05:15:12.225Z",
+    "generatedSlug": "oost-west-zonnepanelen-opbrengst-zelfconsumptie",
+    "generatedAt": "2026-08-14T05:16:29.540Z"
+  },
+  {
+    "title": "Omvormer afschakelen bij negatieve stroomprijzen: hoe onderbouwt u PV-curtailment in uw adviesrapport?",
+    "keyword": "pv curtailment negatieve stroomprijzen",
+    "intent": "commercieel",
+    "priority": 9,
+    "slug": "omvormer-afschakelen-bij-negatieve-stroomprijzen-hoe-onderbouwt-u-pv-curtailment-in-uw-adviesrapport",
+    "status": "generated",
+    "createdAt": "2026-08-14T05:15:12.228Z",
+    "generatedSlug": "omvormer-afschakelen-negatieve-stroomprijzen-pv-curtailment",
+    "generatedAt": "2026-08-14T12:50:30.924Z"
   },
   {
     "title": "Laden op zonne-energie (PV-surplus laden): hoe onderbouwt u het rendement van een slimme laadpaal?",
@@ -231,6 +229,17 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Waterzijdig inregelen bij een warmtepomp: hoe onderbouwt u de noodzaak en efficiëntiewinst bij uw klant?",
+    "keyword": "waterzijdig inregelen warmtepomp",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "waterzijdig-inregelen-bij-een-warmtepomp-hoe-onderbouwt-u-de-noodzaak-en-efficientiewinst-bij-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-08-14T05:15:12.231Z",
+    "generatedSlug": "waterzijdig-inregelen-warmtepomp-efficientie",
+    "generatedAt": "2026-08-15T00:38:23.605Z"
   },
   {
     "title": "Zonnepanelen-installatie uitbreiden: hoe berekent u de impact op de omvormer en het energieprofiel?",
@@ -497,6 +506,17 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Nachtverlaging bij warmtepompen: hoe onderbouwt u het effect op stroomverbruik en comfort in uw adviesrapport?",
+    "keyword": "nachtverlaging warmtepomp adviseren",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "nachtverlaging-bij-warmtepompen-hoe-onderbouwt-u-het-effect-op-stroomverbruik-en-comfort-in-uw-adviesrapport",
+    "status": "generated",
+    "createdAt": "2026-08-10T12:41:14.241Z",
+    "generatedSlug": "nachtverlaging-warmtepomp-stroomverbruik-comfort",
+    "generatedAt": "2026-08-15T12:39:01.745Z"
   },
   {
     "title": "Ventilatiewarmtepomp adviseren: hoe onderbouwt u de besparing bij woningen met mechanische ventilatie?",
