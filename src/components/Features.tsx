@@ -190,9 +190,9 @@ export function Features() {
             <div className="w-12 h-12 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center mb-6 relative z-10">
               <Send size={24} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Professioneel Adviesrapport</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-3 relative z-10">Digitale Offerte & Klantakkoord</h3>
             <p className="text-slate-600 leading-relaxed relative z-10">
-              Genereer een prachtig, Nederlandstalig digitaal adviesrapport in luttele seconden. Print direct een PDF voor aan de keukentafel bij uw klant om de deal succesvol te sluiten.
+              Genereer een prachtig, Nederlandstalig adviesrapport en stuur de offerte direct als beveiligde klantlink. Uw klant bekijkt 'm online en accepteert of wijst digitaal af — inclusief automatische bedenktijd-classificatie per klanttype en verkoopkanaal.
             </p>
           </motion.div>
 

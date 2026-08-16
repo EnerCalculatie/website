@@ -24,7 +24,8 @@ const PRICING_TIERS: PricingTier[] = [
     includedFeatures: [
       'Offerte in 5 minuten — zonnepanelen en thuisbatterij in één advies',
       'Energierekening automatisch uitgelezen, niet handmatig overtypen',
-      'Deelbaar PDF-rapport — sneller akkoord van de klant',
+      'Offerte digitaal versturen — klant beslist online via een beveiligde link, geen printen nodig',
+      'Automatische bedenktijd-classificatie per klanttype en verkoopkanaal',
       'Onbeperkt dossiers, geen kosten per project',
       'Saldering 2027 automatisch correct verwerkt'
     ],

@@ -20,8 +20,8 @@ export function HowItWorks() {
     {
       number: "3",
       icon: <FileCheck size={32} className="text-emerald-600" />,
-      title: "Adviesrapport downloaden",
-      description: "EnerCalculatie berekent het optimale systeem en genereert een professioneel adviesrapport. Klaar voor uw klant — in minder dan 5 minuten.",
+      title: "Offerte versturen en laten accepteren",
+      description: "EnerCalculatie berekent het optimale systeem en stelt de offerte samen. Verstuur een beveiligde klantlink — uw klant bekijkt de offerte online en beslist digitaal.",
       color: "bg-emerald-50 border-emerald-100"
     }
   ];
