@@ -144,6 +144,9 @@ const ThuisbatterijLanding = serviceLanding('thuisbatterij');
 const WarmtepompLanding = serviceLanding('warmtepomp');
 const AircoLanding = serviceLanding('airco');
 const LaadpaalLanding = serviceLanding('laadpaal');
+const OfferteSoftwareLandingRoute = lazyRoute('/offerte-software', () =>
+  import('./components/OfferteSoftwareLanding').then((m) => ({ default: m.OfferteSoftwareLanding }))
+);
 
 // Helper om de scrollpositie te resetten bij het wisselen van pagina
 function ScrollToTop() {
@@ -284,6 +287,7 @@ export function AppContent() {
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
             <Route path="/rekentool-airco" element={<AircoLanding />} />
             <Route path="/rekentool-laadpaal" element={<LaadpaalLanding />} />
+            <Route path="/offerte-software" element={<OfferteSoftwareLandingRoute />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

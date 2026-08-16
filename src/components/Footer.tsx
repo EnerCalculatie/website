@@ -86,6 +86,7 @@ export function Footer() {
               <li><a href="/rekentool-warmtepomp" className="hover:text-white transition-colors block py-1 break-words">Warmtepomp</a></li>
               <li><a href="/rekentool-airco" className="hover:text-white transition-colors block py-1 break-words">Airco</a></li>
               <li><a href="/rekentool-laadpaal" className="hover:text-white transition-colors block py-1 break-words">Laadpaal</a></li>
+              <li><a href="/offerte-software" className="hover:text-white transition-colors block py-1 break-words">Offertesoftware</a></li>
             </ul>
           </div>
 

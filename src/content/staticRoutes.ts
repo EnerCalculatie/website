@@ -32,6 +32,7 @@ export const staticRoutes: StaticRoute[] = [
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
   { url: '/rekentool-airco', outFile: 'rekentool-airco.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
   { url: '/rekentool-laadpaal', outFile: 'rekentool-laadpaal.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
+  { url: '/offerte-software', outFile: 'offerte-software.html', lastmod: '2026-08-16', changefreq: 'monthly', priority: '0.7' },
 ];
 
 /** Voorgerenderde 404: fallback in server.ts, nooit in de sitemap. */
