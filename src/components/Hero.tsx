@@ -23,7 +23,7 @@ export function Hero() {
 
           {/* Hoofdtitel (Story LP.1) */}
           <h1 className="animate-fade-up anim-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8 break-words">
-            Van energierekening naar compleet adviesrapport <span className="text-brand-primary">in 5 minuten.</span>{' '}
+            Van energierekening naar complete offerte <span className="text-brand-primary">in 5 minuten.</span>{' '}
             <br className="hidden md:block" />
             <span className="text-slate-500">Bespaar uren per offerte. Win meer opdrachten.</span>
           </h1>
@@ -46,10 +46,10 @@ export function Hero() {
           <div className="animate-fade-up anim-delay-300 flex flex-col items-center justify-center mb-12">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
               <a href="https://app.enercalculatie.nl/gratis" className="w-full sm:w-auto px-8 py-4 bg-brand-primary-text text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
-                Gratis rapport proberen <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Maak gratis je eerste calculatie <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="#demo-video" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center gap-2">
-                <Play size={20} className="text-brand-primary fill-brand-primary/20" /> Bekijk hoe het werkt
+                <Play size={20} className="text-brand-primary fill-brand-primary/20" /> Bekijk de demo
               </a>
             </div>
             <p className="text-sm font-medium text-slate-500 mb-2">

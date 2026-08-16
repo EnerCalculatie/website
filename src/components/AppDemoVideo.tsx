@@ -156,7 +156,7 @@ const phases: DemoPhase[] = [
   {
     id: 'advies',
     number: '05',
-    label: 'Advies',
+    label: 'Advies & offerte',
     icon: <FileText size={16} />,
     steps: [
       {
@@ -247,7 +247,7 @@ export function AppDemoVideo() {
             transition={{ delay: 0.1 }}
             className="text-2xl md:text-5xl font-display font-bold text-white mb-4"
           >
-            Van energienota naar onderbouwd advies
+            Van energienota naar verstuurde offerte
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -256,7 +256,7 @@ export function AppDemoVideo() {
             transition={{ delay: 0.2 }}
             className="text-lg text-slate-400 max-w-xl mx-auto"
           >
-            Zo doorloopt u als installateur het complete adviestraject — in 5 minuten.
+            Zo doorloopt u als installateur het complete traject — van advies tot offerte, in 5 minuten.
           </motion.p>
         </div>
 
@@ -455,18 +455,19 @@ export function AppDemoVideo() {
                 <FileText size={16} /> Het resultaat
               </span>
               <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4 leading-tight">
-                Een professioneel adviesrapport, klaar voor de klant
+                Eén dossier, van advies tot offerte
               </h3>
               <p className="text-slate-400 mb-8 leading-relaxed">
-                Van energienota tot dit rapport — inclusief scenario-vergelijking, rendement en onderbouwing.
-                Geen losse documentjes of screenshots, maar één overtuigend geheel voor aan de keukentafel.
+                Van energienota tot deze offerte — inclusief scenario-vergelijking, rendement en
+                onderbouwing. Verstuur 'm als beveiligde klantlink; uw klant bekijkt en beslist online,
+                zonder dat u iets opnieuw hoeft in te voeren.
               </p>
               <div className="flex flex-col sm:flex-row items-center md:items-start gap-4">
                 <a
                   href="https://app.enercalculatie.nl/gratis"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-primary/25 group w-full sm:w-auto"
                 >
-                  Probeer gratis
+                  Maak gratis je eerste calculatie
                   <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
                 </a>
                 <a

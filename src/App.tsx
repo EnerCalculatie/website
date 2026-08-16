@@ -4,8 +4,11 @@ import { routePreloads, type RouteModule } from './routePreloads';
 import { SEO } from './components/SEO';
 import { NavBar } from './components/NavBar';
 import { Hero } from './components/Hero';
+import { Workflow } from './components/Workflow';
 import { HowItWorks } from './components/HowItWorks';
 import { ProblemSolution } from './components/ProblemSolution';
+import { OfferModuleSection } from './components/OfferModuleSection';
+import { ResultSection } from './components/ResultSection';
 import { ComparisonTable } from './components/ComparisonTable';
 import { Integrations } from './components/Integrations';
 import { Features } from './components/Features';
@@ -177,14 +180,29 @@ export function AppContent() {
                 {/* Hero Section with Dashboard Mockup */}
                 <Hero />
 
-                {/* Trust & Process */}
-                <HowItWorks />
+                {/* Workflow: laat zien dat gegevens doorstromen dossier -> offerte */}
+                <Workflow />
+
+                {/* Probleem */}
                 <ProblemSolution />
+
+                {/* Offertemodule: nieuwe kernsectie (v1.19.0) */}
+                <OfferModuleSection />
+
+                {/* Product Depth: functionaliteit achter de workflow */}
+                <Features />
+
+                {/* Resultaat: zakelijke vertaling, geen herhaalde featurelijst */}
+                <ResultSection />
+
+                {/* Waarom EnerCalculatie i.p.v. Excel/losse tools */}
                 <ComparisonTable />
+
+                {/* Detail-niveau "hoe werkt het" — bewust hier, niet meteen na Hero
+                    (Workflow.tsx dekt dat al op hoog niveau, dit zou dubbelop zijn) */}
+                <HowItWorks />
                 <AppDemoVideo />
 
-                {/* Product Depth */}
-                <Features />
                 <section className="py-4 bg-brand-bg">
                   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <LeadMagnet />

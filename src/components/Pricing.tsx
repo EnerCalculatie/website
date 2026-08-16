@@ -35,7 +35,7 @@ const PRICING_TIERS: PricingTier[] = [
       'Airco',
       'Laadpaal'
     ],
-    cta: 'Start gratis proefperiode',
+    cta: 'Start 30 dagen gratis',
     mostPopular: false
   },
   {
@@ -54,7 +54,7 @@ const PRICING_TIERS: PricingTier[] = [
       'Airco',
       'Laadpaal'
     ],
-    cta: 'Start gratis proefperiode',
+    cta: 'Start 30 dagen gratis',
     mostPopular: true
   },
   {
@@ -70,7 +70,7 @@ const PRICING_TIERS: PricingTier[] = [
     ],
     excludedFeatures: [
     ],
-    cta: 'Start gratis proefperiode',
+    cta: 'Start 30 dagen gratis',
     mostPopular: false
   }
 ];
