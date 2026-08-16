@@ -45,6 +45,12 @@ export function ComparisonTable() {
       advisor: 'Zelf aanleveren',
       ener: 'AI-extractie via upload',
     },
+    {
+      label: 'Offerte laten accepteren',
+      excel: 'Los PDF-mailtje, telefonisch nabellen',
+      advisor: 'Op papier, fysiek langsgaan',
+      ener: 'Digitaal via beveiligde klantlink, met vastlegging',
+    },
   ];
 
   return (

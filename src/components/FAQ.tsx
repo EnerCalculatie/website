@@ -68,6 +68,16 @@ const faqs = [
     answer:
       'EnerCalculatie is flexibel en maandelijks opzegbaar. U zit niet vast aan langlopende contracten. Up- of downgraden van pakket regelt u zelf via het klantportaal in uw accountinstellingen. Opzeggen kan door ons een e-mail te sturen naar info@enercalculatie.nl of te bellen naar 06-30366189 — de facturering stopt dan aan het einde van uw huidige betaalperiode.',
   },
+  {
+    question: 'Kan mijn klant de offerte ook digitaal accepteren?',
+    answer:
+      'Ja. U verstuurt de offerte als beveiligde klantlink — uw klant bekijkt deze online en accepteert of wijst digitaal af, zonder account.',
+  },
+  {
+    question: 'Bepaalt EnerCalculatie of er bedenktijd geldt voor mijn klant?',
+    answer:
+      'Op basis van het klanttype en verkoopkanaal dat u opgeeft, classificeert het systeem automatisch of, en hoelang, bedenktijd van toepassing is en toont dit als duidelijke status bij de offerte.',
+  },
 ];
 
 export function FAQ() {
