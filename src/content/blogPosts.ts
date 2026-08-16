@@ -1665,4 +1665,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Mag een consument de warmtepomp zelf installeren voor subsidie?', answer: 'Nee, zelfinstallatie is niet toegestaan. De warmtepomp moet verplicht door een deskundige installateur worden geplaatst.' },
     ],
   },
+  {
+    slug: 'ontdooicyclus-warmtepomp-stroompiek',
+    readingTimeMinutes: 3,
+    title: 'Ontdooicyclus bij lucht-water warmtepompen: verklaring voor het winterse stroompiekverbruik',
+    seoTitle: 'Ontdooicyclus warmtepomp: verklaring stroompiek',
+    description:
+      'Waarom veroorzaakt de ontdooicyclus van een lucht-water warmtepomp een stroompiek in de winter? Ontdek de werking, invloed op de SCOP en elektrische eisen.',
+    date: '2026-08-16',
+    excerpt:
+      'In de winterperiode zien bewoners vaak een korte stroompiek op de slimme meter. Dit wordt veroorzaakt door de ontdooicyclus van de lucht-water warmtepomp. Lees hoe dit werkt.',
+    tags: ['warmtepomp', 'ontdooicyclus', 'defrost', 'stroompiek', 'SCOP', 'installatietechniek'],
+    keyPoints: [
+      'IJsvorming ontstaat op de verdamper bij buitentemperaturen tussen -5 °C en +7 °C met hoge luchtvochtigheid.',
+      'Bij onvoldoende warmte in het cv-water schakelt de back-up heater (3 kW tot 6 kW) in tijdens de ontdooicyclus.',
+      'Een ontdooicyclus duurt gemiddeld 5 tot 10 minuten en heeft een verwaarloosbare invloed op de jaarlijkse SCOP.',
+      'Een 3-fase aansluiting en load balancing via een EMS voorkomen overbelasting van de hoofdzekering boven 5 kW thermisch vermogen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waarom veroorzaakt de warmtepomp een stroompiek in de winter?', answer: 'Dit komt door de automatische ontdooicyclus. Als het cv-water onvoldoende warmte bevat om het ijs op de buitenunit te smelten, schakelt de ingebouwde elektrische back-up heater (3 kW tot 6 kW) tijdelijk in.' },
+      { question: 'Heeft de ontdooicyclus een grote invloed op het jaarverbruik?', answer: 'Nee, een ontdooicyclus duurt gemiddeld slechts 5 tot 10 minuten. De jaarlijkse SCOP van de warmtepomp blijft leidend voor de totale energie-efficiëntie.' },
+      { question: 'Hoe voorkomt u het overbelasten van de hoofdzekering bij ontdooien?', answer: 'Bij warmtepompen boven 5 kW thermisch vermogen wordt een 3-fase aansluiting toegepast. Een Home Energy Management System (EMS) kan aanvullend zorgen voor dynamische load balancing.' },
+    ],
+  },
 ];

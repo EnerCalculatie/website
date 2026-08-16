@@ -16,8 +16,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "ontdooicyclus-bij-lucht-water-warmtepompen-hoe-verklaart-u-het-winterse-stroompiekverbruik-aan-uw-klant",
-    "status": "planned",
-    "createdAt": "2026-08-11T12:38:43.079Z"
+    "status": "generated",
+    "createdAt": "2026-08-11T12:38:43.079Z",
+    "generatedSlug": "ontdooicyclus-warmtepomp-stroompiek",
+    "generatedAt": "2026-08-16T12:38:31.917Z"
   },
   {
     "title": "Legionellapreventie en warmtepompboilers: hoe verwerkt u de elektrische bijverwarming in het energieprofiel?",

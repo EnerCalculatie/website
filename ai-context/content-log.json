@@ -679,5 +679,11 @@
     "topic": "ISDE-meldcode warmtepomp opzoeken en controleren: voorkom RVO-afwijzing",
     "slug": "isde-meldcode-warmtepomp-controleren-rvo",
     "status": "generated"
+  },
+  {
+    "date": "2026-08-16",
+    "topic": "Ontdooicyclus bij lucht-water warmtepompen: verklaring voor het winterse stroompiekverbruik",
+    "slug": "ontdooicyclus-warmtepomp-stroompiek",
+    "status": "generated"
   }
 ]

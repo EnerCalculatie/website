@@ -129,6 +129,7 @@ const OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle = lazyRoute(
 const WaterzijdigInregelenWarmtepompEfficientieArticle = lazyRoute('/blog/waterzijdig-inregelen-warmtepomp-efficientie', () => import('./components/blog/WaterzijdigInregelenWarmtepompEfficientieArticle').then(m => ({ default: m.WaterzijdigInregelenWarmtepompEfficientieArticle })));
 const NachtverlagingWarmtepompStroomverbruikComfortArticle = lazyRoute('/blog/nachtverlaging-warmtepomp-stroomverbruik-comfort', () => import('./components/blog/NachtverlagingWarmtepompStroomverbruikComfortArticle').then(m => ({ default: m.NachtverlagingWarmtepompStroomverbruikComfortArticle })));
 const IsdeMeldcodeWarmtepompControlerenRvoArticle = lazyRoute('/blog/isde-meldcode-warmtepomp-controleren-rvo', () => import('./components/blog/IsdeMeldcodeWarmtepompControlerenRvoArticle').then(m => ({ default: m.IsdeMeldcodeWarmtepompControlerenRvoArticle })));
+const OntdooicyclusWarmtepompStroompiekArticle = lazyRoute('/blog/ontdooicyclus-warmtepomp-stroompiek', () => import('./components/blog/OntdooicyclusWarmtepompStroompiekArticle').then(m => ({ default: m.OntdooicyclusWarmtepompStroompiekArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -277,6 +278,7 @@ export function AppContent() {
             <Route path="/blog/waterzijdig-inregelen-warmtepomp-efficientie" element={<WaterzijdigInregelenWarmtepompEfficientieArticle />} />
             <Route path="/blog/nachtverlaging-warmtepomp-stroomverbruik-comfort" element={<NachtverlagingWarmtepompStroomverbruikComfortArticle />} />
             <Route path="/blog/isde-meldcode-warmtepomp-controleren-rvo" element={<IsdeMeldcodeWarmtepompControlerenRvoArticle />} />
+            <Route path="/blog/ontdooicyclus-warmtepomp-stroompiek" element={<OntdooicyclusWarmtepompStroompiekArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
