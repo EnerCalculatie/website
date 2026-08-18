@@ -1,25 +1,12 @@
 [
   {
-    "title": "ISDE-meldcode warmtepomp opzoeken en controleren: hoe voorkomt u afwijzingen bij de RVO voor uw klant?",
-    "keyword": "ISDE meldcode warmtepomp",
-    "intent": "informatief",
-    "priority": 9,
-    "slug": "isde-meldcode-warmtepomp-opzoeken-en-controleren-hoe-voorkomt-u-afwijzingen-bij-de-rvo-voor-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-08-16T00:37:35.796Z",
-    "generatedSlug": "isde-meldcode-warmtepomp-controleren-rvo",
-    "generatedAt": "2026-08-16T00:38:55.322Z"
-  },
-  {
-    "title": "Ontdooicyclus bij lucht-water warmtepompen: hoe verklaart u het winterse stroompiekverbruik aan uw klant?",
-    "keyword": "ontdooicyclus warmtepomp stroomverbruik",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "ontdooicyclus-bij-lucht-water-warmtepompen-hoe-verklaart-u-het-winterse-stroompiekverbruik-aan-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-08-11T12:38:43.079Z",
-    "generatedSlug": "ontdooicyclus-warmtepomp-stroompiek",
-    "generatedAt": "2026-08-16T12:38:31.917Z"
+    "title": "Van eerste opname tot getekende offerte: hoe automatiseert u de complete klantreis als installateur?",
+    "keyword": "verduurzamingsadvies automatiseren installateur",
+    "intent": "transactioneel",
+    "priority": 10,
+    "slug": "van-eerste-opname-tot-getekende-offerte-hoe-automatiseert-u-de-complete-klantreis-als-installateur",
+    "status": "planned",
+    "createdAt": "2026-08-18T12:37:29.781Z"
   },
   {
     "title": "Legionellapreventie en warmtepompboilers: hoe verwerkt u de elektrische bijverwarming in het energieprofiel?",
@@ -80,6 +67,17 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
+  },
+  {
+    "title": "ISDE-meldcode warmtepomp opzoeken en controleren: hoe voorkomt u afwijzingen bij de RVO voor uw klant?",
+    "keyword": "ISDE meldcode warmtepomp",
+    "intent": "informatief",
+    "priority": 9,
+    "slug": "isde-meldcode-warmtepomp-opzoeken-en-controleren-hoe-voorkomt-u-afwijzingen-bij-de-rvo-voor-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-08-16T00:37:35.796Z",
+    "generatedSlug": "isde-meldcode-warmtepomp-controleren-rvo",
+    "generatedAt": "2026-08-16T00:38:55.322Z"
   },
   {
     "title": "Oost-west opstelling van zonnepanelen: hoe adviseert u uw klant over profielspreiding en hogere zelfconsumptie?",
@@ -508,6 +506,17 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Ontdooicyclus bij lucht-water warmtepompen: hoe verklaart u het winterse stroompiekverbruik aan uw klant?",
+    "keyword": "ontdooicyclus warmtepomp stroomverbruik",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "ontdooicyclus-bij-lucht-water-warmtepompen-hoe-verklaart-u-het-winterse-stroompiekverbruik-aan-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-08-11T12:38:43.079Z",
+    "generatedSlug": "ontdooicyclus-warmtepomp-stroompiek",
+    "generatedAt": "2026-08-16T12:38:31.917Z"
   },
   {
     "title": "Nachtverlaging bij warmtepompen: hoe onderbouwt u het effect op stroomverbruik en comfort in uw adviesrapport?",
