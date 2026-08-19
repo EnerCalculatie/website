@@ -1689,4 +1689,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkomt u het overbelasten van de hoofdzekering bij ontdooien?', answer: 'Bij warmtepompen boven 5 kW thermisch vermogen wordt een 3-fase aansluiting toegepast. Een Home Energy Management System (EMS) kan aanvullend zorgen voor dynamische load balancing.' },
     ],
   },
+  {
+    slug: 'klantreis-installateur-van-schouw-tot-offerte',
+    readingTimeMinutes: 4,
+    title: 'Van eerste opname tot getekende offerte: de klantreis van de installateur',
+    seoTitle: 'Klantreis Installateur: Van Schouw tot Offerte',
+    description:
+      'Lees alles over de klantreis van de installateur: van NEN 1010 schouw en capaciteitsberekeningen tot ACM-richtlijnen en Energieleveren.nl.',
+    date: '2026-08-19',
+    excerpt:
+      'Het traject van de eerste opname tot een getekende offerte vereist voor installateurs een zorgvuldige aanpak van schouw, capaciteitsberekeningen en administratie om technische risico\'s te voorkomen.',
+    tags: ['installatietechniek', 'NEN 1010', 'schouw', 'offerte', 'load balancing', 'omvormers'],
+    keyPoints: [
+      'NEN 1010 schouw voor het bepalen van de netcapaciteit en Dynamic Load Balancing.',
+      'Berekening van maximaal vermogen en fasering op 1x35A en 3x25A aansluitingen.',
+      'Voorkomen van overbelasting bij somstromen op aardlekschakelaars.',
+      'Voldoen aan ACM-richtlijnen, ISDE-subsidie-eisen en registratie via Energieleveren.nl.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waar moet een schouw volgens NEN 1010 aan voldoen?', answer: 'Tijdens de schouw moet de netcapaciteit en de geschiktheid voor Dynamic Load Balancing vastgesteld worden volgens NEN 1010 om overbelasting en veiligheidsrisico\'s te vermijden.' },
+      { question: 'Hoe bereken je het maximale vermogen bij een 3x25A aansluiting?', answer: 'Bij een 3x25A aansluiting mag met een veiligheidsmarge van factor 1,6 op maximaal 16A per fase worden afgezekerd. Dit resulteert in 3.680 Watt per fase en circa 11 kW totaal voor 3-fase apparatuur.' },
+      { question: 'Waar dien je een netverzwaring of opwekinstallatie aan te melden?', answer: 'Netverzwaringen dien je in via MijnAansluiting.nl. Nieuwe opwekinstallaties (zoals zonnepanelen) meld je aan via Energieleveren.nl.' },
+    ],
+  },
 ];

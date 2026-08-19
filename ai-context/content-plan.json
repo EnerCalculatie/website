@@ -5,8 +5,10 @@
     "intent": "transactioneel",
     "priority": 10,
     "slug": "van-eerste-opname-tot-getekende-offerte-hoe-automatiseert-u-de-complete-klantreis-als-installateur",
-    "status": "planned",
-    "createdAt": "2026-08-18T12:37:29.781Z"
+    "status": "generated",
+    "createdAt": "2026-08-18T12:37:29.781Z",
+    "generatedSlug": "klantreis-installateur-van-schouw-tot-offerte",
+    "generatedAt": "2026-08-19T00:39:23.650Z"
   },
   {
     "title": "Legionellapreventie en warmtepompboilers: hoe verwerkt u de elektrische bijverwarming in het energieprofiel?",
