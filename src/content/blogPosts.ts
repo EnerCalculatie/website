@@ -1713,4 +1713,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waar dien je een netverzwaring of opwekinstallatie aan te melden?', answer: 'Netverzwaringen dien je in via MijnAansluiting.nl. Nieuwe opwekinstallaties (zoals zonnepanelen) meld je aan via Energieleveren.nl.' },
     ],
   },
+  {
+    slug: 'offertesoftware-verduurzaming-normen-eisen',
+    readingTimeMinutes: 4,
+    title: 'Offerte- en adviesrapport software voor verduurzaming: randvoorwaarden en normering',
+    seoTitle: 'Offertesoftware Verduurzaming: Normen & Eisen',
+    description:
+      'Ontdek de technische randvoorwaarden, normen (NTA 8800, NEN 1010) en subsidie-eisen (ISDE) voor offerte- en adviessoftware in verduurzaming.',
+    date: '2026-08-19',
+    excerpt:
+      'Waar moet offerte- en adviessoftware voor verduurzaming aan voldoen? Ontdek alle normeringen, van NTA 8800 en NEN 1010 tot ISDE-subsidie-eisen.',
+    tags: ['offertesoftware', 'verduurzaming', 'NTA 8800', 'NEN 1010', 'ISDE subsidie'],
+    keyPoints: [
+      'Voldoen aan NTA 8800 voor accurate energieprestatieberekeningen.',
+      'Borging van ISDE-subsidievoorwaarden (KA-codes, minimale Rd-waarde 3,5 m²K/W).',
+      'Elektrische dimensionering conform NEN 1010, NEN 3140 en Netcode Elektriciteit.',
+      'Correcte verdeling van vermogens en fase-onbalans preventie.',
+      'Onderbouwing van opbrengsten en terugverdientijden volgens ACM- en Milieu Centraal-richtlijnen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waar moet adviessoftware aan voldoen voor ISDE-subsidie bij isolatie?', answer: 'Voor ISDE-subsidie bij isolatie moet de software rekenen met een minimale Rd-waarde van 3,5 m²K/W voor dak-, zolder- en vloerisolatie.' },
+      { question: 'Wanneer is een 3-fase aansluiting of omvormer verplicht?', answer: 'Volgens de Netcode Elektriciteit dient invoeding boven de 16A (3,68 kVA) verdeeld te worden over meerdere fases. Vanaf omvormers groter dan 3,68 kW (of 4 kW in de praktijk) is een 3-fase omvormer noodzakelijk.' },
+      { question: 'Met welke rekenfactor wordt gewerkt bij kabelberekeningen op een 3x25A aansluiting?', answer: 'Bij een hoofdaansluiting van 3x25A of 1x35A geldt vanwege selectiviteit een veiligheidsmarge van factor 1,6, waardoor een omvormer of laadpaal op maximaal 16A per fase (3,68 kW per fase, ~11 kW totaal 3-fase) wordt afgezekerd.' },
+    ],
+  },
 ];

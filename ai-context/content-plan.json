@@ -1,14 +1,32 @@
 [
   {
-    "title": "Van eerste opname tot getekende offerte: hoe automatiseert u de complete klantreis als installateur?",
-    "keyword": "verduurzamingsadvies automatiseren installateur",
+    "title": "Offerte- en adviesrapport software voor verduurzaming: waar moet u als installateur op letten?",
+    "keyword": "adviesrapport software installateur",
     "intent": "transactioneel",
     "priority": 10,
-    "slug": "van-eerste-opname-tot-getekende-offerte-hoe-automatiseert-u-de-complete-klantreis-als-installateur",
+    "slug": "offerte-en-adviesrapport-software-voor-verduurzaming-waar-moet-u-als-installateur-op-letten",
     "status": "generated",
-    "createdAt": "2026-08-18T12:37:29.781Z",
-    "generatedSlug": "klantreis-installateur-van-schouw-tot-offerte",
-    "generatedAt": "2026-08-19T00:39:23.650Z"
+    "createdAt": "2026-08-19T12:37:50.729Z",
+    "generatedSlug": "offertesoftware-verduurzaming-normen-eisen",
+    "generatedAt": "2026-08-19T12:42:21.283Z"
+  },
+  {
+    "title": "Bèta-factor van een hybride warmtepomp: hoe bepaalt u het optimale omschakelpunt tussen gas en elektriciteit?",
+    "keyword": "beta factor hybride warmtepomp",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "beta-factor-van-een-hybride-warmtepomp-hoe-bepaalt-u-het-optimale-omschakelpunt-tussen-gas-en-elektriciteit",
+    "status": "planned",
+    "createdAt": "2026-08-19T12:37:50.722Z"
+  },
+  {
+    "title": "SDE++ subsidie voor kleinzakelijke PV-projecten: zo onderbouwt u de business case voor uw zakelijke klant",
+    "keyword": "sde subsidie kleinzakelijk zonnepanelen",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "sde-subsidie-voor-kleinzakelijke-pv-projecten-zo-onderbouwt-u-de-business-case-voor-uw-zakelijke-klant",
+    "status": "planned",
+    "createdAt": "2026-08-19T12:37:50.725Z"
   },
   {
     "title": "Legionellapreventie en warmtepompboilers: hoe verwerkt u de elektrische bijverwarming in het energieprofiel?",
@@ -27,6 +45,15 @@
     "slug": "single-split-versus-multi-split-airco-hoe-onderbouwt-u-het-benodigd-koelvermogen-en-energieverbruik-per-zone",
     "status": "planned",
     "createdAt": "2026-08-16T00:37:35.808Z"
+  },
+  {
+    "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",
+    "keyword": "sg ready warmtepomp",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "sg-ready-en-eebus-bij-warmtepompen-hoe-onderbouwt-u-slimme-netsturing-en-energiemanagement-in-uw-advies",
+    "status": "planned",
+    "createdAt": "2026-08-19T12:37:50.727Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -57,6 +84,17 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Van eerste opname tot getekende offerte: hoe automatiseert u de complete klantreis als installateur?",
+    "keyword": "verduurzamingsadvies automatiseren installateur",
+    "intent": "transactioneel",
+    "priority": 10,
+    "slug": "van-eerste-opname-tot-getekende-offerte-hoe-automatiseert-u-de-complete-klantreis-als-installateur",
+    "status": "generated",
+    "createdAt": "2026-08-18T12:37:29.781Z",
+    "generatedSlug": "klantreis-installateur-van-schouw-tot-offerte",
+    "generatedAt": "2026-08-19T00:39:23.650Z"
   },
   {
     "title": "Geautomatiseerd verduurzamingsrapport: hoe verkort u de doorlooptijd van uw adviestraject?",
