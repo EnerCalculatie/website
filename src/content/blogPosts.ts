@@ -1761,4 +1761,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer schakelt de warmtepomp financieel het beste om naar gas?', answer: 'Het financieel optimale omschakelpunt treedt op zodra de kosten per kWh thermische warmte via de warmtepomp hoger worden dan die van de cv-ketel, afhankelijk van de actuele COP, stroomprijs en gasprijs.' },
     ],
   },
+  {
+    slug: 'sde-subsidie-zakelijke-pv-projecten-business-case',
+    readingTimeMinutes: 3,
+    title: 'SDE++ subsidie voor zakelijke PV-projecten: zo onderbouwt u de business case',
+    seoTitle: 'SDE++ Subsidie Zakelijke Zon-PV: Business Case',
+    description:
+      'Ontdek hoe u de SDE++ subsidie voor zakelijke zon-PV projecten gebruikt om een ijzersterke business case te onderbouwen. Lees alle randvoorwaarden en...',
+    date: '2026-08-20',
+    excerpt:
+      'De SDE++ subsidie vergoedt het verschil tussen de kostprijs van duurzame energie en de marktwaarde. Ontdek de voorwaarden en rekenregels voor een onderbouwde zakelijke zon-PV business case.',
+    tags: ['SDE++', 'Zon-PV', 'Zakelijk', 'Subsidie', 'Business Case', 'Grootverbruikaansluiting'],
+    keyPoints: [
+      'Uitsluitend voor grootverbruikaansluitingen (>3x80A) met positieve transportindicatie en dakverklaring.',
+      'Exploitatiesubsidie met een looptijd van 15 jaar en vergoeding tot max. 950 vollasturen/jaar netlevering.',
+      'Banking-regeling maakt inhalen van onderproductie en overhevelen van max. 25% overproductie mogelijk.',
+      'Realisatietermijn van 1,5 jaar voor projecten <1 MWp en 3 jaar voor grotere projecten.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Voor welke aansluitingen geldt de SDE++ subsidie voor zon-PV?', answer: 'De SDE++ subsidie geldt voor locaties met een grootverbruikaansluiting, wat betekent dat de aansluiting groter moet zijn dan 3x80A.' },
+      { question: 'Hoeveel vollasturen worden vergoed binnen de SDE++?', answer: 'Er geldt een maximale vergoeding gebaseerd op een vooraf vastgesteld maximum van 950 vollasturen per jaar voor netlevering.' },
+      { question: 'Wat is de realisatietermijn na het verkrijgen van SDE++ subsidie?', answer: 'Voor projecten kleiner dan 1 MWp geldt een realisatietermijn van 1,5 jaar na verlening. Voor grotere projecten bedraagt deze termijn 3 jaar.' },
+    ],
+  },
 ];
