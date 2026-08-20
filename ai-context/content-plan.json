@@ -16,8 +16,10 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "beta-factor-van-een-hybride-warmtepomp-hoe-bepaalt-u-het-optimale-omschakelpunt-tussen-gas-en-elektriciteit",
-    "status": "planned",
-    "createdAt": "2026-08-19T12:37:50.722Z"
+    "status": "generated",
+    "createdAt": "2026-08-19T12:37:50.722Z",
+    "generatedSlug": "beta-factor-hybride-warmtepomp-omschakelpunt",
+    "generatedAt": "2026-08-20T00:38:49.486Z"
   },
   {
     "title": "SDE++ subsidie voor kleinzakelijke PV-projecten: zo onderbouwt u de business case voor uw zakelijke klant",

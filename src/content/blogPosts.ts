@@ -1738,4 +1738,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Met welke rekenfactor wordt gewerkt bij kabelberekeningen op een 3x25A aansluiting?', answer: 'Bij een hoofdaansluiting van 3x25A of 1x35A geldt vanwege selectiviteit een veiligheidsmarge van factor 1,6, waardoor een omvormer of laadpaal op maximaal 16A per fase (3,68 kW per fase, ~11 kW totaal 3-fase) wordt afgezekerd.' },
     ],
   },
+  {
+    slug: 'beta-factor-hybride-warmtepomp-omschakelpunt',
+    readingTimeMinutes: 3,
+    title: 'Bèta-factor van een hybride warmtepomp: het omschakelpunt tussen gas en elektriciteit',
+    seoTitle: 'Bèta-factor hybride warmtepomp & omschakelpunt',
+    description:
+      'Wat is de bèta-factor en het bivalentiepunt van een hybride warmtepomp? Ontdek hoe het omschakelpunt tussen gas en elektriciteit werkt.',
+    date: '2026-08-20',
+    excerpt:
+      'De bèta-factor en het bivalentiepunt bepalen het precieze omschakelmoment tussen de hybride warmtepomp en de cv-ketel voor een optimaal rendement.',
+    tags: ['hybride warmtepomp', 'bèta-factor', 'bivalentiepunt', 'COP', 'omschakelpunt'],
+    keyPoints: [
+      'De bèta-factor (0,3 tot 0,5) dekt gemiddeld 70% tot 80% van de jaarlijkse warmtebehoefte.',
+      'Het bivalentiepunt markeert de buitentemperatuur waarbij de cv-ketel moet bijspringen.',
+      'Het financieel omschakelpunt wordt bepaald door de actuele COP, de elektriciteitsprijs en de gasprijs.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is de bèta-factor van een hybride warmtepomp?', answer: 'De bèta-factor (β-factor) is de verhouding tussen het opgesteld verwarmingsvermogen van de warmtepomp en de totale ontwerp-warmtebehoefte (het piekvermogen) van de woning.' },
+      { question: 'Wat betekent het bivalentiepunt?', answer: 'Het bivalentiepunt is de buitentemperatuur waarbij het geleverde vermogen van de warmtepomp exact gelijk is aan het warmteverlies van de woning. Bij lagere buitentemperaturen springt de cv-ketel bij.' },
+      { question: 'Wanneer schakelt de warmtepomp financieel het beste om naar gas?', answer: 'Het financieel optimale omschakelpunt treedt op zodra de kosten per kWh thermische warmte via de warmtepomp hoger worden dan die van de cv-ketel, afhankelijk van de actuele COP, stroomprijs en gasprijs.' },
+    ],
+  },
 ];
