@@ -103,7 +103,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="font-display text-2xl md:text-4xl lg:text-5xl font-black text-slate-800 tracking-tight mb-6"
           >
-            Hoe kunnen we u helpen?
+            Vragen over de rekenmodules of direct een rondleiding?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -112,7 +112,7 @@ export function Contact() {
             transition={{ delay: 0.1 }}
             className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto"
           >
-            Ik help u persoonlijk verder. Neem contact op voor ondersteuning, demo's of technische vragen.
+            Ik laat u graag in 15 minuten zien hoe u van een energierekening naar een kloppende offerte gaat. Stel direct uw vraag of plan een vrijblijvend adviesgesprek.
           </motion.p>
         </div>
 

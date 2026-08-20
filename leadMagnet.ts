@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { Resend } from 'resend';
 import { escapeHtml } from './emailUtils';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 're_placeholder');
 
 const router = Router();
 

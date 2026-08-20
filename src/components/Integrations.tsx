@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import type { Variants } from 'motion/react';
-import { Link, Clock } from 'lucide-react';
+import { Link } from 'lucide-react';
 
 const liveIntegrations = [
   {
@@ -12,21 +12,6 @@ const liveIntegrations = [
         <text x="60" y="21" textAnchor="middle" dominantBaseline="central" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="18" fill="#ffffff">PDOK</text>
       </svg>
     ),
-  },
-];
-
-const comingSoonIntegrations = [
-  {
-    name: 'Exact Online',
-    description: 'Klanten en projecten automatisch synchroniseren met uw boekhouding.',
-  },
-  {
-    name: 'Teamleader',
-    description: 'Dossiers koppelen aan uw klantenbeheer en agenda, zonder dubbel werk.',
-  },
-  {
-    name: 'AFAS',
-    description: 'Exporteren naar uw administratie zonder handmatig overtypen.',
   },
 ];
 
@@ -60,10 +45,10 @@ export function Integrations() {
             <span className="text-sm font-bold text-brand-primary tracking-wide uppercase">Integraties</span>
           </motion.div>
           <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Werkt samen met uw bestaande software
+            Direct gekoppeld met officiële bronnen
           </h2>
           <p className="text-lg text-slate-600">
-            PDOK Kadaster is vandaag beschikbaar. Koppelingen met boekhoud- en klantbeheerpakketten volgen later dit jaar.
+            Adres- en dakgegevens worden rechtstreeks opgehaald via PDOK Kadaster voor maximale betrouwbaarheid aan de keukentafel.
           </p>
         </div>
 
@@ -73,60 +58,34 @@ export function Integrations() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-50px' }}
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-8"
         >
           {liveIntegrations.map((integration) => (
             <motion.div
               key={integration.name}
               variants={itemVariants}
-              className="bg-slate-50/50 rounded-2xl p-8 border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white hover:shadow-sm transition-all max-w-xs w-full text-center"
+              className="bg-slate-50/50 rounded-2xl p-8 border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white hover:shadow-sm transition-all max-w-sm w-full text-center"
             >
               <div className="flex justify-center mb-5 h-12 items-center">
                 {integration.logo}
               </div>
               <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-100 mb-3">
                 <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
-                Beschikbaar
+                Live beschikbaar
               </span>
               <h3 className="text-lg font-bold text-slate-900 mb-2">{integration.name}</h3>
-              <p className="text-sm text-slate-500">{integration.description}</p>
+              <p className="text-sm text-slate-600 leading-relaxed">{integration.description}</p>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Binnenkort */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
-        >
-          {comingSoonIntegrations.map((integration) => (
-            <motion.div
-              key={integration.name}
-              variants={itemVariants}
-              className="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100 opacity-70"
-            >
-              <div className="flex justify-center mb-4">
-                <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-500 text-xs font-bold px-3 py-1 rounded-full border border-slate-200">
-                  <Clock size={12} />
-                  Binnenkort
-                </span>
-              </div>
-              <h3 className="text-base font-bold text-slate-700 mb-1">{integration.name}</h3>
-              <p className="text-xs text-slate-400">{integration.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <div className="text-center mt-12">
-          <p className="text-slate-600">
-            Staat uw softwarepakket er niet bij?{' '}
+        <div className="text-center mt-8">
+          <p className="text-slate-600 text-sm">
+            Wilt u een specifieke koppeling bespreken?{' '}
             <a href="#contact" className="font-bold text-brand-primary-text hover:underline">
               Neem contact op
-            </a>{' '}
-            — wij denken graag met u mee.
+            </a>
+            .
           </p>
         </div>
       </div>

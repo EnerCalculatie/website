@@ -5,13 +5,14 @@ import { SEO } from './components/SEO';
 import { NavBar } from './components/NavBar';
 import { Hero } from './components/Hero';
 import { Workflow } from './components/Workflow';
-import { HowItWorks } from './components/HowItWorks';
 import { ProblemSolution } from './components/ProblemSolution';
 import { OfferModuleSection } from './components/OfferModuleSection';
 import { ResultSection } from './components/ResultSection';
 import { ComparisonTable } from './components/ComparisonTable';
 import { Integrations } from './components/Integrations';
 import { Features } from './components/Features';
+import { ProductProof } from './components/ProductProof';
+import { CaseStudy } from './components/CaseStudy';
 import { LeadMagnet } from './components/LeadMagnet';
 import { NewsletterSignup } from './components/NewsletterSignup';
 import { AppDemoVideo } from './components/AppDemoVideo';
@@ -181,31 +182,35 @@ export function AppContent() {
                 {/* SEO & Meta Tags (default homepage-metadata) */}
                 <SEO />
 
-                {/* Hero Section with Dashboard Mockup */}
+                {/* 3.1 Hero Section met echte screenshot */}
                 <Hero />
 
-                {/* Workflow: laat zien dat gegevens doorstromen dossier -> offerte */}
+                {/* 3.2 Workflow: 7 stappen van klantvraag tot akkoord */}
                 <Workflow />
 
-                {/* Probleem */}
+                {/* 3.3 Herkenbaar probleem & vergelijking */}
                 <ProblemSolution />
 
-                {/* Offertemodule: nieuwe kernsectie (v1.19.0) */}
-                <OfferModuleSection />
-
-                {/* Product Depth: functionaliteit achter de workflow */}
+                {/* 3.4 Vier productonderdelen: Analyse, Advies, Calculatie, Offerte */}
                 <Features />
 
-                {/* Resultaat: zakelijke vertaling, geen herhaalde featurelijst */}
+                {/* 3.5 Productproof: concrete data en echte schermen */}
+                <ProductProof />
+
+                {/* 3.6 Case Study: Van energienota naar advies */}
+                <CaseStudy />
+
+                {/* 3.7 Echte klantcase demo video/tour */}
+                <AppDemoVideo />
+
+                {/* Offertemodule dieptegang */}
+                <OfferModuleSection />
+
+                {/* Resultaat & minder administratie */}
                 <ResultSection />
 
-                {/* Waarom EnerCalculatie i.p.v. Excel/losse tools */}
+                {/* Vergelijkingstabel Excel / Externe adviseur / EnerCalculatie */}
                 <ComparisonTable />
-
-                {/* Detail-niveau "hoe werkt het" — bewust hier, niet meteen na Hero
-                    (Workflow.tsx dekt dat al op hoog niveau, dit zou dubbelop zijn) */}
-                <HowItWorks />
-                <AppDemoVideo />
 
                 <section className="py-4 bg-brand-bg">
                   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -216,7 +221,7 @@ export function AppContent() {
                 <PricingCalculator />
                 <Technology />
 
-                {/* Conversion & Proof */}
+                {/* Prijzen & FAQ */}
                 <Testimonials />
                 <Pricing />
                 <FAQ />

@@ -21,7 +21,7 @@ const faqs = [
   {
     question: 'Werkt het met mijn huidige software?',
     answer:
-      'PDOK Kadaster is nu al ingebouwd en live beschikbaar. Let op: integraties met andere externe systemen (zoals Exact Online, Teamleader en AFAS) staan op de planning maar zijn nog niet beschikbaar. Gebruikt u andere software? Neem contact op — wij kijken graag samen naar de mogelijkheden.',
+      'PDOK Kadaster is direct ingebouwd en live beschikbaar voor het ophalen van adres- en dakgegevens. Heeft u specifieke wensen voor koppelingen met uw eigen systemen? Neem gerust contact op — we denken graag met u mee.',
   },
   {
     question: 'Wat als ik vastloop?',

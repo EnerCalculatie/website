@@ -9,7 +9,7 @@ interface ChecklistOptInProps {
 const CHECKLIST_LABEL: Record<ChecklistOptInProps['checklist'], { title: string; description: string }> = {
   nen1010: {
     title: 'Gratis checklist: NEN1010-selectiviteit',
-    description: 'De 4 vuistregels voor selectiviteit en gelijktijdige invoeding bij zonnepanelen, laadpalen en batterijen — direct in je inbox.',
+    description: 'De 4 vuistregels voor selectiviteit en gelijktijdige invoeding bij zonnepanelen, laadpalen en batterijen — direct in uw inbox.',
   },
 };
 
@@ -49,7 +49,7 @@ export function ChecklistOptIn({ slug, checklist }: ChecklistOptInProps) {
     return (
       <div className="not-prose my-10 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 sm:p-6 flex items-center gap-3">
         <CheckCircle2 size={22} className="text-emerald-600 shrink-0" />
-        <p className="text-emerald-800 font-semibold">Onderweg! Check je inbox (ook de spamfolder) voor de checklist.</p>
+        <p className="text-emerald-800 font-semibold">Onderweg! Controleer uw inbox (ook de spamfolder) voor de checklist.</p>
       </div>
     );
   }

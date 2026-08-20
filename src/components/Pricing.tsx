@@ -35,7 +35,7 @@ const PRICING_TIERS: PricingTier[] = [
       'Airco',
       'Laadpaal'
     ],
-    cta: 'Start 30 dagen gratis',
+    cta: 'Probeer 30 dagen gratis',
     mostPopular: false
   },
   {
@@ -54,7 +54,7 @@ const PRICING_TIERS: PricingTier[] = [
       'Airco',
       'Laadpaal'
     ],
-    cta: 'Start 30 dagen gratis',
+    cta: 'Probeer 30 dagen gratis',
     mostPopular: true
   },
   {
@@ -70,7 +70,7 @@ const PRICING_TIERS: PricingTier[] = [
     ],
     excludedFeatures: [
     ],
-    cta: 'Start 30 dagen gratis',
+    cta: 'Probeer 30 dagen gratis',
     mostPopular: false
   }
 ];
@@ -237,7 +237,7 @@ export function Pricing() {
                           <td className="py-4 px-4"><Check size={20} className="text-brand-primary" /></td>
                         </tr>
                         <tr className="hover:bg-slate-50/50 transition-colors">
-                          <td className="py-4 px-4 font-medium text-slate-900">AI-documentanalyse</td>
+                          <td className="py-4 px-4 font-medium text-slate-900">Automatische documentherkenning</td>
                           <td className="py-4 px-4"><Check size={20} className="text-brand-primary" /></td>
                           <td className="py-4 px-4"><Check size={20} className="text-brand-primary" /></td>
                           <td className="py-4 px-4"><Check size={20} className="text-brand-primary" /></td>

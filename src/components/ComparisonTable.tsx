@@ -43,7 +43,7 @@ export function ComparisonTable() {
       label: 'Energierekening verwerken',
       excel: 'Handmatig overtypen',
       advisor: 'Zelf aanleveren',
-      ener: 'AI-extractie via upload',
+      ener: 'Automatische extractie via PDF-upload',
     },
     {
       label: 'Offerte laten accepteren',

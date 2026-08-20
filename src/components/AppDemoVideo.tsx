@@ -37,38 +37,34 @@ interface DemoPhase {
   steps: DemoStep[];
 }
 
-// Bewust géén "Schouw Overzicht" en "Werkvoorbereiding": beide zijn interne
-// planningsschermen voor de monteur, geen onderdeel van de klant-gerichte
-// belofte "van energienota naar onderbouwd advies". Screenshots blijven
-// bestaan in assets/, alleen niet gebruikt in deze demo.
 const phases: DemoPhase[] = [
   {
     id: 'intake',
     number: '01',
-    label: 'Intake',
+    label: 'Intake & PDF',
     icon: <Home size={16} />,
     steps: [
       {
         id: 'dossier',
-        label: 'Dossier aanmaken',
+        label: 'Nieuw dossier aanmaken',
         icon: <Home size={16} />,
         screenshot: imgDossier,
-        description: 'Elk adviestraject start met één dossier — al uw klantdossiers overzichtelijk bij elkaar.'
+        description: 'Start een nieuw klanttraject. Alle gegevens blijven gecentraliseerd in één dossier.'
       },
       {
         id: 'pandgegevens',
-        label: 'Pand- en klantgegevens',
+        label: 'Klant- & pandgegevens',
         icon: <Home size={16} />,
         screenshot: imgPandgegevens,
-        description: 'Vastleggen van pand en klant als vertrekpunt voor alle berekeningen die volgen.'
+        description: 'Adres invoeren: Kadaster-luchtfoto en woningkenmerken worden direct gekoppeld.'
       },
       {
         id: 'ai-scan',
-        label: 'Energierekening uitlezen',
+        label: 'Energierekening uploaden',
         icon: <Cpu size={16} />,
         screenshot: imgAiScan,
-        description: 'Upload de energienota of maak een foto. EnerCalculatie leest verbruik en tarieven automatisch uit.',
-        callout: 'Automatisch uitgelezen — geen typewerk'
+        description: 'Upload de PDF van de energienota. Verbruik en tarieven worden automatisch uitgelezen.',
+        callout: 'Automatisch verwerkt zonder overtypen'
       },
     ],
   },
@@ -80,53 +76,53 @@ const phases: DemoPhase[] = [
     steps: [
       {
         id: 'energieprofiel',
-        label: 'Energieprofiel',
+        label: 'Energieprofiel opbouwen',
         icon: <Zap size={16} />,
         screenshot: imgEnergieprofiel,
-        description: 'Uit de uitgelezen gegevens bouwt EnerCalculatie automatisch het volledige verbruiksprofiel op.'
+        description: 'Het verbruiksprofiel geeft direct inzicht in gasverbruik, stroompieken en basislast.'
       },
     ],
   },
   {
     id: 'berekening',
     number: '03',
-    label: 'Berekening',
+    label: 'Installatieadvies',
     icon: <Calculator size={16} />,
     steps: [
       {
         id: 'zonnepanelen',
-        label: 'Zonnepanelen',
+        label: 'Zonnepanelen dimensioneren',
         icon: <Sun size={16} />,
         screenshot: imgZonnepanelen,
-        description: 'Ontwerp het legplan en bereken de verwachte jaaropbrengst op basis van oriëntatie en vermogen.'
+        description: 'Legplan en opbrengstberekening op basis van dakoriëntatie en beschikbaar vermogen.'
       },
       {
         id: 'thuisbatterij',
-        label: 'Thuisbatterij',
+        label: 'Thuisbatterij toevoegen',
         icon: <Battery size={16} />,
         screenshot: imgThuisbatterij,
-        description: 'Configureer energieopslag en zie direct de impact op zelfconsumptie en terugverdientijd.'
+        description: 'Afstemming van batterijcapaciteit op het opwekoverschot voor maximale zelfconsumptie.'
       },
       {
         id: 'warmtepomp',
-        label: 'Warmtepomp',
+        label: 'Warmtepomp doorrekenen',
         icon: <Flame size={16} />,
         screenshot: imgWarmtepomp,
-        description: 'Bereken de impact van een warmtepomp op gas- en stroomverbruik en het financiële rendement.'
+        description: 'Hybride of all-electric berekening inclusief gasbesparing en ISDE-subsidie.'
       },
       {
         id: 'airco',
-        label: 'Airco',
+        label: 'Airco & koeling',
         icon: <Wind size={16} />,
         screenshot: imgAirco,
-        description: 'Configureer koeling en bijverwarming per ruimte, inclusief het jaarrond energieverbruik (SCOP).'
+        description: 'Koelvermogen per ruimte en het jaarrond stroomprofiel.'
       },
       {
         id: 'laadpalen',
         label: 'Laadpaal',
         icon: <Car size={16} />,
         screenshot: imgLaadpalen,
-        description: "Configureer een laadstation, inclusief slimme sturing bij meerdere laadpunten en installatie-eisen."
+        description: 'Laadpuntconfiguratie en impact op de netaansluiting.'
       },
     ],
   },
@@ -141,22 +137,22 @@ const phases: DemoPhase[] = [
         label: "Scenario's vergelijken",
         icon: <Layers size={16} />,
         screenshot: imgScenario,
-        description: "Zet oplossingen naast elkaar — bijvoorbeeld alleen zonnepanelen versus zonnepanelen met batterij — en onderbouw het gesprek met de klant.",
-        callout: "Vergelijk investering & terugverdientijd naast elkaar"
+        description: "Vergelijk opties naast elkaar: bijvoorbeeld alleen zonnepanelen versus zonnepanelen met batterij.",
+        callout: "Vergelijk investering & rendement naast elkaar"
       },
       {
         id: 'roi',
         label: 'Rendement & terugverdientijd',
         icon: <TrendingUp size={16} />,
         screenshot: imgRoi,
-        description: 'Volledig gevalideerde doorrekening van terugverdientijd, BTW-voordelen en subsidies over 25 jaar.'
+        description: 'Gevalideerde rendementsberekening over 10 en 25 jaar met actuele salderingsregels.'
       },
     ],
   },
   {
     id: 'advies',
     number: '05',
-    label: 'Advies & offerte',
+    label: 'Calculatie → Offerte',
     icon: <FileText size={16} />,
     steps: [
       {
@@ -164,14 +160,14 @@ const phases: DemoPhase[] = [
         label: 'Offerte samenstellen',
         icon: <FileSpreadsheet size={16} />,
         screenshot: imgOfferte,
-        description: 'Stel een itemized offerte samen en zie live het totaal — inclusief automatische stapelkorting.'
+        description: 'Koppel berekende installaties aan catalogusprijzen en meerwerk.'
       },
       {
         id: 'rapport',
-        label: 'Adviesrapport',
+        label: 'Adviesrapport & klantakkoord',
         icon: <FileText size={16} />,
         screenshot: imgRapport,
-        description: 'Genereer een professioneel adviesrapport met AI-samenvatting, klaar voor het keukentafelgesprek.'
+        description: 'Verstuur als beveiligde klantlink; de klant bekijkt het rapport en accordeert digitaal.'
       },
     ],
   },
@@ -196,8 +192,6 @@ export function AppDemoVideo() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
-  // Alleen auto-advancen als de sectie in beeld is: voorkomt dat de carousel
-  // offscreen alle screenshots binnentrekt en CPU verstookt.
   const inView = useInView(sectionRef, { amount: 0.2 });
   const autoPlaying = isPlaying && inView;
 
@@ -205,8 +199,6 @@ export function AppDemoVideo() {
     setActiveIndex(prev => (prev + 1) % flatSteps.length);
   }, []);
 
-  // Eén timeout per stap in plaats van een 100ms-interval met state-updates:
-  // de voortgangsbalk loopt via een CSS-animatie mee, zonder re-renders.
   useEffect(() => {
     if (!autoPlaying) return;
     const timeout = setTimeout(advance, AUTO_ADVANCE_INTERVAL);
@@ -225,39 +217,18 @@ export function AppDemoVideo() {
 
   return (
     <section ref={sectionRef} id="demo-video" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
-      {/* Achtergrond glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/20 blur-[120px] rounded-full pointer-events-none" />
-
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-300 font-medium text-sm mb-6"
-          >
-            <Zap size={16} className="text-brand-primary" />
-            Interactieve productdemo
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-2xl md:text-5xl font-display font-bold text-white mb-4"
-          >
-            Van energienota naar verstuurde offerte
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-slate-400 max-w-xl mx-auto"
-          >
-            Zo doorloopt u als installateur het complete traject — van advies tot offerte, in 5 minuten.
-          </motion.p>
+          <span className="text-brand-primary font-bold uppercase tracking-wider text-xs mb-3 block">
+            Producttour
+          </span>
+          <h2 className="text-2xl md:text-5xl font-display font-bold text-white mb-4">
+            Een echte klantcase.
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400 max-w-xl mx-auto">
+            Van energierekening naar onderbouwde offerte in één workflow.
+          </p>
         </div>
 
         {/* Fase-progressbalk */}
@@ -467,7 +438,7 @@ export function AppDemoVideo() {
                   href="https://app.enercalculatie.nl/gratis"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-primary/25 group w-full sm:w-auto"
                 >
-                  Maak gratis je eerste calculatie
+                  Maak gratis uw eerste calculatie
                   <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
                 </a>
                 <a

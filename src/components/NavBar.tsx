@@ -23,12 +23,11 @@ export function NavBar() {
   }, []);
 
   const navLinks = [
-    { name: 'Functies', href: '/#functies' },
-    { name: 'Demo', href: '/#demo-video' },
-    { name: 'Integraties', href: '/#integraties' },
-    { name: 'Calculator', href: '/#pricing-calculator' },
+    { name: 'Product', href: '/#functies' },
+    { name: 'Hoe werkt het?', href: '/#workflow' },
+    { name: 'Klantcase', href: '/#case-study' },
     { name: 'Prijzen', href: '/#prijzen' },
-    { name: 'FAQ', href: '/#faq' },
+    { name: 'Over ons', href: '/over-ons' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/#contact' },
   ];

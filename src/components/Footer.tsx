@@ -13,17 +13,23 @@ export function Footer() {
         <div className="absolute inset-0 bg-[#008f5a] opacity-50 radial-gradient-circle" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10 text-center">
           <h2 className="font-display text-2xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Zelf ervaren hoeveel tijd EnerCalculatie u bespaart?
+            Van energierekening naar offerte in één workflow.
           </h2>
           <p className="text-white text-lg mb-8 max-w-2xl mx-auto font-medium">
-            Plan een korte demo en zie in 20 minuten precies hoe het werkt — van energierekening tot compleet adviesrapport.
+            Ervaar zelf hoe snel u klantgegevens verwerkt en een onderbouwde offerte opstelt.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contact" className="bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center">
-              Plan mijn demo (20 min)
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <a
+              href="https://app.enercalculatie.nl/gratis"
+              className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center min-h-[48px]"
+            >
+              Probeer EnerCalculatie gratis
             </a>
-            <a href="#pricing-calculator" className="bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center">
-              Bereken uw tijdsbesparing
+            <a
+              href="#contact"
+              className="w-full sm:w-auto bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center min-h-[48px]"
+            >
+              Plan een demo (15 min)
             </a>
           </div>
         </div>
@@ -94,9 +100,6 @@ export function Footer() {
             <p className="text-white font-semibold mb-4">Integraties</p>
             <ul className="space-y-2 text-base text-slate-400">
               <li><a href="https://www.pdok.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">PDOK Kadaster</a></li>
-              <li><a href="https://www.exact.com/nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Exact Online <span className="text-slate-500">(binnenkort)</span></a></li>
-              <li><a href="https://www.teamleader.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">Teamleader <span className="text-slate-500">(binnenkort)</span></a></li>
-              <li><a href="https://www.afas.nl/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors block py-1 break-words">AFAS <span className="text-slate-500">(binnenkort)</span></a></li>
             </ul>
           </div>
 
@@ -117,15 +120,15 @@ export function Footer() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/31644572511?text=Hallo%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..."
+        href="https://wa.me/31644572511?text=Hallo%20Pascal%2C%20ik%20heb%20een%20vraag%20over%20EnerCalculatie..."
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-xl transition-transform hover:scale-110 flex items-center justify-center group print:hidden"
-        aria-label="Stuur ons een bericht via WhatsApp"
+        aria-label="Stuur direct een WhatsApp naar Pascal"
       >
         <MessageCircle size={28} />
         <span className="absolute right-full mr-4 bg-slate-900 text-white text-sm font-medium px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-          App ons voor vragen
+          Direct contact met Pascal (ontwikkelaar)
         </span>
       </a>
     </footer>

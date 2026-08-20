@@ -11,8 +11,8 @@ export function Technology() {
     },
     {
       icon: <Webhook size={24} />,
-      title: 'Koppelingen met uw pakketten',
-      description: 'Koppelingen met boekhoud- en planningspakketten zoals Exact Online, Teamleader en AFAS zijn in ontwikkeling en komen later dit jaar beschikbaar. De koppeling met PDOK Kadaster (adres- en dakgegevens) is nu al live.',
+      title: 'Koppeling met PDOK Kadaster',
+      description: 'Actuele adres-, pand- en dakgegevens worden direct vanuit het officiële Kadaster ingeladen voor een betrouwbaar advies.',
       color: 'bg-purple-500/10 text-purple-400',
     },
     {

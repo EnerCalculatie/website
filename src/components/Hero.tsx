@@ -1,4 +1,5 @@
-import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap, Play } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ShieldCheck, Database, Play } from 'lucide-react';
+import imgDossier from '../assets/screenshots/dossier-overzicht.webp';
 
 // Bewust géén Framer Motion in de Hero: mount-animaties (initial opacity 0)
 // worden mee-geprerenderd, waardoor de above-the-fold content onzichtbaar is
@@ -6,80 +7,97 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Database, Zap, Play } from 'luci
 // (index.css) geeft hetzelfde effect zonder op JS te wachten.
 export function Hero() {
   return (
-    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
-      {/* Achtergrond decoratie voor visuele diepte */}
+    <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
+      {/* Subtiele technische grid achtergrond */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full opacity-60" />
-        <div className="absolute inset-0 [background-image:linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] [background-size:40px_40px]" />
+        <div className="absolute inset-0 [background-image:linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] [background-size:32px_32px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Praktijk-focus indicator (Story LP.4) */}
-          <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-brand-primary-text font-bold text-xs uppercase tracking-wider mb-8">
-            <Zap size={14} className="fill-[#00a669]" />
-            Ontwikkeld voor de installatiepraktijk
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          {/* Badge */}
+          <div className="animate-fade-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-semibold text-xs uppercase tracking-wider mb-6">
+            <span className="w-2 h-2 rounded-full bg-brand-primary"></span>
+            Van klantvraag naar onderbouwd akkoord
           </div>
 
-          {/* Hoofdtitel (Story LP.1) */}
-          <h1 className="animate-fade-up anim-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 tracking-tight leading-[1.1] mb-8 break-words">
-            Van energierekening naar complete offerte <span className="text-brand-primary">in 5 minuten.</span>{' '}
-            <br className="hidden md:block" />
-            <span className="text-slate-500">Bespaar uren per offerte. Win meer opdrachten.</span>
+          {/* Hoofdtitel */}
+          <h1 className="animate-fade-up anim-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 tracking-tight leading-[1.15] mb-6">
+            Van energierekening naar offerte.
           </h1>
 
-          {/* Doelgroep + resultaat */}
-          <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-10">
-            Upload de energierekening van uw klant. Wij lezen 'm uit, rekenen het optimale systeem door en leveren een professioneel adviesrapport — inclusief terugverdientijd, subsidies en saldering 2027. Zonder typfouten, zonder puzzelen, zonder wachten.
+          {/* Subheadline */}
+          <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
+            EnerCalculatie helpt installatiebedrijven om klantgegevens te verwerken, verduurzamingsscenario's te berekenen en vanuit dezelfde calculatie een onderbouwde offerte te maken.
           </p>
 
-          {/* Resultaten direct zichtbaar */}
-          <div className="animate-fade-up anim-delay-300 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 text-sm font-semibold text-slate-500">
-            <span>✔ Bespaar 2,5 uur per offerte</span>
-            <span className="text-slate-300">·</span>
-            <span>✔ Hogere orderwaarde per klant</span>
-            <span className="text-slate-300">·</span>
-            <span>✔ Minder rekenfouten</span>
-          </div>
-
           {/* Call to Actions */}
-          <div className="animate-fade-up anim-delay-300 flex flex-col items-center justify-center mb-12">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mb-4">
-              <a href="https://app.enercalculatie.nl/gratis" className="w-full sm:w-auto px-8 py-4 bg-brand-primary-text text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-primary/20 group">
-                Maak gratis je eerste calculatie <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#demo-video" className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center text-center gap-2">
-                <Play size={20} className="text-brand-primary fill-brand-primary/20" /> Bekijk de demo
-              </a>
-            </div>
-            <p className="text-sm font-medium text-slate-500 mb-2">
-              Geen account nodig · rapport binnen 5 minuten · voor installateurs
-            </p>
-
-            <p className="text-sm font-semibold text-brand-primary-text mb-2">
-              Of start een gratis 30-dagenproef met volledig account — geen creditcard vereist
-            </p>
-
-            <p className="text-sm text-slate-400">
-              Liever eerst praten? <a href="#contact" className="underline hover:text-brand-primary-text transition-colors">Plan een demo (15 min)</a>
-            </p>
+          <div className="animate-fade-up anim-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <a
+              href="https://app.enercalculatie.nl/gratis"
+              className="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-[#008f5a] text-white rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg group min-h-[48px]"
+            >
+              Probeer EnerCalculatie
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#case-study"
+              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 min-h-[48px]"
+            >
+              <Play size={18} className="text-slate-500" />
+              Bekijk een echte klantcase
+            </a>
           </div>
 
           {/* Trust Badges */}
-          <div className="animate-fade-up anim-delay-500 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
-              <ShieldCheck size={18} className="text-[#00a669]" />
-              30 dagen gratis
+          <div className="animate-fade-up anim-delay-500 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-600">
+            <div className="flex items-center gap-2 font-medium">
+              <ShieldCheck size={16} className="text-brand-primary" />
+              30 dagen gratis proefperiode
             </div>
-            <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
-              <Database size={18} className="text-[#00a669]" />
+            <div className="flex items-center gap-2 font-medium">
+              <Database size={16} className="text-brand-primary" />
               Geen setupkosten
             </div>
-            <div className="flex items-center gap-2 text-slate-500 font-semibold text-sm">
-              <CheckCircle2 size={18} className="text-[#00a669]" />
-              AVG-proof · data binnen de EU
+            <div className="flex items-center gap-2 font-medium">
+              <CheckCircle2 size={16} className="text-brand-primary" />
+              Data veilig opgeslagen binnen de EU
             </div>
           </div>
+        </div>
+
+        {/* Echte applicatie screenshot visual met browserframe */}
+        <div className="animate-fade-up anim-delay-500 max-w-5xl mx-auto">
+          <a
+            href="#demo-video"
+            className="block group bg-slate-900 rounded-2xl p-2 sm:p-3 shadow-2xl border border-slate-800 hover:border-slate-700 transition-all cursor-pointer relative"
+            aria-label="Bekijk de interactieve producttour"
+          >
+            <div className="flex items-center gap-2 px-3 py-2 border-b border-slate-800 mb-2">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-700" />
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-700" />
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-700" />
+              </div>
+              <div className="flex-1 text-center">
+                <span className="text-xs font-mono text-slate-400 bg-slate-800/80 px-3 py-1 rounded-md">
+                  app.enercalculatie.nl / dossier / overzicht
+                </span>
+              </div>
+              <span className="text-[11px] font-semibold text-brand-primary group-hover:underline hidden sm:inline">
+                Bekijk tour ↓
+              </span>
+            </div>
+            <div className="rounded-xl overflow-hidden bg-white relative">
+              <img
+                src={imgDossier}
+                alt="EnerCalculatie dossieroverzicht software interface"
+                className="w-full h-auto object-cover group-hover:scale-[1.005] transition-transform duration-300"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </a>
         </div>
       </div>
     </section>

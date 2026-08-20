@@ -12,8 +12,8 @@ interface SEOProps {
 }
 
 export function SEO({
-  title = 'EnerCalculatie - Dé slimste rekenhulp voor installateurs',
-  description = 'Offertesoftware en calculatiesoftware voor verduurzamingsinstallateurs. Van energierekening tot gevalideerd adviesrapport in minder dan 5 minuten.',
+  title = 'EnerCalculatie — Van energierekening naar offerte',
+  description = 'EnerCalculatie helpt installatiebedrijven om klantgegevens, energieadvies, calculaties en offertes in één consistente workflow af te handelen.',
   canonical = 'https://www.enercalculatie.nl',
   type = 'website',
   name = 'EnerCalculatie',

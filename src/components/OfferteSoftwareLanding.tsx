@@ -112,7 +112,7 @@ export function OfferteSoftwareLanding() {
                 onClick={() => trackEvent('CTA Gratis Klik', { module: 'offerte-software' })}
                 className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]"
               >
-                Maak gratis je eerste calculatie
+                Maak gratis uw eerste calculatie
               </a>
               <a
                 href="/#contact"

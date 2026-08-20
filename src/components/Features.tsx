@@ -1,116 +1,127 @@
 import { motion } from 'motion/react';
 import type { Variants } from 'motion/react';
 import {
-  FileSearch, Map, FileText, Sun, Battery, ThermometerSun, Wind, Car, TrendingUp,
-  Calculator, ListChecks, Send, ArrowRight,
+  FileSearch,
+  Calculator,
+  Send,
+  Sun,
+  Battery,
+  Flame,
+  Wind,
+  Car,
+  TrendingUp,
+  MapPin,
+  FileCheck,
 } from 'lucide-react';
 
-interface FeatureItem {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  href?: string;
-  linkLabel?: string;
-}
-
-interface FeatureGroup {
+interface Pillar {
   id: string;
-  label: string;
+  number: string;
+  title: string;
+  subtitle: string;
   description: string;
-  items: FeatureItem[];
+  features: { icon: React.ReactNode; label: string; detail: string; href?: string }[];
 }
 
-const GROUPS: FeatureGroup[] = [
+const PILLARS: Pillar[] = [
   {
-    id: 'advies',
-    label: 'Advies',
-    description: 'Van energienota tot onderbouwd advies.',
-    items: [
+    id: 'analyse',
+    number: '01',
+    title: 'Analyse',
+    subtitle: 'Van energierekening naar energieprofiel.',
+    description:
+      'Upload een PDF van de energierekening of voer het adres in. Verbruiksdata, pieken/dalen en Kadaster-panddata worden direct samengevoegd tot een compleet profiel.',
+    features: [
       {
-        icon: <FileSearch size={22} />,
-        title: 'Energienota uitlezen',
-        description: 'Upload een pdf van de energierekening. Gasverbruik en de stroomvraag in piek/daltarief worden direct uitgelezen — geen handmatig overtypen.',
+        icon: <FileSearch size={18} />,
+        label: 'Energienota uitlezen',
+        detail: 'Gas- en stroomverbruik (normaal- en daltarief) direct gedetecteerd zonder handmatig overtypen.',
       },
       {
-        icon: <Map size={22} />,
-        title: 'Woninggegevens & energieprofiel',
-        description: 'Voer het adres in en Kadaster-luchtfoto\'s, energieprofiel en woningkenmerken staan direct klaar als basis voor het advies.',
-      },
-      {
-        icon: <FileText size={22} />,
-        title: 'Adviesrapport',
-        description: 'Genereer een professioneel, Nederlandstalig adviesrapport met AI-samenvatting — klaar voor het klantgesprek.',
+        icon: <MapPin size={18} />,
+        label: 'Kadaster & panddata',
+        detail: 'PDOK-luchtfoto, dakoppervlakte en basiskenmerken automatisch klaargezet.',
       },
     ],
   },
   {
-    id: 'berekening',
-    label: 'Berekening',
-    description: 'Elke module rekent door in hetzelfde dossier.',
-    items: [
+    id: 'advies',
+    number: '02',
+    title: 'Advies',
+    subtitle: 'Van energieprofiel naar installatieadvies.',
+    description:
+      'Zonnepanelen, thuisbatterijen, warmtepompen, airco en laadpalen worden berekend als samenhangende onderdelen van één integraal energieadvies.',
+    features: [
       {
-        icon: <Sun size={22} />,
-        title: 'Zonnepanelen',
-        description: 'Optimaal aantal panelen, piekvermogen en jaaropbrengst op basis van dakoriëntatie en beschikbare ruimte.',
+        icon: <Sun size={18} />,
+        label: 'Zonnepanelen',
+        detail: 'Legplan, dakoriëntatie en berekende jaaropbrengst.',
         href: '/rekentool-zonnepanelen',
-        linkLabel: 'Meer over deze rekentool',
       },
       {
-        icon: <Battery size={22} />,
-        title: 'Thuisbatterij',
-        description: 'Dimensionering op basis van het opwekoverschot, met directe impact op zelfconsumptie.',
+        icon: <Battery size={18} />,
+        label: 'Thuisbatterij',
+        detail: 'Capaciteit afgestemd op overschot en zelfconsumptie.',
         href: '/rekentool-thuisbatterij',
-        linkLabel: 'Meer over deze rekentool',
       },
       {
-        icon: <ThermometerSun size={22} />,
-        title: 'Warmtepomp',
-        description: 'Hybride of all-electric berekening, inclusief ISDE-subsidie automatisch meegerekend.',
+        icon: <Flame size={18} />,
+        label: 'Warmtepomp',
+        detail: 'Hybride of all-electric vermogen en ISDE-subsidie.',
         href: '/rekentool-warmtepomp',
-        linkLabel: 'Meer over deze rekentool',
       },
       {
-        icon: <Wind size={22} />,
-        title: 'Airco',
-        description: 'Koelvermogen per ruimte en het extra stroomverbruik, toegevoegd aan het totale energieprofiel.',
+        icon: <Wind size={18} />,
+        label: 'Airco & koeling',
+        detail: 'Koelvermogen en jaarrond stroomprofiel.',
         href: '/rekentool-airco',
-        linkLabel: 'Meer over deze rekentool',
       },
       {
-        icon: <Car size={22} />,
-        title: 'Laadpaal',
-        description: 'Laadprofiel en de impact op de maximale capaciteit van de netaansluiting.',
+        icon: <Car size={18} />,
+        label: 'Laadpaal',
+        detail: 'Impact op piekbelasting en netaansluiting.',
         href: '/rekentool-laadpaal',
-        linkLabel: 'Meer over deze rekentool',
+      },
+    ],
+  },
+  {
+    id: 'calculatie',
+    number: '03',
+    title: 'Calculatie',
+    subtitle: 'Van installatie naar onderbouwd scenario.',
+    description:
+      'Vergelijk verschillende installatiescenario’s direct naast elkaar met actuele salderingsregels (2027), terugleverkosten en subsidies.',
+    features: [
+      {
+        icon: <Calculator size={18} />,
+        label: 'Scenario-vergelijking',
+        detail: 'Zet bijv. alleen solar af tegen solar + thuisbatterij in één overzicht.',
       },
       {
-        icon: <TrendingUp size={22} />,
-        title: 'Rendement & ROI',
-        description: 'Rendementsberekening over 10 en 25 jaar, met de actuele salderingsregels correct verwerkt.',
+        icon: <TrendingUp size={18} />,
+        label: 'Rendement & terugverdientijd',
+        detail: 'Transparante doorrekening over 10 en 25 jaar met duidelijke aannames.',
       },
     ],
   },
   {
     id: 'offerte',
-    label: 'Offerte',
-    description: 'Vanuit dezelfde calculatie, zonder opnieuw invoeren.',
-    items: [
+    number: '04',
+    title: 'Offerte',
+    subtitle: 'Van calculatie naar klantofferte.',
+    description:
+      'De calculatie vormt direct de financiële basis van de offerte. Verstuur als beveiligde klantlink; de klant bekijkt en accordeert digitaal.',
+    features: [
       {
-        icon: <Calculator size={22} />,
-        title: 'Calculatie & prijsopbouw',
-        description: 'De doorgerekende scenario\'s vormen direct de financiële basis van de offerte.',
-      },
-      {
-        icon: <ListChecks size={22} />,
-        title: 'Producten & prijzen',
-        description: 'Losse producten en werkzaamheden uit uw eigen catalogus toevoegen, met automatische stapelkorting.',
-      },
-      {
-        icon: <Send size={22} />,
-        title: 'Versturen & klantakkoord',
-        description: 'Verstuur als beveiligde klantlink; uw klant beslist online, digitaal vastgelegd.',
+        icon: <FileCheck size={18} />,
+        label: 'Itemized opbouw',
+        detail: 'Producten, arbeid en meerwerk vanuit dezelfde dossiergegevens.',
         href: '/offerte-software',
-        linkLabel: 'Meer over de offertemodule',
+      },
+      {
+        icon: <Send size={18} />,
+        label: 'Digitaal klantakkoord',
+        detail: 'Beveiligde link zonder verplicht account voor de klant.',
       },
     ],
   },
@@ -119,85 +130,76 @@ const GROUPS: FeatureGroup[] = [
 export function Features() {
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.08 }
-    }
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20, scale: 0.97 },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { type: "spring", stiffness: 100, damping: 15 }
-    }
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15 } },
   };
 
   return (
-    <section id="functies" className="py-16 md:py-24 bg-brand-bg border-y border-slate-200/60">
+    <section id="functies" className="py-16 md:py-24 bg-slate-50 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="text-brand-secondary font-semibold tracking-wider uppercase text-sm mb-2 block">
-            Belangrijkste functionaliteiten
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="text-slate-500 font-bold tracking-wider uppercase text-xs mb-3 block">
+            De klantreis in 4 stappen
           </span>
-          <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Advies, berekening en offerte — uit hetzelfde dossier
+          <h2 className="font-display text-2xl md:text-4xl font-black text-slate-900 mb-4">
+            Wat uw klant vraagt. Wat u direct onderbouwt.
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Geen drie losse producten, maar één workflow. Gebouwd op praktijkervaring in de
-            installatietechniek — niet door marketeers, maar door iemand die weet hoe een schouw eruitziet.
+          <p className="text-base sm:text-lg text-slate-600">
+            Klanten vragen geen losse apparaten, maar een kloppend totaalplaatje voor hun woning. EnerCalculatie vertaalt de energierekening van de klant stap voor stap naar een helder voorstel.
           </p>
         </div>
 
-        {/* Flow-indicator tussen de drie groepen */}
-        <div className="hidden md:flex items-center justify-center gap-3 mb-10 text-sm font-semibold text-slate-500">
-          {GROUPS.map((group, idx) => (
-            <span key={group.id} className="flex items-center gap-3">
-              <span className="uppercase tracking-wider">{group.label}</span>
-              {idx < GROUPS.length - 1 && <ArrowRight size={16} className="text-slate-300" />}
-            </span>
-          ))}
-        </div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          {PILLARS.map((pillar) => (
+            <motion.div
+              key={pillar.id}
+              variants={itemVariants}
+              className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md">
+                    Onderdeel {pillar.number}
+                  </span>
+                  <span className="text-sm font-bold text-brand-primary-text">{pillar.title}</span>
+                </div>
 
-        <div className="space-y-14">
-          {GROUPS.map((group) => (
-            <div key={group.id}>
-              <div className="mb-5">
-                <h3 className="text-lg font-bold text-slate-900">{group.label}</h3>
-                <p className="text-sm text-slate-500">{group.description}</p>
-              </div>
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-50px" }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-              >
-                {group.items.map((item) => (
-                  <motion.div
-                    key={item.title}
-                    variants={itemVariants}
-                    whileHover={{ y: -4 }}
-                    className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all"
-                  >
-                    <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary-text rounded-xl flex items-center justify-center mb-4">
-                      {item.icon}
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{pillar.subtitle}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed mb-6">{pillar.description}</p>
+
+                <div className="space-y-3 pt-4 border-t border-slate-100">
+                  {pillar.features.map((feat) => (
+                    <div key={feat.label} className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-brand-primary shrink-0">{feat.icon}</span>
+                        <span className="text-sm font-bold text-slate-900">{feat.label}</span>
+                        {feat.href && (
+                          <a
+                            href={feat.href}
+                            className="ml-auto text-xs text-brand-primary-text font-semibold hover:underline"
+                          >
+                            Bekijk tool →
+                          </a>
+                        )}
+                      </div>
+                      <p className="text-xs text-slate-500 pl-6 leading-relaxed">{feat.detail}</p>
                     </div>
-                    <h4 className="text-base font-bold text-slate-900 mb-2">{item.title}</h4>
-                    <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
-                    {item.href && (
-                      <a href={item.href} className="mt-3 inline-block text-sm text-brand-primary-text font-semibold hover:underline">
-                        {item.linkLabel} →
-                      </a>
-                    )}
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

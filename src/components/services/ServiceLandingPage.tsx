@@ -70,7 +70,7 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
                 onClick={() => trackEvent('CTA Gratis Klik', { module: service.slug })}
                 className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]"
               >
-                Maak gratis je eerste calculatie
+                Maak gratis uw eerste calculatie
               </a>
               <a
                 href="/#contact"
@@ -135,14 +135,37 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
             </div>
           )}
 
+          {/* Koppeling met de centrale workflow */}
+          <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 mb-12 border border-slate-800">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="max-w-xl">
+                <span className="text-brand-primary text-xs font-mono font-bold uppercase tracking-wider block mb-1">
+                  Onderdeel van één dossier
+                </span>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                  Geen losse rekentool, maar onderdeel van de complete workflow
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Combineer deze module met zonnepanelen, thuisbatterijen of warmtepompen. Alle berekeningen stromen automatisch door naar dezelfde offerte.
+                </p>
+              </div>
+              <a
+                href="/#workflow"
+                className="shrink-0 bg-white text-slate-900 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl hover:bg-slate-100 transition-colors inline-flex items-center gap-1.5"
+              >
+                Bekijk de workflow <ArrowRight size={14} />
+              </a>
+            </div>
+          </div>
+
           {service.relatedBlogSlug && (
             <a
               href={`/blog/${service.relatedBlogSlug}`}
-              className="flex items-center justify-between bg-slate-900 text-white p-6 sm:p-8 rounded-2xl group hover:bg-slate-800 transition-colors"
+              className="flex items-center justify-between bg-slate-100 text-slate-900 p-6 sm:p-8 rounded-2xl group hover:bg-slate-200 transition-colors mb-12 border border-slate-200"
             >
               <div>
-                <p className="text-sm text-slate-400 mb-1">Verdieping</p>
-                <p className="font-semibold">{service.relatedBlogLabel}</p>
+                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-1">Verdieping</p>
+                <p className="font-bold text-base sm:text-lg text-slate-900">{service.relatedBlogLabel}</p>
               </div>
               <ArrowRight className="text-brand-primary shrink-0 group-hover:translate-x-1 transition-transform" size={24} />
             </a>
