@@ -41,8 +41,8 @@ const phases: DemoPhase[] = [
   {
     id: 'intake',
     number: '01',
-    label: 'Intake & PDF',
-    icon: <Home size={16} />,
+    label: 'Intake',
+    icon: <Home size={15} />,
     steps: [
       {
         id: 'dossier',
@@ -71,8 +71,8 @@ const phases: DemoPhase[] = [
   {
     id: 'energie',
     number: '02',
-    label: 'Energieprofiel',
-    icon: <Zap size={16} />,
+    label: 'Profiel',
+    icon: <Zap size={15} />,
     steps: [
       {
         id: 'energieprofiel',
@@ -86,8 +86,8 @@ const phases: DemoPhase[] = [
   {
     id: 'berekening',
     number: '03',
-    label: 'Installatieadvies',
-    icon: <Calculator size={16} />,
+    label: 'Advies',
+    icon: <Calculator size={15} />,
     steps: [
       {
         id: 'zonnepanelen',
@@ -130,7 +130,7 @@ const phases: DemoPhase[] = [
     id: 'scenarios',
     number: '04',
     label: "Scenario's",
-    icon: <Layers size={16} />,
+    icon: <Layers size={15} />,
     steps: [
       {
         id: 'scenario',
@@ -152,8 +152,8 @@ const phases: DemoPhase[] = [
   {
     id: 'advies',
     number: '05',
-    label: 'Calculatie → Offerte',
-    icon: <FileText size={16} />,
+    label: 'Offerte',
+    icon: <FileText size={15} />,
     steps: [
       {
         id: 'offerte',
@@ -231,40 +231,36 @@ export function AppDemoVideo() {
           </p>
         </div>
 
-        {/* Fase-progressbalk */}
+        {/* Fase-progressbalk: wrap netjes op alle schermen zonder afsnijding */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25 }}
-          className="flex items-center justify-start md:justify-center gap-1.5 sm:gap-2 mb-8 overflow-x-auto pb-2 px-1 scrollbar-none"
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 px-2 max-w-4xl mx-auto"
         >
           {phases.map((phase, i) => {
             const isDone = i < activePhaseIndex;
             const isActive = i === activePhaseIndex;
             return (
-              <div key={phase.id} className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                <button
-                  onClick={() => goTo(phaseStartIndex[i])}
-                  className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all min-h-[36px] sm:min-h-[40px] whitespace-nowrap ${
-                    isActive
-                      ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/30'
-                      : isDone
-                        ? 'bg-white/10 text-slate-300 hover:bg-white/15'
-                        : 'bg-white/5 text-slate-500 hover:bg-white/10 hover:text-slate-300'
-                  }`}
-                >
-                  <span className={`flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full shrink-0 ${
-                    isActive ? 'bg-white/20' : isDone ? 'bg-emerald-400/20 text-emerald-400' : 'bg-white/10'
-                  }`}>
-                    {isDone ? <Check size={11} /> : phase.icon}
-                  </span>
-                  <span>{phase.number} {phase.label}</span>
-                </button>
-                {i < phases.length - 1 && (
-                  <div className={`w-2 sm:w-4 md:w-6 h-px shrink-0 ${isDone ? 'bg-emerald-400/40' : 'bg-white/10'}`} />
-                )}
-              </div>
+              <button
+                key={phase.id}
+                onClick={() => goTo(phaseStartIndex[i])}
+                className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all min-h-[38px] ${
+                  isActive
+                    ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/30 ring-2 ring-brand-primary/40'
+                    : isDone
+                      ? 'bg-white/10 text-slate-300 hover:bg-white/15'
+                      : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                <span className={`flex items-center justify-center w-5 h-5 rounded-full shrink-0 ${
+                  isActive ? 'bg-white/20' : isDone ? 'bg-emerald-400/20 text-emerald-400' : 'bg-white/10'
+                }`}>
+                  {isDone ? <Check size={12} /> : phase.icon}
+                </span>
+                <span>{phase.number} {phase.label}</span>
+              </button>
             );
           })}
         </motion.div>
