@@ -224,10 +224,10 @@ export function AppDemoVideo() {
             Producttour
           </span>
           <h2 className="text-2xl md:text-5xl font-display font-bold text-white mb-4">
-            Een echte klantcase.
+            Bekijk de interactieve workflow.
           </h2>
           <p className="text-base sm:text-lg text-slate-400 max-w-xl mx-auto">
-            Van energierekening naar onderbouwde offerte in één workflow.
+            Van energierekening naar onderbouwde offerte in 5 heldere stappen.
           </p>
         </div>
 
@@ -237,16 +237,16 @@ export function AppDemoVideo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.25 }}
-          className="flex items-center justify-center gap-1 sm:gap-2 mb-8 overflow-x-auto"
+          className="flex items-center justify-start md:justify-center gap-1.5 sm:gap-2 mb-8 overflow-x-auto pb-2 px-1 scrollbar-none"
         >
           {phases.map((phase, i) => {
             const isDone = i < activePhaseIndex;
             const isActive = i === activePhaseIndex;
             return (
-              <div key={phase.id} className="flex items-center gap-1 sm:gap-2 shrink-0">
+              <div key={phase.id} className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                 <button
                   onClick={() => goTo(phaseStartIndex[i])}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all min-h-[40px] ${
+                  className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all min-h-[36px] sm:min-h-[40px] whitespace-nowrap ${
                     isActive
                       ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/30'
                       : isDone
@@ -254,16 +254,15 @@ export function AppDemoVideo() {
                         : 'bg-white/5 text-slate-500 hover:bg-white/10 hover:text-slate-300'
                   }`}
                 >
-                  <span className={`flex items-center justify-center w-5 h-5 rounded-full shrink-0 ${
+                  <span className={`flex items-center justify-center w-4 h-4 sm:w-5 sm:h-5 rounded-full shrink-0 ${
                     isActive ? 'bg-white/20' : isDone ? 'bg-emerald-400/20 text-emerald-400' : 'bg-white/10'
                   }`}>
-                    {isDone ? <Check size={12} /> : phase.icon}
+                    {isDone ? <Check size={11} /> : phase.icon}
                   </span>
-                  <span className="hidden sm:inline whitespace-nowrap">{phase.number} {phase.label}</span>
-                  <span className="sm:hidden">{phase.number}</span>
+                  <span>{phase.number} {phase.label}</span>
                 </button>
                 {i < phases.length - 1 && (
-                  <div className={`w-3 sm:w-8 h-px shrink-0 ${isDone ? 'bg-emerald-400/40' : 'bg-white/10'}`} />
+                  <div className={`w-2 sm:w-4 md:w-6 h-px shrink-0 ${isDone ? 'bg-emerald-400/40' : 'bg-white/10'}`} />
                 )}
               </div>
             );
