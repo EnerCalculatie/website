@@ -38,8 +38,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "legionellapreventie-en-warmtepompboilers-hoe-verwerkt-u-de-elektrische-bijverwarming-in-het-energieprofiel",
-    "status": "planned",
-    "createdAt": "2026-08-14T05:15:12.235Z"
+    "status": "generated",
+    "createdAt": "2026-08-14T05:15:12.235Z",
+    "generatedSlug": "legionellapreventie-warmtepompboiler-energieprofiel",
+    "generatedAt": "2026-08-21T08:41:50.488Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",

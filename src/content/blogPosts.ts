@@ -1785,4 +1785,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is de realisatietermijn na het verkrijgen van SDE++ subsidie?', answer: 'Voor projecten kleiner dan 1 MWp geldt een realisatietermijn van 1,5 jaar na verlening. Voor grotere projecten bedraagt deze termijn 3 jaar.' },
     ],
   },
+  {
+    slug: 'legionellapreventie-warmtepompboiler-energieprofiel',
+    readingTimeMinutes: 3,
+    title: 'Legionellapreventie bij Warmtepompboilers: Invloed op het Energieprofiel',
+    seoTitle: 'Warmtepompboiler & Legionella: Impact op Verbruik',
+    description:
+      'Ontdek hoe legionellapreventie bij warmtepompboilers werkt, hoe het elektrisch element het energieprofiel beïnvloedt en wat de impact is op NTA 8800.',
+    date: '2026-08-21',
+    excerpt:
+      'Het periodiek verhitten van warm tapwater ter preventie van legionella heeft een directe invloed op het energieprofiel van warmtepompboilers en de NTA 8800-berekening.',
+    tags: ['warmtepompboiler', 'legionellapreventie', 'NTA 8800', 'NEN 1006', 'energieprofiel'],
+    keyPoints: [
+      'NEN 1006 vereist periodieke verhitting tot 60 °C à 65 °C voor legionellapreventie.',
+      'Warmtepompboiler-compressor verwarmt tot 50 °C - 55 °C; bijverhitting vraagt een elektrisch element van 1,2 kW tot 2,0 kW.',
+      'Het elektrisch element werkt met COP 1 en veroorzaakt een tijdelijke piek in het vermogensprofiel.',
+      'Extra elektriciteitsverbruik telt mee in de NTA 8800 en beïnvloedt de seizoensgebonden efficiëntie (SPF).',
+      'Een EMS kan piekbelasting op de elektrische installatie via load balancing voorkomen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waarom is elektrische bijverwarming nodig bij een warmtepompboiler?', answer: 'De compressor van een warmtepompboiler verwarmt het water efficiënt tot circa 50 °C tot 55 °C. Om de door NEN 1006 geëiste 60 °C tot 65 °C voor legionellapreventie te bereiken, is de inzet van een elektrisch element noodzakelijk.' },
+      { question: 'Welke invloed heeft de legionellacyclus op de NTA 8800-berekening?', answer: 'Het extra elektriciteitsverbruik van het bijverwarmingselement (met COP 1) wordt opgeteld bij het totale energiegebruik voor warm tapwater, wat de seizoensgebonden efficiëntie (SPF) beïnvloedt.' },
+      { question: 'Hoe voorkomt u overbelasting van de netaansluiting tijdens de legionellacyclus?', answer: 'Door een Home Energy Management System (EMS) toe te passen dat via load balancing de elektrische belasting in de woning dynamisch regelt.' },
+    ],
+  },
 ];
