@@ -1,47 +1,30 @@
 [
   {
-    "title": "Offerte- en adviesrapport software voor verduurzaming: waar moet u als installateur op letten?",
-    "keyword": "adviesrapport software installateur",
-    "intent": "transactioneel",
-    "priority": 10,
-    "slug": "offerte-en-adviesrapport-software-voor-verduurzaming-waar-moet-u-als-installateur-op-letten",
-    "status": "generated",
-    "createdAt": "2026-08-19T12:37:50.729Z",
-    "generatedSlug": "offertesoftware-verduurzaming-normen-eisen",
-    "generatedAt": "2026-08-19T12:42:21.283Z"
-  },
-  {
-    "title": "Bèta-factor van een hybride warmtepomp: hoe bepaalt u het optimale omschakelpunt tussen gas en elektriciteit?",
-    "keyword": "beta factor hybride warmtepomp",
+    "title": "P1-meter kwartierdata analyseren: hoe bouwt u een realistisch energieprofiel voor uw verduurzamingsadvies?",
+    "keyword": "p1 data analyseren verduurzamingsadvies",
     "intent": "informatief",
     "priority": 8,
-    "slug": "beta-factor-van-een-hybride-warmtepomp-hoe-bepaalt-u-het-optimale-omschakelpunt-tussen-gas-en-elektriciteit",
-    "status": "generated",
-    "createdAt": "2026-08-19T12:37:50.722Z",
-    "generatedSlug": "beta-factor-hybride-warmtepomp-omschakelpunt",
-    "generatedAt": "2026-08-20T00:38:49.486Z"
+    "slug": "p1-meter-kwartierdata-analyseren-hoe-bouwt-u-een-realistisch-energieprofiel-voor-uw-verduurzamingsadvies",
+    "status": "planned",
+    "createdAt": "2026-08-21T12:37:38.747Z"
   },
   {
-    "title": "SDE++ subsidie voor kleinzakelijke PV-projecten: zo onderbouwt u de business case voor uw zakelijke klant",
-    "keyword": "sde subsidie kleinzakelijk zonnepanelen",
-    "intent": "commercieel",
-    "priority": 8,
-    "slug": "sde-subsidie-voor-kleinzakelijke-pv-projecten-zo-onderbouwt-u-de-business-case-voor-uw-zakelijke-klant",
-    "status": "generated",
-    "createdAt": "2026-08-19T12:37:50.725Z",
-    "generatedSlug": "sde-subsidie-zakelijke-pv-projecten-business-case",
-    "generatedAt": "2026-08-20T12:42:12.358Z"
-  },
-  {
-    "title": "Legionellapreventie en warmtepompboilers: hoe verwerkt u de elektrische bijverwarming in het energieprofiel?",
-    "keyword": "legionellapreventie warmtepompboiler",
+    "title": "Warmtepomp bij een slecht geïsoleerde woning: hoe onderbouwt u de noodzakelijke isolatiestappen in uw adviesrapport?",
+    "keyword": "warmtepomp slecht geisoleerde woning advies",
     "intent": "informatief",
-    "priority": 7,
-    "slug": "legionellapreventie-en-warmtepompboilers-hoe-verwerkt-u-de-elektrische-bijverwarming-in-het-energieprofiel",
-    "status": "generated",
-    "createdAt": "2026-08-14T05:15:12.235Z",
-    "generatedSlug": "legionellapreventie-warmtepompboiler-energieprofiel",
-    "generatedAt": "2026-08-21T08:41:50.488Z"
+    "priority": 8,
+    "slug": "warmtepomp-bij-een-slecht-geisoleerde-woning-hoe-onderbouwt-u-de-noodzakelijke-isolatiestappen-in-uw-adviesrapport",
+    "status": "planned",
+    "createdAt": "2026-08-21T12:37:38.750Z"
+  },
+  {
+    "title": "Zonnepanelen op meerdere dakvlakken combineren: hoe berekent u de totale jaaropbrengst bij verschillende oriëntaties?",
+    "keyword": "zonnepanelen meerdere dakvlakken berekenen",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "zonnepanelen-op-meerdere-dakvlakken-combineren-hoe-berekent-u-de-totale-jaaropbrengst-bij-verschillende-orientaties",
+    "status": "planned",
+    "createdAt": "2026-08-21T12:37:38.754Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
@@ -90,6 +73,17 @@
     "slug": "de-rol-van-een-energieadviseur-bij-het-verbeteren-van-het-energielabel-van-een-woning",
     "status": "planned",
     "createdAt": "2026-07-11T10:15:43.114Z"
+  },
+  {
+    "title": "Offerte- en adviesrapport software voor verduurzaming: waar moet u als installateur op letten?",
+    "keyword": "adviesrapport software installateur",
+    "intent": "transactioneel",
+    "priority": 10,
+    "slug": "offerte-en-adviesrapport-software-voor-verduurzaming-waar-moet-u-als-installateur-op-letten",
+    "status": "generated",
+    "createdAt": "2026-08-19T12:37:50.729Z",
+    "generatedSlug": "offertesoftware-verduurzaming-normen-eisen",
+    "generatedAt": "2026-08-19T12:42:21.283Z"
   },
   {
     "title": "Van eerste opname tot getekende offerte: hoe automatiseert u de complete klantreis als installateur?",
@@ -275,6 +269,28 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Bèta-factor van een hybride warmtepomp: hoe bepaalt u het optimale omschakelpunt tussen gas en elektriciteit?",
+    "keyword": "beta factor hybride warmtepomp",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "beta-factor-van-een-hybride-warmtepomp-hoe-bepaalt-u-het-optimale-omschakelpunt-tussen-gas-en-elektriciteit",
+    "status": "generated",
+    "createdAt": "2026-08-19T12:37:50.722Z",
+    "generatedSlug": "beta-factor-hybride-warmtepomp-omschakelpunt",
+    "generatedAt": "2026-08-20T00:38:49.486Z"
+  },
+  {
+    "title": "SDE++ subsidie voor kleinzakelijke PV-projecten: zo onderbouwt u de business case voor uw zakelijke klant",
+    "keyword": "sde subsidie kleinzakelijk zonnepanelen",
+    "intent": "commercieel",
+    "priority": 8,
+    "slug": "sde-subsidie-voor-kleinzakelijke-pv-projecten-zo-onderbouwt-u-de-business-case-voor-uw-zakelijke-klant",
+    "status": "generated",
+    "createdAt": "2026-08-19T12:37:50.725Z",
+    "generatedSlug": "sde-subsidie-zakelijke-pv-projecten-business-case",
+    "generatedAt": "2026-08-20T12:42:12.358Z"
   },
   {
     "title": "Waterzijdig inregelen bij een warmtepomp: hoe onderbouwt u de noodzaak en efficiëntiewinst bij uw klant?",
@@ -552,6 +568,17 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Legionellapreventie en warmtepompboilers: hoe verwerkt u de elektrische bijverwarming in het energieprofiel?",
+    "keyword": "legionellapreventie warmtepompboiler",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "legionellapreventie-en-warmtepompboilers-hoe-verwerkt-u-de-elektrische-bijverwarming-in-het-energieprofiel",
+    "status": "generated",
+    "createdAt": "2026-08-14T05:15:12.235Z",
+    "generatedSlug": "legionellapreventie-warmtepompboiler-energieprofiel",
+    "generatedAt": "2026-08-21T08:41:50.488Z"
   },
   {
     "title": "Ontdooicyclus bij lucht-water warmtepompen: hoe verklaart u het winterse stroompiekverbruik aan uw klant?",
