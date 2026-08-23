@@ -5,8 +5,10 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "p1-meter-kwartierdata-analyseren-hoe-bouwt-u-een-realistisch-energieprofiel-voor-uw-verduurzamingsadvies",
-    "status": "planned",
-    "createdAt": "2026-08-21T12:37:38.747Z"
+    "status": "generated",
+    "createdAt": "2026-08-21T12:37:38.747Z",
+    "generatedSlug": "p1-meter-kwartierdata-analyseren-energieprofiel",
+    "generatedAt": "2026-08-23T00:40:31.322Z"
   },
   {
     "title": "Warmtepomp bij een slecht geïsoleerde woning: hoe onderbouwt u de noodzakelijke isolatiestappen in uw adviesrapport?",

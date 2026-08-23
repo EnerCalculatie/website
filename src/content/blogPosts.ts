@@ -1810,4 +1810,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkomt u overbelasting van de netaansluiting tijdens de legionellacyclus?', answer: 'Door een Home Energy Management System (EMS) toe te passen dat via load balancing de elektrische belasting in de woning dynamisch regelt.' },
     ],
   },
+  {
+    slug: 'p1-meter-kwartierdata-analyseren-energieprofiel',
+    readingTimeMinutes: 4,
+    title: 'P1-meter kwartierdata analyseren voor een realistisch energieprofiel',
+    seoTitle: 'P1-meter kwartierdata analyseren voor energieprofiel',
+    description:
+      'Analyseer kwartierdata uit de P1-poort voor een realistisch energieprofiel. Ontdek inzichten over piekbelasting, NEN 1010, selectiviteit en EMS.',
+    date: '2026-08-23',
+    excerpt:
+      'Het analyseren van kwartierdata uit de P1-poort van een slimme meter vormt de basis voor een onderbouwd verduurzamingsadvies. Ontdek hoe u piekbelastingen en NEN 1010-eisen meeneemt.',
+    tags: ['P1-meter', 'Kwartierdata', 'Energieprofiel', 'NEN 1010', 'Verduurzamingsadvies', 'Load balancing'],
+    keyPoints: [
+      'Kwartierdata uit de P1-poort geeft direct inzicht in actuele vermogens en piekbelastingen.',
+      'Maakt het mogelijk om gebruikersgedrag te scheiden van gebouwgebonden energieprestaties (NTA 8800).',
+      'Helpt overschrijding van gecontracteerde netcapaciteit en duurdere aansluitcategorieën te voorkomen.',
+      'NEN 1010 vereist toetsing van selectiviteit (factor 1,6) en preventie van somstroom-overbelasting.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het voordeel van P1-kwartierdata analyseren voor energieadvies?', answer: 'Het analyseren van kwartierdata geeft exact inzicht in actuele piekbelastingen en de gelijktijdigheid van opwek en verbruik. Dit is essentieel voor het juist dimensioneren van warmtepompen, thuisbatterijen en laadpalen.' },
+      { question: 'Hoeveel stroom levert de P1-poort volgens DSMR 5.0?', answer: 'Een slimme meter met DSMR 5.0 levert via de P1-poort (RJ11/RJ12) een voeding van 5V / 250mA. Dit is voldoende om de meeste P1-meters of dataloggers direct van voeding te voorzien.' },
+      { question: 'Waarom mag een omvormer op 3x25A maximaal op 16A worden afgezekerd?', answer: 'Om selectiviteit ten opzichte van de hoofdzekering te waarborgen (met een veiligheidsmarge van factor 1,6 volgens NEN 1010), mag een eindgroep bij een 25A-hoofdzekering op maximaal 16A worden afgezekerd.' },
+    ],
+  },
 ];
