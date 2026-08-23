@@ -140,6 +140,7 @@ const BetaFactorHybrideWarmtepompOmschakelpuntArticle = lazyRoute('/blog/beta-fa
 const SdeSubsidieZakelijkePvProjectenBusinessCaseArticle = lazyRoute('/blog/sde-subsidie-zakelijke-pv-projecten-business-case', () => import('./components/blog/SdeSubsidieZakelijkePvProjectenBusinessCaseArticle').then(m => ({ default: m.SdeSubsidieZakelijkePvProjectenBusinessCaseArticle })));
 const LegionellapreventieWarmtepompboilerEnergieprofielArticle = lazyRoute('/blog/legionellapreventie-warmtepompboiler-energieprofiel', () => import('./components/blog/LegionellapreventieWarmtepompboilerEnergieprofielArticle').then(m => ({ default: m.LegionellapreventieWarmtepompboilerEnergieprofielArticle })));
 const P1MeterKwartierdataAnalyserenEnergieprofielArticle = lazyRoute('/blog/p1-meter-kwartierdata-analyseren-energieprofiel', () => import('./components/blog/P1MeterKwartierdataAnalyserenEnergieprofielArticle').then(m => ({ default: m.P1MeterKwartierdataAnalyserenEnergieprofielArticle })));
+const WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle = lazyRoute('/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen', () => import('./components/blog/WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle').then(m => ({ default: m.WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -317,6 +318,7 @@ export function AppContent() {
             <Route path="/blog/sde-subsidie-zakelijke-pv-projecten-business-case" element={<SdeSubsidieZakelijkePvProjectenBusinessCaseArticle />} />
             <Route path="/blog/legionellapreventie-warmtepompboiler-energieprofiel" element={<LegionellapreventieWarmtepompboilerEnergieprofielArticle />} />
             <Route path="/blog/p1-meter-kwartierdata-analyseren-energieprofiel" element={<P1MeterKwartierdataAnalyserenEnergieprofielArticle />} />
+            <Route path="/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen" element={<WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

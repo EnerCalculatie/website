@@ -16,8 +16,10 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "warmtepomp-bij-een-slecht-geisoleerde-woning-hoe-onderbouwt-u-de-noodzakelijke-isolatiestappen-in-uw-adviesrapport",
-    "status": "planned",
-    "createdAt": "2026-08-21T12:37:38.750Z"
+    "status": "generated",
+    "createdAt": "2026-08-21T12:37:38.750Z",
+    "generatedSlug": "warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen",
+    "generatedAt": "2026-08-23T12:39:34.159Z"
   },
   {
     "title": "Zonnepanelen op meerdere dakvlakken combineren: hoe berekent u de totale jaaropbrengst bij verschillende oriëntaties?",

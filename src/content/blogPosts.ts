@@ -1834,4 +1834,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom mag een omvormer op 3x25A maximaal op 16A worden afgezekerd?', answer: 'Om selectiviteit ten opzichte van de hoofdzekering te waarborgen (met een veiligheidsmarge van factor 1,6 volgens NEN 1010), mag een eindgroep bij een 25A-hoofdzekering op maximaal 16A worden afgezekerd.' },
     ],
   },
+  {
+    slug: 'warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen',
+    readingTimeMinutes: 3,
+    title: 'Warmtepomp bij slecht geïsoleerde woning: isolatie-advies onderbouwen',
+    seoTitle: 'Warmtepomp bij slechte isolatie: advies onderbouwen',
+    description:
+      'Hoe onderbouwt u het isolatie-advies voor een warmtepomp bij een matig of slecht geïsoleerde woning? Bekijk de NTA 8800, 50-gradentest en ISDE-regels.',
+    date: '2026-08-23',
+    excerpt:
+      'Bij een matig of slecht geïsoleerde woning is een heldere onderbouwing van de benodigde isolatiestappen essentieel voor een succesvol warmtepompadvies.',
+    tags: ['Warmtepomp', 'Isolatie', 'NTA 8800', 'ISDE subsidie', 'Verduurzaming'],
+    keyPoints: [
+      'All-electric warmtepomp vraagt om uitstekende isolatie (aanvoertemperatuur ≤ 35°C tot 45°C), hybride heeft genoeg aan basisisolatie.',
+      'NTA 8800 gebruikt Rc-waarden en luchtdichtheid om energiebehoefte en ontwerptemperatuur feitelijk te onderbouwen.',
+      'Met de 50-gradentest kan in de praktijk worden getoetst of lage-temperatuurverwarming haalbaar is.',
+      'Slechte isolatie verlaagt de SCOP (efficiëntie) en verhoogt de netbelasting en het piekvermogen.',
+      'ISDE-subsidie stelt specifieke Rd-waarden en verdubbelt de m²-subsidie bij minstens twee verduurzamingsmaatregelen binnen twee jaar.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is een warmtepomp mogelijk in een slecht geïsoleerde woning?', answer: 'In een matig tot slecht geïsoleerde woning is vaak eerst aanvullende isolatie nodig. Een hybride warmtepomp kan bij basisisolatie al functioneren, terwijl een all-electric warmtepomp uitstekende isolatie vereist om met een lage aanvoertemperatuur (≤ 35°C tot 45°C) comfortabel te verwarmen.' },
+      { question: 'Wat is de 50-gradentest voor warmtepompen?', answer: 'De 50-gradentest is een praktijktest waarbij de maximale cv-aanvoertemperatuur gedurende een stookseizoen op 50°C wordt begrensd om te testen of de woning op lage temperatuur voldoende warm blijft.' },
+      { question: 'Wat zijn de ISDE-isolatie-eisen voor subsidie op een warmtepomp en isolatie?', answer: 'Voor dak- en vloerisolatie geldt een minimale Rd-waarde van 3,5 m²K/W en voor spouwmuurisolatie minimaal Rd 1,1 m²K/W. Als binnen twee jaar twee verduurzamingsmaatregelen worden gecombineerd, verdubbelt het subsidiebedrag per m² voor isolatie.' },
+    ],
+  },
 ];
