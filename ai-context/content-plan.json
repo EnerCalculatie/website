@@ -27,8 +27,10 @@
     "intent": "informatief",
     "priority": 8,
     "slug": "zonnepanelen-op-meerdere-dakvlakken-combineren-hoe-berekent-u-de-totale-jaaropbrengst-bij-verschillende-orientaties",
-    "status": "planned",
-    "createdAt": "2026-08-21T12:37:38.754Z"
+    "status": "generated",
+    "createdAt": "2026-08-21T12:37:38.754Z",
+    "generatedSlug": "zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen",
+    "generatedAt": "2026-08-24T00:39:39.575Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",

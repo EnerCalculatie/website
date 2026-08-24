@@ -1859,4 +1859,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat zijn de ISDE-isolatie-eisen voor subsidie op een warmtepomp en isolatie?', answer: 'Voor dak- en vloerisolatie geldt een minimale Rd-waarde van 3,5 m²K/W en voor spouwmuurisolatie minimaal Rd 1,1 m²K/W. Als binnen twee jaar twee verduurzamingsmaatregelen worden gecombineerd, verdubbelt het subsidiebedrag per m² voor isolatie.' },
     ],
   },
+  {
+    slug: 'zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen',
+    readingTimeMinutes: 4,
+    title: 'Zonnepanelen op Meerdere Dakvlakken: Jaaropbrengst Berekenen',
+    seoTitle: 'Opbrengst Zonnepanelen Meerdere Dakvlakken',
+    description:
+      'Hoe berekent u de jaaropbrengst van zonnepanelen op verschillende dakvlakken? Ontdek de invloed van oriëntatie, MPPT en NEN 1010-eisen.',
+    date: '2026-08-24',
+    excerpt:
+      'Ontdek hoe u de totale jaaropbrengst berekent bij zonnepanelen op meerdere dakvlakken, inclusief technische NEN 1010-eisen en netcode-richtlijnen.',
+    tags: ['zonnepanelen', 'dakvlakken', 'jaaropbrengst', 'NEN 1010', 'omvormer'],
+    keyPoints: [
+      'Totale jaaropbrengst is de som van afzonderlijke berekeningen per dakvlak volgens NEN-normering.',
+      'Zuidoriëntatie behaalt 100% instraling (30-35°), oost/west 80-85%.',
+      'Gebruik gescheiden MPPT-ingangen of power optimizers om rendementsverlies te voorkomen.',
+      'Aansluiting >16A (3,68 kW) vereist 3-fase omvormer om netonbalans en overbelasting volgens NEN 1010 te voorkomen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoe bereken je de opbrengst van zonnepanelen op verschillende dakvlakken?', answer: 'Je berekent per dakvlak de opbrengst door de zoninstraling (kWh/m²) te vermenigvuldigen met het piekvermogen (kWp) en de systeemefficiëntie. Daarna tel je de uitkomsten van alle vlakken bij elkaar op.' },
+      { question: 'Welke omvormer is geschikt bij meerdere oriëntaties?', answer: 'Kies een string-omvormer met meerdere gescheiden MPPT-ingangen (één per dakvlak) of gebruik power optimizers per paneel voor een individuele regeling.' },
+      { question: 'Wanneer is een 3-fase omvormer verplicht?', answer: 'Volgens de Netcode Elektriciteit moet een invoeding boven 16A (3,68 kVA) over meerdere fases verdeeld worden. Boven 5 kW is een 3-fase aansluiting vrijwel altijd noodzakelijk.' },
+    ],
+  },
 ];
