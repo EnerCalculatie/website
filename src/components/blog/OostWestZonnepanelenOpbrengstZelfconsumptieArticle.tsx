@@ -10,7 +10,7 @@ Een **oost-west opstelling van zonnepanelen** biedt een effectief alternatief vo
 ## Jaaropbrengst en Dagelijks Productieprofiel van Oost-West Zonnepanelen
 Een oost-west opstelling levert per geïnstalleerde Wattpiek op jaarbasis doorgaans circa 10 tot 20 procent minder totale elektriciteit op dan een optimale zuid-oriëntatie onder een hoek van 35 graden.
 
-Daartegenover staat dat een oost-west oriëntatie zorgt voor een vlakkere en bredere productiecurve gedurende de dag. Hierbij is sprake van een lagere piek rond het middaguur en een hogere productie in de ochtend en de late middag.
+Daartegenover staat dat een oost-west oriëntatie zorgt voor een vlakkere en bredere productiecurve gedurende de dag. Hierbij is sprake van een lagere piek rond het middaguur en een hogere productie in de ochtend en de late middag. Voor de volledige rekenmethode per dakvlak inclusief een uitgewerkt cijfervoorbeeld: zie [zonnepanelen op meerdere dakvlakken](/blog/zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen).
 
 ## Hogere Directe Zelfconsumptie en Slim Verbruik
 In een standaard huishouden zonder batterij of slimme sturing ligt het gemiddelde percentage directe zelfconsumptie van opgewekte zonnestroom op circa 30 procent. 

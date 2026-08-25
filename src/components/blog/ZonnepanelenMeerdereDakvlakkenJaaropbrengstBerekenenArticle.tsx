@@ -43,7 +43,7 @@ Niet elk dakvlak ontvangt evenveel zonne-energie. De oriëntatie en de hellingsh
 * **Oost- en westoriëntatie:** Een oost- of westoriëntatie ontvangt gemiddeld tussen de 80% en 85% van de maximale instraling.
 
 ### Spreiding van de stroomproductie
-Een oost-westverdeling van panelen vlakt de piekproductie rond het middaguur af. Doordat de stroomopwekking beter over de dag wordt gespreid, kan de piekbelasting op de netaansluiting worden verminderd.
+Een oost-westverdeling van panelen vlakt de piekproductie rond het middaguur af. Doordat de stroomopwekking beter over de dag wordt gespreid, kan de piekbelasting op de netaansluiting worden verminderd. Zie [oost-west zonnepanelen: opbrengst en zelfconsumptie](/blog/oost-west-zonnepanelen-opbrengst-zelfconsumptie) voor een uitgewerkte vergelijking met een zuidgerichte installatie.
 
 ---
 
@@ -52,7 +52,7 @@ Een oost-westverdeling van panelen vlakt de piekproductie rond het middaguur af.
 Wanneer panelen op verschillende dakvlakken met een afwijkende oriëntatie of hellingshoek worden aangesloten, zijn er specifieke technische oplossingen nodig om rendementsverliezen te voorkomen:
 
 ### Standaard string-omvormers en MPPT
-Als panelen met verschillende oriëntaties worden aangesloten op een standaard string-omvormer, worden deze op gescheiden MPPT-ingangen (Maximum Power Point Tracker) geplaatst. Dit voorkomt rendementsverliezen door onderlinge beïnvloeding van de verschillende dakvlakken.
+Als panelen met verschillende oriëntaties worden aangesloten op een standaard string-omvormer, worden deze op gescheiden MPPT-ingangen (Maximum Power Point Tracker) geplaatst. Dit voorkomt rendementsverliezen door onderlinge beïnvloeding van de verschillende dakvlakken. Speelt de DC/AC-verhouding hierbij ook een rol? Zie [DC/AC-verhouding van een omvormer](/blog/dc-ac-verhouding-omvormer-overdimensionering) voor de onderbouwing richting uw klant.
 
 ### Power optimizers voor individuele regeling
 Bij het gebruik van power optimizers per paneel kan elk paneel afzonderlijk op zijn maximale vermogenspunt werken. Hierdoor is het mogelijk om panelen op verschillende dakvlakken en hellingshoeken in een enkele string te combineren.

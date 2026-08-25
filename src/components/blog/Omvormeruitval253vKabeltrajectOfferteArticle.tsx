@@ -11,7 +11,7 @@ Omvormeruitval op zonnige momenten wordt veroorzaakt door een netspanning die de
 
 Volgens Europese normen (EN 50549-1) en de Nederlandse Netcode Elektriciteit dienen omvormers automatisch uit te schakelen zodra de netspanning de grens van 253 Volt (230V + 10%) overschrijdt. 
 
-Omvormeruitval treedt met name op tijdens piekmomenten. Dit gebeurt wanneer veel zonnestroominstallaties in een buurtschap gelijktijdig stroom terugleveren aan een lokaal belaste laagspanningskabel.
+Omvormeruitval treedt met name op tijdens piekmomenten. Dit gebeurt wanneer veel zonnestroominstallaties in een buurtschap gelijktijdig stroom terugleveren aan een lokaal belaste laagspanningskabel. Een bewust overgedimensioneerde omvormer (zie [DC/AC-verhouding en overdimensionering](/blog/dc-ac-verhouding-omvormer-overdimensionering)) verandert dit piekgedrag niet — de netspanningsgrens blijft een aparte, aanvullende overweging in het ontwerp.
 
 ## Verdeling van verantwoordelijkheid: netbeheerder vs. installateur
 

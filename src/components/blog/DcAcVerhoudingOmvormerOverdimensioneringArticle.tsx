@@ -43,7 +43,7 @@ Bij het ontwerpen van een overgedimensioneerd systeem is het van belang de grenz
 * De maximale ingangsspanning ($V_{dc \text{max}}$)
 * De maximale ingangsstroom ($I_{dc \text{max}}$)
 
-Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een erkend installateur.
+Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een erkend installateur. Speelt spanningsopdrijving op het net hierbij ook mee? Zie [omvormeruitval bij 253V en het kabeltraject](/blog/omvormeruitval-253v-kabeltraject-offerte) voor de onderbouwing richting uw offerte.
 
 ## Samenvatting
 
