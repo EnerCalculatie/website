@@ -28,6 +28,26 @@ export function escapeJsString(s: string) {
   return s.replace(/'/g, "\\'");
 }
 
+export interface PlanItem {
+  title?: string;
+  status?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Vindt het backlog-item dat bij deze pipeline-run hoort — puur op het ORIGINELE onderwerp
+ * (`originalTopic`, exact `item.title` zoals run-pipeline.ts het uit content-plan.json koos),
+ * nooit op `seoJson.title` (SeoGeoAgent herschrijft die). Geen fallback op "eender welk planned
+ * item": dat verkeerd-markeren was de root cause van een echt duplicaat-artikel (2026-08-07/08,
+ * samengevoegd 2026-08-25) — het echte gegenereerde item bleef daardoor op 'planned' staan en
+ * werd de volgende run opnieuw opgepikt en opnieuw gegenereerd, terwijl een totaal ongerelateerd
+ * item ten onrechte als 'generated' werd gemarkeerd.
+ */
+export function matchPlanItem(plan: PlanItem[], originalTopic: string | undefined): PlanItem | undefined {
+  if (!originalTopic) return undefined;
+  return plan.find((i) => i.title === originalTopic && i.status === 'planned');
+}
+
 export interface SeoJson {
   content: string;
   slug: string;
@@ -150,7 +170,8 @@ export function insertAppRoutes(appSource: string, componentName: string, slug: 
 }
 
 export class PublishAgent {
-  async run(seoJsonPath: string, rootDir: string) {
+  /** `originalTopic`: zie `matchPlanItem` hierboven — geef `topic` uit run-pipeline.ts door. */
+  async run(seoJsonPath: string, rootDir: string, originalTopic?: string) {
     console.log(`[PublishAgent] Start publicatie...`);
 
     const seoJson: SeoJson = JSON.parse(readFileSync(seoJsonPath, 'utf-8'));
@@ -184,13 +205,17 @@ export class PublishAgent {
     const logPath = path.join(rootDir, 'ai-context/content-log.json');
     try {
       const plan = JSON.parse(readFileSync(planPath, 'utf-8'));
-      const planItem = plan.find((i: Record<string, unknown>) => i.title === title) || plan.find((i: Record<string, unknown>) => i.status === 'planned');
+      const planItem = matchPlanItem(plan, originalTopic);
       if (planItem) {
         planItem.status = 'generated';
         planItem.generatedSlug = slug;
         planItem.generatedAt = new Date().toISOString();
         writeFileSync(planPath, JSON.stringify(plan, null, 2), 'utf-8');
         console.log('[PublishAgent] content-plan.json bijgewerkt.');
+      } else {
+        console.warn(
+          `[PublishAgent] Waarschuwing: geen 'planned' backlog-item gevonden voor origineel onderwerp "${originalTopic ?? '(onbekend)'}" — content-plan.json NIET bijgewerkt. Dit onderwerp kan een volgende run opnieuw oppikken; controleer handmatig.`
+        );
       }
       
       let log = [];

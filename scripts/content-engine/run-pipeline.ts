@@ -109,7 +109,7 @@ async function run() {
     if (qualityOut.passed) {
       console.log(`\n✅ Kwaliteitscontrole geslaagd (confidence: ${qualityOut.confidence}%). Start publicatie...`);
       const publisher = new PublishAgent();
-      await publisher.run(seoPath, cwd);
+      await publisher.run(seoPath, cwd, topic);
       console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd!`);
     } else {
       // Log de issues maar publiceer NIET — dit is een echte blokkade
@@ -120,7 +120,7 @@ async function run() {
         console.log(`Suggesties voor handmatige review:`);
         console.log(JSON.stringify(qualityOut.issues, null, 2));
         const publisher = new PublishAgent();
-        await publisher.run(seoPath, cwd);
+        await publisher.run(seoPath, cwd, topic);
         console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd (met suggesties).`);
       } else {
         console.log(`\n❌ PIPELINE GESTOPT: ${highIssues.length} blokkerende fout(en) na alle iteraties. Handmatige controle vereist.`);

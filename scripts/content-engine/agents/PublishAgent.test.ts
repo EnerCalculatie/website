@@ -15,6 +15,7 @@ import {
   buildBlogPostsEntry,
   insertBlogPostsEntry,
   insertAppRoutes,
+  matchPlanItem,
   type SeoJson,
 } from './PublishAgent';
 
@@ -78,6 +79,35 @@ describe('buildComponentSource', () => {
     const bareNodeDestructure = /\{node,\s*\.\.\.props\}/;
     expect(bareNodeDestructure.test(src)).toBe(false);
     expect((src.match(/\{node: _node, \.\.\.props\}/g) || []).length).toBeGreaterThanOrEqual(12);
+  });
+});
+
+describe('matchPlanItem', () => {
+  const plan = [
+    { title: 'Zakelijke laadpalen en fiscale stimulering: MIA en VAMIL', status: 'planned' },
+    { title: 'Dynamische energiecontracten adviseren: sturing batterij en warmtepomp', status: 'planned' },
+  ];
+
+  it('matcht exact op het originele onderwerp, niet op het eerste planned item (regressie 2026-08-25)', () => {
+    const match = matchPlanItem(plan, 'Dynamische energiecontracten adviseren: sturing batterij en warmtepomp');
+    expect(match?.title).toBe('Dynamische energiecontracten adviseren: sturing batterij en warmtepomp');
+  });
+
+  it('geeft undefined i.p.v. een verkeerd item als de SEO-herschreven titel niet meer matcht', () => {
+    // Root cause van het echte duplicaat-artikel: SeoGeoAgent herschreef de titel, de oude
+    // matching viel dan terug op "het eerste planned item" (hier het laadpalen-item) en markeerde
+    // dat ten onrechte als gegenereerd. Nu: geen match, geen fallback, item blijft 'planned'.
+    const match = matchPlanItem(plan, 'Een compleet andere, SEO-herschreven titel die niet in de backlog staat');
+    expect(match).toBeUndefined();
+  });
+
+  it('geeft undefined zonder originalTopic (handmatige CLI-run zonder backlog-koppeling)', () => {
+    expect(matchPlanItem(plan, undefined)).toBeUndefined();
+  });
+
+  it('matcht niet op een item dat al niet meer planned is', () => {
+    const withGenerated = [{ title: 'Al gepubliceerd onderwerp', status: 'generated' }];
+    expect(matchPlanItem(withGenerated, 'Al gepubliceerd onderwerp')).toBeUndefined();
   });
 });
 
