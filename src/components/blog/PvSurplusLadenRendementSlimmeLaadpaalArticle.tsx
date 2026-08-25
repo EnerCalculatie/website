@@ -23,7 +23,7 @@ Met een laadpaal die beschikt over automatische faseschakeling geldt dat het lad
 
 ## Netbelasting, Dynamic Load Balancing en installatienormen
 
-Het inzetten van slimme laadpalen met slimme aansturing en Dynamic Load Balancing helpt pieken op het lokaal elektriciteitsnet te verminderen en voorkomt in veel gevallen dat de hoofdaansluiting overbelast raakt. Ook een Home Energy Management System (EMS) regelt de belasting in huis dynamisch om piekstromen en afschakeling van de hoofdzekering te voorkomen.
+Het inzetten van slimme laadpalen met slimme aansturing en Dynamic Load Balancing helpt pieken op het lokaal elektriciteitsnet te verminderen en voorkomt in veel gevallen dat de hoofdaansluiting overbelast raakt. Ook een Home Energy Management System (EMS) regelt de belasting in huis dynamisch om piekstromen en afschakeling van de hoofdzekering te voorkomen. Zie [dynamic load balancing bij een laadpaal](/blog/dynamic-load-balancing-laadpaal-adviseren) voor de technische onderbouwing hiervan.
 
 Bij de aansluiting en beveiliging van installaties dient rekening te worden gehouden met de geldende richtlijnen:
 * **Vermogen op 3x25A:** Een 3x25A hoofdaansluiting heeft een continu vermogen van 17,25 kW. Om selectiviteit te waarborgen t.o.v. de hoofdzekering mag een laadpaal of omvormer op een 3x25A aansluiting doorgaans op maximaal 16A worden afgezekerd. Dit komt neer op maximaal 3,68 kW per fase en een totaal 3-fase vermogen van circa 11 kW per lader zonder slimme sturing.

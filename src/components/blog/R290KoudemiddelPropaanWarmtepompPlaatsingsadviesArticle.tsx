@@ -31,7 +31,7 @@ Vanwege deze brandbaarheid dienen installateurs bij het opstellen van het plaats
 2. **Vrij van ontstekingsbronnen:** Binnen deze zone mogen zich absoluut geen ontstekingsbronnen bevinden (zoals verlichting, schakelaars of buitenstopcontacten).
 3. **Afstand tot openingen en afvoeren:** De ex-zone moet vrij blijven van openingen naar het gebouw (zoals ramen, deuren en ventilatieroosters) en mag geen onafgedekte afvoerputten of kelderkoekoeken bevatten.
 
-Daarnaast eist de **NEN 1010** dat elektrische installaties adequaat beveiligd zijn tegen overstroom, waarbij de gelijktijdigheid exact moet worden berekend. Raadpleeg voor specifieke vragen over de elektrische aansluiting een erkend installateur.
+Daarnaast eist de **NEN 1010** dat elektrische installaties adequaat beveiligd zijn tegen overstroom, waarbij de gelijktijdigheid exact moet worden berekend. Raadpleeg voor specifieke vragen over de elektrische aansluiting een erkend installateur. Speelt bij de plaatsing van de buitenunit ook geluidshinder een rol richting de buren? Zie [geluidsnorm warmtepomp buitenunit](/blog/geluidsnorm-warmtepomp-buiteneenheid-advies) voor die aanvullende plaatsingseis.
 
 ## Conclusie
 

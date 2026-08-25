@@ -46,6 +46,8 @@ Wanneer het technische ontwerp gereed is, volgt de administratieve en contractue
 - **ISDE-subsidie:** Subsidieaanvragen door eindgebruikers vereisen dat de offerte en installatiedocumenten voorzien zijn van de specifieke RVO-meldcode van de apparatuur en het bewijs van professionele installatie.
 - **Aanmelding opwekinstallaties:** De inbedrijfstelling van opwekinstallaties zoals zonnepanelen vereist een aanmelding via de landelijke registratiesite **Energieleveren.nl** ten behoeve van de netbeheerder.
 
+Zie [offertesoftware voor verduurzaming](/blog/offertesoftware-verduurzaming-normen-eisen) voor hoe deze administratieve stap in de praktijk wordt geautomatiseerd.
+
 ## Conclusie
 
 Het hanteren van de geldende veiligheidsnormen, capaciteitsberekeningen en administratieve verplichtingen zorgt voor een technisch onderbouwd proces van de eerste schouw tot de uiteindelijke offerte.

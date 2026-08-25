@@ -11,7 +11,7 @@ Een ventilatiewarmtepomp gebruikt de warmte uit afgevoerde binnenlucht (Type C m
 
 Een ventilatiewarmtepomp benut de thermische energie uit de afgezogen binnenlucht. Omdat deze afgevoerde lucht gedurende het gehele jaar een constante temperatuur van circa 20 °C heeft, kan de ventilatiewarmtepomp een constant en hoog rendement (COP) behalen.
 
-In de praktijk werkt de ventilatiewarmtepomp hybride samen met een bestaande of nieuwe cv-ketel. De cv-ketel springt bij tijdens hele koude dagen en bij pieken in de vraag naar warm tapwater.
+In de praktijk werkt de ventilatiewarmtepomp hybride samen met een bestaande of nieuwe cv-ketel. De cv-ketel springt bij tijdens hele koude dagen en bij pieken in de vraag naar warm tapwater. Wordt het tapwater via een warmtepompboiler geleverd? Zie [legionellapreventie bij een warmtepompboiler](/blog/legionellapreventie-warmtepompboiler-energieprofiel) voor de invloed daarvan op het energieprofiel.
 
 ## Rendement en energieprestatie (NTA 8800) onderbouwen
 

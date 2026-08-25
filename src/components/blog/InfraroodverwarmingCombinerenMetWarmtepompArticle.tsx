@@ -21,6 +21,8 @@ De manier waarop deze systemen worden ingezet, heeft een grote invloed op het to
 - **Infrarood als hoofdverwarming:** Wanneer infraroodpanelen worden ingezet als primaire hoofdverwarming, leidt dit door de COP van 1 tot een aanzienlijk hoger stroomverbruik en hogere energiekosten in vergelijking met een warmtepomp.
 - **Infrarood als bijverwarming:** Infraroodpanelen zijn energetisch vooral toepasbaar als plaatselijke bijverwarming. Dit is met name effectief in ruimtes die kortstondig of incidenteel worden gebruikt, zoals een badkamer of een thuiswerkplek.
 
+Bij een slecht geïsoleerde woning speelt een vergelijkbare afweging: zie [warmtepomp bij een slecht geïsoleerde woning](/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen) voor hoe u dat onderbouwt vóórdat u infrarood als aanvulling adviseert.
+
 ## Piekbelasting en capaciteit van de huisaansluiting
 
 Het gelijktijdig inschakelen van elektrische apparatuur met een hoog vermogen, waaronder infraroodpanelen en een warmtepomp, verhoogt de piekbelasting van de huisaansluiting.

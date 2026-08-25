@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'offertesoftware-verduurzaming-normen-eisen')!;
 
 const markdown = `
-Waar moet kwalitatieve offerte- en adviesrapport software voor verduurzaming aan voldoen? Om installateurs te ondersteunen bij het opleveren van veiligheidstechnisch en financieel verantwoorde adviezen, dient software strikt aan te sluiten bij geldende normeringen zoals NTA 8800, NEN 1010, NEN 3140, de Netcode Elektriciteit en ISDE-subsidie-eisen.
+Waar moet kwalitatieve offerte- en adviesrapport software voor verduurzaming aan voldoen? Om installateurs te ondersteunen bij het opleveren van veiligheidstechnisch en financieel verantwoorde adviezen, dient software strikt aan te sluiten bij geldende normeringen zoals NTA 8800, NEN 1010, NEN 3140, de Netcode Elektriciteit en ISDE-subsidie-eisen. Zie [de klantreis van schouw tot offerte](/blog/klantreis-installateur-van-schouw-tot-offerte) voor waar deze software in dat proces past.
 
 ---
 

@@ -29,6 +29,8 @@ Het financieel optimale omschakelpunt treedt op wanneer de kosten voor het opwek
 - De kosten voor het opwekken van warmte via de warmtepomp zijn afhankelijk van de momentane COP en de elektriciteitsprijs per kWh. 
 - De kosten voor het opwekken van warmte via de cv-ketel zijn afhankelijk van het nuttig rendement van de ketel en de gasprijs per m³.
 
+Dit omschakelpunt bepaalt rechtstreeks de [business case van de hybride warmtepomp](/blog/hybride-warmtepomp-business-case) richting de klant.
+
 ### Berekening van de minimale COP voor omschakeling
 
 De minimale COP waarbij elektrisch verwarmen met de warmtepomp voordeliger is dan verwarmen op gas, wordt berekend door:

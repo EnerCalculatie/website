@@ -11,7 +11,7 @@ Het plaatsen van zonnepanelen op appartementencomplexen en flatgebouwen vraagt o
 
 Voor het realiseren van een zonnestroominstallatie op het gemeenschappelijke dak van een appartementencomplex is doorgaans een formeel besluit van de Vereniging van Eigenaars (VvE) vereist. Dit besluit wordt genomen op basis van de toepasselijke splitsingsakte en de daarin vastgelegde stemverhoudingen.
 
-Daarnaast kunnen VvE's en appartementseigenaren in veel gevallen gebruikmaken van de Subsidie verduurzaming voor Verenigingen van Eigenaars (SVVE). Deze regeling van de RVO biedt subsidie voor verduurzamingsmaatregelen en oplaadpuntenadvies.
+Daarnaast kunnen VvE's en appartementseigenaren in veel gevallen gebruikmaken van de Subsidie verduurzaming voor Verenigingen van Eigenaars (SVVE). Deze regeling van de RVO biedt subsidie voor verduurzamingsmaatregelen en oplaadpuntenadvies. Zie [verduurzamingsadvies voor een VvE-collectief](/blog/verduurzamingsadvies-vve-collectief-plan) voor hoe u dit besluitvormingstraject breder aanpakt dan alleen de zonnepanelen.
 
 ## Bouwkundige eisen en brandveiligheid op platte daken
 

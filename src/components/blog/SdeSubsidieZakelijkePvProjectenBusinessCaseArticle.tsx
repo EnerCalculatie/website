@@ -34,7 +34,7 @@ Bij het opstellen van rekenmodellen voor de zakelijke klant spelen jaarlijkse ve
 
 ## Conclusie: Een sluitende business case voor uw klant
 
-Een gedegen business case voor zakelijke zon-PV projecten binnen de SDE++ rust op het correct meewegen van de aanvraagvereisten (zoals een grootverbruikaansluiting van meer dan 3x80A, een positieve transportindicatie en een goedgekeurde dakverklaring) én de randvoorwaarden tijdens de exploitatiefase. Door de termijn van 15 jaar, het maximum van 950 vollasturen voor netlevering, de banking-regeling en de jaarlijkse marktcorrecties mee te nemen, ontstaat een helder en realistisch financieel beeld voor de zakelijke eindklant.
+Een gedegen business case voor zakelijke zon-PV projecten binnen de SDE++ rust op het correct meewegen van de aanvraagvereisten (zoals een grootverbruikaansluiting van meer dan 3x80A, een positieve transportindicatie en een goedgekeurde dakverklaring) én de randvoorwaarden tijdens de exploitatiefase. Door de termijn van 15 jaar, het maximum van 950 vollasturen voor netlevering, de banking-regeling en de jaarlijkse marktcorrecties mee te nemen, ontstaat een helder en realistisch financieel beeld voor de zakelijke eindklant. Combineer dit waar relevant met de [energie-investeringsaftrek (EIA)](/blog/energie-investeringsaftrek-eia-2026) — beide regelingen richten zich op zakelijke verduurzaming, maar met een ander fiscaal mechanisme.
 `;
 
 export function SdeSubsidieZakelijkePvProjectenBusinessCaseArticle() {

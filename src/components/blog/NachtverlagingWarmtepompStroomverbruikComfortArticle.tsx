@@ -21,7 +21,7 @@ Het toepassen van een te grote nachtverlaging kan op meerdere manieren invloed h
 
 * **Daling van de COP (Coefficient of Performance):** Als een woning na een grote nachtverlaging snel opgewarmd moet worden, dwingt dit de warmtepomp om op een hogere frequentie en met een hogere aanvoertemperatuur te draaien. Dit verlaagt de COP van het systeem.
 * **Inschakeling van de back-up heater:** Wanneer de ruimtetemperatuur na een periode van nachtverlaging snel moet stijgen, kan het ingebouwde elektrische bijverwarmingselement (de back-up heater) worden ingeschakeld. Dit leidt tot een piek in het stroomverbruik.
-* **Ongunstige buitenluchttemperatuur:** Buitentemperaturen zijn 's nachts en in de vroege ochtend gemiddeld het laagst. Wanneer de warmtepomp 's ochtends vroeg op maximaal vermogen moet draaien om de nachtverlaging in te halen, werkt de buitenunit bij een ongunstigere buitenluchttemperatuur. Hierdoor verslechtert het rendement.
+* **Ongunstige buitenluchttemperatuur:** Buitentemperaturen zijn 's nachts en in de vroege ochtend gemiddeld het laagst. Wanneer de warmtepomp 's ochtends vroeg op maximaal vermogen moet draaien om de nachtverlaging in te halen, werkt de buitenunit bij een ongunstigere buitenluchttemperatuur. Hierdoor verslechtert het rendement. Een lage ochtendtemperatuur verhoogt bovendien de kans op een [ontdooicyclus](/blog/ontdooicyclus-warmtepomp-stroompiek), wat de ochtendpiek in het stroomverbruik verder kan versterken.
 
 ## Energieprestatieberekeningen en seizoensrendement (SCOP)
 

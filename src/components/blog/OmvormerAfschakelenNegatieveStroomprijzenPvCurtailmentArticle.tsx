@@ -17,7 +17,7 @@ Om sturing en curtailment mogelijk te maken, gelden er specifieke eisen voor de 
 
 - **Normering voor vermogensregeling:** Conform de norm NEN-EN 50549-1 en de Netcode Elektriciteit dienen omvormers te beschikken over functies voor vermogensregeling. Dit betekent dat het uitgangsvermogen zowel lokaal als op afstand begrensd kan worden.
 - **Slimme sturing:** Fabrikanten zoals SolarEdge integreren functionaliteiten zoals *dynamic power control* en *Smart Energy Management* in hun omvormers. Hiermee kan het vermogen automatisch worden aangepast op basis van de EPEX-dagprijzen en de actuele lokale verbruiksbehoefte.
-- **Home Energy Management Systemen (EMS):** Een EMS kan de belasting in huis dynamisch regelen (load balancing) om piekstromen te voorkomen.
+- **Home Energy Management Systemen (EMS):** Een EMS kan de belasting in huis dynamisch regelen (load balancing) om piekstromen te voorkomen. Zie [dynamische energiecontracten en sturing van batterij/warmtepomp](/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp) voor hoe u dit combineert met andere sturbare apparatuur in het dossier.
 - **Spanningsbeveiliging:** Als de netspanning door lokale overproduction stijgt tot boven de wettelijke grens van 253 volt (10% boven de nominale 230V), schakelt de omvormer conform NEN 1010 en netcodeveiligheidseisen automatisch uit.
 
 ---

@@ -14,6 +14,8 @@ De mate van isolatie van een woning bepaalt welk type warmtepomp technisch en ec
 * **Volledig elektrische warmtepomp (all-electric):** Vereist een goed geïsoleerde schil (dak-, gevel- en vloerisolatie plus ten minste HR++ glas). Dit is noodzakelijk om het gebouw bij een lage aanvoertemperatuur (≤ 35°C tot 45°C) voldoende warm te kunnen houden.
 * **Hybride warmtepomp:** Vraagt in veel gevallen om een matige tot goede basisisolatie (zoals spouwmuurisolatie, dakisolatie en HR++ glas). Bij extreme kou kan de geïntegreerde of gekoppelde cv-ketel bijspringen.
 
+Een lokale bijverwarming kan een tussenoplossing zijn bij een woning die (nog) niet volledig geschikt is — zie [infraroodverwarming combineren met een warmtepomp](/blog/infraroodverwarming-combineren-met-warmtepomp) voor wanneer dat energetisch zinvol is.
+
 ## Kwantitatieve onderbouwing met NTA 8800 en de 50-gradentest
 
 Om in het adviesrapport de noodzaak van isolatiemaatregelen feitelijk te onderbouwen, biedt de NTA 8800-rekenmethodiek de basis. Deze rekenmethodiek bepaalt dat de energiebehoefte en de benodigde ontwerptemperatuur voor verwarming rechtstreeks afhangen van:

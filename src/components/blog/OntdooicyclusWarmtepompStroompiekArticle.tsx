@@ -27,7 +27,7 @@ Wanneer het cv-water op dat moment onvoldoende warmte bevat om het ijs te smelte
 
 Een gemiddelde ontdooicyclus duurt circa 5 tot 10 minuten. Bij vochtig winterweer kan deze cyclus meerdere keren per dag optreden.
 
-Hoewel dit proces leidt tot tijdelijke piekbelastingen, is dit niet bepalend voor de algehele efficiëntie over het gehele jaar. Ondanks de korte stroompieken tijdens het ontdooien, blijft de jaarlijkse Seizoensgebonden Prestatiecoëfficiënt (SCOP) van de warmtepomp leidend voor het totale energieverbruik.
+Hoewel dit proces leidt tot tijdelijke piekbelastingen, is dit niet bepalend voor de algehele efficiëntie over het gehele jaar. Ondanks de korte stroompieken tijdens het ontdooien, blijft de jaarlijkse Seizoensgebonden Prestatiecoëfficiënt (SCOP) van de warmtepomp leidend voor het totale energieverbruik. Combineert de klant dit met [nachtverlaging](/blog/nachtverlaging-warmtepomp-stroomverbruik-comfort)? Dan kan de ochtendpiek van beide effecten samenvallen.
 
 ## Aandachtspunten voor de elektrische installatie en netbelasting
 

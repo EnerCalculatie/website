@@ -11,7 +11,7 @@ Wilt u een bestaande zonnepanelen-installatie uitbreiden? Dan spelen zowel de di
 
 Bij de uitbreiding van een installatie kan het generatorvermogen (of DC-vermogen in Wp) van de zonnepanelen hoger gekozen worden dan het nominale vermogen van de omvormer. Dit noemt men overdimensioneren. Zo staat fabrikant SolarEdge voor HD-Wave omvormers een DC/AC-verhouding tot 155% toe zonder dat de garantie op de apparatuur vervalt.
 
-Het overdimensioneren van de PV-capaciteit ten opzichte van de omvormer leidt in de praktijk tot 'clipping' (het aftoppen van vermogen op piekmomenten). Op jaarbasis zorgt dit gemiddeld voor minder dan 1 tot 3% verlies in de totale energie-opbrengst. Een voordeel van deze opzet is dat de omvormer bij lage instraling sneller opstart, wat gunstig is voor de productie op minder zonnige dagen.
+Het overdimensioneren van de PV-capaciteit ten opzichte van de omvormer leidt in de praktijk tot 'clipping' (het aftoppen van vermogen op piekmomenten). Op jaarbasis zorgt dit gemiddeld voor minder dan 1 tot 3% verlies in de totale energie-opbrengst. Een voordeel van deze opzet is dat de omvormer bij lage instraling sneller opstart, wat gunstig is voor de productie op minder zonnige dagen. Zie [DC/AC-verhouding en overdimensionering](/blog/dc-ac-verhouding-omvormer-overdimensionering) voor de volledige onderbouwing van deze afweging richting de klant.
 
 ## Technische eisen en NEN 1010 richtlijnen bij uitbreiding
 

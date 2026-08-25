@@ -10,7 +10,7 @@ Het analyseren van kwartierdata uit de P1-poort van een slimme meter is de meest
 ## Datastroom en voeding via de P1-poort (DSMR 5.0)
 De P1-poort van een slimme meter die op basis van de DSMR 5.0-specificatie werkt, ververst gegevens voor elektriciteit elke seconde. Gasverbruiksdata wordt doorgaans elk kwartier doorgestuurd. Via de P1-poort levert de meter zowel actuele vermogens (in kW) als cumulatieve standen (in kWh), opgesplitst in levering en teruglevering per tarief.
 
-Slimme meters met een DSMR 5-protocol leveren via de RJ11- of RJ12-poort voldoende stroom (5V / 250mA) om P1-meters of dataloggers direct van voeding te voorzien, waardoor een externe adapter in veel gevallen niet nodig is.
+Slimme meters met een DSMR 5-protocol leveren via de RJ11- of RJ12-poort voldoende stroom (5V / 250mA) om P1-meters of dataloggers direct van voeding te voorzien, waardoor een externe adapter in veel gevallen niet nodig is. Zie [energiemanagementsysteem en de P1-poort](/blog/energiemanagementsysteem-p1-poort) voor hoe een EMS deze data vervolgens gebruikt om batterij, laadpaal en warmtepomp aan te sturen.
 
 ## Kwartierdata analyseren voor een nauwkeurig energieprofiel
 Het analyseren van kwartierwaarden maakt het mogelijk om piekbelastingen in kaart te brengen. Dit is van belang voor een juiste dimensionering van warmtepompen, laadpalen en batterijsystemen.

@@ -21,6 +21,8 @@ Een warmtepompboiler verwarmt het water via de compressor op een efficiënte wij
 * **Rendement:** Het elektrische bijverwarmingselement werkt op basis van directe elektrische weerstand met een COP (Coefficient of Performance) van 1.
 * **Vermogensprofiel:** Doordat de bijverwarming op een COP van 1 functioneert, resulteert de inschakeling hiervan in een tijdelijke piek in het vermogensprofiel van het systeem.
 
+Combineert u dit toestel ook met [ISDE-subsidie bij gasbesparing via een warmtepompboiler](/blog/warmtepompboiler-adviseren-gasbesparing-isde)? Houd deze legionellacyclus-piek dan mee in de onderbouwing van het energieprofiel richting de klant.
+
 ## Impact op de energieprestatieberekening (NTA 8800)
 
 Het gebruik van de elektrische bijverwarming heeft consequenties voor de energieprestatieberekeningen van een gebouw:
