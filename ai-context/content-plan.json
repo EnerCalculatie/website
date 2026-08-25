@@ -175,7 +175,8 @@
     "intent": "informatief",
     "priority": 9,
     "slug": "dynamische-energiecontracten-adviseren-hoe-onderbouwt-u-de-sturing-van-batterij-en-warmtepomp",
-    "status": "generated",
+    "status": "abandoned",
+    "abandonReason": "duplicaat van dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp (zelfde onderwerp, twee losse backlog-items op een te vergelijkbaar keyword) — samengevoegd op 2026-08-25, deze slug 301-geredirect",
     "createdAt": "2026-08-07T12:42:41.888Z",
     "generatedSlug": "dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp",
     "generatedAt": "2026-08-08T00:39:03.745Z"

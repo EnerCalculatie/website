@@ -15,10 +15,10 @@ Voor het optimaal laten functioneren van geautomatiseerde sturing op basis van d
 
 ## Slimme sturing via een Energiemanagementsysteem (EMS)
 
-Een Energiemanagementsysteem (EMS) regelt de belasting in huis dynamisch (load balancing) om piekstromen en afschakeling van de hoofdzekering te voorkomen. Via een EMS kunnen apparaten geautomatiseerd worden aangestuurd op basis van marktcurves:
+Een [Energiemanagementsysteem (EMS)](/blog/energiemanagementsysteem-p1-poort) regelt de belasting in huis dynamisch (load balancing) om piekstromen en afschakeling van de hoofdzekering te voorkomen. Via een EMS kunnen apparaten geautomatiseerd worden aangestuurd op basis van marktcurves:
 
-- **Thuisbatterij:** Een thuisbatterij kan geautomatiseerd laden tijdens uren met lage of negatieve beursprijzen en ontladen tijdens piekuren met hoge tarieven.
-- **Warmtepomp:** De sturing van een warmtepomp op dynamische tarieven maakt gebruik van thermische opslag in een buffer- of boilervat om warmte te produceren en op te slaan gedurende goedkope of negatieve stroomuren.
+- **[Thuisbatterij](/blog/thuisbatterij-capaciteit-kiezen):** Een thuisbatterij kan geautomatiseerd laden tijdens uren met lage of negatieve beursprijzen en ontladen tijdens piekuren met hoge tarieven.
+- **[Warmtepomp](/blog/warmtepomp-rendement-aannames):** De sturing van een warmtepomp op dynamische tarieven maakt gebruik van thermische opslag in een buffer- of boilervat om warmte te produceren en op te slaan gedurende goedkope of negatieve stroomuren.
 
 Slimme, dynamische sturing van warmtepompen en batterijen helpt bij het beperken van piekbelastingen op het lokale laagspanningsnet (netcongestie). Daarnaast verhoogt het afschaffen van de salderingsregeling per 2027 de economische noodzaak om opgewekte zonne-energie direct te verbruiken of op te slaan via slim gestuurde apparaten.
 

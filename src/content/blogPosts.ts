@@ -1318,31 +1318,7 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waar moet op worden gelet bij somstromen volgens NEN 1010?', answer: 'Bij gelijktijdige invoeding van netstroom en een omvormer/batterij op dezelfde aardlekschakelaar tellen de stromen op. Indien 25A van het net en 16A van de omvormer samenkomen (41A), kan een standaard 40A-aardlekschakelaar overbelast raken en brandgevaar opleveren.' },
     ],
   },
-  {
-    slug: 'dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp',
-    readingTimeMinutes: 4,
-    title: 'Dynamische energiecontracten adviseren: hoe onderbouwt u de sturing van batterij en warmtepomp?',
-    seoTitle: 'Dynamisch Energiecontract: Sturing Batterij en Warmtepomp',
-    description:
-      'Onderbouw uw advies over dynamische energiecontracten, thuisbatterijen en warmtepompen volgens NEN 1010, selectiviteit en de Netcode Elektriciteit.',
-    date: '2026-08-08',
-    excerpt:
-      'Bij dynamische energiecontracten veranderen stroomtarieven per uur. Hoe onderbouwt u technisch en veilig de slimme sturing van thuisbatterijen en warmtepompen?',
-    tags: ['Dynamisch energiecontract', 'Thuisbatterij', 'Warmtepomp', 'EMS', 'NEN 1010', 'Netcongestie', 'Netcode Elektriciteit'],
-    keyPoints: [
-      'Sturing op basis van EPEX Spot uurtarieven maximaliseert het nut van thuisbatterijen en warmtepompen.',
-      'Het vervallen van de salderingsregeling per 1 januari 2027 stimuleert direct eigenverbruik.',
-      'Een EMS voorkomt het afschakelen van de hoofdzekering via dynamische load balancing.',
-      'Veiligheid conform NEN 1010 vereist speciale aandacht voor selectiviteit (max 16A op 1-fase), fase-onbalans en somstromen.',
-    ],
-    category: 'Kennisbank',
-    faq: [
-      { question: 'Is er subsidie beschikbaar voor de aanschaf van een thuisbatterij?', answer: 'Nee, voor kleinverbruikers in Nederland is er op dit moment geen landelijke ISDE- of andere aankoopsubsidie beschikbaar voor een thuisbatterij.' },
-      { question: 'Wat is het maximale vermogen voor een 1-fase aansluiting bij 1x35A of 3x25A?', answer: 'Om de selectiviteit te waarborgen geldt in de praktijk een maximale afzekering van 16A per 1-fase groep, wat neerkomt op maximaal 3,68 kW (3.680 Watt).' },
-      { question: 'Waarom is een 3-fase omvormer verplicht bij een vermogen groter dan 3,68 kW?', answer: 'Volgens de Netcode Elektriciteit moet invoeding boven de 16A (3,68 kVA) over meerdere fases worden verdeeld om fase-onbalans op het net te voorkomen.' },
-      { question: 'Wat zijn somstromen en hoe beïnvloeden ze de veiligheid?', answer: 'Somstromen ontstaan wanneer stroom uit het net én van een omvormer op dezelfde groep of aardlekschakelaar invoeden. De stromen tellen bij elkaar op (bijv. 25A + 16A = 41A). Dit kan standaard 40A-aardlekschakelaars overbelasten en brandgevaar opleveren.' },
-    ],
-  },
+  
   {
     slug: 'bodemgebonden-vs-lucht-water-warmtepomp-rendement',
     readingTimeMinutes: 3,

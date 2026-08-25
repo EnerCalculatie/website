@@ -171,6 +171,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/zonnepanelen-netcongestie-advies': '/blog/netcongestie-wachtlijst-zakelijk-2026',
     '/blog/thuisbatterij-vergelijking-merken-en-typen': '/blog/thuisbatterij-capaciteit-kiezen',
     '/blog/zonnepanelen-warmtepomp-combinatie': '/blog',
+    '/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp': '/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp',
   };
   app.get(Object.keys(legacyRedirects), (req, res) => {
     res.redirect(301, legacyRedirects[req.path]);

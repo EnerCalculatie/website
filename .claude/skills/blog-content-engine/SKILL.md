@@ -54,6 +54,7 @@ Bestaande samenvoegingen (301):
 - `/blog/isde-subsidie-aanvragen` -> `/blog/isde-subsidie-warmtepompen`
 - `/blog/zonnepanelen-netcongestie-advies` -> `/blog/netcongestie-wachtlijst-zakelijk-2026`
 - `/blog/thuisbatterij-vergelijking-merken-en-typen` -> `/blog/thuisbatterij-capaciteit-kiezen`
+- `/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp` -> `/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp` (2026-08-25, content-inventarisatie funnel-herinrichting: twee losse backlog-items genereerden onafhankelijk bijna-identieke content op hetzelfde keyword — `plan-content.mjs` heeft geen deterministische dedup-check op keyword-gelijkenis, alleen een LLM-instructie om bestaande titels te vermijden, die dit geval miste)
 
 ## IndexNow
 Sleutelbestand `public/<hex>.txt` (publiek by design — het protocol vereist dat de inhoud gelijk is aan de bestandsnaam). `npm run indexnow -- --all` submit alle sitemap-URL's; `npm run indexnow -- /blog/<slug>` een losse. De blogworkflow meldt nieuwe artikelen automatisch aan. Google doet niet mee aan IndexNow en blijft op de sitemap.
