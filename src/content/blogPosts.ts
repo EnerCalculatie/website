@@ -230,7 +230,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Vanaf 1 juli 2026 geldt een nieuw ACM-prioriteringskader voor netcongestie; load balancing wordt bij zakelijke laadpalen een voorwaarde.',
       'De zonnemarkt verzadigt (29,4 GWp, 3,3 miljoen installaties); de combinatieofferte (zon met batterij of laadpaal) wordt de standaard.',
     ],
-    category: 'Kennisbank',
+    category: 'Bedrijfsvoering',
   },
   {
     slug: 'thuisbatterij-capaciteit-kiezen',
@@ -372,7 +372,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een EMS combineert P1-, omvormer-, batterij- en laadpaaldata om te bepalen welk apparaat op welk moment stroom krijgt, vaak via een lokaal protocol zoals Modbus zodat sturing ook zonder internetverbinding werkt.',
       'EMS-sturing kan bij zakelijke klanten een kostbare capaciteitsuitbreiding van de aansluiting overbodig maken en wordt relevanter door de salderingsafschaffing (2027), dynamische contracten en netcongestie.',
     ],
-    category: 'Kennisbank',
+    category: 'Thuisbatterijen',
   },
   {
     slug: 'energielabel-c-plicht-2030',
@@ -392,7 +392,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Uitzonderingen gelden voor monumenten, beschermde stads- en dorpsgezichten, en woningen waar maatregelen niet technisch of financieel haalbaar zijn',
       'Een rendementsberekening voor een verhuurder wijkt af van die voor een eigenaar-bewoner: de verhuurder investeert, maar de huurder profiteert van lagere energielasten',
     ],
-    category: 'Kennisbank',
+    category: 'Bedrijfsvoering',
   },
   {
     slug: 'netontwikkelingsbijdrage-zonnepanelen-2026',
@@ -1216,7 +1216,7 @@ export const blogPosts: BlogPostMeta[] = [
       'R290 valt in A3-veiligheidscategorie (niet-giftig, zeer ontvlambaar volgens NEN-EN 378).',
       'Plaatsing van de buitenunit vereist een veiligheidszone vrij van ontstekingsbronnen, gebouwopeningen en afvoerputten.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Waarom wordt R290 (propaan) gebruikt in warmtepompen?', answer: 'Vanwege de herziene F-gassenverordening worden koudemiddelen met een hoog GWP uitgefaseerd. R290 heeft een GWP van slechts 3 en kan hoge aanvoertemperaturen (tot 70-75 °C) leveren.' },
       { question: 'Waar moet een buitenunit met R290 koudemiddel geplaatst worden?', answer: 'De buitenunit moet geplaatst worden op een plek waar een veiligheidszone kan worden aangehouden. Deze zone moet vrij zijn van ontstekingsbronnen, gebouwopeningen (ramen/deuren) en afvoerputten.' },
@@ -1240,7 +1240,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Rendementsverlies door clipping is bij 120% overdimensionering meestal minder dan 1 tot 2% per jaar.',
       'Fabrieksspecificaties zoals Vdc max en Idc max mogen conform NEN 1010 niet overschreden worden.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Wat is de ideale DC/AC-verhouding voor een omvormer?', answer: 'Voor residentiële zonne-energiesystemen ligt een gebruikelijke en ideale DC/AC-verhouding doorgaans tussen de 110% en 130% (een verhouding van 1,1 tot 1,3).' },
       { question: 'Hoeveel opbrengstverlies treedt er op door clipping?', answer: 'Bij een DC/AC-verhouding van 120% is het rendementsverlies door clipping doorgaans nihil tot minimaal, vaak minder dan 1 tot 2% op jaarbasis. Dit wordt gecompenseerd in de randuren.' },
@@ -1288,7 +1288,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Elektrische veiligheid volgens NEN 1010 vereist aandacht voor selectiviteit (16A / 3,68 kW), 3-fase fase-verdeling en somstromen.',
       'Saldering geldt uitsluitend per individuele kleinverbruikeraansluiting en is niet direct te verrekenen via een centrale VvE-meter.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Welke NEN-normen gelden voor zonnepanelen op flats?', answer: 'Voor de bouwkundige constructie en windbelasting geldt NEN 7250. Voor de elektrische installatie en bekabeling geldt de NEN 1010 norm voor laagspanningsinstallaties.' },
       { question: 'Hoe werkt de salderingsregeling bij een VvE?', answer: 'De wettelijke salderingsregeling geldt specifiek per individuele kleinverbruikeraansluiting achter de energiemeter. Dit kan niet zonder meer verrekend worden tussen een centrale VvE-meter en individuele appartementen.' },
@@ -1312,7 +1312,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Bij vermogens boven 3,68 kW / 16A is een 3-fase aansluiting vereist om fase-onbalans te voorkomen volgens de Netcode Elektriciteit.',
       'Controleer NEN 1010 normen op somstromen bij gelijktijdige invoeding om overbelasting van 40A-aardlekschakelaars te voorkomen.',
     ],
-    category: 'Kennisbank',
+    category: 'Thuisbatterijen',
     faq: [
       { question: 'Wat is nodig voor het aansturen van apparatuur op een dynamisch contract?', answer: 'Voor het aansturen van een thuisbatterij of warmtepomp op dynamische tarieven is een werkende slimme meter nodig, gecombineerd met een Energiemanagementsysteem (EMS) dat de apparaten aanstuurt op basis van de EPEX Spot- en EEX-beursprijzen.' },
       { question: 'Waar moet op worden gelet bij somstromen volgens NEN 1010?', answer: 'Bij gelijktijdige invoeding van netstroom en een omvormer/batterij op dezelfde aardlekschakelaar tellen de stromen op. Indien 25A van het net en 16A van de omvormer samenkomen (41A), kan een standaard 40A-aardlekschakelaar overbelast raken en brandgevaar opleveren.' },
@@ -1337,7 +1337,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Buitenunits van lucht-water warmtepompen moeten op de perceelgrens voldoen aan Bbl-geluidsnormen (max. 40 dB(A) \'s nachts / 45 dB(A) overdag).',
       'Beide typen warmtepompen komen in aanmerking voor ISDE-subsidie.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Wat is het verschil in seizoensrendement (SCOP) tussen een bodem- en lucht-water warmtepomp?', answer: 'Een bodemgebonden warmtepomp behaalt gemiddeld een SCOP van 4,5 tot 5,5 of hoger. Een lucht-water warmtepomp behaalt een gemiddelde SCOP van 3,5 tot 4,5.' },
       { question: 'Hoe lang gaat een bodembron mee?', answer: 'De bodembron en de bijbehorende bronlussen hebben een verwachte levensduur van 30 tot 50 jaar. De warmtepompunit zelf gaat bij beide systemen circa 15 tot 20 jaar mee.' },
@@ -1362,7 +1362,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Elektrische inpassing volgens NEN 1010 en Netcode (fase-onbalans, selectiviteit en beveiliging tegen somstromen).',
       'ISDE-subsidie mogelijk bij opname op de RVO apparatenlijst.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Hoe leveren PVT-panelen warmte in de winter en \'s nachts?', answer: 'PVT-panelen benutten naast direct zonlicht ook omgevingslucht, wind en condensatiewarmte als bron voor de water-water warmtepomp, waardoor ze ook zonder zonlicht en bij lage temperaturen warmte leveren.' },
       { question: 'Voldoet een PVT-warmtepompsysteem aan de BBL geluidseisen?', answer: 'Ja, doordat een PVT-systeem geen draaiende buitenunit met een ventilator heeft, veroorzaakt het geen geluidsoverlast en voldoet het doorgaans eenvoudig aan de BBL-normen.' },
@@ -1388,7 +1388,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Geldt voor isolatie, hoogrendementsglas, warmtepompen en zonneboilers',
       '50% vergoeding voor maatwerk energieadvies (max. € 400 per woning)',
     ],
-    category: 'Kennisbank',
+    category: 'Subsidies',
     faq: [
       { question: 'Wat is het maximale SVOH-subsidiebedrag per woning?', answer: 'Het subsidiebedrag bedraagt in de basis maximaal € 6.000 per huurwoning, met een totaalmaximum van € 400.000 per aanvrager.' },
       { question: 'Wanneer kan de SVOH-subsidie worden aangevraagd?', answer: 'De subsidie moet worden aangevraagd nadat de verduurzamingsmaatregelen zijn uitgevoerd en betaald. De regeling loopt tot en met 31 december 2029.' },
@@ -1412,7 +1412,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Conform NEN 1010 mag de spanningsstijging in het kabeltraject maximaal 1% (ca. 2,3V) bedragen.',
       'Gebruik van grotere aderdoorsnedes (zoals 4 mm² of 6 mm²) verlaagt de kabelweerstand en helpt uitval te voorkomen.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Waarom valt een omvormer uit bij 253 Volt?', answer: 'Volgens norm EN 50549-1 en de Netcode Elektriciteit moet een omvormer automatisch uitschakelen bij meer dan 253V (230V + 10%) om het net en apparatuur te beschermen.' },
       { question: 'Wie is verantwoordelijk voor spanningsopdrijving binnenshuis?', answer: 'De netbeheerder garandeert enkel de spanning tot de energiemeter (207V - 253V). Spanningsopdrijving achter de meter door kabelweerstand valt onder de verantwoordelijkheid van de installateur en pandeigenaar.' },
@@ -1436,7 +1436,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Elektrisch opgenomen vermogen bepaalt de netbelasting op een 3x25A-aansluiting.',
       'ISDE-subsidie is beschikbaar voor warmtepompen, maar niet voor infraroodpanelen.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Is infrarood geschikt als hoofdverwarming naast een warmtepomp?', answer: 'Nee, vanwege de COP van 1 leidt infrarood als hoofdverwarming tot een aanzienlijk hoger stroomverbruik en hogere energiekosten. Een warmtepomp (COP 3 tot 5) is energetisch veel efficiënter als basisverwarming.' },
       { question: 'Kun je ISDE-subsidie krijgen voor infraroodpanelen?', answer: 'Nee, er is geen landelijke ISDE-subsidie beschikbaar voor infraroodpanelen. Voor warmtepompen kun je wel gebruikmaken van de ISDE-subsidie.' },
@@ -1460,7 +1460,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Systeem benut afgevoerde lucht van circa 20 °C voor een constant hoog rendement.',
       'Voldoen aan minimaal ventilatiedebiet en vermelding op de RVO-meldcodelijst (ISDE) vereist.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Hoeveel gas bespaart een ventilatiewarmtepomp gemiddeld?', answer: 'In een gemiddelde eengezinswoning met mechanische ventilatie bespaart een ventilatiewarmtepomp circa 200 tot 500 m³ aardgas per jaar.' },
       { question: 'Wat is het effect van een ventilatiewarmtepomp op BENG en NTA 8800?', answer: 'Binnen de NTA 8800 rekenmethode verlaagt een ventilatiewarmtepomp de BENG 2-indicator (fossiel primair energiegebruik) en verhoogt deze de BENG 3-indicator (aandeel hernieuwbare energie).' },
@@ -1485,7 +1485,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Automatische faseschakeling maakt opschaling naar 3-fase laden (tot 11 kW of 22 kW) mogelijk',
       'Dynamic Load Balancing en EMS voorkomen overbelasting van een 3x25A hoofdaansluiting',
     ],
-    category: 'Kennisbank',
+    category: 'Laadpalen',
     faq: [
       { question: 'Hoeveel stijgt de zelfconsumptie door slim te laden op zonnestroom?', answer: 'Door de inzet van slimme sturing op de laadpaal kan de zelfconsumptie van eigen zonnestroom stijgen van circa 30% naar 60% tot 70%.' },
       { question: 'Wat is de minimale stroomsterkte voor laden op zonnestroom?', answer: 'Conform IEC 61851-1 geldt voor een elektrisch voertuig een minimale stroomsterkte van 6 Ampère per fase, wat bij 1-fase overeenkomt met circa 1,4 kW surplus.' },
@@ -1510,7 +1510,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Somstromen kunnen aardlekschakelaars overbelasten (bijv. 25A net + 16A omvormer = 41A op een 40A RCD).',
       'Aanmelden van de uitbreiding via energieleveren.nl is wettelijk verplicht.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Wat is het effect van het overdimensioneren van een omvormer?', answer: 'Overdimensioneren betekent dat het DC-vermogen van de zonnepanelen hoger is dan het nominale vermogen van de omvormer. Dit leidt op piekmomenten tot \'clipping\', wat op jaarbasis gemiddeld minder dan 1 tot 3% verlies geeft, terwijl de omvormer bij lage instraling sneller opstart.' },
       { question: 'Waarom schakelt een omvormer uit bij 253 volt?', answer: 'Volgens de Netcode moet een omvormer automatisch uitschakelen wanneer de netspanning door overproductie stijgt boven de 253 volt (230V + 10%) om de elektrische installatie te beschermen.' },
@@ -1536,7 +1536,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Minder piekbelasting op het net en kleiner risico op omvormeruitval boven 253V',
       'Hogere dakbenutting op platte daken en mogelijke onderdimensionering van de omvormer',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Hoeveel minder opbrengst geeft een oost-west opstelling t.o.v. zuid?', answer: 'Een oost-west opstelling levert per geïnstalleerde Wattpiek op jaarbasis doorgaans circa 10 tot 20 procent minder totale elektriciteit op dan een optimale zuid-oriëntatie onder een hoek van 35 graden.' },
       { question: 'Waarom zorgt een oost-west opstelling voor meer zelfconsumptie?', answer: 'Door stroom op te wekken tijdens de ochtend- en namiddaguren sluit de opbrengst beter aan op het verbruiksprofiel van een standaard huishouden, waardoor de directe zelfconsumptie stijgt ten opzichte van een zuid-opstelling.' },
@@ -1560,7 +1560,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Bij vermogens boven 3,68 kW (16A) is een 3-fase omvormer verplicht tegen fase-onbalans.',
       'Let op somstromen: optelling van net- en PV-stroom mag beveiligingscomponenten (zoals 40A aardlek) niet overbelasten.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Wat is PV-curtailment en waarom is het nodig?', answer: 'PV-curtailment is het tijdelijk verminderen of stopzetten van de stroomproductie door zonnepanelen. Dit voorkomt dat u moet betalen voor teruglevering bij negatieve dynamische stroomprijzen en beschermt het elektriciteitsnet tegen overbelasting.' },
       { question: 'Aan welke normen moet een regelbare omvormer voldoen?', answer: 'Een regelbare omvormer moet voldoen aan de NEN-EN 50549-1 en de Netcode Elektriciteit voor vermogensregeling, evenals de spanningsbeveiliging conform NEN 1010 (uitschakeling boven 253V).' },
@@ -1585,7 +1585,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Voorkomt pendelen (frequent in- en uitschakelen) en verlengt de levensduur van de compressor.',
       'Realiseert een gemiddelde energiebesparing van 10 tot 15 procent op het verwarmingsverbruik.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Is waterzijdig inregelen verplicht bij een warmtepomp?', answer: 'Ja, bij het installeren of vervangen van een warmte-opwekker is waterzijdig inregelen wettelijk verplicht volgens de EPBD III-richtlijnen.' },
       { question: 'Hoeveel bespaar je door waterzijdig inregelen?', answer: 'Het op de juiste wijze inregelen van het afgiftesysteem levert een gemiddelde energiebesparing van 10 tot 15 procent op het verwarmingsverbruik op.' },
@@ -1609,7 +1609,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Vloerverwarming reageert traag, waardoor opwarmen na nachtverlaging uren duurt.',
       'NEN-EN-ISO 52000 / NEN 7120 gaan uit van continue verwarming voor een optimaal seizoensrendement (SCOP).',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Is nachtverlaging verstandig bij een warmtepomp?', answer: 'Nee, het wordt geadviseerd om de temperatuur dag en nacht constant te houden of een minimale nachtverlaging van maximaal 1 tot 2 graden toe te passen voor een optimaal rendement en comfort.' },
       { question: 'Waarom stijgt het stroomverbruik bij nachtverlaging?', answer: 'Om de woning \'s ochtends snel op te warmen moet de warmtepomp op een hogere frequentie en aanvoertemperatuur draaien. Ook kan het elektrische bijverwarmingselement (back-up heater) inschakelen, wat pieken in het stroomverbruik veroorzaakt.' },
@@ -1634,7 +1634,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Zelfinstallatie is niet toegestaan; plaatsing door een deskundige installateur is verplicht.',
       'Aanvraagtermijn: particulieren binnen 24 maanden na installatie; zakelijk vóór de koopovereenkomst.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Hoe controleer ik de ISDE-meldcode van een warmtepomp?', answer: 'U kunt de meldcode (het KA-nummer) verifiëren in de officiële RVO-apparatenlijst. Doe dit vóór het definitief ondertekenen van de koop- of installatieovereenkomst.' },
       { question: 'Wat te doen als de warmtepomp niet op de apparatenlijst staat?', answer: 'Als de warmtepomp ontbreekt op de RVO-lijst, dient u testrapporten van het toestel en het energielabel mee te sturen bij de aanvraag voor een handmatige beoordeling.' },
@@ -1658,7 +1658,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Een ontdooicyclus duurt gemiddeld 5 tot 10 minuten en heeft een verwaarloosbare invloed op de jaarlijkse SCOP.',
       'Een 3-fase aansluiting en load balancing via een EMS voorkomen overbelasting van de hoofdzekering boven 5 kW thermisch vermogen.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Waarom veroorzaakt de warmtepomp een stroompiek in de winter?', answer: 'Dit komt door de automatische ontdooicyclus. Als het cv-water onvoldoende warmte bevat om het ijs op de buitenunit te smelten, schakelt de ingebouwde elektrische back-up heater (3 kW tot 6 kW) tijdelijk in.' },
       { question: 'Heeft de ontdooicyclus een grote invloed op het jaarverbruik?', answer: 'Nee, een ontdooicyclus duurt gemiddeld slechts 5 tot 10 minuten. De jaarlijkse SCOP van de warmtepomp blijft leidend voor de totale energie-efficiëntie.' },
@@ -1682,7 +1682,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Voorkomen van overbelasting bij somstromen op aardlekschakelaars.',
       'Voldoen aan ACM-richtlijnen, ISDE-subsidie-eisen en registratie via Energieleveren.nl.',
     ],
-    category: 'Kennisbank',
+    category: 'Bedrijfsvoering',
     faq: [
       { question: 'Waar moet een schouw volgens NEN 1010 aan voldoen?', answer: 'Tijdens de schouw moet de netcapaciteit en de geschiktheid voor Dynamic Load Balancing vastgesteld worden volgens NEN 1010 om overbelasting en veiligheidsrisico\'s te vermijden.' },
       { question: 'Hoe bereken je het maximale vermogen bij een 3x25A aansluiting?', answer: 'Bij een 3x25A aansluiting mag met een veiligheidsmarge van factor 1,6 op maximaal 16A per fase worden afgezekerd. Dit resulteert in 3.680 Watt per fase en circa 11 kW totaal voor 3-fase apparatuur.' },
@@ -1707,7 +1707,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Correcte verdeling van vermogens en fase-onbalans preventie.',
       'Onderbouwing van opbrengsten en terugverdientijden volgens ACM- en Milieu Centraal-richtlijnen.',
     ],
-    category: 'Kennisbank',
+    category: 'Bedrijfsvoering',
     faq: [
       { question: 'Waar moet adviessoftware aan voldoen voor ISDE-subsidie bij isolatie?', answer: 'Voor ISDE-subsidie bij isolatie moet de software rekenen met een minimale Rd-waarde van 3,5 m²K/W voor dak-, zolder- en vloerisolatie.' },
       { question: 'Wanneer is een 3-fase aansluiting of omvormer verplicht?', answer: 'Volgens de Netcode Elektriciteit dient invoeding boven de 16A (3,68 kVA) verdeeld te worden over meerdere fases. Vanaf omvormers groter dan 3,68 kW (of 4 kW in de praktijk) is een 3-fase omvormer noodzakelijk.' },
@@ -1730,7 +1730,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Het bivalentiepunt markeert de buitentemperatuur waarbij de cv-ketel moet bijspringen.',
       'Het financieel omschakelpunt wordt bepaald door de actuele COP, de elektriciteitsprijs en de gasprijs.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Wat is de bèta-factor van een hybride warmtepomp?', answer: 'De bèta-factor (β-factor) is de verhouding tussen het opgesteld verwarmingsvermogen van de warmtepomp en de totale ontwerp-warmtebehoefte (het piekvermogen) van de woning.' },
       { question: 'Wat betekent het bivalentiepunt?', answer: 'Het bivalentiepunt is de buitentemperatuur waarbij het geleverde vermogen van de warmtepomp exact gelijk is aan het warmteverlies van de woning. Bij lagere buitentemperaturen springt de cv-ketel bij.' },
@@ -1754,7 +1754,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Banking-regeling maakt inhalen van onderproductie en overhevelen van max. 25% overproductie mogelijk.',
       'Realisatietermijn van 1,5 jaar voor projecten <1 MWp en 3 jaar voor grotere projecten.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Voor welke aansluitingen geldt de SDE++ subsidie voor zon-PV?', answer: 'De SDE++ subsidie geldt voor locaties met een grootverbruikaansluiting, wat betekent dat de aansluiting groter moet zijn dan 3x80A.' },
       { question: 'Hoeveel vollasturen worden vergoed binnen de SDE++?', answer: 'Er geldt een maximale vergoeding gebaseerd op een vooraf vastgesteld maximum van 950 vollasturen per jaar voor netlevering.' },
@@ -1779,7 +1779,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Extra elektriciteitsverbruik telt mee in de NTA 8800 en beïnvloedt de seizoensgebonden efficiëntie (SPF).',
       'Een EMS kan piekbelasting op de elektrische installatie via load balancing voorkomen.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Waarom is elektrische bijverwarming nodig bij een warmtepompboiler?', answer: 'De compressor van een warmtepompboiler verwarmt het water efficiënt tot circa 50 °C tot 55 °C. Om de door NEN 1006 geëiste 60 °C tot 65 °C voor legionellapreventie te bereiken, is de inzet van een elektrisch element noodzakelijk.' },
       { question: 'Welke invloed heeft de legionellacyclus op de NTA 8800-berekening?', answer: 'Het extra elektriciteitsverbruik van het bijverwarmingselement (met COP 1) wordt opgeteld bij het totale energiegebruik voor warm tapwater, wat de seizoensgebonden efficiëntie (SPF) beïnvloedt.' },
@@ -1803,7 +1803,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Helpt overschrijding van gecontracteerde netcapaciteit en duurdere aansluitcategorieën te voorkomen.',
       'NEN 1010 vereist toetsing van selectiviteit (factor 1,6) en preventie van somstroom-overbelasting.',
     ],
-    category: 'Kennisbank',
+    category: 'Bedrijfsvoering',
     faq: [
       { question: 'Wat is het voordeel van P1-kwartierdata analyseren voor energieadvies?', answer: 'Het analyseren van kwartierdata geeft exact inzicht in actuele piekbelastingen en de gelijktijdigheid van opwek en verbruik. Dit is essentieel voor het juist dimensioneren van warmtepompen, thuisbatterijen en laadpalen.' },
       { question: 'Hoeveel stroom levert de P1-poort volgens DSMR 5.0?', answer: 'Een slimme meter met DSMR 5.0 levert via de P1-poort (RJ11/RJ12) een voeding van 5V / 250mA. Dit is voldoende om de meeste P1-meters of dataloggers direct van voeding te voorzien.' },
@@ -1828,7 +1828,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Slechte isolatie verlaagt de SCOP (efficiëntie) en verhoogt de netbelasting en het piekvermogen.',
       'ISDE-subsidie stelt specifieke Rd-waarden en verdubbelt de m²-subsidie bij minstens twee verduurzamingsmaatregelen binnen twee jaar.',
     ],
-    category: 'Kennisbank',
+    category: 'Warmtepompen',
     faq: [
       { question: 'Is een warmtepomp mogelijk in een slecht geïsoleerde woning?', answer: 'In een matig tot slecht geïsoleerde woning is vaak eerst aanvullende isolatie nodig. Een hybride warmtepomp kan bij basisisolatie al functioneren, terwijl een all-electric warmtepomp uitstekende isolatie vereist om met een lage aanvoertemperatuur (≤ 35°C tot 45°C) comfortabel te verwarmen.' },
       { question: 'Wat is de 50-gradentest voor warmtepompen?', answer: 'De 50-gradentest is een praktijktest waarbij de maximale cv-aanvoertemperatuur gedurende een stookseizoen op 50°C wordt begrensd om te testen of de woning op lage temperatuur voldoende warm blijft.' },
@@ -1852,7 +1852,7 @@ export const blogPosts: BlogPostMeta[] = [
       'Gebruik gescheiden MPPT-ingangen of power optimizers om rendementsverlies te voorkomen.',
       'Aansluiting >16A (3,68 kW) vereist 3-fase omvormer om netonbalans en overbelasting volgens NEN 1010 te voorkomen.',
     ],
-    category: 'Kennisbank',
+    category: 'Zonnepanelen',
     faq: [
       { question: 'Hoe bereken je de opbrengst van zonnepanelen op verschillende dakvlakken?', answer: 'Je berekent per dakvlak de opbrengst door de zoninstraling (kWh/m²) te vermenigvuldigen met het piekvermogen (kWp) en de systeemefficiëntie. Daarna tel je de uitkomsten van alle vlakken bij elkaar op.' },
       { question: 'Welke omvormer is geschikt bij meerdere oriëntaties?', answer: 'Kies een string-omvormer met meerdere gescheiden MPPT-ingangen (één per dakvlak) of gebruik power optimizers per paneel voor een individuele regeling.' },
