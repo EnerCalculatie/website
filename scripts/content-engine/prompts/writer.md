@@ -43,7 +43,13 @@ De eerste alinea bepaalt of een lezer doorleest. Open met een concreet, prikkele
 Bevat `research.json` concrete cijfers (vermogens, percentages, bedragen, normwaarden)? Werk er waar zinvol een klein rekenvoorbeeld mee uit (bijvoorbeeld in een tabel) in plaats van alleen de formule of regel te beschrijven. Alleen met cijfers die daadwerkelijk in de bronnen staan — verzin nooit een voorbeeldwaarde.
 
 ## CTA naar /gratis
-Als het onderwerp van het artikel relevant is voor het gratis verduurzamingsrapport (zonnepanelen, thuisbatterij, warmtepomp, laadpaal, energieprofiel), plaats **precies één** contextuele link naar `https://app.enercalculatie.nl/gratis` ergens halverwege het artikel — niet alleen onderaan, niet naar de homepage. Voorbeeld: "Wil je weten wat dit voor jouw situatie betekent? [Bereken je besparing gratis](https://app.enercalculatie.nl/gratis)." Plaats geen CTA als het onderwerp er niet logisch bij aansluit (bijvoorbeeld een puur juridisch/normatief artikel zonder rekenaspect) — een geforceerde CTA is erger dan geen CTA.
+Schrijf hier **geen eigen CTA-link** voor. `BlogPostLayout` plaatst al automatisch een `InlineCTA`
+halverwege elk artikel en een `FreeIntakeCTA` onderaan, beide met correcte per-artikel
+UTM-attributie (`blogCtaUrl()`, `src/components/blogCtaUrl.ts`) — een handmatige link in de
+markdown zou dubbelop zijn en een slechtere (niet per-slug) UTM-set gebruiken. Als een artikel een
+inhoudelijke reden heeft om zelf naar de rekentool te verwijzen (bijvoorbeeld "bereken dit voor je
+eigen dak"), gebruik dan gewone lopende tekst zonder link — de bestaande CTA-componenten doen het
+converteren.
 
 ## Structuur
 De output moet een puur Markdown artikel zijn. 

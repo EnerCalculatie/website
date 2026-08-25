@@ -169,6 +169,17 @@ repurposing, dan blijft het artikel zelf gewoon gepubliceerd).
   niet in dit Railway-project maar in `EnerCalculatie` (app-repo, service `enercalculatie`); ophalen
   via `railway run` in die project-link).
 
+## CTA naar /gratis — al automatisch, niet in WriterAgent-prompt zetten (2026-08-25)
+
+`BlogPostLayout` plaatst op **elk** artikel automatisch en onvoorwaardelijk een `InlineCTA`
+halverwege de tekst en een `FreeIntakeCTA` onderaan — beide via `blogCtaUrl()`
+(`src/components/blogCtaUrl.ts`) met per-artikel UTM-attributie (`utm_source=blog`,
+`utm_content=<slug>`, `utm_campaign=inline|bottom`). Dit was al gebouwd vóórdat de
+funnel-herinrichting (2026-08-25) startte — niet opnieuw uitvinden. `writer.md` instrueert de
+Writer daarom expliciet om **geen eigen CTA-link** te schrijven: een handmatige markdown-link zou
+dubbelop zijn en (zonder per-slug `utm_content`) slechtere attributie geven dan de bestaande
+componenten.
+
 ## Visuals in artikelen — SVG-diagram, geen AI-image-generation (2026-08-25)
 
 Onderzocht als onderdeel van de funnel-herinrichting: er bestaat **geen** AI-image-generation in
