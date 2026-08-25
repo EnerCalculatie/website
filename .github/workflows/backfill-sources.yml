@@ -5,7 +5,7 @@ name: Backfill bronnensectie (eenmalig)
 # de fact-check-pipeline). Opent een PR i.p.v. direct naar main te pushen —
 # dit raakt in één keer tientallen gepubliceerde artikelen, dat verdient een
 # reviewmoment vóór het live gaat (anders dan de dagelijkse single-artikel-flow
-# in daily-blog-post.yml, die wél direct naar main pusht).
+# in publish-blog-post.yml, die wél direct naar main pusht).
 on:
   workflow_dispatch: {}
 

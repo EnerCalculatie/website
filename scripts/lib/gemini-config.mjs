@@ -14,9 +14,9 @@
  *              bestaande GEMINI_API_KEY ís de facto de gratis key).
  *
  * Welke tier een run gebruikt, wordt per workflow-trigger bepaald in
- * daily-blog-post.yml (cron = altijd 'free', workflow_dispatch = keuze via
+ * publish-blog-post.yml (cron = altijd 'free', workflow_dispatch = keuze via
  * input, default 'free') — nooit via de losse repo-variabele vars.GEMINI_TIER,
- * die staat op dit moment op 'paid' en zou anders de geplande di/do-run per
+ * die staat op dit moment op 'paid' en zou anders de geplande di/vr-run per
  * ongeluk op de betaalde key laten draaien.
  */
 

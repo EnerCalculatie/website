@@ -1,6 +1,6 @@
 ---
 name: blog-content-engine
-description: Regels en workflow voor blogartikelen op de EnerCalculatie website — nieuw artikel toevoegen, titel/meta-limieten, QC-gates op AI-content, samenvoegen van artikelen (301-redirects), IndexNow, de multi-agent content-pipeline (daily-blog-post.yml, scripts/content-engine/) en de LinkedIn-repurposing erna. Gebruik deze skill bij het schrijven, reviewen of debuggen van blogartikelen of de content-generatie-pipeline.
+description: Regels en workflow voor blogartikelen op de EnerCalculatie website — nieuw artikel toevoegen, titel/meta-limieten, QC-gates op AI-content, samenvoegen van artikelen (301-redirects), IndexNow, de multi-agent content-pipeline (publish-blog-post.yml, scripts/content-engine/) en de LinkedIn-repurposing erna. Gebruik deze skill bij het schrijven, reviewen of debuggen van blogartikelen of de content-generatie-pipeline.
 ---
 
 ## Nieuw Blogartikel — Verplichte Checklist
@@ -20,7 +20,7 @@ Al het overige wordt bij de build **gegenereerd uit `blogPosts.ts`** (single sou
 ## QC — `npm run qc:seo`
 `scripts/qc-seo.mjs` draait op de geprerenderde `dist/`, niet op de bron: dat is wat de crawler krijgt. Checkt interne links, title/meta-lengtes, JSON-LD (parseerbaar + `@context`/`@type`), exact één H1, canonical, en de sitemap in beide richtingen (geen 4XX erin, geen indexable pagina eruit).
 
-Draait in `ci.yml` op elke push/PR naar main, én in `daily-blog-post.yml` vóór de push — faalt die, dan worden de artikelbestanden teruggedraaid en publiceert de bot niets. **Verwijder deze gate niet:** tussen 13 en 15 juli 2026 stond `ci.yml` uit, en in dat gat ging een artikel live met `clase=` in plaats van `className=` (11 typecheck-errors op main) en een `ptrdiff`-token middenin de titel. De esbuild-preflight in de generator checkt alleen syntax, geen JSX-props of tekenlimieten.
+Draait in `ci.yml` op elke push/PR naar main, én in `publish-blog-post.yml` vóór de push — faalt die, dan worden de artikelbestanden teruggedraaid en publiceert de bot niets. **Verwijder deze gate niet:** tussen 13 en 15 juli 2026 stond `ci.yml` uit, en in dat gat ging een artikel live met `clase=` in plaats van `className=` (11 typecheck-errors op main) en een `ptrdiff`-token middenin de titel. De esbuild-preflight in de generator checkt alleen syntax, geen JSX-props of tekenlimieten.
 
 ## Kwaliteitsgates op AI-content
 `scripts/lib/content-checks.mjs` bevat de deterministische checks; ze voeden de verbeterlus in `generate-blog-post.mjs` (2 pogingen) en keuren daarna hard af.
@@ -35,7 +35,7 @@ Draait in `ci.yml` op elke push/PR naar main, én in `daily-blog-post.yml` vóó
 ## Backfill bronnensectie op bestaande artikelen
 Nieuwe artikelen krijgen automatisch een "Bronnen"-sectie (`citation-generator.mjs`, onderdeel van de fact-check-fase hieronder). Artikelen geschreven vóór die pipeline bestond, missen 'm. `scripts/backfill-sources.mjs` haalt dat in: extraheert claims uit al gepubliceerde tekst via Gemini, fact-checkt ze tegen `ai-context/trusted-sources.json` (zelfde logica als de generator), en voegt alleen een Bronnen-sectie toe als er minstens één SUPPORTED-claim is. Idempotent (skipt bestanden die al `Bronnen` bevatten), dus veilig opnieuw te draaien.
 
-Draait via een losse workflow, **`.github/workflows/backfill-sources.yml`** (`workflow_dispatch` alleen, geen schedule) — in tegenstelling tot `daily-blog-post.yml` pusht die NIET direct naar main maar opent een PR: dit raakt in één run tientallen al gepubliceerde artikelen, dat verdient een reviewmoment. Trigger met `gh workflow run backfill-sources.yml`.
+Draait via een losse workflow, **`.github/workflows/backfill-sources.yml`** (`workflow_dispatch` alleen, geen schedule) — in tegenstelling tot `publish-blog-post.yml` pusht die NIET direct naar main maar opent een PR: dit raakt in één run tientallen al gepubliceerde artikelen, dat verdient een reviewmoment. Trigger met `gh workflow run backfill-sources.yml`.
 
 ## Geen bedragen in AI-content
 De generator wijst elk artikel af dat een geldbedrag noemt (`checkNoAmounts` in `scripts/lib/content-checks.mjs`) — body, FAQ, description en keyPoints. Verwijs naar de bron ("de actuele ISDE-bedragen staan op rvo.nl") in plaats van een bedrag te noemen.
@@ -79,11 +79,11 @@ Los van IndexNow (auto per artikel via de workflow) heeft Bing WMT een **URL Sub
 
 **Vervangt de oudere, losstaande scripts** (`generate-blog-post.mjs`, `scripts/seo-geo-validator.mjs`,
 `claim-extractor.mjs`/`source-validator.mjs`/`fact-check.mjs` als los aangeroepen stappen).
-Die bestaan nog in de repo maar worden door `daily-blog-post.yml` niet meer aangeroepen — deze
+Die bestaan nog in de repo maar worden door `publish-blog-post.yml` niet meer aangeroepen — deze
 sectie beschreef tot 2026-08-07 nog de oude flow, was niet meegesynct met de vervanging.
 Opruimen van de dode bestanden staat nog open.
 
-De blog-cronjob (`.github/workflows/daily-blog-post.yml`, di+do 05:00 UTC) draait nu
+De blog-cronjob (`.github/workflows/publish-blog-post.yml`, di+vr 05:00 UTC) draait nu
 `npx tsx scripts/content-engine/run-pipeline.ts` (`scripts/content-engine/`, TypeScript,
 `run-pipeline.ts` orkestreert 7 agents onder `agents/`):
 
@@ -150,7 +150,7 @@ in de dagelijkse flow.
 
 Na een geslaagde publicatie (nieuwe slug bekend) zet `scripts/generate-social.mjs` het artikel om
 in 3 LinkedIn-posts (Gemini) en committeert dat apart naar `src/content/social/<Naam>Article-social.md`
-(twee losse stappen ná IndexNow in `daily-blog-post.yml`, `continue-on-error: true` — mislukt de
+(twee losse stappen ná IndexNow in `publish-blog-post.yml`, `continue-on-error: true` — mislukt de
 repurposing, dan blijft het artikel zelf gewoon gepubliceerd).
 
 - **Slug-lookup via `App.tsx`**, niet via bestandsnaam-conventie: de route-registratie

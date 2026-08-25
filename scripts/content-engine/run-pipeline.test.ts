@@ -2,7 +2,7 @@
 // cron-run zonder expliciet argument oppakt. Had 0% dekking. run-pipeline.ts
 // zelf (de orchestratie van alle 7 agents) wordt bewust niet end-to-end
 // unit-getest: elke agent afzonderlijk is al gedekt, en de losse
-// execSync/build/git-onderdelen worden al elke di/do-run live geverifieerd.
+// execSync/build/git-onderdelen worden al elke di/vr-run live geverifieerd.
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';

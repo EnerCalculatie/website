@@ -1,4 +1,4 @@
-name: Kennisbank-artikel (di/do)
+name: Kennisbank-artikel (di/vr)
 
 # Multi-agent content-engine-pipeline (scripts/content-engine/, TypeScript):
 # 1. Cronjob start (of handmatig via workflow_dispatch)
@@ -38,9 +38,12 @@ on:
     # geen tijdzones/DST, dus 05:00 UTC is 06:00 CET in de winter maar 07:00 CEST
     # in de zomer. De "Sta alleen toe rond 06:00 Europe/Amsterdam"-stap hieronder
     # bepaalt welke van de twee triggers daadwerkelijk een artikel genereert —
-    # de andere stopt zichzelf vroeg af. 2 = dinsdag, 4 = donderdag.
-    - cron: '0 4 * * 2,4'
-    - cron: '0 5 * * 2,4'
+    # de andere stopt zichzelf vroeg af.
+    # BUGFIX 2026-08-25: draaide op dinsdag+donderdag (2,4) — de contentstrategie
+    # vraagt dinsdag (SEO/kennis) + vrijdag (praktijk/commercieel), niet donderdag.
+    # 2 = dinsdag, 5 = vrijdag.
+    - cron: '0 4 * * 2,5'
+    - cron: '0 5 * * 2,5'
   workflow_dispatch:
     inputs:
       tier:
@@ -90,7 +93,7 @@ jobs:
         run: npm ci
 
       # GEMINI_TIER komt bewust NIET uit de gedeelde repo-variabele vars.GEMINI_TIER
-      # (die staat nu op 'paid' — dat zou de geplande di/do-run per ongeluk op de
+      # (die staat nu op 'paid' — dat zou de geplande di/vr-run per ongeluk op de
       # betaalde key laten draaien). Cron = altijd 'free'. Handmatig = kiesbaar
       # via workflow_dispatch input, default 'free'.
       - name: "2-3. Lees ai-context en vul content-backlog aan"

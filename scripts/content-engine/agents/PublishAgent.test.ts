@@ -2,7 +2,7 @@
 // content-engine-agents dat vóór deze tests 0% dekking had, terwijl het de
 // React-component/blogPosts.ts/App.tsx-broncode genereert die zonder menselijke
 // review naar main gepusht wordt. execSync/fs-I/O (stap 5, build+qc:seo) is bewust
-// niet hier getest — dat wordt elke di/do-run al live geverifieerd; deze tests
+// niet hier getest — dat wordt elke di/vr-run al live geverifieerd; deze tests
 // dekken de stringly-typed codegeneratie die een kapotte template anders pas bij
 // zo'n live run zou laten opvallen.
 import { describe, it, expect } from 'vitest';
