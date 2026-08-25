@@ -77,7 +77,7 @@ describe('buildComponentSource', () => {
     const src = buildComponentSource('X', 'x', 'body');
     const bareNodeDestructure = /\{node,\s*\.\.\.props\}/;
     expect(bareNodeDestructure.test(src)).toBe(false);
-    expect((src.match(/\{node: _node, \.\.\.props\}/g) || []).length).toBeGreaterThanOrEqual(9);
+    expect((src.match(/\{node: _node, \.\.\.props\}/g) || []).length).toBeGreaterThanOrEqual(12);
   });
 });
 

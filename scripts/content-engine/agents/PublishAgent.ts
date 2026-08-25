@@ -47,6 +47,7 @@ export function buildComponentSource(componentName: string, slug: string, conten
   return `import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const post = blogPosts.find((p) => p.slug === '${slug}')!;
 
@@ -58,6 +59,7 @@ export function ${componentName}() {
   return (
     <BlogPostLayout post={post}>
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
           h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
@@ -68,7 +70,11 @@ export function ${componentName}() {
           strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
           a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
           hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
-          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
+          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
+          table: ({node: _node, ...props}) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse text-sm" {...props} /></div>,
+          thead: ({node: _node, ...props}) => <thead className="bg-slate-100" {...props} />,
+          th: ({node: _node, ...props}) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
+          td: ({node: _node, ...props}) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
         }}
       >
         {markdown}
