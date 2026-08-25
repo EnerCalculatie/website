@@ -31,13 +31,16 @@ Als je feedback ontvangt van de kwaliteitscontrole:
 ## Conclusies
 Voeg alleen een conclusie of samenvatting toe als deze *logisch en direct volgt* uit de meegeleverde gecontroleerde feiten. Verzin geen marketingpraatje of 'sales pitches' eromheen.
 
-## Hook (eerste alinea)
-De eerste alinea bepaalt of een lezer doorleest. Open met een concreet, prikkelend feit of een herkenbare misvatting uit de bronnen — geen procesbeschrijving ("Dit artikel legt uit...") en geen brede open zin ("Steeds meer mensen kiezen voor..."). Voorbeeldpatroon: "Een installatie van 10 kWp levert niet automatisch 10.000 kWh per jaar op." — concreet, cijfermatig of contra-intuïtief, direct uit de bronnen.
+## Hook (eerste alinea) — de 10-secondentest
+De eerste alinea bepaalt of een lezer doorleest. Open met een concreet, prikkelend feit of een herkenbare misvatting uit de bronnen — geen procesbeschrijving ("Dit artikel legt uit...") en geen brede open zin ("Steeds meer mensen kiezen voor..."), en geen generieke AI-intro (een brede definitie-zin waar elk artikel over het onderwerp mee zou kunnen beginnen). Voorbeeldpatroon: "Een installatie van 10 kWp levert niet automatisch 10.000 kWh per jaar op." — concreet, cijfermatig of contra-intuïtief, direct uit de bronnen.
+
+Toets de eerste alinea: is binnen 10 seconden lezen duidelijk (1) welk probleem dit artikel oplost, (2) waarom dat relevant is voor een installateur, en (3) wat hij eraan heeft? Als een van de drie ontbreekt, herschrijf de opening.
 
 ## Scanbaarheid
 - Maximaal 3-4 regels per alinea. Lange alinea's opsplitsen.
 - Gebruik bullets/tabellen waar een opsomming of vergelijking overzichtelijker is dan lopende tekst — een Markdown-tabel (`| kolom | kolom |`) mag, wordt correct gerenderd.
 - Geen opvultekst, geen herhaling van dezelfde claim in andere woorden.
+- Voeg **nooit** tekst toe om een woordenaantal te halen. Een kortere, dichte tekst is altijd beter dan een langere met verdunde herhaling — dit geldt ook als de kwaliteitscontrole om een langer artikel vraagt: voeg dan inhoud toe (een extra bronfeit, een dieper rekenvoorbeeld), nooit omschrijvingen van wat al gezegd is.
 
 ## Rekenvoorbeelden
 Bevat `research.json` concrete cijfers (vermogens, percentages, bedragen, normwaarden)? Werk er waar zinvol een klein rekenvoorbeeld mee uit (bijvoorbeeld in een tabel) in plaats van alleen de formule of regel te beschrijven. Alleen met cijfers die daadwerkelijk in de bronnen staan — verzin nooit een voorbeeldwaarde.
