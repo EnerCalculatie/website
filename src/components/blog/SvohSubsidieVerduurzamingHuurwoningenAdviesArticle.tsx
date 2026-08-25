@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'svoh-subsidie-verduurzaming-huurwoningen-advies')!;
 
 const markdown = `
-De Subsidie verduurzaming en onderhoud huurwoningen (SVOH) is een landelijke regeling voor particuliere en zakelijke verhuurders van bestaande huurwoningen. Met deze subsidie stimuleert de overheid de verduurzaming van de huursector. Aanvragen voor de SVOH-subsidie kunnen tot en met 31 december 2029 worden ingediend.
+Een verhuurder met 70 huurwoningen die overal het maximale SVOH-bedrag aanvraagt, loopt niet vast op een gebrek aan geschikte maatregelen, maar op de aanvragersgrens: bij 67 woningen à € 6.000 is het subsidieplafond van € 400.000 al bereikt. De Subsidie verduurzaming en onderhoud huurwoningen (SVOH) is een landelijke regeling voor particuliere en zakelijke verhuurders van bestaande huurwoningen. Met deze subsidie stimuleert de overheid de verduurzaming van de huursector. Aanvragen voor de SVOH-subsidie kunnen tot en met 31 december 2029 worden ingediend.
 
 ## Voorwaarden en maximale subsidiebedragen SVOH
 
@@ -27,7 +27,7 @@ De SVOH kan worden ingezet voor diverse verduurzamings- en onderhoudsmaatregelen
 - Warmtepompen
 - Zonneboilers
 
-Bij het adviseren over de installatie van bijvoorbeeld een warmtepomp kan de technische infrastructuur een rol spelen. Een warmtepomp boven de 5 kW thermisch vraagt in veel gevallen om een 3-fase aansluiting voor een optimale verdeling van de belasting op het net.
+Bij het adviseren over de installatie van bijvoorbeeld een warmtepomp kan de technische infrastructuur een rol spelen. Een warmtepomp boven de 5 kW thermisch vraagt in veel gevallen om een 3-fase aansluiting voor een optimale verdeling van de belasting op het net. Naast de SVOH kan voor de warmtepomp zelf ook [ISDE-subsidie](/blog/isde-subsidie-warmtepompen) van toepassing zijn — controleer bij het adviseren of beide regelingen te combineren zijn voor dit project.
 
 ## Subsidie voor maatwerk energieadvies
 

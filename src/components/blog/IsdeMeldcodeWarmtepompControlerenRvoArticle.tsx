@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const post = blogPosts.find((p) => p.slug === 'isde-meldcode-warmtepomp-controleren-rvo')!;
 
 const markdown = `
-Bij het aanvragen van ISDE-subsidie voor een warmtepomp is een accurate afstemming van de documentatie essentieel. Om vertraging of afwijzing van de subsidieaanvraag door de Rijksdienst voor Ondernemend Nederland (RVO) te voorkomen, moeten de gegevens op de aanvraag exact overeenkomen met de werkelijkheid en de factuur.
+Eén cijfer verschil tussen de meldcode op de aanvraag en het KA-nummer op de factuur is genoeg om een ISDE-aanvraag te laten vastlopen bij de RVO. Bij het aanvragen van [ISDE-subsidie](/blog/isde-subsidie-warmtepompen) voor een warmtepomp is een accurate afstemming van de documentatie essentieel. Om vertraging of afwijzing van de subsidieaanvraag door de Rijksdienst voor Ondernemend Nederland (RVO) te voorkomen, moeten de gegevens op de aanvraag exact overeenkomen met de werkelijkheid en de factuur.
 
 ## Wat is een ISDE-meldcode en hoe werkt de RVO-apparatenlijst?
 
@@ -41,6 +41,8 @@ Het moment van aanvragen verschilt afhankelijk van het type aanvrager:
 
 * **Particuliere woningeigenaren:** Moeten de ISDE-subsidieaanvraag indienen binnen 24 maanden na de installatie van de warmtepomp.
 * **Zakelijke aanvragers:** Moeten de ISDE-subsidie aanvragen én de beslissing afwachten vóórdat de koopovereenkomst voor de warmtepomp definitief wordt aangegaan.
+
+Adviseert u ook over gasbesparing bij een warmtepompboiler? Zie [warmtepompboiler adviseren met ISDE](/blog/warmtepompboiler-adviseren-gasbesparing-isde) voor de subsidie-onderbouwing bij dat specifieke toestel.
 `;
 
 export function IsdeMeldcodeWarmtepompControlerenRvoArticle() {

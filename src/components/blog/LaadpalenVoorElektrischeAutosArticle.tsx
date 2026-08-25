@@ -1,45 +1,44 @@
 import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
+import ReactMarkdown from 'react-markdown';
 
 const post = blogPosts.find((p) => p.slug === 'laadpalen-voor-elektrische-autos')!;
 
-export function LaadpalenVoorElektrischeAutosArticle() {
+const markdown = `
+De juiste laadpaal kiezen begint niet bij het laadvermogen van de auto, maar bij wat de netaansluiting van de woning nog te bieden heeft. Een laadpaal is geen los laadpunt, maar een onderdeel van het complete energiesysteem van de woning — inclusief eventuele zonnepanelen, een thuisbatterij of een warmtepomp die al op dezelfde aansluiting draaien.
 
+## Welke factoren bepalen de keuze van de laadpaal?
+
+Drie factoren bepalen welke laadpaal past: het laadvermogen van de auto, de resterende capaciteit van de aansluiting en groepenkast, en de beschikbare ruimte voor montage. Van deze drie is de resterende capaciteit vaak de beperkende factor, zeker bij een woning die al zonnepanelen of een warmtepomp heeft.
+
+## Load balancing: overbelasting voorkomen zonder de aansluiting te verzwaren
+
+Load balancing regelt de laadstroom van de laadpaal automatisch bij op basis van het overige verbruik in de woning op dat moment. Zo kan een laadpaal veilig worden bijgeplaatst zonder dat de hoofdzekering afslaat, en vaak ook zonder de kostbare stap van een aansluitverzwaring. Zie [dynamic load balancing bij een laadpaal](/blog/dynamic-load-balancing-laadpaal-adviseren) voor de technische onderbouwing hiervan.
+
+## Hoe EnerCalculatie hiermee omgaat
+
+EnerCalculatie maakt het specifieke laadprofiel van de laadpaal inzichtelijk en controleert direct de impact daarvan op de maximale capaciteit van de netaansluiting, in combinatie met de overige verduurzamingsmaatregelen in het dossier. Zo onderbouwt u in één adviesrapport welke configuratie technisch past bij de woning van de klant, in plaats van dit los per maatregel te beoordelen. Lees voor een bredere inleiding ook ons artikel over [laadpaal-advies thuis](/blog/laadpaal-advies-thuis).
+`;
+
+export function LaadpalenVoorElektrischeAutosArticle() {
   return (
     <BlogPostLayout post={post}>
-
-    <p className="text-slate-700 leading-relaxed mb-4">
-      Een laadpaal voor een elektrische auto is meer dan alleen een laadpunt - het is een onderdeel van een compleet energiesysteem. Als installateur moet u uw klant kunnen adviseren over de juiste laadpaal voor zijn of haar situatie. Dit artikel geeft u een overzicht van de verschillende typen laadpalen en de factoren die u moet overwegen bij de keuze van een laadpaal.
-    </p>
-
-    <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-      Laadpalen voor elektrische auto's: een overzicht
-    </h2>
-    <p className="text-slate-700 leading-relaxed mb-4">
-      Er zijn verschillende typen laadpalen voor elektrische auto's op de markt. De keuze van de juiste laadpaal hangt af van verschillende factoren, zoals het laadvermogen van de auto, de capaciteit van de aansluiting en de beschikbare ruimte in de woning.
-    </p>
-
-    <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-      Hoe kiest u de juiste laadpaal voor uw klant?
-    </h2>
-    <p className="text-slate-700 leading-relaxed mb-4">
-      Om de juiste laadpaal te kiezen, moet u eerst het laadvermogen van de auto van uw klant bepalen. Vervolgens moet u de capaciteit van de aansluiting controleren en de beschikbare ruimte in de woning in kaart brengen. Op basis van deze gegevens kunt u de juiste laadpaal selecteren.
-    </p>
-
-    <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-      Laadpalen en netcongestie: hoe voorkomt u overbelasting?
-    </h2>
-    <p className="text-slate-700 leading-relaxed mb-4">
-      Overbelasting van de installatie kan voorkomen worden door load balancing toe te passen. Load balancing regelt de laadstroom van de laadpaal automatisch bij, op basis van het overige verbruik in de woning op dat moment.
-    </p>
-
-    <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
-      Hoe EnerCalculatie hiermee omgaat
-    </h2>
-    <p className="text-slate-700 leading-relaxed mb-4">
-      EnerCalculatie maakt het specifieke laadprofiel van de laadpaal inzichtelijk en controleert direct de impact daarvan op de maximale capaciteit van de netaansluiting, in combinatie met de overige verduurzamingsmaatregelen in het dossier - zoals zonnepanelen, een warmtepomp of een thuisbatterij. Zo onderbouwt u in één adviesrapport welke configuratie technisch past bij de woning van de klant, in plaats van dit los per maatregel te beoordelen. Meer over de specifieke configuratiemogelijkheden vindt u op de <a href="/rekentool-laadpaal" className="text-brand-primary-text font-semibold hover:underline">rekentool laadpaal</a>. Lees voor meer informatie over laadpalen en elektrische auto's ook ons artikel over <a href="/blog/laadpaal-advies-thuis" className="text-brand-primary-text font-semibold hover:underline">laadpaal-advies</a>.
-    </p>
-  
+      <ReactMarkdown
+        components={{
+          h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
+          h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
+          p: ({node: _node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
+          ul: ({node: _node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          ol: ({node: _node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+          li: ({node: _node, ...props}) => <li className="leading-relaxed" {...props} />,
+          strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
+          a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
+          hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
+          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
+        }}
+      >
+        {markdown}
+      </ReactMarkdown>
     </BlogPostLayout>
   );
 }
