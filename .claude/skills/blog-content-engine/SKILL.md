@@ -169,6 +169,32 @@ repurposing, dan blijft het artikel zelf gewoon gepubliceerd).
   niet in dit Railway-project maar in `EnerCalculatie` (app-repo, service `enercalculatie`); ophalen
   via `railway run` in die project-link).
 
+## Visuals in artikelen — SVG-diagram, geen AI-image-generation (2026-08-25)
+
+Onderzocht als onderdeel van de funnel-herinrichting: er bestaat **geen** AI-image-generation in
+deze pipeline. Elk artikel hergebruikt één van een handjevol generieke categorie-stockfoto's
+(`/og-zonnepanelen.jpg`, `/og-warmtepomp.jpg`, etc. in `src/content/blogPosts.ts`, veld `image`) —
+puur voor OG/meta, niet inline in de body. Bewuste keuze, geen losse eind: **geen AI-hero-image
+bouwen**, wél inline SVG-diagrammen voor cijfermatige content.
+
+- **Waarom geen AI-image-generation:** nieuwe kosten/secret/faalmodus in de pipeline, én een
+  fotorealistische AI-afbeelding kan technisch onjuiste details tonen (paneel-oriëntatie,
+  bekabeling) — risicovol op een technisch kennisplatform waar feitelijke juistheid de kernbelofte
+  is.
+- **Waarom wél inline SVG:** gratis, geen dependency-risico, blijft per definitie in sync met de
+  cijfers in het artikel (data-gedreven component, geen los plaatje dat kan verouderen).
+- **Niet automatiseerbaar per artikel:** een SVG-diagram vraagt per onderwerp een eigen
+  layout/databinding-keuze (welke categorieën, welke as, welke eenheid) — in tegenstelling tot een
+  generieke Markdown-tabel kan de tekst-only Writer/SeoGeo-pipeline dit niet zelf genereren. Dit is
+  dus **geen** automatische stap voor elk van de 2x/week artikelen, maar een bewuste, handmatige
+  toevoeging per uitgelicht artikel (voorbeeld:
+  `ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle.tsx`, component
+  `DakvlakOpbrengstDiagram`).
+- **Tabellen wél generiek automatisch:** `remark-gfm` + `table`/`thead`/`th`/`td`-componenten
+  zitten sinds 2026-08-25 in zowel de handmatige artikelen als `PublishAgent.buildComponentSource`
+  (de template die de pipeline gebruikt) — Markdown-tabellen renderen dus voor elk toekomstig
+  pipeline-artikel out-of-the-box.
+
 ## Redactionele categorie (`category`-veld)
 
 Alle 54 artikelen hebben sinds 2026-08-07 een `category` (voedt het filter en de
