@@ -1123,32 +1123,7 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe voorkomt een geïntegreerd systeem overbelasting van de netaansluiting?', answer: 'Het energiemanagementsysteem meet continu de P1-poort en regelt via dynamic load balancing het vermogen van grote verbruikers (zoals de laadpaal, warmtepomp en batterij) bij binnen de grenzen van de hoofdzekering.' },
     ],
   },
-  {
-    slug: 'afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren',
-    readingTimeMinutes: 7,
-    title: 'Afgiftesysteem en warmtepomp: hoe controleert u of radiatoren geschikt zijn voor lage temperatuur?',
-    seoTitle: 'Lage temperatuur radiatoren warmtepomp advies',
-    description:
-      'Hoe controleert u of bestaande radiatoren geschikt zijn voor een warmtepomp? Praktisch lage temperatuur radiatoren warmtepomp advies voor installateurs.',
-    date: '2026-08-04',
-    excerpt:
-      'Een warmtepomp presteert pas optimaal bij lage aanvoertemperaturen. Ontdek hoe u als installateur het bestaande afgiftesysteem controleert, de afgiftecapaciteit herrekent en uw klant van een passend advies voorziet.',
-    tags: ['Warmtepompen', 'Afgiftesysteem', 'Radiatoren', 'Adviesvaardigheden', 'Installatietechniek'],
-    keyPoints: [
-      'Afgiftecapaciteit van radiatoren daalt exponentieel bij een lagere gemidelde watertemperatuur.',
-      'Controleer radiatortypen (type 10 t/m 33) en bereken de effectieve afgifte bij een aanvoer van 35 tot 55 graden Celsius.',
-      'Waterzijdig inregelen en het verhogen van de volumestroom zijn cruciaal om stromingsruis en rendementsverlies te voorkomen.',
-      'Oplossingen bij capaciteitstekort variëren van actieve ventilatorconvectoren tot schilisolatie en ltv-radiatoren.',
-      'Onderbouw uw advies richting de klant met transparante herberekeningen voor comfort en een hoge SCOP.',
-    ],
-    category: 'Warmtepompen',
-    faq: [
-      { question: 'Wat is het verschil tussen afgifte bij 75/65 graden Celsius en 45/35 graden Celsius?', answer: 'Bij een traditioneel temperatuurtraject van 75/65 graden Celsius bedraagt het gemiddelde temperatuurverschil met de ruimte (20 graden Celsius) circa 50 Kelvin. Bij een warmtepomptraject van 45/35 graden Celsius is dit gemiddelde temperatuurverschil nog maar 20 Kelvin. Door deze lagere Delta T verliest een standaard radiator meer dan de helft van zijn nominale warmteafgifte.' },
-      { question: 'Moeten alle radiatoren worden vervangen bij de overstap naar een warmtepomp?', answer: 'Nee, dat is niet altijd noodzakelijk. Door het beter isoleren van het gebouw, het plaatsen van radiatorventilatoren of het verhogen van de volumestroom kan de afgifte van de bestaande radiatoren in veel gevallen voldoende zijn, met name in goed geïsoleerde ruimtes.' },
-      { question: 'Hoe beïnvloedt de leidingdiameter het functioneren van de warmtepomp?', answer: 'Omdat een warmtepomp met een kleiner temperatuurverschil (Delta T van 5 tot 8 Kelvin) werkt dan een cv-ketel (Delta T van 15 tot 20 Kelvin), is er meer volumestroom aan water nodig om hetzelfde vermogen te verplaatsen. Te kleine leidingdiameters leiden dan tot hoge stromingsweerstand, ruis en storingen in de warmtepomp.' },
-      { question: 'Wat is de rol van radiatorventilatoren bij lage temperatuur verwarming?', answer: 'Radiatorventilatoren verhogen de geforceerde convectie langs de platen van een bestaande radiator. Hierdoor neemt de warmteafgifte bij lage aanvoertemperaturen aanzienlijk toe, zonder dat de radiator fysiek vervangen hoeft te worden.' },
-    ],
-  },
+  
   {
     slug: 'mia-vamil-laadpaal-adviseren-zakelijk',
     readingTimeMinutes: 6,

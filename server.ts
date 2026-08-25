@@ -172,6 +172,7 @@ if (process.env.NODE_ENV === 'production') {
     '/blog/thuisbatterij-vergelijking-merken-en-typen': '/blog/thuisbatterij-capaciteit-kiezen',
     '/blog/zonnepanelen-warmtepomp-combinatie': '/blog',
     '/blog/dynamisch-energiecontract-sturing-thuisbatterij-warmtepomp': '/blog/dynamische-energiecontracten-adviseren-sturing-batterij-warmtepomp',
+    '/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren': '/blog/radiatoren-geschikt-warmtepomp-lage-temperatuur',
   };
   app.get(Object.keys(legacyRedirects), (req, res) => {
     res.redirect(301, legacyRedirects[req.path]);

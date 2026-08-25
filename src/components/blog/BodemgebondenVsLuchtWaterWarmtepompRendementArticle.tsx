@@ -27,7 +27,7 @@ Tegenover deze hogere opstartkosten staat een aanzienlijk lange levensduur van d
 
 ## Passieve koeling: Vrije koeling in de zomer
 
-Een specifiek voordeel van een bodemgebonden installatie is de mogelijkheid tot **passieve koeling** (ook wel vrije koeling genoemd). Hierbij wordt met een zeer laag stroomverbruik koud water uit de bodem door het afgiftesysteem gepompt. Bekijk onze [gids over lage temperatuur verwarming en koeling](/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren) voor meer details.
+Een specifiek voordeel van een bodemgebonden installatie is de mogelijkheid tot **passieve koeling** (ook wel vrije koeling genoemd). Hierbij wordt met een zeer laag stroomverbruik koud water uit de bodem door het afgiftesysteem gepompt. Bekijk onze [gids over lage temperatuur verwarming en koeling](/blog/radiatoren-geschikt-warmtepomp-lage-temperatuur) voor meer details.
 
 ## Wet- en regelgeving: Geluidsnormen (Bbl) en vergunningen
 

@@ -111,7 +111,6 @@ const WarmtepompboilerAdviserenGasbesparingIsdeArticle = lazyRoute('/blog/warmte
 const VerduurzamingsadviesVveCollectiefPlanArticle = lazyRoute('/blog/verduurzamingsadvies-vve-collectief-plan', () => import('./components/blog/VerduurzamingsadviesVveCollectiefPlanArticle').then(m => ({ default: m.VerduurzamingsadviesVveCollectiefPlanArticle })));
 const RadiatorenGeschiktWarmtepompLageTemperatuurArticle = lazyRoute('/blog/radiatoren-geschikt-warmtepomp-lage-temperatuur', () => import('./components/blog/RadiatorenGeschiktWarmtepompLageTemperatuurArticle').then(m => ({ default: m.RadiatorenGeschiktWarmtepompLageTemperatuurArticle })));
 const GeintegreerdEnergiesysteemWoningenArticle = lazyRoute('/blog/geintegreerd-energiesysteem-woningen', () => import('./components/blog/GeintegreerdEnergiesysteemWoningenArticle').then(m => ({ default: m.GeintegreerdEnergiesysteemWoningenArticle })));
-const AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle = lazyRoute('/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren', () => import('./components/blog/AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle').then(m => ({ default: m.AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle })));
 const MiaVamilLaadpaalAdviserenZakelijkArticle = lazyRoute('/blog/mia-vamil-laadpaal-adviseren-zakelijk', () => import('./components/blog/MiaVamilLaadpaalAdviserenZakelijkArticle').then(m => ({ default: m.MiaVamilLaadpaalAdviserenZakelijkArticle })));
 const Van1FaseNaar3FaseVerduurzamingAdviesArticle = lazyRoute('/blog/van-1-fase-naar-3-fase-verduurzaming-advies', () => import('./components/blog/Van1FaseNaar3FaseVerduurzamingAdviesArticle').then(m => ({ default: m.Van1FaseNaar3FaseVerduurzamingAdviesArticle })));
 const R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle = lazyRoute('/blog/r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies', () => import('./components/blog/R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle').then(m => ({ default: m.R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle })));
@@ -289,7 +288,6 @@ export function AppContent() {
             <Route path="/blog/verduurzamingsadvies-vve-collectief-plan" element={<VerduurzamingsadviesVveCollectiefPlanArticle />} />
             <Route path="/blog/radiatoren-geschikt-warmtepomp-lage-temperatuur" element={<RadiatorenGeschiktWarmtepompLageTemperatuurArticle />} />
             <Route path="/blog/geintegreerd-energiesysteem-woningen" element={<GeintegreerdEnergiesysteemWoningenArticle />} />
-            <Route path="/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren" element={<AfgiftesysteemWarmtepompLageTemperatuurRadiatorenArticle />} />
             <Route path="/blog/mia-vamil-laadpaal-adviseren-zakelijk" element={<MiaVamilLaadpaalAdviserenZakelijkArticle />} />
             <Route path="/blog/van-1-fase-naar-3-fase-verduurzaming-advies" element={<Van1FaseNaar3FaseVerduurzamingAdviesArticle />} />
             <Route path="/blog/r290-koudemiddel-propaan-warmtepomp-plaatsingsadvies" element={<R290KoudemiddelPropaanWarmtepompPlaatsingsadviesArticle />} />
