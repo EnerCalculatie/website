@@ -19,6 +19,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   MAX_TITLE_LENGTH,
   MAX_DESCRIPTION_LENGTH,
+  LATEX_NOTATION,
 } from './lib/content-checks.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -126,6 +127,17 @@ for (const [url, outFile] of pages) {
   // -- 5. canonical ----------------------------------------------------------
   if (!isNoindex && !html.includes('<link rel="canonical"')) {
     fail(outFile, 'indexable pagina zonder canonical.');
+  }
+
+  // -- 6. ongerenderde LaTeX/MathJax-notatie ---------------------------------
+  // Deze pipeline heeft geen LaTeX-renderer: $\Delta T$-achtige notatie komt als
+  // kale tekst (dollartekens, backslashes) op de live pagina. checkComponentBody()
+  // in content-checks.mjs zou dit al vóór publicatie moeten vangen, maar was tot
+  // 2026-08-25 nergens aangeroepen — vandaar deze extra, wél daadwerkelijk actieve
+  // check op de geprerenderde output zelf.
+  const latexHits = html.match(LATEX_NOTATION);
+  if (latexHits) {
+    fail(outFile, `${latexHits.length}x ongerenderde LaTeX-notatie op de pagina (bv. "${latexHits[0]}").`);
   }
 }
 

@@ -150,6 +150,14 @@ describe('checkComponentBody', () => {
     const errors = checkComponentBody('<h2>Kop</h2><p>De waarde is NaN hier.</p>');
     expect(errors.some((e) => e.includes('NaN'))).toBe(true);
   });
+  it('vlagt ongerenderde LaTeX-notatie (2026-08-25: live in 2 artikelen aangetroffen, $\\Delta T$ en $V_{dc \\text{max}}$)', () => {
+    const errors = checkComponentBody('<h2>Kop</h2><p>De overtemperatuur ($\\Delta T$) daalt.</p>');
+    expect(errors.some((e) => e.includes('LaTeX'))).toBe(true);
+  });
+  it('laat gewone dollarbedragen en Unicode-symbolen met rust', () => {
+    // Geen backslash of _{/^{ erin -> geen LaTeX-syntax, gewone tekst.
+    expect(checkComponentBody('<h2>Kop</h2><p>Dat kost €5 en ΔT is 20K.</p>')).toEqual([]);
+  });
 });
 
 describe('checkNoAmounts', () => {

@@ -1,9 +1,17 @@
-// Gedeelde, deterministische contentchecks. Gebruikt door:
-//  - scripts/generate-blog-post.mjs  -> gate vóór er iets naar schijf gaat
-//  - scripts/qc-seo.mjs              -> gate op elke push (CI)
+// Gedeelde, deterministische contentchecks. Daadwerkelijk gebruikt door:
+//  - scripts/plan-content.mjs  -> findDuplicateTopic/checkPlanItem, backlog-aanmaak
+//  - scripts/qc-seo.mjs        -> MAX_TITLE_LENGTH/MAX_DESCRIPTION_LENGTH/LATEX_NOTATION, gate op elke push (CI)
 //
 // Bewust géén LLM: dit zijn harde limieten die je telt, niet beoordeelt. De
 // seo-geo-validator scoort kwaliteit; dit bestand controleert feiten.
+//
+// LET OP (gevonden 2026-08-25): checkComponentBody/checkArticleMeta/checkNoAmounts/
+// checkSavingsClaims/deriveSeoTitle/countBodyWords/MIN_WORD_COUNT/extractInternalLinks
+// zijn hier wel gedefinieerd en geëxporteerd, maar worden NERGENS aangeroepen —
+// leftover van de oude generate-blog-post.mjs-flow (vervangen 2026-08-07, zie
+// SKILL.md). Een vorige versie van dit bestand claimde ten onrechte dat ze actief
+// waren; vertrouw die claim niet zonder een echte grep naar de aanroep. Opruimen of
+// alsnog wiren staat open, is niet binnen deze sessie opgepakt.
 
 /** Google kapt de <title> af rond 60 tekens. */
 export const MAX_TITLE_LENGTH = 60;
@@ -60,6 +68,13 @@ const FOREIGN_WORDS = [
 // een nieuwe variant opduikt — een exacte lijst is betrouwbaarder dan een
 // heuristiek die echte woorden als corruptie aanmerkt.
 const CORRUPTION_TOKENS = ['ptrdiff', 'undefined', 'NaN', '[object Object]', 'lorem ipsum'];
+
+// Ongerenderde LaTeX/MathJax-notatie: deze pipeline heeft geen LaTeX-renderer, dus
+// $\Delta T$, $V_{dc \text{max}}$ e.d. komen als kale tekst (dollartekens, backslashes,
+// accolades) op de live pagina te staan. Aanleiding: 2026-08-25, gevonden in 2 live
+// artikelen (DcAcVerhoudingOmvormerOverdimensioneringArticle,
+// RadiatorenGeschiktWarmtepompLageTemperatuurArticle) tijdens een sitebrede scan.
+export const LATEX_NOTATION = /\$[^$\n]*(?:\\[A-Za-z]+|[_^]\{)[^$\n]*\$/g;
 
 /**
  * Corruptiecheck voor een backlog-titel (plan-content.mjs).
@@ -239,6 +254,13 @@ export function checkComponentBody(body) {
   if (!/<h2\b/.test(body)) errors.push('body bevat geen enkele <h2> — artikel zonder koppenstructuur.');
   // H1 hoort exact 1x per pagina en komt uit BlogPostLayout (post.title).
   if (/<h1\b/.test(body)) errors.push('body bevat een <h1>; BlogPostLayout rendert die al -> dubbele H1.');
+
+  const latexHits = body.match(LATEX_NOTATION);
+  if (latexHits) {
+    errors.push(
+      `${latexHits.length}x ongerenderde LaTeX-notatie gevonden (bv. "${latexHits[0]}") — deze markdown/JSX-pipeline rendert geen LaTeX/MathJax, dus dit staat als kale tekst (inclusief dollartekens en backslashes) op de live pagina. Gebruik gewone tekst/Unicode (bv. ΔT, Vmax) of HTML-entities (&Delta;) i.p.v. LaTeX-syntax.`
+    );
+  }
 
   return errors;
 }

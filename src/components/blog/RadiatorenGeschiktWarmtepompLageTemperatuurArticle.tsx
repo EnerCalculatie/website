@@ -26,7 +26,7 @@ export function RadiatorenGeschiktWarmtepompLageTemperatuurArticle() {
   Het fysieke mechanisme: waarom afgiftevermogen niet-lineair daalt
 </h2>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Traditionele cv-installaties zijn ontworpen voor een ontwerp-temperatuurregime van 75 °C aanvoer, 65 °C retour en 20 °C ruimtetemperatuur (75/65/20 °C). De gemiddelde overtemperatuur ($\Delta T$) ten opzichte van de kamer bedraagt in dat scenario 50 K. Een hybride warmtepomp levert bij voorkeur een aanvoertemperatuur van maximaal 45 °C tot 55 °C, terwijl een all-electric systeem het liefst werkt met een regime van 35 °C tot 45 °C.
+  Traditionele cv-installaties zijn ontworpen voor een ontwerp-temperatuurregime van 75 °C aanvoer, 65 °C retour en 20 °C ruimtetemperatuur (75/65/20 °C). De gemiddelde overtemperatuur (ΔT) ten opzichte van de kamer bedraagt in dat scenario 50 K. Een hybride warmtepomp levert bij voorkeur een aanvoertemperatuur van maximaal 45 °C tot 55 °C, terwijl een all-electric systeem het liefst werkt met een regime van 35 °C tot 45 °C.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
   Het vermogen van een radiator daalt bij een lagere overtemperatuur niet evenredig, maar exponentieel. De formule voor de vermogenscorrectie van een radiator luidt:
@@ -35,7 +35,7 @@ export function RadiatorenGeschiktWarmtepompLageTemperatuurArticle() {
   Q_actueel = Q_nominaal * ( &Delta;T_actueel / &Delta;T_nominaal )^n
 </div>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Hierin is <em>n</em> de radiatorexponent (gemiddeld 1,3 voor standaard paneelradiatoren). Wanneer u de gemiddelde watertemperatuur verlaagt van 70 °C naar 40 °C bij een ruimtetemperatuur van 20 °C, daalt de overtemperatuur $\Delta T$ van 50 K naar 20 K. Vul we dit in de formule in, dan blijkt dat er van het nominale fabrieksvermogen nog slechts circa 30 tot 35 procent overblijft.
+  Hierin is <em>n</em> de radiatorexponent (gemiddeld 1,3 voor standaard paneelradiatoren). Wanneer u de gemiddelde watertemperatuur verlaagt van 70 °C naar 40 °C bij een ruimtetemperatuur van 20 °C, daalt de overtemperatuur ΔT van 50 K naar 20 K. Vul we dit in de formule in, dan blijkt dat er van het nominale fabrieksvermogen nog slechts circa 30 tot 35 procent overblijft.
 </p>
 
 <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4">
@@ -137,7 +137,7 @@ export function RadiatorenGeschiktWarmtepompLageTemperatuurArticle() {
   Waterzijdig inregelen: de sleutel tot een hoog warmtepomprendement
 </h2>
 <p className="text-slate-700 leading-relaxed mb-4">
-  Het fysiek geschikt maken van de radiatoren is stap één; het hydraulisch in balans brengen van het systeem is stap twee. Een warmtepomp werkt met een aanmerkelijk kleiner temperatuurverschil over de wisselaar ($\Delta T$ van 5 tot 8 K) dan een traditionele cv-ketel ($\Delta T$ van 15 tot 20 K). Dit betekent dat er bij lagetemperatuurverwarming tot wel twee tot drie maal meer water per uur door de leidingen gepompt moet worden.
+  Het fysiek geschikt maken van de radiatoren is stap één; het hydraulisch in balans brengen van het systeem is stap twee. Een warmtepomp werkt met een aanmerkelijk kleiner temperatuurverschil over de wisselaar (ΔT van 5 tot 8 K) dan een traditionele cv-ketel (ΔT van 15 tot 20 K). Dit betekent dat er bij lagetemperatuurverwarming tot wel twee tot drie maal meer water per uur door de leidingen gepompt moet worden.
 </p>
 <p className="text-slate-700 leading-relaxed mb-4">
   Zonder waterzijdig inregelen zal het warme water de weg van de minste weerstand kiezen. Dichtbij gelegen radiatoren krijgen te veel debiet, terwijl verafgelegen radiatoren koud blijven. Bovendien stijgt de retourtemperatuur naar de warmtepomp onnodig snel. Elke graad dat de retourtemperatuur hoger is dan noodzakelijk, verslechtert de Seizoensgebonden Prestatiecoëfficiënt (SCOP) van de warmtepomp met circa 2 tot 3 procent. Meer achtergronden over efficiëntieberekeningen leest u in ons artikel over de{' '}

@@ -40,14 +40,14 @@ Hoewel dit klinkt als verlies van energie, valt het rendementsverlies in de prak
 ## Technische randvoorwaarden en NEN 1010 veiligheidseisen
 
 Bij het ontwerpen van een overgedimensioneerd systeem is het van belang de grenzen van de apparatuur te bewaken. Conform de NEN 1010-eisen moeten bij overdimensionering de waarden binnen de fabrieksspecificaties van de omvormer blijven, waaronder:
-* De maximale ingangsspanning ($V_{dc \text{max}}$)
-* De maximale ingangsstroom ($I_{dc \text{max}}$)
+* De maximale ingangsspanning (Vdc,max)
+* De maximale ingangsstroom (Idc,max)
 
 Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aangesloten DC-vermogen veilig verwerken. Raadpleeg voor de exacte berekeningen van de specifieke grenzen en ontwerpeisen altijd een erkend installateur. Speelt spanningsopdrijving op het net hierbij ook mee? Zie [omvormeruitval bij 253V en het kabeltraject](/blog/omvormeruitval-253v-kabeltraject-offerte) voor de onderbouwing richting uw offerte.
 
 ## Samenvatting
 
-Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties ($V_{dc \text{max}}$ en $I_{dc \text{max}}$) en NEN 1010-richtlijnen blijft.
+Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties (Vdc,max en Idc,max) en NEN 1010-richtlijnen blijft.
 
 `;
 
