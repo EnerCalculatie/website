@@ -47,10 +47,10 @@ on:
   workflow_dispatch:
     inputs:
       tier:
-        description: "Gemini-tier: 'free' voor de normale gratis key, 'paid' voor een extra handmatige run op de betaalde backup-key"
+        description: "Gemini-tier: 'paid' (standaard, betaalde key) of 'free' voor een handmatige run op de gratis key"
         type: choice
-        options: [free, paid]
-        default: free
+        options: [paid, free]
+        default: paid
 
 permissions:
   contents: write
@@ -92,14 +92,17 @@ jobs:
         if: steps.guard.outputs.proceed == 'true'
         run: npm ci
 
-      # GEMINI_TIER komt bewust NIET uit de gedeelde repo-variabele vars.GEMINI_TIER
-      # (die staat nu op 'paid' — dat zou de geplande di/vr-run per ongeluk op de
-      # betaalde key laten draaien). Cron = altijd 'free'. Handmatig = kiesbaar
-      # via workflow_dispatch input, default 'free'.
+      # GEMINI_TIER komt bewust NIET uit de gedeelde repo-variabele vars.GEMINI_TIER (die
+      # is niet gekoppeld aan deze workflow-default en kan onafhankelijk wijzigen).
+      # Vanaf 2026-08-25 (production activation, kostenanalyse gaf groen licht — zie
+      # eindrapport): cron = standaard 'paid'. Handmatig = kiesbaar via workflow_dispatch
+      # input, default 'paid', met 'free' als bewuste uitzondering. Geen fallback naar de
+      # gratis key als GEMINI_API_KEY_PAID ontbreekt (gemini-config.mjs faalt dan hard) —
+      # zo kan een misconfiguratie nooit stilzwijgend de gratis dagquota opsouperen.
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_TIER: ${{ github.event.inputs.tier || 'free' }}
+          GEMINI_TIER: ${{ github.event.inputs.tier || 'paid' }}
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
@@ -109,7 +112,7 @@ jobs:
         id: generate
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_TIER: ${{ github.event.inputs.tier || 'free' }}
+          GEMINI_TIER: ${{ github.event.inputs.tier || 'paid' }}
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
@@ -161,7 +164,7 @@ jobs:
         if: steps.push.outputs.slug != ''
         continue-on-error: true
         env:
-          GEMINI_TIER: ${{ github.event.inputs.tier || 'free' }}
+          GEMINI_TIER: ${{ github.event.inputs.tier || 'paid' }}
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
