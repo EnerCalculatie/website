@@ -228,6 +228,27 @@ Writer daarom expliciet om **geen eigen CTA-link** te schrijven: een handmatige 
 dubbelop zijn en (zonder per-slug `utm_content`) slechtere attributie geven dan de bestaande
 componenten.
 
+## Visual-architectuur — `ArticleVisual` (2026-08-25, vervolgopdracht funnel-herinrichting punt 5)
+
+`src/components/blog/ArticleVisual.tsx` maakt handmatige per-artikel SVG-code overbodig: een
+artikel-auteur schrijft alleen een getypeerd databject (`VisualSpec`) en importeert `<ArticleVisual
+visual={...} />` op de gewenste plek in de JSX. Geïmplementeerd: `bar_chart` (staafdiagram, gebruikt
+in het pilot-artikel) en `comparison` (twee-koloms vergelijkingstabel). Nog niet geïmplementeerd
+(schema wel gedefinieerd in `VisualType`): `process`, `roof_orientation`, `timeline`, `flow` —
+bewuste scope-keuze, zie eindrapport. `roof_orientation`-achtige data (opbrengst per dakvlak) is in
+de praktijk al goed te tonen als `bar_chart`.
+
+- **Puur-functie-tests, geen component-rendertests:** `computeBarChartLayout()` is los geëxporteerd
+  en getest in `ArticleVisual.test.tsx` (schaalberekening, y-posities, kleurfallback) — deze repo
+  heeft geen `@testing-library/react`/jsdom en geen enkel ander blog-component wordt via DOM-
+  rendering getest. Introduceer die infra niet zomaar voor één component; de visuele output wordt
+  al gedekt door `npm run build` (prerender) + Playwright.
+- **Geen automatische markdown-metadata-substitutie:** plaatsing is een bewuste JSX-aanroep, geen
+  `{{VISUAL}}`-placeholder die de pipeline zelf vervangt — een diagram hoort op een specifieke plek
+  in het betoog (na het rekenvoorbeeld), niet op een vaste positie zoals het FAQ-blok.
+- Niet elk artikel heeft een zinvolle visual — alleen toevoegen bij berekeningen/vergelijkingen/
+  technische processen waar een diagram/tabel écht iets toevoegt.
+
 ## Visuals in artikelen — SVG-diagram, geen AI-image-generation (2026-08-25)
 
 Onderzocht als onderdeel van de funnel-herinrichting: er bestaat **geen** AI-image-generation in

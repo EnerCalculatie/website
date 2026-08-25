@@ -94,5 +94,5 @@ test('scheduler draait op dinsdag + vrijdag, niet op een ander dagenpaar', () =>
 test('pilot-artikel heeft een rekenvoorbeeld-tabel en het opbrengst-diagram', async ({ page }) => {
   await page.goto(`/blog/${PILOT_SLUG}`);
   await expect(page.locator('table')).toHaveCount(1);
-  await expect(page.getByRole('img', { name: /Staafdiagram jaaropbrengst/ })).toBeVisible();
+  await expect(page.getByRole('img', { name: /Staafdiagram.*Jaaropbrengst per dakvlak/i })).toBeVisible();
 });

@@ -2,6 +2,7 @@ import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { ArticleVisual, type VisualSpec } from './ArticleVisual';
 
 const post = blogPosts.find((p) => p.slug === 'zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen')!;
 
@@ -71,51 +72,19 @@ Bij de elektrische aansluiting van de omvormer in de groepenkast stelt de NEN 10
 
 `;
 
-const dakvlakData = [
-  { label: 'Zuid (30°)', kwh: 2850, kleur: '#f59e0b' },
-  { label: 'Oost', kwh: 1172, kleur: '#0ea5e9' },
-  { label: 'West', kwh: 1172, kleur: '#6366f1' },
-];
-
-function DakvlakOpbrengstDiagram() {
-  const max = Math.max(...dakvlakData.map((d) => d.kwh));
-  const barHeight = 40;
-  const gap = 16;
-  const chartHeight = dakvlakData.length * (barHeight + gap);
-  const labelWidth = 90;
-  const chartWidth = 420;
-
-  return (
-    <figure className="my-8 not-prose">
-      <svg
-        viewBox={`0 0 ${labelWidth + chartWidth + 70} ${chartHeight}`}
-        role="img"
-        aria-label="Staafdiagram jaaropbrengst per dakvlak: zuid 2.850 kWh, oost 1.172 kWh, west 1.172 kWh"
-        className="w-full h-auto"
-      >
-        {dakvlakData.map((d, i) => {
-          const y = i * (barHeight + gap);
-          const w = (d.kwh / max) * chartWidth;
-          return (
-            <g key={d.label}>
-              <text x={0} y={y + barHeight / 2} dy="0.35em" className="fill-slate-700 text-sm font-semibold">
-                {d.label}
-              </text>
-              <rect x={labelWidth} y={y} width={chartWidth} height={barHeight} rx={4} className="fill-slate-100" />
-              <rect x={labelWidth} y={y} width={w} height={barHeight} rx={4} fill={d.kleur} />
-              <text x={labelWidth + w + 10} y={y + barHeight / 2} dy="0.35em" className="fill-slate-900 text-sm font-bold">
-                {d.kwh.toLocaleString('nl-NL')} kWh
-              </text>
-            </g>
-          );
-        })}
-      </svg>
-      <figcaption className="text-sm text-slate-500 mt-2 text-center">
-        Jaaropbrengst per dakvlak bij 6 kWp verdeeld over zuid (3,0 kWp), oost (1,5 kWp) en west (1,5 kWp).
-      </figcaption>
-    </figure>
-  );
-}
+// Data-gedreven visual (zie ArticleVisual.tsx) i.p.v. handmatige SVG — de referentie-implementatie
+// voor de visual-architectuur uit de funnel-herinrichting (2026-08-25).
+const dakvlakVisual: VisualSpec = {
+  type: 'bar_chart',
+  title: 'Jaaropbrengst per dakvlak',
+  unit: 'kWh',
+  caption: 'Jaaropbrengst per dakvlak bij 6 kWp verdeeld over zuid (3,0 kWp), oost (1,5 kWp) en west (1,5 kWp).',
+  items: [
+    { label: 'Zuid (30°)', value: 2850, kleur: '#f59e0b' },
+    { label: 'Oost', value: 1172, kleur: '#0ea5e9' },
+    { label: 'West', value: 1172, kleur: '#6366f1' },
+  ],
+};
 
 const markdownComponents: Components = {
   h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
@@ -140,7 +109,7 @@ export function ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle() {
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
         {markdownIntro}
       </ReactMarkdown>
-      <DakvlakOpbrengstDiagram />
+      <ArticleVisual visual={dakvlakVisual} />
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
         {markdownRest}
       </ReactMarkdown>
