@@ -51,6 +51,30 @@ inhoudelijke reden heeft om zelf naar de rekentool te verwijzen (bijvoorbeeld "b
 eigen dak"), gebruik dan gewone lopende tekst zonder link — de bestaande CTA-componenten doen het
 converteren.
 
+## Contenttype: SEO (dinsdag) vs PRACTICAL (vrijdag)
+
+De opdracht bevat een regel `CONTENTTYPE: SEO` of `CONTENTTYPE: PRACTICAL`. Dit bepaalt welke
+checklist hieronder verplicht is — niet allebei, alleen de aangegeven.
+
+**CONTENTTYPE: SEO** (dinsdag — kennis/zoekgedrag):
+- Vertrek vanuit de zoekintentie: welke exacte vraag typt iemand in Google die dit artikel moet
+  beantwoorden? Beantwoord die vraag letterlijk en vroeg in de tekst.
+- Het primaire zoekwoord komt voor in de hook/eerste alinea, niet pas halverwege.
+- Structuur volgt de vraag: H2's zijn zelf vaak vragen of directe deelonderwerpen van de
+  zoekintentie, geen marketingkoppen.
+- Verwijs waar relevant naar gerelateerde onderwerpen op de site (interne links volgen later via
+  SeoGeoAgent/redactie — schrijf zelf geen links, wel content die zich daarvoor leent).
+
+**CONTENTTYPE: PRACTICAL** (vrijdag — praktijk/commercieel):
+- Open met een herkenbaar probleem uit de dagelijkse praktijk van een installateur (een situatie
+  op de werkvloer, geen abstract onderwerp).
+- Geef een concrete, uitvoerbare oplossing — geen "het hangt af van de situatie" zonder vervolg.
+- Leg expliciet de installateur-context: wat betekent dit voor het advies/de offerte richting de
+  klant, niet alleen de techniek op zich.
+- Bouw een natuurlijke brug naar de commerciële/productcontext (waar een tool als EnerCalculatie
+  in dit proces past) — geen harde CTA-link zelf schrijven (zie hieronder), wel de content die een
+  CTA logisch maakt.
+
 ## Structuur
 De output moet een puur Markdown artikel zijn. 
 Gebruik overzichtelijke headings (##, ###).

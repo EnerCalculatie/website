@@ -73,6 +73,22 @@ describe('WriterAgent.run', () => {
     expect(prompt).not.toContain('FEEDBACK VAN KWALITEITSCONTROLE');
   });
 
+  it('stuurt CONTENTTYPE mee als het is meegegeven (di/vr-contenttype-afdwinging)', async () => {
+    generateMock.mockResolvedValue('draft');
+    const agent = new WriterAgent();
+    await agent.run('warmtepomp rendement', researchPath, outputPath, undefined, 'PRACTICAL');
+    const prompt = generateMock.mock.calls[0][0].userPrompt as string;
+    expect(prompt).toContain('CONTENTTYPE: PRACTICAL');
+  });
+
+  it('bevat geen CONTENTTYPE-regel als geen contentType is meegegeven (backwards compatible)', async () => {
+    generateMock.mockResolvedValue('draft');
+    const agent = new WriterAgent();
+    await agent.run('warmtepomp rendement', researchPath, outputPath);
+    const prompt = generateMock.mock.calls[0][0].userPrompt as string;
+    expect(prompt).not.toContain('CONTENTTYPE:');
+  });
+
   it('gooit een duidelijke fout als research.json ontbreekt', async () => {
     const agent = new WriterAgent();
     await expect(

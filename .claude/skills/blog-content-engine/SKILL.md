@@ -117,8 +117,26 @@ De blog-cronjob (`.github/workflows/publish-blog-post.yml`, di+vr 05:00 UTC) dra
 `run-pipeline.ts` orkestreert 7 agents onder `agents/`):
 
 1. **`scripts/plan-content.mjs`** — vult `ai-context/content-plan.json` aan zolang er <5
-   `planned`-items zijn, via Gemini + `ai-context/*.md` (bedrijfscontext). Ongewijzigd t.o.v. de
-   oude flow — draait vóór `run-pipeline.ts` als losse stap in de workflow.
+   `planned`-items zijn, via Gemini + `ai-context/*.md` (bedrijfscontext). Draait vóór
+   `run-pipeline.ts` als losse stap in de workflow. Sinds 2026-08-25 vraagt de LLM-prompt ook een
+   `contentType: 'SEO' | 'PRACTICAL'` per item (gevalideerd, anders `undefined` + waarschuwing) —
+   zie punt 3a hieronder voor hoe dit wordt afgedwongen.
+
+### Dinsdag = SEO, vrijdag = PRACTICAL (2026-08-25)
+
+`run-pipeline.ts` bepaalt via `requiredContentType()` (Europe/Amsterdam-lokale weekdag, niet UTC)
+of de run dinsdag (`SEO`) of vrijdag (`PRACTICAL`) is — alleen bij automatische backlog-selectie,
+niet bij een expliciet CLI-onderwerp (handmatige/backfill-run). `pickNextPlannedItem(cwd,
+requiredType)` geeft dan voorrang aan een `planned`-item met matchend `contentType`, ook als dat
+een lagere prioriteit heeft dan een niet-matchend item; alleen als de backlog géén item van het
+gevraagde type heeft, valt het terug op hoogste-prioriteit-ongeacht-type (met een waarschuwing —
+dat is het signaal dat de backlog te weinig variatie heeft, geen normale situatie). Het gekozen
+`contentType` gaat als extra parameter naar `WriterAgent.run()` (beide aanroepen: eerste
+schrijfbeurt én herschrijf-op-feedback), die het als `CONTENTTYPE: SEO`/`CONTENTTYPE: PRACTICAL`
+in de userPrompt zet — `writer.md` bevat de twee bijbehorende checklists (zoekintentie/hook/interne
+links voor SEO; herkenbaar praktijkprobleem/installateurcontext/commerciële brug voor PRACTICAL).
+Backwards compatible: zonder `contentType`-argument (bestaande handmatige aanroepen) gebeurt er
+niets — geen `CONTENTTYPE`-regel, gedrag exact zoals vóór 2026-08-25.
 2. **`ResearchAgent`** — verzamelt feiten over het gekozen onderwerp (hoogste-prioriteit
    `planned`-item, of een expliciet meegegeven onderwerp), schrijft `research.json`. Vraagt het
    model feiten te putten uit "betrouwbare bronnen genoemd in de systeeminstructie"

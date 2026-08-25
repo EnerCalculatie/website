@@ -16,7 +16,13 @@ export class WriterAgent {
     this.systemPrompt = readFileSync(promptPath, 'utf-8');
   }
 
-  async run(topic: string, researchJsonPath: string, outputPath: string, feedback?: string): Promise<string> {
+  async run(
+    topic: string,
+    researchJsonPath: string,
+    outputPath: string,
+    feedback?: string,
+    contentType?: 'SEO' | 'PRACTICAL'
+  ): Promise<string> {
     const startTime = Date.now();
     console.log(`[WriterAgent] Start schrijven artikel over: "${topic}"...`);
 
@@ -31,6 +37,7 @@ export class WriterAgent {
     }
     
     const kbContext = this.knowledgeBase.getCombinedContext();
+    const contentTypeLine = contentType ? `CONTENTTYPE: ${contentType}\n\n` : '';
 
     let userPrompt: string;
 
@@ -38,7 +45,7 @@ export class WriterAgent {
       // Herschrijfmodus: stuur vorige draft + feedback mee
       const previousDraft = readFileSync(outputPath, 'utf-8');
       userPrompt = `
-Herschrijf het blogartikel over het onderwerp: "${topic}".
+${contentTypeLine}Herschrijf het blogartikel over het onderwerp: "${topic}".
 De kwaliteitscontrole heeft het vorige concept afgekeurd met de volgende feedback:
 
 ### FEEDBACK VAN KWALITEITSCONTROLE ###
@@ -61,7 +68,7 @@ BELANGRIJK:
     } else {
       // Eerste schrijfbeurt
       userPrompt = `
-Schrijf het blogartikel over het onderwerp: "${topic}".
+${contentTypeLine}Schrijf het blogartikel over het onderwerp: "${topic}".
 Gebruik uitsluitend de volgende context. Mocht er informatie missen, verzin dan niks zelf.
 
 ${kbContext}

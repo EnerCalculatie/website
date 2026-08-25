@@ -148,7 +148,7 @@ async function main() {
 
   const system = `Je bent een SEO/GEO-contentstrateeg voor EnerCalculatie. Gebruik uitsluitend onderstaande bedrijfscontext als bron voor doelgroep, producten en toon. Verzin geen feiten, cijfers of regelgeving buiten wat hierin staat.\n\n${context}`;
 
-  const user = `Reeds gepubliceerd (titels): ${existingTitles.join(' | ') || '(geen)'}\nAl in backlog gepland (titels): ${plannedTitles.join(' | ') || '(geen)'}\n\nStel een content-backlog samen van ${BATCH_SIZE} NIEUWE artikel-ideeën, elk over een onderwerp dat nog niet gepubliceerd of gepland is. Kies onderwerpen uit topics.md die de doelgroep (installateur) daadwerkelijk zoekt.\n\nAntwoord UITSLUITEND met een JSON-array (in een \`\`\`json codeblok) van objecten met exact deze velden:\n[{\n  "title": "werktitel van het artikel",\n  "keyword": "primair zoekwoord waar dit artikel op moet scoren",\n  "intent": "informatief" | "commercieel" | "transactioneel",\n  "priority": 1-10 (10 = hoogste zoekvolume/commerciële waarde voor de doelgroep)\n}]`;
+  const user = `Reeds gepubliceerd (titels): ${existingTitles.join(' | ') || '(geen)'}\nAl in backlog gepland (titels): ${plannedTitles.join(' | ') || '(geen)'}\n\nStel een content-backlog samen van ${BATCH_SIZE} NIEUWE artikel-ideeën, elk over een onderwerp dat nog niet gepubliceerd of gepland is. Kies onderwerpen uit topics.md die de doelgroep (installateur) daadwerkelijk zoekt.\n\nDe scheduler publiceert dinsdag (contentType SEO: kennis/zoekgedrag, vertrekt vanuit een concrete zoekvraag) en vrijdag (contentType PRACTICAL: herkenbaar praktijkprobleem + installateurcontext + commerciële relevantie). Zorg dat de batch een mix van beide bevat, niet uitsluitend één type.\n\nAntwoord UITSLUITEND met een JSON-array (in een \`\`\`json codeblok) van objecten met exact deze velden:\n[{\n  "title": "werktitel van het artikel",\n  "keyword": "primair zoekwoord waar dit artikel op moet scoren",\n  "intent": "informatief" | "commercieel" | "transactioneel",\n  "contentType": "SEO" | "PRACTICAL",\n  "priority": 1-10 (10 = hoogste zoekvolume/commerciële waarde voor de doelgroep)\n}]`;
 
   console.log(`Vul content-plan aan via Gemini (${GEMINI_MODEL})...`);
   const raw = await callGemini(system, user);
@@ -195,10 +195,15 @@ async function main() {
 
     usedSlugs.add(slug);
     knownTopics.push({ title: item.title, keyword: item.keyword, source: 'backlog (deze ronde)' });
+    const contentType = item.contentType === 'SEO' || item.contentType === 'PRACTICAL' ? item.contentType : undefined;
+    if (!contentType) {
+      console.warn(`Waarschuwing: item zonder geldig contentType (SEO/PRACTICAL) — komt alleen als fallback in aanmerking voor di/vr-selectie: ${item.title}`);
+    }
     additions.push({
       title: item.title,
       keyword: item.keyword,
       intent: item.intent,
+      contentType,
       priority: item.priority,
       slug,
       status: 'planned',
