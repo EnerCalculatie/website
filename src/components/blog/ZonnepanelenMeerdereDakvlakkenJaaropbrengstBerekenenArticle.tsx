@@ -1,11 +1,12 @@
 import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const post = blogPosts.find((p) => p.slug === 'zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen')!;
 
 const markdown = `
-Het berekenen van de totale jaaropbrengst van zonnepanelen op meerdere dakvlakken gebeurt door de verwachte opbrengst per afzonderlijk dakvlak te berekenen (op basis van vermogen, hellingshoek en oriëntatie) en deze bij elkaar op te tellen. Het combineren van afwijkende oriëntaties beïnvloedt niet alleen het totale rendement, maar ook de belasting van de netaansluiting en de keuze voor de juiste omvormer.
+Een dak met alleen zuidgerichte panelen levert op papier de hoogste opbrengst per kWp. Maar de meeste daken zijn niet zuidgericht — schuine kappen met een oost- en westvlak zijn eerder regel dan uitzondering. Simpelweg het totale vermogen vermenigvuldigen met een standaard-kWh-per-kWp-factor geeft dan een verkeerd getal: elk dakvlak heeft zijn eigen instralingsfactor en telt apart mee.
 
 ---
 
@@ -16,6 +17,19 @@ Om de totale jaaropbrengst van een installatie op meerdere dakvlakken te bepalen
 Volgens de NEN-normering voor energieprestatieberekeningen dient voor elk dakvlak de specifieke zoninstraling (in kWh/m²) te worden vermenigvuldigd met:
 1. Het geïnstalleerde piekvermogen (in kWp).
 2. De oriëntatie-afhankelijke systeemefficiëntie.
+
+### Rekenvoorbeeld: 6 kWp verdeeld over drie dakvlakken
+
+Uitgangspunt: een referentie-opbrengst van 950 kWh per kWp per jaar bij optimale oriëntatie (zuid, 30-35°). Oost- en westvlakken krijgen de instralingsfactor uit de tabel hieronder (80-85%) mee.
+
+| Dakvlak | Vermogen | Instralingsfactor | Jaaropbrengst |
+|---|---|---|---|
+| Zuid (30°) | 3,0 kWp | 100% | 2.850 kWh |
+| Oost | 1,5 kWp | 82% | 1.172 kWh |
+| West | 1,5 kWp | 82% | 1.172 kWh |
+| **Totaal** | **6,0 kWp** | — | **5.194 kWh** |
+
+Zonder rekening te houden met oriëntatie zou dezelfde 6 kWp op basis van de zuid-factor 5.700 kWh opleveren — een overschatting van ruim 500 kWh (circa 9%) op jaarbasis. Die afwijking loopt op naarmate het aandeel oost/west-vermogen groter is.
 
 ---
 
@@ -59,6 +73,7 @@ export function ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle() {
   return (
     <BlogPostLayout post={post}>
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
         components={{
           h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
           h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
@@ -69,7 +84,11 @@ export function ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle() {
           strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
           a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
           hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
-          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />
+          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
+          table: ({node: _node, ...props}) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse text-sm" {...props} /></div>,
+          thead: ({node: _node, ...props}) => <thead className="bg-slate-100" {...props} />,
+          th: ({node: _node, ...props}) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
+          td: ({node: _node, ...props}) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
         }}
       >
         {markdown}
