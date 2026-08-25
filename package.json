@@ -21,6 +21,7 @@
     "lint:all": "npm run typecheck && npm run lint",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:e2e": "npm run build && playwright test",
     "plan:content": "node scripts/plan-content.mjs",
     "generate:blog": "npx tsx scripts/content-engine/run-pipeline.ts",
     "indexnow": "node scripts/indexnow-submit.mjs",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.62.1",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "@types/react": "^19.2.17",

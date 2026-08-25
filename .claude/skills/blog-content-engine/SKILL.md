@@ -22,6 +22,34 @@ Al het overige wordt bij de build **gegenereerd uit `blogPosts.ts`** (single sou
 
 Draait in `ci.yml` op elke push/PR naar main, én in `publish-blog-post.yml` vóór de push — faalt die, dan worden de artikelbestanden teruggedraaid en publiceert de bot niets. **Verwijder deze gate niet:** tussen 13 en 15 juli 2026 stond `ci.yml` uit, en in dat gat ging een artikel live met `clase=` in plaats van `className=` (11 typecheck-errors op main) en een `ptrdiff`-token middenin de titel. De esbuild-preflight in de generator checkt alleen syntax, geen JSX-props of tekenlimieten.
 
+## E2E-kwaliteitsgates — `npm run test:e2e` (Playwright, 2026-08-25)
+
+`tests/blog-quality.spec.ts` draait tegen de daadwerkelijk gebouwde site (`npm run build` +
+`node server.js` met `NODE_ENV=production`, zie `playwright.config.ts`), niet tegen bron-JSX zoals
+`qc:seo` — dus browser-gerenderd DOM, echte JSON-LD-parsing, echte link-navigatie. Checkt per
+steekproef-artikel: exact 1 H1, canonical/meta-description aanwezig, `og:image` aanwezig, een
+CTA-link naar `app.enercalculatie.nl/gratis` met `utm_source=blog` + per-slug `utm_content`
+(regressietest op de `blogCtaUrl()`-attributie), en — waar `post.faq` bestaat — dat de zichtbare
+FAQ en het JSON-LD FAQPage-schema exact dezelfde vragen bevatten (geen drift, geen duplicaat-FAQ).
+Los daarvan: een statische check dat `publish-blog-post.yml` op dinsdag+vrijdag (`2,5`) cront, en
+dat het pilot-artikel zijn tabel/SVG-diagram behoudt.
+
+- **`webServer.port` i.p.v. `url`:** server.ts forceert `https` via `x-forwarded-proto` (Railway's
+  proxy zet die header normaal) — een lokale request zonder die header krijgt altijd een 301, dus
+  een URL-gebaseerde readiness-check zou nooit "klaar" zien. Een kale TCP-poortcheck volstaat.
+  Playwright's browser-requests krijgen de header zelf mee via `use.extraHTTPHeaders`.
+- **`node server.js`, niet `npm run start`:** de npm-wrapper vertraagde/verstoorde Playwright's
+  poort-detectie op Windows.
+- **Steekproef, geen alle 76 artikelen:** elke pipeline-run produceert dezelfde
+  `BlogPostLayout`-structuur, dus een handvol artikelen dekt de generieke checks; het pilot-artikel
+  en één FAQ-artikel zitten er expliciet in zodat die paden niet altijd skippen.
+- **`vite.config.ts` `test.exclude` bevat `tests/**` en `.claude/**`:** zonder die exclude pakt
+  vitest's default glob (`**/*.{test,spec}.ts`) ook de Playwright-specs en de losse
+  `ui-ux-pro-max-skill`-agent-skill op, en faalt daar hard op een ontbrekende/verkeerde runtime.
+- CI (`ci.yml`) draait `npx playwright install --with-deps chromium` + `npx playwright test` ná
+  `qc:seo` — nog niet live geverifieerd op GitHub Actions, want de Actions-minuten van de org waren
+  op tijdens deze sessie (herstel verwacht 1 september 2026, zie dagnotities).
+
 ## Kwaliteitsgates op AI-content
 `scripts/lib/content-checks.mjs` bevat de deterministische checks; ze voeden de verbeterlus in `generate-blog-post.mjs` (2 pogingen) en keuren daarna hard af.
 

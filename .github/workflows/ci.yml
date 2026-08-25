@@ -35,3 +35,8 @@ jobs:
       # 'className=' (11 typecheck-errors op main) en een titel met een
       # 'ptrdiff'-token erin.
       - run: npm run qc:seo
+
+      # E2E-kwaliteitsgates op de gebouwde dist/ (CTA-naar-/gratis met UTM, FAQ-schema-
+      # correctheid, H1/meta/canonical, og:image, di/vr-scheduler) — zie tests/blog-quality.spec.ts.
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test

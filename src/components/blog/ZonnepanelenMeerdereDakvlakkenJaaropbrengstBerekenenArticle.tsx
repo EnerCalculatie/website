@@ -1,6 +1,6 @@
 import { BlogPostLayout } from './BlogPostLayout';
 import { blogPosts } from '../../content/blogPosts';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 const post = blogPosts.find((p) => p.slug === 'zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen')!;
@@ -117,21 +117,21 @@ function DakvlakOpbrengstDiagram() {
   );
 }
 
-const markdownComponents = {
-  h2: ({node: _node, ...props}: any) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
-  h3: ({node: _node, ...props}: any) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
-  p: ({node: _node, ...props}: any) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
-  ul: ({node: _node, ...props}: any) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-  ol: ({node: _node, ...props}: any) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-  li: ({node: _node, ...props}: any) => <li className="leading-relaxed" {...props} />,
-  strong: ({node: _node, ...props}: any) => <strong className="font-bold text-slate-900" {...props} />,
-  a: ({node: _node, ...props}: any) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
-  hr: ({node: _node, ...props}: any) => <hr className="my-8 border-slate-200" {...props} />,
-  blockquote: ({node: _node, ...props}: any) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
-  table: ({node: _node, ...props}: any) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse text-sm" {...props} /></div>,
-  thead: ({node: _node, ...props}: any) => <thead className="bg-slate-100" {...props} />,
-  th: ({node: _node, ...props}: any) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
-  td: ({node: _node, ...props}: any) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
+const markdownComponents: Components = {
+  h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
+  h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
+  p: ({node: _node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
+  ul: ({node: _node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+  ol: ({node: _node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+  li: ({node: _node, ...props}) => <li className="leading-relaxed" {...props} />,
+  strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
+  a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
+  hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
+  blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
+  table: ({node: _node, ...props}) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse text-sm" {...props} /></div>,
+  thead: ({node: _node, ...props}) => <thead className="bg-slate-100" {...props} />,
+  th: ({node: _node, ...props}) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
+  td: ({node: _node, ...props}) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
 };
 
 export function ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle() {

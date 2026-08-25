@@ -5,7 +5,11 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist', 'dist-ssr', 'node_modules', 'server.js'] },
+  {
+    // .claude/skills/ui-ux-pro-max-skill is een geinstalleerde, niet-getrackte agent-skill
+    // (eigen repo, zie .gitignore-precedent voor .agents/) — geen projectbroncode.
+    ignores: ['dist', 'dist-ssr', 'node_modules', 'server.js', '.claude/skills/ui-ux-pro-max-skill'],
+  },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],

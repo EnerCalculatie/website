@@ -36,5 +36,12 @@ export default defineConfig(() => {
         },
       },
     },
+    test: {
+      // Playwright-E2E's (tests/*.spec.ts, draaien tegen een gebouwde site) en losse
+      // agent-skills onder .claude/ zijn geen vitest-unittests — zonder deze exclude pakt
+      // vitest's default glob (**/*.{test,spec}.ts) ze toch op en falen ze op een
+      // ontbrekende/verkeerde runtime (geen browser, geen @playwright/test-context).
+      exclude: ['node_modules/**', 'tests/**', '.claude/**', '.agents/**'],
+    },
   };
 });
