@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 
 const post = blogPosts.find((p) => p.slug === 'zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen')!;
 
-const markdown = `
+const markdownIntro = `
 Een dak met alleen zuidgerichte panelen levert op papier de hoogste opbrengst per kWp. Maar de meeste daken zijn niet zuidgericht — schuine kappen met een oost- en westvlak zijn eerder regel dan uitzondering. Simpelweg het totale vermogen vermenigvuldigen met een standaard-kWh-per-kWp-factor geeft dan een verkeerd getal: elk dakvlak heeft zijn eigen instralingsfactor en telt apart mee.
 
 ---
@@ -30,7 +30,9 @@ Uitgangspunt: een referentie-opbrengst van 950 kWh per kWp per jaar bij optimale
 | **Totaal** | **6,0 kWp** | — | **5.194 kWh** |
 
 Zonder rekening te houden met oriëntatie zou dezelfde 6 kWp op basis van de zuid-factor 5.700 kWh opleveren — een overschatting van ruim 500 kWh (circa 9%) op jaarbasis. Die afwijking loopt op naarmate het aandeel oost/west-vermogen groter is.
+`;
 
+const markdownRest = `
 ---
 
 ## Invloed van oriëntatie en hellingshoek op de zonne-instraling
@@ -69,29 +71,78 @@ Bij de elektrische aansluiting van de omvormer in de groepenkast stelt de NEN 10
 
 `;
 
+const dakvlakData = [
+  { label: 'Zuid (30°)', kwh: 2850, kleur: '#f59e0b' },
+  { label: 'Oost', kwh: 1172, kleur: '#0ea5e9' },
+  { label: 'West', kwh: 1172, kleur: '#6366f1' },
+];
+
+function DakvlakOpbrengstDiagram() {
+  const max = Math.max(...dakvlakData.map((d) => d.kwh));
+  const barHeight = 40;
+  const gap = 16;
+  const chartHeight = dakvlakData.length * (barHeight + gap);
+  const labelWidth = 90;
+  const chartWidth = 420;
+
+  return (
+    <figure className="my-8 not-prose">
+      <svg
+        viewBox={`0 0 ${labelWidth + chartWidth + 70} ${chartHeight}`}
+        role="img"
+        aria-label="Staafdiagram jaaropbrengst per dakvlak: zuid 2.850 kWh, oost 1.172 kWh, west 1.172 kWh"
+        className="w-full h-auto"
+      >
+        {dakvlakData.map((d, i) => {
+          const y = i * (barHeight + gap);
+          const w = (d.kwh / max) * chartWidth;
+          return (
+            <g key={d.label}>
+              <text x={0} y={y + barHeight / 2} dy="0.35em" className="fill-slate-700 text-sm font-semibold">
+                {d.label}
+              </text>
+              <rect x={labelWidth} y={y} width={chartWidth} height={barHeight} rx={4} className="fill-slate-100" />
+              <rect x={labelWidth} y={y} width={w} height={barHeight} rx={4} fill={d.kleur} />
+              <text x={labelWidth + w + 10} y={y + barHeight / 2} dy="0.35em" className="fill-slate-900 text-sm font-bold">
+                {d.kwh.toLocaleString('nl-NL')} kWh
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption className="text-sm text-slate-500 mt-2 text-center">
+        Jaaropbrengst per dakvlak bij 6 kWp verdeeld over zuid (3,0 kWp), oost (1,5 kWp) en west (1,5 kWp).
+      </figcaption>
+    </figure>
+  );
+}
+
+const markdownComponents = {
+  h2: ({node: _node, ...props}: any) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
+  h3: ({node: _node, ...props}: any) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
+  p: ({node: _node, ...props}: any) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
+  ul: ({node: _node, ...props}: any) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+  ol: ({node: _node, ...props}: any) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
+  li: ({node: _node, ...props}: any) => <li className="leading-relaxed" {...props} />,
+  strong: ({node: _node, ...props}: any) => <strong className="font-bold text-slate-900" {...props} />,
+  a: ({node: _node, ...props}: any) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
+  hr: ({node: _node, ...props}: any) => <hr className="my-8 border-slate-200" {...props} />,
+  blockquote: ({node: _node, ...props}: any) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
+  table: ({node: _node, ...props}: any) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse text-sm" {...props} /></div>,
+  thead: ({node: _node, ...props}: any) => <thead className="bg-slate-100" {...props} />,
+  th: ({node: _node, ...props}: any) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
+  td: ({node: _node, ...props}: any) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
+};
+
 export function ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle() {
   return (
     <BlogPostLayout post={post}>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
-          h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
-          h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
-          p: ({node: _node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
-          ul: ({node: _node, ...props}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-          ol: ({node: _node, ...props}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-slate-700" {...props} />,
-          li: ({node: _node, ...props}) => <li className="leading-relaxed" {...props} />,
-          strong: ({node: _node, ...props}) => <strong className="font-bold text-slate-900" {...props} />,
-          a: ({node: _node, ...props}) => <a className="text-brand-primary-text hover:underline font-semibold" {...props} />,
-          hr: ({node: _node, ...props}) => <hr className="my-8 border-slate-200" {...props} />,
-          blockquote: ({node: _node, ...props}) => <blockquote className="border-l-4 border-brand-primary pl-4 my-4 italic text-slate-600 bg-slate-50 py-2 pr-4 rounded-r" {...props} />,
-          table: ({node: _node, ...props}) => <div className="overflow-x-auto mb-6"><table className="w-full border-collapse text-sm" {...props} /></div>,
-          thead: ({node: _node, ...props}) => <thead className="bg-slate-100" {...props} />,
-          th: ({node: _node, ...props}) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
-          td: ({node: _node, ...props}) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
-        }}
-      >
-        {markdown}
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+        {markdownIntro}
+      </ReactMarkdown>
+      <DakvlakOpbrengstDiagram />
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+        {markdownRest}
       </ReactMarkdown>
     </BlogPostLayout>
   );
