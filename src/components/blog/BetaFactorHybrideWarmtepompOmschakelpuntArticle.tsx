@@ -36,17 +36,6 @@ De minimale COP waarbij elektrisch verwarmen met de warmtepomp voordeliger is da
 2. De kWh-prijs van elektriciteit te delen door deze berekende kostprijs van thermische energie uit gas.
 
 Wanneer de prestatiecoëfficiënt (COP) van de warmtepomp bij lage buitentemperaturen onder deze berekende waarde zakt, is het voordeliger om de warmtelevering over te laten aan de cv-ketel.
-
-## Veelgestelde vragen over de bèta-factor en het omschakelpunt
-
-### Wat is de bèta-factor van een hybride warmtepomp?
-De bèta-factor (β-factor) is de verhouding tussen het opgesteld verwarmingsvermogen van de warmtepomp en de totale ontwerp-warmtebehoefte (het piekvermogen) van de woning.
-
-### Wat betekent het bivalentiepunt?
-Het bivalentiepunt is de buitentemperatuur waarbij het geleverde vermogen van de warmtepomp exact gelijk is aan het warmteverlies van de woning. Bij lagere buitentemperaturen springt de cv-ketel bij.
-
-### Wanneer schakelt de warmtepomp financieel het beste om naar gas?
-Het financieel optimale omschakelpunt treedt op zodra de kosten per kWh thermische warmte via de warmtepomp hoger worden dan die van de cv-ketel, afhankelijk van de actuele COP, stroomprijs en gasprijs.
 `;
 
 export function BetaFactorHybrideWarmtepompOmschakelpuntArticle() {

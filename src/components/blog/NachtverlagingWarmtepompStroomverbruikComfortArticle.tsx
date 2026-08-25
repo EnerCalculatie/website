@@ -30,17 +30,6 @@ In energieprestatieberekeningen conform NEN-EN-ISO 52000 / NEN 7120 wordt voor l
 ## Conclusie en advies
 
 Het onderbouwen van een advies over nachtverlaging bij warmtepompen valt direct te herleiden naar de systeemefficiëntie en het thermisch comfort. Continue verwarming of een minimale nachtverlaging van maximaal 1 tot 2 graden voorkomt dat de warmtepomp op een hoog vermogen en bij een lage buitenluchttemperatuur moet herstellen. Hierdoor kan het seizoensrendement (SCOP) behouden blijven en kunnen pieken in stroomverbruik door een elektrisch bijverwarmingselement worden voorkomen.
-
-## Veelgestelde vragen over nachtverlaging bij warmtepompen
-
-### Is nachtverlaging verstandig bij een warmtepomp?
-Nee, het wordt geadviseerd om de temperatuur dag en nacht constant te houden of een minimale nachtverlaging van maximaal 1 tot 2 graden toe te passen voor een optimaal rendement en comfort.
-
-### Waarom stijgt het stroomverbruik bij nachtverlaging?
-Om de woning 's ochtends snel op te warmen moet de warmtepomp op een hogere frequentie en aanvoertemperatuur draaien. Ook kan het elektrische bijverwarmingselement (back-up heater) inschakelen, wat pieken in het stroomverbruik veroorzaakt.
-
-### Wat zegt de normering (NEN-EN-ISO 52000 / NEN 7120) over nachtverlaging?
-In energieprestatieberekeningen conform NEN-EN-ISO 52000 / NEN 7120 wordt voor laagtemperatuursystemen met een hoge thermische massa uitgegaan van continue verwarming om de optimale SCOP te behalen.
 `;
 
 export function NachtverlagingWarmtepompStroomverbruikComfortArticle() {

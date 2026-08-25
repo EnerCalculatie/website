@@ -36,17 +36,6 @@ Naast de fysieke maatregelen kunnen verhuurders een tegemoetkoming krijgen voor 
 ## Samenvatting
 
 De SVOH-subsidie biedt particuliere en zakelijke verhuurders van bestaande huurwoningen financiële ondersteuning tot en met 31 december 2029. De regeling vergoedt maatregelen zoals isolatie, hoogrendementsglas, warmtepompen en zonneboilers (tot maximaal € 6.000 per woning en € 400.000 per aanvrager), evenals een deel van het maatwerk energieadvies. Aanvragen kunnen worden ingediend zodra de maatregelen zijn uitgevoerd en betaald.
-
-## Veelgestelde vragen over de SVOH-subsidie
-
-### Wat is het maximale SVOH-subsidiebedrag per woning?
-Het subsidiebedrag bedraagt in de basis maximaal € 6.000 per huurwoning, met een totaalmaximum van € 400.000 per aanvrager.
-
-### Wanneer kan de SVOH-subsidie worden aangevraagd?
-De subsidie moet worden aangevraagd nadat de verduurzamingsmaatregelen zijn uitgevoerd en betaald. De regeling loopt tot en met 31 december 2029.
-
-### Is er ook subsidie beschikbaar voor energieadvies?
-Ja, voor een maatwerk energieadvies door een gecertificeerd adviseur wordt 50% van de advieskosten vergoed, tot een maximum van € 400 per woning.
 `;
 
 export function SvohSubsidieVerduurzamingHuurwoningenAdviesArticle() {

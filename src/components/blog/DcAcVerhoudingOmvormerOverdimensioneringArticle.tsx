@@ -49,18 +49,6 @@ Zolang deze specifieke grenzen niet worden overschreden, kan de omvormer het aan
 
 Overdimensionering (een DC/AC-verhouding van 110% tot 130%) is een veelgebruikte methode om de productie van zonnepanelen tijdens uren met lage instraling te maximaliseren. Het eventuele opbrengstverlies door clipping op piekmomenten blijft bij een verhouding van 120% doorgaans beperkt tot minder dan 1-2% per jaar. Tegelijkertijd helpt een beperkt AC-vermogen om overbelasting van de netvoeding te voorkomen, mits het ontwerp binnen de fabrieksspecificaties ($V_{dc \text{max}}$ en $I_{dc \text{max}}$) en NEN 1010-richtlijnen blijft.
 
----
-
-## Veelgestelde vragen (FAQ)
-
-### Wat is de ideale DC/AC-verhouding voor een omvormer?
-Voor residentiële zonne-energiesystemen ligt een gebruikelijke en ideale DC/AC-verhouding doorgaans tussen de 110% en 130% (een verhouding van 1,1 tot 1,3).
-
-### Hoeveel opbrengstverlies treedt er op door clipping?
-Bij een DC/AC-verhouding van 120% is het rendementsverlies door clipping doorgaans nihil tot minimaal, vaak minder dan 1 tot 2% op jaarbasis. Dit wordt gecompenseerd in de randuren.
-
-### Is overdimensionering van een omvormer veilig volgens NEN 1010?
-Ja, mits het ontwerp binnen de fabrieksspecificaties van de omvormer blijft, met name de maximale ingangsspanning ($V_{dc \text{max}}$) en maximale ingangsstroom ($I_{dc \text{max}}$).
 `;
 
 export function DcAcVerhoudingOmvormerOverdimensioneringArticle() {

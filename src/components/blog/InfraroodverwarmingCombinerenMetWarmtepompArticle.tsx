@@ -38,17 +38,6 @@ Voor de aanschaf van deze installaties gelden verschillende regelingen:
 ## Conclusie
 
 Het combineren van een warmtepomp en infraroodpanelen past binnen een realistisch energieprofiel als de warmtepomp (bij voorkeur aangesloten op een lage-temperatuurafgiftesysteem) wordt gebruikt als efficiënte basisverwarming. Infraroodpanelen kunnen aanvullend worden ingezet voor plaatselijke, incidentele bijverwarming in specifiek gebruikte ruimtes. Vanwege het hogere stroomverbruik bij een COP van 1 is infraroodverwarming minder geschikt als volledige hoofdverwarming. Bij het ontwerp dient bovendien rekening te worden gehouden met het elektrisch opgenomen vermogen en de piekbelasting op de aansluiting, waarbij een EMS sturing kan bieden.
-
-## Veelgestelde vragen (FAQ)
-
-### Is infrarood geschikt als hoofdverwarming naast een warmtepomp?
-Nee, vanwege de COP van 1 leidt infrarood als hoofdverwarming tot een aanzienlijk hoger stroomverbruik en hogere energiekosten. Een warmtepomp (COP 3 tot 5) is energetisch veel efficiënter als basisverwarming.
-
-### Kun je ISDE-subsidie krijgen voor infraroodpanelen?
-Nee, er is geen landelijke ISDE-subsidie beschikbaar voor infraroodpanelen. Voor warmtepompen kun je wel gebruikmaken van de ISDE-subsidie.
-
-### Hoe voorkom je overbelasting van de groepenkast bij gelijktijdig gebruik?
-Door inzet van een Home Energy Management System (EMS) kan de elektrische belasting via load balancing dynamisch geregeld worden. Dit voorkomt piekstromen en het uitslaan van de hoofdzekering bij een standaard 3x25A-aansluiting.
 `;
 
 export function InfraroodverwarmingCombinerenMetWarmtepompArticle() {

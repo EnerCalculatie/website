@@ -42,20 +42,6 @@ Wanneer het net én een omvormer (van een thuisbatterij of PV-installatie) op de
 ## Conclusie
 
 Het adviseren over sturing bij dynamische energiecontracten vereist een zorgvuldige afweging van uurtarieven, de capaciteit van de aansluiting en installatietechnische beveiliging. Door slimme sturing (zoals een EMS) te combineren met correct afgestemde installaties conform NEN 1010 en de Netcode Elektriciteit, kan flexibiliteit worden benut zonder de veiligheid of continuïteit van de installatie in gevaar te brengen.
-
-## Veelgestelde vragen (FAQ)
-
-### Is er subsidie beschikbaar voor de aanschaf van een thuisbatterij?
-Nee, voor kleinverbruikers in Nederland is er op dit moment geen landelijke ISDE- of andere aankoopsubsidie beschikbaar voor een thuisbatterij.
-
-### Wat is het maximale vermogen voor een 1-fase aansluiting bij 1x35A of 3x25A?
-Om de selectiviteit te waarborgen geldt in de praktijk een maximale afzekering van 16A per 1-fase groep, wat neerkomt op maximaal 3,68 kW (3.680 Watt).
-
-### Waarom is een 3-fase omvormer verplicht bij een vermogen groter dan 3,68 kW?
-Volgens de Netcode Elektriciteit moet invoeding boven de 16A (3,68 kVA) over meerdere fases worden verdeeld om fase-onbalans op het net te voorkomen.
-
-### Wat zijn somstromen en hoe beïnvloeden ze de veiligheid?
-Somstromen ontstaan wanneer stroom uit het net én van een omvormer op dezelfde groep of aardlekschakelaar invoeden. De stromen tellen bij elkaar op (bijv. 25A + 16A = 41A). Dit kan standaard 40A-aardlekschakelaars overbelasten en brandgevaar opleveren.
 `;
 
 export function DynamischEnergiecontractSturingThuisbatterijWarmtepompArticle() {

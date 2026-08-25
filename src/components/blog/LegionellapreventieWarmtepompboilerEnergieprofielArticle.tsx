@@ -35,17 +35,6 @@ De tijdelijke vermogenspiek van 1,2 kW tot 2,0 kW door het bijverwarmingselement
 ## Conclusie
 
 Het periodiek verhitten van warm tapwater tot 60 °C à 65 °C is volgens NEN 1006 noodzakelijk voor de veiligheid tegen *Legionella pneumophila*. Omdat de compressor van een warmtepompboiler het water efficiënt verwarmt tot circa 50 °C tot 55 °C, schakelt het systeem voor het hogere temperatuurbereik een elektrisch element (1,2 kW tot 2,0 kW, COP van 1) in. Dit zorgt voor een tijdelijke vermogenspiek. In de NTA 8800-berekening wordt dit extra elektriciteitsverbruik meegenomen, wat een direct effect heeft op de seizoensgebonden efficiëntie (SPF).
-
-## Veelgestelde vragen over legionellapreventie bij warmtepompboilers
-
-### Waarom is elektrische bijverwarming nodig bij een warmtepompboiler?
-De compressor van een warmtepompboiler verwarmt het water efficiënt tot circa 50 °C tot 55 °C. Om de door NEN 1006 geëiste 60 °C tot 65 °C voor legionellapreventie te bereiken, is de inzet van een elektrisch element noodzakelijk.
-
-### Welke invloed heeft de legionellacyclus op de NTA 8800-berekening?
-Het extra elektriciteitsverbruik van het bijverwarmingselement (met COP 1) wordt opgeteld bij het totale energiegebruik voor warm tapwater, wat de seizoensgebonden efficiëntie (SPF) beïnvloedt.
-
-### Hoe voorkomt u overbelasting van de netaansluiting tijdens de legionellacyclus?
-Door een Home Energy Management System (EMS) toe te passen dat via load balancing de elektrische belasting in de woning dynamisch regelt.
 `;
 
 export function LegionellapreventieWarmtepompboilerEnergieprofielArticle() {

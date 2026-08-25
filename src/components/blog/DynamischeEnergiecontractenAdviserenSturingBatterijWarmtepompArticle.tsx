@@ -37,14 +37,6 @@ De NEN 1010 eist dat elektrische installaties adequaat beveiligd zijn tegen over
 
 - **Selectiviteit en maximaal invoedvermogen:** Bij een hoofdaansluiting van 1x35A of 3x25A mag een omvormer of laadpaal (met toepassing van de veiligheidsmarge/factor 1,6) op maximaal 16A worden afgezekerd. Dit komt overeen met een maximaal vermogen van 3,68 kW (16A × 230V) per fase, of circa 11 kW totaal bij een 3-fase opstelling op 3x25A. Hoewel het continue vermogen van een 3x25A aansluiting 17,25 kW bedraagt, is het onjuist om te claimen dat dit volledige vermogen zomaar op een standaard huisaansluiting kan worden aangesloten; dit vereist verzwaring van de aansluiting (bijvoorbeeld naar 3x35A of hoger).
 - **Somstromen bij gelijktijdige invoeding:** Indien het net én een omvormer (PV of batterij) op dezelfde groep of dezelfde aardlekschakelaar kunnen invoeden, telt de stroom van beide bronnen bij elkaar op. Zo geeft een combinatie van 25A vanaf het net en 16A vanaf de omvormer een optelsom van 41A. Een standaard 40A-aardlekschakelaar is daar niet op berekend, wat kan leiden tot overbelasting en brandgevaar. Bij gelijktijdige invoeding (zoals een ontladende batterij terwijl het net ook belast wordt) moet de optelsom van alle gelijktijdig actieve stromen getoetst worden aan de nominale stroom van elke gedeelde beveiliging.
-
-## Veelgestelde vragen over dynamische energiecontracten en sturing
-
-### Wat is nodig voor het aansturen van apparatuur op een dynamisch contract?
-Voor het aansturen van een thuisbatterij of warmtepomp op dynamische tarieven is een werkende slimme meter nodig, gecombineerd met een Energiemanagementsysteem (EMS) dat de apparaten aanstuurt op basis van de EPEX Spot- en EEX-beursprijzen.
-
-### Waar moet op worden gelet bij somstromen volgens NEN 1010?
-Bij gelijktijdige invoeding van netstroom en een omvormer/batterij op dezelfde aardlekschakelaar tellen de stromen op. Indien 25A van het net en 16A van de omvormer samenkomen (41A), kan een standaard 40A-aardlekschakelaar overbelast raken en brandgevaar opleveren.
 `;
 
 export function DynamischeEnergiecontractenAdviserenSturingBatterijWarmtepompArticle() {

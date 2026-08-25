@@ -32,17 +32,6 @@ Bij de aansluiting en beveiliging van installaties dient rekening te worden geho
 ## Conclusie
 
 Uit de feiten volgt dat het toepassen van PV-surplus laden via een slimme laadpaal met dynamische sturing de zelfconsumptie van zonnestroom kan verhogen tot 60% à 70%. Dit helpt om het verlies van de salderingsregeling op te vangen, voorkomt terugleverkosten en beperkt de piekbelasting op de hoofdaansluiting.
-
-## Veelgestelde vragen over PV-surplus laden
-
-### Hoeveel stijgt de zelfconsumptie door slim te laden op zonnestroom?
-Door de inzet van slimme sturing op de laadpaal kan de zelfconsumptie van eigen zonnestroom stijgen van circa 30% naar 60% tot 70%.
-
-### Wat is de minimale stroomsterkte voor laden op zonnestroom?
-Conform IEC 61851-1 geldt voor een elektrisch voertuig een minimale stroomsterkte van 6 Ampère per fase, wat bij 1-fase overeenkomt met circa 1,4 kW surplus.
-
-### Waarom is dynamische sturing via de P1-poort belangrijk?
-Via de P1-poort meet de laadpaal in realtime hoeveel zonnestroom er over is, waardoor het laadvermogen direct op de actuele overproductie kan worden afgestemd.
 `;
 
 export function PvSurplusLadenRendementSlimmeLaadpaalArticle() {

@@ -62,18 +62,6 @@ Advies- en offertesoftware dient rekening te houden met de eigenschappen van spe
 
 Software voor offerte- en adviesrapporten ondersteunt installateurs bij het correct dimensioneren van verduurzamingssystemen. Door rekening te houden met de NTA 8800, NEN 1010/3140, de Netcode Elektriciteit, de ISDE-subsidiecriteria en de richtlijnen van de ACM, kunnen technisch haalbare en financieel onderbouwde adviezen worden opgesteld.
 
----
-
-## Veelgestelde vragen over normering in verduurzamingssoftware
-
-### Waar moet adviessoftware aan voldoen voor ISDE-subsidie bij isolatie?
-Voor ISDE-subsidie bij isolatie moet de software rekenen met een minimale Rd-waarde van 3,5 m²K/W voor dak-, zolder- en vloerisolatie.
-
-### Wanneer is een 3-fase aansluiting of omvormer verplicht?
-Volgens de Netcode Elektriciteit dient invoeding boven de 16A (3,68 kVA) verdeeld te worden over meerdere fases. Vanaf omvormers groter dan 3,68 kW (of 4 kW in de praktijk) is een 3-fase omvormer noodzakelijk.
-
-### Met welke rekenfactor wordt gewerkt bij kabelberekeningen op een 3x25A aansluiting?
-Bij een hoofdaansluiting van 3x25A of 1x35A geldt vanwege selectiviteit een veiligheidsmarge van factor 1,6, waardoor een omvormer of laadpaal op maximaal 16A per fase (3,68 kW per fase, ~11 kW totaal 3-fase) wordt afgezekerd.
 `;
 
 export function OffertesoftwareVerduurzamingNormenEisenArticle() {

@@ -39,20 +39,6 @@ Wanneer het net én een omvormer (PV of batterij) op dezelfde groep of dezelfde 
 
 ## Belastingsturing (EMS) en laadpalen
 Een Home Energy Management System (EMS) regelt de belasting in huis dynamisch (load balancing) om piekstromen en het afschakelen van de hoofdzekering te voorkomen. Zo is het maximale vermogen op een 3x25A-aansluiting doorgaans 11 kW per lader zonder slimme sturing, tenzij load balancing actief wordt toegepast.
-
-## Veelgestelde vragen
-
-### Wat is het voordeel van P1-kwartierdata analyseren voor energieadvies?
-Het analyseren van kwartierdata geeft exact inzicht in actuele piekbelastingen en de gelijktijdigheid van opwek en verbruik. Dit is essentieel voor het juist dimensioneren van warmtepompen, thuisbatterijen en laadpalen.
-
-### Hoeveel stroom levert de P1-poort volgens DSMR 5.0?
-Een slimme meter met DSMR 5.0 levert via de P1-poort (RJ11/RJ12) een voeding van 5V / 250mA. Dit is voldoende om de meeste P1-meters of dataloggers direct van voeding te voorzien.
-
-### Waarom mag een omvormer op 3x25A maximaal op 16A worden afgezekerd?
-Om selectiviteit ten opzichte van de hoofdzekering te waarborgen (met een veiligheidsmarge van factor 1,6 volgens NEN 1010), mag een eindgroep bij een 25A-hoofdzekering op maximaal 16A worden afgezekerd.
-
-## Conclusie
-Het analyseren van kwartierdata uit de P1-poort biedt inzicht in actuele vermogens, piekbelastingen en de gelijktijdigheid van opwek en verbruik. Met deze informatie, gecombineerd met de richtlijnen voor selectiviteit, fase-verdeling, somstromen en dynamische sturing (EMS), kan een onderbouwd en technisch passend verduurzamingsadvies worden opgesteld.
 `;
 
 export function P1MeterKwartierdataAnalyserenEnergieprofielArticle() {

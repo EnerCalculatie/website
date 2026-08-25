@@ -42,20 +42,6 @@ Om piekstromen en afschakeling van de hoofdzekering te voorkomen, kan een Home E
 ## Verplichte aanmelding bij energieleveren.nl
 
 Bij elke uitbreiding van de zonnepaneelinstallatie waarbij het totale omvormervermogen verandert, is registratie op energieleveren.nl wettelijk voorgeschreven. Deze melding helpt de netbeheerder om netoverbelasting te monitoren en te voorkomen.
-
-## Veelgestelde vragen (FAQ)
-
-### Wat is het effect van het overdimensioneren van een omvormer?
-Overdimensioneren betekent dat het DC-vermogen van de zonnepanelen hoger is dan het nominale vermogen van de omvormer. Dit leidt op piekmomenten tot 'clipping', wat op jaarbasis gemiddeld minder dan 1 tot 3% verlies geeft, terwijl de omvormer bij lage instraling sneller opstart.
-
-### Waarom schakelt een omvormer uit bij 253 volt?
-Volgens de Netcode moet een omvormer automatisch uitschakelen wanneer de netspanning door overproductie stijgt boven de 253 volt (230V + 10%) om de elektrische installatie te beschermen.
-
-### Wanneer is een 3-fase omvormer verplicht?
-Invoeding boven de 16A (3,68 kVA) moet volgens de Netcode over meerdere fases worden verdeeld. Vanaf een omvormervermogen groter dan circa 3,68 kW (in de praktijk vanaf 4 kW) is een 3-fase omvormer vereist.
-
-### Wat zijn somstromen en waarom vormen ze een risico?
-Wanneer netstroom en omvormerstroom samenkomen op één aardlekschakelaar (zoals 25A + 16A = 41A), kan een standaard 40A-component overbelast raken. Dit zorgt voor brandgevaar als de bedrading hier niet op berekend is.
 `;
 
 export function ZonnepanelenInstallatieUitbreidenOmvormerRegelsArticle() {

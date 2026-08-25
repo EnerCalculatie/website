@@ -40,17 +40,6 @@ Om fase-onbalans te voorkomen, geldt op grond van de Netcode Elektriciteit dat i
 ## Conclusie
 
 Spanningsopdrijving binnen de klantinstallatie wordt veroorzaakt door de kabelweerstand van de AC-kabel tussen de omvormer en de meterkast. Aangezien de verantwoordelijkheid van de netbeheerder stopt bij het overdrachtspunt (de energiemeter), ligt het beheersen van spanningsstijging binnenshuis bij de installateur en pandeigenaar. Door in de offerte rekening te houden met de NEN 1010-richtlijn van maximaal 1% spanningsstijging en een geschikte aderdoorsnede (zoals 4 mm² of 6 mm²) op te nemen, wordt de kabelweerstand verlaagd en het risico op uitschakeling bij 253V beperkt.
-
-## Veelgestelde vragen (FAQ)
-
-### Waarom valt een omvormer uit bij 253 Volt?
-Volgens norm EN 50549-1 en de Netcode Elektriciteit moet een omvormer automatisch uitschakelen bij meer dan 253V (230V + 10%) om het net en apparatuur te beschermen.
-
-### Wie is verantwoordelijk voor spanningsopdrijving binnenshuis?
-De netbeheerder garandeert enkel de spanning tot de energiemeter (207V - 253V). Spanningsopdrijving achter de meter door kabelweerstand valt onder de verantwoordelijkheid van de installateur en pandeigenaar.
-
-### Hoeveel spanningsstijging staat NEN 1010 toe?
-NEN 1010 adviseert een maximale spanningsstijging en spanningsverlies van 1% (ongeveer 2,3V) in het kabeltraject tussen de omvormer en de meterkast.
 `;
 
 export function Omvormeruitval253vKabeltrajectOfferteArticle() {

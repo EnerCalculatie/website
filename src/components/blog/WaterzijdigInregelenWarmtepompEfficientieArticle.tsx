@@ -29,17 +29,6 @@ Door een efficiëntere warmte-afgifte en stroomverdeling levert waterzijdig inre
 ## Conclusie: Waarom waterzijdig inregelen onmisbaar is
 
 Het waterzijdig inregelen van een verwarmingssysteem vloeit voort uit wettelijke eisen (EPBD III) bij het installeren of vervangen van een warmte-opwekker. Het voorkomt dat het systeem op een onnodig hoge temperatuur moet draaien, beperkt pendelgedrag van de compressor en realiseert door een efficiëntere warmte-afgifte een gemiddelde energiebesparing van 10 tot 15 procent op het verwarmingsverbruik.
-
-## Veelgestelde vragen over waterzijdig inregelen
-
-### Is waterzijdig inregelen verplicht bij een warmtepomp?
-Ja, bij het installeren of vervangen van een warmte-opwekker is waterzijdig inregelen wettelijk verplicht volgens de EPBD III-richtlijnen.
-
-### Hoeveel bespaar je door waterzijdig inregelen?
-Het op de juiste wijze inregelen van het afgiftesysteem levert een gemiddelde energiebesparing van 10 tot 15 procent op het verwarmingsverbruik op.
-
-### Wat gebeurt er als het systeem niet waterzijdig is ingeregeld?
-Bij een niet-ingeregeld systeem ontstaat onbalans: nabijgelegen ruimtes krijgen te veel warm water en verstgelegen ruimtes te weinig. Hierdoor moet het systeem op een onnodig hoge temperatuur draaien en kan de warmtepomp gaan pendelen.
 `;
 
 export function WaterzijdigInregelenWarmtepompEfficientieArticle() {

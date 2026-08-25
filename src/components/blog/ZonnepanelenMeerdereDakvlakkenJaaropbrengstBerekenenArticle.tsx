@@ -53,18 +53,6 @@ Bij de elektrische aansluiting van de omvormer in de groepenkast stelt de NEN 10
 * **Afzekering en selectiviteit:** Om selectiviteit ten opzichte van de hoofdzekering te waarborgen, mag een omvormer bij een hoofdaansluiting van 1x35A of 3x25A doorgaans op maximaal 16A worden afgezekerd. Dit komt overeen met een maximaal vermogen van 3,68 kW per fase (16A × 230V) of circa 11 kW bij een 3-fase aansluiting (3 × 16A).
 * **Voorkomen van overbelasting door somstromen:** Wanneer de omvormer en het elektriciteitsnet gelijktijdig stroom leveren op dezelfde groep of aardlekschakelaar, tellen de stromen van beide bronnen bij elkaar op. Bij een netvoeding van 25A en een omvormerstroom van 16A ontstaat bijvoorbeeld een somstroom van 41A. Een standaard 40A-aardlekschakelaar is daar niet op berekend, wat kan leiden tot overbelasting en brandgevaar. Bij gelijktijdige invoeding dient de optelsom van actieve stromen daarom getoetst te worden aan de nominale stroom van gedeelde beveiligingscomponenten.
 
----
-
-## Veelgestelde vragen over zonnepanelen op meerdere dakvlakken
-
-### Hoe bereken je de opbrengst van zonnepanelen op verschillende dakvlakken?
-Je berekent per dakvlak de opbrengst door de zoninstraling (kWh/m²) te vermenigvuldigen met het piekvermogen (kWp) en de systeemefficiëntie. Daarna tel je de uitkomsten van alle vlakken bij elkaar op.
-
-### Welke omvormer is geschikt bij meerdere oriëntaties?
-Kies een string-omvormer met meerdere gescheiden MPPT-ingangen (één per dakvlak) of gebruik power optimizers per paneel voor een individuele regeling.
-
-### Wanneer is een 3-fase omvormer verplicht?
-Volgens de Netcode Elektriciteit moet een invoeding boven 16A (3,68 kVA) over meerdere fases verdeeld worden. Boven 5 kW is een 3-fase aansluiting vrijwel altijd noodzakelijk.
 `;
 
 export function ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle() {

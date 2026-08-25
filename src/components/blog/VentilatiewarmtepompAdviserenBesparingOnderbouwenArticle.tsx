@@ -30,17 +30,6 @@ Voor een correcte werking en de financiële onderbouwing geldt een aantal specif
 ## Conclusie
 
 De onderbouwing voor een ventilatiewarmtepomp rust op de jaarlijkse gasbesparing van circa 200 tot 500 m³ in een gemiddelde eengezinswoning met mechanische ventilatie en de verbetering van de BENG 2- en BENG 3-indicatoren volgens de NTA 8800. Het rendement blijft op peil door de constante temperatuur van de ventilatielucht, mits het minimale en continue ventilatiedebiet in de woning geborgd is.
-
-## Veelgestelde vragen over ventilatiewarmtepompen
-
-### Hoeveel gas bespaart een ventilatiewarmtepomp gemiddeld?
-In een gemiddelde eengezinswoning met mechanische ventilatie bespaart een ventilatiewarmtepomp circa 200 tot 500 m³ aardgas per jaar.
-
-### Wat is het effect van een ventilatiewarmtepomp op BENG en NTA 8800?
-Binnen de NTA 8800 rekenmethode verlaagt een ventilatiewarmtepomp de BENG 2-indicator (fossiel primair energiegebruik) en verhoogt deze de BENG 3-indicator (aandeel hernieuwbare energie).
-
-### Wanneer komt een ventilatiewarmtepomp in aanmerking voor ISDE-subsidie?
-Voor de ISDE-subsidie moet het specifieke type ventilatiewarmtepomp vermeld staan op de RVO-meldcodelijst en moet de installatie worden uitgevoerd door een deskundige installateur.
 `;
 
 export function VentilatiewarmtepompAdviserenBesparingOnderbouwenArticle() {

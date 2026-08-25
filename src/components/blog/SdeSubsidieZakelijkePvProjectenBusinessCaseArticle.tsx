@@ -35,17 +35,6 @@ Bij het opstellen van rekenmodellen voor de zakelijke klant spelen jaarlijkse ve
 ## Conclusie: Een sluitende business case voor uw klant
 
 Een gedegen business case voor zakelijke zon-PV projecten binnen de SDE++ rust op het correct meewegen van de aanvraagvereisten (zoals een grootverbruikaansluiting van meer dan 3x80A, een positieve transportindicatie en een goedgekeurde dakverklaring) én de randvoorwaarden tijdens de exploitatiefase. Door de termijn van 15 jaar, het maximum van 950 vollasturen voor netlevering, de banking-regeling en de jaarlijkse marktcorrecties mee te nemen, ontstaat een helder en realistisch financieel beeld voor de zakelijke eindklant.
-
-## Veelgestelde vragen over SDE++ voor zakelijke zon-PV
-
-### Voor welke aansluitingen geldt de SDE++ subsidie voor zon-PV?
-De SDE++ subsidie geldt voor locaties met een grootverbruikaansluiting, wat betekent dat de aansluiting groter moet zijn dan 3x80A.
-
-### Hoeveel vollasturen worden vergoed binnen de SDE++?
-Er geldt een maximale vergoeding gebaseerd op een vooraf vastgesteld maximum van 950 vollasturen per jaar voor netlevering.
-
-### Wat is de realisatietermijn na het verkrijgen van SDE++ subsidie?
-Voor projecten kleiner dan 1 MWp geldt een realisatietermijn van 1,5 jaar na verlening. Voor grotere projecten bedraagt deze termijn 3 jaar.
 `;
 
 export function SdeSubsidieZakelijkePvProjectenBusinessCaseArticle() {

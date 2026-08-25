@@ -32,17 +32,6 @@ Hoewel dit proces leidt tot tijdelijke piekbelastingen, is dit niet bepalend voo
 ## Aandachtspunten voor de elektrische installatie en netbelasting
 
 Een warmtepomp boven de 5 kW thermisch vermogen vraagt in veel gevallen om een 3-fase aansluiting om een optimale verdeling van de belasting te realiseren. Om piekstromen en het afschakelen van de hoofdzekering bij gelijktijdig gebruik van zware verbruikers te voorkomen, kan een Home Energy Management System (EMS) de belasting in de woning dynamisch regelen via load balancing.
-
-## Veelgestelde vragen over de ontdooicyclus
-
-### Waarom veroorzaakt de warmtepomp een stroompiek in de winter?
-Dit komt door de automatische ontdooicyclus. Als het cv-water onvoldoende warmte bevat om het ijs op de buitenunit te smelten, schakelt de ingebouwde elektrische back-up heater (3 kW tot 6 kW) tijdelijk in.
-
-### Heeft de ontdooicyclus een grote invloed op het jaarverbruik?
-Nee, een ontdooicyclus duurt gemiddeld slechts 5 tot 10 minuten. De jaarlijkse SCOP van de warmtepomp blijft leidend voor de totale energie-efficiëntie.
-
-### Hoe voorkomt u het overbelasten van de hoofdzekering bij ontdooien?
-Bij warmtepompen boven 5 kW thermisch vermogen wordt een 3-fase aansluiting toegepast. Een Home Energy Management System (EMS) kan aanvullend zorgen voor dynamische load balancing.
 `;
 
 export function OntdooicyclusWarmtepompStroompiekArticle() {

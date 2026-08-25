@@ -41,18 +41,6 @@ Bij een installatie waar zowel het elektriciteitsnet als een omvormer (zoals PV 
 
 Het onderbouwen van PV-curtailment in een adviesrapport rust op het combineren van marktontwikkelingen (zoals dynamische EPEX SPOT-prijzen en terugleverheffingen) met technische regelgeving. Door omvormers toe te passen die voldoen aan de NEN-EN 50549-1 en de Netcode Elektriciteit voor vermogensregeling, en door in het ontwerp rekening te houden met de regels voor fase-onbalans en somstromen, ontstaat een technisch correct en bedrijfseconomisch onderbouwd advies.
 
----
-
-## Veelgestelde vragen over PV-curtailment (FAQ)
-
-### Wat is PV-curtailment en waarom is het nodig?
-PV-curtailment is het tijdelijk verminderen of stopzetten van de stroomproductie door zonnepanelen. Dit voorkomt dat u moet betalen voor teruglevering bij negatieve dynamische stroomprijzen en beschermt het elektriciteitsnet tegen overbelasting.
-
-### Aan welke normen moet een regelbare omvormer voldoen?
-Een regelbare omvormer moet voldoen aan de NEN-EN 50549-1 en de Netcode Elektriciteit voor vermogensregeling, evenals de spanningsbeveiliging conform NEN 1010 (uitschakeling boven 253V).
-
-### Waarom is toetsing van somstromen belangrijk bij PV-installaties?
-Wanneer netstroom (bijv. 25A) en zonne-energie (bijv. 16A) op dezelfde groep invoeden, ontstaat een somstroom van 41A. Als de aardlekschakelaar slechts 40A verdraagt, ontstaat er overbelastings- en brandgevaar.
 `;
 
 export function OmvormerAfschakelenNegatieveStroomprijzenPvCurtailmentArticle() {

@@ -49,17 +49,6 @@ Wanneer het technische ontwerp gereed is, volgt de administratieve en contractue
 ## Conclusie
 
 Het hanteren van de geldende veiligheidsnormen, capaciteitsberekeningen en administratieve verplichtingen zorgt voor een technisch onderbouwd proces van de eerste schouw tot de uiteindelijke offerte.
-
-## Veelgestelde vragen (FAQ)
-
-### Waar moet een schouw volgens NEN 1010 aan voldoen?
-Tijdens de schouw moet de netcapaciteit en de geschiktheid voor Dynamic Load Balancing vastgesteld worden volgens NEN 1010 om overbelasting en veiligheidsrisico's te vermijden.
-
-### Hoe bereken je het maximale vermogen bij een 3x25A aansluiting?
-Bij een 3x25A aansluiting mag met een veiligheidsmarge van factor 1,6 op maximaal 16A per fase worden afgezekerd. Dit resulteert in 3.680 Watt per fase en circa 11 kW totaal voor 3-fase apparatuur.
-
-### Waar dien je een netverzwaring of opwekinstallatie aan te melden?
-Netverzwaringen dien je in via MijnAansluiting.nl. Nieuwe opwekinstallaties (zoals zonnepanelen) meld je aan via Energieleveren.nl.
 `;
 
 export function KlantreisInstallateurVanSchouwTotOfferteArticle() {

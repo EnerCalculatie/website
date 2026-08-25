@@ -33,21 +33,6 @@ Bij het aanpassen of vergroten van een centrale VvE-aansluiting of individuele m
 
 - **Centrale VvE-voorziening:** Wanneer de zonnestroominstallatie wordt aangesloten op een centrale voorziening (zoals een VvE-aansluiting voor verlichting in algemene ruimten of liften), dient de teruglevering geregistreerd te worden via Energieleveren.nl.
 - **Salderingsregeling:** De wettelijke salderingsregeling geldt specifiek per individuele kleinverbruikeraansluiting achter de energiemeter. Dit kan niet zonder meer verrekend worden tussen een centrale VvE-meter en de individuele appartementen.
-
-## Veelgestelde vragen (FAQ)
-
-### Welke NEN-normen gelden voor zonnepanelen op flats?
-Voor de bouwkundige constructie en windbelasting geldt NEN 7250. Voor de elektrische installatie en bekabeling geldt de NEN 1010 norm voor laagspanningsinstallaties.
-
-### Hoe werkt de salderingsregeling bij een VvE?
-De wettelijke salderingsregeling geldt specifiek per individuele kleinverbruikeraansluiting achter de energiemeter. Dit kan niet zonder meer verrekend worden tussen een centrale VvE-meter en individuele appartementen.
-
-### Waarom is toetsing op somstromen belangrijk bij zonnepanelen?
-Wanneer het net én een omvormer op dezelfde groep kunnen invoeden, tellen de stromen bij elkaar op. Bij een situatie van 25A van het net en 16A van de omvormer (totaal 41A) kan een standaard 40A-aardlekschakelaar overbelast raken, wat een brandrisico vormt.
-
-## Conclusie
-
-Het installeren van zonnepanelen bij appartementencomplexen vraagt om afstemming tussen het besluitvormingsproces van de VvE, bouwkundige normen zoals NEN 7250, en de elektrische veiligheidseisen uit de NEN 1010 en Netcode Elektriciteit.
 `;
 
 export function ZonnepanelenFlatsAppartementenVveInstallateursArticle() {

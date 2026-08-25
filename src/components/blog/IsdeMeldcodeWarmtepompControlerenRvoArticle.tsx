@@ -41,17 +41,6 @@ Het moment van aanvragen verschilt afhankelijk van het type aanvrager:
 
 * **Particuliere woningeigenaren:** Moeten de ISDE-subsidieaanvraag indienen binnen 24 maanden na de installatie van de warmtepomp.
 * **Zakelijke aanvragers:** Moeten de ISDE-subsidie aanvragen én de beslissing afwachten vóórdat de koopovereenkomst voor de warmtepomp definitief wordt aangegaan.
-
-## Veelgestelde vragen over de ISDE-meldcode
-
-### Hoe controleer ik de ISDE-meldcode van een warmtepomp?
-U kunt de meldcode (het KA-nummer) verifiëren in de officiële RVO-apparatenlijst. Doe dit vóór het definitief ondertekenen van de koop- of installatieovereenkomst.
-
-### Wat te doen als de warmtepomp niet op de apparatenlijst staat?
-Als de warmtepomp ontbreekt op de RVO-lijst, dient u testrapporten van het toestel en het energielabel mee te sturen bij de aanvraag voor een handmatige beoordeling.
-
-### Mag een consument de warmtepomp zelf installeren voor subsidie?
-Nee, zelfinstallatie is niet toegestaan. De warmtepomp moet verplicht door een deskundige installateur worden geplaatst.
 `;
 
 export function IsdeMeldcodeWarmtepompControlerenRvoArticle() {

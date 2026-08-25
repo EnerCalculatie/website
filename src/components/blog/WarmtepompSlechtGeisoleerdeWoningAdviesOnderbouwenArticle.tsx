@@ -41,17 +41,6 @@ Daarnaast geldt dat wanneer er binnen twee jaar twee of meer verduurzamingsmaatr
 ## Samenvatting voor de adviseur
 
 Het onderbouwen van isolatiestappen bij een warmtepompadvies rust op de onderlinge afhankelijkheid van de thermische schil (Rc-waarden en luchtdichtheid conform NTA 8800), de gewenste aanvoertemperatuur en de efficiëntie (SCOP) van de installatie. Door praktijktesten zoals de 50-gradentest op te nemen en de ISDE-subsidievoorwaarden (Rd-waarden en verdubbeling bij combinaties) uit te werken, krijgt de gebouweigenaar een feitelijk onderbouwd inzicht in de noodzakelijke vervolgstappen.
-
-## Veelgestelde vragen (FAQ)
-
-### Is een warmtepomp mogelijk in een slecht geïsoleerde woning?
-In een matig tot slecht geïsoleerde woning is vaak eerst aanvullende isolatie nodig. Een hybride warmtepomp kan bij basisisolatie al functioneren, terwijl een all-electric warmtepomp uitstekende isolatie vereist om met een lage aanvoertemperatuur (≤ 35°C tot 45°C) comfortabel te verwarmen.
-
-### Wat is de 50-gradentest voor warmtepompen?
-De 50-gradentest is een praktijktest waarbij de maximale cv-aanvoertemperatuur gedurende een stookseizoen op 50°C wordt begrensd om te testen of de woning op lage temperatuur voldoende warm blijft.
-
-### Wat zijn de ISDE-isolatie-eisen voor subsidie op een warmtepomp en isolatie?
-Voor dak- en vloerisolatie geldt een minimale Rd-waarde van 3,5 m²K/W en voor spouwmuurisolatie minimaal Rd 1,1 m²K/W. Als binnen twee jaar twee verduurzamingsmaatregelen worden gecombineerd, verdubbelt het subsidiebedrag per m² voor isolatie.
 `;
 
 export function WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle() {
