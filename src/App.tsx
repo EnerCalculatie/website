@@ -140,6 +140,7 @@ const LegionellapreventieWarmtepompboilerEnergieprofielArticle = lazyRoute('/blo
 const P1MeterKwartierdataAnalyserenEnergieprofielArticle = lazyRoute('/blog/p1-meter-kwartierdata-analyseren-energieprofiel', () => import('./components/blog/P1MeterKwartierdataAnalyserenEnergieprofielArticle').then(m => ({ default: m.P1MeterKwartierdataAnalyserenEnergieprofielArticle })));
 const WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle = lazyRoute('/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen', () => import('./components/blog/WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle').then(m => ({ default: m.WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle })));
 const ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle = lazyRoute('/blog/zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen', () => import('./components/blog/ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle').then(m => ({ default: m.ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle })));
+const CapaciteitstariefPiekbelastingZakelijkArticle = lazyRoute('/blog/capaciteitstarief-piekbelasting-zakelijk', () => import('./components/blog/CapaciteitstariefPiekbelastingZakelijkArticle').then(m => ({ default: m.CapaciteitstariefPiekbelastingZakelijkArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -317,6 +318,7 @@ export function AppContent() {
             <Route path="/blog/p1-meter-kwartierdata-analyseren-energieprofiel" element={<P1MeterKwartierdataAnalyserenEnergieprofielArticle />} />
             <Route path="/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen" element={<WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle />} />
             <Route path="/blog/zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen" element={<ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle />} />
+            <Route path="/blog/capaciteitstarief-piekbelasting-zakelijk" element={<CapaciteitstariefPiekbelastingZakelijkArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

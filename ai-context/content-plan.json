@@ -1,36 +1,35 @@
 [
   {
-    "title": "P1-meter kwartierdata analyseren: hoe bouwt u een realistisch energieprofiel voor uw verduurzamingsadvies?",
-    "keyword": "p1 data analyseren verduurzamingsadvies",
+    "title": "Capaciteitstarief en piekbelasting: hoe beschermt u uw zakelijke klant tegen hoge netbeheerderskosten?",
+    "keyword": "capaciteitstarief voorkomen netbeheerder",
     "intent": "informatief",
-    "priority": 8,
-    "slug": "p1-meter-kwartierdata-analyseren-hoe-bouwt-u-een-realistisch-energieprofiel-voor-uw-verduurzamingsadvies",
+    "contentType": "SEO",
+    "priority": 9,
+    "slug": "capaciteitstarief-en-piekbelasting-hoe-beschermt-u-uw-zakelijke-klant-tegen-hoge-netbeheerderskosten",
     "status": "generated",
-    "createdAt": "2026-08-21T12:37:38.747Z",
-    "generatedSlug": "p1-meter-kwartierdata-analyseren-energieprofiel",
-    "generatedAt": "2026-08-23T00:40:31.322Z"
+    "createdAt": "2026-08-26T12:13:57.174Z",
+    "generatedSlug": "capaciteitstarief-piekbelasting-zakelijk",
+    "generatedAt": "2026-08-26T12:15:24.306Z"
   },
   {
-    "title": "Warmtepomp bij een slecht geïsoleerde woning: hoe onderbouwt u de noodzakelijke isolatiestappen in uw adviesrapport?",
-    "keyword": "warmtepomp slecht geisoleerde woning advies",
+    "title": "Zonneboiler of warmtepompboiler: hoe onderbouwt u de juiste keuze voor warm water in uw adviesrapport?",
+    "keyword": "zonneboiler of warmtepompboiler adviseren",
     "intent": "informatief",
+    "contentType": "SEO",
     "priority": 8,
-    "slug": "warmtepomp-bij-een-slecht-geisoleerde-woning-hoe-onderbouwt-u-de-noodzakelijke-isolatiestappen-in-uw-adviesrapport",
-    "status": "generated",
-    "createdAt": "2026-08-21T12:37:38.750Z",
-    "generatedSlug": "warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen",
-    "generatedAt": "2026-08-23T12:39:34.159Z"
+    "slug": "zonneboiler-of-warmtepompboiler-hoe-onderbouwt-u-de-juiste-keuze-voor-warm-water-in-uw-adviesrapport",
+    "status": "planned",
+    "createdAt": "2026-08-26T12:13:57.161Z"
   },
   {
-    "title": "Zonnepanelen op meerdere dakvlakken combineren: hoe berekent u de totale jaaropbrengst bij verschillende oriëntaties?",
-    "keyword": "zonnepanelen meerdere dakvlakken berekenen",
+    "title": "Warmtepomp en vloerverwarming: hoe onderbouwt u de aanpassing van de verdeler en aanvoertemperatuur?",
+    "keyword": "warmtepomp op vloerverwarming verdeler",
     "intent": "informatief",
+    "contentType": "PRACTICAL",
     "priority": 8,
-    "slug": "zonnepanelen-op-meerdere-dakvlakken-combineren-hoe-berekent-u-de-totale-jaaropbrengst-bij-verschillende-orientaties",
-    "status": "generated",
-    "createdAt": "2026-08-21T12:37:38.754Z",
-    "generatedSlug": "zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen",
-    "generatedAt": "2026-08-24T00:39:39.575Z"
+    "slug": "warmtepomp-en-vloerverwarming-hoe-onderbouwt-u-de-aanpassing-van-de-verdeler-en-aanvoertemperatuur",
+    "status": "planned",
+    "createdAt": "2026-08-26T12:13:57.169Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
@@ -49,6 +48,16 @@
     "slug": "sg-ready-en-eebus-bij-warmtepompen-hoe-onderbouwt-u-slimme-netsturing-en-energiemanagement-in-uw-advies",
     "status": "planned",
     "createdAt": "2026-08-19T12:37:50.727Z"
+  },
+  {
+    "title": "Scope 12 en InstallQ in uw offerte: hoe gebruikt u kwaliteitsborging om uw meerwaarde te onderbouwen?",
+    "keyword": "scope 12 certificering installateur offerte",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
+    "priority": 7,
+    "slug": "scope-12-en-installq-in-uw-offerte-hoe-gebruikt-u-kwaliteitsborging-om-uw-meerwaarde-te-onderbouwen",
+    "status": "planned",
+    "createdAt": "2026-08-26T12:13:57.164Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -276,6 +285,39 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "P1-meter kwartierdata analyseren: hoe bouwt u een realistisch energieprofiel voor uw verduurzamingsadvies?",
+    "keyword": "p1 data analyseren verduurzamingsadvies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "p1-meter-kwartierdata-analyseren-hoe-bouwt-u-een-realistisch-energieprofiel-voor-uw-verduurzamingsadvies",
+    "status": "generated",
+    "createdAt": "2026-08-21T12:37:38.747Z",
+    "generatedSlug": "p1-meter-kwartierdata-analyseren-energieprofiel",
+    "generatedAt": "2026-08-23T00:40:31.322Z"
+  },
+  {
+    "title": "Warmtepomp bij een slecht geïsoleerde woning: hoe onderbouwt u de noodzakelijke isolatiestappen in uw adviesrapport?",
+    "keyword": "warmtepomp slecht geisoleerde woning advies",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "warmtepomp-bij-een-slecht-geisoleerde-woning-hoe-onderbouwt-u-de-noodzakelijke-isolatiestappen-in-uw-adviesrapport",
+    "status": "generated",
+    "createdAt": "2026-08-21T12:37:38.750Z",
+    "generatedSlug": "warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen",
+    "generatedAt": "2026-08-23T12:39:34.159Z"
+  },
+  {
+    "title": "Zonnepanelen op meerdere dakvlakken combineren: hoe berekent u de totale jaaropbrengst bij verschillende oriëntaties?",
+    "keyword": "zonnepanelen meerdere dakvlakken berekenen",
+    "intent": "informatief",
+    "priority": 8,
+    "slug": "zonnepanelen-op-meerdere-dakvlakken-combineren-hoe-berekent-u-de-totale-jaaropbrengst-bij-verschillende-orientaties",
+    "status": "generated",
+    "createdAt": "2026-08-21T12:37:38.754Z",
+    "generatedSlug": "zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen",
+    "generatedAt": "2026-08-24T00:39:39.575Z"
   },
   {
     "title": "Bèta-factor van een hybride warmtepomp: hoe bepaalt u het optimale omschakelpunt tussen gas en elektriciteit?",

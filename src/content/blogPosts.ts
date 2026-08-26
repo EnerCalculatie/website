@@ -1834,4 +1834,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer is een 3-fase omvormer verplicht?', answer: 'Volgens de Netcode Elektriciteit moet een invoeding boven 16A (3,68 kVA) over meerdere fases verdeeld worden. Boven 5 kW is een 3-fase aansluiting vrijwel altijd noodzakelijk.' },
     ],
   },
+  {
+    slug: 'capaciteitstarief-piekbelasting-zakelijk',
+    readingTimeMinutes: 3,
+    title: 'Capaciteitstarief en piekbelasting: Voorkom hoge netbeheerderskosten',
+    seoTitle: 'Capaciteitstarief & Piekbelasting Voorkomen',
+    description:
+      'Voorkom kostbare overschrijdingstarieven bij zakelijke grootverbruikers. Lees hoe u kwartierpieken opvangt met EMS, peak shaving en load balancing.',
+    date: '2026-08-26',
+    excerpt:
+      'Voorkom hoge netbeheerderskosten en overschrijdingstarieven bij zakelijke grootverbruikers door de inzet van capaciteitsanalyse, EMS-sturing en peak shaving met batterij-opslag.',
+    tags: ['capaciteitstarief', 'piekbelasting', 'peak shaving', 'grootverbruik', 'EMS', 'load balancing'],
+    keyPoints: [
+      'Grootverbruikers (>3x80A) betalen capaciteitstarieven op basis van Gecontracteerd Vermogen (GV) en kwartierpieken.',
+      'Een enkele kwartierpiek boven het GV leidt direct tot een overschrijdingstarief van de netbeheerder.',
+      'Peak shaving via een EMS met batterij-opslag vangt pieken automatisch op.',
+      'Let bij de installatie van omvormers/batterijen op somstromen om overbelasting van beveiligingen te voorkomen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het verschil tussen kleinverbruik en grootverbruik bij het capaciteitstarief?', answer: 'Kleinverbruik (t/m 3x80A) betaalt een vast jaartarief op basis van de fysieke aansluitwaarde. Grootverbruik (>3x80A) betaalt op basis van het Gecontracteerd Vermogen (GV) in kW en het Maximaal Gemeten Vermogen per kwartier.' },
+      { question: 'Wat gebeurt er bij een overschrijding van het Gecontracteerd Vermogen?', answer: 'Als het gemeten kwartiervermogen hoger uitvalt dan het afgesproken Gecontracteerd Vermogen, brengt de netbeheerder een overschrijdingstarief in rekening voor de extra piekcapaciteit.' },
+      { question: 'Hoe helpt peak shaving met een EMS tegen hoge netbeheerderskosten?', answer: 'Een EMS gekoppeld aan een batterij detecteert wanneer het verbruik het Gecontracteerd Vermogen dreigt te overschrijden en levert direct tijdelijk vermogen bij, waardoor kostbare kwartierpieken worden voorkomen.' },
+    ],
+  },
 ];
