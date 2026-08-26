@@ -1858,4 +1858,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe helpt peak shaving met een EMS tegen hoge netbeheerderskosten?', answer: 'Een EMS gekoppeld aan een batterij detecteert wanneer het verbruik het Gecontracteerd Vermogen dreigt te overschrijden en levert direct tijdelijk vermogen bij, waardoor kostbare kwartierpieken worden voorkomen.' },
     ],
   },
+  {
+    slug: 'zonneboiler-of-warmtepompboiler-keuze-onderbouwen',
+    readingTimeMinutes: 4,
+    title: 'Zonneboiler of warmtepompboiler: hoe onderbouwt u de juiste keuze?',
+    seoTitle: 'Zonneboiler of Warmtepompboiler Kiezen? Advies & Eisen',
+    description:
+      'Twijfelt u tussen een zonneboiler of warmtepompboiler? Ontdek de eisen voor dakoppervlak, opstellingsruimte, NEN 1010 en ISDE-subsidie voor uw...',
+    date: '2026-08-26',
+    excerpt:
+      'Hoe onderbouwt u de keuze tussen een zonneboiler en een warmtepompboiler? Een feitelijke onderbouwing op basis van dakoppervlak, opstellingsruimte en NEN 1010 vormt de basis van een sterk adviesrapport.',
+    tags: ['zonneboiler', 'warmtepompboiler', 'NEN 1010', 'ISDE subsidie', 'adviesrapport'],
+    keyPoints: [
+      'Een zonneboiler bespaart 40% tot 50% op het gasverbruik voor warm water, maar heeft naverwarming tot minimaal 60 °C nodig tegen legionella.',
+      'Een warmtepompboiler heeft een COP van 3 tot 4 en stelt specifieke eisen aan het ruimtevolume en de ventilatie van de opstellingsruimte.',
+      'Aansluitingen boven 2,2 kVA vereisen volgens NEN 1010 een afzonderlijke eindgroep in de groepenkast.',
+      'ISDE-subsidie is voor beide systemen beschikbaar voor woningeigenaren.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het voordeel van een zonneboiler ten opzichte van een warmtepompboiler?', answer: 'Een zonneboiler bespaart gemiddeld 40% tot 50% op het gasverbruik voor warm water, mits er voldoende schaduwvrij dakoppervlak beschikbaar is met een gunstige oriëntatie.' },
+      { question: 'Wanneer is een afzonderlijke eindgroep verplicht volgens NEN 1010?', answer: 'Volgens NEN 1010 moet een toestel of elektrisch element met een elektrisch aansluitvermogen van meer dan 2,2 kVA op een afzonderlijke eindgroep worden aangesloten.' },
+      { question: 'Waarom is naverwarming tot 60 °C nodig bij een zonneboiler?', answer: 'Op bewolkte dagen of in de winter levert de zon onvoldoende warmte. Naverwarming tot minimaal 60 °C is noodzakelijk ter preventie van legionella.' },
+    ],
+  },
 ];

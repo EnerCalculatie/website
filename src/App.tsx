@@ -141,6 +141,7 @@ const P1MeterKwartierdataAnalyserenEnergieprofielArticle = lazyRoute('/blog/p1-m
 const WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle = lazyRoute('/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen', () => import('./components/blog/WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle').then(m => ({ default: m.WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle })));
 const ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle = lazyRoute('/blog/zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen', () => import('./components/blog/ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle').then(m => ({ default: m.ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle })));
 const CapaciteitstariefPiekbelastingZakelijkArticle = lazyRoute('/blog/capaciteitstarief-piekbelasting-zakelijk', () => import('./components/blog/CapaciteitstariefPiekbelastingZakelijkArticle').then(m => ({ default: m.CapaciteitstariefPiekbelastingZakelijkArticle })));
+const ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle = lazyRoute('/blog/zonneboiler-of-warmtepompboiler-keuze-onderbouwen', () => import('./components/blog/ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle').then(m => ({ default: m.ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -319,6 +320,7 @@ export function AppContent() {
             <Route path="/blog/warmtepomp-slecht-geisoleerde-woning-advies-onderbouwen" element={<WarmtepompSlechtGeisoleerdeWoningAdviesOnderbouwenArticle />} />
             <Route path="/blog/zonnepanelen-meerdere-dakvlakken-jaaropbrengst-berekenen" element={<ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle />} />
             <Route path="/blog/capaciteitstarief-piekbelasting-zakelijk" element={<CapaciteitstariefPiekbelastingZakelijkArticle />} />
+            <Route path="/blog/zonneboiler-of-warmtepompboiler-keuze-onderbouwen" element={<ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
