@@ -30,8 +30,10 @@
     "contentType": "PRACTICAL",
     "priority": 8,
     "slug": "warmtepomp-en-vloerverwarming-hoe-onderbouwt-u-de-aanpassing-van-de-verdeler-en-aanvoertemperatuur",
-    "status": "planned",
-    "createdAt": "2026-08-26T12:13:57.169Z"
+    "status": "generated",
+    "createdAt": "2026-08-26T12:13:57.169Z",
+    "generatedSlug": "aanvoertemperatuur-warmtepomp-cop-vloerverwarming",
+    "generatedAt": "2026-08-27T00:38:35.733Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",

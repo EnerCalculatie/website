@@ -1882,4 +1882,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is naverwarming tot 60 °C nodig bij een zonneboiler?', answer: 'Op bewolkte dagen of in de winter levert de zon onvoldoende warmte. Naverwarming tot minimaal 60 °C is noodzakelijk ter preventie van legionella.' },
     ],
   },
+  {
+    slug: 'aanvoertemperatuur-warmtepomp-cop-vloerverwarming',
+    readingTimeMinutes: 3,
+    title: 'Aanvoertemperatuur Warmtepomp & Vloerverwarming Optimaliseren',
+    seoTitle: 'Warmtepomp Aanvoertemperatuur & COP Verbeteren',
+    description:
+      'Ontdek hoe 1°C lagere aanvoertemperatuur de COP van een warmtepomp met 2-3% verhoogt en waarom een pomploze verdeler vereist is bij vloerverwarming.',
+    date: '2026-08-27',
+    excerpt:
+      'Het verlagen van de aanvoertemperatuur met 1°C verhoogt de COP van een warmtepomp met 2 tot 3%. Waarom is een pomploze verdeler hierbij essentieel?',
+    tags: ['Warmtepomp', 'COP', 'Vloerverwarming', 'Aanvoertemperatuur', 'Mengverdeler', 'Waterzijdig Inregelen'],
+    keyPoints: [
+      '1°C lagere aanvoertemperatuur levert circa 2 tot 3 procent COP-verbetering op.',
+      'Traditionele mengverdelers koelen het aanvoerwater ongewenst af en veroorzaken hydraulische conflicten.',
+      'Een pomploze LTV-verdeler is noodzakelijk bij een directe aansluiting op de warmtepomp.',
+      'Lage temperatuurverwarming vereist een grotere volumestroom en nauwkeurig waterzijdig inregelen.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel stijgt de COP bij een lagere aanvoertemperatuur?', answer: 'Elke graad dat de aanvoertemperatuur wordt verlaagd, levert een rendementverbetering (COP) op van circa 2 tot 3 procent.' },
+      { question: 'Waarom is een traditionele mengverdeler ongeschikt voor warmtepompen?', answer: 'Een traditionele mengverdeler mengt aanvoerwater met retourwater, waardoor de aanvoertemperatuur te laag wordt voor effectieve verwarming. Bovendien kunnen de pompen van de verdeler en de warmtepomp elkaar hydraulisch tegenwerken.' },
+      { question: 'Waarom is waterzijdig inregelen nodig bij lage temperatuurverwarming?', answer: 'Bij een lage aanvoertemperatuur is een grotere volumestroom nodig. Waterzijdig inregelen zorgt voor de juiste debietverdeling over alle lussen, wat energieverspilling voorkomt en comfort garandeert.' },
+    ],
+  },
 ];
