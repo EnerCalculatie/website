@@ -1930,4 +1930,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer is een 3-fase omvormer verplicht?', answer: 'Volgens NEN 1010 en de Netcode Elektriciteit moet een invoeding boven de 16A (circa 3,68 kW) over meerdere fases worden verdeeld om fase-onbalans te voorkomen.' },
     ],
   },
+  {
+    slug: 'netverzwaring-3x25a-doorlooptijd-eisen',
+    readingTimeMinutes: 5,
+    title: 'Netverzwaring naar 3x25A: Doorlooptijden, NEN 1010 Eisen en Praktijkadvies',
+    seoTitle: 'Netverzwaring naar 3x25A: Doorlooptijd & Eisen',
+    description:
+      'Alles over netverzwaring van 1x35A naar 3x25A: actuele doorlooptijden, NEN 1010 eisen aan de meterkast en overbrugging met een EMS.',
+    date: '2026-08-28',
+    excerpt:
+      'Een netverzwaring van 1x35A naar 3x25A duurt in de praktijk 6 tot 9 maanden. Lees waar de meterkast aan moet voldoen en hoe u vertraging voorkomt.',
+    tags: ['netverzwaring', '3x25A', 'meterkast', 'NEN 1010', 'laadpaal', 'warmtepomp', 'MijnAansluiting'],
+    keyPoints: [
+      'Wettelijke doorlooptijd is 18 weken, maar Liander adviseert 6 tot 9 maanden aan te houden.',
+      'Meterkast moet voldoen aan NEN 1010 en een goedgekeurde hoofdschakelaar bevatten.',
+      'Maximaal afzekerbaar vermogen per fase is 16A (3,68 kW) vanwege selectiviteit (factor 1.6).',
+      'Een EMS met dynamische load balancing biedt een tijdelijke oplossing bij lange wachttijden.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoe lang duurt een netverzwaring van 1x35A naar 3x25A?', answer: 'De wettelijke termijn is volgens de Elektriciteitswet 18 weken, maar door netcongestie adviseren netbeheerders zoals Liander rekening te houden met een doorlooptijd van 6 tot 9 maanden.' },
+      { question: 'Waar moet de meterkast aan voldoen volgens NEN 1010?', answer: 'De binneninstallatie moet geschikt zijn en beschikken over een goedgekeurde hoofdschakelaar. Ook moet gecontroleerd worden op fase-verdeling bij omvormers boven 3,68 kW en beveiliging tegen overbelasting door somstromen op aardlekschakelaars.' },
+      { question: 'Hoeveel vermogen levert een 3x25A aansluiting?', answer: 'Een 3x25A aansluiting biedt een continu netvermogen van 17,25 kW. Om selectiviteit te waarborgen mag een individuele eindgroep op maximaal 16A worden afgezekerd (3,68 kW per fase, circa 11 kW op 3-fase).' },
+      { question: 'Wat te doen als een netverzwaring lang op zich laat wachten?', answer: 'Een Home Energy Management System (EMS) kan worden toegepast om de belasting via load balancing dynamisch te regelen. Dit opvangt piekstromen op en voorkomt het afschakelen van de hoofdzekering.' },
+    ],
+  },
 ];
