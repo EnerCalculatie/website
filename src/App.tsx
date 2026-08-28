@@ -143,6 +143,7 @@ const ZonnepanelenMeerdereDakvlakkenJaaropbrengstBerekenenArticle = lazyRoute('/
 const CapaciteitstariefPiekbelastingZakelijkArticle = lazyRoute('/blog/capaciteitstarief-piekbelasting-zakelijk', () => import('./components/blog/CapaciteitstariefPiekbelastingZakelijkArticle').then(m => ({ default: m.CapaciteitstariefPiekbelastingZakelijkArticle })));
 const ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle = lazyRoute('/blog/zonneboiler-of-warmtepompboiler-keuze-onderbouwen', () => import('./components/blog/ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle').then(m => ({ default: m.ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle })));
 const AanvoertemperatuurWarmtepompCopVloerverwarmingArticle = lazyRoute('/blog/aanvoertemperatuur-warmtepomp-cop-vloerverwarming', () => import('./components/blog/AanvoertemperatuurWarmtepompCopVloerverwarmingArticle').then(m => ({ default: m.AanvoertemperatuurWarmtepompCopVloerverwarmingArticle })));
+const SomstromenNen1010SciosScope12PvInstallatiesArticle = lazyRoute('/blog/somstromen-nen-1010-scios-scope-12-pv-installaties', () => import('./components/blog/SomstromenNen1010SciosScope12PvInstallatiesArticle').then(m => ({ default: m.SomstromenNen1010SciosScope12PvInstallatiesArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -323,6 +324,7 @@ export function AppContent() {
             <Route path="/blog/capaciteitstarief-piekbelasting-zakelijk" element={<CapaciteitstariefPiekbelastingZakelijkArticle />} />
             <Route path="/blog/zonneboiler-of-warmtepompboiler-keuze-onderbouwen" element={<ZonneboilerOfWarmtepompboilerKeuzeOnderbouwenArticle />} />
             <Route path="/blog/aanvoertemperatuur-warmtepomp-cop-vloerverwarming" element={<AanvoertemperatuurWarmtepompCopVloerverwarmingArticle />} />
+            <Route path="/blog/somstromen-nen-1010-scios-scope-12-pv-installaties" element={<SomstromenNen1010SciosScope12PvInstallatiesArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

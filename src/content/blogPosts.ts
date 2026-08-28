@@ -1906,4 +1906,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is waterzijdig inregelen nodig bij lage temperatuurverwarming?', answer: 'Bij een lage aanvoertemperatuur is een grotere volumestroom nodig. Waterzijdig inregelen zorgt voor de juiste debietverdeling over alle lussen, wat energieverspilling voorkomt en comfort garandeert.' },
     ],
   },
+  {
+    slug: 'somstromen-nen-1010-scios-scope-12-pv-installaties',
+    readingTimeMinutes: 4,
+    title: 'Somstromen en NEN 1010: Voorkom overbelasting en onderbouw uw offerte',
+    seoTitle: 'Somstromen & NEN 1010: Zonnepanelen Veilig Offeren',
+    description:
+      'Voorkom brandgevaar door somstromen (41A op 40A aardlek). Ontdek hoe NEN 1010, InstallQ en SciOS Scope 12 uw PV-offertes onderscheiden van prijsvechters.',
+    date: '2026-08-28',
+    excerpt:
+      'Klanten kiezen vaak voor de goedkoopste installateur zonder de risico\'s van somstromen te kennen. Ontdek hoe u met NEN 1010 en SciOS Scope 12 uw veilige offertes onderbouwt.',
+    tags: ['NEN 1010', 'SciOS Scope 12', 'InstallQ', 'Somstromen', 'PV-installatie', 'Zonnepanelen'],
+    keyPoints: [
+      'Een combinatie van 25A netvoeding en 16A PV-invoeding veroorzaakt 41A op een 40A-aardlekschakelaar, wat leidt tot overbelasting.',
+      'NEN 1010 en Netcode Elektriciteit eisen dat invoeding boven 16A (3,68 kW) wordt verdeeld over 3-fase.',
+      'SciOS Scope 12 en NEN-EN-IEC 62446 zijn essentieel voor de opstalverzekering van zakelijke zonnestroominstallaties.',
+      'Transparante onderbouwing in offertes beschermt de klant en onderscheidt uw vakbekwaamheid van prijsvechters.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het gevaar van somstromen bij zonnepanelen?', answer: 'Somstromen ontstaan wanneer netstroom (bijv. 25A) en zonnestroom (bijv. 16A) samenkomen op dezelfde aardlekschakelaar. Hierdoor kan er 41A door een 40A-beveiliging stromen, met overbelasting en brandgevaar tot gevolg.' },
+      { question: 'Waarom eisen verzekeraars een SciOS Scope 12 inspectie?', answer: 'SciOS Scope 12 garandeert dat een zonnestroominstallatie grondig is geïnspecteerd op brandveiligheid en elektrische risico\'s. Veel opstalverzekeraars stellen dit verplicht voor het dekken van zakelijke PV-systemen.' },
+      { question: 'Wanneer is een 3-fase omvormer verplicht?', answer: 'Volgens NEN 1010 en de Netcode Elektriciteit moet een invoeding boven de 16A (circa 3,68 kW) over meerdere fases worden verdeeld om fase-onbalans te voorkomen.' },
+    ],
+  },
 ];
