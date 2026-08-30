@@ -1978,4 +1978,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoeveel stroom verbruikt een volledig elektrische warmtepomp gemiddeld per jaar?', answer: 'In een goed geïsoleerde eengezinswoning ligt het gemiddelde elektriciteitsverbruik voor ruimteverwarming en warm tapwater tussen de 2.500 kWh en 3.500 kWh per jaar.' },
     ],
   },
+  {
+    slug: 'dumava-subsidie-maatschappelijk-vastgoed-onderbouwen',
+    readingTimeMinutes: 3,
+    title: 'DUMAVA-subsidie voor maatschappelijk vastgoed: zo onderbouwt u de verduurzamingsaanvraag',
+    seoTitle: 'DUMAVA-subsidie Aanvragen & Onderbouwen',
+    description:
+      'Ontdek de voorwaarden en eisen voor de DUMAVA-subsidie voor maatschappelijk vastgoed. Bekijk subsidiebedragen, rekenvoorbeelden en advieseisen.',
+    date: '2026-08-30',
+    excerpt:
+      'Een DUMAVA-aanvraag levert tot 30% subsidie op voor het verduurzamen van maatschappelijk vastgoed. Lees de exacte voorwaarden, eisen en rekenvoorbeelden.',
+    tags: ['DUMAVA', 'Subsidie', 'Maatschappelijk Vastgoed', 'Energieadvies', 'Verduurzaming'],
+    keyPoints: [
+      'Tot 30% subsidie op verduurzamingsmaatregelen en het energieadvies',
+      'Subsidiebedragen variëren van € 5.000 tot € 2,5 miljoen per aanvraag',
+      'Het energieadvies mag maximaal 36 maanden oud zijn bij indiening',
+      'Aanvragen worden behandeld op volgorde van binnenkomst (first come, first served)',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel DUMAVA-subsidie kan ik aanvragen?', answer: 'Het subsidiepercentage is 30% van de subsidiabele kosten. Het minimale subsidiebedrag is € 5.000. Het maximum is € 1,5 miljoen voor losse maatregelen en € 2,5 miljoen voor integrale projecten.' },
+      { question: 'Hoe oud mag het energieadvies voor DUMAVA maximaal zijn?', answer: 'Het bijgevoegde energieadvies mag op het moment van indienen van de DUMAVA-aanvraag maximaal 36 maanden oud zijn.' },
+      { question: 'Wat is de realisatietermijn na toekenning van de subsidie?', answer: 'Na subsidieverlening geldt voor maatregelenprojecten een realisatietermijn van maximaal 2 jaar en voor integrale projecten maximaal 3 jaar.' },
+    ],
+  },
 ];

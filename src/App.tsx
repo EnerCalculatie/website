@@ -146,6 +146,7 @@ const AanvoertemperatuurWarmtepompCopVloerverwarmingArticle = lazyRoute('/blog/a
 const SomstromenNen1010SciosScope12PvInstallatiesArticle = lazyRoute('/blog/somstromen-nen-1010-scios-scope-12-pv-installaties', () => import('./components/blog/SomstromenNen1010SciosScope12PvInstallatiesArticle').then(m => ({ default: m.SomstromenNen1010SciosScope12PvInstallatiesArticle })));
 const Netverzwaring3x25aDoorlooptijdEisenArticle = lazyRoute('/blog/netverzwaring-3x25a-doorlooptijd-eisen', () => import('./components/blog/Netverzwaring3x25aDoorlooptijdEisenArticle').then(m => ({ default: m.Netverzwaring3x25aDoorlooptijdEisenArticle })));
 const StooklijnWeersafhankelijkeRegelingWarmtepompRendementArticle = lazyRoute('/blog/stooklijn-weersafhankelijke-regeling-warmtepomp-rendement', () => import('./components/blog/StooklijnWeersafhankelijkeRegelingWarmtepompRendementArticle').then(m => ({ default: m.StooklijnWeersafhankelijkeRegelingWarmtepompRendementArticle })));
+const DumavaSubsidieMaatschappelijkVastgoedOnderbouwenArticle = lazyRoute('/blog/dumava-subsidie-maatschappelijk-vastgoed-onderbouwen', () => import('./components/blog/DumavaSubsidieMaatschappelijkVastgoedOnderbouwenArticle').then(m => ({ default: m.DumavaSubsidieMaatschappelijkVastgoedOnderbouwenArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -329,6 +330,7 @@ export function AppContent() {
             <Route path="/blog/somstromen-nen-1010-scios-scope-12-pv-installaties" element={<SomstromenNen1010SciosScope12PvInstallatiesArticle />} />
             <Route path="/blog/netverzwaring-3x25a-doorlooptijd-eisen" element={<Netverzwaring3x25aDoorlooptijdEisenArticle />} />
             <Route path="/blog/stooklijn-weersafhankelijke-regeling-warmtepomp-rendement" element={<StooklijnWeersafhankelijkeRegelingWarmtepompRendementArticle />} />
+            <Route path="/blog/dumava-subsidie-maatschappelijk-vastgoed-onderbouwen" element={<DumavaSubsidieMaatschappelijkVastgoedOnderbouwenArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
