@@ -763,5 +763,11 @@
     "topic": "Netverzwaring naar 3x25A: Doorlooptijden, NEN 1010 Eisen en Praktijkadvies",
     "slug": "netverzwaring-3x25a-doorlooptijd-eisen",
     "status": "generated"
+  },
+  {
+    "date": "2026-08-30",
+    "topic": "Stooklijn en Weersafhankelijke Regeling van de Warmtepomp",
+    "slug": "stooklijn-weersafhankelijke-regeling-warmtepomp-rendement",
+    "status": "generated"
   }
 ]

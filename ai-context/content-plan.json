@@ -18,8 +18,10 @@
     "contentType": "PRACTICAL",
     "priority": 8,
     "slug": "weersafhankelijke-regeling-en-stooklijn-instellen-hoe-onderbouwt-u-het-stroomverbruik-van-de-warmtepomp-bij-uw-klant",
-    "status": "planned",
-    "createdAt": "2026-08-28T12:37:28.137Z"
+    "status": "generated",
+    "createdAt": "2026-08-28T12:37:28.137Z",
+    "generatedSlug": "stooklijn-weersafhankelijke-regeling-warmtepomp-rendement",
+    "generatedAt": "2026-08-30T00:39:04.481Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",

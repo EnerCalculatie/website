@@ -1955,4 +1955,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat te doen als een netverzwaring lang op zich laat wachten?', answer: 'Een Home Energy Management System (EMS) kan worden toegepast om de belasting via load balancing dynamisch te regelen. Dit opvangt piekstromen op en voorkomt het afschakelen van de hoofdzekering.' },
     ],
   },
+  {
+    slug: 'stooklijn-weersafhankelijke-regeling-warmtepomp-rendement',
+    readingTimeMinutes: 4,
+    title: 'Stooklijn en Weersafhankelijke Regeling van de Warmtepomp',
+    seoTitle: 'Stooklijn Warmtepomp: Invloed op COP en Verbruik',
+    description:
+      'Ontdek hoe de stooklijn en weersafhankelijke regeling van een warmtepomp het stroomverbruik en de COP beïnvloeden. Optimaliseer de aanvoertemperatuur.',
+    date: '2026-08-30',
+    excerpt:
+      'Een verhoging van de aanvoertemperatuur met 1 °C verlaagt de COP van een warmtepomp met 2% tot 2,5%. Ontdek hoe een goed ingestelde stooklijn stroom bespaart.',
+    tags: ['warmtepomp', 'stooklijn', 'weersafhankelijke regeling', 'COP', 'rendement', 'installatietechniek'],
+    keyPoints: [
+      '1 °C hogere aanvoertemperatuur verlaagt de COP met 2% tot 2,5%',
+      'Een verkeerd ingestelde stooklijn kan leiden tot pendelen en een kortere levensduur',
+      'Volledig elektrische warmtepompen verbruiken gemiddeld 2.500 tot 3.500 kWh per jaar',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het effect van een te hoge stooklijn op de warmtepomp?', answer: 'Bij een te hoge stooklijn is de aanvoertemperatuur onnodig hoog. Elke stijging van 1 °C verlaagt de COP met circa 2% tot 2,5%, wat leidt tot een aanzienlijk hoger stroomverbruik.' },
+      { question: 'Wat is pendelen bij een warmtepomp?', answer: 'Pendelen is het frequent in- en uitschakelen van de compressor door een onjuiste afstemming van de stooklijn en het afgiftesysteem. Dit verhoogt het stroomverbruik en verkort de levensduur van de installatie.' },
+      { question: 'Hoeveel stroom verbruikt een volledig elektrische warmtepomp gemiddeld per jaar?', answer: 'In een goed geïsoleerde eengezinswoning ligt het gemiddelde elektriciteitsverbruik voor ruimteverwarming en warm tapwater tussen de 2.500 kWh en 3.500 kWh per jaar.' },
+    ],
+  },
 ];
