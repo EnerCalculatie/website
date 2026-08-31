@@ -2002,4 +2002,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is de realisatietermijn na toekenning van de subsidie?', answer: 'Na subsidieverlening geldt voor maatregelenprojecten een realisatietermijn van maximaal 2 jaar en voor integrale projecten maximaal 3 jaar.' },
     ],
   },
+  {
+    slug: 'douche-wtw-warmtepomp-rendement-nta-8800',
+    readingTimeMinutes: 3,
+    title: 'Douche-WTW in Combinatie met een Warmtepomp: Rendement en NTA 8800',
+    seoTitle: 'Douche-WTW en Warmtepomp: Besparing & NTA 8800',
+    description:
+      'Ontdek hoe een douche-WTW in combinatie met een warmtepomp het energieverbruik voor warm water met 35% tot 50% verlaagt en de BENG-score verbetert.',
+    date: '2026-08-31',
+    excerpt:
+      'Het combineren van een douche-WTW met een warmtepomp verlaagt de energievraag voor warm water gemiddeld met 35% tot 50%. Ontdek de impact op de NTA 8800 en de installatie.',
+    tags: ['douche-wtw', 'warmtepomp', 'NTA 8800', 'BENG', 'energiebesparing', 'installatietechniek'],
+    keyPoints: [
+      'Energiebesparing op warm douchewater van 35% tot 50% door voorverwarming naar 20-25°C.',
+      'Gecontroleerd rendement tussen 50% en 65% bij een normdebiet van 9,2 l/min.',
+      'Aansluitwijze Optie A biedt de hoogste theoretische besparing en BENG-score in NTA 8800.',
+      'Maakt een kleiner boilervolume of lager opgesteld thermisch vermogen mogelijk.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel energie bespaart een douche-WTW bij een warmtepomp?', answer: 'Een douche-WTW verlaagt de energievraag voor de bereiding van warm douchewater gemiddeld met 35% tot 50% door inkomend leidingwater voor te verwarmen met afvoerwater.' },
+      { question: 'Wat is het gecontroleerde rendement van een douche-WTW?', answer: 'Bij een normdebiet van 9,2 liter per minuut ligt het gecontroleerde rendement van een douche-WTW (pijp of goot) gemiddeld tussen de 50% en 65% volgens NEN-normen.' },
+      { question: 'Welke aansluitwijze van een douche-WTW geeft het hoogste BENG-rendement?', answer: 'Aansluitwijze Optie A levert volgens de NTA 8800 in veel gevallen de hoogste theoretische besparing op, omdat het voorverwarmde water naar zowel de mengkraan als het opwekkingstoestel stroomt.' },
+    ],
+  },
 ];
