@@ -787,5 +787,11 @@
     "topic": "ISO 15118-20 en V2X: De gids voor een toekomstbestendig laadpaal-advies",
     "slug": "iso-15118-20-v2x-laadpaal-advies",
     "status": "generated"
+  },
+  {
+    "date": "2026-09-01",
+    "topic": "NEN 7250 en Dakbelasting Zonnepanelen in de Offerte",
+    "slug": "nen-7250-dakbelasting-zonnepanelen-offerte",
+    "status": "generated"
   }
 ]

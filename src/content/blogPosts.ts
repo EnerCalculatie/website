@@ -2050,4 +2050,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom moet u letten op somstromen bij V2X-installaties volgens NEN 1010?', answer: 'Bij bidirectioneel laden tellen de stromen uit het net en de auto bij elkaar op (bijv. 25A net + 16A V2X = 41A). Dit kan een standaard 40A-aardlekschakelaar overbelasten en brandgevaar veroorzaken.' },
     ],
   },
+  {
+    slug: 'nen-7250-dakbelasting-zonnepanelen-offerte',
+    readingTimeMinutes: 3,
+    title: 'NEN 7250 en Dakbelasting Zonnepanelen in de Offerte',
+    seoTitle: 'NEN 7250 & Dakbelasting Zonnepanelen Onderbouwen',
+    description:
+      'Hoe onderbouwt u NEN 7250 en dakbelasting voor zonnepanelen in uw offerte? Ontdek de eisen uit het BBL, Eurocodes en ballastberekening op platte daken.',
+    date: '2026-09-01',
+    excerpt:
+      'Volgens het BBL moet elke aanpassing aan een dakconstructie voldoen aan de eisen voor constructieve veiligheid. NEN 7250 biedt de rekenregels voor wind- en sneeuwbelasting van zonne-energiesystemen.',
+    tags: ['NEN 7250', 'Dakbelasting', 'Zonnepanelen', 'BBL', 'Constructieve veiligheid', 'Ballastberekening'],
+    keyPoints: [
+      'NEN 7250 biedt rekenregels voor wind- en sneeuwbelasting op PV- en PVT-systemen.',
+      'Constructieve veiligheid is verplicht conform het Besluit bouwwerken leefomgeving (BBL).',
+      'NEN 7250 is gekoppeld aan Eurocodes NEN-EN 1991-1-3 (sneeuw) en NEN-EN 1991-1-4 (wind).',
+      'Een bouwkundige controle toetst het totaalgewicht van panelen, montagemateriaal en ballast.',
+      'Exacte ballastberekening voorkomt afschuiven of opwaaien op platte daken zonder de daksterkte te overschrijden.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat regelt de norm NEN 7250 voor zonnepanelen?', answer: 'De norm NEN 7250 geeft specifieke rekenregels voor het bepalen van de wind- en sneeuwbelasting op zonne-energiesystemen (zowel PV als PVT) op schuine en platte daken.' },
+      { question: 'Hoe verhoudt NEN 7250 zich tot het BBL en Eurocodes?', answer: 'Het BBL verplicht dat de constructieve veiligheid van daken gewaarborgd blijft. NEN 7250 stemt dit af op de Europese Eurocodes NEN-EN 1991-1-4 (wind) en NEN-EN 1991-1-3 (sneeuw).' },
+      { question: 'Waarom is een ballastberekening op een plat dak noodzakelijk?', answer: 'Een ballastberekening conform NEN 7250 zorgt ervoor dat het systeem stormvast ligt zonder op te waaien of af te schuiven, terwijl de maximale draagkracht van de dakconstructie niet wordt overschreden.' },
+    ],
+  },
 ];

@@ -30,8 +30,10 @@
     "contentType": "PRACTICAL",
     "priority": 8,
     "slug": "nen-7250-en-dakbelasting-voor-zonnepanelen-zo-onderbouwt-u-de-bouwkundige-veiligheid-in-uw-offerte",
-    "status": "planned",
-    "createdAt": "2026-08-30T12:38:01.476Z"
+    "status": "generated",
+    "createdAt": "2026-08-30T12:38:01.476Z",
+    "generatedSlug": "nen-7250-dakbelasting-zonnepanelen-offerte",
+    "generatedAt": "2026-09-01T07:02:15.525Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
