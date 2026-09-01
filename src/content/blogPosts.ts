@@ -2026,4 +2026,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Welke aansluitwijze van een douche-WTW geeft het hoogste BENG-rendement?', answer: 'Aansluitwijze Optie A levert volgens de NTA 8800 in veel gevallen de hoogste theoretische besparing op, omdat het voorverwarmde water naar zowel de mengkraan als het opwekkingstoestel stroomt.' },
     ],
   },
+  {
+    slug: 'iso-15118-20-v2x-laadpaal-advies',
+    readingTimeMinutes: 4,
+    title: 'ISO 15118-20 en V2X: De gids voor een toekomstbestendig laadpaal-advies',
+    seoTitle: 'ISO 15118-20 & V2X: Gids voor Laadpaal-Advies',
+    description:
+      'Hoe bereidt u een laadpaal-advies voor op ISO 15118-20 en V2X? Lees alles over hardware, OCPP 2.0.1, PKI-beveiliging en NEN 1010 somstromen.',
+    date: '2026-09-01',
+    excerpt:
+      'ISO 15118-20 en V2X vragen om specifieke hardware, netbeveiliging en elektrotechnische aanpassingen in de meterkast. Ontdek hoe u uw laadpaal-advies toekomstbestendig maakt.',
+    tags: ['ISO 15118-20', 'V2X', 'V2G', 'OCPP 2.0.1', 'Laadpaal advies', 'NEN 1010', 'Dynamic Load Balancing'],
+    keyPoints: [
+      'ISO 15118-20 maakt bidirectioneel laden (V2X/V2G) en Plug & Charge (PnC) mogelijk voor AC- en DC-laadsystemen.',
+      'De combinatie van ISO 15118-20 en OCPP 2.0.1 borgen interoperabiliteit, cyberbeveiliging (PKI/TLS) en netveiligheid.',
+      'Dynamic Load Balancing is essentieel op een 3x25A aansluiting bij 11 kW laden om het overschrijden van de 9A restcapaciteit te voorkomen.',
+      'Let volgens NEN 1010 strikt op somstromen (bijv. 25A net + 16A V2X = 41A) om overbelasting van 40A-aardlekschakelaars te vermijden.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het verschil tussen ISO 15118-20 en oudere laadstandaarden?', answer: 'ISO 15118-20 ondersteunt expliciet bidirectioneel laden (V2X/V2G) voor zowel AC- als DC-laadsystemen, evenals automatische autorisatie via Plug & Charge (PnC) met beveiliging via PKI-certificaten en TLS-encryptie.' },
+      { question: 'Waarom is Dynamic Load Balancing nodig bij V2X en 11 kW laden?', answer: 'Bij 11 kW laden trekt een 3-fase lader 16A per fase. Op een standaard 3x25A huisaansluiting blijft er slechts 9A per fase over voor het huishouden. Dynamic Load Balancing voorkomt dat de hoofdzekering uitschakelt bij gelijktijdig stroomverbruik.' },
+      { question: 'Waarom moet u letten op somstromen bij V2X-installaties volgens NEN 1010?', answer: 'Bij bidirectioneel laden tellen de stromen uit het net en de auto bij elkaar op (bijv. 25A net + 16A V2X = 41A). Dit kan een standaard 40A-aardlekschakelaar overbelasten en brandgevaar veroorzaken.' },
+    ],
+  },
 ];

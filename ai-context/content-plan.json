@@ -58,8 +58,10 @@
     "contentType": "SEO",
     "priority": 7,
     "slug": "iso-15118-20-en-v2x-compatibiliteit-hoe-bereidt-u-uw-laadpaal-advies-voor-op-de-nieuwste-laadstandaard",
-    "status": "planned",
-    "createdAt": "2026-08-30T12:38:01.479Z"
+    "status": "generated",
+    "createdAt": "2026-08-30T12:38:01.479Z",
+    "generatedSlug": "iso-15118-20-v2x-laadpaal-advies",
+    "generatedAt": "2026-09-01T00:39:51.562Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
