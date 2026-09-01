@@ -1,41 +1,5 @@
 [
   {
-    "title": "DUMAVA-subsidie voor maatschappelijk vastgoed: zo onderbouwt u de verduurzamingsaanvraag",
-    "keyword": "dumava subsidie verduurzaming",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 8,
-    "slug": "dumava-subsidie-voor-maatschappelijk-vastgoed-zo-onderbouwt-u-de-verduurzamingsaanvraag",
-    "status": "generated",
-    "createdAt": "2026-08-30T12:38:01.461Z",
-    "generatedSlug": "dumava-subsidie-maatschappelijk-vastgoed-onderbouwen",
-    "generatedAt": "2026-08-30T12:39:10.323Z"
-  },
-  {
-    "title": "Douche-WTW combineren met een warmtepomp: hoe berekent u de besparing op warmtapwater?",
-    "keyword": "douche wtw warmtepomp berekening",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 8,
-    "slug": "douche-wtw-combineren-met-een-warmtepomp-hoe-berekent-u-de-besparing-op-warmtapwater",
-    "status": "generated",
-    "createdAt": "2026-08-30T12:38:01.471Z",
-    "generatedSlug": "douche-wtw-warmtepomp-rendement-nta-8800",
-    "generatedAt": "2026-08-31T00:39:03.487Z"
-  },
-  {
-    "title": "NEN 7250 en dakbelasting voor zonnepanelen: zo onderbouwt u de bouwkundige veiligheid in uw offerte",
-    "keyword": "nen 7250 dakbelasting zonnepanelen",
-    "intent": "commercieel",
-    "contentType": "PRACTICAL",
-    "priority": 8,
-    "slug": "nen-7250-en-dakbelasting-voor-zonnepanelen-zo-onderbouwt-u-de-bouwkundige-veiligheid-in-uw-offerte",
-    "status": "generated",
-    "createdAt": "2026-08-30T12:38:01.476Z",
-    "generatedSlug": "nen-7250-dakbelasting-zonnepanelen-offerte",
-    "generatedAt": "2026-09-01T07:02:15.525Z"
-  },
-  {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
     "keyword": "single-split of multi-split airco advies",
     "intent": "informatief",
@@ -52,18 +16,6 @@
     "slug": "sg-ready-en-eebus-bij-warmtepompen-hoe-onderbouwt-u-slimme-netsturing-en-energiemanagement-in-uw-advies",
     "status": "planned",
     "createdAt": "2026-08-19T12:37:50.727Z"
-  },
-  {
-    "title": "ISO 15118-20 en V2X-compatibiliteit: hoe bereidt u uw laadpaal-advies voor op de nieuwste laadstandaard?",
-    "keyword": "iso 15118 20 laadpaal advies",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 7,
-    "slug": "iso-15118-20-en-v2x-compatibiliteit-hoe-bereidt-u-uw-laadpaal-advies-voor-op-de-nieuwste-laadstandaard",
-    "status": "generated",
-    "createdAt": "2026-08-30T12:38:01.479Z",
-    "generatedSlug": "iso-15118-20-v2x-laadpaal-advies",
-    "generatedAt": "2026-09-01T00:39:51.562Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -303,6 +255,42 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "DUMAVA-subsidie voor maatschappelijk vastgoed: zo onderbouwt u de verduurzamingsaanvraag",
+    "keyword": "dumava subsidie verduurzaming",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "dumava-subsidie-voor-maatschappelijk-vastgoed-zo-onderbouwt-u-de-verduurzamingsaanvraag",
+    "status": "generated",
+    "createdAt": "2026-08-30T12:38:01.461Z",
+    "generatedSlug": "dumava-subsidie-maatschappelijk-vastgoed-onderbouwen",
+    "generatedAt": "2026-08-30T12:39:10.323Z"
+  },
+  {
+    "title": "Douche-WTW combineren met een warmtepomp: hoe berekent u de besparing op warmtapwater?",
+    "keyword": "douche wtw warmtepomp berekening",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "douche-wtw-combineren-met-een-warmtepomp-hoe-berekent-u-de-besparing-op-warmtapwater",
+    "status": "generated",
+    "createdAt": "2026-08-30T12:38:01.471Z",
+    "generatedSlug": "douche-wtw-warmtepomp-rendement-nta-8800",
+    "generatedAt": "2026-08-31T00:39:03.487Z"
+  },
+  {
+    "title": "NEN 7250 en dakbelasting voor zonnepanelen: zo onderbouwt u de bouwkundige veiligheid in uw offerte",
+    "keyword": "nen 7250 dakbelasting zonnepanelen",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
+    "priority": 8,
+    "slug": "nen-7250-en-dakbelasting-voor-zonnepanelen-zo-onderbouwt-u-de-bouwkundige-veiligheid-in-uw-offerte",
+    "status": "generated",
+    "createdAt": "2026-08-30T12:38:01.476Z",
+    "generatedSlug": "nen-7250-dakbelasting-zonnepanelen-offerte",
+    "generatedAt": "2026-09-01T07:02:15.525Z"
   },
   {
     "title": "Netverzwaringsaanvraag bij de netbeheerder: hoe managet u de doorlooptijd en klantverwachtingen?",
@@ -683,6 +671,18 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "ISO 15118-20 en V2X-compatibiliteit: hoe bereidt u uw laadpaal-advies voor op de nieuwste laadstandaard?",
+    "keyword": "iso 15118 20 laadpaal advies",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 7,
+    "slug": "iso-15118-20-en-v2x-compatibiliteit-hoe-bereidt-u-uw-laadpaal-advies-voor-op-de-nieuwste-laadstandaard",
+    "status": "generated",
+    "createdAt": "2026-08-30T12:38:01.479Z",
+    "generatedSlug": "iso-15118-20-v2x-laadpaal-advies",
+    "generatedAt": "2026-09-01T00:39:51.562Z"
   },
   {
     "title": "Scope 12 en InstallQ in uw offerte: hoe gebruikt u kwaliteitsborging om uw meerwaarde te onderbouwen?",
