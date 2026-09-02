@@ -38,6 +38,10 @@ export interface BarChartVisual {
   caption?: string;
   unit: string;
   items: { label: string; value: number; kleur?: string }[];
+  /** True als de waarden een illustratief voorbeeld zijn (bv. binnen een fictieve praktijkcase),
+   * geen gemeten/onderzocht feit. Rendert een expliciet "(illustratief voorbeeld)"-label — content
+   * guidelines (BLOG_CONTENT_GUIDELINES.md) verbieden verzonnen cijfers zonder deze markering. */
+  illustrative?: boolean;
 }
 
 export interface ComparisonVisual {
@@ -46,6 +50,8 @@ export interface ComparisonVisual {
   /** Twee kolommen om naast elkaar te zetten, bv. "Zonder batterij" vs "Met batterij". */
   columns: [string, string];
   rows: { label: string; left: string; right: string }[];
+  /** Zie BarChartVisual.illustrative. */
+  illustrative?: boolean;
 }
 
 export type VisualSpec = BarChartVisual | ComparisonVisual;
@@ -68,13 +74,18 @@ export function computeBarChartLayout(items: BarChartVisual['items']) {
   };
 }
 
-function BarChart({ title, caption, unit, items }: BarChartVisual) {
+/** Klein, herbruikbaar badge voor illustrative=true — zelfde tekst op beide visualtypen. */
+function IllustrativeBadge() {
+  return <span className="text-xs font-normal text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5 ml-2 align-middle">illustratief voorbeeld</span>;
+}
+
+function BarChart({ title, caption, unit, items, illustrative }: BarChartVisual) {
   const { chartHeight, bars } = computeBarChartLayout(items);
   const { labelWidth, chartWidth, barHeight } = BAR_CHART_LAYOUT;
 
   return (
     <figure className="my-8 not-prose">
-      {title && <p className="text-sm font-bold text-slate-900 mb-3">{title}</p>}
+      {title && <p className="text-sm font-bold text-slate-900 mb-3">{title}{illustrative && <IllustrativeBadge />}</p>}
       <svg
         viewBox={`0 0 ${labelWidth + chartWidth + 80} ${chartHeight}`}
         role="img"
@@ -99,10 +110,10 @@ function BarChart({ title, caption, unit, items }: BarChartVisual) {
   );
 }
 
-function Comparison({ title, columns, rows }: ComparisonVisual) {
+function Comparison({ title, columns, rows, illustrative }: ComparisonVisual) {
   return (
     <figure className="my-8 not-prose">
-      {title && <p className="text-sm font-bold text-slate-900 mb-3">{title}</p>}
+      {title && <p className="text-sm font-bold text-slate-900 mb-3">{title}{illustrative && <IllustrativeBadge />}</p>}
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>

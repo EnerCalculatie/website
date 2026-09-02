@@ -110,8 +110,22 @@ describe('LLMService.generate', () => {
   it('MOCK_LLM=true roept fetch niet aan en geeft een stub-response passend bij de prompt', async () => {
     process.env.MOCK_LLM = 'true';
     const service = new LLMService();
-    const result = await service.generate({ userPrompt: 'iets over Quality Gate' });
+    // Bewust de exacte trefzin uit prompts/quality-gate.md, niet de losse woorden "Quality Gate" —
+    // die matchten per ongeluk ook prompts/seo-audit.md (die zelf naar "de ... Quality Gate"
+    // verwijst in zijn eigen tekst), zie de mock-branch-volgorde-bugfix in LLMService.ts.
+    const result = await service.generate({ userPrompt: 'iets over de eindredacteur en Quality Gate' });
     expect(fetchMock).not.toHaveBeenCalled();
     expect(JSON.parse(result)).toMatchObject({ passed: true });
+  });
+
+  it('MOCK_LLM=true: SEO/GEO-audit-prompt (die zelf naar "Quality Gate" verwijst) matcht niet per ongeluk de Quality Gate-stub', async () => {
+    process.env.MOCK_LLM = 'true';
+    const service = new LLMService();
+    const result = await service.generate({
+      userPrompt: 'Je bent de SEO/GEO Auditor. ... heeft geen effect op de aparte, onafhankelijke Quality Gate.',
+    });
+    const parsed = JSON.parse(result);
+    expect(parsed).toHaveProperty('scores');
+    expect(parsed).not.toHaveProperty('confidence'); // confidence is uniek voor de Quality Gate-stub
   });
 });

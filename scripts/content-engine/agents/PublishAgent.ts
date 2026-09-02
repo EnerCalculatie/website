@@ -48,6 +48,17 @@ export function matchPlanItem(plan: PlanItem[], originalTopic: string | undefine
   return plan.find((i) => i.title === originalTopic && i.status === 'planned');
 }
 
+export interface VisualSpec {
+  type: 'bar_chart' | 'comparison';
+  title?: string;
+  caption?: string;
+  unit?: string;
+  items?: { label: string; value: number; kleur?: string }[];
+  columns?: [string, string];
+  rows?: { label: string; left: string; right: string }[];
+  illustrative?: boolean;
+}
+
 export interface SeoJson {
   content: string;
   slug: string;
@@ -59,28 +70,10 @@ export interface SeoJson {
   keyPoints?: string[];
   category?: string;
   faq?: Array<{ question: string; answer: string }>;
+  visual?: VisualSpec;
 }
 
-/** Genereert de .tsx-broncode voor een blogartikel-component. Puur — geen I/O. */
-export function buildComponentSource(componentName: string, slug: string, content: string) {
-  const bodyEscapedForTemplate = content.replace(/`/g, '\\`').replace(/\$/g, '\\$');
-  return `import { BlogPostLayout } from './BlogPostLayout';
-import { blogPosts } from '../../content/blogPosts';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-
-const post = blogPosts.find((p) => p.slug === '${slug}')!;
-
-const markdown = \`
-${bodyEscapedForTemplate}
-\`;
-
-export function ${componentName}() {
-  return (
-    <BlogPostLayout post={post}>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        components={{
+const MARKDOWN_COMPONENTS_PROPS = `{
           h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
           h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
           p: ({node: _node, ...props}) => <p className="text-slate-700 leading-relaxed mb-4" {...props} />,
@@ -95,10 +88,53 @@ export function ${componentName}() {
           thead: ({node: _node, ...props}) => <thead className="bg-slate-100" {...props} />,
           th: ({node: _node, ...props}) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
           td: ({node: _node, ...props}) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
-        }}
-      >
-        {markdown}
-      </ReactMarkdown>
+        }`;
+
+/** Splitst de markdown-body op de literal marker \`[[VISUAL]]\` (op een eigen regel, whitespace
+ * genegeerd) in segmenten. Puur — geen I/O. Gebruikt door buildComponentSource om de visual op de
+ * exacte plek te plaatsen die de WriterAgent koos, i.p.v. een vaste positie (zie ArticleVisual.tsx-
+ * doc-comment: "een diagram hoort op een specifieke plek in het betoog"). */
+export function splitOnVisualMarker(content: string): string[] {
+  return content.split(/\n[ \t]*\[\[VISUAL\]\][ \t]*\n/);
+}
+
+/** Genereert de .tsx-broncode voor een blogartikel-component. Puur — geen I/O.
+ * `visual`: optioneel, uit SeoJson.visual — als aanwezig én de content een \`[[VISUAL]]\`-marker
+ * bevat, wordt de markdown op die plek gesplitst en <ArticleVisual> ertussen gerenderd. Ontbreekt
+ * de marker maar is er wel een visual (of andersom): render de visual niet — een onduidelijke
+ * plek is erger dan geen visual (zie ook de test hiervoor). */
+export function buildComponentSource(componentName: string, slug: string, content: string, visual?: VisualSpec) {
+  const segments = splitOnVisualMarker(content);
+  const useVisual = Boolean(visual) && segments.length === 2;
+
+  const escape = (s: string) => s.replace(/`/g, '\\`').replace(/\$/g, '\\$');
+
+  const markdownBlocks = useVisual
+    ? segments.map((seg, i) => `const markdown${i} = \`\n${escape(seg)}\n\`;`).join('\n')
+    : `const markdown = \`\n${escape(content)}\n\`;`;
+
+  const visualImport = useVisual ? `import { ArticleVisual } from './ArticleVisual';\n` : '';
+  const visualPropJson = useVisual ? JSON.stringify(visual) : '';
+
+  const body = useVisual
+    ? `<ReactMarkdown remarkPlugins={[remarkGfm]} components={${MARKDOWN_COMPONENTS_PROPS}}>{markdown0}</ReactMarkdown>
+      <ArticleVisual visual={${visualPropJson}} />
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={${MARKDOWN_COMPONENTS_PROPS}}>{markdown1}</ReactMarkdown>`
+    : `<ReactMarkdown remarkPlugins={[remarkGfm]} components={${MARKDOWN_COMPONENTS_PROPS}}>{markdown}</ReactMarkdown>`;
+
+  return `import { BlogPostLayout } from './BlogPostLayout';
+import { blogPosts } from '../../content/blogPosts';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+${visualImport}
+const post = blogPosts.find((p) => p.slug === '${slug}')!;
+
+${markdownBlocks}
+
+export function ${componentName}() {
+  return (
+    <BlogPostLayout post={post}>
+      ${body}
     </BlogPostLayout>
   );
 }
@@ -175,7 +211,7 @@ export class PublishAgent {
     console.log(`[PublishAgent] Start publicatie...`);
 
     const seoJson: SeoJson = JSON.parse(readFileSync(seoJsonPath, 'utf-8'));
-    const { content, slug, title } = seoJson;
+    const { content, slug, title, visual } = seoJson;
 
     const componentName = `${pascalCase(slug)}Article`;
     const blogDir = path.join(rootDir, 'src/components/blog');
@@ -184,7 +220,7 @@ export class PublishAgent {
     const appTsxPath = path.join(rootDir, 'src/App.tsx');
 
     // 1. Maak React Component
-    const componentSource = buildComponentSource(componentName, slug, content);
+    const componentSource = buildComponentSource(componentName, slug, content, visual);
     writeFileSync(componentPath, componentSource, 'utf-8');
     console.log(`[PublishAgent] Component geschreven: ${componentPath}`);
 

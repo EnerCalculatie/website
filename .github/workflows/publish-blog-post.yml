@@ -150,11 +150,15 @@ jobs:
         with:
           name: pipeline-debug-${{ github.run_id }}
           path: |
+            seo-brief.json
             research.json
             draft.md
+            draft.extras.json
             fact-check.json
             technical-review.json
             seo-optimized.json
+            seo-audit.json
+            marketing-report.json
             quality-report.json
           if-no-files-found: ignore
           retention-days: 14
