@@ -2147,4 +2147,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom helpt een buffervat bij de defrost-cyclus?', answer: 'Tijdens het ontdooien onttrekt een lucht/water-warmtepomp warmte aan het cv-water. Een buffervat levert deze energie direct zonder dat het interieur merkbaar afkoelt.' },
     ],
   },
+  {
+    slug: 'buffervat-warmtepomp-inhoud-berekenen-pendelgedrag',
+    readingTimeMinutes: 4,
+    title: 'Buffervat bij een warmtepomp: inhoud berekenen en pendelgedrag voorkomen',
+    seoTitle: 'Buffervat Warmtepomp: Inhoud Berekenen & Pendelgedrag',
+    description:
+      'Hoe berekent u de inhoud van een buffervat bij een warmtepomp? Ontdek vuistregels (10-20 l/kW), voorkom pendelgedrag en onderbouw de offerte helder.',
+    date: '2026-09-02',
+    excerpt:
+      'Een juist gedimensioneerd buffervat voorkomt pendelgedrag, beschermt de compressor en borgt het seizoensrendement van een warmtepomp. Ontdek vuistregels voor de inhoudsberekening en hydraulische inpassing.',
+    tags: ['buffervat', 'warmtepomp', 'pendelgedrag', 'ISSO 72', 'hydraulische inpassing'],
+    keyPoints: [
+      'Voorkom pendelgedrag en verleng de levensduur van de warmtepompcompressor',
+      'Vuistregel buffervat parallel: 10 tot 20 liter per kW geïnstalleerd vermogen',
+      'Borg het minimale waterbedrijfsvolume en de benodigde ontdooi-energie',
+      'Onderbouw de meerwaarde van een buffervat transparant in de offerte',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel liter buffervat per kW warmtepomp is nodig?', answer: 'Voor een parallel geschakeld buffervat geldt als gangbare vuistregel 10 tot 20 liter inhoud per kW geïnstalleerd warmtepompvermogen.' },
+      { question: 'Wat is de minimale compressor-run-time van een warmtepomp?', answer: 'Om onnodige slijtage te voorkomen en een goede olieretour te garanderen, wordt in het ontwerp gestreefd naar een minimale ononderbroken compressor-run-time van 10 tot 15 minuten per start.' },
+      { question: 'Wat is het verschil tussen een serieel en parallel geschakeld buffervat?', answer: 'Een serieel geschakeld buffervat verhoogt uitsluitend het totale waterinhoudsvolume van het systeem, terwijl een parallel geschakeld buffervat dient als hydraulische scheiding tussen de primaire en secundaire volumestroom.' },
+    ],
+  },
 ];
