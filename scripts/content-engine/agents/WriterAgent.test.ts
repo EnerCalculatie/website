@@ -2,7 +2,7 @@
 // eerste-schrijfbeurt- vs. herschrijf-met-feedback-tak die run-pipeline.ts
 // aanstuurt in de kwaliteitsloop.
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -13,7 +13,7 @@ vi.mock('../services/LLMService', () => ({
   },
 }));
 
-import { WriterAgent } from './WriterAgent';
+import { WriterAgent, splitWriterResponse } from './WriterAgent';
 
 describe('WriterAgent.run', () => {
   let dir: string;
@@ -94,5 +94,57 @@ describe('WriterAgent.run', () => {
     await expect(
       agent.run('onderwerp', path.join(dir, 'ontbreekt.json'), outputPath)
     ).rejects.toThrow(/Kon research\.json niet lezen/);
+  });
+
+  it('stuurt de SEO/GEO-brief mee als die is meegegeven', async () => {
+    generateMock.mockResolvedValue('draft');
+    const agent = new WriterAgent();
+    await agent.run('warmtepomp rendement', researchPath, outputPath, undefined, undefined, {
+      searchIntent: 'wil weten of SCOP realistisch is',
+      primaryQuestion: 'Wat is een realistische SCOP?',
+      secondaryQuestions: ['Hoe wordt SCOP gemeten?'],
+      audienceContext: 'tijdens offertetraject',
+      requiredInformation: ['SCOP-normwaarden'],
+    });
+    const prompt = generateMock.mock.calls[0][0].userPrompt as string;
+    expect(prompt).toContain('SEO/GEO BRIEF');
+    expect(prompt).toContain('Wat is een realistische SCOP?');
+  });
+
+  it('splitst het json-extras-blok van de LLM-respons af en schrijft alleen het artikel naar outputPath', async () => {
+    generateMock.mockResolvedValue(
+      '# Artikel\n\nBody met [[VISUAL]] erin.\n\n```json-extras\n{"visual": {"type": "bar_chart", "unit": "kWh", "items": [{"label": "A", "value": 1}]}}\n```'
+    );
+    const agent = new WriterAgent();
+    const result = await agent.run('onderwerp', researchPath, outputPath);
+    expect(result).toBe('# Artikel\n\nBody met [[VISUAL]] erin.');
+    expect(readFileSync(outputPath, 'utf-8')).toBe('# Artikel\n\nBody met [[VISUAL]] erin.');
+    const extras = JSON.parse(readFileSync(outputPath.replace(/\.md$/, '.extras.json'), 'utf-8'));
+    expect(extras.visual.type).toBe('bar_chart');
+  });
+
+  it('schrijft geen extras.json als er geen json-extras-blok in de respons zit', async () => {
+    generateMock.mockResolvedValue('# Artikel zonder visual.');
+    const agent = new WriterAgent();
+    await agent.run('onderwerp', researchPath, outputPath);
+    expect(existsSync(outputPath.replace(/\.md$/, '.extras.json'))).toBe(false);
+  });
+});
+
+describe('splitWriterResponse', () => {
+  it('geeft de tekst ongewijzigd terug als er geen json-extras-blok is', () => {
+    expect(splitWriterResponse('Gewoon een artikel.')).toEqual({ article: 'Gewoon een artikel.' });
+  });
+
+  it('splitst artikel en extras correct, ongeacht positie van het blok', () => {
+    const result = splitWriterResponse('Artikel tekst.\n\n```json-extras\n{"visual": {"type": "comparison"}}\n```');
+    expect(result.article).toBe('Artikel tekst.');
+    expect(result.extras).toEqual({ visual: { type: 'comparison' } });
+  });
+
+  it('valt terug op alleen het artikel als het json-extras-blok kapotte JSON bevat', () => {
+    const result = splitWriterResponse('Artikel.\n\n```json-extras\n{niet geldige json\n```');
+    expect(result.article).toBe('Artikel.');
+    expect(result.extras).toBeUndefined();
   });
 });

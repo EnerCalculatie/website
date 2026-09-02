@@ -17,6 +17,9 @@ Focus specifiek op:
 1. Als de tekst een claim bevat die niet in de context staat, is deze 'unsupported'.
 2. Als de tekst een berekening of vermogen fout heeft, is deze 'incorrect'.
 3. Als de tekst te absoluut spreekt (bijv. "11kW is altijd haalbaar"), is deze 'imprecise'.
+4. Bij een verwijzing naar een norm/regelgeving (NEN1010, NEN3140, ISSO, ACM, netbeheerders): controleer of de bron
+   een algemene regel of een specifieke situatie beschrijft. Trekt de tekst een algemene conclusie uit een bron die
+   alleen een specifieke situatie regelt, is dit 'unsupported' — ook als de norm zelf correct wordt aangehaald.
 
 Je levert ALLEEN een lijst met fouten terug in het voorgeschreven JSON-formaat. 
 Als de tekst 100% correct is, stuur je een lege array terug `[]`.

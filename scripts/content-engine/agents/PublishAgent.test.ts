@@ -15,12 +15,14 @@ import {
   pascalCase,
   escapeJsString,
   buildComponentSource,
+  splitOnVisualMarker,
   buildBlogPostsEntry,
   insertBlogPostsEntry,
   insertAppRoutes,
   matchPlanItem,
   slugExistsInBlogPosts,
   type SeoJson,
+  type VisualSpec,
 } from './PublishAgent';
 
 describe('estimateReadingMinutes', () => {
@@ -83,6 +85,40 @@ describe('buildComponentSource', () => {
     const bareNodeDestructure = /\{node,\s*\.\.\.props\}/;
     expect(bareNodeDestructure.test(src)).toBe(false);
     expect((src.match(/\{node: _node, \.\.\.props\}/g) || []).length).toBeGreaterThanOrEqual(12);
+  });
+
+  const visual: VisualSpec = { type: 'bar_chart', title: 'Test', unit: 'kWh', items: [{ label: 'A', value: 1 }] };
+
+  it('splitst de markdown op [[VISUAL]] en rendert ArticleVisual ertussen, als marker + visual beide aanwezig zijn', () => {
+    const content = 'Alinea 1.\n\n[[VISUAL]]\n\nAlinea 2.';
+    const src = buildComponentSource('X', 'x', content, visual);
+    expect(src).toContain("import { ArticleVisual } from './ArticleVisual';");
+    expect(src).toContain('const markdown0 = `');
+    expect(src).toContain('const markdown1 = `');
+    expect(src).toContain('<ArticleVisual visual={');
+    // De volgorde in de JSX-body moet markdown0 -> visual -> markdown1 zijn.
+    const idx0 = src.indexOf('{markdown0}');
+    const idxVisual = src.indexOf('<ArticleVisual');
+    const idx1 = src.indexOf('{markdown1}');
+    expect(idx0).toBeLessThan(idxVisual);
+    expect(idxVisual).toBeLessThan(idx1);
+  });
+
+  it('rendert GEEN visual als er wel een spec is maar geen [[VISUAL]]-marker in de content', () => {
+    const src = buildComponentSource('X', 'x', 'Gewone tekst zonder marker.', visual);
+    expect(src).not.toContain('ArticleVisual');
+    expect(src).toContain('const markdown = `');
+  });
+
+  it('rendert GEEN visual als er wel een marker is maar geen visual-spec', () => {
+    const src = buildComponentSource('X', 'x', 'Tekst.\n\n[[VISUAL]]\n\nMeer tekst.', undefined);
+    expect(src).not.toContain('ArticleVisual');
+  });
+
+  it('splitOnVisualMarker splitst exact op de marker-regel, negeert omringende whitespace', () => {
+    expect(splitOnVisualMarker('A\n\n[[VISUAL]]\n\nB')).toEqual(['A\n', '\nB']);
+    expect(splitOnVisualMarker('Geen marker hier.')).toEqual(['Geen marker hier.']);
+    expect(splitOnVisualMarker('A\n[[VISUAL]]\nB\n[[VISUAL]]\nC')).toHaveLength(3);
   });
 });
 

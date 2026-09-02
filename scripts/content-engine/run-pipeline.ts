@@ -5,12 +5,21 @@ import { FactCheckerAgent } from './agents/FactCheckerAgent';
 import { TechnicalReviewerAgent } from './agents/TechnicalReviewerAgent';
 import { SeoGeoAgent } from './agents/SeoGeoAgent';
 import { QualityGateAgent } from './agents/QualityGateAgent';
+import { MarketingGateAgent } from './agents/MarketingGateAgent';
 import { PublishAgent } from './agents/PublishAgent';
+import { SeoBriefOutput } from './schemas/seo';
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 
 type ContentType = 'SEO' | 'PRACTICAL';
-type PlanItem = { title?: string; status?: string; priority?: number; contentType?: ContentType };
+type PlanItem = {
+  title?: string;
+  status?: string;
+  priority?: number;
+  contentType?: ContentType;
+  keyword?: string;
+  intent?: string;
+};
 
 /**
  * Dinsdag = SEO (kennis/zoekgedrag), vrijdag = PRACTICAL (praktijk/commercieel) — zie
@@ -58,6 +67,33 @@ export function pickNextPlannedItem(cwd: string, requiredType?: ContentType) {
   }
 }
 
+/**
+ * Definitieve publicatiebeslissing — puur, los testbaar. Drie onafhankelijke, harde gates
+ * (BLOG_CONTENT_GUIDELINES.md, "Quality Gate — wat blokkeert, wat niet"):
+ * 1. Factual/technical correctness (QualityGateAgent — ongewijzigd, minstens één 'high'-issue blokkeert).
+ * 2. SEO/GEO (SeoGeoAgent.audit — vaste drempels, zie schemas/seo.ts).
+ * 3. Practical usefulness (MarketingGateAgent — enige blokkerende dimensie daar).
+ * Overige marketingdimensies zijn nooit blokkerend. De drie gates zijn onafhankelijk: SEO/GEO-falen
+ * betekent nooit dat de factual gate faalt, en andersom.
+ */
+export interface PipelineGateResult {
+  factualBlocking: boolean;
+  seoBlocking: boolean;
+  usefulnessBlocking: boolean;
+  canPublish: boolean;
+}
+
+export function evaluateGates(
+  qualityHighIssueCount: number,
+  seoAuditPassed: boolean,
+  marketingPassed: boolean
+): PipelineGateResult {
+  const factualBlocking = qualityHighIssueCount > 0;
+  const seoBlocking = !seoAuditPassed;
+  const usefulnessBlocking = !marketingPassed;
+  return { factualBlocking, seoBlocking, usefulnessBlocking, canPublish: !factualBlocking && !seoBlocking && !usefulnessBlocking };
+}
+
 async function run() {
   const cwd = process.cwd();
 
@@ -65,6 +101,8 @@ async function run() {
   // Alleen afdwingen bij automatische backlog-selectie — een expliciet CLI-onderwerp
   // (handmatige/backfill-run) is een bewuste uitzondering, geen di/vr-scheduler-run.
   const contentType = topic ? undefined : requiredContentType();
+  let keyword: string | undefined;
+  let intent: string | undefined;
   if (!topic) {
     const item = pickNextPlannedItem(cwd, contentType);
     if (!item) {
@@ -72,6 +110,8 @@ async function run() {
       process.exit(0);
     }
     topic = item.title;
+    keyword = item.keyword;
+    intent = item.intent;
     console.log(`Gekozen onderwerp uit content-plan.json: "${topic}"${contentType ? ` (contentType: ${contentType})` : ''}`);
   }
 
@@ -79,94 +119,123 @@ async function run() {
 
   try {
     // Definieer paden
+    const briefPath = path.join(cwd, 'seo-brief.json');
     const researchPath = path.join(cwd, 'research.json');
     const draftPath = path.join(cwd, 'draft.md');
     const factCheckPath = path.join(cwd, 'fact-check.json');
     const techReviewPath = path.join(cwd, 'technical-review.json');
     const seoPath = path.join(cwd, 'seo-optimized.json');
+    const seoAuditPath = path.join(cwd, 'seo-audit.json');
     const qualityPath = path.join(cwd, 'quality-report.json');
+    const marketingPath = path.join(cwd, 'marketing-report.json');
 
-    // Stap 1: Research
-    const researchAgent = new ResearchAgent();
-    await researchAgent.run(topic, researchPath);
-
-    // Stap 2: Eerste draft schrijven
+    const seoAgent = new SeoGeoAgent();
     const writerAgent = new WriterAgent();
-    await writerAgent.run(topic, researchPath, draftPath, undefined, contentType);
-
-    // Stap 3: Kwaliteitscontrole loop (fact check + tech review → feedback → herschrijven)
     const factChecker = new FactCheckerAgent();
     const techReviewer = new TechnicalReviewerAgent();
 
+    // Stap 1: SEO/GEO-brief — vóór onderzoek en schrijven, zodat zoekintentie de hele pipeline
+    // stuurt i.p.v. achteraf metadata toe te voegen (zie BLOG_CONTENT_GUIDELINES.md).
+    const brief: SeoBriefOutput = await seoAgent.brief(topic, keyword, intent);
+    writeFileSync(briefPath, JSON.stringify(brief, null, 2), 'utf-8');
+
+    // Stap 2: Research — ResearchAgent zelf blijft ongewijzigd (accepteert alleen `topic: string`);
+    // de brief wordt hier in die string gevouwen zodat het onderzoek de primaire/secundaire
+    // zoekvragen en de vereiste informatie meekrijgt, niet alleen de kale werktitel.
+    const researchAgent = new ResearchAgent();
+    const researchTopic = `${topic}\n\nBeantwoord specifiek: ${brief.primaryQuestion}\nGerelateerde vragen: ${brief.secondaryQuestions.join('; ')}\nVerzamel expliciet: ${brief.requiredInformation.join('; ')}`;
+    await researchAgent.run(researchTopic, researchPath);
+
+    // Stap 3: Eerste draft schrijven (krijgt de brief mee)
+    await writerAgent.run(topic, researchPath, draftPath, undefined, contentType, brief);
+
+    // Stap 4: Kwaliteitscontrole-loop — fact check + tech review + SEO/GEO-audit delen dezelfde
+    // retry-teller (max 2 iteraties totaal, niet per check). Volgorde per iteratie: eerst
+    // feitelijke/technische issues oplossen (die veranderen de content het meest ingrijpend); pas
+    // als die schoon zijn, SEO optimaliseren en auditen — een SEO-retry op een nog-foutieve tekst
+    // zou zinloos werk zijn.
     let retries = 0;
     const maxRetries = 2;
+    let seoOptimized: Awaited<ReturnType<typeof seoAgent.run>> | undefined;
+    let auditResult: Awaited<ReturnType<typeof seoAgent.audit>> | undefined;
 
     while (retries < maxRetries) {
-      // Fact Check
       const factCheckResult = await factChecker.run(draftPath, researchPath, factCheckPath);
-      
-      // Technical Review
       const techReviewResult = await techReviewer.run(draftPath, techReviewPath);
 
-      // Verzamel alleen blokkerende issues (high severity of feitelijk incorrect)
       const factErrors = factCheckResult.filter((f: { status: string }) => f.status === 'incorrect');
       const techHighIssues = techReviewResult.filter((t: { severity: string }) => t.severity === 'high');
+      const hasBlockingContentIssues = factErrors.length > 0 || techHighIssues.length > 0;
 
-      const hasBlockingIssues = factErrors.length > 0 || techHighIssues.length > 0;
+      if (hasBlockingContentIssues) {
+        retries++;
+        if (retries >= maxRetries) {
+          console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) met nog openstaande feitelijke/technische issues.`);
+          break;
+        }
+        const feedbackLines: string[] = [];
+        for (const f of factErrors) feedbackLines.push(`- [FEITFOUT] "${f.claim}": ${f.reason}. Suggestie: ${f.suggestion}`);
+        for (const t of techHighIssues) feedbackLines.push(`- [TECHNISCH] ${t.issue}. Aanbeveling: ${t.recommendation}`);
+        console.log(`\n⚠️ ${feedbackLines.length} blokkerende issue(s) gevonden, start herschrijven iteratie ${retries}...`);
+        await writerAgent.run(topic, researchPath, draftPath, feedbackLines.join('\n'), contentType, brief);
+        continue; // herstart de loop-iteratie op de herschreven draft, sla SEO nog over
+      }
 
-      if (!hasBlockingIssues) {
-        console.log(`\n✅ Geen blokkerende issues gevonden na controle.`);
+      console.log(`\n✅ Geen blokkerende feitelijke/technische issues gevonden.`);
+      seoOptimized = await seoAgent.run(draftPath, seoPath);
+      auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
+
+      if (auditResult.passed) {
+        console.log(`\n✅ SEO/GEO-audit geslaagd.`);
         break;
       }
 
       retries++;
       if (retries >= maxRetries) {
-        console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}). Ga door met beste versie.`);
+        console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) met SEO/GEO nog onder de drempel.`);
         break;
       }
-
-      // Bouw feedback op uit concrete issues
-      const feedbackLines: string[] = [];
-      for (const f of factErrors) {
-        feedbackLines.push(`- [FEITFOUT] "${f.claim}": ${f.reason}. Suggestie: ${f.suggestion}`);
-      }
-      for (const t of techHighIssues) {
-        feedbackLines.push(`- [TECHNISCH] ${t.issue}. Aanbeveling: ${t.recommendation}`);
-      }
-
-      console.log(`\n⚠️ ${feedbackLines.length} blokkerende issue(s) gevonden, start herschrijven iteratie ${retries}...`);
-      await writerAgent.run(topic, researchPath, draftPath, feedbackLines.join('\n'), contentType);
+      console.log(`\n⚠️ SEO/GEO-audit onvoldoende, start herschrijven iteratie ${retries}...`);
+      console.log(JSON.stringify(auditResult.blockingIssues, null, 2));
+      await writerAgent.run(topic, researchPath, draftPath, auditResult.feedback, contentType, brief);
+      // volgende iteratie doet fact-check/tech-review opnieuw op de herschreven tekst — noodzakelijk,
+      // een herschrijving kan in theorie een nieuwe feitelijke fout introduceren.
     }
 
-    // Stap 4: SEO / GEO Optimizer (één keer, na de inhoudelijke loop)
-    const seoAgent = new SeoGeoAgent();
-    await seoAgent.run(draftPath, seoPath);
+    // Veiligheidsnet: als de loop stopte terwijl er nog feitelijke/technische issues openstonden
+    // (retries op), is er mogelijk nooit een SEO-optimalisatie/audit gedraaid — QualityGateAgent en
+    // PublishAgent hebben seo-optimized.json wel nodig. Genereer 'm dan alsnog, puur voor rapportage
+    // (de factual gate blokkeert toch al, dit voorkomt alleen een crash op een ontbrekend bestand).
+    if (!seoOptimized) seoOptimized = await seoAgent.run(draftPath, seoPath);
+    if (!auditResult) auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
 
-    // Stap 5: Quality Gate (definitieve check)
+    // Stap 5: Quality Gate (factual/technical — ongewijzigd, enige bron voor factualBlocking)
     const qualityGate = new QualityGateAgent();
     const qualityOut = await qualityGate.run(seoPath, factCheckPath, techReviewPath, qualityPath);
+    const highIssues = qualityOut.issues.filter((i: { severity: string }) => i.severity === 'high');
 
-    if (qualityOut.passed) {
-      console.log(`\n✅ Kwaliteitscontrole geslaagd (confidence: ${qualityOut.confidence}%). Start publicatie...`);
+    // Stap 6: Marketing Gate (non-blocking behalve practicalUsefulness — zie schemas/marketing-gate.ts)
+    const marketingGate = new MarketingGateAgent();
+    const marketingOut = await marketingGate.run(seoPath, marketingPath);
+
+    const gates = evaluateGates(highIssues.length, auditResult.passed, marketingOut.passed);
+
+    if (gates.canPublish) {
+      if (qualityOut.issues.length > 0 || marketingOut.feedback) {
+        console.log(`\n⚠️ Niet-blokkerende suggesties (publicatie gaat door):`);
+        console.log(`Quality: ${JSON.stringify(qualityOut.issues, null, 2)}`);
+        console.log(`Marketing (practicalUsefulness ${marketingOut.scores.practicalUsefulness}/10): ${marketingOut.feedback}`);
+      }
+      console.log(`\n✅ Alle gates geslaagd. Start publicatie...`);
       const publisher = new PublishAgent();
       await publisher.run(seoPath, cwd, topic);
       console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd!`);
     } else {
-      // Log de issues maar publiceer NIET — dit is een echte blokkade
-      const highIssues = qualityOut.issues.filter((i: { severity: string }) => i.severity === 'high');
-      if (highIssues.length === 0) {
-        // Alleen medium/low issues — publiceer alsnog met waarschuwing
-        console.log(`\n⚠️ Kwaliteitscontrole heeft suggesties maar geen blokkerende fouten. Publicatie gaat door.`);
-        console.log(`Suggesties voor handmatige review:`);
-        console.log(JSON.stringify(qualityOut.issues, null, 2));
-        const publisher = new PublishAgent();
-        await publisher.run(seoPath, cwd, topic);
-        console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd (met suggesties).`);
-      } else {
-        console.log(`\n❌ PIPELINE GESTOPT: ${highIssues.length} blokkerende fout(en) na alle iteraties. Handmatige controle vereist.`);
-        console.log(JSON.stringify(highIssues, null, 2));
-        process.exit(1);
-      }
+      console.log(`\n❌ PIPELINE GESTOPT — publicatie geblokkeerd:`);
+      if (gates.factualBlocking) console.log(`- Factual/technical: ${highIssues.length} blokkerende fout(en). ${JSON.stringify(highIssues, null, 2)}`);
+      if (gates.seoBlocking) console.log(`- SEO/GEO onvoldoende: ${JSON.stringify(auditResult.blockingIssues, null, 2)}`);
+      if (gates.usefulnessBlocking) console.log(`- Practical usefulness te laag (${marketingOut.scores.practicalUsefulness}/10, minimaal 4 vereist): ${marketingOut.feedback}`);
+      process.exit(1);
     }
 
   } catch (err) {

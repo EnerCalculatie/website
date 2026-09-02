@@ -91,7 +91,10 @@ export class LLMService {
     }
     if (prompt.includes('SEO en GEO Optimizer')) {
       return JSON.stringify({
-        content: "# Mock Artikel\n\nDit is een test artikel met *fake* content.",
+        // Geen eigen `# Titel`-H1 in content — die rendert BlogPostLayout al vanuit `title`
+        // (zie prompts/seo.md, "Wat pas je wél aan?"). Een tweede H1 hier faalt qc:seo net zo
+        // hard als bij een echte LLM-respons met dezelfde fout.
+        content: "Dit is een test artikel met *fake* content.",
         slug: "mock-artikel-test",
         title: "Mock Artikel Test",
         seoTitle: "Mock Artikel Test | EnerCalculatie",
@@ -103,10 +106,43 @@ export class LLMService {
         faq: []
       });
     }
-    if (prompt.includes('Quality Gate')) {
+    if (prompt.includes('de eindredacteur en Quality Gate')) {
       return JSON.stringify({ passed: true, confidence: 100, issues: [] });
     }
-    
+    if (prompt.includes('SEO/GEO Strateeg')) {
+      return JSON.stringify({
+        searchIntent: "Mock zoekintentie",
+        primaryQuestion: "Mock primaire vraag?",
+        secondaryQuestions: ["Mock secundaire vraag?"],
+        audienceContext: "Mock context",
+        requiredInformation: ["Mock benodigde info"]
+      });
+    }
+    if (prompt.includes('SEO/GEO Auditor')) {
+      const s = 8;
+      return JSON.stringify({
+        passed: true,
+        scores: {
+          searchIntentCoverage: s, primaryQuestionAnswered: s, secondaryQuestionsCovered: s,
+          earlyValueDelivery: s, headingStructure: s, semanticTopicCoverage: s,
+          entitiesAndDefinitions: s, featuredSnippetPotential: s, geoReadability: s,
+          faqCoverage: s, internalLinks: s, titleAndMeta: s, intentConsistency: s
+        },
+        blockingIssues: [],
+        feedback: "Mock: SEO/GEO in orde."
+      });
+    }
+    if (prompt.includes('Marketing/Contentkwaliteit-beoordelaar')) {
+      return JSON.stringify({
+        passed: true,
+        scores: {
+          practicalUsefulness: 8, b2bRelevance: 7, visualImpact: 6,
+          scanability: 7, conversionPotential: 6, socialRepurposability: 6
+        },
+        feedback: "Mock: marketingkwaliteit in orde."
+      });
+    }
+
     // Default fallback
     return JSON.stringify({});
   }

@@ -13,7 +13,7 @@ import path from 'node:path';
 vi.hoisted(() => {
   process.env.GEMINI_API_KEY = 'test-key';
 });
-import { pickNextPlannedItem, requiredContentType } from './run-pipeline';
+import { pickNextPlannedItem, requiredContentType, evaluateGates } from './run-pipeline';
 
 describe('pickNextPlannedItem', () => {
   let dir: string;
@@ -105,5 +105,36 @@ describe('requiredContentType', () => {
   it('rekent in Europe/Amsterdam-lokale tijd, niet UTC (relevant rond middernacht)', () => {
     // 2026-08-24 23:30 UTC = 2026-08-25 01:30 CEST (Europe/Amsterdam) -> dinsdag lokaal
     expect(requiredContentType(new Date('2026-08-24T23:30:00Z'))).toBe('SEO');
+  });
+});
+
+describe('evaluateGates', () => {
+  it('canPublish=true als alle drie gates slagen', () => {
+    const g = evaluateGates(0, true, true);
+    expect(g).toEqual({ factualBlocking: false, seoBlocking: false, usefulnessBlocking: false, canPublish: true });
+  });
+
+  it('blokkeert op factual (high issues), ongeacht SEO/marketing', () => {
+    const g = evaluateGates(1, true, true);
+    expect(g.factualBlocking).toBe(true);
+    expect(g.canPublish).toBe(false);
+  });
+
+  it('blokkeert op SEO/GEO, ook als factual en marketing ok zijn — onafhankelijke gate', () => {
+    const g = evaluateGates(0, false, true);
+    expect(g.seoBlocking).toBe(true);
+    expect(g.factualBlocking).toBe(false);
+    expect(g.canPublish).toBe(false);
+  });
+
+  it('blokkeert op practical usefulness, ook als factual en SEO ok zijn — onafhankelijke gate', () => {
+    const g = evaluateGates(0, true, false);
+    expect(g.usefulnessBlocking).toBe(true);
+    expect(g.canPublish).toBe(false);
+  });
+
+  it('meerdere gates kunnen tegelijk blokkeren', () => {
+    const g = evaluateGates(2, false, false);
+    expect(g).toEqual({ factualBlocking: true, seoBlocking: true, usefulnessBlocking: true, canPublish: false });
   });
 });

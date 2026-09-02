@@ -73,4 +73,94 @@ describe('SeoGeoAgent.run', () => {
     const agent = new SeoGeoAgent();
     await expect(agent.run(path.join(dir, 'weg.md'), outputPath)).rejects.toThrow(/Kon concept blog niet inladen/);
   });
+
+  it('voegt visual-data uit draft.extras.json toe aan het geoptimaliseerde resultaat', async () => {
+    writeFileSync(draftPath, '# Artikel\n\n[[VISUAL]]\n\nBody.', 'utf-8');
+    writeFileSync(
+      draftPath.replace(/\.md$/, '.extras.json'),
+      JSON.stringify({ visual: { type: 'bar_chart', unit: 'kWh', items: [{ label: 'A', value: 1 }] } }),
+      'utf-8'
+    );
+    generateMock.mockResolvedValue(JSON.stringify(validSeoOutput({ content: '# Artikel\n\n[[VISUAL]]\n\nBody geoptimaliseerd.' })));
+    const agent = new SeoGeoAgent();
+    const result = await agent.run(draftPath, outputPath);
+    expect(result.visual?.type).toBe('bar_chart');
+  });
+
+  it('laat visual weg als er geen extras.json bestaat', async () => {
+    generateMock.mockResolvedValue(JSON.stringify(validSeoOutput()));
+    const agent = new SeoGeoAgent();
+    const result = await agent.run(draftPath, outputPath);
+    expect(result.visual).toBeUndefined();
+  });
+});
+
+describe('SeoGeoAgent.brief', () => {
+  beforeEach(() => generateMock.mockReset());
+
+  it('parset en valideert een geldig brief-object', async () => {
+    generateMock.mockResolvedValue(JSON.stringify({
+      searchIntent: 'wil weten wat 3x25A betekent',
+      primaryQuestion: 'Wat is 3x25A?',
+      secondaryQuestions: ['Wat is de max belasting?'],
+      audienceContext: 'tijdens offertetraject',
+      requiredInformation: ['normwaarden'],
+    }));
+    const agent = new SeoGeoAgent();
+    const result = await agent.brief('3x25A aansluiting', 'kwh keyword', 'informatief');
+    expect(result.primaryQuestion).toBe('Wat is 3x25A?');
+  });
+
+  it('geeft topic/keyword/intent door in de userPrompt', async () => {
+    generateMock.mockResolvedValue(JSON.stringify({
+      searchIntent: 's', primaryQuestion: 'p', secondaryQuestions: [], audienceContext: 'a', requiredInformation: [],
+    }));
+    const agent = new SeoGeoAgent();
+    await agent.brief('Mijn Onderwerp', 'mijn-keyword', 'commercieel');
+    const prompt = generateMock.mock.calls[0][0].userPrompt as string;
+    expect(prompt).toContain('Mijn Onderwerp');
+    expect(prompt).toContain('mijn-keyword');
+    expect(prompt).toContain('commercieel');
+  });
+});
+
+describe('SeoGeoAgent.audit', () => {
+  let dir2: string;
+  let seoJsonPath: string;
+  let auditOutputPath: string;
+  const validBrief = {
+    searchIntent: 's', primaryQuestion: 'p', secondaryQuestions: [], audienceContext: 'a', requiredInformation: [],
+  };
+
+  beforeEach(() => {
+    generateMock.mockReset();
+    dir2 = mkdtempSync(path.join(tmpdir(), 'seogeo-audit-test-'));
+    seoJsonPath = path.join(dir2, 'seo-optimized.json');
+    auditOutputPath = path.join(dir2, 'seo-audit.json');
+    writeFileSync(seoJsonPath, JSON.stringify({ title: 'T', seoTitle: 'ST', description: 'D', slug: 's', content: 'body', faq: [] }), 'utf-8');
+  });
+  afterEach(() => rmSync(dir2, { recursive: true, force: true }));
+
+  const highScores = Object.fromEntries(
+    ['searchIntentCoverage', 'primaryQuestionAnswered', 'secondaryQuestionsCovered', 'earlyValueDelivery',
+      'headingStructure', 'semanticTopicCoverage', 'entitiesAndDefinitions', 'featuredSnippetPotential',
+      'geoReadability', 'faqCoverage', 'internalLinks', 'titleAndMeta', 'intentConsistency'].map((k) => [k, 8])
+  );
+
+  it('herberekent passed zelf uit de scores — vertrouwt niet blind op het LLM-passed-veld', async () => {
+    // LLM zegt passed:false, maar alle scores zijn ruim boven de drempel — computeSeoAuditPassed
+    // moet dit corrigeren naar true (zie schemas/seo.ts).
+    generateMock.mockResolvedValue(JSON.stringify({ passed: false, scores: highScores, blockingIssues: [], feedback: 'ok' }));
+    const agent = new SeoGeoAgent();
+    const result = await agent.audit(seoJsonPath, validBrief, auditOutputPath);
+    expect(result.passed).toBe(true);
+  });
+
+  it('schrijft het resultaat naar outputPath', async () => {
+    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: highScores, blockingIssues: [], feedback: 'ok' }));
+    const agent = new SeoGeoAgent();
+    await agent.audit(seoJsonPath, validBrief, auditOutputPath);
+    const written = JSON.parse(readFileSync(auditOutputPath, 'utf-8'));
+    expect(written.passed).toBe(true);
+  });
 });
