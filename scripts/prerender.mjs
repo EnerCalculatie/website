@@ -66,6 +66,7 @@ template = template.replace('</head>', `  ${fontPreloadTags}\n  </head>`);
 
 const beasties = new Beasties({
   path: distDir,
+  publicPath: process.env.GITHUB_PAGES === 'true' ? '/website/' : '/',
   preload: 'media',
   inlineFonts: true,
   preloadFonts: false, // preloads staan hierboven al expliciet in de template
