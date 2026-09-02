@@ -136,6 +136,22 @@ for (const route of routes) {
   const finalHtml = await beasties.process(buildHtml(template, html));
   fs.writeFileSync(path.join(distDir, route.outFile), finalHtml, 'utf-8');
   console.log(`✅ Prerendered ${route.url} -> dist/${route.outFile}`);
+
+  // GitHub Pages is puur statisch en kent geen server-side route→bestand-mapping
+  // (die bestaat alleen in server.ts, voor de Railway-hosting). GH Pages' eigen
+  // extensionless-lookup (probeert /pad, dan /pad.html) matcht prima voor de
+  // platte bestandsnamen hierboven zolang de route zelf ook plat is (bv.
+  // /over-ons -> over-ons.html), maar niet voor geneste routes als
+  // /blog/<slug> -> blog-<slug>.html: die bestandsnaam staat niet op het
+  // geneste pad dat GH Pages voor die URL zoekt. Schrijf daarom voor geneste
+  // routes ook een kopie op het geneste pad zelf.
+  const segments = route.url.split('/').filter(Boolean);
+  if (segments.length > 1) {
+    const nestedFile = `${path.join(distDir, ...segments)}.html`;
+    fs.mkdirSync(path.dirname(nestedFile), { recursive: true });
+    fs.writeFileSync(nestedFile, finalHtml, 'utf-8');
+    console.log(`✅ Ook op GH Pages-pad gezet: dist/${segments.join('/')}.html`);
+  }
 }
 
 // ---------------------------------------------------------------------------
