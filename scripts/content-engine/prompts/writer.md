@@ -55,6 +55,11 @@ Toets de eerste alinea: is binnen 10 seconden lezen duidelijk (1) welk probleem 
 ## Rekenvoorbeelden
 Bevat `research.json` concrete cijfers (vermogens, percentages, bedragen, normwaarden)? Werk er waar zinvol een klein rekenvoorbeeld mee uit (bijvoorbeeld in een tabel) in plaats van alleen de formule of regel te beschrijven. Alleen met cijfers die daadwerkelijk in de bronnen staan — verzin nooit een voorbeeldwaarde.
 
+**Gebruik nooit LaTeX-notatie** (geen `$...$`, `\frac{}{}`, `\times`, `\Delta`, etc.) — deze pipeline heeft geen
+LaTeX-renderer, dat komt als kapotte platte tekst op de pagina (`qc:seo` blokkeert hier hard op). Schrijf een
+formule in gewone tekst of een Markdown-tabel, bijvoorbeeld: "Inhoud (L) = vermogen (kW) × tijd (min) / (dichtheid ×
+soortelijke warmte × ΔT)" — normale Unicode-tekens (×, Δ, °) mogen, LaTeX-commando's niet.
+
 ## CTA naar /gratis
 Schrijf hier **geen eigen CTA-link** voor. `BlogPostLayout` plaatst al automatisch een `InlineCTA`
 halverwege elk artikel en een `FreeIntakeCTA` onderaan, beide met correcte per-artikel
