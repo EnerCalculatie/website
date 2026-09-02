@@ -40,4 +40,31 @@ describe('computeBarChartLayout', () => {
     expect(bars[0].width).toBe(0);
     expect(Number.isNaN(bars[0].width)).toBe(false);
   });
+
+  it('gebruikt de standaard labelWidth voor korte labels', () => {
+    const { labelWidth } = computeBarChartLayout([{ label: 'A', value: 1 }]);
+    expect(labelWidth).toBe(BAR_CHART_LAYOUT.labelWidth);
+  });
+
+  it('vergroot labelWidth voor lange labels — regressie: "Aan/uit (minimaal)" liep over de bar heen', () => {
+    const { labelWidth } = computeBarChartLayout([
+      { label: 'Modulerend (minimaal)', value: 10 },
+      { label: 'Aan/uit (minimaal)', value: 30 },
+    ]);
+    expect(labelWidth).toBeGreaterThan(BAR_CHART_LAYOUT.labelWidth);
+  });
+
+  it('gebruikt het langste label uit de set, niet het eerste', () => {
+    const short = computeBarChartLayout([{ label: 'Kort label dat ver onder de max blijft', value: 1 }]).labelWidth;
+    const long = computeBarChartLayout([
+      { label: 'Kort', value: 1 },
+      { label: 'Een aanzienlijk langer label om het maximum te naderen', value: 2 },
+    ]).labelWidth;
+    expect(long).toBeGreaterThanOrEqual(short);
+  });
+
+  it('begrenst labelWidth naar boven, ook bij een extreem lang label', () => {
+    const { labelWidth } = computeBarChartLayout([{ label: 'X'.repeat(200), value: 1 }]);
+    expect(labelWidth).toBeLessThanOrEqual(260);
+  });
 });

@@ -58,13 +58,25 @@ export type VisualSpec = BarChartVisual | ComparisonVisual;
 
 const PALET = ['#f59e0b', '#0ea5e9', '#6366f1', '#10b981', '#ec4899', '#84cc16'];
 export const BAR_CHART_LAYOUT = { barHeight: 40, gap: 16, labelWidth: 110, chartWidth: 400 };
+const LABEL_MIN_WIDTH = BAR_CHART_LAYOUT.labelWidth;
+const LABEL_MAX_WIDTH = 260;
+/** Ruwe gemiddelde tekenbreedte voor de `text-sm font-semibold`-labels (14px), in SVG-viewBox-eenheden.
+ * Geen DOM-tekstmeting mogelijk (dit draait ook server-side tijdens prerender), dus een heuristiek. */
+const CHAR_WIDTH_ESTIMATE = 7.2;
 
-/** Puur — geen JSX/DOM, dus los testbaar zonder React-testinfra (die deze repo niet heeft). */
+/** Puur — geen JSX/DOM, dus los testbaar zonder React-testinfra (die deze repo niet heeft).
+ * `labelWidth` schaalt mee met het langste label i.p.v. een vaste 110px: bij lange labels
+ * (bv. "Aan/uit (minimaal)") liep de tekst anders over de bar heen en werd afgekapt — de balk
+ * werd er bovenop getekend. viewBox schaalt uniform, dus een breder berekende labelWidth blijft
+ * op elk schermformaat correct, i.p.v. alleen op desktop passen. */
 export function computeBarChartLayout(items: BarChartVisual['items']) {
   const max = Math.max(...items.map((d) => d.value));
   const { barHeight, gap, chartWidth } = BAR_CHART_LAYOUT;
+  const longestLabelWidth = Math.max(...items.map((d) => d.label.length * CHAR_WIDTH_ESTIMATE));
+  const labelWidth = Math.min(LABEL_MAX_WIDTH, Math.max(LABEL_MIN_WIDTH, longestLabelWidth + 16));
   return {
     chartHeight: items.length * (barHeight + gap),
+    labelWidth,
     bars: items.map((d, i) => ({
       ...d,
       y: i * (barHeight + gap),
@@ -80,8 +92,8 @@ function IllustrativeBadge() {
 }
 
 function BarChart({ title, caption, unit, items, illustrative }: BarChartVisual) {
-  const { chartHeight, bars } = computeBarChartLayout(items);
-  const { labelWidth, chartWidth, barHeight } = BAR_CHART_LAYOUT;
+  const { chartHeight, bars, labelWidth } = computeBarChartLayout(items);
+  const { chartWidth, barHeight } = BAR_CHART_LAYOUT;
 
   return (
     <figure className="my-8 not-prose">
