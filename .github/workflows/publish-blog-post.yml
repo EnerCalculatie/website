@@ -186,7 +186,7 @@ jobs:
           else
             git commit -m "chore: content-backlog/log bijgewerkt (geen nieuw artikel)"
           fi
-          git push origin HEAD:main
+          git push origin HEAD:${{ github.ref_name }}
 
       - name: "9. IndexNow — nieuwe URL aanmelden"
         if: steps.push.outputs.slug != ''
@@ -215,7 +215,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore: LinkedIn-repurposing voor ${{ steps.push.outputs.slug }}"
-          git push origin HEAD:main
+          git push origin HEAD:${{ github.ref_name }}
 
       - name: Samenvatting
         if: always()
