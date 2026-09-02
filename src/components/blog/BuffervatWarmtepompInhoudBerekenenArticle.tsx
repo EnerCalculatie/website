@@ -62,17 +62,6 @@ Een buffervat wordt door klanten soms gezien als een extra kostenpost. Met de ju
 | Open afgiftesysteem, te kleine waterinhoud | Serieel buffervat (retour) | Geen extra pomp nodig, puur volumevergroting |
 | Naregeling / zones met thermostaatkranen | Parallel buffervat | Extra secundaire pomp vereist; stem volumestromen af om mengverliezen te beperken |
 | Lucht/water-warmtepomp met defrost | Serieel of parallel buffervat | Energiereserve borgen voor de ontdooicyclus |
-
-## Veelgestelde vragen over buffervaten bij warmtepompen
-
-### Hoe bereken je de inhoud van een buffervat voor een warmtepomp?
-Vermenigvuldig het thermisch vermogen van de warmtepomp met de vuistregel (10-20 l/kW voor modulerend, 30-50 l/kW voor aan/uit) en trek daar het al aanwezige cv-watervolume vanaf.
-
-### Wat is het voordeel van een parallel geschakeld buffervat?
-Een parallel buffervat dient als hydraulische ontkoppeling. Dit waarborgt de minimale volumestroom voor de warmtepomp, zelfs wanneer naregelingen of thermostaatkranen de afgiftezijde dichtsturen.
-
-### Waarom helpt een buffervat bij de defrost-cyclus?
-Tijdens het ontdooien onttrekt een lucht/water-warmtepomp warmte aan het cv-water. Een buffervat levert deze energie direct zonder dat het interieur merkbaar afkoelt.
 `;
 
 export function BuffervatWarmtepompInhoudBerekenenArticle() {
