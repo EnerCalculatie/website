@@ -2124,4 +2124,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is een Type B aardlekschakelaar altijd verplicht bij PV-omvormers?', answer: 'Nee, als de omvormer beschikt over een galvanische scheiding of als de fabrikant schriftelijk verklaart dat DC-foutstromen naar de AC-zijde maximaal 6 mA bedragen (IEC 62109), volstaat een standaard Type A beveiliging.' },
     ],
   },
+  {
+    slug: 'buffervat-warmtepomp-inhoud-berekenen',
+    readingTimeMinutes: 4,
+    title: 'Buffervat bij een warmtepomp: Inhoud Berekenen & Pendelen Voorkomen',
+    seoTitle: 'Buffervat Warmtepomp: Inhoud Berekenen & Pendelgedrag',
+    description:
+      'Hoe berekent u de inhoud van een buffervat bij een warmtepomp? Ontdek de vuistregels per kW, het verschil tussen serieel en parallel en voorkom pendelen.',
+    date: '2026-09-02',
+    excerpt:
+      'Ontdek hoe u de minimale inhoud van een buffervat berekent, het verschil tussen serieel en parallel geschakelde buffervaten, en hoe u pendelgedrag van de compressor voorkomt.',
+    tags: ['buffervat', 'warmtepomp', 'pendelgedrag', 'berekening', 'installatietechniek'],
+    keyPoints: [
+      'Inhoud berekenen: 10-20 l/kW voor modulerende en 30-50 l/kW voor aan/uit warmtepompen',
+      'Voorkom pendelgedrag en verminder mechanische slijtage aan de compressor',
+      'Verschil tussen seriele volumevergroting en parallelle hydraulische ontkoppeling',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoe bereken je de inhoud van een buffervat voor een warmtepomp?', answer: 'Vermenigvuldig het thermisch vermogen van de warmtepomp met de vuistregel (10-20 l/kW voor modulerend, 30-50 l/kW voor aan/uit) en trek daar het al aanwezige cv-watervolume vanaf.' },
+      { question: 'Wat is het voordeel van een parallel geschakeld buffervat?', answer: 'Een parallel buffervat dient als hydraulische ontkoppeling. Dit waarborgt de minimale volumestroom voor de warmtepomp, zelfs wanneer naregelingen of thermostaatkranen de afgiftezijde dichtsturen.' },
+      { question: 'Waarom helpt een buffervat bij de defrost-cyclus?', answer: 'Tijdens het ontdooien onttrekt een lucht/water-warmtepomp warmte aan het cv-water. Een buffervat levert deze energie direct zonder dat het interieur merkbaar afkoelt.' },
+    ],
+  },
 ];

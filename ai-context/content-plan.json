@@ -6,8 +6,10 @@
     "contentType": "PRACTICAL",
     "priority": 8,
     "slug": "buffervat-bij-een-warmtepomp-hoe-berekent-u-de-inhoud-en-voorkomt-u-pendelgedrag-in-de-offerte",
-    "status": "planned",
-    "createdAt": "2026-09-02T10:44:54.246Z"
+    "status": "generated",
+    "createdAt": "2026-09-02T10:44:54.246Z",
+    "generatedSlug": "buffervat-warmtepomp-inhoud-berekenen",
+    "generatedAt": "2026-09-02T11:08:51.915Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
