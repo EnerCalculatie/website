@@ -6,6 +6,9 @@
 // dekken de stringly-typed codegeneratie die een kapotte template anders pas bij
 // zo'n live run zou laten opvallen.
 import { describe, it, expect } from 'vitest';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 import {
   estimateReadingMinutes,
   truncateAtWord,
@@ -16,6 +19,7 @@ import {
   insertBlogPostsEntry,
   insertAppRoutes,
   matchPlanItem,
+  slugExistsInBlogPosts,
   type SeoJson,
 } from './PublishAgent';
 
@@ -191,5 +195,62 @@ describe('insertAppRoutes', () => {
   it('gooit een duidelijke fout als het <Route>-ankerpunt ontbreekt', () => {
     const onlyLazyRoute = "const FooArticle = lazyRoute('/blog/foo', () => null);\n";
     expect(() => insertAppRoutes(onlyLazyRoute, 'X', 'x')).toThrow(/blog-<Route>/);
+  });
+});
+
+describe('slugExistsInBlogPosts', () => {
+  it('herkent een bestaande slug', () => {
+    const src = "export const blogPosts = [\n  {\n    slug: 'bestaand-artikel',\n    title: 'X',\n  },\n];";
+    expect(slugExistsInBlogPosts(src, 'bestaand-artikel')).toBe(true);
+  });
+
+  it('geeft false voor een slug die niet voorkomt', () => {
+    const src = "export const blogPosts = [\n  {\n    slug: 'ander-artikel',\n  },\n];";
+    expect(slugExistsInBlogPosts(src, 'nieuw-artikel')).toBe(false);
+  });
+
+  it('matcht geen slug die alleen een substring is van een bestaande', () => {
+    const src = "slug: 'artikel-lang',";
+    expect(slugExistsInBlogPosts(src, 'artikel')).toBe(false);
+  });
+
+  it('escaped regex-speciale tekens in de slug veilig', () => {
+    const src = "slug: 'a.b+c',";
+    expect(slugExistsInBlogPosts(src, 'a.b+c')).toBe(true);
+    expect(slugExistsInBlogPosts(src, 'aXb+c')).toBe(false); // '.' mag geen wildcard zijn
+  });
+});
+
+describe('PublishAgent.run — slug-collision-guard', () => {
+  it('weigert te publiceren en raakt GEEN bestanden aan als de slug al bestaat', async () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'publish-guard-test-'));
+    try {
+      mkdirSync(path.join(dir, 'src/components/blog'), { recursive: true });
+      mkdirSync(path.join(dir, 'src/content'), { recursive: true });
+      mkdirSync(path.join(dir, 'ai-context'), { recursive: true });
+
+      const blogPostsPath = path.join(dir, 'src/content/blogPosts.ts');
+      const appTsxPath = path.join(dir, 'src/App.tsx');
+      const originalBlogPosts = "export const blogPosts = [\n  {\n    slug: 'bestaand-artikel',\n    title: 'Bestaand',\n  },\n];";
+      const originalApp = "const FooArticle = lazyRoute('/blog/foo', () => import('./components/blog/FooArticle').then(m => ({ default: m.FooArticle })));\n<Route path=\"/blog/foo\" element={<FooArticle />} />\n";
+      writeFileSync(blogPostsPath, originalBlogPosts, 'utf-8');
+      writeFileSync(appTsxPath, originalApp, 'utf-8');
+
+      const seoJsonPath = path.join(dir, 'seo-optimized.json');
+      writeFileSync(seoJsonPath, JSON.stringify({
+        content: 'body', slug: 'bestaand-artikel', title: 'Nieuwe versie', excerpt: 'x',
+      } satisfies SeoJson), 'utf-8');
+
+      const { PublishAgent } = await import('./PublishAgent');
+      const agent = new PublishAgent();
+      await expect(agent.run(seoJsonPath, dir)).rejects.toThrow(/Publicatie geweigerd.*bestaand-artikel/s);
+
+      // Geen enkel bestand aangeraakt — precies wat de guard moet garanderen.
+      expect(readFileSync(blogPostsPath, 'utf-8')).toBe(originalBlogPosts);
+      expect(readFileSync(appTsxPath, 'utf-8')).toBe(originalApp);
+      expect(existsSync(path.join(dir, 'src/components/blog/BestaandArtikelArticle.tsx'))).toBe(false);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
