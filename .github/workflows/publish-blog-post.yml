@@ -55,6 +55,10 @@ on:
         description: "Publiceer ook buiten dinsdag/vrijdag (bv. voor een test-run). Standaard uit — de dag-check geldt anders ook bij handmatige runs."
         type: boolean
         default: false
+      topic:
+        description: "Optioneel: expliciet onderwerp i.p.v. het automatisch gekozen backlog-item (bv. om een bestaand artikel opnieuw te genereren voor handmatige review — de slug-collision-guard in PublishAgent blokkeert de automatische publicatie dan alsnog terecht; gebruik dit om de seo-optimized.json-artifact te produceren en handmatig toe te passen)."
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -141,7 +145,8 @@ jobs:
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-        run: npx tsx scripts/content-engine/run-pipeline.ts
+          TOPIC_OVERRIDE: ${{ github.event.inputs.topic }}
+        run: npx tsx scripts/content-engine/run-pipeline.ts "$TOPIC_OVERRIDE"
 
       - name: "7b. Pipeline-debugbestanden als CI-artifact bewaren (i.p.v. committen)"
         if: always() && steps.guard.outputs.proceed == 'true'
