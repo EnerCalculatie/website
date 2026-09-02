@@ -30,14 +30,13 @@ export class SeoGeoAgent {
     console.log(`[SeoGeoAgent] Start SEO/GEO-brief voor: "${topic}"...`);
     const userPrompt = `Werktitel: "${topic}"\nPrimair zoekwoord: "${keyword ?? '(onbekend)'}"\nIntentie: "${intent ?? '(onbekend)'}"\n\nStel het content-brief op.`;
 
-    const responseText = await this.llm.generate({
+    const rawJson = await this.llm.generateJSON({
       systemPrompt: this.briefPrompt,
       userPrompt,
       temperature: 0.2,
-      responseFormat: 'json_object'
     });
 
-    return SeoBriefOutputSchema.parse(JSON.parse(responseText));
+    return SeoBriefOutputSchema.parse(rawJson);
   }
 
   /** Stap 3 van 3 (na optimize) — zie prompts/seo-audit.md. `passed` wordt hier zelf herberekend uit
@@ -61,14 +60,12 @@ FAQ: ${JSON.stringify(seoJson.faq ?? [])}
 ${seoJson.content}
     `;
 
-    const responseText = await this.llm.generate({
+    const rawJson = await this.llm.generateJSON({
       systemPrompt: this.auditPrompt,
       userPrompt,
       temperature: 0.1,
-      responseFormat: 'json_object'
     });
 
-    const rawJson = JSON.parse(responseText);
     const validated = SeoAuditOutputSchema.parse(rawJson);
     const result: SeoAuditOutput = { ...validated, passed: computeSeoAuditPassed(validated.scores) };
 
@@ -98,14 +95,12 @@ ${draftContent}
     `;
 
     try {
-      const responseText = await this.llm.generate({
+      const rawJson = await this.llm.generateJSON({
         systemPrompt: this.systemPrompt,
         userPrompt,
         temperature: 0.3,
-        responseFormat: 'json_object'
       });
 
-      const rawJson = JSON.parse(responseText);
       let validatedData = SeoGeoOutputSchema.parse(rawJson);
 
       // WriterAgent schrijft optioneel een `<draft>.extras.json` naast draft.md met visual-data uit

@@ -35,14 +35,12 @@ ${seoJson.content}
     `;
 
     try {
-      const responseText = await this.llm.generate({
+      const rawJson = await this.llm.generateJSON({
         systemPrompt: this.systemPrompt,
         userPrompt,
         temperature: 0.2,
-        responseFormat: 'json_object'
       });
 
-      const rawJson = JSON.parse(responseText);
       const validated = MarketingGateOutputSchema.parse(rawJson);
       const result: MarketingGateOutput = { ...validated, passed: computeMarketingGatePassed(validated.scores) };
 

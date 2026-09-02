@@ -22,15 +22,13 @@ export class ResearchAgent {
     const userPrompt = `Verzamel gedetailleerde, feitelijke informatie over het onderwerp: "${topic}".\nZorg ervoor dat alle beweringen rechtstreeks uit betrouwbare, in de systeeminstructie genoemde bronnen komen. Geef een zo compleet mogelijk overzicht van de feiten.`;
 
     try {
-      const responseText = await this.llm.generate({
+      const rawJson = await this.llm.generateJSON({
         systemPrompt: this.systemPrompt,
         userPrompt,
         temperature: 0.1, // Laag voor feitelijkheid
-        responseFormat: 'json_object'
       });
 
-      // Parse and validate using Zod
-      const rawJson = JSON.parse(responseText);
+      // Valideer met Zod (JSON-parse-retry zit al in generateJSON)
       const validatedData = ResearchOutputSchema.parse(rawJson);
       
       const duration = Date.now() - startTime;
