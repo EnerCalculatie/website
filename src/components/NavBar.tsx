@@ -48,10 +48,10 @@ export function NavBar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-2 shrink-0" aria-label="EnerCalculatie - Terug naar boven">
+          <a href={import.meta.env.BASE_URL} className="flex items-center gap-2 shrink-0" aria-label="EnerCalculatie - Terug naar boven">
             {!imageError ? (
               <img
-                src="/logo.svg"
+                src={`${import.meta.env.BASE_URL}logo.svg`}
                 alt="EnerCalculatie Logo"
                 className="h-9 sm:h-10 lg:h-11 w-auto drop-shadow-sm"
                 onError={() => setImageError(true)}

@@ -39,13 +39,13 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="col-span-1 md:col-span-1">
             <a 
-              href="/" 
+              href={import.meta.env.BASE_URL}
               className="flex items-center gap-2 mb-4 bg-white px-2 py-1.5 rounded-xl w-fit block transition-transform hover:scale-105"
               aria-label="EnerCalculatie - Terug naar boven"
             >
               {!imageError ? (
                 <img
-                  src="/logo.svg"
+                  src={`${import.meta.env.BASE_URL}logo.svg`}
                   alt="EnerCalculatie Logo"
                   loading="lazy"
                   className="h-10 w-auto"
