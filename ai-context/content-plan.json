@@ -1,27 +1,13 @@
 [
   {
-    "title": "Gelijktijdigheidsfactor bij All-Electric woningen: hoe onderbouwt u dat een 3x25A-aansluiting volstaat?",
-    "keyword": "gelijktijdigheidsfactor all electric berekenen",
+    "title": "Buffervat bij een warmtepomp: hoe berekent u de inhoud en voorkomt u pendelgedrag in de offerte?",
+    "keyword": "buffervat warmtepomp berekenen",
     "intent": "commercieel",
     "contentType": "PRACTICAL",
-    "priority": 9,
-    "slug": "gelijktijdigheidsfactor-bij-all-electric-woningen-hoe-onderbouwt-u-dat-een-3x25a-aansluiting-volstaat",
-    "status": "generated",
-    "createdAt": "2026-09-02T00:37:38.443Z",
-    "generatedSlug": "3x25a-aansluiting-all-electric-woning-nen-1010",
-    "generatedAt": "2026-09-02T00:40:54.557Z"
-  },
-  {
-    "title": "Aardlekbeveiliging Type B bij omvormers en laadpalen: hoe onderbouwt u de NEN 1010-eisen in de offerte?",
-    "keyword": "aardlekbeveiliging type b NEN 1010",
-    "intent": "informatief",
-    "contentType": "SEO",
     "priority": 8,
-    "slug": "aardlekbeveiliging-type-b-bij-omvormers-en-laadpalen-hoe-onderbouwt-u-de-nen-1010-eisen-in-de-offerte",
-    "status": "generated",
-    "createdAt": "2026-09-02T00:37:38.440Z",
-    "generatedSlug": "aardlekbeveiliging-type-b-nen-1010-laadpaal-omvormer",
-    "generatedAt": "2026-09-02T10:27:12.821Z"
+    "slug": "buffervat-bij-een-warmtepomp-hoe-berekent-u-de-inhoud-en-voorkomt-u-pendelgedrag-in-de-offerte",
+    "status": "planned",
+    "createdAt": "2026-09-02T10:44:54.246Z"
   },
   {
     "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
@@ -104,6 +90,18 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
+  },
+  {
+    "title": "Gelijktijdigheidsfactor bij All-Electric woningen: hoe onderbouwt u dat een 3x25A-aansluiting volstaat?",
+    "keyword": "gelijktijdigheidsfactor all electric berekenen",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
+    "priority": 9,
+    "slug": "gelijktijdigheidsfactor-bij-all-electric-woningen-hoe-onderbouwt-u-dat-een-3x25a-aansluiting-volstaat",
+    "status": "generated",
+    "createdAt": "2026-09-02T00:37:38.443Z",
+    "generatedSlug": "3x25a-aansluiting-all-electric-woning-nen-1010",
+    "generatedAt": "2026-09-02T00:40:54.557Z"
   },
   {
     "title": "Capaciteitstarief en piekbelasting: hoe beschermt u uw zakelijke klant tegen hoge netbeheerderskosten?",
@@ -279,6 +277,18 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Aardlekbeveiliging Type B bij omvormers en laadpalen: hoe onderbouwt u de NEN 1010-eisen in de offerte?",
+    "keyword": "aardlekbeveiliging type b NEN 1010",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "aardlekbeveiliging-type-b-bij-omvormers-en-laadpalen-hoe-onderbouwt-u-de-nen-1010-eisen-in-de-offerte",
+    "status": "generated",
+    "createdAt": "2026-09-02T00:37:38.440Z",
+    "generatedSlug": "aardlekbeveiliging-type-b-nen-1010-laadpaal-omvormer",
+    "generatedAt": "2026-09-02T10:27:12.821Z"
   },
   {
     "title": "DUMAVA-subsidie voor maatschappelijk vastgoed: zo onderbouwt u de verduurzamingsaanvraag",
