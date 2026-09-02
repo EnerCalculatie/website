@@ -7,72 +7,67 @@ import { ArticleVisual } from './ArticleVisual';
 const post = blogPosts.find((p) => p.slug === 'buffervat-warmtepomp-inhoud-berekenen')!;
 
 const markdown0 = `
-De hoogste mechanische belasting en slijtage van een warmtepompcompressor treden op tijdens het opstarten. Om te voorkomen dat een warmtepomp door een te kleine waterinhoud continu in- en uitschakelt — het zogeheten pendelgedrag — is een correct gedimensioneerd buffervat in veel situaties onmisbaar. U berekent de benodigde inhoud door het thermisch vermogen van de warmtepomp te vermenigvuldigen met de specifieke volumegrens per kilowatt (meestal 10 tot 20 liter per kW voor modulerende en 30 tot 50 liter per kW voor aan/uit-systemen), verminderd met het al aanwezige cv-watervolume.
+Een juist gedimensioneerd buffervat bij een warmtepomp voorkomt pendelgedrag (short-cycling) en borgt een minimale compressor-run-time van 10 tot 15 minuten per start. Als vuistregel voor een parallel geschakeld buffervat geldt **10 tot 20 liter inhoud per kW geïnstalleerd warmtepompvermogen**. Hiermee garandeert u voldoende waterbedrijfsvolume, borgt u de ontdooi-energie en beschermt u het seizoensrendement (COP/SCOP) én de levensduur van de compressor.
 
-## Inhoud van het buffervat berekenen: vuistregels per kW
+## Impact van pendelgedrag op COP, SCOP en levensduur
 
-Een warmtepomp vereist een minimale waterinhoud in het cv-systeem om de opgewekte warmte goed te kunnen afvoeren en het aantal start/stop-cycli te beperken. Afhankelijk van het type warmtepomp gelden verschillende richtlijnen voor de volumeberekening:
+Wanneer een warmtepomp te vaak kortstondig aanslaat, veroorzaakt dit extra mechanische slijtage aan de compressor. Hierdoor kan de verwachte levensduur van het toestel aanzienlijk worden verkort.
 
-- **Modulerende warmtepompen:** Hiervoor volstaat doorgaans een volume van 10 tot 20 liter per kW thermisch vermogen.
-- **Aan/uit warmtepompen:** Bij deze systemen wordt als vuistregel 30 tot 50 liter per kW opgesteld vermogen gehanteerd.
+Daarnaast verlaagt dit frequente starten en stoppen het seizoensrendement (de COP en SCOP) van de totale installatie. Om een goede olieretour naar de compressor te garanderen en onnodige slijtage te voorkomen, wordt in het ontwerp gestreefd naar een minimale ononderbroken compressor-run-time van 10 tot 15 minuten per start.
 
-| Type warmtepomp | Richtlijn waterinhoud per kW |
+## Wanneer is een buffervat bij een warmtepomp noodzakelijk?
+
+Een buffervat kan in verschillende situaties noodzakelijk zijn om een stabiele werking van de warmtepomp te garanderen:
+
+- **Borging van het minimale waterbedrijfsvolume:** Wanneer thermostaatkranen of zonerestricties dichtsturen, kan het beschikbare cv-watervolume in de woning te klein worden. Een buffervat voorkomt dat de warmtepomp haar warmte niet kwijt kan.
+- **Ontdooi-energie:** Bij lucht-water warmtepompen is voldoende systeeminhoud nodig om tijdens de ontdooicyclus warmte te leveren zonder dat de temperatuur in het afgiftesysteem te sterk daalt.
+
+### Serieel versus parallel geschakeld buffervat
+
+Afhankelijk van de hydraulische situatie wordt gekozen voor een specifieke inpassing:
+
+- **Serieel geschakeld:** Verhoogt uitsluitend het totale waterinhoudsvolume van het systeem. Dit type vat wordt doorgaans opgesteld in de retourleiding.
+- **Parallel geschakeld:** Dient als hydraulische scheiding tussen de primaire stroom van de warmtepomp en de secundaire stroom van het afgiftesysteem.
+
+## Buffervat inhoud berekenen: vuistregels en ISSO-richtlijnen
+
+De richtlijnen voor het dimensioneren en hydraulisch inpassen van warmtepompinstallaties in woningen staan beschreven in ISSO-publicaties (zoals ISSO-publicatie 72 en ISSO-publicatie 98).
+
+Een gangbare vuistregel voor het berekenen van de inhoud van een parallel geschakeld buffervat is **10 tot 20 liter inhoud per kW geïnstalleerd warmtepompvermogen**.
+
+In de onderstaande tabel staat hoe deze vuistregel uitpakt bij verschillende thermische vermogens:
+
+| Thermisch vermogen warmtepomp | Aanbevolen inhoud parallel buffervat (min - max) |
 | :--- | :--- |
-| Modulerend | 10 tot 20 liter / kW |
-| Aan/uit | 30 tot 50 liter / kW |
+| 5 kW thermisch | 50 tot 100 liter |
+| 8 kW thermisch | 80 tot 160 liter |
+| 12 kW thermisch | 120 tot 240 liter |
 
 `;
 const markdown1 = `
 
-Wanneer het bestaande leidingsysteem en de afgiftelichamen onvoldoende water bevatten om aan deze minimale volumestroom en inhoud te voldoen, vult een buffervat het tekort aan.
+## Meerwaarde van een buffervat onderbouwen in de offerte
 
-## Pendelgedrag en compressorslijtage bij een warmtepomp voorkomen
+Een klant kan vragen hebben over de meerkosten en de benodigde opstelruimte voor een buffervat. Door de technische noodzaak helder te vertalen naar lange-termijnvoordelen, maakt u het advies in de offerte transparant.
 
-Pendelgedrag ontstaat wanneer de minimale vermogensafgifte van de warmtepomp groter is dan de actuele warmtevraag van het pand. De warmtepomp kan de geproduceerde warmte op dat moment niet snel genoeg kwijt, waardoor de temperatuur te snel stijgt en de regeling de compressor uitschakelt.
-
-Omdat de hoogste mechanische slijtage van de compressor optreedt tijdens het opstarten, leidt een hoog aantal start/stop-cycli tot extra slijtage. Een goed gedimensioneerd buffervat werkt als thermische buffer: het vergroot de totale watermassa, rekt de draaitijd op en beperkt zo het aantal opstartmomenten.
-
-## Serieel vs. parallel geschakeld buffervat: de verschillen
-
-Bij het ontwerp van de installatie heeft de keuze voor een serieel of parallel buffervat directe invloed op de onderdelen en de hydraulische berekening:
-
-### Serieel geschakeld buffervat
-Een serieel buffervat wordt meestal in de retourleiding geplaatst en dient puur als volumevergroter van het cv-circuit.
-- **Circulatiepomp:** Er is geen extra secundaire circulatiepomp nodig; de pomp van de warmtepomp verzorgt de doorstroming.
-- **Toepassing:** Geschikt wanneer het afgiftesysteem voldoende open staat en een constante doorstroming waarborgt.
-
-### Parallel geschakeld buffervat
-Een parallel geschakeld buffervat werkt als hydraulische ontkoppeling tussen het primaire warmtepompcircuit en het secundaire afgiftecircuit.
-- **Circulatiepomp:** Vereist een extra secundaire circulatiepomp aan de afgiftezijde.
-- **Debietberekening:** Het benodigde volumeberekeningsdebiet is afhankelijk van het maximale verschil in volumestroom tussen het primaire en secundaire circuit. Dit helpt om menging en temperatuurverval tussen de circuits te minimaliseren.
-- **Zoneregelingen:** Wanneer thermostatische kranen of zoneregelingen het afgiftesysteem gedeeltelijk dichtsturen, garandeert een parallel buffervat dat de warmtepomp de benodigde minimale volumestroom (het minimale debiet) kan behouden.
-
-## Het buffervat technisch onderbouwen in de offerte
-
-Een buffervat wordt door klanten soms gezien als een extra kostenpost. Met de juiste technische onderbouwing legt u de noodzaak en meerprijs uit in uw voorstel:
-
-1. **Borging van de levensduur:** Het beperken van start/stop-cycli vermindert mechanische slijtage aan de compressor.
-2. **Voorkomen van debietstoringen:** Het opnemen van een buffervat voorkomt storingsmeldingen door te lage doorstroming wanneer radiatoren of vloerverwarmingsgroepen dichtlopen.
-3. **Continuïteit tijdens de ontdooicyclus (defrost):** Tijdens een ontdooicyclus van een lucht/water-warmtepomp wordt de werking omgekeerd en wordt er warmte onttrokken aan het cv-water. Het buffervat zorgt dat deze energie beschikbaar is zonder dat het interieur merkbaar afkoelt.
-
-## Overzicht: Keuzehulp voor de installateur
-
-| Situatie | Hydraulische keuze | Belangrijkste aandachtspunt |
+| Situatie in het afgiftesysteem | Risico zonder buffervat | Oplossing & onderbouwing met buffervat |
 | :--- | :--- | :--- |
-| Open afgiftesysteem, te kleine waterinhoud | Serieel buffervat (retour) | Geen extra pomp nodig, puur volumevergroting |
-| Naregeling / zones met thermostaatkranen | Parallel buffervat | Extra secundaire pomp vereist; stem volumestromen af om mengverliezen te beperken |
-| Lucht/water-warmtepomp met defrost | Serieel of parallel buffervat | Energiereserve borgen voor de ontdooicyclus |
+| Dichtsturende thermostaatkranen / zoneregeling | Te klein waterbedrijfsvolume, wat kan leiden tot pendelgedrag en snelle slijtage van de compressor | Garandeert voldoende waterinhoud om de minimale compressor-run-time van 10 tot 15 minuten te behalen. |
+| Lucht-water warmtepomp (ontdooislag) | Onvoldoende direct beschikbare warmte voor de ontdooicyclus | Levert de benodigde ontdooi-energie met behoud van comfort in de woning. |
+| Verschil tussen primaire en secundaire volumestroom | Hydraulische onbalans tussen warmtepomp en afgiftesysteem | Zorgt bij een parallelle opstelling voor een effectieve hydraulische scheiding. |
+
+Met deze onderbouwing toont u aan dat een buffervat een gerichte investering is ter bescherming van het seizoensrendement (COP/SCOP) en voor het behoud van de compressor op de lange termijn.
 
 ## Veelgestelde vragen over buffervaten bij warmtepompen
 
-### Hoe bereken je de inhoud van een buffervat voor een warmtepomp?
-Vermenigvuldig het thermisch vermogen van de warmtepomp met de vuistregel (10-20 l/kW voor modulerend, 30-50 l/kW voor aan/uit) en trek daar het al aanwezige cv-watervolume vanaf.
+### Hoeveel liter buffervat per kW warmtepomp is nodig?
+Voor een parallel geschakeld buffervat geldt als gangbare vuistregel 10 tot 20 liter inhoud per kW geïnstalleerd warmtepompvermogen.
 
-### Wat is het voordeel van een parallel geschakeld buffervat?
-Een parallel buffervat dient als hydraulische ontkoppeling. Dit waarborgt de minimale volumestroom voor de warmtepomp, zelfs wanneer naregelingen of thermostaatkranen de afgiftezijde dichtsturen.
+### Wat is de minimale compressor-run-time van een warmtepomp?
+Om onnodige slijtage te voorkomen en een goede olieretour te garanderen, wordt in het ontwerp gestreefd naar een minimale ononderbroken compressor-run-time van 10 tot 15 minuten per start.
 
-### Waarom helpt een buffervat bij de defrost-cyclus?
-Tijdens het ontdooien onttrekt een lucht/water-warmtepomp warmte aan het cv-water. Een buffervat levert deze energie direct zonder dat het interieur merkbaar afkoelt.
+### Wat is het verschil tussen een serieel en parallel geschakeld buffervat?
+Een serieel geschakeld buffervat verhoogt uitsluitend het totale waterinhoudsvolume van het systeem, terwijl een parallel geschakeld buffervat dient als hydraulische scheiding tussen de primaire en secundaire volumestroom.
 `;
 
 export function BuffervatWarmtepompInhoudBerekenenArticle() {
@@ -94,7 +89,7 @@ export function BuffervatWarmtepompInhoudBerekenenArticle() {
           th: ({node: _node, ...props}) => <th className="border border-slate-200 px-3 py-2 text-left font-bold text-slate-900" {...props} />,
           td: ({node: _node, ...props}) => <td className="border border-slate-200 px-3 py-2 text-slate-700" {...props} />
         }}>{markdown0}</ReactMarkdown>
-      <ArticleVisual visual={{"type":"bar_chart","title":"Richtlijn waterinhoud per kW thermisch vermogen","unit":"L/kW","items":[{"label":"Modulerend (minimaal)","value":10},{"label":"Modulerend (maximaal)","value":20},{"label":"Aan/uit (minimaal)","value":30},{"label":"Aan/uit (maximaal)","value":50}],"illustrative":false}} />
+      <ArticleVisual visual={{"type":"bar_chart","title":"Aanbevolen inhoud parallel buffervat per thermisch vermogen","unit":"liter (minimaal)","items":[{"label":"5 kW thermisch","value":50},{"label":"8 kW thermisch","value":80},{"label":"12 kW thermisch","value":120}],"illustrative":false}} />
       <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
           h2: ({node: _node, ...props}) => <h2 className="text-xl md:text-2xl font-bold text-slate-800 mt-8 mb-4" {...props} />,
           h3: ({node: _node, ...props}) => <h3 className="text-lg font-bold text-slate-900 mt-6 mb-3" {...props} />,
