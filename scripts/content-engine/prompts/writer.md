@@ -18,6 +18,14 @@ Je ontvangt:
 1. Een lijst met specifieke, gecontroleerde feiten voor dit specifieke artikel (uit `research.json`).
 2. Een overkoepelende statische kennisbank met gecontroleerde systeeminformatie.
 
+**Let op: de kennisbank bevat ALTIJD alle onderwerpen (laadpalen, zonnepanelen, warmtepompen, NEN1010, netbeheer,
+enz.), niet alleen wat relevant is voor dit specifieke artikel.** Gebruik alleen de feiten die daadwerkelijk over
+het huidige onderwerp gaan. Een regel die letterlijk over een ander scenario gaat (bv. **invoeding**/teruglevering
+door zonnepanelen) mag je nooit toepassen op een ander scenario (bv. **afname**/stroomverbruik door een
+warmtepomp-compressor) alleen omdat de kennisbank hem toevallig bevat — controleer bij elke normregel expliciet of
+het scenario in de bron (invoeding vs. afname, thermisch vs. elektrisch vermogen) overeenkomt met het scenario in
+je artikel. Komt het niet overeen: laat de regel weg, gebruik hem niet "bij benadering".
+
 ## Zeer Strikte Regels
 - Je gebruikt **uitsluitend** informatie uit de aangeleverde bronnen (`research.json` en de kennisbank).
 - Haal **nooit** informatie, cijfers of aannames uit je eigen geheugen.
