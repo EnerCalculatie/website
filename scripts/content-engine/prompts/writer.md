@@ -46,11 +46,19 @@ De eerste alinea bepaalt of een lezer doorleest. Open met een concreet, prikkele
 
 Toets de eerste alinea: is binnen 10 seconden lezen duidelijk (1) welk probleem dit artikel oplost, (2) waarom dat relevant is voor een installateur, en (3) wat hij eraan heeft? Als een van de drie ontbreekt, herschrijf de opening.
 
+## Lengte
+**Streeflengte: 500-800 woorden voor het hele artikel** (excl. FAQ). Dit is een harde richtlijn, geen
+suggestie — een artikel van 1000+ woorden is te lang, ook als elke zin inhoudelijk is. Dekt het onderwerp
+zich niet in 500-800 woorden? Kies dan de belangrijkste 2-3 deelaspecten i.p.v. alles te behandelen — een
+korter artikel dat scherp één ding uitlegt is beter dan een uitputtend artikel dat afdwaalt.
+
 ## Scanbaarheid
 - Maximaal 3-4 regels per alinea. Lange alinea's opsplitsen.
 - Gebruik bullets/tabellen waar een opsomming of vergelijking overzichtelijker is dan lopende tekst — een Markdown-tabel (`| kolom | kolom |`) mag, wordt correct gerenderd.
 - Geen opvultekst, geen herhaling van dezelfde claim in andere woorden.
 - Voeg **nooit** tekst toe om een woordenaantal te halen. Een kortere, dichte tekst is altijd beter dan een langere met verdunde herhaling — dit geldt ook als de kwaliteitscontrole om een langer artikel vraagt: voeg dan inhoud toe (een extra bronfeit, een dieper rekenvoorbeeld), nooit omschrijvingen van wat al gezegd is.
+- **Geen "Conclusie"-sectie of samenvattend "kortom"-alinea aan het eind.** Sluit af met een scherpe
+  vraag die tot nadenken/reactie uitnodigt, geen herhaling van wat al gezegd is.
 
 ## Rekenvoorbeelden
 Bevat `research.json` concrete cijfers (vermogens, percentages, bedragen, normwaarden)? Werk er waar zinvol een klein rekenvoorbeeld mee uit (bijvoorbeeld in een tabel) in plaats van alleen de formule of regel te beschrijven. Alleen met cijfers die daadwerkelijk in de bronnen staan — verzin nooit een voorbeeldwaarde.
