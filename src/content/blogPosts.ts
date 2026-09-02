@@ -2075,4 +2075,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom is een ballastberekening op een plat dak noodzakelijk?', answer: 'Een ballastberekening conform NEN 7250 zorgt ervoor dat het systeem stormvast ligt zonder op te waaien of af te schuiven, terwijl de maximale draagkracht van de dakconstructie niet wordt overschreden.' },
     ],
   },
+  {
+    slug: '3x25a-aansluiting-all-electric-woning-nen-1010',
+    readingTimeMinutes: 4,
+    title: '3x25A Aansluiting bij All-Electric: Is Verzwaring Nodig?',
+    seoTitle: '3x25A Aansluiting bij All-Electric Woning | NEN 1010',
+    description:
+      'Is een 3x25A-aansluiting voldoende voor een all-electric woning? Ontdek de NEN 1010 gelijktijdigheidsfactor, Dynamic Load Balancing en selectiviteit.',
+    date: '2026-09-02',
+    excerpt:
+      'Een 3x25A-aansluiting levert circa 17,25 kW continu vermogen. Met de juiste gelijktijdigheidsfactor, Dynamic Load Balancing en NEN 1010-onderbouwing is verzwaring naar 3x35A in veel gevallen overbodig.',
+    tags: ['3x25A', 'NEN 1010', 'All-Electric', 'Dynamic Load Balancing', 'Warmtepomp', 'Netbeheer'],
+    keyPoints: [
+      'Een 3x25A-aansluiting levert maximaal 17,25 kW continu vermogen (3 x 230V x 25A).',
+      'Volgens NEN 1010 mag een gelijktijdigheidsfactor < 1,0 worden toegepast voor de vermogensberekening.',
+      'Dynamic Load Balancing en HEMS voorkomen dat de 3x25A hoofdzekering overbelast raakt bij gelijktijdig laden en verwarmen.',
+      'Maximale afzekering van omvormers/laadpalen is 16A vanwege de selectiviteitsfactor 1,6 ten opzichte van 25A.',
+      'Let op somstromen: 25A netstroom + 16A omvormerstroom geeft 41A, wat een 40A-aardlekschakelaar kan overbelasten.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is een 3x25A-aansluiting voldoende voor een all-electric woning?', answer: 'Ja, in veel situaties volstaat een 3x25A-aansluiting (maximaal ~17,25 kW). Door het toepassen van de gelijktijdigheidsfactor volgens NEN 1010 en het inzetten van Dynamic Load Balancing kunnen piekbelastingen effectief worden opgevangen.' },
+      { question: 'Wat zijn de risico\'s van somstromen bij zonnepanelen op een 3x25A-aansluiting?', answer: 'Wanneer de netstroom (25A) en de invoedingsstroom van een omvormer (bijv. 16A) samenkomen op dezelfde beveiliging, kan er een somstroom van 41A ontstaan. Een standaard 40A-aardlekschakelaar raakt hierdoor overbelast. Toetsing van gedeelde beveiligingen is daarom noodzakelijk.' },
+      { question: 'Waarom geldt een maximale afzekering van 16A voor groepen bij 3x25A?', answer: 'Om selectiviteit te waarborgen ten opzichte van de 3x25A-hoofdzekering (met een factor 1,6 volgens NEN 1010), mag een eindgroep voor bijvoorbeeld een laadpaal of omvormer op maximaal 16A worden afgezekerd.' },
+    ],
+  },
 ];
