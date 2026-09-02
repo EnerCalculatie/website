@@ -39,21 +39,21 @@ describe('MarketingGateAgent.run', () => {
   afterEach(() => rmSync(dir, { recursive: true, force: true }));
 
   it('herberekent passed zelf — negeert het LLM-passed-veld als de scores niet matchen', async () => {
-    generateMock.mockResolvedValue(JSON.stringify({ passed: false, scores: scores(9), feedback: 'ok' }));
+    generateMock.mockResolvedValue(JSON.stringify({ passed: false, scores: scores(9), visualOpportunity: false, feedback: 'ok' }));
     const agent = new MarketingGateAgent();
     const result = await agent.run(seoJsonPath, outputPath);
     expect(result.passed).toBe(true);
   });
 
   it('blokkeert bij lage practicalUsefulness, ongeacht wat het LLM als passed opgeeft', async () => {
-    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: scores(1), feedback: 'te weinig bruikbaar' }));
+    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: scores(1), visualOpportunity: false, feedback: 'te weinig bruikbaar' }));
     const agent = new MarketingGateAgent();
     const result = await agent.run(seoJsonPath, outputPath);
     expect(result.passed).toBe(false);
   });
 
   it('schrijft het resultaat naar outputPath', async () => {
-    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: scores(), feedback: 'ok' }));
+    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: scores(), visualOpportunity: false, feedback: 'ok' }));
     const agent = new MarketingGateAgent();
     await agent.run(seoJsonPath, outputPath);
     const written = JSON.parse(readFileSync(outputPath, 'utf-8'));
@@ -61,8 +61,24 @@ describe('MarketingGateAgent.run', () => {
   });
 
   it('gooit een Zod-fout als een verplicht veld ontbreekt', async () => {
-    generateMock.mockResolvedValue(JSON.stringify({ scores: scores() })); // geen feedback
+    generateMock.mockResolvedValue(JSON.stringify({ scores: scores(), visualOpportunity: false })); // geen feedback
     const agent = new MarketingGateAgent();
     await expect(agent.run(seoJsonPath, outputPath)).rejects.toThrow();
+  });
+
+  it('berekent visualProvided zelf uit seoJson.visual (geen LLM-oordeel) — false als er geen visual is', async () => {
+    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: scores(), visualOpportunity: true, feedback: 'mist een visual' }));
+    const agent = new MarketingGateAgent();
+    const result = await agent.run(seoJsonPath, outputPath);
+    expect(result.visualProvided).toBe(false);
+    expect(result.visualOpportunity).toBe(true);
+  });
+
+  it('berekent visualProvided=true als seoJson.visual aanwezig is', async () => {
+    writeFileSync(seoJsonPath, JSON.stringify({ title: 'T', content: 'body', faq: [], visual: { type: 'bar_chart' } }), 'utf-8');
+    generateMock.mockResolvedValue(JSON.stringify({ passed: true, scores: scores(), visualOpportunity: true, feedback: 'ok' }));
+    const agent = new MarketingGateAgent();
+    const result = await agent.run(seoJsonPath, outputPath);
+    expect(result.visualProvided).toBe(true);
   });
 });

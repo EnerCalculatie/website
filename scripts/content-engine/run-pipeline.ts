@@ -154,10 +154,13 @@ async function run() {
     // feitelijke/technische issues oplossen (die veranderen de content het meest ingrijpend); pas
     // als die schoon zijn, SEO optimaliseren en auditen — een SEO-retry op een nog-foutieve tekst
     // zou zinloos werk zijn.
+    const marketingGate = new MarketingGateAgent();
+
     let retries = 0;
     const maxRetries = 2;
     let seoOptimized: Awaited<ReturnType<typeof seoAgent.run>> | undefined;
     let auditResult: Awaited<ReturnType<typeof seoAgent.audit>> | undefined;
+    let marketingOut: Awaited<ReturnType<typeof marketingGate.run>> | undefined;
 
     while (retries < maxRetries) {
       const factCheckResult = await factChecker.run(draftPath, researchPath, factCheckPath);
@@ -185,21 +188,45 @@ async function run() {
       seoOptimized = await seoAgent.run(draftPath, seoPath);
       auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
 
-      if (auditResult.passed) {
-        console.log(`\n✅ SEO/GEO-audit geslaagd.`);
-        break;
+      if (!auditResult.passed) {
+        retries++;
+        if (retries >= maxRetries) {
+          console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) met SEO/GEO nog onder de drempel.`);
+          break;
+        }
+        console.log(`\n⚠️ SEO/GEO-audit onvoldoende, start herschrijven iteratie ${retries}...`);
+        console.log(JSON.stringify(auditResult.blockingIssues, null, 2));
+        await writerAgent.run(topic, researchPath, draftPath, auditResult.feedback, contentType, brief);
+        // volgende iteratie doet fact-check/tech-review opnieuw op de herschreven tekst — noodzakelijk,
+        // een herschrijving kan in theorie een nieuwe feitelijke fout introduceren.
+        continue;
       }
+
+      console.log(`\n✅ SEO/GEO-audit geslaagd.`);
+
+      // Marketing Gate hier (in de loop, niet pas erna) zodat een gemiste visual-kans nog een
+      // extra herschrijf-iteratie kan triggeren — zelfde gedeelde retry-budget, geen los
+      // mechanisme. practicalUsefulness-ondergrens en overige scores blijven non-blocking (zie
+      // evaluateGates hieronder); alleen de visual-opportunity-mismatch triggert hier een retry,
+      // en ook die blijft uiteindelijk non-blocking (na maxRetries publiceert het gewoon door).
+      marketingOut = await marketingGate.run(seoPath, marketingPath);
+      const missedVisualOpportunity = marketingOut.visualOpportunity && !marketingOut.visualProvided;
+
+      if (!missedVisualOpportunity) break;
 
       retries++;
       if (retries >= maxRetries) {
-        console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) met SEO/GEO nog onder de drempel.`);
+        console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) — visual-kans gemist, publicatie gaat non-blocking door zonder visual.`);
         break;
       }
-      console.log(`\n⚠️ SEO/GEO-audit onvoldoende, start herschrijven iteratie ${retries}...`);
-      console.log(JSON.stringify(auditResult.blockingIssues, null, 2));
-      await writerAgent.run(topic, researchPath, draftPath, auditResult.feedback, contentType, brief);
-      // volgende iteratie doet fact-check/tech-review opnieuw op de herschreven tekst — noodzakelijk,
-      // een herschrijving kan in theorie een nieuwe feitelijke fout introduceren.
+      console.log(`\n⚠️ Visual-opportunity gemist (content leent zich voor een visual, geen visual toegevoegd), start herschrijven iteratie ${retries}...`);
+      await writerAgent.run(
+        topic, researchPath, draftPath,
+        `[VISUAL-KANS] De content bevat duidelijke, vergelijkbare cijfers/categorieën die zich lenen voor een visual (bar_chart of comparison) — voeg een [[VISUAL]]-marker + visual-data toe op de juiste plek in het betoog. ${marketingOut.feedback}`,
+        contentType, brief
+      );
+      // volgende iteratie doet fact-check/tech-review opnieuw — een herschrijving kan in theorie
+      // een nieuwe feitelijke fout introduceren.
     }
 
     // Veiligheidsnet: als de loop stopte terwijl er nog feitelijke/technische issues openstonden
@@ -208,15 +235,15 @@ async function run() {
     // (de factual gate blokkeert toch al, dit voorkomt alleen een crash op een ontbrekend bestand).
     if (!seoOptimized) seoOptimized = await seoAgent.run(draftPath, seoPath);
     if (!auditResult) auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
+    // Marketing Gate draait normaliter al ín de loop (stap 4, ná een geslaagde SEO/GEO-audit) —
+    // alleen als de loop daar nooit kwam (bv. factual issues die alle iteraties opsoupeerden)
+    // is hij hier nog nodig. Voorkomt een dubbele LLM-call in het normale pad.
+    if (!marketingOut) marketingOut = await marketingGate.run(seoPath, marketingPath);
 
     // Stap 5: Quality Gate (factual/technical — ongewijzigd, enige bron voor factualBlocking)
     const qualityGate = new QualityGateAgent();
     const qualityOut = await qualityGate.run(seoPath, factCheckPath, techReviewPath, qualityPath);
     const highIssues = qualityOut.issues.filter((i: { severity: string }) => i.severity === 'high');
-
-    // Stap 6: Marketing Gate (non-blocking behalve practicalUsefulness — zie schemas/marketing-gate.ts)
-    const marketingGate = new MarketingGateAgent();
-    const marketingOut = await marketingGate.run(seoPath, marketingPath);
 
     const gates = evaluateGates(highIssues.length, auditResult.passed, marketingOut.passed);
 

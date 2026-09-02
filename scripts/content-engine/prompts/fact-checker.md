@@ -20,6 +20,11 @@ Focus specifiek op:
 4. Bij een verwijzing naar een norm/regelgeving (NEN1010, NEN3140, ISSO, ACM, netbeheerders): controleer of de bron
    een algemene regel of een specifieke situatie beschrijft. Trekt de tekst een algemene conclusie uit een bron die
    alleen een specifieke situatie regelt, is dit 'unsupported' — ook als de norm zelf correct wordt aangehaald.
+5. Bij een niet-normatieve ontwerp-vuistregel (bijv. "10-20 liter per kW", een percentage, een indicatieve marge —
+   geen NEN/IEC-norm): controleer of de tekst deze presenteert als universele ontwerpregel zonder voorbehoud, terwijl
+   de bron zelf geen universele claim doet (geen normverwijzing, geen "altijd/verplicht"-formulering in de bron). Zo
+   ja: 'imprecise' — de tekst moet aangeven dat dit een indicatieve richtwaarde is en dat fabrikantvoorschriften/het
+   daadwerkelijke systeemontwerp leidend zijn (zie writer.md, "Algemene vuistregels/richtwaarden").
 
 Je levert ALLEEN een lijst met fouten terug in het voorgeschreven JSON-formaat. 
 Als de tekst 100% correct is, stuur je een lege array terug `[]`.

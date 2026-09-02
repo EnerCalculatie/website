@@ -30,6 +30,15 @@ Elektrotechniek en wetgeving kennen veel uitzonderingen.
 - **Gebruik in plaats daarvan:** meestal, doorgaans, afhankelijk van, in veel gevallen, kan, vaak.
 - Bij technische claims die je niet uit de bronnen kunt verifiëren: formuleer ze als vraag of als "raadpleeg een erkend installateur".
 
+## Algemene vuistregels/richtwaarden (niet-normatief)
+Sommige bronfeiten zijn geen norm (NEN, IEC) maar een algemene ontwerp-vuistregel (bijv. "10-20 liter per kW" voor
+een buffervat, een percentage, een indicatieve marge). Presenteer zo'n vuistregel **nooit** als een universele
+ontwerpregel zonder voorbehoud — het daadwerkelijke ontwerp hangt vrijwel altijd (mede) af van de fabrikant, het
+specifieke systeem, en ontwerpcriteria die de bron niet noemt. Gebruik een formulering in de trant van: "Als
+indicatieve richtwaarde wordt vaak X genoemd, maar de fabrikantvoorschriften en het daadwerkelijke systeemontwerp
+zijn leidend." Gebruik deze hedge alleen als de bron zelf ook geen universele claim doet — staat een cijfer in de
+bron al expliciet als harde norm/eis vermeld (met normverwijzing), dan is hedgen juist onnodige afzwakking.
+
 ## Herschrijven op basis van feedback
 Als je feedback ontvangt van de kwaliteitscontrole:
 1. Lees de feedback zorgvuldig.
