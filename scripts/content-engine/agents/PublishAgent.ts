@@ -142,6 +142,22 @@ export function insertBlogPostsEntry(blogPostsSource: string, entry: string) {
 }
 
 /**
+ * Puur — geen I/O. True als deze slug al in blogPosts.ts staat. Voorkomt de destructieve
+ * failure-mode die tijdens het testen van de content-engine-upgrade optrad: bij een
+ * slug-botsing schreef PublishAgent naar hetzelfde componentbestand als het bestaande
+ * artikel, en verwijderde de cleanup-`rm` bij een build-fout vervolgens dat bestaande
+ * artikel in plaats van alleen het nieuwe. `plan-content.mjs` voorkomt botsingen al bij
+ * het aanvullen van de backlog (title/keyword-dedup), maar `run-pipeline.ts`/PublishAgent
+ * zelf hadden geen eigen guard — nodig voor elke run die niet via die backlog-planning
+ * gaat (handmatige/CLI-run met een reeds-gepubliceerd onderwerp, bv. per ongeluk een
+ * near-duplicate titel van een bestaand artikel).
+ */
+export function slugExistsInBlogPosts(blogPostsSource: string, slug: string): boolean {
+  const escaped = slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`slug:\\s*'${escaped}'`).test(blogPostsSource);
+}
+
+/**
  * Voegt de lazyRoute-import en de <Route>-regel voor een nieuw artikel toe aan
  * App.tsx, na de laatst bestaande van elk als ankerpunt. Puur — geen I/O. Gooit
  * als een van beide ankerpunten niet gevonden wordt (App.tsx-structuur gewijzigd).
@@ -183,6 +199,18 @@ export class PublishAgent {
     const blogPostsPath = path.join(rootDir, 'src/content/blogPosts.ts');
     const appTsxPath = path.join(rootDir, 'src/App.tsx');
 
+    // 0. Guard: weiger te publiceren als deze slug al bestaat — vóór er iets geschreven
+    // wordt. Zie slugExistsInBlogPosts hierboven voor de aanleiding (data-verlies-risico).
+    const existingBlogPostsSource = readFileSync(blogPostsPath, 'utf-8');
+    if (slugExistsInBlogPosts(existingBlogPostsSource, slug)) {
+      throw new Error(
+        `[PublishAgent] Publicatie geweigerd: slug '${slug}' bestaat al in blogPosts.ts. ` +
+        `Geen bestanden aangeraakt. Dit voorkomt overschrijven/verwijderen van een bestaand artikel ` +
+        `bij een latere build-fout. Kies een ander onderwerp of, als dit een bewuste content-herziening ` +
+        `is, werk het bestaande artikel handmatig bij i.p.v. via de automatische pipeline.`
+      );
+    }
+
     // 1. Maak React Component
     const componentSource = buildComponentSource(componentName, slug, content);
     writeFileSync(componentPath, componentSource, 'utf-8');
@@ -191,8 +219,7 @@ export class PublishAgent {
     // 2. Update blogPosts.ts
     const readingTimeMinutes = estimateReadingMinutes(content);
     const entry = buildBlogPostsEntry(seoJson, readingTimeMinutes);
-    const blogPostsSource = readFileSync(blogPostsPath, 'utf-8');
-    writeFileSync(blogPostsPath, insertBlogPostsEntry(blogPostsSource, entry), 'utf-8');
+    writeFileSync(blogPostsPath, insertBlogPostsEntry(existingBlogPostsSource, entry), 'utf-8');
     console.log('[PublishAgent] blogPosts.ts bijgewerkt.');
 
     // 3. Update App.tsx
