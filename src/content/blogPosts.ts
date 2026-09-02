@@ -2195,4 +2195,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat zijn de nadelen van een te groot buffervat?', answer: 'Een te groot buffervat zorgt voor meer stilstandsverliezen door warmteverlies, verlaagt het seizoensrendement (SCOP), brengt hogere aanschafkosten met zich mee en neemt onnodig veel ruimte in beslag.' },
     ],
   },
+  {
+    slug: 'buffervat-hybride-warmtepomp-vloerverwarming',
+    readingTimeMinutes: 3,
+    title: 'Buffervat hybride warmtepomp met vloerverwarming: Dimensionering en inhoud',
+    seoTitle: 'Buffervat hybride warmtepomp berekenen | Inhoud & advies',
+    description:
+      'Is een buffervat nodig bij een hybride warmtepomp met vloerverwarming? Lees hoe u de juiste waterinhoud berekent voor seriële en parallelle opstellingen.',
+    date: '2026-09-02',
+    excerpt:
+      'Een hybride warmtepomp en vloerverwarming zijn een prima combinatie, maar zonder de juiste waterinhoud ontstaan pendelproblemen of defrost-storingen. Ontdek hoe u een buffervat correct dimensioneert.',
+    tags: ['Hybride warmtepomp', 'Vloerverwarming', 'Buffervat', 'Dimensionering', 'Hydraulisch schema'],
+    keyPoints: [
+      'Minimale runtime van 10 tot 15 minuten voorkomt schadelijk pendelen van de warmtepomp.',
+      'Defrost-cyclus vereist een gegarandeerde waterinhoud van 10 tot 15 liter per kW vermogen.',
+      'Serieel buffervat vult het tekort aan open systeeminhoud aan; parallel buffervat ontkoppelt de stromingen.',
+      'Zone-naregelingen verminderen het beschikbare volume, waardoor een buffervat noodzakelijk wordt.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is een buffervat altijd verplicht bij een hybride warmtepomp met vloerverwarming?', answer: 'Nee, een buffervat is niet in elke situatie noodzakelijk, mits er continu voldoende onbelemmerde waterinhoud en doorstroming gegarandeerd is, zoals bij een open zone zonder dichtsturende thermostaatkranen.' },
+      { question: 'Hoeveel waterinhoud heeft een lucht-water warmtepomp nodig voor de ontdooicyclus?', answer: 'Tijdens de ontdooicyclus (defrost) is kortstondig een minimale waterinhoud van circa 10 tot 15 liter per kW vermogen nodig om de benodigde verdampingswarmte te leveren.' },
+      { question: 'Wat is het verschil tussen een serieel en een parallel aangesloten buffervat?', answer: 'Een serieel vat staat in-line in de retourleiding en vult enkel het ontbrekende watervolume aan. Een parallel vat fungeert als hydraulische scheiding met secundaire pomp en vereist een grotere inhoud (richtwaarde 15 tot 20 liter per kW).' },
+      { question: 'Hoe bereken je de waterinhoud van vloerverwarmingsslangen?', answer: 'Vloerverwarmingsslangen van 16x2 mm bevatten circa 0,113 liter water per strekkende meter. Bij een hart-op-hart afstand van 10 cm komt dit neer op ongeveer 1,13 liter water per m² vloeroppervlak.' },
+    ],
+  },
 ];

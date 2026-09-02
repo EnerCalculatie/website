@@ -155,6 +155,7 @@ const AardlekbeveiligingTypeBNen1010LaadpaalOmvormerArticle = lazyRoute('/blog/a
 const BuffervatWarmtepompInhoudBerekenenArticle = lazyRoute('/blog/buffervat-warmtepomp-inhoud-berekenen', () => import('./components/blog/BuffervatWarmtepompInhoudBerekenenArticle').then(m => ({ default: m.BuffervatWarmtepompInhoudBerekenenArticle })));
 const BuffervatWarmtepompInhoudBerekenenPendelgedragArticle = lazyRoute('/blog/buffervat-warmtepomp-inhoud-berekenen-pendelgedrag', () => import('./components/blog/BuffervatWarmtepompInhoudBerekenenPendelgedragArticle').then(m => ({ default: m.BuffervatWarmtepompInhoudBerekenenPendelgedragArticle })));
 const BuffervatBerekenen8KwWarmtepompArticle = lazyRoute('/blog/buffervat-berekenen-8-kw-warmtepomp', () => import('./components/blog/BuffervatBerekenen8KwWarmtepompArticle').then(m => ({ default: m.BuffervatBerekenen8KwWarmtepompArticle })));
+const BuffervatHybrideWarmtepompVloerverwarmingArticle = lazyRoute('/blog/buffervat-hybride-warmtepomp-vloerverwarming', () => import('./components/blog/BuffervatHybrideWarmtepompVloerverwarmingArticle').then(m => ({ default: m.BuffervatHybrideWarmtepompVloerverwarmingArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -347,6 +348,7 @@ export function AppContent() {
             <Route path="/blog/buffervat-warmtepomp-inhoud-berekenen" element={<BuffervatWarmtepompInhoudBerekenenArticle />} />
             <Route path="/blog/buffervat-warmtepomp-inhoud-berekenen-pendelgedrag" element={<BuffervatWarmtepompInhoudBerekenenPendelgedragArticle />} />
             <Route path="/blog/buffervat-berekenen-8-kw-warmtepomp" element={<BuffervatBerekenen8KwWarmtepompArticle />} />
+            <Route path="/blog/buffervat-hybride-warmtepomp-vloerverwarming" element={<BuffervatHybrideWarmtepompVloerverwarmingArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />
