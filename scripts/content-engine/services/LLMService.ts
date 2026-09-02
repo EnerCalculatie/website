@@ -168,6 +168,7 @@ export class LLMService {
           practicalUsefulness: 8, b2bRelevance: 7, visualImpact: 6,
           scanability: 7, conversionPotential: 6, socialRepurposability: 6
         },
+        visualOpportunity: false,
         feedback: "Mock: marketingkwaliteit in orde."
       });
     }

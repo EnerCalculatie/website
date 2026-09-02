@@ -817,5 +817,17 @@
     "topic": "Buffervat bij een warmtepomp: inhoud berekenen en pendelgedrag voorkomen",
     "slug": "buffervat-warmtepomp-inhoud-berekenen-pendelgedrag",
     "status": "generated"
+  },
+  {
+    "date": "2026-09-02",
+    "topic": "Buffervat Berekenen voor een 8 kW Warmtepomp: Inhoud en Vuistregels",
+    "slug": "buffervat-berekenen-8-kw-warmtepomp",
+    "status": "generated"
+  },
+  {
+    "date": "2026-09-02",
+    "topic": "Buffervat hybride warmtepomp met vloerverwarming: Dimensionering en inhoud",
+    "slug": "buffervat-hybride-warmtepomp-vloerverwarming",
+    "status": "generated"
   }
 ]

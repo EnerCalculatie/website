@@ -14,7 +14,7 @@ vi.mock('../services/LLMService', () => ({
   },
 }));
 
-import { SeoGeoAgent } from './SeoGeoAgent';
+import { SeoGeoAgent, stripFaqSectionFromContent, dedupeFaq } from './SeoGeoAgent';
 
 function validSeoOutput(overrides: Record<string, unknown> = {}) {
   return {
@@ -94,6 +94,20 @@ describe('SeoGeoAgent.run', () => {
     const result = await agent.run(draftPath, outputPath);
     expect(result.visual).toBeUndefined();
   });
+
+  it('regressie: verwijdert een eigen FAQ-sectie in content én dedupliceert het faq-veld, ook als het LLM de seo.md-instructie negeert', async () => {
+    generateMock.mockResolvedValue(JSON.stringify(validSeoOutput({
+      content: '# Artikel\n\nBody.\n\n## Veelgestelde vragen\n\n### Vraag 1?\nAntwoord.',
+      faq: [
+        { question: 'Vraag 1?', answer: 'Antwoord.' },
+        { question: 'Vraag 1?', answer: 'Antwoord.' },
+      ],
+    })));
+    const agent = new SeoGeoAgent();
+    const result = await agent.run(draftPath, outputPath);
+    expect(result.content).not.toContain('Veelgestelde vragen');
+    expect(result.faq).toHaveLength(1);
+  });
 });
 
 describe('SeoGeoAgent.brief', () => {
@@ -163,5 +177,77 @@ describe('SeoGeoAgent.audit', () => {
     await agent.audit(seoJsonPath, validBrief, auditOutputPath);
     const written = JSON.parse(readFileSync(auditOutputPath, 'utf-8'));
     expect(written.passed).toBe(true);
+  });
+});
+
+describe('stripFaqSectionFromContent', () => {
+  it('verwijdert een "## Veelgestelde vragen"-sectie en alles erna', () => {
+    const content = 'Alinea 1.\n\n## Een kop\n\nAlinea 2.\n\n## Veelgestelde vragen over X\n\n### Vraag 1?\nAntwoord 1.';
+    const { content: result, stripped } = stripFaqSectionFromContent(content);
+    expect(stripped).toBe(true);
+    expect(result).toBe('Alinea 1.\n\n## Een kop\n\nAlinea 2.');
+    expect(result).not.toContain('Veelgestelde vragen');
+  });
+
+  it('verwijdert ook een "## FAQ"-kop, hoofdletterongevoelig', () => {
+    const content = 'Body tekst.\n\n## faq\n\nVraag en antwoord.';
+    const { stripped, content: result } = stripFaqSectionFromContent(content);
+    expect(stripped).toBe(true);
+    expect(result).toBe('Body tekst.');
+  });
+
+  it('laat content zonder FAQ-kop ongewijzigd', () => {
+    const content = 'Gewoon een artikel zonder FAQ-sectie.\n\n## Een andere kop\n\nMeer tekst.';
+    const { stripped, content: result } = stripFaqSectionFromContent(content);
+    expect(stripped).toBe(false);
+    expect(result).toBe(content);
+  });
+
+  it('is geen false-positive op het woord "veelgestelde" midden in een zin', () => {
+    const content = 'Dit beantwoordt een veelgestelde vraag over buffervaten in lopende tekst, geen kop.';
+    const { stripped } = stripFaqSectionFromContent(content);
+    expect(stripped).toBe(false);
+  });
+});
+
+describe('dedupeFaq', () => {
+  it('laat unieke vragen ongemoeid', () => {
+    const faq = [
+      { question: 'Hoeveel liter buffervat per kW?', answer: 'A' },
+      { question: 'Wat is het verschil serieel/parallel?', answer: 'B' },
+    ];
+    expect(dedupeFaq(faq)).toHaveLength(2);
+  });
+
+  it('verwijdert een exacte duplicaat-vraag', () => {
+    const faq = [
+      { question: 'Hoeveel liter buffervat per kW?', answer: 'A' },
+      { question: 'Hoeveel liter buffervat per kW?', answer: 'A' },
+    ];
+    expect(dedupeFaq(faq)).toHaveLength(1);
+  });
+
+  it('verwijdert een semantisch vrijwel identieke vraag (regressie: dubbele FAQ-sectie in buffervat-artikel)', () => {
+    const faq = [
+      { question: 'Hoeveel liter buffervat per kW warmtepomp is nodig?', answer: 'A' },
+      { question: 'Hoeveel liter buffervat is er per kW warmtepomp nodig?', answer: 'B' },
+    ];
+    expect(dedupeFaq(faq)).toHaveLength(1);
+  });
+
+  it('behoudt vragen die inhoudelijk duidelijk verschillen, ook met overlappende woorden', () => {
+    const faq = [
+      { question: 'Wat is de minimale compressor-run-time van een warmtepomp?', answer: 'A' },
+      { question: 'Wat is het verschil tussen een serieel en parallel geschakeld buffervat?', answer: 'B' },
+    ];
+    expect(dedupeFaq(faq)).toHaveLength(2);
+  });
+
+  it('behoudt de eerste van twee duplicaten, niet de tweede', () => {
+    const faq = [
+      { question: 'Vraag?', answer: 'Eerste antwoord' },
+      { question: 'Vraag?', answer: 'Tweede antwoord' },
+    ];
+    expect(dedupeFaq(faq)[0].answer).toBe('Eerste antwoord');
   });
 });

@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { LLMService } from '../services/LLMService';
-import { MarketingGateOutputSchema, MarketingGateOutput, computeMarketingGatePassed } from '../schemas/marketing-gate';
+import { MarketingGateOutputSchema, MarketingGateOutputWithVisualStatus, computeMarketingGatePassed } from '../schemas/marketing-gate';
 
 /** Beoordeelt marketing/contentkwaliteit — apart van, en onafhankelijk van, de factual/technical
  * QualityGateAgent (die blijft ongewijzigd de enige harde gate voor feitelijke juistheid). Enige
@@ -17,7 +17,7 @@ export class MarketingGateAgent {
     this.systemPrompt = readFileSync(promptPath, 'utf-8');
   }
 
-  async run(seoJsonPath: string, outputPath: string): Promise<MarketingGateOutput> {
+  async run(seoJsonPath: string, outputPath: string): Promise<MarketingGateOutputWithVisualStatus> {
     const startTime = Date.now();
     console.log(`[MarketingGateAgent] Start marketing/contentkwaliteit-beoordeling...`);
 
@@ -42,10 +42,14 @@ ${seoJson.content}
       });
 
       const validated = MarketingGateOutputSchema.parse(rawJson);
-      const result: MarketingGateOutput = { ...validated, passed: computeMarketingGatePassed(validated.scores) };
+      const result: MarketingGateOutputWithVisualStatus = {
+        ...validated,
+        passed: computeMarketingGatePassed(validated.scores),
+        visualProvided: Boolean(seoJson.visual),
+      };
 
       const duration = Date.now() - startTime;
-      console.log(`[MarketingGateAgent] Beoordeling afgerond in ${duration}ms. Passed: ${result.passed} (practicalUsefulness: ${result.scores.practicalUsefulness}/10)`);
+      console.log(`[MarketingGateAgent] Beoordeling afgerond in ${duration}ms. Passed: ${result.passed} (practicalUsefulness: ${result.scores.practicalUsefulness}/10, visualOpportunity: ${result.visualOpportunity}, visualProvided: ${result.visualProvided})`);
 
       writeFileSync(outputPath, JSON.stringify(result, null, 2), 'utf-8');
       return result;

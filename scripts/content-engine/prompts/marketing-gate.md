@@ -26,11 +26,19 @@ Beoordeel ook of het artikel — waar het onderwerp zich ervoor leent — een he
 scenario). Ontbreken die terwijl het onderwerp zich er duidelijk voor leent: benoem dat in `feedback`, telt mee in
 `practicalUsefulness` en `conversionPotential`.
 
+## Visual-opportunity
+
+Naast de scores: bepaal `visualOpportunity` (`true`/`false`) — bevat de content duidelijke data die zich uitstekend
+lenen voor een `bar_chart` of `comparison` (bijv. meerdere vergelijkbare getallen, vuistregels per categorie, een
+serieel-vs-parallel-achtige tegenstelling)? Dit is onafhankelijk van of er al een visual aanwezig is (dat wordt
+elders in de pipeline vastgesteld) — jij beoordeelt puur de *inhoudelijke kans*, niet de huidige staat. Wees
+terughoudend: `true` alleen bij een duidelijke, concrete kans — niet bij elk cijfer in de tekst.
+
 ## Ondergrens (enige blokkerende regel hier)
 
 `practicalUsefulness` **< 4/10** → `passed: false`. Dit is de enige score die publicatie blokkeert. Alle overige
-dimensies zijn non-blocking signaal, ongeacht hoe laag — geef ze eerlijk, maar `passed` blijft `true` zolang
-`practicalUsefulness` ≥ 4.
+dimensies (inclusief `visualOpportunity`) zijn non-blocking signaal, ongeacht hoe laag — geef ze eerlijk, maar
+`passed` blijft `true` zolang `practicalUsefulness` ≥ 4.
 
 Wees niet perfectionistisch: een artikel hoeft niet elke dimensie hoog te scoren om bruikbaar te zijn.
 
@@ -46,6 +54,7 @@ Wees niet perfectionistisch: een artikel hoeft niet elke dimensie hoog te scoren
     "conversionPotential": 0,
     "socialRepurposability": 0
   },
+  "visualOpportunity": true | false,
   "feedback": "<concrete, niet-blokkerende suggesties — wat zou dit artikel sterker maken>"
 }
 ```

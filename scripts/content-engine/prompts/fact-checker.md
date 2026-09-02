@@ -20,6 +20,18 @@ Focus specifiek op:
 4. Bij een verwijzing naar een norm/regelgeving (NEN1010, NEN3140, ISSO, ACM, netbeheerders): controleer of de bron
    een algemene regel of een specifieke situatie beschrijft. Trekt de tekst een algemene conclusie uit een bron die
    alleen een specifieke situatie regelt, is dit 'unsupported' — ook als de norm zelf correct wordt aangehaald.
+5. Bij een niet-normatieve ontwerp-vuistregel (bijv. "10-20 liter per kW", een percentage, een indicatieve marge —
+   geen NEN/IEC-norm): controleer of de tekst deze presenteert als universele ontwerpregel zonder voorbehoud, terwijl
+   de bron zelf geen universele claim doet (geen normverwijzing, geen "altijd/verplicht"-formulering in de bron). Zo
+   ja: 'imprecise' — de tekst moet aangeven dat dit een indicatieve richtwaarde is en dat fabrikantvoorschriften/het
+   daadwerkelijke systeemontwerp leidend zijn (zie writer.md, "Algemene vuistregels/richtwaarden").
+6. **Scenario-mismatch bij normregels — de kennisbank bevat alle onderwerpen, niet alleen het huidige.** Controleer
+   bij elke aangehaalde norm/regel of het scenario in de bron (bijv. **invoeding**/teruglevering door zonnepanelen)
+   overeenkomt met het scenario in de tekst (bijv. **afname**/stroomverbruik door een warmtepomp-compressor). Past de
+   tekst een regel toe op een ander scenario dan de bron beschrijft, is dit 'incorrect' (severity 'high'), ook als de
+   norm zelf correct wordt geciteerd. Controleer daarnaast expliciet of **thermisch vermogen** (kWth, verwarmings-
+   capaciteit) niet verward wordt met **elektrisch vermogen** (kWe, stroomverbruik/-afzekering) — dit zijn andere
+   grootheden en een claim die ze door elkaar gebruikt is 'incorrect'.
 
 Je levert ALLEEN een lijst met fouten terug in het voorgeschreven JSON-formaat. 
 Als de tekst 100% correct is, stuur je een lege array terug `[]`.

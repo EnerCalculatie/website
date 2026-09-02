@@ -8,6 +8,48 @@ import {
   computeSeoAuditPassed
 } from '../schemas/seo';
 
+/**
+ * Puur — geen I/O. Verwijdert een eigen FAQ-sectie uit de markdown-body, mocht het model
+ * `seo.md`'s instructie ("FAQ uitsluitend in het `faq`-JSON-veld") toch negeren. Defensief
+ * vangnet, niet de primaire fix (die zit in de prompt) — voorkomt dat een dubbele FAQ ooit
+ * live komt, ook bij een promptregressie. Zoekt een "## Veelgestelde vragen"/"## FAQ"-kop
+ * (H2 of H3, hoofdletterongevoelig) en knipt alles vanaf die kop tot het einde van de content —
+ * een FAQ-sectie staat in de praktijk altijd als laatste sectie van het artikel.
+ */
+export function stripFaqSectionFromContent(content: string): { content: string; stripped: boolean } {
+  const match = content.match(/\n#{2,3}\s*(veelgestelde vragen|faq)\b[^\n]*\n/i);
+  if (!match || match.index === undefined) return { content, stripped: false };
+  return { content: content.slice(0, match.index).trimEnd(), stripped: true };
+}
+
+/**
+ * Puur — geen I/O. Verwijdert exacte en semantisch vrijwel identieke FAQ-vragen (behoudt de
+ * eerste). "Semantisch vrijwel identiek": genormaliseerde (lowercase, leestekens weg,
+ * whitespace-genormaliseerde) woordenset-overlap (Jaccard) boven 0.8 — geen embeddings/LLM-call
+ * nodig voor dit soort bijna-letterlijke duplicaten.
+ */
+export function dedupeFaq<T extends { question: string; answer: string }>(faq: T[]): T[] {
+  const normalize = (s: string) => new Set(s.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, '').split(/\s+/).filter(Boolean));
+  const jaccard = (a: Set<string>, b: Set<string>) => {
+    if (a.size === 0 && b.size === 0) return 1;
+    const intersection = [...a].filter((w) => b.has(w)).length;
+    const union = new Set([...a, ...b]).size;
+    return union === 0 ? 1 : intersection / union;
+  };
+
+  const kept: T[] = [];
+  const keptSets: Set<string>[] = [];
+  for (const item of faq) {
+    const itemSet = normalize(item.question);
+    const isDuplicate = keptSets.some((s) => jaccard(s, itemSet) > 0.8);
+    if (!isDuplicate) {
+      kept.push(item);
+      keptSets.push(itemSet);
+    }
+  }
+  return kept;
+}
+
 export class SeoGeoAgent {
   private llm: LLMService;
   private systemPrompt: string;
@@ -102,6 +144,20 @@ ${draftContent}
       });
 
       let validatedData = SeoGeoOutputSchema.parse(rawJson);
+
+      // Defensief vangnet tegen dubbele FAQ (zie prompts/seo.md) — negeert het model de
+      // instructie toch, dan wordt een eigen FAQ-sectie in de body hier alsnog verwijderd
+      // (BlogPostLayout rendert het `faq`-veld al als eigen zichtbaar blok) en worden
+      // exacte/vrijwel-identieke FAQ-vragen in het `faq`-veld zelf gededupliceerd.
+      const { content: contentWithoutFaqSection, stripped } = stripFaqSectionFromContent(validatedData.content);
+      if (stripped) {
+        console.warn('[SeoGeoAgent] Waarschuwing: eigen FAQ-sectie in de content-body gevonden en verwijderd (dubbele-FAQ-vangnet) — zie prompts/seo.md.');
+      }
+      const dedupedFaq = validatedData.faq ? dedupeFaq(validatedData.faq) : validatedData.faq;
+      if (dedupedFaq && validatedData.faq && dedupedFaq.length < validatedData.faq.length) {
+        console.warn(`[SeoGeoAgent] Waarschuwing: ${validatedData.faq.length - dedupedFaq.length} dubbele/vrijwel-identieke FAQ-vraag/vragen verwijderd.`);
+      }
+      validatedData = { ...validatedData, content: contentWithoutFaqSection, faq: dedupedFaq };
 
       // WriterAgent schrijft optioneel een `<draft>.extras.json` naast draft.md met visual-data uit
       // zijn json-extras-nevenoutput (zie prompts/writer.md). SeoGeoAgent optimaliseert alleen de

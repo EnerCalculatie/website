@@ -2171,4 +2171,53 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is het verschil tussen een serieel en parallel geschakeld buffervat?', answer: 'Een serieel geschakeld buffervat verhoogt uitsluitend het totale waterinhoudsvolume van het systeem, terwijl een parallel geschakeld buffervat dient als hydraulische scheiding tussen de primaire en secundaire volumestroom.' },
     ],
   },
+  {
+    slug: 'buffervat-berekenen-8-kw-warmtepomp',
+    readingTimeMinutes: 3,
+    title: 'Buffervat Berekenen voor een 8 kW Warmtepomp: Inhoud en Vuistregels',
+    seoTitle: 'Buffervat Warmtepomp 8 kW Berekenen: Inhoud & Regels',
+    description:
+      'Hoe bereken je de inhoud van een buffervat voor een 8 kW warmtepomp? Ontdek vuistregels, volumeberekeningen en wanneer een buffervat noodzakelijk is.',
+    date: '2026-09-02',
+    excerpt:
+      'Het juiste volume van een buffervat voorkomt pendelen en storingen tijdens de ontdooicyclus van een warmtepomp. Ontdek hoe je de benodigde inhoud voor 8 kW vermogen berekent.',
+    tags: ['Warmtepomp', 'Buffervat', 'Installatietechniek', 'Duurzaam Verwarmen', 'Systeemontwerp'],
+    keyPoints: [
+      'Een 8 kW warmtepomp heeft minimaal 80 tot 120 liter actief circulatievolume nodig voor de ontdooicyclus (10-15 l/kW).',
+      'Voor een parallel geschakeld buffervat geldt een vuistregel van 20 tot 30 liter per kW (160 tot 240 liter bij 8 kW).',
+      'Een te klein buffervat veroorzaakt pendelen en storingen, terwijl een te groot vat tot hogere stilstandsverliezen leidt.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel liter buffervat is nodig voor een 8 kW warmtepomp?', answer: 'Voor een 8 kW warmtepomp varieert het benodigde volume tussen de 80 en 240 liter, afhankelijk van het type opstelling. Voor de defrost-functie is 80 tot 120 liter (10-15 l/kW) vereist, terwijl een parallel geschakeld vat 160 tot 240 liter (20-30 l/kW) vraagt.' },
+      { question: 'Waarom is een buffervat belangrijk bij een warmtepomp?', answer: 'Een buffervat garandeert voldoende waterinhoud en doorstroming in het cv-systeem. Dit voorkomt pendelen (frequent in- en uitschakelen), voorkomt storingen tijdens de ontdooicyclus en beperkt slijtage aan de compressor.' },
+      { question: 'Wanneer is een buffervat niet nodig bij een warmtepomp?', answer: 'Een buffervat is niet altijd vereist wanneer de installatie beschikt over voldoende waterinhoud en een gegarandeerde volumestroom, bijvoorbeeld bij een vloerverwarmingssysteem waarvan minimaal één grote zone altijd openstaat.' },
+      { question: 'Wat zijn de nadelen van een te groot buffervat?', answer: 'Een te groot buffervat zorgt voor meer stilstandsverliezen door warmteverlies, verlaagt het seizoensrendement (SCOP), brengt hogere aanschafkosten met zich mee en neemt onnodig veel ruimte in beslag.' },
+    ],
+  },
+  {
+    slug: 'buffervat-hybride-warmtepomp-vloerverwarming',
+    readingTimeMinutes: 3,
+    title: 'Buffervat hybride warmtepomp met vloerverwarming: Dimensionering en inhoud',
+    seoTitle: 'Buffervat hybride warmtepomp berekenen | Inhoud & advies',
+    description:
+      'Is een buffervat nodig bij een hybride warmtepomp met vloerverwarming? Lees hoe u de juiste waterinhoud berekent voor seriële en parallelle opstellingen.',
+    date: '2026-09-02',
+    excerpt:
+      'Een hybride warmtepomp en vloerverwarming zijn een prima combinatie, maar zonder de juiste waterinhoud ontstaan pendelproblemen of defrost-storingen. Ontdek hoe u een buffervat correct dimensioneert.',
+    tags: ['Hybride warmtepomp', 'Vloerverwarming', 'Buffervat', 'Dimensionering', 'Hydraulisch schema'],
+    keyPoints: [
+      'Minimale runtime van 10 tot 15 minuten voorkomt schadelijk pendelen van de warmtepomp.',
+      'Defrost-cyclus vereist een gegarandeerde waterinhoud van 10 tot 15 liter per kW vermogen.',
+      'Serieel buffervat vult het tekort aan open systeeminhoud aan; parallel buffervat ontkoppelt de stromingen.',
+      'Zone-naregelingen verminderen het beschikbare volume, waardoor een buffervat noodzakelijk wordt.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Is een buffervat altijd verplicht bij een hybride warmtepomp met vloerverwarming?', answer: 'Nee, een buffervat is niet in elke situatie noodzakelijk, mits er continu voldoende onbelemmerde waterinhoud en doorstroming gegarandeerd is, zoals bij een open zone zonder dichtsturende thermostaatkranen.' },
+      { question: 'Hoeveel waterinhoud heeft een lucht-water warmtepomp nodig voor de ontdooicyclus?', answer: 'Tijdens de ontdooicyclus (defrost) is kortstondig een minimale waterinhoud van circa 10 tot 15 liter per kW vermogen nodig om de benodigde verdampingswarmte te leveren.' },
+      { question: 'Wat is het verschil tussen een serieel en een parallel aangesloten buffervat?', answer: 'Een serieel vat staat in-line in de retourleiding en vult enkel het ontbrekende watervolume aan. Een parallel vat fungeert als hydraulische scheiding met secundaire pomp en vereist een grotere inhoud (richtwaarde 15 tot 20 liter per kW).' },
+      { question: 'Hoe bereken je de waterinhoud van vloerverwarmingsslangen?', answer: 'Vloerverwarmingsslangen van 16x2 mm bevatten circa 0,113 liter water per strekkende meter. Bij een hart-op-hart afstand van 10 cm komt dit neer op ongeveer 1,13 liter water per m² vloeroppervlak.' },
+    ],
+  },
 ];

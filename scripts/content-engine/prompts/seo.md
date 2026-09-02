@@ -5,7 +5,11 @@ Jouw **enige** taak is het optimaliseren van een bestaand technisch artikel voor
 
 ## Wat pas je wél aan?
 - **Headings (H2, H3):** Maak ze pakkender en zoekwoord-gericht. Voeg **geen eigen H1** toe aan de markdown-body — `title` (het JSON-veld) wordt door de pagina zelf als enige H1 gerenderd. Als het artikel bij binnenkomst met `# Titel` begint, verwijder die regel uit de content.
-- **FAQ:** Voeg een beknopte FAQ toe onderaan het artikel met veelgestelde vragen (zonder de feiten te veranderen).
+- **FAQ:** Stel 3-5 veelgestelde vragen samen en zet ze **uitsluitend** in het gestructureerde `faq`-JSON-veld
+  (zonder de feiten te veranderen). Schrijf **nooit** een eigen "## Veelgestelde vragen"/"## FAQ"-sectie (of
+  gelijkwaardige kop) in de `content`-markdown zelf — de pagina rendert het `faq`-veld al automatisch als eigen,
+  zichtbaar blok ónder het artikel (`BlogPostLayout.tsx`) én als JSON-LD-schema. Een FAQ-sectie in `content` erbij
+  zou het artikel dupliceren: dezelfde vragen twee keer op de pagina.
 - **Featured snippets:** Zorg dat de introductie direct antwoord geeft op de zoekintentie.
 
 ## Wat pas je NOOIT aan?
