@@ -2100,4 +2100,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waarom geldt een maximale afzekering van 16A voor groepen bij 3x25A?', answer: 'Om selectiviteit te waarborgen ten opzichte van de 3x25A-hoofdzekering (met een factor 1,6 volgens NEN 1010), mag een eindgroep voor bijvoorbeeld een laadpaal of omvormer op maximaal 16A worden afgezekerd.' },
     ],
   },
+  {
+    slug: 'aardlekbeveiliging-type-b-nen-1010-laadpaal-omvormer',
+    readingTimeMinutes: 4,
+    title: 'Aardlekbeveiliging Type B bij omvormers en laadpalen: onderbouwing NEN 1010',
+    seoTitle: 'Type B Aardlekschakelaar NEN 1010: Laadpaal & PV',
+    description:
+      'Wanneer is een Type B aardlekschakelaar verplicht volgens NEN 1010 bij laadpalen en zonnepanelen? Voorkom blindering en onderbouw meerkosten in de offerte.',
+    date: '2026-09-02',
+    excerpt:
+      'Een verkeerd gekozen aardlekschakelaar bij een laadpaal of PV-omvormer kan de reguliere beveiliging blind maken. Onderbouw de NEN 1010-eisen helder in uw offerte.',
+    tags: ['NEN 1010', 'Aardlekbeveiliging', 'Type B aardlekschakelaar', 'Laadpaal', 'PV-omvormer', 'DC-lekstroom'],
+    keyPoints: [
+      'NEN 1010 vereist Type B beveiliging of geïntegreerde 6 mA DC-detectie (RDC-DD/RCMU) bij laadpaal en PV-omvormer.',
+      'DC-foutstromen boven 6 mA veroorzaken blindering van reguliere Type A aardlekschakelaars.',
+      'Bij ingebouwde DC-detectie volstaat een standaard Type A aardlekschakelaar in de verdeelkast.',
+      'Niet-conforme installaties kunnen leiden tot afwijzing van schadeclaims door opstallen- en brandverzekeraars.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wanneer is een Type B aardlekschakelaar verplicht bij een laadpaal?', answer: 'Een Type B aardlekschakelaar is verplicht volgens NEN 1010 rubriek 722, tenzij het oplaadpunt beschikt over een geïntegreerde 6 mA DC-lekstroomdetectie (RDC-DD conform IEC 62955).' },
+      { question: 'Wat is het risico van blindering bij een Type A aardlekschakelaar?', answer: 'DC-lekstromen boven 6 mA verzadigen de spoelkern van een Type A aardlekschakelaar. Hierdoor raakt het mechanisme geblokkeerd en schakelt het niet meer uit bij een gevaarlijk AC-lekstroomlek elders in het pand.' },
+      { question: 'Is een Type B aardlekschakelaar altijd verplicht bij PV-omvormers?', answer: 'Nee, als de omvormer beschikt over een galvanische scheiding of als de fabrikant schriftelijk verklaart dat DC-foutstromen naar de AC-zijde maximaal 6 mA bedragen (IEC 62109), volstaat een standaard Type A beveiliging.' },
+    ],
+  },
 ];
