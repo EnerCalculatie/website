@@ -67,6 +67,35 @@ export class LLMService {
     throw new Error('LLMService failed after max retries.');
   }
 
+  /**
+   * Als `generate()`, maar retryt bij ongeldige JSON in de respons door de call opnieuw te
+   * doen (regenereren, niet herparsen — de tekst zelf is kapot, dat repareert zichzelf niet).
+   * Ontdekt 2026-09-02: een live paid-tier-run gaf één keer niet-strikt-geldige JSON terug
+   * (`SyntaxError` op `JSON.parse`), een tweede poging op hetzelfde onderwerp slaagde meteen —
+   * dus incidenteel LLM-output-ruis, geen structurele fout. Vóór deze fix deed elke agent
+   * (Research/FactChecker/TechReviewer/SeoGeo/QualityGate/MarketingGate) een kale `JSON.parse`
+   * zonder vangnet; dit is nu de ene gedeelde plek voor die robuustheid i.p.v. duplicate logic
+   * in elke agent. `responseFormat` wordt altijd op `'json_object'` gezet, ongeacht wat de
+   * caller meegeeft.
+   */
+  async generateJSON(request: Omit<LLMRequest, 'responseFormat'>, maxAttempts = 2): Promise<unknown> {
+    let lastError: unknown;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      const text = await this.generate({ ...request, responseFormat: 'json_object' });
+      try {
+        return JSON.parse(text);
+      } catch (err) {
+        lastError = err;
+        const willRetry = attempt < maxAttempts;
+        console.warn(
+          `[LLMService] Ongeldige JSON in respons (poging ${attempt}/${maxAttempts}): ${(err as Error).message}.` +
+          (willRetry ? ' Opnieuw genereren...' : ' Geen pogingen meer over.')
+        );
+      }
+    }
+    throw new Error(`[LLMService] Kon geen geldige JSON krijgen na ${maxAttempts} pogingen: ${(lastError as Error)?.message}`);
+  }
+
   private getMockResponse(prompt: string): string {
     if (prompt.includes('Research Agent')) {
       return JSON.stringify({ 

@@ -48,15 +48,12 @@ ${draftContent}
     `;
 
     try {
-      const responseText = await this.llm.generate({
+      const rawJson = await this.llm.generateJSON({
         systemPrompt: this.systemPrompt,
         userPrompt,
         temperature: 0.0, // Absoluut nulpunt voor maximale precisie
-        responseFormat: 'json_object'
       });
 
-      // Zod validation
-      const rawJson = JSON.parse(responseText);
       const validatedData = FactCheckOutputSchema.parse(rawJson);
       
       const duration = Date.now() - startTime;

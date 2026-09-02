@@ -33,14 +33,12 @@ ${draftContent}
     `;
 
     try {
-      const responseText = await this.llm.generate({
+      const rawJson = await this.llm.generateJSON({
         systemPrompt: this.systemPrompt,
         userPrompt,
         temperature: 0.1, // Zeer laag, we willen geen creatieve reviews
-        responseFormat: 'json_object'
       });
 
-      const rawJson = JSON.parse(responseText);
       const validatedData = TechnicalReviewOutputSchema.parse(rawJson);
       
       const duration = Date.now() - startTime;

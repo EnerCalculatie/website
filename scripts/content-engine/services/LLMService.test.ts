@@ -129,3 +129,53 @@ describe('LLMService.generate', () => {
     expect(parsed).not.toHaveProperty('confidence'); // confidence is uniek voor de Quality Gate-stub
   });
 });
+
+describe('LLMService.generateJSON', () => {
+  beforeEach(() => {
+    fetchMock.mockReset();
+    vi.stubGlobal('fetch', fetchMock);
+    delete process.env.MOCK_LLM;
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('geeft het geparste object terug bij geldige JSON', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: '{"foo":"bar"}' }] } }] }));
+    const service = new LLMService();
+    const result = await service.generateJSON({ userPrompt: 'vraag' });
+    expect(result).toEqual({ foo: 'bar' });
+  });
+
+  it('forceert responseFormat json_object, ongeacht wat de caller meegeeft', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: '{}' }] } }] }));
+    const service = new LLMService();
+    await service.generateJSON({ userPrompt: 'vraag' });
+    const sentBody = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(sentBody.generationConfig.responseMimeType).toBe('application/json');
+  });
+
+  it('regenereert bij ongeldige JSON en slaagt als de tweede poging wel geldig is', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: '{niet geldige json' }] } }] }))
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: '{"foo":"ok na retry"}' }] } }] }));
+    const service = new LLMService();
+    const result = await service.generateJSON({ userPrompt: 'vraag' });
+    expect(result).toEqual({ foo: 'ok na retry' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('gooit een duidelijke fout na uitputting van alle pogingen bij aanhoudend ongeldige JSON', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'geen json' }] } }] }));
+    const service = new LLMService();
+    await expect(service.generateJSON({ userPrompt: 'vraag' })).rejects.toThrow(/Kon geen geldige JSON krijgen na 2 pogingen/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('respecteert een aangepast maxAttempts', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'geen json' }] } }] }));
+    const service = new LLMService();
+    await expect(service.generateJSON({ userPrompt: 'vraag' }, 3)).rejects.toThrow();
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+});

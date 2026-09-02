@@ -9,6 +9,7 @@ const { generateMock } = vi.hoisted(() => ({ generateMock: vi.fn() }));
 vi.mock('../services/LLMService', () => ({
   LLMService: class {
     generate = generateMock;
+    generateJSON = async (req) => JSON.parse(await generateMock(req));
   },
 }));
 
@@ -64,6 +65,7 @@ describe('ResearchAgent.run', () => {
     const call = generateMock.mock.calls[0][0];
     expect(call.systemPrompt.length).toBeGreaterThan(0);
     expect(call.userPrompt).toContain('mijn specifieke onderwerp');
-    expect(call.responseFormat).toBe('json_object');
+    // responseFormat: 'json_object' wordt nu altijd door LLMService.generateJSON zelf afgedwongen
+    // (zie LLMService.test.ts) — ResearchAgent geeft het niet meer los mee.
   });
 });

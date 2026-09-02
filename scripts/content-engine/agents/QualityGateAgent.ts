@@ -43,14 +43,12 @@ ${content}
     `;
 
     try {
-      const responseText = await this.llm.generate({
+      const rawJson = await this.llm.generateJSON({
         systemPrompt: this.systemPrompt,
         userPrompt,
         temperature: 0.1,
-        responseFormat: 'json_object'
       });
 
-      const rawJson = JSON.parse(responseText);
       const validatedData = QualityGateOutputSchema.parse(rawJson);
       
       const duration = Date.now() - startTime;

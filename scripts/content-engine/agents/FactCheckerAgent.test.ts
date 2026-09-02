@@ -8,6 +8,7 @@ const { generateMock } = vi.hoisted(() => ({ generateMock: vi.fn() }));
 vi.mock('../services/LLMService', () => ({
   LLMService: class {
     generate = generateMock;
+    generateJSON = async (req) => JSON.parse(await generateMock(req));
   },
 }));
 
