@@ -4,21 +4,19 @@ Dit bestand bevat de belangrijkste architectuur- en stijlregels voor de EnerCalc
 
 ## Tech Stack
 - **Frontend:** React 19, Vite, Tailwind CSS v4, Lucide React, Framer Motion (`motion/react`).
-- **Backend:** Node.js, Express, TypeScript (via `tsx` in dev, `esbuild` voor productie).
-- **Diensten:** Resend (E-mail API contact/lead-magnet), Brevo (nieuwsbrief, double opt-in), Railway (Hosting).
+- **Hosting:** GitHub Pages (statisch, custom domain `enercalculatie.nl` via `public/CNAME`), gedeployed door `.github/workflows/deploy.yml` bij elke push naar `main`. **Geen Express/Node-backend meer** — die draaide t/m 2026-09 op Railway (`server.ts`), is per 2026-09-03 volledig verwijderd (was al dood: GH Pages kan geen server-side code draaien, formulieren gaven 405 in productie).
+- **Formulieren/API:** Cloudflare Worker (`cloudflare-worker/index.js`, script `enercalculatie-forms`) — intercepteert `/api/contact`, `/api/lead-magnet`, `/api/newsletter`, `/api/health` via Cloudflare Routes vóór GitHub Pages. Los deploy-proces, niet gekoppeld aan de GH Pages-build: wijzigingen in `cloudflare-worker/` vereisen handmatig `wrangler deploy` (zie map zelf voor secrets/KV-binding).
+- **Diensten:** Resend (contact/lead-magnet-mail), Brevo (nieuwsbrief double opt-in), Cloudflare (DNS, Worker-hosting, WAF).
 
 ## Commando's & Scripts
-- `npm run start:dev` - Start beide servers lokaal (Frontend op :3000, Backend op :3001).
-- `npm run dev` - Start alléén de frontend (Vite).
-- `npm run dev:backend` - Start alléén de backend (Express via tsx).
-- `npm run build` - Compileer frontend (`/dist`) en backend (`server.js`) voor de live omgeving.
-- `npm run start` - Start de gecombineerde productie server (nodig voor Railway).
+- `npm run dev` - Start de frontend (Vite). Formulieren werken lokaal niet meer tegen een lokale backend — test die tegen de live Worker of met `wrangler dev` in `cloudflare-worker/`.
+- `npm run build` - Compileer frontend + SSR + prerender (`/dist`) — dit is wat GH Pages deployt. Geen backend-buildstap meer.
 
 ## Architectuur & Flow
-1. **API Communicatie:** De frontend communiceert altijd via `/api/...` (bijv. `/api/contact`). Lokaal vangt de Vite proxy dit af en stuurt het naar poort 3001. In productie handelt de Express server dit direct af.
-2. **Geheimen:** Gebruik áltijd `.env` voor keys (zoals `RESEND_API_KEY`, `BREVO_API_KEY`, `BREVO_LIST_ID`, `BREVO_TEMPLATE_ID`). Plaats geen keys of credentials in de code.
-3. **Nieuwsbrief (Brevo):** `/api/newsletter` (`newsletter.ts`) registreert e-mailadressen via Brevo's `doubleOptinConfirmation`-endpoint — geen directe inschrijving, de abonnee moet eerst een bevestigingsmail (Brevo-template) accepteren. De lijst/template wordt beheerd in het Brevo-dashboard, niet in code.
-4. **Productie Routing:** In `NODE_ENV=production` serveert de Express server de frontend vanuit de `/dist` map en fallbackt onbekende routes naar `index.html`.
+1. **API Communicatie:** De frontend roept `/api/...` aan (bijv. `/api/contact`) op hetzelfde domein. Cloudflare Routes sturen die paden naar de Worker (`cloudflare-worker/index.js`); alle andere paden gaan naar GitHub Pages. Geen Vite-devproxy meer (verwijderd uit `vite.config.ts`).
+2. **Geheimen:** Worker-secrets (`RESEND_API_KEY`, `BREVO_API_KEY`, `BREVO_LIST_ID`, `BREVO_TEMPLATE_ID`) staan in Cloudflare, gezet via `wrangler secret put` — niet in `.env`/code. Zie `cloudflare-worker/wrangler.toml`.
+3. **Nieuwsbrief (Brevo):** `/api/newsletter`-handler in de Worker registreert e-mailadressen via Brevo's `doubleOptinConfirmation`-endpoint — geen directe inschrijving, de abonnee moet eerst een bevestigingsmail (Brevo-template `#4`) accepteren. Lijst (`#3`) en template worden beheerd in het Brevo-dashboard, niet in code.
+4. **Productie Routing:** GitHub Pages serveert statische bestanden uit `/dist` direct; `scripts/prerender.mjs` genereert per route een eigen HTML-bestand (incl. geneste GH-Pages-paden voor `/blog/<slug>`). Onbekende routes vallen terug op `dist/404.html`.
 
 ## Design & Code Regels
 - **Tablet/Mobile-First:** Raakvlakken (buttons, links) moeten minimaal 48px hoog/breed zijn. Tekst minimaal 16px voor leesbaarheid. Gebruik `aria-label` op icon-knoppen.
@@ -53,16 +51,4 @@ Nieuw artikel toevoegen, titel/meta-limieten, QC-gates op AI-content, samenvoege
 - Gebruik `import type { Variants } from 'motion/react'` en typeer variant-objecten expliciet: `const myVariants: Variants = { ... }`. Dit voorkomt TS2322-fouten bij `type: 'spring'` in transition-objecten.
 
 ## Observability & Systeem Schema's
-- **Health Endpoint (`GET /api/health`, `health.ts`):**
-  Het endpoint retourneert altijd een 200 OK response (zodat monitortools de JSON kunnen parsen) en bevat nooit PII of secrets. Het checkt Resend (`/api-keys`, niet `/v1/keys` of `/v1/domains` — die geven een 405 op GET) en Brevo (`/v3/account`) met een 2s timeout per call.
-  ```json
-  {
-    "status": "ok" | "degraded",
-    "message": "Backend API is running.",
-    "email": {
-      "resend": { "ok": boolean, "error"?: string },
-      "brevo": { "ok": boolean, "error"?: string }
-    }
-  }
-  ```
-  *Regel:* `status` wordt `degraded` als Resend of Brevo niet bereikbaar is. Dit endpoint loopt buiten de `formLimiter` in `server.ts` — monitortools pollen het regelmatig en zouden anders het formulier-quotum opmaken. Er is geen los admin-dashboard of login meer voor deze data (die superadmin-aanpak is teruggedraaid, zie git-historie rond `597032b`); roep de URL direct aan of koppel een externe uptime-monitor erop.
+- **Health Endpoint (`GET /api/health`):** sinds 2026-09-03 in de Cloudflare Worker (`cloudflare-worker/index.js`), niet meer in Express. Zelfde contract als voorheen: altijd 200 OK (zodat monitortools de JSON kunnen parsen), nooit PII/secrets, checkt Resend (`/api-keys`) en Brevo (`/v3/account`) met een 2s timeout per call, `status` wordt `degraded` bij een onbereikbare dienst. Loopt buiten de form-rate-limiter. Er is geen los admin-dashboard of login meer voor deze data; roep de URL direct aan of koppel een externe uptime-monitor erop.

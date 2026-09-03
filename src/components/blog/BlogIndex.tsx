@@ -100,7 +100,7 @@ export function BlogIndex() {
       <SEO
         title="Blog | EnerCalculatie"
         description="Praktische uitleg over Nederlandse regelgeving en rekenmethodes voor verduurzamingsinstallateurs: salderingsregeling, BTW-tarieven, ISDE-subsidie en meer."
-        canonical="https://www.enercalculatie.nl/blog"
+        canonical="https://enercalculatie.nl/blog"
       />
       {/* Blog-listingschema (JSON-LD) centraal uit blogSchema.ts — altijd alle posts. */}
       <script type="application/ld+json">{JSON.stringify(buildBlogListingSchema())}</script>

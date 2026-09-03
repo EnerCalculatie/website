@@ -26,7 +26,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const distDir = path.join(root, 'dist');
 
-const SITE = 'https://www.enercalculatie.nl';
+const SITE = 'https://enercalculatie.nl';
 
 if (!fs.existsSync(distDir)) {
   console.error('dist/ ontbreekt — draai eerst `npm run build`.');

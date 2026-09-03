@@ -6,19 +6,19 @@ EnerCalculatie ondersteunt professionals bij rendementsberekeningen, financiële
 
 ## Rekentools
 
-- [Rekentool zonnepanelen](https://www.enercalculatie.nl/rekentool-zonnepanelen.md): aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening, inclusief 0%-btw en salderingsafbouw.
-- [Rekentool thuisbatterij](https://www.enercalculatie.nl/rekentool-thuisbatterij.md): dimensionering op het werkelijke opwekoverschot, met impact op zelfconsumptie en terugleverkosten.
-- [Rekentool warmtepomp](https://www.enercalculatie.nl/rekentool-warmtepomp.md): rendementsberekening hybride/all-electric inclusief ISDE-subsidie en RVO-onderbouwing.
-- [Rekentool airco](https://www.enercalculatie.nl/rekentool-airco.md): koelvermogen per ruimte en impact op het totale energieprofiel van de woning.
-- [Rekentool laadpaal](https://www.enercalculatie.nl/rekentool-laadpaal.md): laadprofiel en directe controle van de impact op de netaansluitingscapaciteit.
+- [Rekentool zonnepanelen](https://enercalculatie.nl/rekentool-zonnepanelen.md): aantal panelen, piekvermogen en jaaropbrengst berekend uit dakoriëntatie en energierekening, inclusief 0%-btw en salderingsafbouw.
+- [Rekentool thuisbatterij](https://enercalculatie.nl/rekentool-thuisbatterij.md): dimensionering op het werkelijke opwekoverschot, met impact op zelfconsumptie en terugleverkosten.
+- [Rekentool warmtepomp](https://enercalculatie.nl/rekentool-warmtepomp.md): rendementsberekening hybride/all-electric inclusief ISDE-subsidie en RVO-onderbouwing.
+- [Rekentool airco](https://enercalculatie.nl/rekentool-airco.md): koelvermogen per ruimte en impact op het totale energieprofiel van de woning.
+- [Rekentool laadpaal](https://enercalculatie.nl/rekentool-laadpaal.md): laadprofiel en directe controle van de impact op de netaansluitingscapaciteit.
 
 ## Bedrijfsinformatie
 
-- [Prijzen](https://www.enercalculatie.nl/pricing.md): actuele tarieven en abonnementsvormen.
-- [Over ons](https://www.enercalculatie.nl/over-ons): oprichter, technische achtergrond en expertise.
+- [Prijzen](https://enercalculatie.nl/pricing.md): actuele tarieven en abonnementsvormen.
+- [Over ons](https://enercalculatie.nl/over-ons): oprichter, technische achtergrond en expertise.
 
 ## Optional
 
-- [Privacyverklaring](https://www.enercalculatie.nl/privacy.md)
-- [Algemene voorwaarden](https://www.enercalculatie.nl/voorwaarden.md)
-- [Verwerkersovereenkomst](https://www.enercalculatie.nl/verwerkersovereenkomst.md)
+- [Privacyverklaring](https://enercalculatie.nl/privacy.md)
+- [Algemene voorwaarden](https://enercalculatie.nl/voorwaarden.md)
+- [Verwerkersovereenkomst](https://enercalculatie.nl/verwerkersovereenkomst.md)

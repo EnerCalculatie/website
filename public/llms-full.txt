@@ -2,7 +2,7 @@
 
 Version: 1.0
 Last Updated: 2026-06-25
-Website: https://www.enercalculatie.nl
+Website: https://enercalculatie.nl
 
 ## Overview
 
@@ -152,13 +152,13 @@ netcongestie
 ## Resources
 
 Homepage:
-https://www.enercalculatie.nl
+https://enercalculatie.nl
 
 Knowledge Base:
-https://www.enercalculatie.nl/okf/index.md
+https://enercalculatie.nl/okf/index.md
 
 Sitemap:
-https://www.enercalculatie.nl/sitemap.xml
+https://enercalculatie.nl/sitemap.xml
 
 LLM Summary:
-https://www.enercalculatie.nl/llms.txt
+https://enercalculatie.nl/llms.txt

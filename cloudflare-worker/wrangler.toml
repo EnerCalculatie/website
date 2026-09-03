@@ -2,33 +2,22 @@ name = "enercalculatie-forms"
 main = "index.js"
 compatibility_date = "2026-09-03"
 
-# Routes intercepteren /api/contact, /api/lead-magnet en /api/newsletter op het
-# eigen domein vóór GitHub Pages (Cloudflare zit al als proxy vóór GH Pages —
-# zie cf-ray/x-served-by headers op live requests). Geen frontend-wijziging
-# nodig: dezelfde fetch('/api/...')-calls in de React-componenten blijven werken.
+# Front controller voor de hele site: elk request op het domein loopt door
+# deze Worker (formulieren/health direct afgehandeld, de rest doorgezet naar
+# GitHub Pages met securityheaders + legacy-redirects + Umami-proxy erbovenop
+# — zie index.js). Cloudflare zit al als proxy vóór GH Pages (cf-ray/x-served-by
+# op elk live request), dus dit vervangt geen DNS, alleen de routing ertussen.
 [[routes]]
-pattern = "www.enercalculatie.nl/api/contact"
+pattern = "www.enercalculatie.nl/*"
 zone_name = "enercalculatie.nl"
 
 [[routes]]
-pattern = "enercalculatie.nl/api/contact"
+pattern = "enercalculatie.nl/*"
 zone_name = "enercalculatie.nl"
 
-[[routes]]
-pattern = "www.enercalculatie.nl/api/lead-magnet"
-zone_name = "enercalculatie.nl"
-
-[[routes]]
-pattern = "enercalculatie.nl/api/lead-magnet"
-zone_name = "enercalculatie.nl"
-
-[[routes]]
-pattern = "www.enercalculatie.nl/api/newsletter"
-zone_name = "enercalculatie.nl"
-
-[[routes]]
-pattern = "enercalculatie.nl/api/newsletter"
-zone_name = "enercalculatie.nl"
+[[kv_namespaces]]
+binding = "FORM_RATE_LIMIT"
+id = "3dcf3536655c49f3b06adadf7950b0ac"
 
 # Secrets zetten:
 #   wrangler secret put RESEND_API_KEY

@@ -26,7 +26,7 @@ export const author: AuthorSchema = {
   jobTitle: 'Oprichter & ontwikkelaar, EnerCalculatie',
   description:
     'Pascal is oprichter en ontwikkelaar van EnerCalculatie. Hij bouwde het rekenmodel achter de software, dat verduurzamingsadvies onderbouwt op basis van de Nederlandse regelgeving rond saldering, ISDE-subsidie en netcongestie.',
-  url: 'https://www.enercalculatie.nl/over-ons', // pas aan of zet op '' als er geen about-pagina is
+  url: 'https://enercalculatie.nl/over-ons', // pas aan of zet op '' als er geen about-pagina is
   knowsAbout: [
     'Salderingsregeling',
     'Rendementsberekening zonnepanelen',

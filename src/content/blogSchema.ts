@@ -5,7 +5,7 @@
 import { authorPerson } from './author';
 import { blogPosts, type BlogPostMeta } from './blogPosts';
 
-const SITE = 'https://www.enercalculatie.nl';
+const SITE = 'https://enercalculatie.nl';
 const DEFAULT_IMAGE = `${SITE}/og-image.png`;
 
 /** Maakt een root-relatieve afbeelding absoluut; laat volledige URL's ongemoeid. */

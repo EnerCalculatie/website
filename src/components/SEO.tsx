@@ -14,21 +14,21 @@ interface SEOProps {
 export function SEO({
   title = 'EnerCalculatie — Van energierekening naar offerte',
   description = 'EnerCalculatie helpt installatiebedrijven om klantgegevens, energieadvies, calculaties en offertes in één consistente workflow af te handelen.',
-  canonical = 'https://www.enercalculatie.nl',
+  canonical = 'https://enercalculatie.nl',
   type = 'website',
   name = 'EnerCalculatie',
   image = '/og-image.png',
   noindex = false
 }: SEOProps) {
-  const baseUrl = 'https://www.enercalculatie.nl';
+  const baseUrl = 'https://enercalculatie.nl';
   const imageUrl = `${baseUrl}${image}`;
   const isHomepage = canonical === baseUrl;
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "EnerCalculatie",
-    "url": "https://www.enercalculatie.nl",
-    "logo": "https://www.enercalculatie.nl/logo.png",
+    "url": "https://enercalculatie.nl",
+    "logo": "https://enercalculatie.nl/logo.png",
     "sameAs": [
       "https://www.linkedin.com/company/enercalculatie/"
     ]
@@ -60,7 +60,7 @@ export function SEO({
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.enercalculatie.nl"
+      "item": "https://enercalculatie.nl"
     }
   ];
 

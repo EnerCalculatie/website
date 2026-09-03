@@ -57,7 +57,7 @@ interface BlogPostLayoutProps {
 }
 
 export function BlogPostLayout({ post, children }: BlogPostLayoutProps) {
-  const articleUrl = `https://www.enercalculatie.nl/blog/${post.slug}`;
+  const articleUrl = `https://enercalculatie.nl/blog/${post.slug}`;
   const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`;
   const related = relatedPosts(post);
   const formatDate = (date: string) =>

@@ -54,7 +54,7 @@ const FAQS = [
 ];
 
 export function OfferteSoftwareLanding() {
-  const canonical = 'https://www.enercalculatie.nl/offerte-software';
+  const canonical = 'https://enercalculatie.nl/offerte-software';
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -66,7 +66,7 @@ export function OfferteSoftwareLanding() {
     provider: {
       '@type': 'Organization',
       name: 'EnerCalculatie',
-      url: 'https://www.enercalculatie.nl',
+      url: 'https://enercalculatie.nl',
     },
     areaServed: { '@type': 'Country', name: 'Nederland' },
     url: canonical,

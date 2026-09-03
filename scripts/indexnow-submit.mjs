@@ -7,7 +7,7 @@
 //   node scripts/indexnow-submit.mjs --all --dry-run toon wat er zou worden gestuurd
 //
 // De sleutel is publiek (dat is het protocol): hij staat als los tekstbestand in
-// public/ en moet op https://www.enercalculatie.nl/<key>.txt te bereiken zijn.
+// public/ en moet op https://enercalculatie.nl/<key>.txt te bereiken zijn.
 // Zonder dat bestand weigert IndexNow de submission — vandaar de check vooraf.
 
 import fs from 'node:fs';
@@ -17,8 +17,8 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 
-const SITE = 'https://www.enercalculatie.nl';
-const HOST = 'www.enercalculatie.nl';
+const SITE = 'https://enercalculatie.nl';
+const HOST = 'enercalculatie.nl';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
 // IndexNow accepteert maximaal 10.000 URL's per verzoek; ruim boven onze omvang,
 // maar de batch houdt het netjes als de site groeit.

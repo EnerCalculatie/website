@@ -9,7 +9,7 @@ export function NewsletterConfirmed() {
       <SEO
         title="Inschrijving bevestigd | EnerCalculatie"
         description="Uw inschrijving voor de EnerCalculatie-nieuwsbrief is bevestigd."
-        canonical="https://www.enercalculatie.nl/nieuwsbrief-bevestigd"
+        canonical="https://enercalculatie.nl/nieuwsbrief-bevestigd"
       />
       {/* Transactional bedankt-pagina, geen zoekresultaat-waarde: niet indexeren en niet in sitemap.xml. */}
       <Helmet>

@@ -19,7 +19,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const distDir = path.join(root, 'dist');
 
-const SITE = 'https://www.enercalculatie.nl';
+const SITE = 'https://enercalculatie.nl';
 
 // pathToFileURL: een kaal Windows-pad (c:\...) is geen geldige ESM-specifier
 const { render, blogPosts, staticRoutes, notFoundRoute } = await import(
@@ -182,6 +182,57 @@ const sitemap = [
 
 fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemap, 'utf-8');
 console.log(`✅ Gegenereerd: dist/sitemap.xml (${sitemapEntries.length} URLs)`);
+
+// ---------------------------------------------------------------------------
+// Genereer rss.xml. Voorheen server.ts/rss.ts (Express, live per request) —
+// dat draait niet meer sinds de site op GitHub Pages (static) staat. Content
+// hangt toch alleen af van blogPosts.ts (build-time), dus hier statisch
+// gegenereerd net als sitemap.xml. Trigger-bron voor Zapier (nieuwe blogpost
+// -> LinkedIn-post met hashtags); de <category>-tags per item komen uit
+// blogPosts.ts se tags.
+function escapeXml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+const sortedPosts = [...blogPosts].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
+
+const rssItems = sortedPosts
+  .map((post) => {
+    const link = `${SITE}/blog/${post.slug}`;
+    const pubDate = new Date(post.date).toUTCString();
+    const categories = post.tags.map((tag) => `<category>${escapeXml(tag)}</category>`).join('\n      ');
+    return `    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${link}</link>
+      <guid isPermaLink="true">${link}</guid>
+      <pubDate>${pubDate}</pubDate>
+      <description>${escapeXml(post.excerpt)}</description>
+      ${categories}
+    </item>`;
+  })
+  .join('\n');
+
+const rssFeed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>EnerCalculatie Kennisbank</title>
+    <link>${SITE}/blog</link>
+    <description>Kennisbank-artikelen van EnerCalculatie over zonnepanelen, thuisbatterijen, warmtepompen en energieadvies.</description>
+    <language>nl-NL</language>
+${rssItems}
+  </channel>
+</rss>
+`;
+
+fs.writeFileSync(path.join(distDir, 'rss.xml'), rssFeed, 'utf-8');
+console.log(`✅ Gegenereerd: dist/rss.xml (${sortedPosts.length} items)`);
 
 // ---------------------------------------------------------------------------
 // Genereer agent-leesbare markdownbestanden: blog-index.md + blog-<slug>.md.

@@ -28,7 +28,7 @@ export function AboutUs() {
       <SEO
         title="Over ons | EnerCalculatie"
         description="Wie zit er achter EnerCalculatie? Lees over de oprichter en de technische achtergrond van de reken- en adviessoftware voor installateurs."
-        canonical="https://www.enercalculatie.nl/over-ons"
+        canonical="https://enercalculatie.nl/over-ons"
       />
       {/* ProfilePage-schema (JSON-LD) — mainEntity is de auteur/Person. */}
       <script type="application/ld+json">{JSON.stringify(profilePageSchema)}</script>

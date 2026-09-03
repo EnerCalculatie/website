@@ -41,7 +41,7 @@ function stripHtml(html) {
 export async function fetchSourceText(url, { fetchImpl = fetch, maxChars = 20000 } = {}) {
   try {
     const res = await fetchImpl(url, {
-      headers: { 'user-agent': 'EnerCalculatie-FactCheck/1.0 (+https://www.enercalculatie.nl)' },
+      headers: { 'user-agent': 'EnerCalculatie-FactCheck/1.0 (+https://enercalculatie.nl)' },
     });
     if (!res.ok) {
       return { ok: false, text: '', status: res.status, error: `HTTP ${res.status}` };

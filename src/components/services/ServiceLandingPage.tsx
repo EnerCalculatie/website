@@ -10,7 +10,7 @@ interface ServiceLandingPageProps {
 
 export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
   const service = services.find((s) => s.slug === slug)!;
-  const canonical = `https://www.enercalculatie.nl/rekentool-${service.slug}`;
+  const canonical = `https://enercalculatie.nl/rekentool-${service.slug}`;
 
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -21,7 +21,7 @@ export function ServiceLandingPage({ slug }: ServiceLandingPageProps) {
     provider: {
       '@type': 'Organization',
       name: 'EnerCalculatie',
-      url: 'https://www.enercalculatie.nl',
+      url: 'https://enercalculatie.nl',
     },
     areaServed: {
       '@type': 'Country',

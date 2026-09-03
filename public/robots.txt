@@ -24,4 +24,4 @@ User-agent: PerplexityBot
 Allow: /
 
 # Sitemap
-Sitemap: https://www.enercalculatie.nl/sitemap.xml
+Sitemap: https://enercalculatie.nl/sitemap.xml

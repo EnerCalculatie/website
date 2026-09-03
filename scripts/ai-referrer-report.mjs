@@ -40,7 +40,7 @@ if (!Number.isInteger(days) || days <= 0) {
 
 const apiToken = process.env.CLOUDFLARE_API_TOKEN;
 const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-const requestHost = process.env.SITE_HOST ?? 'www.enercalculatie.nl';
+const requestHost = process.env.SITE_HOST ?? 'enercalculatie.nl';
 
 if (!apiToken || !accountId) {
   throw new Error('CLOUDFLARE_API_TOKEN en/of CLOUDFLARE_ACCOUNT_ID ontbreken in .env.');

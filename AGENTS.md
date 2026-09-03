@@ -12,9 +12,9 @@ Eén bron, één plek om te onderhouden.
 
 ## Het minimum, mocht je `CLAUDE.md` niet lezen
 
-1. **Dit is de marketingsite**, niet de applicatie. React 19 + Vite + Tailwind v4, Express-backend, hosting op Railway.
+1. **Dit is de marketingsite**, niet de applicatie. React 19 + Vite + Tailwind v4, statisch gehost op GitHub Pages. Formulieren/API lopen los daarvan via een Cloudflare Worker (`cloudflare-worker/`) — geen Express-backend meer sinds 2026-09-03.
 2. **Wijzig nooit `dist/` of `dist-ssr/`.** Dat zijn buildmappen; je werk is bij de volgende build weg. Bewerk het bronbestand.
-3. **Railway deployt automatisch bij elke push naar `main`.** Pushen is live zetten. Werk op een branch en laat de merge het bewuste go-moment zijn.
+3. **GitHub Pages deployt automatisch bij elke push naar `main`** (`.github/workflows/deploy.yml`). Pushen is live zetten. Werk op een branch en laat de merge het bewuste go-moment zijn. De Cloudflare Worker deployt apart (`wrangler deploy` in `cloudflare-worker/`), niet automatisch bij een push.
 4. **CI draait op push en pull request naar main**: `typecheck`, `lint`, `test`, `build` en `qc:seo`. Laat die groen zijn voordat je om een merge vraagt.
 5. **Geen tracking zonder toestemming.** Google Analytics is op 2026-07-20 verwijderd; bezoekersstatistiek loopt cookieloos via Cloudflare Web Analytics, en daarom is er geen cookiebanner. Zet er niets voor terug zonder de AVG-kant opnieuw te wegen.
 6. **Teksten die bezoekers lezen** volgen de tone-of-voice-regels uit `EnerCalculatie-HQ/marketing/anti-ai-writing.md` in de vault: geen gedachtestreepjes als leesteken, geen wollige taal, geen emoji in zakelijke tekst.
