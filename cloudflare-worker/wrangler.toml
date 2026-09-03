@@ -1,0 +1,37 @@
+name = "enercalculatie-forms"
+main = "index.js"
+compatibility_date = "2026-09-03"
+
+# Routes intercepteren /api/contact, /api/lead-magnet en /api/newsletter op het
+# eigen domein vóór GitHub Pages (Cloudflare zit al als proxy vóór GH Pages —
+# zie cf-ray/x-served-by headers op live requests). Geen frontend-wijziging
+# nodig: dezelfde fetch('/api/...')-calls in de React-componenten blijven werken.
+[[routes]]
+pattern = "www.enercalculatie.nl/api/contact"
+zone_name = "enercalculatie.nl"
+
+[[routes]]
+pattern = "enercalculatie.nl/api/contact"
+zone_name = "enercalculatie.nl"
+
+[[routes]]
+pattern = "www.enercalculatie.nl/api/lead-magnet"
+zone_name = "enercalculatie.nl"
+
+[[routes]]
+pattern = "enercalculatie.nl/api/lead-magnet"
+zone_name = "enercalculatie.nl"
+
+[[routes]]
+pattern = "www.enercalculatie.nl/api/newsletter"
+zone_name = "enercalculatie.nl"
+
+[[routes]]
+pattern = "enercalculatie.nl/api/newsletter"
+zone_name = "enercalculatie.nl"
+
+# Secrets zetten:
+#   wrangler secret put RESEND_API_KEY
+#   wrangler secret put BREVO_API_KEY
+#   wrangler secret put BREVO_LIST_ID
+#   wrangler secret put BREVO_TEMPLATE_ID
