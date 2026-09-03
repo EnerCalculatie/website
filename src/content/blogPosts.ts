@@ -2220,4 +2220,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe bereken je de waterinhoud van vloerverwarmingsslangen?', answer: 'Vloerverwarmingsslangen van 16x2 mm bevatten circa 0,113 liter water per strekkende meter. Bij een hart-op-hart afstand van 10 cm komt dit neer op ongeveer 1,13 liter water per m² vloeroppervlak.' },
     ],
   },
+  {
+    slug: 'zakelijke-verrekening-laadstroom-cpo-backoffice',
+    readingTimeMinutes: 3,
+    title: 'Automatische zakelijke verrekening laadstroom: CPO & backoffice gids',
+    seoTitle: 'Zakelijke verrekening laadstroom: CPO-gids',
+    description:
+      'Adviesgids voor het inrichten van automatische zakelijke verrekening van laadstroom (split-billing) met MID-meters, CPO-koppelingen en...',
+    date: '2026-09-03',
+    excerpt:
+      'Ontdek hoe u zakelijke klanten adviseert over geautomatiseerde laadstroomverrekening (split-billing), inclusief CPO-koppelingen, MID-meters en fiscale spelregels bij dynamische energiecontracten.',
+    tags: ['Zakelijk laden', 'Split-billing', 'CPO', 'OCPP', 'Backoffice abonnement', 'MID-meter'],
+    keyPoints: [
+      'Vergoeding boven de werkelijke stroomkosten wordt door de Belastingdienst aangemerkt als belast loon.',
+      'Een MID-gecertificeerde kWh-meter en open protocollen (OCPP/OCPI) zijn noodzakelijk voor een fiscaal goedgekeurde verrekening.',
+      'Bij dynamische energiecontracten koppelt het CPO-platform laadsessies op uurniveau aan EPEX Spot-marktprijzen.',
+      'Hardware-agnostische CPO-platforms zorgen voor optimale flexibiliteit binnen een gemengd zakelijk wagenpark.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Waarom is een MID-gecertificeerde meter verplicht bij zakelijke verrekening van laadstroom?', answer: 'Een MID-gecertificeerde kWh-meter waarborgt de nauwkeurigheid van de meting. Dit is een vereiste van de Belastingdienst om te bewijzen dat uitsluitend de werkelijk verbruikte elektriciteit onbelast wordt vergoed.' },
+      { question: 'Hoe werkt geautomatiseerde verrekening (split-billing) bij een dynamisch energiecontract?', answer: 'Bij een dynamisch contract koppelt het CPO-platform de laadsessie-data op tijds- of uurniveau rechtstreeks aan de op dat moment geldende EPEX Spot-marktprijzen. Hierdoor wordt de werkelijke stroomprijs per uur exact berekend en vergoed.' },
+      { question: 'Welke rol spelen OCPP en OCPI bij automatische laadstroomverrekening?', answer: 'OCPP (zoals 1.6J of 2.0.1) zorgt voor de communicatie tussen de laadpaal en het CPO-beheerplatform. OCPI maakt gegevensuitwisseling en automatische verrekening (roaming) mogelijk tussen de CPO en de Mobility Service Provider (MSP).' },
+      { question: 'Wat is het fiscale risico van een vast fictief kWh-tarief?', answer: 'Als het vaste fictieve tarief hoger ligt dan de werkelijke energiekosten van de werknemer, merkt de Belastingdienst de bovenmatige vergoeding aan als belast loon.' },
+    ],
+  },
 ];
