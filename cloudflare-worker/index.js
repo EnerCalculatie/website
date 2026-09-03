@@ -27,7 +27,14 @@ async function sendResend(env, payload) {
     },
     body: JSON.stringify(payload),
   });
-  const data = await res.json();
+  const text = await res.text();
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    console.error('Resend gaf geen geldige JSON terug', res.status, text.slice(0, 500));
+    data = { error: 'Onverwacht antwoord van Resend' };
+  }
   return { ok: res.ok, status: res.status, data };
 }
 
