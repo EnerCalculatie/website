@@ -17,7 +17,7 @@ export class FactCheckerAgent {
     this.systemPrompt = readFileSync(promptPath, 'utf-8');
   }
 
-  async run(draftPath: string, researchJsonPath: string, outputPath: string): Promise<FactCheckOutput> {
+  async run(draftPath: string, researchJsonPath: string, outputPath: string, topic?: string): Promise<FactCheckOutput> {
     const startTime = Date.now();
     console.log(`[FactCheckerAgent] Start controle van artikel...`);
 
@@ -32,7 +32,7 @@ export class FactCheckerAgent {
       throw new Error(`[FactCheckerAgent] Kon bestanden niet inladen. Zorg dat draft en research.json bestaan.`, { cause: _e });
     }
 
-    const kbContext = this.knowledgeBase.getCombinedContext();
+    const kbContext = this.knowledgeBase.getCombinedContext(topic);
 
     const userPrompt = `
 Beoordeel het onderstaande blogartikel op feitelijke juistheid, gebruikmakend van de meegeleverde bronnen.

@@ -163,7 +163,7 @@ async function run() {
     let marketingOut: Awaited<ReturnType<typeof marketingGate.run>> | undefined;
 
     while (retries < maxRetries) {
-      const factCheckResult = await factChecker.run(draftPath, researchPath, factCheckPath);
+      const factCheckResult = await factChecker.run(draftPath, researchPath, factCheckPath, topic);
       const techReviewResult = await techReviewer.run(draftPath, techReviewPath);
 
       const factErrors = factCheckResult.filter((f: { status: string }) => f.status === 'incorrect');

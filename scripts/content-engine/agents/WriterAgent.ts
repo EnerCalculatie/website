@@ -57,7 +57,7 @@ export class WriterAgent {
       throw new Error(`[WriterAgent] Kon research.json niet lezen op ${researchJsonPath}`, { cause: _e });
     }
     
-    const kbContext = this.knowledgeBase.getCombinedContext();
+    const kbContext = this.knowledgeBase.getCombinedContext(topic);
     const contentTypeLine = contentType ? `CONTENTTYPE: ${contentType}\n\n` : '';
     const briefLine = brief
       ? `SEO/GEO BRIEF:\n- Zoekintentie: ${brief.searchIntent}\n- Primaire zoekvraag: ${brief.primaryQuestion}\n- Secundaire zoekvragen: ${brief.secondaryQuestions.join('; ')}\n- Doelgroep/context: ${brief.audienceContext}\n\n`
