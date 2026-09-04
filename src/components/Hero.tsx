@@ -49,6 +49,12 @@ export function Hero() {
             Van energienota naar onderbouwd advies en offerte.
           </h1>
 
+          {/* Herkenbare situatie vóór de oplossing (Van Erkel-methode: eerst de
+              frustratie laten voelen, dan pas de feature benoemen) */}
+          <p className="animate-fade-up anim-delay-100 text-base md:text-lg text-slate-500 italic leading-relaxed max-w-2xl mx-auto mb-4">
+            Klant zit aan de keukentafel, wil nu een antwoord. U belooft "ik reken het door" — en verdwijnt drie avonden in Excel en losse PDF's.
+          </p>
+
           {/* Subheadline */}
           <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
             EnerCalculatie leest de energierekening van uw klant uit, berekent verduurzamingsscenario's en maakt daar direct een onderbouwde offerte van — zonder overtypen tussen aparte tools.
