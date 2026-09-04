@@ -437,7 +437,7 @@ export function AppDemoVideo() {
                   <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
                 </a>
                 <a
-                  href="#contact"
+                  href="?intent=rondleiding#contact"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-slate-300 hover:text-white font-semibold transition-colors w-full sm:w-auto"
                 >
                   Plan 15 min rondleiding

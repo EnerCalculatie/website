@@ -16,13 +16,32 @@ export function Contact() {
   // een leeg formulier, dus een gevulde eerste client-render zou een hydration
   // mismatch geven. Deze effect staat vóór de save-effect zodat de opgeslagen
   // data gelezen is voordat die overschreven kan worden.
+  //
+  // Frictie-reductie: CTA's met "Plan 15 min rondleiding" linken naar
+  // ?intent=rondleiding#contact — het bericht-veld (verplicht, ook
+  // server-side in de Cloudflare Worker) wordt dan voorgevuld zodat de
+  // bezoeker niet vanaf nul hoeft te typen voor een simpel rondleidingsverzoek.
   useEffect(() => {
+    let restored: typeof formData | null = null;
     try {
       const savedData = sessionStorage.getItem('contactFormData');
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (savedData) setFormData(JSON.parse(savedData));
+      if (savedData) restored = JSON.parse(savedData);
     } catch (_error) {
-      // Corrupte JSON: start met een leeg formulier.
+      // Corrupte JSON: val terug op intent-prefill of een leeg formulier.
+    }
+
+    if (restored) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData(restored);
+    }
+
+    // Alleen prefillen als er nog geen (eigen getypt) bericht is — een lege
+    // opgeslagen draft (bv. nooit ingevuld in een eerdere sessie) mag de
+    // intent-prefill niet blokkeren.
+    const intent = new URLSearchParams(window.location.search).get('intent');
+    if (intent === 'rondleiding' && !restored?.message) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setFormData((prev) => ({ ...prev, message: 'Ik wil graag een rondleiding van 15 minuten inplannen.' }));
     }
   }, []);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
