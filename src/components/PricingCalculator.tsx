@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calculator, Clock, Euro, TrendingUp, ArrowRight } from 'lucide-react';
+import { useAnimatedNumber } from '../hooks/useAnimatedNumber';
 
 // dataLayer is optioneel: sinds het verwijderen van GA4 (2026-07-20) staat er
 // niets meer klaar om dit event op te vangen. De push hieronder no-opt daardoor
@@ -32,6 +33,12 @@ export function PricingCalculator() {
   
   // Berekening: na hoeveel dossiers zijn de abonnementskosten gedekt?
   const dossiersToPayback = Math.ceil(subscriptionPrice / (HOURS_SAVED_PER_DOSSIER * HOURLY_RATE));
+
+  // Vloeiend tellen bij het verslepen van de slider (rAF, 250ms, easeOutCubic) —
+  // voorkomt dat cijfers abrupt springen bij elke stap van 5 dossiers.
+  const animatedTimeSaved = useAnimatedNumber(timeSaved);
+  const animatedNetProfit = useAnimatedNumber(netProfit);
+  const animatedRoi = useAnimatedNumber(parseFloat(roi));
 
   const handleStartBesparenClick = () => {
     if (typeof window !== 'undefined' && window.dataLayer) {
@@ -128,7 +135,7 @@ export function PricingCalculator() {
                 </div>
                 <div>
                   <div className="text-slate-400 text-sm">Tijdsbesparing</div>
-                  <div className="text-2xl font-bold">{timeSaved} uur</div>
+                  <div className="text-2xl font-bold">{animatedTimeSaved.toLocaleString('nl-NL', { maximumFractionDigits: 1 })} uur</div>
                 </div>
               </div>
 
@@ -138,7 +145,7 @@ export function PricingCalculator() {
                 </div>
                 <div>
                   <div className="text-slate-400 text-sm">Rendement</div>
-                  <div className="text-2xl font-bold text-brand-primary">{roi}x terugverdiend</div>
+                  <div className="text-2xl font-bold text-brand-primary">{animatedRoi.toFixed(1)}x terugverdiend</div>
                 </div>
               </div>
 
@@ -148,7 +155,7 @@ export function PricingCalculator() {
                 </div>
                 <div>
                   <div className="text-slate-400 text-sm">Bespaarde uren in euro's</div>
-                  <div className="text-2xl font-bold">€{netProfit.toLocaleString('nl-NL')}</div>
+                  <div className="text-2xl font-bold">€{Math.round(animatedNetProfit).toLocaleString('nl-NL')}</div>
                 </div>
               </div>
             </div>

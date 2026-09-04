@@ -204,7 +204,7 @@ export function Contact() {
                     required
                     value={formData.firstName}
                     onChange={handleChange}
-                    className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
+                    className="form-input-glow w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent min-h-[48px]"
                     placeholder="Jan"
                   />
                 </div>
@@ -219,7 +219,7 @@ export function Contact() {
                     required
                     value={formData.lastName}
                     onChange={handleChange}
-                    className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
+                    className="form-input-glow w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent min-h-[48px]"
                     placeholder="Voorbeeld"
                   />
                 </div>
@@ -238,7 +238,7 @@ export function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
+                  className="form-input-glow w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent min-h-[48px]"
                   placeholder="jan@installatiebedrijf.nl"
                 />
               </div>
@@ -253,7 +253,7 @@ export function Contact() {
                   autoCapitalize="words"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all min-h-[48px]"
+                  className="form-input-glow w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent min-h-[48px]"
                   placeholder="Installatiebedrijf BV"
                 />
               </div>
@@ -267,7 +267,7 @@ export function Contact() {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all resize-none min-h-[48px]"
+                  className="form-input-glow w-full border border-slate-200 rounded-xl py-3 px-4 text-base focus:outline-none focus:ring-2 focus:ring-brand-primary focus:border-transparent resize-none min-h-[48px]"
                   placeholder="Hoe kunnen we u helpen?"
                 ></textarea>
               </div>
@@ -281,7 +281,7 @@ export function Contact() {
 
               {status === 'success' && (
                 <div role="status" aria-live="polite" className="p-4 bg-emerald-50 text-emerald-600 rounded-xl text-base font-medium flex items-center gap-2">
-                  <CheckCircle2 size={20} />
+                  <CheckCircle2 size={20} className="check-pop" />
                   Bericht verzonden! Wij nemen snel contact met u op.
                 </div>
               )}

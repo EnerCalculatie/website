@@ -1,4 +1,5 @@
 import { ListChecks, FileWarning, Gauge, AlertTriangle, Presentation, FolderKanban } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 const RESULTS = [
   {
@@ -50,10 +51,10 @@ export function ResultSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {RESULTS.map((item) => {
+          {RESULTS.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
+              <Reveal key={item.title} delay={i * 80} className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100">
                 <div className="w-10 h-10 shrink-0 rounded-xl bg-brand-primary/10 text-brand-primary-text flex items-center justify-center">
                   <Icon size={20} />
                 </div>
@@ -61,7 +62,7 @@ export function ResultSection() {
                   <p className="font-bold text-slate-900 text-sm mb-1">{item.title}</p>
                   <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

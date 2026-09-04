@@ -58,6 +58,117 @@ html {
   }
 }
 
+/* Hero primaire CTA: elke 6s één subtiele glow-pulse (nooit continu), plus
+   hover-lift. Idle heeft geen beweging — de interval-klasse wordt door Hero.tsx
+   kort (600ms) toegevoegd en weer verwijderd. */
+@keyframes cta-glow-pulse {
+  0% { box-shadow: 0 4px 14px rgba(0, 166, 105, 0.25); transform: scale(1); }
+  50% { box-shadow: 0 8px 24px rgba(0, 166, 105, 0.45); transform: scale(1.02); }
+  100% { box-shadow: 0 4px 14px rgba(0, 166, 105, 0.25); transform: scale(1); }
+}
+
+.cta-glow-pulse {
+  animation: cta-glow-pulse 600ms ease-out;
+}
+
+.cta-primary {
+  transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 166, 105, 0.3);
+}
+
+.cta-secondary {
+  transition: transform 220ms ease-out;
+}
+
+.cta-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* Productmodule-kaarten: lift + grotere schaduw + icoon-rotatie op hover */
+.module-card {
+  transition: transform 250ms ease-out, box-shadow 250ms ease-out;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+.module-card:hover .module-card-icon {
+  transform: rotate(3deg);
+}
+
+.module-card-icon {
+  transition: transform 250ms ease-out;
+}
+
+.module-card:hover .module-card-arrow {
+  transform: translateX(3px);
+}
+
+.module-card-arrow {
+  transition: transform 250ms ease-out;
+}
+
+/* Formulier focus-glow */
+.form-input-glow {
+  transition: border-color 180ms ease-out, box-shadow 180ms ease-out;
+}
+
+.form-input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(0, 166, 105, 0.18);
+}
+
+/* Succes-checkmark scale-in bij formulier-submit */
+@keyframes check-pop {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.check-pop {
+  animation: check-pop 220ms ease-out;
+}
+
+/* Globale scroll-reveal (sectie 9). GPU-only properties (transform + opacity),
+   dus geen reflow tijdens animeren. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-glow-pulse,
+  .check-pop {
+    animation: none !important;
+  }
+
+  .cta-primary:hover,
+  .cta-secondary:hover,
+  .module-card:hover,
+  .module-card:hover .module-card-icon,
+  .module-card:hover .module-card-arrow {
+    transform: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Voortgangsbalk van de app-demo carousel: CSS-gedreven zodat er geen
    100ms-interval met React re-renders nodig is. Duur komt uit inline
    animation-duration (AUTO_ADVANCE_INTERVAL). */

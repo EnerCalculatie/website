@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, CheckCircle2, ShieldCheck, Database, Play } from 'lucide-react';
 import imgDossier from '../assets/screenshots/dossier-overzicht.webp';
 
@@ -5,7 +6,29 @@ import imgDossier from '../assets/screenshots/dossier-overzicht.webp';
 // worden mee-geprerenderd, waardoor de above-the-fold content onzichtbaar is
 // tot de JS-bundle geladen en gehydrateerd is. De CSS-klasse .animate-fade-up
 // (index.css) geeft hetzelfde effect zonder op JS te wachten.
+//
+// De periodieke glow-pulse op de primaire CTA (elke 6s, 600ms, dan stil) is
+// wél JS-gedreven (setInterval) omdat het pas ná mount/hydratie mag beginnen —
+// een CSS infinite-animation zou al tijdens SSR/eerste paint lopen.
+const GLOW_INTERVAL_MS = 6000;
+const GLOW_DURATION_MS = 600;
+
 export function Hero() {
+  const [glowing, setGlowing] = useState(false);
+  const ctaRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const interval = setInterval(() => {
+      // Niet pulsen terwijl de gebruiker er toch al overheen hovert.
+      if (ctaRef.current?.matches(':hover')) return;
+      setGlowing(true);
+      const timeout = setTimeout(() => setGlowing(false), GLOW_DURATION_MS);
+      return () => clearTimeout(timeout);
+    }, GLOW_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
       {/* Subtiele technische grid achtergrond */}
@@ -34,17 +57,18 @@ export function Hero() {
           {/* Call to Actions */}
           <div className="animate-fade-up anim-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <a
+              ref={ctaRef}
               href="https://app.enercalculatie.nl/gratis"
-              className="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-[#008f5a] text-white rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg group min-h-[48px]"
+              className={`cta-primary w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-[#008f5a] text-white rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-md group min-h-[48px] ${glowing ? 'cta-glow-pulse' : ''}`}
             >
               Gratis adviesrapport maken
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-[220ms] ease-out" />
             </a>
             <a
               href="#workflow"
-              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 min-h-[48px]"
+              className="cta-secondary w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-base flex items-center justify-center gap-2 min-h-[48px] group"
             >
-              <Play size={18} className="text-slate-500" />
+              <Play size={18} className="text-slate-500 group-hover:translate-x-[3px] transition-transform duration-[220ms] ease-out" />
               Bekijk hoe het werkt
             </a>
           </div>

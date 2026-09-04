@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { TrendingUp, Zap, FileSpreadsheet, Shield } from 'lucide-react';
+import { useCountUp } from '../hooks/useCountUp';
 import imgZonnepanelen from '../assets/screenshots/zonnepanelen.webp';
 import imgRoi from '../assets/screenshots/rendement-roi.webp';
 import imgOfferte from '../assets/screenshots/offerte.webp';
@@ -10,6 +11,15 @@ const PROOF_METRICS = [
   { label: 'Thuisbatterij', value: '10 kWh', sub: '78% zelfconsumptie' },
   { label: 'Investering & Offerte', value: '€ 14.850', sub: 'Transparante prijsopbouw' },
 ];
+
+function MetricValue({ value }: { value: string }) {
+  const { ref, display } = useCountUp(value);
+  return (
+    <span ref={ref} className="text-xl sm:text-2xl font-mono font-bold text-slate-900 block mb-1">
+      {display}
+    </span>
+  );
+}
 
 export function ProductProof() {
   return (
@@ -35,9 +45,7 @@ export function ProductProof() {
               className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center"
             >
               <span className="text-xs font-semibold text-slate-500 block mb-1">{metric.label}</span>
-              <span className="text-xl sm:text-2xl font-mono font-bold text-slate-900 block mb-1">
-                {metric.value}
-              </span>
+              <MetricValue value={metric.value} />
               <span className="text-[11px] text-brand-primary-text font-medium">{metric.sub}</span>
             </div>
           ))}

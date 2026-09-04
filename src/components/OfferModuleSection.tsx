@@ -1,11 +1,12 @@
 import { Calculator, Send, Clock, ArrowRight } from 'lucide-react';
 import { trackEvent } from '../analytics';
+import { Reveal } from './Reveal';
 
 export function OfferModuleSection() {
   return (
     <section className="py-16 md:py-24 bg-slate-900 text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <Reveal className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
             <span className="text-emerald-400 font-semibold tracking-wider uppercase text-sm mb-2 block">
               Offertemodule
@@ -56,7 +57,7 @@ export function OfferModuleSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
