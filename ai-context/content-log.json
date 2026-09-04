@@ -835,5 +835,11 @@
     "topic": "Automatische zakelijke verrekening laadstroom: CPO & backoffice gids",
     "slug": "zakelijke-verrekening-laadstroom-cpo-backoffice",
     "status": "generated"
+  },
+  {
+    "date": "2026-09-04",
+    "topic": "SEER- en SCOP-waarde van een airco: Jaarlijks verbruik berekenen",
+    "slug": "seer-scop-waarde-airco-verbruik-berekenen",
+    "status": "generated"
   }
 ]

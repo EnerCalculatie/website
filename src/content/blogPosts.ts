@@ -2246,4 +2246,30 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is het fiscale risico van een vast fictief kWh-tarief?', answer: 'Als het vaste fictieve tarief hoger ligt dan de werkelijke energiekosten van de werknemer, merkt de Belastingdienst de bovenmatige vergoeding aan als belast loon.' },
     ],
   },
+  {
+    slug: 'seer-scop-waarde-airco-verbruik-berekenen',
+    readingTimeMinutes: 3,
+    title: 'SEER- en SCOP-waarde van een airco: Jaarlijks verbruik berekenen',
+    seoTitle: 'SEER en SCOP airco: Jaarlijks verbruik berekenen',
+    description:
+      'Hoe bereken je het jaarlijkse stroomverbruik van een airco of warmtepomp met SEER en SCOP volgens NEN-EN 14825? Ontdek de formules en rekenvoorbeelden.',
+    date: '2026-09-04',
+    excerpt:
+      'Met seizoensrendementen SEER en SCOP berekent u als installateur het verwachte stroomverbruik van een airco of lucht-lucht warmtepomp in kWh realistisch onderbouwd door.',
+    tags: ['SEER', 'SCOP', 'Airco verbruik', 'Warmtepomp', 'NEN-EN 14825', 'Stroomverbruik'],
+    keyPoints: [
+      'SEER en SCOP berekenen het gemiddelde seizoensrendement over een heel jaar inclusief deellast.',
+      'NEN-EN 14825 hanteert 350 vollasturen voor koelen en 1400 vollasturen voor verwarmen.',
+      'Formule koelverbruik: (Pdesignc × 350 vollasturen) / SEER = jaarverbruik in kWh.',
+      'Formule verwarmingsverbruik: (Pdesignh × 1400 vollasturen) / SCOP = jaarverbruik in kWh.',
+      'Praktijkverbruik varieert door isolatie, temperatuurinstelling, buitentemperatuur en inverter-dimensionering.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het verschil tussen COP/EER en SCOP/SEER?', answer: 'COP en EER tonen het rendement op één specifiek testpunt bij nominale vollast. SCOP en SEER berekenen het gemiddelde seizoensrendement over een heel jaar, waarbij deellast, opstartverliezen en temperatuurschommelingen zijn meegenomen.' },
+      { question: 'Met hoeveel vollasturen wordt gerekend volgens NEN-EN 14825?', answer: 'Voor de gemiddelde Europese klimaatzone hanteert NEN-EN 14825 exact 350 vollasturen per jaar voor koelen en 1400 vollasturen per jaar voor verwarmen.' },
+      { question: 'Hoe bereken je het jaarlijkse elektriciteitsverbruik voor koelen?', answer: 'Vermenigvuldig de ontwerplast koelen (Pdesignc in kW) met 350 vollasturen en deel de uitkomst door de SEER-waarde. Bijvoorbeeld: (3,5 kW × 350) / 8,5 = 144,12 kWh per jaar.' },
+      { question: 'Welke factoren beïnvloeden het werkelijke praktijkverbruik van een airco?', answer: 'Het praktijkverbruik wordt beïnvloed door de isolatiegraad van de woning, het gebruiksgedrag en de gewenste binnentemperatuur, het verloop van de buitentemperatuur en de toepassing van invertertechnologie in combinatie met de juiste dimensionering.' },
+    ],
+  },
 ];
