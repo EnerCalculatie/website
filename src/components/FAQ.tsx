@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import { Reveal } from './Reveal';
 
 // Volledige vragenlijst — leidend bestand. De homepage toont alleen de vragen
 // in HOMEPAGE_QUESTIONS (kern-aankoopweerstand); de volledige lijst staat op
@@ -128,8 +129,9 @@ export function FAQ() {
           {homepageFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
+              <Reveal
                 key={index}
+                delay={Math.min(index, 5) * 80}
                 className={`border rounded-2xl transition-colors ${
                   isOpen ? 'border-brand-secondary bg-slate-50/50' : 'border-slate-200'
                 }`}
@@ -161,7 +163,7 @@ export function FAQ() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </Reveal>
             );
           })}
         </div>

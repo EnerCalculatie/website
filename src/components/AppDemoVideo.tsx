@@ -300,10 +300,10 @@ export function AppDemoVideo() {
                   key={activeStep.id}
                   src={activeStep.screenshot}
                   alt={`${activeStep.label} in EnerCalculatie – calculatiesoftware voor verduurzamingsinstallateurs`}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="absolute inset-0 w-full h-full object-contain"
                   loading="eager"
                   decoding="async"

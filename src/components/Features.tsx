@@ -179,16 +179,19 @@ export function Features() {
 
                 <div className="space-y-3 pt-4 border-t border-slate-100">
                   {pillar.features.map((feat) => (
-                    <div key={feat.label} className="bg-slate-50 rounded-xl p-3.5 border border-slate-100">
+                    <div
+                      key={feat.label}
+                      className={`bg-slate-50 rounded-xl p-3.5 border border-slate-100 ${feat.href ? 'module-card' : ''}`}
+                    >
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-brand-primary shrink-0">{feat.icon}</span>
+                        <span className="text-brand-primary shrink-0 module-card-icon inline-flex">{feat.icon}</span>
                         <span className="text-sm font-bold text-slate-900">{feat.label}</span>
                         {feat.href && (
                           <a
                             href={feat.href}
-                            className="ml-auto text-xs text-brand-primary-text font-semibold hover:underline"
+                            className="ml-auto text-xs text-brand-primary-text font-semibold hover:underline inline-flex items-center gap-1"
                           >
-                            Bekijk tool →
+                            Bekijk tool <span className="module-card-arrow inline-block">→</span>
                           </a>
                         )}
                       </div>
