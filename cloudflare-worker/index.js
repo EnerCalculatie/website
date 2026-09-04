@@ -363,11 +363,11 @@ export default {
       }
     }
 
-    if (pathname === '/api/health' && request.method === 'GET') {
+    if (pathname === '/api/health' && (request.method === 'GET' || request.method === 'HEAD')) {
       return handleHealth(env);
     }
 
-    if (pathname === '/stats.js' && request.method === 'GET') {
+    if (pathname === '/stats.js' && (request.method === 'GET' || request.method === 'HEAD')) {
       return handleStatsJs();
     }
 
