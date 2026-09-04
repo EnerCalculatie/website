@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 
-const faqs = [
+// Volledige vragenlijst — leidend bestand. De homepage toont alleen de vragen
+// in HOMEPAGE_QUESTIONS (kern-aankoopweerstand); de volledige lijst staat op
+// /faq (FAQPage.tsx importeert dezelfde `faqs`-array, dus geen content verloren).
+export const faqs = [
   {
     question: 'Is EnerCalculatie offertesoftware of calculatiesoftware?',
     answer:
@@ -80,13 +83,25 @@ const faqs = [
   },
 ];
 
+// De 5 vragen die op de homepage blijven staan — gekozen op aankoopweerstand
+// (wat is het, is het geschikt voor mij, is het veilig, houdt het wetgeving bij,
+// zit ik vast). De overige 10 staan volledig op /faq.
+const HOMEPAGE_QUESTIONS = [
+  'Is EnerCalculatie offertesoftware of calculatiesoftware?',
+  'Is dit geschikt als software voor een zzp-installateur of klein installatiebedrijf?',
+  'Is mijn klantdata veilig?',
+  'Hoe gaat de software om met de aankomende afschaffing van de salderingsregeling?',
+  'Hoe werkt het opzeggen van een abonnement?',
+];
+
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const homepageFaqs = faqs.filter((faq) => HOMEPAGE_QUESTIONS.includes(faq.question));
 
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
+    mainEntity: homepageFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -110,7 +125,7 @@ export function FAQ() {
         </div>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => {
+          {homepageFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
@@ -149,6 +164,15 @@ export function FAQ() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-8 text-center">
+          <a
+            href="/faq"
+            className="inline-flex items-center gap-2 text-brand-primary-text font-semibold hover:underline"
+          >
+            Bekijk alle veelgestelde vragen <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </section>

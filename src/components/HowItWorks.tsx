@@ -1,69 +1,86 @@
 import { motion } from 'motion/react';
-import { Home, Upload, FileCheck } from 'lucide-react';
+import type { Variants } from 'motion/react';
+import { FileText, Calculator, FileCheck, Send } from 'lucide-react';
+
+// Eén samengevatte uitleg van de workflow — vervangt de eerdere losse 7-stappen
+// workflow, de 4-stappen "klantreis" en de producttour-inleiding, die inhoudelijk
+// hetzelfde verhaal drie keer vertelden. De interactieve schermtour (AppDemoVideo)
+// blijft het gedetailleerde, visuele vervolg op deze samenvatting.
+const STEPS = [
+  {
+    icon: FileText,
+    title: 'Energienota uploaden',
+    description: 'PDF van de energierekening uploaden — verbruik, piek- en daltarief worden automatisch uitgelezen, niet handmatig overtypen.',
+  },
+  {
+    icon: Calculator,
+    title: 'Advies berekenen',
+    description: 'Zonnepanelen, thuisbatterij, warmtepomp, airco en laadpaal worden doorgerekend als samenhangend advies, inclusief actuele salderingsregels (2027).',
+  },
+  {
+    icon: FileCheck,
+    title: 'Rapport genereren',
+    description: 'Een onderbouwd adviesrapport met rendement en terugverdientijd, klaar om met de klant te delen.',
+  },
+  {
+    icon: Send,
+    title: 'Offerte versturen',
+    description: 'Vanuit dezelfde calculatie direct een offerte samenstellen en versturen als beveiligde klantlink — de klant beslist digitaal.',
+  },
+];
 
 export function HowItWorks() {
-  const steps = [
-    {
-      number: "1",
-      icon: <Home size={32} className="text-blue-600" />,
-      title: "Pand registreren",
-      description: "Voer het adres in. Kadaster-luchtfoto's en het actuele energieprofiel worden direct ingeladen. U hoeft niets meer handmatig op te zoeken.",
-      color: "bg-blue-50 border-blue-100"
-    },
-    {
-      number: "2",
-      icon: <Upload size={32} className="text-purple-600" />,
-      title: "Energierekening uploaden",
-      description: "Upload een pdf van de energierekening. Ons systeem leest piek- en daltarieven en het gasverbruik exact uit. Voorkom rekenfouten door handmatig overtypen.",
-      color: "bg-purple-50 border-purple-100"
-    },
-    {
-      number: "3",
-      icon: <FileCheck size={32} className="text-emerald-600" />,
-      title: "Offerte versturen en laten accepteren",
-      description: "EnerCalculatie berekent het optimale systeem en stelt de offerte samen. Verstuur een beveiligde klantlink — uw klant bekijkt de offerte online en beslist digitaal.",
-      color: "bg-emerald-50 border-emerald-100"
-    }
-  ];
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } },
+  };
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 16 },
+    show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 16 } },
+  };
 
   return (
-    <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-white">
+    <section id="workflow" className="py-16 md:py-24 bg-slate-50 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-2xl md:text-4xl font-bold text-slate-900 mb-4">
-            Zo werkt het — in 3 stappen
+        <div className="text-center mb-12 max-w-2xl mx-auto">
+          <span className="text-brand-primary-text font-bold tracking-wider uppercase text-xs mb-3 block">
+            Hoe het werkt
+          </span>
+          <h2 className="font-display text-2xl md:text-4xl font-black text-slate-900 mb-3">
+            Van energienota naar offerte in 4 stappen
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Van eerste woningopname tot getekende offerte. Wij automatiseren het complexe rekenwerk voor u.
+          <p className="text-slate-600 text-base sm:text-lg">
+            Eén dossier, gegevens die automatisch doorstromen — niet opnieuw invoeren tussen advies en offerte.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative mt-16">
-          {/* Decoratieve verbindingslijn voor desktop */}
-          <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-1 bg-slate-100 rounded-full" />
-          
-          {steps.map((step, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
-              className="relative z-10 flex flex-col items-center text-center"
-            >
-              <div className="relative mb-8">
-                <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center text-sm z-20 shadow-md">
-                  {step.number}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+        >
+          {STEPS.map((step, idx) => {
+            const Icon = step.icon;
+            return (
+              <motion.div
+                key={step.title}
+                variants={itemVariants}
+                className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col shadow-sm relative hover:border-brand-primary/50 transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-brand-primary flex items-center justify-center shrink-0">
+                    <Icon size={20} />
+                  </div>
+                  <span className="text-xs font-mono text-slate-400">Stap 0{idx + 1}</span>
                 </div>
-                <div className={`w-24 h-24 rounded-3xl ${step.color} border-2 flex items-center justify-center shadow-sm bg-white relative z-10`}>
-                  {step.icon}
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{step.description}</p>
-            </motion.div>
-          ))}
-        </div>
+                <p className="font-bold text-slate-900 text-base mb-1.5">{step.title}</p>
+                <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

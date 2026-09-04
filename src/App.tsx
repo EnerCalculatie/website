@@ -4,7 +4,6 @@ import { routePreloads, type RouteModule } from './routePreloads';
 import { SEO } from './components/SEO';
 import { NavBar } from './components/NavBar';
 import { Hero } from './components/Hero';
-import { Workflow } from './components/Workflow';
 import { ProblemSolution } from './components/ProblemSolution';
 import { OfferModuleSection } from './components/OfferModuleSection';
 import { ResultSection } from './components/ResultSection';
@@ -13,6 +12,7 @@ import { Integrations } from './components/Integrations';
 import { Features } from './components/Features';
 import { ProductProof } from './components/ProductProof';
 import { CaseStudy } from './components/CaseStudy';
+import { HowItWorks } from './components/HowItWorks';
 import { LeadMagnet } from './components/LeadMagnet';
 import { NewsletterSignup } from './components/NewsletterSignup';
 import { AppDemoVideo } from './components/AppDemoVideo';
@@ -21,6 +21,7 @@ import { Technology } from './components/Technology';
 import { Testimonials } from './components/Testimonials';
 import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
+import { FinalCTA } from './components/FinalCTA';
 import { Contact } from './components/Contact';
 import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
@@ -63,6 +64,7 @@ const NewsletterConfirmed = lazyRoute('/nieuwsbrief-bevestigd', () => import('./
 const Terms = lazyRoute('/voorwaarden', () => import('./components/Terms').then(m => ({ default: m.Terms })));
 const ProcessorAgreement = lazyRoute('/verwerkersovereenkomst', () => import('./components/ProcessorAgreement').then(m => ({ default: m.ProcessorAgreement })));
 const BlogIndex = lazyRoute('/blog', () => import('./components/blog/BlogIndex').then(m => ({ default: m.BlogIndex })));
+const FAQPageRoute = lazyRoute('/faq', () => import('./components/FAQPage').then(m => ({ default: m.FAQPage })));
 
 const SalderingsregelingArticle = lazyRoute('/blog/salderingsregeling-2027', () => import('./components/blog/SalderingsregelingArticle').then(m => ({ default: m.SalderingsregelingArticle })));
 const BtwZonnepanelenArticle = lazyRoute('/blog/btw-zonnepanelen', () => import('./components/blog/BtwZonnepanelenArticle').then(m => ({ default: m.BtwZonnepanelenArticle })));
@@ -201,35 +203,35 @@ export function AppContent() {
                 {/* SEO & Meta Tags (default homepage-metadata) */}
                 <SEO />
 
-                {/* 3.1 Hero Section met echte screenshot */}
+                {/* 1. Hero: wat/voor wie/opbrengst/CTA, binnen seconden duidelijk */}
                 <Hero />
 
-                {/* 3.2 Workflow: 7 stappen van klantvraag tot akkoord */}
-                <Workflow />
-
-                {/* 3.3 Herkenbaar probleem & vergelijking */}
-                <ProblemSolution />
-
-                {/* 3.4 Vier productonderdelen: Analyse, Advies, Calculatie, Offerte */}
-                <Features />
-
-                {/* 3.5 Productproof: concrete data en echte schermen */}
+                {/* 2. Direct productbewijs: echte schermen en cijfers */}
                 <ProductProof />
 
-                {/* 3.6 Case Study: Van energienota naar advies */}
+                {/* 3. Herkenbaar probleem + traditioneel vs EnerCalculatie */}
+                <ProblemSolution />
+
+                {/* 4. Vergelijkingstabel: cijfermatige onderbouwing van hetzelfde verschil */}
+                <ComparisonTable />
+
+                {/* 5. Eén sterk, concreet klantvoorbeeld */}
                 <CaseStudy />
 
-                {/* 3.7 Echte klantcase demo video/tour */}
+                {/* 6. Hoe werkt het: samengevat in 4 stappen */}
+                <HowItWorks />
+
+                {/* 7. Productbeelden: interactieve tour door dezelfde 4 stappen */}
                 <AppDemoVideo />
+
+                {/* Wat EnerCalculatie berekent: technische productonderdelen + rekentool-links */}
+                <Features />
 
                 {/* Offertemodule dieptegang */}
                 <OfferModuleSection />
 
-                {/* Resultaat & minder administratie */}
+                {/* 8. Resultaten: andere voordelen, geen herhaling van de workflow */}
                 <ResultSection />
-
-                {/* Vergelijkingstabel Excel / Externe adviseur / EnerCalculatie */}
-                <ComparisonTable />
 
                 <section className="py-4 bg-brand-bg">
                   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -237,18 +239,25 @@ export function AppContent() {
                   </div>
                 </section>
                 <Integrations />
-                <PricingCalculator />
-                <Technology />
 
-                {/* Prijzen & FAQ */}
+                {/* 9. Pricing */}
+                <PricingCalculator />
                 <Testimonials />
                 <Pricing />
+
+                {/* 10. Vertrouwen & security: kort, met link naar volledige toelichting */}
+                <Technology />
+
+                {/* 11. FAQ: top 5 aankoopweerstand, link naar volledige lijst */}
                 <FAQ />
                 <section className="py-4 bg-white">
                   <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <NewsletterSignup />
                   </div>
                 </section>
+
+                {/* 12. Finale CTA */}
+                <FinalCTA />
                 <Contact />
               </main>
             } />
@@ -258,6 +267,7 @@ export function AppContent() {
             <Route path="/voorwaarden" element={<Terms />} />
             <Route path="/verwerkersovereenkomst" element={<ProcessorAgreement />} />
             <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/faq" element={<FAQPageRoute />} />
             <Route path="/blog/salderingsregeling-2027" element={<SalderingsregelingArticle />} />
             <Route path="/blog/btw-zonnepanelen" element={<BtwZonnepanelenArticle />} />
             <Route path="/blog/terugleverkosten-thuisbatterij" element={<TerugleverkostenThuisbatterijArticle />} />

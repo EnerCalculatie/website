@@ -1,54 +1,34 @@
 import { motion } from 'motion/react';
-import { Server, Shield, Webhook, Cpu, Database, Lock } from 'lucide-react';
+import { Server, Shield, Lock, ArrowRight } from 'lucide-react';
+
+// Korte vertrouwensboodschap — de volledige beveiligings- en AVG-toelichting
+// (sub-verwerkers, bewaartermijnen, datascheiding) staat uitgeschreven op
+// /privacy en /verwerkersovereenkomst, zodat hier geen content verdwijnt.
+const TRUST_POINTS = [
+  {
+    icon: Server,
+    title: 'Data binnen de EU',
+    description: 'Klantdossiers en offertes staan versleuteld op servers in Nederland en Duitsland, volledig AVG-compliant.',
+  },
+  {
+    icon: Shield,
+    title: 'Strikte datascheiding',
+    description: 'Uw gegevens zijn logisch gescheiden van andere installateurs. Alleen u en uw medewerkers hebben toegang.',
+  },
+  {
+    icon: Lock,
+    title: 'Versleuteld en geback-upt',
+    description: 'Dataverkeer en opslag zijn versleuteld, met continue back-ups van uw dossiers en berekeningen.',
+  },
+];
 
 export function Technology() {
-  const technicalFeatures = [
-    {
-      icon: <Server size={24} />,
-      title: 'EU-servers & AVG',
-      description: 'Alle klantdossiers en offertes staan veilig opgeslagen op beveiligde servers binnen de EU (Nederland en Duitsland), volledig AVG-compliant. Uw dataverkeer en opslag zijn versleuteld.',
-      color: 'bg-blue-500/10 text-blue-400',
-    },
-    {
-      icon: <Webhook size={24} />,
-      title: 'Koppeling met PDOK Kadaster',
-      description: 'Actuele adres-, pand- en dakgegevens worden direct vanuit het officiële Kadaster ingeladen voor een betrouwbaar advies.',
-      color: 'bg-purple-500/10 text-purple-400',
-    },
-    {
-      icon: <Shield size={24} />,
-      title: 'Strikte datascheiding',
-      description: 'Uw klantgegevens zijn strikt gescheiden van andere installateurs. Alleen u en uw medewerkers hebben toegang tot uw eigen dossiers.',
-      color: 'bg-emerald-500/10 text-emerald-400',
-    },
-    {
-      icon: <Cpu size={24} />,
-      title: 'Slimme documentherkenning',
-      description: 'Upload een energierekening en wij lezen automatisch het verbruik eruit. Geen rekenfouten meer door handmatig overtypen.',
-      color: 'bg-orange-500/10 text-orange-400',
-    },
-    {
-      icon: <Database size={24} />,
-      title: 'Altijd een veilige back-up',
-      description: 'Uw gegevens worden continu geback-upt. Zo raakt u nooit belangrijke klantgegevens of gemaakte berekeningen kwijt door een defecte laptop of verloren bestand.',
-      color: 'bg-sky-500/10 text-sky-400',
-    },
-    {
-      icon: <Lock size={24} />,
-      title: 'Veilig door versleuteling',
-      description: 'Uw dataverkeer en opgeslagen gegevens zijn versleuteld, en toegang tot uw dossiers is beveiligd met inloggegevens per gebruiker. U werkt met een gerust hart.',
-      color: 'bg-rose-500/10 text-rose-400',
-    }
-  ];
-
   return (
-    <section id="technologie" className="py-16 md:py-24 bg-slate-900 relative overflow-hidden">
-      {/* Background decorations */}
+    <section id="technologie" className="py-16 md:py-20 bg-slate-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 rounded-full bg-brand-primary/10 blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,44 +44,38 @@ export function Technology() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-2xl md:text-5xl font-display font-bold text-white mb-6 leading-tight"
+            className="text-2xl md:text-4xl font-display font-bold text-white mb-4 leading-tight"
           >
-            Uw klantgegevens zijn veilig.<br className="hidden md:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-blue-400">
-              Zo werkt dat in de praktijk.
-            </span>
+            Uw klantgegevens zijn veilig.
           </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-slate-400"
-          >
-            Alle klantdossiers staan op beveiligde servers binnen de EU, volledig AVG-compliant. Koppelingen met boekhoud- en planningspakketten staan op de planning — de eerste zijn onderweg.
-          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {technicalFeatures.map((feature, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+          {TRUST_POINTS.map((point, index) => (
             <motion.div
-              key={index}
+              key={point.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * index }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors"
+              className="bg-white/5 border border-white/10 rounded-2xl p-6"
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${feature.color}`}>
-                {feature.icon}
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 bg-brand-primary/10 text-brand-primary">
+                <point.icon size={20} />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-              <p className="text-slate-400 leading-relaxed text-sm">
-                {feature.description}
-              </p>
+              <h3 className="text-base font-bold text-white mb-2">{point.title}</h3>
+              <p className="text-slate-400 leading-relaxed text-sm">{point.description}</p>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <a
+            href="/privacy"
+            className="inline-flex items-center gap-2 text-brand-primary font-semibold hover:text-emerald-300 transition-colors"
+          >
+            Lees de volledige beveiliging & AVG-toelichting <ArrowRight size={16} />
+          </a>
         </div>
       </div>
     </section>

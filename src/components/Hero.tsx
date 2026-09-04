@@ -23,12 +23,12 @@ export function Hero() {
 
           {/* Hoofdtitel */}
           <h1 className="animate-fade-up anim-delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-black text-slate-900 tracking-tight leading-[1.15] mb-6">
-            Van energierekening naar offerte.
+            Van energienota naar onderbouwd advies en offerte.
           </h1>
 
           {/* Subheadline */}
           <p className="animate-fade-up anim-delay-200 text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto mb-8">
-            EnerCalculatie helpt installatiebedrijven om klantgegevens te verwerken, verduurzamingsscenario's te berekenen en vanuit dezelfde calculatie een onderbouwde offerte te maken.
+            EnerCalculatie leest de energierekening van uw klant uit, berekent verduurzamingsscenario's en maakt daar direct een onderbouwde offerte van — zonder overtypen tussen aparte tools.
           </p>
 
           {/* Call to Actions */}
@@ -37,15 +37,15 @@ export function Hero() {
               href="https://app.enercalculatie.nl/gratis"
               className="w-full sm:w-auto px-8 py-4 bg-brand-primary hover:bg-[#008f5a] text-white rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg group min-h-[48px]"
             >
-              Probeer EnerCalculatie
+              Gratis adviesrapport maken
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#case-study"
+              href="#workflow"
               className="w-full sm:w-auto px-8 py-4 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2 min-h-[48px]"
             >
               <Play size={18} className="text-slate-500" />
-              Bekijk een echte klantcase
+              Bekijk hoe het werkt
             </a>
           </div>
 

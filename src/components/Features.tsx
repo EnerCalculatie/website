@@ -114,7 +114,7 @@ const PILLARS: Pillar[] = [
     features: [
       {
         icon: <FileCheck size={18} />,
-        label: 'Itemized opbouw',
+        label: 'Duidelijke prijsopbouw, regel voor regel',
         detail: 'Producten, arbeid en meerwerk vanuit dezelfde dossiergegevens.',
         href: '/offerte-software',
       },
@@ -143,13 +143,13 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="text-slate-500 font-bold tracking-wider uppercase text-xs mb-3 block">
-            De klantreis in 4 stappen
+            Wat EnerCalculatie berekent
           </span>
           <h2 className="font-display text-2xl md:text-4xl font-black text-slate-900 mb-4">
-            Wat uw klant vraagt. Wat u direct onderbouwt.
+            Eén samenhangend advies, geen losse rekentools.
           </h2>
           <p className="text-base sm:text-lg text-slate-600">
-            Klanten vragen geen losse apparaten, maar een kloppend totaalplaatje voor hun woning. EnerCalculatie vertaalt de energierekening van de klant stap voor stap naar een helder voorstel.
+            Klanten vragen geen losse apparaten, maar een kloppend totaalplaatje voor hun woning. EnerCalculatie rekent zonnepanelen, thuisbatterij, warmtepomp, airco en laadpaal door als onderdelen van hetzelfde advies.
           </p>
         </div>
 

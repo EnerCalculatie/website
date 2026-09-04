@@ -27,6 +27,7 @@ export const staticRoutes: StaticRoute[] = [
   { url: '/nieuwsbrief-bevestigd', outFile: 'nieuwsbrief-bevestigd.html', sitemap: false },
   { url: '/voorwaarden', outFile: 'voorwaarden.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
   { url: '/verwerkersovereenkomst', outFile: 'verwerkersovereenkomst.html', lastmod: '2026-06-17', changefreq: 'monthly', priority: '0.5' },
+  { url: '/faq', outFile: 'faq.html', lastmod: '2026-09-04', changefreq: 'monthly', priority: '0.6' },
   { url: '/rekentool-zonnepanelen', outFile: 'rekentool-zonnepanelen.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
   { url: '/rekentool-thuisbatterij', outFile: 'rekentool-thuisbatterij.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
   { url: '/rekentool-warmtepomp', outFile: 'rekentool-warmtepomp.html', lastmod: '2026-06-22', changefreq: 'monthly', priority: '0.7' },
