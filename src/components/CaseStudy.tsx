@@ -106,13 +106,13 @@ export function CaseStudy() {
                   href="https://app.enercalculatie.nl/gratis"
                   className="text-white font-bold bg-brand-primary hover:bg-[#008f5a] px-3.5 py-1.5 rounded-lg transition-colors inline-flex items-center gap-1"
                 >
-                  Zelf uitproberen <ArrowRight size={12} />
+                  Gratis proberen <ArrowRight size={12} />
                 </a>
                 <a
                   href="#contact"
                   className="text-slate-300 hover:text-white underline transition-colors"
                 >
-                  Vraag demo aan
+                  Plan 15 min rondleiding
                 </a>
               </div>
             </div>

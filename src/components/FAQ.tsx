@@ -88,7 +88,7 @@ export const faqs = [
 // (wat is het, is het geschikt voor mij, is het veilig, houdt het wetgeving bij,
 // zit ik vast). De overige 10 staan volledig op /faq.
 const HOMEPAGE_QUESTIONS = [
-  'Is EnerCalculatie offertesoftware of calculatiesoftware?',
+  'Kost de overstap mij meer tijd dan het oplevert?',
   'Is dit geschikt als software voor een zzp-installateur of klein installatiebedrijf?',
   'Is mijn klantdata veilig?',
   'Hoe gaat de software om met de aankomende afschaffing van de salderingsregeling?',
