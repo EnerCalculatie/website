@@ -433,14 +433,14 @@ export function AppDemoVideo() {
                   href="https://app.enercalculatie.nl/gratis"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-lg shadow-brand-primary/25 group w-full sm:w-auto"
                 >
-                  Maak gratis uw eerste calculatie
+                  Gratis adviesrapport maken
                   <ChevronRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
                 </a>
                 <a
                   href="#contact"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-slate-300 hover:text-white font-semibold transition-colors w-full sm:w-auto"
                 >
-                  Boek een live demo
+                  Plan 15 min rondleiding
                 </a>
               </div>
             </div>

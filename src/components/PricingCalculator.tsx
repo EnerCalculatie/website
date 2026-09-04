@@ -168,7 +168,7 @@ export function PricingCalculator() {
                 onClick={handleStartBesparenClick}
                 className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all"
               >
-                Start met besparen <ArrowRight size={18} />
+                Gratis adviesrapport maken <ArrowRight size={18} />
               </button>
             </div>
           </motion.div>

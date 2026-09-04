@@ -23,13 +23,13 @@ export function Footer() {
               href="https://app.enercalculatie.nl/gratis"
               className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-900 px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105 inline-block text-center min-h-[48px]"
             >
-              Probeer EnerCalculatie gratis
+              Gratis adviesrapport maken
             </a>
             <a
               href="#contact"
               className="w-full sm:w-auto bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center min-h-[48px]"
             >
-              Plan een demo (15 min)
+              Plan 15 min rondleiding
             </a>
           </div>
         </div>

@@ -112,14 +112,14 @@ export function OfferteSoftwareLanding() {
                 onClick={() => trackEvent('CTA Gratis Klik', { module: 'offerte-software' })}
                 className="bg-brand-primary hover:bg-[#008f5a] text-white px-6 py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg inline-flex items-center justify-center min-h-[48px]"
               >
-                Maak gratis uw eerste calculatie
+                Gratis adviesrapport maken
               </a>
               <a
                 href="/#contact"
                 onClick={() => trackEvent('CTA Demo Klik', { module: 'offerte-software' })}
                 className="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center min-h-[48px]"
               >
-                Liever eerst een demo (15 min)
+                Plan 15 min rondleiding
               </a>
             </div>
           </div>
