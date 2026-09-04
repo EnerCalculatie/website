@@ -115,7 +115,7 @@ export function OfferteSoftwareLanding() {
                 Gratis adviesrapport maken
               </a>
               <a
-                href="/#contact"
+                href="/?intent=rondleiding#contact"
                 onClick={() => trackEvent('CTA Demo Klik', { module: 'offerte-software' })}
                 className="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold transition-colors inline-flex items-center justify-center min-h-[48px]"
               >

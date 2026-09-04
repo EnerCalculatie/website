@@ -109,7 +109,7 @@ export function CaseStudy() {
                   Gratis proberen <ArrowRight size={12} />
                 </a>
                 <a
-                  href="#contact"
+                  href="?intent=rondleiding#contact"
                   className="text-slate-300 hover:text-white underline transition-colors"
                 >
                   Plan 15 min rondleiding

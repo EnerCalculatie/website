@@ -26,7 +26,7 @@ export function Footer() {
               Gratis adviesrapport maken
             </a>
             <a
-              href="#contact"
+              href="?intent=rondleiding#contact"
               className="w-full sm:w-auto bg-black/10 hover:bg-black/20 border border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-colors inline-block text-center min-h-[48px]"
             >
               Plan 15 min rondleiding
