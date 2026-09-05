@@ -14,6 +14,18 @@ type PricingTier = {
   mostPopular: boolean;
 };
 
+// Introductiecampagne (vault: EnerCalculatie-HQ/offertes/pricing.md, sectie
+// "Introductiecampagne") — 50% korting op alle tiers, eerste 3 maanden,
+// alleen op maandelijkse facturering (niet gestapeld met de jaarkorting).
+// Banner en promoprijzen verdwijnen automatisch na de einddatum, zodat dit
+// nooit een stale/nep-deadline wordt.
+const CAMPAIGN_END = new Date('2027-03-01T00:00:00');
+const CAMPAIGN_DISCOUNT = 0.5;
+const CAMPAIGN_MONTHS = 3;
+// Module-scope i.p.v. Date.now() tijdens render (impure-render-lintregel) —
+// bij een paginaherlaad wordt dit gewoon opnieuw geëvalueerd.
+const CAMPAIGN_ACTIVE = Date.now() < CAMPAIGN_END.getTime();
+
 const PRICING_TIERS: PricingTier[] = [
   {
     name: 'Business',
@@ -78,6 +90,8 @@ const PRICING_TIERS: PricingTier[] = [
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
   const [isTableOpen, setIsTableOpen] = useState(false);
+  const campaignActive = CAMPAIGN_ACTIVE;
+  const campaignEndLabel = CAMPAIGN_END.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
     <section id="prijzen" className="py-16 md:py-24 bg-brand-bg">
@@ -89,6 +103,11 @@ export function Pricing() {
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Vaste maandprijs, onbeperkt dossiers. Geen kosten per project of per rapport. Geen setupkosten. 30 dagen gratis proberen, maandelijks opzegbaar.
           </p>
+          {campaignActive && (
+            <p className="mt-4 inline-flex items-center gap-2 bg-brand-primary/10 text-brand-primary-text font-bold text-sm px-4 py-2 rounded-full">
+              Introductietarief: {CAMPAIGN_DISCOUNT * 100}% korting op alle pakketten, eerste {CAMPAIGN_MONTHS} maanden — actie loopt t/m {campaignEndLabel}
+            </p>
+          )}
         </div>
 
         <div className="flex justify-center mb-16">
@@ -139,6 +158,20 @@ export function Pricing() {
                         <span className="text-5xl font-display font-bold text-slate-900 tracking-tight">{tier.priceYearly}</span>
                         <span className="ml-2 text-slate-500 font-medium">/ jr</span>
                       </div>
+                    </>
+                  ) : campaignActive ? (
+                    <>
+                      <div className="text-slate-400 line-through text-lg font-medium mb-1">€{tier.priceMonthly} / mnd</div>
+                      <div className="flex items-baseline">
+                        <span className="text-2xl font-bold text-slate-400 mr-1">€</span>
+                        <span className="text-5xl font-display font-bold text-slate-900 tracking-tight">
+                          {(tier.priceMonthly * (1 - CAMPAIGN_DISCOUNT)).toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </span>
+                        <span className="ml-2 text-slate-500 font-medium">/ mnd</span>
+                      </div>
+                      <p className="text-xs text-brand-primary-text font-semibold mt-1">
+                        Eerste {CAMPAIGN_MONTHS} maanden, daarna €{tier.priceMonthly}/mnd
+                      </p>
                     </>
                   ) : (
                     <>
