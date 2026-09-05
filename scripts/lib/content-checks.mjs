@@ -144,17 +144,24 @@ export function truncateAtWord(text, max) {
 }
 
 /**
+ * React escaped dit als HTML-entity in de <title>-tag/meta-attribuutwaarde;
+ * qc-seo.mjs telt de geprerenderde HTML, dus deze telling moet daarmee
+ * overeenkomen — anders haalt een seoTitle/description met "&" de lokale
+ * gate wel maar de build-QC niet (zie ook PublishAgent.truncateForHtml,
+ * dezelfde correctie voor de meta description). Geëxporteerd i.p.v.
+ * module-privé zodat andere modules 'm kunnen hergebruiken.
+ * @param {string} str
+ * @returns {number}
+ */
+export function htmlRenderedLength(str) {
+  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').length;
+}
+
+/**
  * Vult een ontbrekende/te lange seoTitle aan uit de volledige titel.
  * @param {{title?:string, seoTitle?:string}} article
  * @returns {{seoTitle:string, derived:boolean}}
  */
-// React escaped dit als HTML-entity in de <title>-tag; qc-seo.mjs telt de
-// geprerenderde HTML, dus deze telling moet daarmee overeenkomen — anders
-// haalt een seoTitle met "&" de lokale gate wel maar de build-QC niet.
-function htmlRenderedLength(str) {
-  return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').length;
-}
-
 export function deriveSeoTitle(article) {
   const current = article.seoTitle?.trim();
   if (current && htmlRenderedLength(current) <= MAX_TITLE_LENGTH && !FOREIGN_SCRIPT.test(current)) {

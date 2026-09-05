@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import { htmlRenderedLength } from '../../lib/content-checks.mjs';
 
 export function estimateReadingMinutes(text: string) {
   const wpm = 225;
@@ -8,11 +9,38 @@ export function estimateReadingMinutes(text: string) {
   return Math.max(1, Math.ceil(words / wpm));
 }
 
+// BUGFIX 2026-09-05: de '...' werd ná het afkappen op maxLen toegevoegd, dus het
+// resultaat kon tot 3 tekens LANGER zijn dan maxLen (bv. 155 -> 158) — precies de
+// SEO-QC-fout ("meta description is 159 tekens, max 155") die een publish-run liet
+// falen. Budget voor de ellipsis nu vooraf gereserveerd, dus het resultaat is nooit
+// langer dan maxLen.
 export function truncateAtWord(str: string, maxLen: number) {
   if (str.length <= maxLen) return str;
-  const sub = str.slice(0, maxLen);
+  const ellipsis = '...';
+  const budget = Math.max(0, maxLen - ellipsis.length);
+  const sub = str.slice(0, budget);
   const lastSpace = sub.lastIndexOf(' ');
-  return lastSpace > 0 ? sub.slice(0, lastSpace) + '...' : sub + '...';
+  const cut = lastSpace > 0 ? sub.slice(0, lastSpace) : sub;
+  return cut + ellipsis;
+}
+
+/**
+ * Zoals truncateAtWord, maar voor tekst die als HTML-attribuutwaarde gerenderd
+ * wordt (de meta description content=""): een "&"/"<"/">" in de brontekst wordt
+ * daar "&amp;"/"&lt;"/"&gt;" (React-escaping), wat qc-seo.mjs (leest de
+ * geprerenderde HTML, niet de brontekst) wél meetelt. Zonder deze correctie kan
+ * een description die als ruwe string binnen maxLen past, na het renderen alsnog
+ * over de limiet gaan — dezelfde klasse fout die deriveSeoTitle al voorkwam voor
+ * seoTitle via htmlRenderedLength.
+ */
+export function truncateForHtml(str: string, maxLen: number) {
+  let budget = maxLen;
+  let result = truncateAtWord(str, budget);
+  while (htmlRenderedLength(result) > maxLen && budget > 0) {
+    budget -= 1;
+    result = truncateAtWord(str, budget);
+  }
+  return result;
 }
 
 export function pascalCase(slug: string) {
@@ -152,7 +180,7 @@ export function buildBlogPostsEntry(seo: SeoJson, readingTimeMinutes: number) {
     .map((f) => `      { question: '${escapeJsString(f.question)}', answer: '${escapeJsString(f.answer)}' },`)
     .join('\n');
 
-  const safeDesc = truncateAtWord(description || excerpt || '', 155);
+  const safeDesc = truncateForHtml(description || excerpt || '', 155);
 
   return `  {
     slug: '${slug}',

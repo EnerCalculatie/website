@@ -12,6 +12,7 @@ import path from 'node:path';
 import {
   estimateReadingMinutes,
   truncateAtWord,
+  truncateForHtml,
   pascalCase,
   escapeJsString,
   buildComponentSource,
@@ -40,10 +41,39 @@ describe('truncateAtWord', () => {
     expect(truncateAtWord('korte tekst', 50)).toBe('korte tekst');
   });
   it('knipt af op de laatste spatie vóór de limiet, met ellipsis', () => {
-    expect(truncateAtWord('een lange zin die te lang is voor de limiet', 20)).toBe('een lange zin die...');
+    expect(truncateAtWord('een lange zin die te lang is voor de limiet', 20)).toBe('een lange zin...');
   });
   it('valt terug op harde afkap als er geen spatie in het eerste deel zit', () => {
-    expect(truncateAtWord('éénheelanglangwoordzondrspaties', 10)).toBe('éénheelang...');
+    expect(truncateAtWord('éénheelanglangwoordzondrspaties', 10)).toBe('éénheel...');
+  });
+  // BUGFIX 2026-09-05: de '...' werd vóór deze fix ná het afkappen op maxLen
+  // toegevoegd, waardoor het resultaat tot 3 tekens langer dan maxLen kon zijn
+  // (precies de "meta description is 159 tekens, max 155"-SEO-QC-fout die een
+  // publish-run liet falen). Het resultaat mag nooit langer zijn dan maxLen,
+  // ongeacht waar de laatste spatie valt.
+  it('overschrijdt maxLen nooit, ook niet met de ellipsis erbij', () => {
+    for (let len = 1; len < 200; len++) {
+      const text = new Array(40).fill('woord').join(' ').slice(0, len);
+      expect(truncateAtWord(text, 20).length).toBeLessThanOrEqual(20);
+    }
+  });
+});
+
+describe('truncateForHtml', () => {
+  it('laat korte strings zonder speciale tekens ongewijzigd', () => {
+    expect(truncateForHtml('korte tekst', 50)).toBe('korte tekst');
+  });
+  // De daadwerkelijke productiefout (run 33933760980, 2026-09-05): een
+  // description die als ruwe string binnen de 155 paste, bevatte een "&" die
+  // React in de geprerenderde meta-tag als "&amp;" rendert (+4 tekens) —
+  // qc-seo.mjs leest die geprerenderde HTML en faalde daardoor op "159 tekens,
+  // max 155" terwijl de brontekst zelf niet over de limiet leek.
+  it('houdt rekening met HTML-escaping van "&" zodat de gerenderde lengte binnen maxLen blijft', () => {
+    const desc = 'Koelvermogen & rendement van single-split en multi-split airco vergelijken voor uw installatiebedrijf en klant vandaag nog';
+    const result = truncateForHtml(desc, 155);
+    expect(result.length).toBeLessThanOrEqual(155);
+    const rendered = result.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    expect(rendered.length).toBeLessThanOrEqual(155);
   });
 });
 
