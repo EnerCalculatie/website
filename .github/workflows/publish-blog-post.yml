@@ -95,13 +95,37 @@ jobs:
             exit 0
           fi
 
-          HOUR=$(TZ=Europe/Amsterdam date +%H)
-          echo "Lokale tijd (Europe/Amsterdam): $(TZ=Europe/Amsterdam date)"
-          if [ "$HOUR" = "06" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          # Schedule (cron): match het trigger-schema met de actuele DST-stand van Amsterdam.
+          # GitHub Actions cron kent geen tijdzones:
+          #   - In de zomer (CEST, UTC+2) is 04:00 UTC = 06:00 CEST (bedoelde run).
+          #   - In de winter (CET, UTC+1) is 05:00 UTC = 06:00 CET (bedoelde run).
+          # BELANGRIJK: controleer NIET op de kloktijd bij uitvoering (date +%H) — GitHub Actions
+          # runners hebben onder piekbelasting vaak 1 tot 4 uur vertraging, waardoor een run
+          # die om 04:00 UTC gepland stond pas om 08:24 UTC start en dan ten onrechte werd overgeslagen.
+          # We controleren direct welk cron-schema de trigger veroorzaakte via github.event.schedule.
+          CRON_SCHEDULE="${{ github.event.schedule }}"
+          TZ_OFFSET=$(TZ=Europe/Amsterdam date +%z)
+          TZ_NAME=$(TZ=Europe/Amsterdam date +%Z)
+          echo "Trigger cron: '$CRON_SCHEDULE', actuele tijdzone: $TZ_NAME ($TZ_OFFSET)"
+
+          if [ "$TZ_NAME" = "CEST" ] || [ "$TZ_OFFSET" = "+0200" ]; then
+            # Zomertijd: 04:00 UTC is 06:00 lokale tijd
+            if [ "$CRON_SCHEDULE" = "0 4 * * 2,5" ]; then
+              echo "proceed=true" >> "$GITHUB_OUTPUT"
+              echo "Zomertijd (CEST) + 04:00 UTC cron — doorgaan."
+            else
+              echo "proceed=false" >> "$GITHUB_OUTPUT"
+              echo "Zomertijd (CEST) + '$CRON_SCHEDULE' cron — overgeslagen (winterregel)."
+            fi
           else
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-            echo "Niet 06:00 lokale tijd (is $HOUR:00) — dit is de andere cronregel voor de andere DST-stand. Rest van de job wordt overgeslagen (geen failure, gewoon niets te doen)."
+            # Wintertijd (CET): 05:00 UTC is 06:00 lokale tijd
+            if [ "$CRON_SCHEDULE" = "0 5 * * 2,5" ]; then
+              echo "proceed=true" >> "$GITHUB_OUTPUT"
+              echo "Wintertijd (CET) + 05:00 UTC cron — doorgaan."
+            else
+              echo "proceed=false" >> "$GITHUB_OUTPUT"
+              echo "Wintertijd (CET) + '$CRON_SCHEDULE' cron — overgeslagen (zomerregel)."
+            fi
           fi
 
       - name: "1. Checkout"
