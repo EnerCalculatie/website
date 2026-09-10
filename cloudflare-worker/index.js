@@ -268,6 +268,16 @@ const LEGACY_REDIRECTS = {
   '/blog/afgiftesysteem-warmtepomp-lage-temperatuur-radiatoren': '/blog/radiatoren-geschikt-warmtepomp-lage-temperatuur',
 };
 
+// Korte campagne-URLs voor handmatige outreach. Bewust tijdelijk (302): de
+// bestemming of attributie kan veranderen zonder dat clients een oude 301
+// cachen. Zonder querystring voegen we de outreach-attributie hier toe, zodat
+// de e-mail zelf schone, korte URLs kan tonen.
+const CAMPAIGN_REDIRECTS = {
+  '/gratis': 'https://app.enercalculatie.nl/gratis',
+  '/saldering-2027': '/blog/salderingsregeling-2027',
+};
+const OUTREACH_CAMPAIGN_SEARCH = '?utm_source=outreach&utm_medium=email&utm_campaign=koude-mail-v11';
+
 // ---------------------------------------------------------------------------
 // Securityheaders (voorheen Helmet in server.ts) — toegepast op alles wat
 // naar GitHub Pages wordt doorgezet, GH Pages zelf stuurt hier niets van mee.
@@ -377,6 +387,12 @@ export default {
 
     if ((request.method === 'GET' || request.method === 'HEAD') && LEGACY_REDIRECTS[pathname]) {
       return Response.redirect(`${url.origin}${LEGACY_REDIRECTS[pathname]}`, 301);
+    }
+
+    if ((request.method === 'GET' || request.method === 'HEAD') && CAMPAIGN_REDIRECTS[pathname]) {
+      const destination = new URL(CAMPAIGN_REDIRECTS[pathname], url.origin);
+      destination.search = url.search || OUTREACH_CAMPAIGN_SEARCH;
+      return Response.redirect(destination.toString(), 302);
     }
 
     // Alles anders: doorzetten naar GitHub Pages-origin, securityheaders erbovenop.
