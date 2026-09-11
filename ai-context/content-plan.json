@@ -29,8 +29,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "single-split-versus-multi-split-airco-hoe-onderbouwt-u-het-benodigd-koelvermogen-en-energieverbruik-per-zone",
-    "status": "planned",
-    "createdAt": "2026-08-16T00:37:35.808Z"
+    "status": "generated",
+    "createdAt": "2026-08-16T00:37:35.808Z",
+    "generatedSlug": "single-split-vs-multi-split-airco",
+    "generatedAt": "2026-09-11T08:26:44.322Z"
   },
   {
     "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",

@@ -2272,4 +2272,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Welke factoren beïnvloeden het werkelijke praktijkverbruik van een airco?', answer: 'Het praktijkverbruik wordt beïnvloed door de isolatiegraad van de woning, het gebruiksgedrag en de gewenste binnentemperatuur, het verloop van de buitentemperatuur en de toepassing van invertertechnologie in combinatie met de juiste dimensionering.' },
     ],
   },
+  {
+    slug: 'single-split-vs-multi-split-airco',
+    readingTimeMinutes: 4,
+    title: 'Single-split of Multi-split Airco Kiezen: Technisch Advies',
+    seoTitle: 'Single-split vs Multi-split Airco: Keuze & SEER',
+    description:
+      'Vergelijk single-split en multi-split airco\'s op deellastrendement (SEER), geluidseisen (BBL) en leidinglengte. Lees het technisch advies voor...',
+    date: '2026-09-11',
+    excerpt:
+      'Kiest u voor meerdere single-split airco\'s of één multi-split buitenunit? Lees de technische onderbouwing op basis van koellast, SEER bij deellast en BBL-geluidsnormen.',
+    tags: ['airconditioning', 'single-split', 'multi-split', 'SEER', 'koellast'],
+    keyPoints: [
+      'Koellast berekenen via vuistregel 30-50 W/m³ of exacte NEN/ISSO-normen',
+      'Gelijktijdigheidsfactor tot 120%-130% toepasbaar bij multi-split systemen',
+      'Single-split presteert vaak gunstiger in deellast bij wisselend gebruik per ruimte',
+      'BBL stelt geluidseisen van max. 45 dB(A) overdag en 40 dB(A) \'s nachts op de perceelgrens',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het verschil in deellastrendement tussen single-split en multi-split airco\'s?', answer: 'Een single-split unit heeft een eigen inverter-buitenunit met een lage minimale modulatiegrens en draait bij een lichte koelvraag erg efficiënt. Een zwaardere multi-split buitenunit moet bij koeling van slechts één kleine zone snel pendelen (aan/uit-gedrag), wat het deellastrendement (SEER) kan verlagen.' },
+      { question: 'Welke geluidseisen gelden er voor airco-buitenunits volgens het BBL?', answer: 'Volgens het Besluit bouwwerken leefomgeving (BBL) mag een buitenunit op de perceelgrens of gevel van buren maximaal 45 dB(A) overdag en maximaal 40 dB(A) \'s nachts (23:00–07:00 uur) produceren.' },
+      { question: 'Hoe werkt de gelijktijdigheidsfactor bij een multi-split airco?', answer: 'Omdat de maximale koellast van verschillende ruimtes (zoals een woonkamer overdag en slaapkamers \'s nachts) niet gelijktijdig optreedt, kan de som van de binnencapaciteiten 120% tot 130% van het nominale vermogen van de buitenunit bedragen.' },
+      { question: 'Wanneer is een single-split opstelling energiezuiniger dan een multi-split?', answer: 'Wanneer ruimtes voornamelijk los van elkaar of incidenteel gekoeld worden, zoals overdag enkel de woonkamer en \'s nachts enkel een slaapkamer, behalen losse single-split units een beter seizoensrendement.' },
+    ],
+  },
 ];
