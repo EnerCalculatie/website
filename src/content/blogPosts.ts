@@ -2297,4 +2297,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer is een single-split opstelling energiezuiniger dan een multi-split?', answer: 'Wanneer ruimtes voornamelijk los van elkaar of incidenteel gekoeld worden, zoals overdag enkel de woonkamer en \'s nachts enkel een slaapkamer, behalen losse single-split units een beter seizoensrendement.' },
     ],
   },
+  {
+    slug: 'kabelberekening-laadpaal-spanningsverlies-lange-afstand',
+    readingTimeMinutes: 4,
+    title: 'Kabelberekening voor laadpalen bij lange afstanden: onderbouw het spanningsverlies in uw offerte',
+    seoTitle: 'Kabelberekening laadpaal: spanningsverlies berekenen',
+    description:
+      'Hoe bereken je het spanningsverlies bij laadpalen op lange afstanden volgens NEN 1010? Bekijk de formules, kabeldiameters en offerte-onderbouwing.',
+    date: '2026-09-15',
+    excerpt:
+      'Een laadpaal op lange afstand aansluiten vereist de juiste kabelberekening om spanningsverlies en storingen te voorkomen. Ontdek de NEN 1010-normen, formules en adviezen per afstand.',
+    tags: ['Kabelberekening', 'Laadpalen', 'Spanningsverlies', 'NEN 1010', 'EV Infrastructuur'],
+    keyPoints: [
+      'Volgens NEN 1010 geldt een maximaal spanningsverlies van 5%, maar fabrikanten adviseren 2% tot 3%.',
+      'Voor 11 kW op 60 tot 75 meter is 6 mm² koper aanbevolen om laadstoringen te voorkomen.',
+      'Formules voor 1-fase en 3-fase houden rekening met stroomsterkte, kabellengte, geleidbaarheid en aderdoorsnede.',
+      'Onderbouw meerkosten in de offerte op basis van laadzekerheid, beveiliging en energiebesparing.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoeveel spanningsverlies is maximaal toegestaan bij een laadpaal?', answer: 'Volgens NEN 1010 bepaling 525 geldt een maximale spanningsval van 5% tussen de meterkast en de lader. Veel fabrikanten zoals Alfen en Zaptec adviseren echter een strengere grens van 2% tot 3% om communicatiestoringen en uitval te voorkomen.' },
+      { question: 'Welke kabeldiameter is nodig voor 11 kW laadpalen bij afstanden tot 75 meter?', answer: 'Bij een afstand van 60 tot 75 meter voor een 11 kW (16A) laadpaal is een kabeldiameter van 6 mm² geadviseerd. Bij 2,5 mm² loopt de spanningsval op naar 3,2% tot 3,7%, wat tot storingen kan leiden.' },
+      { question: 'Welke formule gebruikt u voor het berekenen van het 3-fase spanningsverlies?', answer: 'Voor 3-fase wisselstroom (400V) gebruikt u ΔU = (√3 × I × L × cos(φ)) / (γ × A). Hierin is I de stroomsterkte, L de enkele kabellengte, cos(φ) de vermogensfactor, γ de geleidbaarheid (koper = 56) en A de aderdoorsnede in mm².' },
+      { question: 'Hoe onderbouwt u een dikkere kabel aan een klant in de offerte?', answer: 'Verwijs naar de laadzekerheid (geen afgebroken laadsessies), naleving van de NEN 1010 normen (veilige uitschakeling bij kortsluitstroom) en het beperken van onnodig energieverlies door warmteontwikkeling.' },
+    ],
+  },
 ];
