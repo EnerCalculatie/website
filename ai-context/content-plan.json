@@ -1,38 +1,13 @@
 [
   {
-    "title": "Automatische zakelijke verrekening laadstroom: hoe adviseert u CPO-koppelingen en backoffice-abonnementen?",
-    "keyword": "zakelijke laadpaal thuis verrekenen advies",
-    "intent": "commercieel",
-    "contentType": "PRACTICAL",
-    "priority": 9,
-    "slug": "automatische-zakelijke-verrekening-laadstroom-hoe-adviseert-u-cpo-koppelingen-en-backoffice-abonnementen",
-    "status": "generated",
-    "createdAt": "2026-09-02T11:24:37.116Z",
-    "generatedSlug": "zakelijke-verrekening-laadstroom-cpo-backoffice",
-    "generatedAt": "2026-09-03T00:41:04.239Z"
-  },
-  {
-    "title": "SEER- en SCOP-waarde van een airco: hoe onderbouwt u het jaarlijkse koel- en verwarmingsverbruik?",
-    "keyword": "SEER en SCOP waarde airco berekenen",
+    "title": "Kabelberekening voor laadpalen bij lange afstanden: hoe onderbouwt u het spanningsverlies in de offerte?",
+    "keyword": "kabelberekening laadpaal spanningsverlies",
     "intent": "informatief",
     "contentType": "SEO",
     "priority": 8,
-    "slug": "seer-en-scop-waarde-van-een-airco-hoe-onderbouwt-u-het-jaarlijkse-koel-en-verwarmingsverbruik",
-    "status": "generated",
-    "createdAt": "2026-09-02T11:24:37.113Z",
-    "generatedSlug": "seer-scop-waarde-airco-verbruik-berekenen",
-    "generatedAt": "2026-09-04T12:39:24.071Z"
-  },
-  {
-    "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
-    "keyword": "single-split of multi-split airco advies",
-    "intent": "informatief",
-    "priority": 7,
-    "slug": "single-split-versus-multi-split-airco-hoe-onderbouwt-u-het-benodigd-koelvermogen-en-energieverbruik-per-zone",
-    "status": "generated",
-    "createdAt": "2026-08-16T00:37:35.808Z",
-    "generatedSlug": "single-split-vs-multi-split-airco",
-    "generatedAt": "2026-09-11T08:26:44.322Z"
+    "slug": "kabelberekening-voor-laadpalen-bij-lange-afstanden-hoe-onderbouwt-u-het-spanningsverlies-in-de-offerte",
+    "status": "planned",
+    "createdAt": "2026-09-15T07:15:17.251Z"
   },
   {
     "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",
@@ -116,6 +91,18 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
+  },
+  {
+    "title": "Automatische zakelijke verrekening laadstroom: hoe adviseert u CPO-koppelingen en backoffice-abonnementen?",
+    "keyword": "zakelijke laadpaal thuis verrekenen advies",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
+    "priority": 9,
+    "slug": "automatische-zakelijke-verrekening-laadstroom-hoe-adviseert-u-cpo-koppelingen-en-backoffice-abonnementen",
+    "status": "generated",
+    "createdAt": "2026-09-02T11:24:37.116Z",
+    "generatedSlug": "zakelijke-verrekening-laadstroom-cpo-backoffice",
+    "generatedAt": "2026-09-03T00:41:04.239Z"
   },
   {
     "title": "Gelijktijdigheidsfactor bij All-Electric woningen: hoe onderbouwt u dat een 3x25A-aansluiting volstaat?",
@@ -303,6 +290,18 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "SEER- en SCOP-waarde van een airco: hoe onderbouwt u het jaarlijkse koel- en verwarmingsverbruik?",
+    "keyword": "SEER en SCOP waarde airco berekenen",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "seer-en-scop-waarde-van-een-airco-hoe-onderbouwt-u-het-jaarlijkse-koel-en-verwarmingsverbruik",
+    "status": "generated",
+    "createdAt": "2026-09-02T11:24:37.113Z",
+    "generatedSlug": "seer-scop-waarde-airco-verbruik-berekenen",
+    "generatedAt": "2026-09-04T12:39:24.071Z"
   },
   {
     "title": "Buffervat bij een warmtepomp: hoe berekent u de inhoud en voorkomt u pendelgedrag in de offerte?",
@@ -743,6 +742,17 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Single-split versus multi-split airco: hoe onderbouwt u het benodigd koelvermogen en energieverbruik per zone?",
+    "keyword": "single-split of multi-split airco advies",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "single-split-versus-multi-split-airco-hoe-onderbouwt-u-het-benodigd-koelvermogen-en-energieverbruik-per-zone",
+    "status": "generated",
+    "createdAt": "2026-08-16T00:37:35.808Z",
+    "generatedSlug": "single-split-vs-multi-split-airco",
+    "generatedAt": "2026-09-11T08:26:44.322Z"
   },
   {
     "title": "ISO 15118-20 en V2X-compatibiliteit: hoe bereidt u uw laadpaal-advies voor op de nieuwste laadstandaard?",
