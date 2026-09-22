@@ -2322,4 +2322,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe onderbouwt u een dikkere kabel aan een klant in de offerte?', answer: 'Verwijs naar de laadzekerheid (geen afgebroken laadsessies), naleving van de NEN 1010 normen (veilige uitschakeling bij kortsluitstroom) en het beperken van onnodig energieverlies door warmteontwikkeling.' },
     ],
   },
+  {
+    slug: 'nta-8800-energie-index-rekenmethodiek',
+    readingTimeMinutes: 3,
+    title: 'NTA 8800 en Energie-Index: Wat betekent deze rekenmethodiek voor uw verduurzamingsadvies?',
+    seoTitle: 'NTA 8800 & Energie-Index: BENG Rekenmethodiek',
+    description:
+      'Hoe werkt de NTA 8800-rekenmethodiek t.o.v. de oude Energie-Index? Ontdek de impact van BENG 1, 2, 3 en TOjuli op uw verduurzamingsadvies.',
+    date: '2026-09-22',
+    excerpt:
+      'Sinds 1 januari 2021 bepaalt de NTA 8800-rekenmethodiek de energieprestatie van gebouwen in kWh/m².jaar. Ontdek hoe BENG 2 het energielabel en verduurzamingsadvies stuurt.',
+    tags: ['NTA 8800', 'Energie-Index', 'BENG', 'Energielabel', 'Verduurzamingsadvies'],
+    keyPoints: [
+      'NTA 8800 drukt de energieprestatie uit in fysische eenheden (kWh/m².jaar) i.p.v. een dimensieloze Energie-Index.',
+      'BENG 2 (primair fossiel energiegebruik) is de enige bepalende factor voor het definitieve energielabel.',
+      'Gebouwschil (BENG 1) en installatietechniek (BENG 2) zijn in de NTA 8800 strikt gescheiden.',
+      'EP-W/EP-U-diploma en BRL 9500-certificering zijn verplicht voor het opstellen en registreren van NTA 8800-labels.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het verschil tussen de oude Energie-Index en de NTA 8800?', answer: 'De oude Energie-Index werkte met een dimensieloos getal, terwijl de NTA 8800 de energieprestatie van een gebouw uitdrukt in kWh/m².jaar volgens BENG-indicatoren.' },
+      { question: 'Welke BENG-indicator bepaalt het uiteindelijke energielabel?', answer: 'Het energielabel (van A+++++ tot G) wordt uitsluitend bepaald door de BENG 2-score, die het primaire fossiele energiegebruik in kWh/m².jaar meet.' },
+      { question: 'Hebben zonnepanelen invloed op de BENG 1-score?', answer: 'Nee, zonnepanelen verlagen de BENG 2-score en verhogen het BENG 3-percentage, maar hebben geen enkele invloed op de BENG 1-score van de gebouwschil.' },
+      { question: 'Welke certificeringen zijn vereist om een NTA 8800 energielabel te registreren?', answer: 'Adviseurs moeten beschikken over een EP-W (woningen) of EP-U (utiliteit) vakbekwaamheidsdiploma en werkzaam zijn onder een BRL 9500-certificering.' },
+    ],
+  },
 ];

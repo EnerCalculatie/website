@@ -1,17 +1,5 @@
 [
   {
-    "title": "Kabelberekening voor laadpalen bij lange afstanden: hoe onderbouwt u het spanningsverlies in de offerte?",
-    "keyword": "kabelberekening laadpaal spanningsverlies",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 8,
-    "slug": "kabelberekening-voor-laadpalen-bij-lange-afstanden-hoe-onderbouwt-u-het-spanningsverlies-in-de-offerte",
-    "status": "generated",
-    "createdAt": "2026-09-15T07:15:17.251Z",
-    "generatedSlug": "kabelberekening-laadpaal-spanningsverlies-lange-afstand",
-    "generatedAt": "2026-09-15T09:38:22.902Z"
-  },
-  {
     "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",
     "keyword": "sg ready warmtepomp",
     "intent": "informatief",
@@ -27,8 +15,20 @@
     "contentType": "SEO",
     "priority": 7,
     "slug": "nta-8800-en-energie-index-wat-betekent-deze-rekenmethodiek-voor-uw-verduurzamingsadvies",
+    "status": "generated",
+    "createdAt": "2026-09-02T11:24:37.118Z",
+    "generatedSlug": "nta-8800-energie-index-rekenmethodiek",
+    "generatedAt": "2026-09-22T10:14:00.484Z"
+  },
+  {
+    "title": "Offerte-opvolging voor installateurs: hoe verkort u de beslissingstijd bij verduurzamingsadvies?",
+    "keyword": "offerte opvolging installatiebedrijf",
+    "intent": "informatief",
+    "contentType": "PRACTICAL",
+    "priority": 7,
+    "slug": "offerte-opvolging-voor-installateurs-hoe-verkort-u-de-beslissingstijd-bij-verduurzamingsadvies",
     "status": "planned",
-    "createdAt": "2026-09-02T11:24:37.118Z"
+    "createdAt": "2026-09-22T10:12:13.367Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -292,6 +292,18 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Kabelberekening voor laadpalen bij lange afstanden: hoe onderbouwt u het spanningsverlies in de offerte?",
+    "keyword": "kabelberekening laadpaal spanningsverlies",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "kabelberekening-voor-laadpalen-bij-lange-afstanden-hoe-onderbouwt-u-het-spanningsverlies-in-de-offerte",
+    "status": "generated",
+    "createdAt": "2026-09-15T07:15:17.251Z",
+    "generatedSlug": "kabelberekening-laadpaal-spanningsverlies-lange-afstand",
+    "generatedAt": "2026-09-15T09:38:22.902Z"
   },
   {
     "title": "SEER- en SCOP-waarde van een airco: hoe onderbouwt u het jaarlijkse koel- en verwarmingsverbruik?",
