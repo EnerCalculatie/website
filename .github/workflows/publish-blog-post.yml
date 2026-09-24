@@ -1,4 +1,4 @@
-name: Kennisbank-artikel (di/vr)
+name: Kennisbank-artikel (di/do)
 
 # Multi-agent content-engine-pipeline (scripts/content-engine/, TypeScript):
 # 1. Cronjob start (of handmatig via workflow_dispatch)
@@ -19,7 +19,7 @@ name: Kennisbank-artikel (di/vr)
 #    verifieert de build (vite build + prerender) vóór er iets gecommit wordt
 # 8. Commit naar main (content-plan/content-log worden altijd gecommit, ook bij
 #    afkeuring, voor zichtbare geschiedenis)
-# 9. Deploy — Railway deployt automatisch bij push naar main (buiten deze workflow)
+# 9. GitHub Pages wordt expliciet aangeroepen na een geslaagde run met een nieuw artikel.
 # 10-11. Bij een nieuw artikel (slug bekend): generate-social.mjs zet het artikel om
 #    in 3 LinkedIn-posts (scripts/generate-social.mjs, Gemini) en commit dat apart naar
 #    src/content/social/. continue-on-error: mislukt de repurposing (bv. safety-filter,
@@ -39,20 +39,13 @@ on:
     # in de zomer. De "Sta alleen toe rond 06:00 Europe/Amsterdam"-stap hieronder
     # bepaalt welke van de twee triggers daadwerkelijk een artikel genereert —
     # de andere stopt zichzelf vroeg af.
-    # BUGFIX 2026-08-25: draaide op dinsdag+donderdag (2,4) — de contentstrategie
-    # vraagt dinsdag (SEO/kennis) + vrijdag (praktijk/commercieel), niet donderdag.
-    # 2 = dinsdag, 5 = vrijdag.
-    - cron: '0 4 * * 2,5'
-    - cron: '0 5 * * 2,5'
+    # Dinsdag en donderdag om 06:00 Europe/Amsterdam.
+    - cron: '0 4 * * 2,4'
+    - cron: '0 5 * * 2,4'
   workflow_dispatch:
     inputs:
-      tier:
-        description: "Gemini-tier: 'paid' (standaard, betaalde key) of 'free' voor een handmatige run op de gratis key"
-        type: choice
-        options: [paid, free]
-        default: paid
       force:
-        description: "Publiceer ook buiten dinsdag/vrijdag (bv. voor een test-run). Standaard uit — de dag-check geldt anders ook bij handmatige runs."
+        description: "Publiceer ook buiten dinsdag/donderdag (bv. voor een test-run). Standaard uit — de dag-check geldt anders ook bij handmatige runs."
         type: boolean
         default: false
       topic:
@@ -62,18 +55,29 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: blog-content-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   generate:
+    permissions:
+      contents: write
+    outputs:
+      slug: ${{ steps.push.outputs.slug }}
+      commit: ${{ steps.push.outputs.commit }}
     runs-on: ubuntu-latest
     steps:
-      - name: "0. Alleen doorgaan rond 06:00 Europe/Amsterdam op di/vr (DST-guard + dag-guard)"
+      - name: "0. Alleen doorgaan rond 06:00 Europe/Amsterdam op di/do (DST-guard + dag-guard)"
         id: guard
         run: |
           # BUGFIX 2026-09-02: de dag-check gold alleen voor de cron ('schedule'-events).
           # Een workflow_dispatch (handmatig, of via de GitHub API/gh CLI — ongeacht de
           # bron) ging altijd door, elke dag van de week, wat de content-strategie
-          # (alleen di/vr) in de praktijk ondermijnde zodra er buiten de cron om
+          # (alleen di/do) in de praktijk ondermijnde zodra er buiten de cron om
           # gedispatcht werd. Dag-check geldt nu ook voor workflow_dispatch, met een
           # expliciete 'force'-input als bewuste uitzondering (bv. een test-run).
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.force }}" = "true" ]; then
@@ -82,11 +86,18 @@ jobs:
             exit 0
           fi
 
+          # De eerste automatische blog na deze wijziging is dinsdag 29 september 2026.
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$(TZ=Europe/Amsterdam date +%F)" \< "2026-09-29" ]; then
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "Planning start op 2026-09-29 — overgeslagen."
+            exit 0
+          fi
+
           DAY=$(TZ=Europe/Amsterdam date +%u)  # 1=maandag .. 7=zondag
           echo "Lokale dag (Europe/Amsterdam): $(TZ=Europe/Amsterdam date)"
-          if [ "$DAY" != "2" ] && [ "$DAY" != "5" ]; then
+          if [ "$DAY" != "2" ] && [ "$DAY" != "4" ]; then
             echo "proceed=false" >> "$GITHUB_OUTPUT"
-            echo "Geen dinsdag of vrijdag (dag=$DAY) — overgeslagen. Gebruik force=true voor een bewuste uitzondering."
+            echo "Geen dinsdag of donderdag (dag=$DAY) — overgeslagen. Gebruik force=true voor een bewuste uitzondering."
             exit 0
           fi
 
@@ -110,7 +121,7 @@ jobs:
 
           if [ "$TZ_NAME" = "CEST" ] || [ "$TZ_OFFSET" = "+0200" ]; then
             # Zomertijd: 04:00 UTC is 06:00 lokale tijd
-            if [ "$CRON_SCHEDULE" = "0 4 * * 2,5" ]; then
+            if [ "$CRON_SCHEDULE" = "0 4 * * 2,4" ]; then
               echo "proceed=true" >> "$GITHUB_OUTPUT"
               echo "Zomertijd (CEST) + 04:00 UTC cron — doorgaan."
             else
@@ -119,7 +130,7 @@ jobs:
             fi
           else
             # Wintertijd (CET): 05:00 UTC is 06:00 lokale tijd
-            if [ "$CRON_SCHEDULE" = "0 5 * * 2,5" ]; then
+            if [ "$CRON_SCHEDULE" = "0 5 * * 2,4" ]; then
               echo "proceed=true" >> "$GITHUB_OUTPUT"
               echo "Wintertijd (CET) + 05:00 UTC cron — doorgaan."
             else
@@ -145,19 +156,12 @@ jobs:
         if: steps.guard.outputs.proceed == 'true'
         run: npm ci
 
-      # GEMINI_TIER komt bewust NIET uit de gedeelde repo-variabele vars.GEMINI_TIER (die
-      # is niet gekoppeld aan deze workflow-default en kan onafhankelijk wijzigen).
-      # Vanaf 2026-08-25 (production activation, kostenanalyse gaf groen licht — zie
-      # eindrapport): cron = standaard 'paid'. Handmatig = kiesbaar via workflow_dispatch
-      # input, default 'paid', met 'free' als bewuste uitzondering. Geen fallback naar de
-      # gratis key als GEMINI_API_KEY_PAID ontbreekt (gemini-config.mjs faalt dan hard) —
-      # zo kan een misconfiguratie nooit stilzwijgend de gratis dagquota opsouperen.
+      # Alle Gemini-stappen gebruiken uitsluitend de gratis key, zonder paid-fallback.
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_TIER: ${{ github.event.inputs.tier || 'paid' }}
+          GEMINI_TIER: free
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
@@ -165,9 +169,8 @@ jobs:
         id: generate
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_TIER: ${{ github.event.inputs.tier || 'paid' }}
+          GEMINI_TIER: free
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           TOPIC_OVERRIDE: ${{ github.event.inputs.topic }}
         run: npx tsx scripts/content-engine/run-pipeline.ts "$TOPIC_OVERRIDE"
@@ -192,7 +195,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
-      - name: "8. Commit en push (main → Railway deployt automatisch)"
+      - name: "8. Commit en push artikel"
         id: push
         if: always() && steps.guard.outputs.proceed == 'true'
         run: |
@@ -211,6 +214,7 @@ jobs:
             git commit -m "chore: content-backlog/log bijgewerkt (geen nieuw artikel)"
           fi
           git push origin HEAD:${{ github.ref_name }}
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: "9. IndexNow — nieuwe URL aanmelden"
         if: steps.push.outputs.slug != ''
@@ -222,9 +226,8 @@ jobs:
         if: steps.push.outputs.slug != ''
         continue-on-error: true
         env:
-          GEMINI_TIER: ${{ github.event.inputs.tier || 'paid' }}
+          GEMINI_TIER: free
           GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
-          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/generate-social.mjs "${{ steps.push.outputs.slug }}"
 
@@ -247,9 +250,24 @@ jobs:
           echo "## Kennisbank-generator — resultaat" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ steps.guard.outputs.proceed }}" != "true" ]; then
-            echo "**Status:** overgeslagen — verkeerde DST-cronregel voor dit moment, niets te doen." >> "$GITHUB_STEP_SUMMARY"
+            echo "**Status:** overgeslagen — buiten de startdatum, publicatiedagen of actieve DST-cronregel." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.generate.outcome }}" != "success" ]; then
             echo "**Status:** mislukt of afgekeurd door Quality Gate" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "${{ steps.push.outcome }}" != "success" ]; then
+            echo "**Status:** opslaan op GitHub mislukt" >> "$GITHUB_STEP_SUMMARY"
+          elif [ -z "${{ steps.push.outputs.slug }}" ]; then
+            echo "**Status:** geen nieuw artikel, geen websitepublicatie nodig" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "**Status:** geslaagd en gepubliceerd" >> "$GITHUB_STEP_SUMMARY"
+            echo "**Status:** artikel opgeslagen; zie de Pages-job voor de websitepublicatie" >> "$GITHUB_STEP_SUMMARY"
           fi
+
+  publish-website:
+    needs: generate
+    if: github.ref == 'refs/heads/main' && needs.generate.outputs.slug != ''
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
+    with:
+      ref: ${{ needs.generate.outputs.commit }}

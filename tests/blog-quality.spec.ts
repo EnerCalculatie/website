@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Kwaliteitsgates uit de funnel-herinrichting (2026-08-25, spec-sectie 22): CTA-naar-/gratis,
 // FAQ-schema-correctheid, geen dubbele FAQ, afbeelding-aanwezigheid, H1/meta/canonical, en de
-// di/vr-scheduler. Draait tegen de lokaal gebouwde site (playwright.config.ts start `node server.js`
+// di/do-scheduler. Draait tegen de lokaal gebouwde site (playwright.config.ts start `node server.js`
 // met NODE_ENV=production op dist/), dus dit test exact wat de volgende deploy live zet. Vereist
 // een voorafgaande `npm run build` (npm run test:e2e doet dit).
 
@@ -81,13 +81,13 @@ for (const slug of sample) {
   });
 }
 
-test('scheduler draait op dinsdag + vrijdag, niet op een ander dagenpaar', () => {
+test('scheduler draait op dinsdag + donderdag, niet op een ander dagenpaar', () => {
   const workflowPath = path.join(__dirname, '..', '.github', 'workflows', 'publish-blog-post.yml');
   const yml = readFileSync(workflowPath, 'utf-8');
   const cronLines = [...yml.matchAll(/- cron: '0 \d+ \* \* ([\d,]+)'/g)].map((m) => m[1]);
   expect(cronLines.length).toBeGreaterThan(0);
   for (const days of cronLines) {
-    expect(days).toBe('2,5'); // 2 = dinsdag, 5 = vrijdag
+    expect(days).toBe('2,4'); // 2 = dinsdag, 4 = donderdag
   }
 });
 
