@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { GEMINI_API_KEY, GEMINI_MODEL } from '../../lib/gemini-config.mjs';
+import { geminiGenerate } from '../../lib/gemini-client.mjs';
 
 export interface LLMRequest {
   systemPrompt?: string;
@@ -16,8 +16,6 @@ export class LLMService {
       return this.getMockResponse(combinedPrompt);
     }
 
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
-    
     const body: Record<string, unknown> = {
       contents: [{ role: 'user', parts: [{ text: request.userPrompt }] }],
       generationConfig: {
@@ -35,36 +33,10 @@ export class LLMService {
       (body.generationConfig as Record<string, unknown>).responseMimeType = 'application/json';
     }
 
-    let retries = 3;
-    let delayMs = 2000;
-
-    while (retries >= 0) {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        const isTemporary = response.status === 503 || response.status === 429;
-        
-        if (isTemporary && retries > 0) {
-          console.warn(`[LLMService] Gemini API overloaded (${response.status}). Retrying in ${delayMs}ms... (${retries} attempts left)`);
-          await new Promise(resolve => setTimeout(resolve, delayMs));
-          retries--;
-          delayMs *= 2; // Exponential backoff
-          continue;
-        }
-        
-        throw new Error(`Gemini API Error (${response.status}): ${errorText}`);
-      }
-
-      const data = await response.json();
-      return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    }
-    
-    throw new Error('LLMService failed after max retries.');
+    // Retry/backoff en modelfallback zitten in de gedeelde client — zie gemini-client.mjs
+    // voor de aanleiding (free-tier-503's die de hele pipeline lieten falen).
+    const { data } = await geminiGenerate(body);
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
   }
 
   /**

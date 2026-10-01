@@ -34,14 +34,15 @@ name: Kennisbank-artikel (di/do)
 # bestaan niet meer in de repo.
 on:
   schedule:
-    # Twee cronregels (04:00 én 05:00 UTC) i.p.v. één — GitHub Actions cron kent
-    # geen tijdzones/DST, dus 05:00 UTC is 06:00 CET in de winter maar 07:00 CEST
-    # in de zomer. De "Sta alleen toe rond 06:00 Europe/Amsterdam"-stap hieronder
-    # bepaalt welke van de twee triggers daadwerkelijk een artikel genereert —
-    # de andere stopt zichzelf vroeg af.
-    # Dinsdag en donderdag om 06:00 Europe/Amsterdam.
-    - cron: '0 4 * * 2,4'
-    - cron: '0 5 * * 2,4'
+    # Dinsdag en donderdag vanaf 06:00 Europe/Amsterdam, met inhaalmomenten.
+    # GitHub Actions cron kent geen tijdzones (04:00 UTC = 06:00 CEST, 05:00 UTC =
+    # 06:00 CET) en start geplande runs onder piekbelasting uren te laat — of laat
+    # ze soms helemaal vallen. Bovendien kan de gratis Gemini-tier een ochtend lang
+    # overbelast zijn (503's op 29-09, 30-09 en 01-10-2026). Daarom meerdere
+    # triggers over de dag; de guard-stap hieronder laat er precies één een artikel
+    # publiceren: de eerste die na 06:00 lokale tijd draait zolang er die dag nog
+    # geen artikel staat. Latere triggers stoppen zichzelf dan binnen seconden.
+    - cron: '0 4,5,7,9,11,13 * * 2,4'
   workflow_dispatch:
     inputs:
       force:
@@ -70,80 +71,52 @@ jobs:
       slug: ${{ steps.push.outputs.slug }}
       commit: ${{ steps.push.outputs.commit }}
     runs-on: ubuntu-latest
+    # Worst case (veel 503-retries + modelfallback) duurt een run lang; nooit uren laten hangen.
+    timeout-minutes: 120
     steps:
-      - name: "0. Alleen doorgaan rond 06:00 Europe/Amsterdam op di/do (DST-guard + dag-guard)"
+      - name: "0. Checkout"
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: "1. Alleen di/do na 06:00 Europe/Amsterdam, max. één artikel per dag"
         id: guard
         run: |
-          # BUGFIX 2026-09-02: de dag-check gold alleen voor de cron ('schedule'-events).
-          # Een workflow_dispatch (handmatig, of via de GitHub API/gh CLI — ongeacht de
-          # bron) ging altijd door, elke dag van de week, wat de content-strategie
-          # (alleen di/do) in de praktijk ondermijnde zodra er buiten de cron om
-          # gedispatcht werd. Dag-check geldt nu ook voor workflow_dispatch, met een
-          # expliciete 'force'-input als bewuste uitzondering (bv. een test-run).
+          # Handmatige uitzondering (bv. een test-run): force=true slaat alle checks over.
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ github.event.inputs.force }}" = "true" ]; then
             echo "proceed=true" >> "$GITHUB_OUTPUT"
-            echo "Handmatige run met force=true — dag-check overgeslagen."
+            echo "Handmatige run met force=true — checks overgeslagen."
             exit 0
           fi
 
-          # De eerste automatische blog na deze wijziging is dinsdag 29 september 2026.
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$(TZ=Europe/Amsterdam date +%F)" \< "2026-09-29" ]; then
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-            echo "Planning start op 2026-09-29 — overgeslagen."
-            exit 0
-          fi
-
+          # Dag-check geldt voor cron én handmatige runs (bugfix 2026-09-02).
           DAY=$(TZ=Europe/Amsterdam date +%u)  # 1=maandag .. 7=zondag
-          echo "Lokale dag (Europe/Amsterdam): $(TZ=Europe/Amsterdam date)"
+          echo "Lokale tijd (Europe/Amsterdam): $(TZ=Europe/Amsterdam date)"
           if [ "$DAY" != "2" ] && [ "$DAY" != "4" ]; then
             echo "proceed=false" >> "$GITHUB_OUTPUT"
             echo "Geen dinsdag of donderdag (dag=$DAY) — overgeslagen. Gebruik force=true voor een bewuste uitzondering."
             exit 0
           fi
 
-          if [ "${{ github.event_name }}" != "schedule" ]; then
-            echo "proceed=true" >> "$GITHUB_OUTPUT"
+          # Geen kloktijd van de trigger vergelijken (runs starten vaak uren te laat),
+          # alleen: niet vóór 06:00 lokaal. Dekt meteen zomer-/wintertijd af.
+          HOUR=$(TZ=Europe/Amsterdam date +%H)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$((10#$HOUR))" -lt 6 ]; then
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "Nog geen 06:00 lokale tijd (uur=$HOUR) — overgeslagen."
             exit 0
           fi
 
-          # Schedule (cron): match het trigger-schema met de actuele DST-stand van Amsterdam.
-          # GitHub Actions cron kent geen tijdzones:
-          #   - In de zomer (CEST, UTC+2) is 04:00 UTC = 06:00 CEST (bedoelde run).
-          #   - In de winter (CET, UTC+1) is 05:00 UTC = 06:00 CET (bedoelde run).
-          # BELANGRIJK: controleer NIET op de kloktijd bij uitvoering (date +%H) — GitHub Actions
-          # runners hebben onder piekbelasting vaak 1 tot 4 uur vertraging, waardoor een run
-          # die om 04:00 UTC gepland stond pas om 08:24 UTC start en dan ten onrechte werd overgeslagen.
-          # We controleren direct welk cron-schema de trigger veroorzaakte via github.event.schedule.
-          CRON_SCHEDULE="${{ github.event.schedule }}"
-          TZ_OFFSET=$(TZ=Europe/Amsterdam date +%z)
-          TZ_NAME=$(TZ=Europe/Amsterdam date +%Z)
-          echo "Trigger cron: '$CRON_SCHEDULE', actuele tijdzone: $TZ_NAME ($TZ_OFFSET)"
-
-          if [ "$TZ_NAME" = "CEST" ] || [ "$TZ_OFFSET" = "+0200" ]; then
-            # Zomertijd: 04:00 UTC is 06:00 lokale tijd
-            if [ "$CRON_SCHEDULE" = "0 4 * * 2,4" ]; then
-              echo "proceed=true" >> "$GITHUB_OUTPUT"
-              echo "Zomertijd (CEST) + 04:00 UTC cron — doorgaan."
-            else
-              echo "proceed=false" >> "$GITHUB_OUTPUT"
-              echo "Zomertijd (CEST) + '$CRON_SCHEDULE' cron — overgeslagen (winterregel)."
-            fi
-          else
-            # Wintertijd (CET): 05:00 UTC is 06:00 lokale tijd
-            if [ "$CRON_SCHEDULE" = "0 5 * * 2,4" ]; then
-              echo "proceed=true" >> "$GITHUB_OUTPUT"
-              echo "Wintertijd (CET) + 05:00 UTC cron — doorgaan."
-            else
-              echo "proceed=false" >> "$GITHUB_OUTPUT"
-              echo "Wintertijd (CET) + '$CRON_SCHEDULE' cron — overgeslagen (zomerregel)."
-            fi
+          # Vandaag al een artikel gepubliceerd (door een eerdere trigger)? Dan klaar.
+          SINCE=$(TZ=Europe/Amsterdam date +%FT00:00:00%z)
+          DONE=$(git log -1 --since="$SINCE" --grep='^feat: kennisbank-artikel' --format=%h)
+          if [ -n "$DONE" ]; then
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            echo "Vandaag al gepubliceerd ($DONE) — overgeslagen."
+            exit 0
           fi
 
-      - name: "1. Checkout"
-        if: steps.guard.outputs.proceed == 'true'
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
 
       - name: Setup Node
         if: steps.guard.outputs.proceed == 'true'
@@ -213,6 +186,8 @@ jobs:
           else
             git commit -m "chore: content-backlog/log bijgewerkt (geen nieuw artikel)"
           fi
+          # Main kan intussen bewogen zijn (handmatige push) — rebase i.p.v. een geweigerde push.
+          git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
           echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -242,6 +217,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore: LinkedIn-repurposing voor ${{ steps.push.outputs.slug }}"
+          git pull --rebase origin ${{ github.ref_name }}
           git push origin HEAD:${{ github.ref_name }}
 
       - name: Samenvatting
@@ -250,7 +226,7 @@ jobs:
           echo "## Kennisbank-generator — resultaat" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           if [ "${{ steps.guard.outputs.proceed }}" != "true" ]; then
-            echo "**Status:** overgeslagen — buiten de startdatum, publicatiedagen of actieve DST-cronregel." >> "$GITHUB_STEP_SUMMARY"
+            echo "**Status:** overgeslagen — geen publicatiedag, vóór 06:00 of vandaag al gepubliceerd." >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.generate.outcome }}" != "success" ]; then
             echo "**Status:** mislukt of afgekeurd door Quality Gate" >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.push.outcome }}" != "success" ]; then

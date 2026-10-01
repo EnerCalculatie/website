@@ -17,6 +17,8 @@ import {
   buildComponentSource,
   splitOnVisualMarker,
   buildBlogPostsEntry,
+  isRenderableVisual,
+  renderedLength,
   insertBlogPostsEntry,
   insertAppRoutes,
   matchPlanItem,
@@ -288,5 +290,42 @@ describe('PublishAgent.run — slug-collision-guard', () => {
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('publicatie-sanering (regressies 18-09 en 22-09-2026)', () => {
+  const baseSeo: SeoJson = { content: 'body', slug: 's', title: 'Titel', excerpt: 'Ex.' };
+  const seoTitleOf = (entry: string) => entry.match(/seoTitle: '((?:[^'\\]|\\.)*)'/)?.[1].replace(/\\'/g, "'") ?? '';
+
+  it('knipt een seoTitle met & af op de HTML-lengte, niet de ruwe lengte', () => {
+    const entry = buildBlogPostsEntry(
+      { ...baseSeo, seoTitle: 'F-gassenverordening: Impact op Airco & Warmtepomp Offertes' },
+      3
+    );
+    expect(renderedLength(seoTitleOf(entry))).toBeLessThanOrEqual(60);
+  });
+  it('houdt een passende seoTitle ongewijzigd', () => {
+    const entry = buildBlogPostsEntry({ ...baseSeo, seoTitle: 'Korte titel' }, 3);
+    expect(seoTitleOf(entry)).toBe('Korte titel');
+  });
+  it('houdt de description binnen 155 tekens als HTML', () => {
+    const desc = new Array(40).fill('A&B').join(' ');
+    const entry = buildBlogPostsEntry({ ...baseSeo, description: desc }, 3);
+    const match = entry.match(/description:\s*\n\s*'([^']*)'/);
+    expect(renderedLength(match?.[1] ?? '')).toBeLessThanOrEqual(155);
+  });
+
+  it('herkent een comparison zonder columns/rows als niet-renderbaar', () => {
+    const broken = { type: 'comparison', title: 'X', items: [{ label: 'a', valueA: '1', valueB: '2' }] };
+    expect(isRenderableVisual(broken)).toBe(false);
+    expect(isRenderableVisual({ type: 'comparison', columns: ['A', 'B'], rows: [{ label: 'l', left: '1', right: '2' }] })).toBe(true);
+    expect(isRenderableVisual({ type: 'bar_chart', items: [{ label: 'a', value: 1 }] })).toBe(true);
+    expect(isRenderableVisual({ type: 'bar_chart', items: [{ label: 'a', value: 'veel' }] })).toBe(false);
+  });
+  it('laat een ongeldige visual vallen en haalt de marker uit de tekst', () => {
+    const broken = { type: 'comparison', items: [] } as unknown as VisualSpec;
+    const src = buildComponentSource('X', 'x', 'Alinea 1.\n\n[[VISUAL]]\n\nAlinea 2.', broken);
+    expect(src).not.toContain('ArticleVisual');
+    expect(src).not.toContain('[[VISUAL]]');
   });
 });

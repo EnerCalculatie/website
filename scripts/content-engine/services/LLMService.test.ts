@@ -7,8 +7,11 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 // vóórdat de (hoisted) import hieronder draait.
 vi.hoisted(() => {
   process.env.GEMINI_API_KEY = 'test-key';
+  // Geen live ListModels-call in tests: vaste fallback-lijst.
+  process.env.GEMINI_FALLBACK_MODELS = 'fallback-flash';
 });
 import { LLMService } from './LLMService';
+import { _resetGeminiClientState } from '../../lib/gemini-client.mjs';
 
 const fetchMock = vi.fn();
 
@@ -20,6 +23,7 @@ describe('LLMService.generate', () => {
   beforeEach(() => {
     fetchMock.mockReset();
     vi.stubGlobal('fetch', fetchMock);
+    _resetGeminiClientState();
     delete process.env.MOCK_LLM;
   });
   afterEach(() => {
@@ -88,23 +92,71 @@ describe('LLMService.generate', () => {
   it('gooit direct bij een niet-tijdelijke fout (bv. 400), zonder te retryen', async () => {
     fetchMock.mockResolvedValue(jsonResponse({ error: 'bad request' }, false, 400));
     const service = new LLMService();
-    await expect(service.generate({ userPrompt: 'vraag' })).rejects.toThrow(/Gemini API Error \(400\)/);
+    await expect(service.generate({ userPrompt: 'vraag' })).rejects.toThrow(/Gemini API Error \(400,/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
-  it('gooit na uitputting van alle retries bij aanhoudende 503', async () => {
+  it('valt bij aanhoudende 503 terug op een fallback-model en blijft daar', async () => {
+    vi.useFakeTimers();
+    fetchMock.mockImplementation((url: string) =>
+      Promise.resolve(
+        url.includes('fallback-flash')
+          ? jsonResponse({ candidates: [{ content: { parts: [{ text: 'van fallback' }] } }] })
+          : jsonResponse({ error: 'overloaded' }, false, 503)
+      )
+    );
+    const service = new LLMService();
+    const promise = service.generate({ userPrompt: 'vraag' });
+    await vi.runAllTimersAsync();
+    expect(await promise).toBe('van fallback');
+    // 5 pogingen op het primaire model, daarna 1 op de fallback.
+    expect(fetchMock).toHaveBeenCalledTimes(6);
+
+    // Volgende call begint direct bij het model dat werkte.
+    fetchMock.mockClear();
+    const second = service.generate({ userPrompt: 'vraag 2' });
+    await vi.runAllTimersAsync();
+    expect(await second).toBe('van fallback');
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    vi.useRealTimers();
+  });
+
+  it('gooit pas als ook alle fallback-modellen blijven falen', async () => {
     vi.useFakeTimers();
     fetchMock.mockResolvedValue(jsonResponse({ error: 'overloaded' }, false, 503));
     const service = new LLMService();
     const promise = service.generate({ userPrompt: 'vraag' });
-    // Rejection-handler meteen vastzetten, vóór de timers verlopen — anders is
-    // er een moment waarop de promise "unhandled" rejecteert.
-    const assertion = expect(promise).rejects.toThrow(/Gemini API Error \(503\)/);
+    const assertion = expect(promise).rejects.toThrow(/Gemini API Error \(503,/);
     await vi.runAllTimersAsync();
     await assertion;
-    // 1 initiële poging + 3 retries = 4 calls.
-    expect(fetchMock).toHaveBeenCalledTimes(4);
+    // 5 pogingen x 2 modellen.
+    expect(fetchMock).toHaveBeenCalledTimes(10);
     vi.useRealTimers();
+  });
+
+  it('retryt ook bij een netwerkfout', async () => {
+    vi.useFakeTimers();
+    fetchMock
+      .mockRejectedValueOnce(new TypeError('fetch failed'))
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: 'ok' }] } }] }));
+    const service = new LLMService();
+    const promise = service.generate({ userPrompt: 'vraag' });
+    await vi.runAllTimersAsync();
+    expect(await promise).toBe('ok');
+    vi.useRealTimers();
+  });
+
+  it('springt bij een uitgeput dagquotum (429 PerDay) meteen naar het volgende model', async () => {
+    fetchMock.mockImplementation((url: string) =>
+      Promise.resolve(
+        url.includes('fallback-flash')
+          ? jsonResponse({ candidates: [{ content: { parts: [{ text: 'ok' }] } }] })
+          : jsonResponse({ error: { status: 'RESOURCE_EXHAUSTED', details: [{ quotaId: 'GenerateRequestsPerDayPerProjectPerModel-FreeTier' }] } }, false, 429)
+      )
+    );
+    const service = new LLMService();
+    expect(await service.generate({ userPrompt: 'vraag' })).toBe('ok');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it('MOCK_LLM=true roept fetch niet aan en geeft een stub-response passend bij de prompt', async () => {
@@ -134,6 +186,7 @@ describe('LLMService.generateJSON', () => {
   beforeEach(() => {
     fetchMock.mockReset();
     vi.stubGlobal('fetch', fetchMock);
+    _resetGeminiClientState();
     delete process.env.MOCK_LLM;
   });
   afterEach(() => {
