@@ -6,7 +6,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 // module-load als er geen API-key in de env staat — moet dus al gezet zijn
 // vóórdat de (hoisted) import hieronder draait.
 vi.hoisted(() => {
-  process.env.GEMINI_API_KEY = 'test-key';
+  process.env.GEMINI_API_KEY_PAID = 'test-key';
   // Geen live ListModels-call in tests: vaste fallback-lijst.
   process.env.GEMINI_FALLBACK_MODELS = 'fallback-flash';
 });

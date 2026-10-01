@@ -3,13 +3,13 @@
  * Vult ai-context/content-plan.json aan met nieuwe SEO/GEO content-backlog-items
  * via OpenRouter, op basis van ai-context/*.md en de bestaande blogonderwerpen.
  * Draait los van generate-blog-post.mjs, dat alleen items met status 'planned'
- * consumeert. Vereist env var GEMINI_API_KEY.
+ * consumeert. Vereist env var GEMINI_API_KEY_PAID.
  */
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { sanitizeJsonString, extractCompleteJsonObjects } from './lib/json-sanitizer.mjs';
 import { findDuplicateTopic, checkPlanItem } from './lib/content-checks.mjs';
-import { GEMINI_TIER, GEMINI_MODEL } from './lib/gemini-config.mjs';
+import { GEMINI_MODEL } from './lib/gemini-config.mjs';
 import { geminiGenerate } from './lib/gemini-client.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -19,7 +19,7 @@ const BLOG_POSTS_PATH = path.join(ROOT, 'src/content/blogPosts.ts');
 
 // Retry/backoff en modelfallback: zie scripts/lib/gemini-client.mjs.
 
-console.log(`Gemini-tier: ${GEMINI_TIER}, model: ${GEMINI_MODEL}`);
+console.log(`Gemini-model: ${GEMINI_MODEL}`);
 
 // Zoveel 'planned' items houdt de backlog minimaal aan; wordt aangevuld als dit zakt.
 const MIN_PLANNED = 5;

@@ -33,8 +33,6 @@ jobs:
 
       - name: Backfill bronnensectie
         env:
-          GEMINI_TIER: ${{ vars.GEMINI_TIER }}
-          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/backfill-sources.mjs

@@ -37,8 +37,8 @@ on:
     # Dinsdag en donderdag vanaf 06:00 Europe/Amsterdam, met inhaalmomenten.
     # GitHub Actions cron kent geen tijdzones (04:00 UTC = 06:00 CEST, 05:00 UTC =
     # 06:00 CET) en start geplande runs onder piekbelasting uren te laat — of laat
-    # ze soms helemaal vallen. Bovendien kan de gratis Gemini-tier een ochtend lang
-    # overbelast zijn (503's op 29-09, 30-09 en 01-10-2026). Daarom meerdere
+    # ze soms helemaal vallen. Bovendien kan Gemini een ochtend lang overbelast zijn
+    # (503's op 29-09, 30-09 en 01-10-2026, toen nog op de free tier). Daarom meerdere
     # triggers over de dag; de guard-stap hieronder laat er precies één een artikel
     # publiceren: de eerste die na 06:00 lokale tijd draait zolang er die dag nog
     # geen artikel staat. Latere triggers stoppen zichzelf dan binnen seconden.
@@ -129,12 +129,11 @@ jobs:
         if: steps.guard.outputs.proceed == 'true'
         run: npm ci
 
-      # Alle Gemini-stappen gebruiken uitsluitend de gratis key, zonder paid-fallback.
+      # Alle Gemini-stappen gebruiken uitsluitend de betaalde key (free tier verwijderd 2026-10-01).
       - name: "2-3. Lees ai-context en vul content-backlog aan"
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_TIER: free
-          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/plan-content.mjs
 
@@ -142,8 +141,7 @@ jobs:
         id: generate
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GEMINI_TIER: free
-          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           TOPIC_OVERRIDE: ${{ github.event.inputs.topic }}
         run: npx tsx scripts/content-engine/run-pipeline.ts "$TOPIC_OVERRIDE"
@@ -201,8 +199,7 @@ jobs:
         if: steps.push.outputs.slug != ''
         continue-on-error: true
         env:
-          GEMINI_TIER: free
-          GEMINI_API_KEY_FREE: ${{ secrets.GEMINI_API_KEY_FREE || secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
         run: node scripts/generate-social.mjs "${{ steps.push.outputs.slug }}"
 

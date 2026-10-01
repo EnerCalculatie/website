@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 vi.hoisted(() => {
-  process.env.GEMINI_API_KEY = 'test-key';
+  process.env.GEMINI_API_KEY_PAID = 'test-key';
 });
 import { pickFallbackModels, parseRetryDelay } from './gemini-client.mjs';
 
