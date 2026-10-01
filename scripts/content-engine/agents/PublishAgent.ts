@@ -1,6 +1,12 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import {
+  deriveSeoTitle,
+  truncateAtWord as truncateAtWordClean,
+  MAX_TITLE_LENGTH,
+  MAX_DESCRIPTION_LENGTH,
+} from '../../lib/content-checks.mjs';
 
 export function estimateReadingMinutes(text: string) {
   const wpm = 225;
@@ -21,6 +27,49 @@ export function pascalCase(slug: string) {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join('');
   return /^\d/.test(c) ? `Post${c}` : c;
+}
+
+/** Lengte zoals qc-seo.mjs hem telt in de geprerenderde HTML: React escaped &, <, >, " en '
+ * als entity. Bewust conservatief (alle vijf), zodat wat hier past ook door qc:seo komt —
+ * 2026-09-22 faalde een run op "Airco &amp; Warmtepomp" (58 tekens raw, 62 als HTML). */
+export function renderedLength(s: string) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/[<>]/g, '&lt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;').length;
+}
+
+/** Knipt `text` op een woord-/zinsgrens zodat de HTML-lengte binnen `max` valt. Afgekapt →
+ * eindigt op '…' als `ellipsis`. Liever een kortere titel/description dan een afgekeurd artikel. */
+export function fitRenderedLength(text: string, max: number, ellipsis = false) {
+  const t = (text || '').trim();
+  if (renderedLength(t) <= max) return t;
+  for (let limit = max - (ellipsis ? 1 : 0); limit > 0; limit--) {
+    const cut = truncateAtWordClean(t, limit) + (ellipsis ? '…' : '');
+    if (renderedLength(cut) <= max) return cut;
+  }
+  return '';
+}
+
+/** Kan ArticleVisual deze spec renderen zonder te crashen? 2026-09-18 leverde de WriterAgent een
+ * comparison met `items: [{label, valueA, valueB}]` i.p.v. `columns`/`rows` — `columns[0]` gaf
+ * een TypeError tijdens SSR, de pagina renderde leeg (0 <h1>, geen JSON-LD) en qc:seo keurde het
+ * hele artikel af. Een ongeldige visual laten we nu vallen i.p.v. het artikel. */
+export function isRenderableVisual(v: unknown): v is VisualSpec {
+  const visual = v as VisualSpec | undefined;
+  if (!visual || typeof visual !== 'object') return false;
+  const isStr = (x: unknown) => typeof x === 'string' && x.trim() !== '';
+  if (visual.type === 'bar_chart') {
+    return Array.isArray(visual.items) && visual.items.length > 0 &&
+      visual.items.every((i) => isStr(i?.label) && Number.isFinite(i?.value));
+  }
+  if (visual.type === 'comparison') {
+    return Array.isArray(visual.columns) && visual.columns.length === 2 && visual.columns.every(isStr) &&
+      Array.isArray(visual.rows) && visual.rows.length > 0 &&
+      visual.rows.every((r) => isStr(r?.label) && typeof r?.left === 'string' && typeof r?.right === 'string');
+  }
+  return false;
 }
 
 /** Escaped voor gebruik binnen een enkelquote-JS-string-literal in blogPosts.ts. */
@@ -105,7 +154,12 @@ export function splitOnVisualMarker(content: string): string[] {
  * plek is erger dan geen visual (zie ook de test hiervoor). */
 export function buildComponentSource(componentName: string, slug: string, content: string, visual?: VisualSpec) {
   const segments = splitOnVisualMarker(content);
-  const useVisual = Boolean(visual) && segments.length === 2;
+  const useVisual = isRenderableVisual(visual) && segments.length === 2;
+  if (visual && !useVisual) {
+    console.warn('[PublishAgent] Visual niet renderbaar of marker ontbreekt/dubbel — artikel gaat zonder visual.');
+  }
+  // Zonder visual mag de marker niet als letterlijke tekst op de pagina belanden.
+  if (!useVisual) content = content.replace(/\n[ \t]*\[\[VISUAL\]\][ \t]*(?=\n)/g, '');
 
   const escape = (s: string) => s.replace(/`/g, '\\`').replace(/\$/g, '\\$');
 
@@ -152,13 +206,14 @@ export function buildBlogPostsEntry(seo: SeoJson, readingTimeMinutes: number) {
     .map((f) => `      { question: '${escapeJsString(f.question)}', answer: '${escapeJsString(f.answer)}' },`)
     .join('\n');
 
-  const safeDesc = truncateAtWord(description || excerpt || '', 155);
+  const safeDesc = fitRenderedLength(description || excerpt || '', MAX_DESCRIPTION_LENGTH, true);
+  const safeSeoTitle = fitRenderedLength(deriveSeoTitle({ title, seoTitle }).seoTitle, MAX_TITLE_LENGTH);
 
   return `  {
     slug: '${slug}',
     readingTimeMinutes: ${readingTimeMinutes},
     title: '${escapeJsString(title)}',
-    seoTitle: '${escapeJsString(seoTitle || title)}',
+    seoTitle: '${escapeJsString(safeSeoTitle)}',
     description:
       '${escapeJsString(safeDesc)}',
     date: '${new Date().toISOString().slice(0, 10)}',

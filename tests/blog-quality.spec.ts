@@ -84,7 +84,7 @@ for (const slug of sample) {
 test('scheduler draait op dinsdag + donderdag, niet op een ander dagenpaar', () => {
   const workflowPath = path.join(__dirname, '..', '.github', 'workflows', 'publish-blog-post.yml');
   const yml = readFileSync(workflowPath, 'utf-8');
-  const cronLines = [...yml.matchAll(/- cron: '0 \d+ \* \* ([\d,]+)'/g)].map((m) => m[1]);
+  const cronLines = [...yml.matchAll(/- cron: '0 [\d,]+ \* \* ([\d,]+)'/g)].map((m) => m[1]);
   expect(cronLines.length).toBeGreaterThan(0);
   for (const days of cronLines) {
     expect(days).toBe('2,4'); // 2 = dinsdag, 4 = donderdag
