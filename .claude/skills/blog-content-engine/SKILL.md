@@ -171,12 +171,10 @@ kale `<`/`>` als vergelijkingsteken in lopende tekst — breekt de JSX-parser, s
 10 jaar"). Windows-ontwikkelaars: repo gebruikt CRLF lokaal, CI (Ubuntu) checkt uit met LF —
 regexes op bestandsinhoud (bv. App.tsx-route-anchors) moeten `\r?\n` gebruiken, niet kale `\n`.
 
-**Model & tier-switch:** key-resolutie zit in `scripts/lib/gemini-config.mjs`. `GEMINI_TIER`
-(GitHub Actions variable, `free` default of `paid`) bepaalt welke secret gebruikt wordt: `free` →
-`GEMINI_API_KEY_FREE` (met `GEMINI_API_KEY` als fallback), `paid` → `GEMINI_API_KEY_PAID`. Cron
-draait altijd op `free`; `workflow_dispatch` laat je kiezen (default `free`) — nooit via de losse
-repo-variabele `vars.GEMINI_TIER` (staat op `paid`, zou de geplande run anders per ongeluk op de
-betaalde key laten draaien). Optionele `GEMINI_MODEL`-variable. Calls naar
+**Model & key:** uitsluitend de betaalde key `GEMINI_API_KEY_PAID` (`scripts/lib/gemini-config.mjs`).
+De gratis AI Studio-key en de `GEMINI_TIER`-schakelaar zijn per 2026-10-01 verwijderd (free tier gaf
+structureel 503 "overloaded"). Ontbreekt de betaalde key, dan faalt de run hard. Retry/backoff en
+modelfallback zitten in `scripts/lib/gemini-client.mjs`. Optionele `GEMINI_MODEL`-variable. Calls naar
 `generativelanguage.googleapis.com`.
 
 **Cloud-fallback:** er is een disabled Claude Code-routine (`trig_01XyrunYbmJQg9m7haGzfvv7`,
@@ -213,7 +211,7 @@ repurposing, dan blijft het artikel zelf gewoon gepubliceerd).
   zelf — output was een afgekapt fragment van de interne redenering, niet bruikbaar. Een expliciete
   check op `finishReason === 'MAX_TOKENS'` laat een toekomstige afgekapte response hard falen i.p.v.
   half publiceren.
-- Handmatig testen: `node scripts/generate-social.mjs <slug>` (vereist `GEMINI_API_KEY` — staat
+- Handmatig testen: `node scripts/generate-social.mjs <slug>` (vereist `GEMINI_API_KEY_PAID` — staat
   niet in dit Railway-project maar in `EnerCalculatie` (app-repo, service `enercalculatie`); ophalen
   via `railway run` in die project-link).
 

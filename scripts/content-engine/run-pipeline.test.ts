@@ -11,7 +11,7 @@ import path from 'node:path';
 // gemini-config.mjs importeert — die doet process.exit(1) zonder API-key in de
 // env. Moet dus al gezet zijn vóórdat de (hoisted) import hieronder draait.
 vi.hoisted(() => {
-  process.env.GEMINI_API_KEY = 'test-key';
+  process.env.GEMINI_API_KEY_PAID = 'test-key';
 });
 import { pickNextPlannedItem, requiredContentType, evaluateGates } from './run-pipeline';
 

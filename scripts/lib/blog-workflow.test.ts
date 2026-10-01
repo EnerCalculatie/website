@@ -62,9 +62,8 @@ describe('automatische blogplanning', () => {
     expect(proceeds({ day: '5', event: 'workflow_dispatch', force: 'true' })).toBe(true);
     expect(proceeds({ day: '2', hour: '03', event: 'workflow_dispatch' })).toBe(true);
   });
-  it('stelt alle drie Gemini-stappen op free in, zonder betaalde sleutel', () => {
-    expect(workflow.match(/GEMINI_TIER: free/g)).toHaveLength(3);
-    expect(workflow).not.toContain('GEMINI_API_KEY_PAID');
-    expect(workflow).not.toContain('inputs.tier');
+  it('gebruikt in alle drie Gemini-stappen uitsluitend de betaalde key', () => {
+    expect(workflow.match(/GEMINI_API_KEY_PAID: \$\{\{ secrets\.GEMINI_API_KEY_PAID \}\}/g)).toHaveLength(3);
+    expect(workflow).not.toMatch(/GEMINI_TIER|GEMINI_API_KEY_FREE|secrets\.GEMINI_API_KEY(?!_PAID)/);
   });
 });

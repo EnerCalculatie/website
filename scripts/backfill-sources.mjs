@@ -22,7 +22,7 @@ import { extractClaims } from './lib/claim-extractor.mjs';
 import { loadTrustedSources, fetchSourcesForClaims } from './lib/source-validator.mjs';
 import { factCheckClaims } from './lib/fact-check.mjs';
 import { collectUsedSources, buildSourcesBlock } from './lib/citation-generator.mjs';
-import { GEMINI_TIER, GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
+import { GEMINI_API_KEY, GEMINI_MODEL } from './lib/gemini-config.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const APP_TSX_PATH = path.join(ROOT, 'src/App.tsx');
@@ -31,7 +31,7 @@ const BLOG_DIR = path.join(ROOT, 'src/components/blog');
 const RETRYABLE_STATUSES = new Set([429, 500, 503]);
 const GEMINI_MAX_ATTEMPTS = 3;
 const GEMINI_RETRY_DELAY_MS = 15000;
-// Rate-limit-hygiëne tussen artikelen — vooral op de gratis Gemini-tier, die
+// Rate-limit-hygiëne tussen artikelen — oorspronkelijk voor de gratis Gemini-tier, die
 // een lagere requests-per-minuut-limiet heeft dan de betaalde.
 const DELAY_BETWEEN_ARTICLES_MS = 5000;
 
@@ -113,7 +113,7 @@ Lege array toegestaan als er geen claims zijn die aan een bron gekoppeld kunnen 
 }
 
 async function main() {
-  console.log(`Gemini-tier: ${GEMINI_TIER}, model: ${GEMINI_MODEL}`);
+  console.log(`Gemini-model: ${GEMINI_MODEL}`);
 
   const appSource = await readFile(APP_TSX_PATH, 'utf8');
   const slugToFile = new Map();

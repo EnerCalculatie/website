@@ -2,10 +2,10 @@
  * Gedeelde Gemini-client voor alle content-engine-scripts (LLMService.ts,
  * plan-content.mjs, generate-social.mjs).
  *
- * Aanleiding (2026-10-01): sinds de overstap naar uitsluitend de gratis key
+ * Aanleiding (2026-10-01): op de (inmiddels verwijderde) gratis key
  * faalden 29-09, 30-09 en 01-10 alle runs op `503 UNAVAILABLE` ("model is
- * overloaded"). De oude retry (2s/4s/8s, 3 pogingen, één model) is op de free
- * tier veel te kort: een overbelast model blijft vaak minuten overbelast, en
+ * overloaded"). De oude retry (2s/4s/8s, 3 pogingen, één model) is veel
+ * te kort: een overbelast model blijft vaak minuten overbelast, en
  * één mislukte call van de ~10 in de pipeline gooit het hele artikel weg.
  *
  * Deze client:
@@ -13,7 +13,7 @@
  *    met exponentiële backoff + jitter, en respecteert een `retryDelay` die
  *    Gemini zelf in een 429-respons meegeeft;
  *  - valt bij aanhoudende overbelasting, een uitgeput dagquotum of een
- *    onbekend model (404) terug op een ander gratis flash-model. Welke modellen
+ *    onbekend model (404) terug op een ander flash-model. Welke modellen
  *    beschikbaar zijn, wordt bij de eerste fallback live opgevraagd via
  *    ListModels (of expliciet via GEMINI_FALLBACK_MODELS, komma-gescheiden) —
  *    geen hardgecodeerde modelnamen die over een paar maanden niet meer bestaan;
@@ -54,7 +54,7 @@ export function parseRetryDelay(body) {
   return m ? Math.min(MAX_DELAY_MS, Math.ceil(Number(m[1]) * 1000)) : null;
 }
 
-/** Dagquotum op (free tier: per model per dag) — retryen op hetzelfde model heeft geen zin. */
+/** Dagquotum op (per model per dag) — retryen op hetzelfde model heeft geen zin. */
 function isDailyQuota(status, body) {
   return status === 429 && /PerDay|per day|daily/i.test(body ?? '');
 }
