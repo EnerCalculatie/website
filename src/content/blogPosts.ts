@@ -2347,4 +2347,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Welke certificeringen zijn vereist om een NTA 8800 energielabel te registreren?', answer: 'Adviseurs moeten beschikken over een EP-W (woningen) of EP-U (utiliteit) vakbekwaamheidsdiploma en werkzaam zijn onder een BRL 9500-certificering.' },
     ],
   },
+  {
+    slug: 'sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing',
+    readingTimeMinutes: 3,
+    title: 'SG Ready en EEBUS bij warmtepompen: slimme netsturing in uw advies',
+    seoTitle: 'SG Ready en EEBUS bij warmtepompen | Slimme Netsturing',
+    description:
+      'Ontdek hoe SG Ready en EEBUS slimme netsturing en energiemanagement bij warmtepompen mogelijk maken. Adviseer klanten optimaal over HEMS en netcongestie.',
+    date: '2026-10-01',
+    excerpt:
+      'Met een SG Ready en EEBUS warmtepomp biedt u een concrete oplossing voor slimme netsturing, netcongestie en geavanceerd energiemanagement via een HEMS.',
+    tags: ['SG Ready', 'EEBUS', 'Warmtepompen', 'HEMS', 'Slimme netsturing', 'Netcongestie'],
+    keyPoints: [
+      'SG Ready gebruikt twee binaire contacten voor vier specifieke bedrijfstoestanden.',
+      'EEBUS is een open IP-protocol dat gedetailleerde twee-richtingsdatacommunicatie mogelijk maakt.',
+      'Slimme sturing via een HEMS voorkomt netcongestie en optimaliseert eigenverbruik van zonne-energie.',
+      'Warmtepompen boven 5 kW thermisch vermogen vragen vaak een 3-fase aansluiting voor fasebalans.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is het SG Ready-label bij warmtepompen?', answer: 'Het SG Ready-label geeft aan dat een warmtepomp via twee digitale potentiaalvrije contacten kan reageren op net- of PV-signalen om het energieverbruik slim af te stemmen op het aanbod.' },
+      { question: 'Wat is het verschil tussen SG Ready en EEBUS?', answer: 'SG Ready werkt op basis van twee binaire contacten met 4 vastgestelde bedrijfstoestanden. EEBUS is een open IP-protocol op basis van NEN-EN 50631 dat gedetailleerde twee-richtingsdatacommunicatie over vermogen, verbruik en planning uitwisselt met een HEMS.' },
+      { question: 'Welke vier bedrijfstoestanden kent SG Ready?', answer: '1. Sperrzeit (maximaal 2 uur pauze bij piekbelasting), 2. Standaardbedrijf, 3. Inschakeladvies (extra warmte/water opslaan bij zonne-overschot of lage tarieven), en 4. Definitief inschakelcommando (geforceerd opwarmen tot maximumtemperatuur).' },
+      { question: 'Hoe helpt een HEMS bij het voorkomen van netcongestie?', answer: 'Een HEMS stuurt de warmtepomp automatisch aan op basis van stroomopwek en dynamische energietarieven, en voorkomt overbelasting van de hoofdaansluiting via dynamische load balancing.' },
+    ],
+  },
 ];

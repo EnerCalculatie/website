@@ -5,8 +5,10 @@
     "intent": "informatief",
     "priority": 7,
     "slug": "sg-ready-en-eebus-bij-warmtepompen-hoe-onderbouwt-u-slimme-netsturing-en-energiemanagement-in-uw-advies",
-    "status": "planned",
-    "createdAt": "2026-08-19T12:37:50.727Z"
+    "status": "generated",
+    "createdAt": "2026-08-19T12:37:50.727Z",
+    "generatedSlug": "sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing",
+    "generatedAt": "2026-10-01T11:36:56.204Z"
   },
   {
     "title": "Offerte-opvolging voor installateurs: hoe verkort u de beslissingstijd bij verduurzamingsadvies?",
