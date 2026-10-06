@@ -164,6 +164,7 @@ const SingleSplitVsMultiSplitAircoArticle = lazyRoute('/blog/single-split-vs-mul
 const KabelberekeningLaadpaalSpanningsverliesLangeAfstandArticle = lazyRoute('/blog/kabelberekening-laadpaal-spanningsverlies-lange-afstand', () => import('./components/blog/KabelberekeningLaadpaalSpanningsverliesLangeAfstandArticle').then(m => ({ default: m.KabelberekeningLaadpaalSpanningsverliesLangeAfstandArticle })));
 const Nta8800EnergieIndexRekenmethodiekArticle = lazyRoute('/blog/nta-8800-energie-index-rekenmethodiek', () => import('./components/blog/Nta8800EnergieIndexRekenmethodiekArticle').then(m => ({ default: m.Nta8800EnergieIndexRekenmethodiekArticle })));
 const SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle = lazyRoute('/blog/sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing', () => import('./components/blog/SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle').then(m => ({ default: m.SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle })));
+const FaillissementZonnepanelenfabrikantGarantierisicoArticle = lazyRoute('/blog/faillissement-zonnepanelenfabrikant-garantierisico', () => import('./components/blog/FaillissementZonnepanelenfabrikantGarantierisicoArticle').then(m => ({ default: m.FaillissementZonnepanelenfabrikantGarantierisicoArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -371,6 +372,7 @@ export function AppContent() {
             <Route path="/blog/kabelberekening-laadpaal-spanningsverlies-lange-afstand" element={<KabelberekeningLaadpaalSpanningsverliesLangeAfstandArticle />} />
             <Route path="/blog/nta-8800-energie-index-rekenmethodiek" element={<Nta8800EnergieIndexRekenmethodiekArticle />} />
             <Route path="/blog/sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing" element={<SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle />} />
+            <Route path="/blog/faillissement-zonnepanelenfabrikant-garantierisico" element={<FaillissementZonnepanelenfabrikantGarantierisicoArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

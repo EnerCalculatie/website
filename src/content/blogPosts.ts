@@ -2372,4 +2372,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe helpt een HEMS bij het voorkomen van netcongestie?', answer: 'Een HEMS stuurt de warmtepomp automatisch aan op basis van stroomopwek en dynamische energietarieven, en voorkomt overbelasting van de hoofdaansluiting via dynamische load balancing.' },
     ],
   },
+  {
+    slug: 'faillissement-zonnepanelenfabrikant-garantierisico',
+    readingTimeMinutes: 3,
+    title: 'Faillissement zonnepanelenfabrikant: Garantierisico\'s voor installateurs',
+    seoTitle: 'Faillissement fabrikant zonnepanelen: Garantierisico',
+    description:
+      'Wat gebeurt er bij een faillissement van een zonnepanelenfabrikant? Lees hoe wettelijke aansprakelijkheid en garanties werken voor installateurs.',
+    date: '2026-10-06',
+    excerpt:
+      'Wanneer een zonnepanelenfabrikant failliet gaat, vervalt de fabrieksgarantie in veel gevallen direct — maar de wettelijke aansprakelijkheid van de installateur blijft bestaan. Ontdek hoe u uw installatiebedrijf beschermt.',
+    tags: ['zonnepanelen', 'garantie', 'faillissement', 'installateurs', 'wetgeving'],
+    keyPoints: [
+      'Wettelijke aansprakelijkheid van de installateur blijft bestaan bij faillissement van de fabrikant.',
+      'Commerciële fabrieksgarantie vervalt doorgaans, tenzij deze extern herverzekerd is.',
+      'Installateurs zijn wettelijk niet verplicht de fabrieksgarantie over te nemen, wel te zorgen voor een deugdelijk product.',
+      'Herverzekerde garanties en duidelijke offertevoorwaarden beperken het financiële risico.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat gebeurt er met de fabrieksgarantie als een zonnepanelenfabrikant failliet gaat?', answer: 'In veel gevallen vervalt de commerciële fabrieksgarantie direct bij een faillissement, tenzij deze extern is herverzekerd of ondergebracht in een onafhankelijke entiteit.' },
+      { question: 'Blijft de installateur aansprakelijk na het faillissement van de producent?', answer: 'Ja, op grond van het Burgerlijk Wetboek (conformiteitsvereiste) blijft de installateur tegenover de consument aansprakelijk voor het leveren van een deugdelijk product, ongeacht het voortbestaan van de fabrikant.' },
+      { question: 'Is een installateur verplicht om de fabrieksgarantie over te nemen bij insolventie?', answer: 'Nee, de installateur is wettelijk niet gehouden om de specifieke fabrieksgarantie over te nemen. Wel blijft de installateur aansprakelijk voor kosten van herstel of vervanging als het product binnen de verwachte levensduur niet aan de overeenkomst voldoet.' },
+      { question: 'Hoe bieden herverzekerde garanties bescherming bij merkfaillissementen?', answer: 'Herverzekerde garanties en garantiefondsen borgen garantieclaims via een onafhankelijke verzekerings- of borgstellingsstructuur. Bij een faillissement van de producent blijft de garantie via deze externe entiteit gedekt.' },
+    ],
+  },
 ];
