@@ -2397,4 +2397,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe bieden herverzekerde garanties bescherming bij merkfaillissementen?', answer: 'Herverzekerde garanties en garantiefondsen borgen garantieclaims via een onafhankelijke verzekerings- of borgstellingsstructuur. Bij een faillissement van de producent blijft de garantie via deze externe entiteit gedekt.' },
     ],
   },
+  {
+    slug: 'isde-subsidie-airco-verwarming-rvo-regels',
+    readingTimeMinutes: 3,
+    title: 'ISDE-subsidie en airco als verwarming: RVO-regels uitgelegd',
+    seoTitle: 'ISDE-subsidie airco als verwarming: RVO regels',
+    description:
+      'Komen airco\'s in aanmerking voor ISDE-subsidie? Lees de RVO-regels voor lucht-luchtwarmtepompen en voorkom misverstanden in uw offertetraject.',
+    date: '2026-10-08',
+    excerpt:
+      'Krijgt uw klant ISDE-subsidie voor een airco als verwarming? Ontdek de RVO-regels voor lucht-luchtwarmtepompen en onderbouw uw advies op feitelijke gronden.',
+    tags: ['ISDE-subsidie', 'Airco verwarming', 'RVO', 'Lucht-luchtwarmtepomp', 'EIA'],
+    keyPoints: [
+      'Lucht-luchtwarmtepompen (airco\'s) zijn voor particulieren uitgesloten van ISDE-subsidie.',
+      'Alleen watergedragen warmtepompen en warmtepompboilers op de RVO-meldcodelijst zijn subsidiabel.',
+      'ISDE-aanvragen moeten binnen 24 maanden na installatie door een erkend bedrijf worden ingediend.',
+      'Zakelijke klanten kunnen mogelijk aanspraak maken op de Energie-investeringsaftrek (EIA).',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Krijgt een particulier ISDE-subsidie voor een airco die kan verwarmen?', answer: 'Nee, lucht-luchtwarmtepompen (zoals airconditioners met een verwarmingsfunctie) zijn voor particuliere woningeigenaren uitgesloten van ISDE-subsidie.' },
+      { question: 'Welke warmtepompen komen wel in aanmerking voor ISDE-subsidie?', answer: 'Watergedragen warmtepompen (gekoppeld aan cv-water of een watergedragen distributiesysteem) en warmtepompboilers (voor warm tapwater) komen in aanmerking, mits ze op de RVO-meldcodelijst staan.' },
+      { question: 'Kunnen zakelijke klanten wel fiscaal voordeel krijgen voor een airco?', answer: 'Ja, zakelijke aanvragers kunnen onder specifieke voorwaarden gebruikmaken van de Energie-investeringsaftrek (EIA) voor lucht-luchtwarmtepompen bij zakelijk vastgoed.' },
+      { question: 'Wat moet er verplicht op de installatiefactuur staan voor de ISDE-aanvraag?', answer: 'Op de factuur moeten het merk, het precieze type, de RVO-meldcode, de installatiedatum en het installatieadres vermeld staan.' },
+    ],
+  },
 ];

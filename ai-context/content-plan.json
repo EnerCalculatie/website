@@ -1,14 +1,35 @@
 [
   {
-    "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",
-    "keyword": "sg ready warmtepomp",
+    "title": "ISDE-subsidie en airco als verwarming: hoe legt u de RVO-regels uit aan uw klant?",
+    "keyword": "ISDE subsidie airco",
     "intent": "informatief",
-    "priority": 7,
-    "slug": "sg-ready-en-eebus-bij-warmtepompen-hoe-onderbouwt-u-slimme-netsturing-en-energiemanagement-in-uw-advies",
+    "contentType": "SEO",
+    "priority": 9,
+    "slug": "isde-subsidie-en-airco-als-verwarming-hoe-legt-u-de-rvo-regels-uit-aan-uw-klant",
     "status": "generated",
-    "createdAt": "2026-08-19T12:37:50.727Z",
-    "generatedSlug": "sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing",
-    "generatedAt": "2026-10-01T11:36:56.204Z"
+    "createdAt": "2026-10-08T11:06:23.098Z",
+    "generatedSlug": "isde-subsidie-airco-verwarming-rvo-regels",
+    "generatedAt": "2026-10-08T11:08:09.193Z"
+  },
+  {
+    "title": "Fase-ongelijkheid en scheefbelasting voorkomen: hoe verdeelt u 1-fase omvormers en laadpalen over 3 fasen?",
+    "keyword": "scheefbelasting zonnepanelen laadpaal",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
+    "priority": 8,
+    "slug": "fase-ongelijkheid-en-scheefbelasting-voorkomen-hoe-verdeelt-u-1-fase-omvormers-en-laadpalen-over-3-fasen",
+    "status": "planned",
+    "createdAt": "2026-10-08T11:06:23.105Z"
+  },
+  {
+    "title": "Peak shaving met laadpalen en zonnepanelen: hoe onderbouwt u het voorkomen van piekvermogen bij zakelijke klanten?",
+    "keyword": "peak shaving laadpaal zonnepanelen",
+    "intent": "commercieel",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "peak-shaving-met-laadpalen-en-zonnepanelen-hoe-onderbouwt-u-het-voorkomen-van-piekvermogen-bij-zakelijke-klanten",
+    "status": "planned",
+    "createdAt": "2026-10-08T11:06:23.108Z"
   },
   {
     "title": "Offerte-opvolging voor installateurs: hoe verkort u de beslissingstijd bij verduurzamingsadvies?",
@@ -31,16 +52,14 @@
     "createdAt": "2026-09-30T12:31:56.702Z"
   },
   {
-    "title": "Garantieclaims bij merkfaillissement van zonnepanelen: hoe beschermt u uw installatiebedrijf en uw advies?",
-    "keyword": "garanties zonnepanelen faillissement fabrikant",
-    "intent": "informatief",
-    "contentType": "SEO",
+    "title": "Calculatiefouten in installatiemateriaal voorkomen: zo beschermt u de marges op uw verduurzamingsofferte",
+    "keyword": "calculatie installatiebedrijf verduurzaming",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
     "priority": 7,
-    "slug": "garantieclaims-bij-merkfaillissement-van-zonnepanelen-hoe-beschermt-u-uw-installatiebedrijf-en-uw-advies",
-    "status": "generated",
-    "createdAt": "2026-09-30T12:31:56.704Z",
-    "generatedSlug": "faillissement-zonnepanelenfabrikant-garantierisico",
-    "generatedAt": "2026-10-06T11:01:06.282Z"
+    "slug": "calculatiefouten-in-installatiemateriaal-voorkomen-zo-beschermt-u-de-marges-op-uw-verduurzamingsofferte",
+    "status": "planned",
+    "createdAt": "2026-10-08T11:06:23.110Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -768,6 +787,29 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",
+    "keyword": "sg ready warmtepomp",
+    "intent": "informatief",
+    "priority": 7,
+    "slug": "sg-ready-en-eebus-bij-warmtepompen-hoe-onderbouwt-u-slimme-netsturing-en-energiemanagement-in-uw-advies",
+    "status": "generated",
+    "createdAt": "2026-08-19T12:37:50.727Z",
+    "generatedSlug": "sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing",
+    "generatedAt": "2026-10-01T11:36:56.204Z"
+  },
+  {
+    "title": "Garantieclaims bij merkfaillissement van zonnepanelen: hoe beschermt u uw installatiebedrijf en uw advies?",
+    "keyword": "garanties zonnepanelen faillissement fabrikant",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 7,
+    "slug": "garantieclaims-bij-merkfaillissement-van-zonnepanelen-hoe-beschermt-u-uw-installatiebedrijf-en-uw-advies",
+    "status": "generated",
+    "createdAt": "2026-09-30T12:31:56.704Z",
+    "generatedSlug": "faillissement-zonnepanelenfabrikant-garantierisico",
+    "generatedAt": "2026-10-06T11:01:06.282Z"
   },
   {
     "title": "NTA 8800 en energie-index: wat betekent deze rekenmethodiek voor uw verduurzamingsadvies?",
