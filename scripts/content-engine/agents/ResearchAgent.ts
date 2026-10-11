@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { LLMService } from '../services/LLMService';
+import { extractJson } from '../services/extractJson';
 import { ResearchOutputSchema, ResearchOutput } from '../schemas/research';
 
 export class ResearchAgent {
@@ -15,21 +16,35 @@ export class ResearchAgent {
     this.systemPrompt = readFileSync(promptPath, 'utf-8');
   }
 
-  async run(topic: string, outputPath: string): Promise<ResearchOutput> {
+  /**
+   * `news: true` (dinsdag-nieuwsartikel): onderzoek met Google Search-grounding, zodat de feiten
+   * uit actuele bronnen komen i.p.v. uit het trainingsgeheugen van het model. Zonder grounding
+   * kan een nieuwsartikel niet — het model kent het nieuws van deze week simpelweg niet.
+   */
+  async run(topic: string, outputPath: string, options: { news?: boolean } = {}): Promise<ResearchOutput> {
     const startTime = Date.now();
-    console.log(`[ResearchAgent] Start onderzoek naar: "${topic}"...`);
-
-    const userPrompt = `Verzamel gedetailleerde, feitelijke informatie over het onderwerp: "${topic}".\nZorg ervoor dat alle beweringen rechtstreeks uit betrouwbare, in de systeeminstructie genoemde bronnen komen. Geef een zo compleet mogelijk overzicht van de feiten.`;
+    console.log(`[ResearchAgent] Start ${options.news ? 'nieuws' : ''}onderzoek naar: "${topic}"...`);
 
     try {
-      const rawJson = await this.llm.generateJSON({
-        systemPrompt: this.systemPrompt,
-        userPrompt,
-        temperature: 0.1, // Laag voor feitelijkheid
-      });
-
-      // Valideer met Zod (JSON-parse-retry zit al in generateJSON)
-      const validatedData = ResearchOutputSchema.parse(rawJson);
+      let validatedData: ResearchOutput;
+      if (options.news) {
+        const userPrompt = `NIEUWSONDERZOEK\n\nVerzamel met Google Search de feiten over dit actuele nieuws:\n${topic}\n\nVolg de regels onder "Nieuwsonderzoek" in je instructies.`;
+        const { text, sources } = await this.llm.generateGrounded({
+          systemPrompt: this.systemPrompt,
+          userPrompt,
+          temperature: 0.1,
+        });
+        validatedData = { ...ResearchOutputSchema.parse(extractJson(text)), sources };
+      } else {
+        const userPrompt = `Verzamel gedetailleerde, feitelijke informatie over het onderwerp: "${topic}".\nZorg ervoor dat alle beweringen rechtstreeks uit betrouwbare, in de systeeminstructie genoemde bronnen komen. Geef een zo compleet mogelijk overzicht van de feiten.`;
+        const rawJson = await this.llm.generateJSON({
+          systemPrompt: this.systemPrompt,
+          userPrompt,
+          temperature: 0.1, // Laag voor feitelijkheid
+        });
+        // Valideer met Zod (JSON-parse-retry zit al in generateJSON)
+        validatedData = ResearchOutputSchema.parse(rawJson);
+      }
       
       const duration = Date.now() - startTime;
       console.log(`[ResearchAgent] Onderzoek afgerond in ${duration}ms. ${validatedData.facts.length} feiten gevonden.`);

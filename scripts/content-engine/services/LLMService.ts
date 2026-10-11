@@ -6,6 +6,33 @@ export interface LLMRequest {
   userPrompt: string;
   temperature?: number;
   responseFormat?: 'json_object' | 'text';
+  /** Gemini-grounding met Google Search aan — zie generateGrounded(). */
+  googleSearch?: boolean;
+}
+
+export interface GroundingSource {
+  title: string;
+  url: string;
+}
+
+export interface GroundedResponse {
+  text: string;
+  sources: GroundingSource[];
+}
+
+/**
+ * Grounding-chunks verwijzen naar een vertexaisearch-redirect, niet naar het artikel zelf.
+ * Volg de redirect één keer voor de echte URL (die hoort in research.json en de bronnenlijst).
+ * Lukt dat niet, dan blijft de redirect-URL staan — beter een omweg dan geen bron.
+ */
+export async function resolveGroundingUrl(uri: string): Promise<string> {
+  if (!uri.includes('grounding-api-redirect')) return uri;
+  try {
+    const res = await fetch(uri, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(10000) });
+    return res.headers?.get('location') || uri;
+  } catch {
+    return uri;
+  }
 }
 
 export class LLMService {
@@ -16,6 +43,13 @@ export class LLMService {
       return this.getMockResponse(combinedPrompt);
     }
 
+    // Retry/backoff en modelfallback zitten in de gedeelde client — zie gemini-client.mjs
+    // voor de aanleiding (free-tier-503's die de hele pipeline lieten falen).
+    const { data } = await geminiGenerate(this.buildBody(request));
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  }
+
+  private buildBody(request: LLMRequest): Record<string, unknown> {
     const body: Record<string, unknown> = {
       contents: [{ role: 'user', parts: [{ text: request.userPrompt }] }],
       generationConfig: {
@@ -29,14 +63,46 @@ export class LLMService {
       };
     }
 
-    if (request.responseFormat === 'json_object') {
+    if (request.googleSearch) {
+      body.tools = [{ google_search: {} }];
+    }
+
+    // JSON-modus niet combineren met grounding: niet elk Gemini-model ondersteunt die combinatie.
+    // generateGrounded() laat de caller de JSON zelf uit de tekst halen (extractJson.ts).
+    if (request.responseFormat === 'json_object' && !request.googleSearch) {
       (body.generationConfig as Record<string, unknown>).responseMimeType = 'application/json';
     }
 
-    // Retry/backoff en modelfallback zitten in de gedeelde client — zie gemini-client.mjs
-    // voor de aanleiding (free-tier-503's die de hele pipeline lieten falen).
-    const { data } = await geminiGenerate(body);
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    return body;
+  }
+
+  /**
+   * Zoals generate(), maar met Google Search-grounding: het model zoekt live op het web i.p.v.
+   * uit zijn trainingsgeheugen te antwoorden. Nodig voor nieuwsartikelen. Geeft ook de bronnen
+   * terug die Gemini daadwerkelijk raadpleegde (groundingMetadata.groundingChunks).
+   */
+  async generateGrounded(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {
+    if (process.env.MOCK_LLM === 'true') {
+      const text = await this.generate(request);
+      return { text, sources: [{ title: 'rvo.nl', url: 'https://www.rvo.nl/mock-nieuws' }] };
+    }
+
+    const { data } = await geminiGenerate(this.buildBody({ ...request, googleSearch: true }));
+    const candidate = data.candidates?.[0];
+    // Bij grounding kan het antwoord over meerdere parts verdeeld zijn.
+    const text = (candidate?.content?.parts ?? []).map((p: { text?: string }) => p.text ?? '').join('');
+
+    const sources: GroundingSource[] = [];
+    const seen = new Set<string>();
+    const chunks: Array<{ web?: { uri?: string; title?: string } }> = candidate?.groundingMetadata?.groundingChunks ?? [];
+    for (const chunk of chunks) {
+      if (!chunk.web?.uri) continue;
+      const url = await resolveGroundingUrl(chunk.web.uri);
+      if (seen.has(url)) continue;
+      seen.add(url);
+      sources.push({ title: chunk.web.title ?? url, url });
+    }
+    return { text, sources };
   }
 
   /**
@@ -69,6 +135,16 @@ export class LLMService {
   }
 
   private getMockResponse(prompt: string): string {
+    if (prompt.includes('News Scout')) {
+      return JSON.stringify({
+        found: true,
+        category: 'Thuisbatterijen',
+        headline: 'Mock nieuws over thuisbatterijen',
+        summary: 'Mock samenvatting.',
+        publishedDate: new Date().toISOString().slice(0, 10),
+        whyItMatters: 'Mock relevantie.',
+      });
+    }
     if (prompt.includes('Research Agent')) {
       return JSON.stringify({ 
         topic: "mock onderwerp",

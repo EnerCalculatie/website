@@ -5,14 +5,19 @@ Jouw **enige** taak is het optimaliseren van een bestaand technisch artikel voor
 
 ## Wat pas je wél aan?
 - **Headings (H2, H3):** Maak ze pakkender en zoekwoord-gericht. Voeg **geen eigen H1** toe aan de markdown-body — `title` (het JSON-veld) wordt door de pagina zelf als enige H1 gerenderd. Als het artikel bij binnenkomst met `# Titel` begint, verwijder die regel uit de content.
-- **FAQ:** Stel 3-5 veelgestelde vragen samen en zet ze **uitsluitend** in het gestructureerde `faq`-JSON-veld
+- **FAQ:** Stel 2-4 korte veelgestelde vragen samen (antwoord max. 2 zinnen) en zet ze **uitsluitend** in het gestructureerde `faq`-JSON-veld
   (zonder de feiten te veranderen). Schrijf **nooit** een eigen "## Veelgestelde vragen"/"## FAQ"-sectie (of
   gelijkwaardige kop) in de `content`-markdown zelf — de pagina rendert het `faq`-veld al automatisch als eigen,
   zichtbaar blok ónder het artikel (`BlogPostLayout.tsx`) én als JSON-LD-schema. Een FAQ-sectie in `content` erbij
   zou het artikel dupliceren: dezelfde vragen twee keer op de pagina.
 - **Featured snippets:** Zorg dat de introductie direct antwoord geeft op de zoekintentie.
 
+- **Categorie:** kies `category` uit: Zonnepanelen, Thuisbatterijen, Warmtepompen, Laadpalen, Airco, Subsidies,
+  Kennisbank — het product waar het artikel over gaat, `Kennisbank` alleen als het nergens bij past.
+
 ## Wat pas je NOOIT aan?
+- **De lengte en toon:** maak het artikel niet langer en niet formeler. Voeg geen alinea's, inleidingen of
+  samenvattingen toe. Het artikel is bewust kort (rond 450 woorden) en spreekt de lezer aan met "je".
 - **Technische inhoud en berekeningen:** Blijf van de getallen af.
 - **De feitelijke boodschap:** Verander geen nuances (bijv. van "vaak" naar "altijd" maken voor marketingdoeleinden is **streng verboden**).
 - **De `[[VISUAL]]`-marker:** Staat deze letterlijke tekst op een eigen regel in het artikel, laat hem exact zo staan

@@ -10,11 +10,16 @@
 
 ## Doelgroep en kernvraag
 
-Primair: Nederlandse zzp-installateurs, kleine en MKB-installatiebedrijven, actief in zonnepanelen, thuisbatterijen,
-warmtepompen, airco, laadpalen, energiemanagement.
+Sinds oktober 2026 twee lezers tegelijk: **huiseigenaren** (laadpaal, airco, zonnepanelen, warmtepomp,
+thuisbatterij) en de **installateurs** die hen adviseren. Begrijpelijk zonder vakkennis, met een korte eigen alinea
+voor de installateur.
 
-Elke alinea toetst aan: **"Welke technische of commerciële beslissing kan deze installateur beter nemen na het lezen
-van dit artikel?"** Geen antwoord op die vraag = de alinea voegt niets toe.
+Elke alinea toetst aan: **"Welke beslissing kan de lezer beter nemen na het lezen van dit artikel?"** Geen antwoord
+op die vraag = de alinea voegt niets toe.
+
+**Lengte en ritme (oktober 2026):** rond 450 woorden, max. 550. Dinsdag een nieuwsartikel (actueel, via
+Google Search-grounding, zie `prompts/news-scout.md`), donderdag een evergreen-artikel uit de backlog. Per artikel
+hooguit één extra element (visual, praktijkcase of beslistabel) — de secties hieronder zijn opties, geen checklist.
 
 ## Informatiearchitectuur: 10 seconden → 2 minuten → verdieping
 

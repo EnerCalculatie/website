@@ -232,3 +232,47 @@ describe('LLMService.generateJSON', () => {
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 });
+
+describe('LLMService.generateGrounded', () => {
+  beforeEach(() => {
+    fetchMock.mockReset();
+    vi.stubGlobal('fetch', fetchMock);
+    _resetGeminiClientState();
+    delete process.env.MOCK_LLM;
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('zet de google_search-tool aan en géén JSON-modus (niet elk model ondersteunt die combinatie)', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'x' }] } }] }));
+    await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
+    const sentBody = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(sentBody.tools).toEqual([{ google_search: {} }]);
+    expect(sentBody.generationConfig.responseMimeType).toBeUndefined();
+  });
+
+  it('plakt alle parts aan elkaar en lost grounding-redirects op naar de echte URL', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({
+        candidates: [{
+          content: { parts: [{ text: 'deel 1 ' }, { text: 'deel 2' }] },
+          groundingMetadata: {
+            groundingChunks: [
+              { web: { uri: 'https://vertexaisearch.cloud.google.com/grounding-api-redirect/abc', title: 'rvo.nl' } },
+              { web: { uri: 'https://nos.nl/artikel/1', title: 'nos.nl' } },
+              { web: { uri: 'https://nos.nl/artikel/1', title: 'nos.nl' } },
+            ],
+          },
+        }],
+      }))
+      .mockResolvedValueOnce({ headers: { get: () => 'https://www.rvo.nl/nieuws/isde' } });
+
+    const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
+    expect(result.text).toBe('deel 1 deel 2');
+    expect(result.sources).toEqual([
+      { title: 'rvo.nl', url: 'https://www.rvo.nl/nieuws/isde' },
+      { title: 'nos.nl', url: 'https://nos.nl/artikel/1' },
+    ]);
+  });
+});

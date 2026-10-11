@@ -41,7 +41,7 @@ export class WriterAgent {
     researchJsonPath: string,
     outputPath: string,
     feedback?: string,
-    contentType?: 'SEO' | 'PRACTICAL',
+    contentType?: 'NEWS' | 'SEO' | 'PRACTICAL',
     brief?: SeoBriefOutput
   ): Promise<string> {
     const startTime = Date.now();

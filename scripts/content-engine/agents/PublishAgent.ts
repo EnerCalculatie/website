@@ -278,7 +278,9 @@ export function insertAppRoutes(appSource: string, componentName: string, slug: 
 
 export class PublishAgent {
   /** `originalTopic`: zie `matchPlanItem` hierboven — geef `topic` uit run-pipeline.ts door. */
-  async run(seoJsonPath: string, rootDir: string, originalTopic?: string) {
+  /** `logMeta`: extra velden voor content-log.json. NewsScoutAgent leest `contentType`/`category`
+   * terug om de nieuwscategorieën te laten rouleren. */
+  async run(seoJsonPath: string, rootDir: string, originalTopic?: string, logMeta: { contentType?: string; category?: string } = {}) {
     console.log(`[PublishAgent] Start publicatie...`);
 
     const seoJson: SeoJson = JSON.parse(readFileSync(seoJsonPath, 'utf-8'));
@@ -330,7 +332,8 @@ export class PublishAgent {
         planItem.generatedAt = new Date().toISOString();
         writeFileSync(planPath, JSON.stringify(plan, null, 2), 'utf-8');
         console.log('[PublishAgent] content-plan.json bijgewerkt.');
-      } else {
+      } else if (logMeta.contentType !== 'NEWS') {
+        // Nieuwsartikelen komen niet uit de backlog — daar is 'geen plan-item' normaal.
         console.warn(
           `[PublishAgent] Waarschuwing: geen 'planned' backlog-item gevonden voor origineel onderwerp "${originalTopic ?? '(onbekend)'}" — content-plan.json NIET bijgewerkt. Dit onderwerp kan een volgende run opnieuw oppikken; controleer handmatig.`
         );
@@ -342,7 +345,8 @@ export class PublishAgent {
         date: new Date().toISOString().slice(0, 10),
         topic: title,
         slug: slug,
-        status: 'generated'
+        status: 'generated',
+        ...logMeta
       });
       writeFileSync(logPath, JSON.stringify(log, null, 2), 'utf-8');
       console.log('[PublishAgent] content-log.json bijgewerkt.');

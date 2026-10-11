@@ -17,5 +17,9 @@ Nederlandse installatiebedrijven en energieadviseurs die zonnepanelen, thuisbatt
 - Compliance: technische onderbouwing sluit aan op wat RVO bij ISDE-aanvraag vraagt.
 - Schaalbaarheid: één doorlopend energieprofiel i.p.v. per module opnieuw beginnen.
 
-## Wat de doelgroep NIET is
-Niet de particuliere huiseigenaar zelf — die is de eindklant van de installateur, niet de gebruiker van de software. Content richt zich op de installateur/adviseur, ook als het onderwerp (bv. "kosten thuisbatterij") relevant is voor de eindklant — schrijf dan vanuit "hoe legt u dit uit aan uw klant" of "wat moet u weten om te adviseren".
+## Blog: twee lezers
+De software is voor installateurs en adviseurs; de huiseigenaar is hun eindklant, niet de gebruiker van EnerCalculatie.
+De blog schrijft sinds oktober 2026 wél voor beide: huiseigenaren die twijfelen over een laadpaal, airco,
+zonnepanelen, warmtepomp of thuisbatterij, én de installateurs die hen adviseren. Artikelen zijn begrijpelijk zonder
+vakkennis en bevatten een korte alinea over wat het onderwerp betekent voor het advies of de offerte van de
+installateur. Onderwerpen kiezen we op wat huiseigenaren én installateurs daadwerkelijk zoeken.

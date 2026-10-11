@@ -40,3 +40,12 @@ Je moet je antwoord structureren als JSON (zonder extra tekst eromheen) in exact
   ]
 }
 ```
+
+## Nieuwsonderzoek
+Begint de opdracht met `NIEUWSONDERZOEK`? Dan heb je Google Search tot je beschikking en gaat het om actueel nieuws.
+- Zoek het oorspronkelijke bericht en minstens één tweede bron die het bevestigt of aanvult (bij voorkeur een officiële bron uit de lijst hierboven).
+- Naast de bronnen hierboven mag je ook betrouwbare nieuwsmedia gebruiken: NOS, NU.nl, RTL Nieuws, Financieel Dagblad, Solar Magazine, Duurzaam Bedrijfsleven, Installatie.nl, Vereniging Eigen Huis, Techniek Nederland, Holland Solar, CBS.
+- Verzamel: wat er precies gebeurd of besloten is, per wanneer het ingaat, voor wie het geldt, en de concrete cijfers.
+- Zet bij elk feit de `url` van de pagina waar het staat en de `datum` van publicatie.
+- Gebruik voor dit soort feiten **geen** kennis uit je geheugen: alleen wat je via Google Search vindt. Kun je iets niet vinden, laat het weg.
+- Uitvoer: hetzelfde JSON-formaat als hierboven, met per feit ook `"url": "<bron-URL>"`.

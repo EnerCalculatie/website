@@ -13,7 +13,7 @@ import path from 'node:path';
 vi.hoisted(() => {
   process.env.GEMINI_API_KEY_PAID = 'test-key';
 });
-import { pickNextPlannedItem, requiredContentType, evaluateGates } from './run-pipeline';
+import { pickNextPlannedItem, requiredContentType, evaluateGates, applyNewsMetadata, newsResearchTopic } from './run-pipeline';
 
 describe('pickNextPlannedItem', () => {
   let dir: string;
@@ -90,8 +90,17 @@ describe('pickNextPlannedItem', () => {
 });
 
 describe('requiredContentType', () => {
-  it('geeft SEO op dinsdag (Europe/Amsterdam)', () => {
-    expect(requiredContentType(new Date('2026-08-25T10:00:00Z'))).toBe('SEO'); // dinsdag
+  it('geeft NEWS op dinsdag (Europe/Amsterdam)', () => {
+    expect(requiredContentType(new Date('2026-08-25T10:00:00Z'))).toBe('NEWS'); // dinsdag
+  });
+
+  it('geeft undefined (evergreen, elk type) op donderdag', () => {
+    expect(requiredContentType(new Date('2026-08-27T10:00:00Z'))).toBeUndefined(); // donderdag
+  });
+
+  it('override wint van de weekdag', () => {
+    expect(requiredContentType(new Date('2026-08-27T10:00:00Z'), 'NEWS')).toBe('NEWS'); // donderdag
+    expect(requiredContentType(new Date('2026-08-25T10:00:00Z'), 'EVERGREEN')).toBeUndefined(); // dinsdag
   });
 
   it('geeft PRACTICAL op vrijdag (Europe/Amsterdam)', () => {
@@ -104,7 +113,30 @@ describe('requiredContentType', () => {
 
   it('rekent in Europe/Amsterdam-lokale tijd, niet UTC (relevant rond middernacht)', () => {
     // 2026-08-24 23:30 UTC = 2026-08-25 01:30 CEST (Europe/Amsterdam) -> dinsdag lokaal
-    expect(requiredContentType(new Date('2026-08-24T23:30:00Z'))).toBe('SEO');
+    expect(requiredContentType(new Date('2026-08-24T23:30:00Z'))).toBe('NEWS');
+  });
+});
+
+describe('applyNewsMetadata', () => {
+  it('zet de categorie en voegt de tag Nieuws vooraan toe', () => {
+    const out = applyNewsMetadata({ category: 'Kennisbank', tags: ['saldering'] }, 'Zonnepanelen');
+    expect(out).toEqual({ category: 'Zonnepanelen', tags: ['Nieuws', 'saldering'] });
+  });
+
+  it('voegt Nieuws niet dubbel toe', () => {
+    expect(applyNewsMetadata({ tags: ['nieuws'] }, 'Airco').tags).toEqual(['nieuws']);
+  });
+});
+
+describe('newsResearchTopic', () => {
+  it('neemt kop, samenvatting, datum en bron-URLs mee', () => {
+    const topic = newsResearchTopic({
+      found: true, headline: 'Kop', summary: 'Samenvatting', publishedDate: '2026-10-06',
+      whyItMatters: 'Relevantie', sources: [{ title: 'rvo.nl', url: 'https://www.rvo.nl/x' }],
+    });
+    expect(topic).toContain('Kop');
+    expect(topic).toContain('2026-10-06');
+    expect(topic).toContain('https://www.rvo.nl/x');
   });
 });
 
