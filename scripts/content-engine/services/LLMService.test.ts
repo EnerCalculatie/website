@@ -270,6 +270,7 @@ describe('LLMService.generateGrounded', () => {
 
     const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
     expect(result.text).toBe('deel 1 deel 2');
+    expect(result.searchQueries).toEqual([]);
     expect(result.sources).toEqual([
       { title: 'rvo.nl', url: 'https://www.rvo.nl/nieuws/isde' },
       { title: 'nos.nl', url: 'https://nos.nl/artikel/1' },

@@ -22,6 +22,20 @@ export function pickPreferredCategory(log: LogEntry[]): NewsCategory {
   return [...NEWS_CATEGORIES].sort((a, b) => (lastSeen.get(a) ?? '').localeCompare(lastSeen.get(b) ?? ''))[0];
 }
 
+/**
+ * Controleert of een door het model genoemde URL echt bestaat (2xx/3xx). Vangnet voor als Gemini
+ * geen groundingMetadata meestuurt: een verzonnen URL valt hier af.
+ */
+export async function verifyUrl(url: string): Promise<boolean> {
+  if (!/^https?:\/\//.test(url)) return false;
+  try {
+    const res = await fetch(url, { method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(15000) });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
 /** Puur. True als publishedDate (YYYY-MM-DD) ontbreekt, onleesbaar is of ouder dan maxAgeDays. */
 export function isStale(publishedDate: string | undefined, now: Date = new Date(), maxAgeDays = MAX_NEWS_AGE_DAYS): boolean {
   if (!publishedDate) return true;
@@ -61,22 +75,34 @@ ${recent.map((t) => `- ${t}`).join('\n') || '(nog niets)'}
 
 Zoek het beste nieuwsbericht volgens je instructies.`;
 
-    const { text, sources } = await this.llm.generateGrounded({
+    const { text, sources: groundingSources, searchQueries } = await this.llm.generateGrounded({
       systemPrompt: this.systemPrompt,
       userPrompt,
       temperature: 0.2,
     });
 
+    console.log(`[NewsScoutAgent] Google Search: ${searchQueries.length} zoekopdracht(en), ${groundingSources.length} grounding-bron(nen).`);
     const parsed = NewsStorySchema.parse(extractJson(text));
+
+    // Grounding-bronnen hebben voorrang. Ontbreken die (Gemini stuurt niet altijd groundingMetadata
+    // mee), dan tellen alleen door het model genoemde URL's die live bereikbaar blijken.
+    let sources = groundingSources;
+    if (parsed.found && sources.length === 0 && parsed.sourceUrls?.length) {
+      const checked = await Promise.all(parsed.sourceUrls.map(async (url) => ((await verifyUrl(url)) ? url : null)));
+      sources = checked.filter((u): u is string => !!u).map((url) => ({ title: new URL(url).hostname, url }));
+      console.log(`[NewsScoutAgent] ${sources.length}/${parsed.sourceUrls.length} door het model genoemde URL's bereikbaar.`);
+    }
+
     let story: NewsStory = { ...parsed, sources };
+    const reject = (reason: string) => {
+      console.warn(`[NewsScoutAgent] Afgewezen: ${reason}`);
+      story = { found: false, rejectedReason: reason, headline: parsed.headline, publishedDate: parsed.publishedDate, sourceUrls: parsed.sourceUrls };
+    };
 
     if (story.found && isStale(story.publishedDate)) {
-      console.warn(`[NewsScoutAgent] Gevonden bericht is te oud of zonder datum (${story.publishedDate ?? 'geen datum'}) — afgewezen.`);
-      story = { found: false };
-    }
-    if (story.found && sources.length === 0) {
-      console.warn('[NewsScoutAgent] Geen grounding-bronnen bij het bericht — afgewezen (niet verifieerbaar).');
-      story = { found: false };
+      reject(`te oud of zonder datum (${story.publishedDate ?? 'geen datum'})`);
+    } else if (story.found && sources.length === 0) {
+      reject('geen verifieerbare bronnen');
     }
 
     writeFileSync(outputPath, JSON.stringify(story, null, 2), 'utf-8');

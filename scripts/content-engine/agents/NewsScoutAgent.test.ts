@@ -67,7 +67,7 @@ describe('NewsScoutAgent.run', () => {
   }) + '\n```';
 
   it('geeft het bericht terug met de grounding-bronnen en schrijft het weg', async () => {
-    groundedMock.mockResolvedValue({ text: story(), sources: [{ title: 'rvo.nl', url: 'https://rvo.nl/a' }] });
+    groundedMock.mockResolvedValue({ text: story(), sources: [{ title: 'rvo.nl', url: 'https://rvo.nl/a' }], searchQueries: ['q'] });
     const out = path.join(dir, 'news-story.json');
     const result = await new NewsScoutAgent().run(dir, out);
     expect(result.found).toBe(true);
@@ -75,20 +75,34 @@ describe('NewsScoutAgent.run', () => {
     expect(JSON.parse(readFileSync(out, 'utf-8')).headline).toBe('Kop');
   });
 
-  it('wijst een bericht zonder bronnen af', async () => {
-    groundedMock.mockResolvedValue({ text: story(), sources: [] });
+  it('wijst een bericht zonder bronnen af en bewaart de reden', async () => {
+    groundedMock.mockResolvedValue({ text: story(), sources: [], searchQueries: [] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
+    expect(result.rejectedReason).toBe('geen verifieerbare bronnen');
+    expect(result.headline).toBe('Kop');
+  });
+
+  it('zonder grounding-bronnen: accepteert alleen door het model genoemde URL\'s die live bereikbaar zijn', async () => {
+    const fetchMock = vi.fn(async (url: string) => ({ ok: url.includes('echt') }));
+    vi.stubGlobal('fetch', fetchMock);
+    groundedMock.mockResolvedValue({
+      text: story({ sourceUrls: ['https://nos.nl/echt', 'https://verzonnen.nl/nep'] }), sources: [], searchQueries: ['q'],
+    });
+    const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
+    vi.unstubAllGlobals();
+    expect(result.found).toBe(true);
+    expect(result.sources).toEqual([{ title: 'nos.nl', url: 'https://nos.nl/echt' }]);
   });
 
   it('wijst oud nieuws af', async () => {
-    groundedMock.mockResolvedValue({ text: story({ publishedDate: '2020-01-01' }), sources: [{ title: 'x', url: 'https://x.nl' }] });
+    groundedMock.mockResolvedValue({ text: story({ publishedDate: '2020-01-01' }), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: [] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
   });
 
   it('geeft found:false door als het model niets vond', async () => {
-    groundedMock.mockResolvedValue({ text: '{"found": false}', sources: [] });
+    groundedMock.mockResolvedValue({ text: '{"found": false}', sources: [], searchQueries: [] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
   });

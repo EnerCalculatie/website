@@ -10,9 +10,12 @@ export const NewsStorySchema = z.object({
   summary: z.string().optional(),
   publishedDate: z.string().optional().describe("YYYY-MM-DD van het oorspronkelijke bericht."),
   whyItMatters: z.string().optional(),
+  sourceUrls: z.array(z.string()).optional().describe("URL's die het model zelf opgeeft — worden live gecontroleerd."),
 });
 
 export type NewsStory = z.infer<typeof NewsStorySchema> & {
   /** Bronnen uit Gemini's groundingMetadata — door de code toegevoegd, niet door het model. */
   sources?: { title: string; url: string }[];
+  /** Waarom een gevonden bericht is afgewezen — alleen voor diagnose in news-story.json. */
+  rejectedReason?: string;
 };

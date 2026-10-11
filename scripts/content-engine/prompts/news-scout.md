@@ -18,6 +18,7 @@ Laadpalen, airco's, zonnepanelen, warmtepompen en thuisbatterijen in Nederland.
 - Een onderwerp dat al in de lijst "Recent gepubliceerd" staat.
 
 ## Werkwijze
+0. Gebruik **altijd** Google Search. Je kent het nieuws van deze week niet uit je geheugen.
 1. Zoek met Google Search naar nieuws in de opgegeven voorkeurscategorie.
 2. Niets bruikbaars in die categorie? Kies dan het sterkste nieuws uit een van de andere vier categorieën.
 3. Niets bruikbaars in alle vijf? Geef `"found": false` terug. Verzin geen nieuws.
@@ -32,6 +33,7 @@ Alleen JSON, zonder tekst eromheen:
   "headline": "<Feitelijke kop van het nieuws, max 90 tekens>",
   "summary": "<Wat is er gebeurd, 2-3 zinnen, met concrete cijfers en data>",
   "publishedDate": "<YYYY-MM-DD van het oorspronkelijke bericht>",
-  "whyItMatters": "<Wat verandert er voor huiseigenaren en installateurs, 1-2 zinnen>"
+  "whyItMatters": "<Wat verandert er voor huiseigenaren en installateurs, 1-2 zinnen>",
+  "sourceUrls": ["<volledige URL van het oorspronkelijke bericht>", "<URL van een tweede bron>"]
 }
 ```

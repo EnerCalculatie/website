@@ -18,6 +18,8 @@ export interface GroundingSource {
 export interface GroundedResponse {
   text: string;
   sources: GroundingSource[];
+  /** Zoekopdrachten die Gemini uitvoerde — leeg betekent: het model heeft niet gezocht. */
+  searchQueries: string[];
 }
 
 /**
@@ -84,7 +86,7 @@ export class LLMService {
   async generateGrounded(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {
     if (process.env.MOCK_LLM === 'true') {
       const text = await this.generate(request);
-      return { text, sources: [{ title: 'rvo.nl', url: 'https://www.rvo.nl/mock-nieuws' }] };
+      return { text, sources: [{ title: 'rvo.nl', url: 'https://www.rvo.nl/mock-nieuws' }], searchQueries: ['mock'] };
     }
 
     const { data } = await geminiGenerate(this.buildBody({ ...request, googleSearch: true }));
@@ -102,7 +104,7 @@ export class LLMService {
       seen.add(url);
       sources.push({ title: chunk.web.title ?? url, url });
     }
-    return { text, sources };
+    return { text, sources, searchQueries: candidate?.groundingMetadata?.webSearchQueries ?? [] };
   }
 
   /**
