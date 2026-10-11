@@ -61,23 +61,17 @@ describe('QualityGateAgent.run', () => {
     await expect(agent.run(articlePath, factCheckPath, techReviewPath, outputPath)).rejects.toThrow();
   });
 
-  // Dit is het huidige, bestaande gedrag — géén regressietest voor gewenst gedrag.
-  // Anders dan de andere 5 agents (die hard falen als hun inputbestanden ontbreken)
-  // logt QualityGateAgent alleen een waarschuwing en gaat door met een LEGE prompt
-  // naar de LLM als seo-optimized.json/fact-check.json/technical-review.json
-  // ontbreken. Een LLM die op een lege prompt toch `passed: true` teruggeeft, zou
-  // een artikel zonder inhoud kunnen laten publiceren. Vastgelegd zodat een
-  // toekomstige wijziging hier bewust is, niet per ongeluk.
-  it('documenteert: gaat door met een LEGE prompt als de inputbestanden ontbreken, i.p.v. te falen', async () => {
-    generateMock.mockResolvedValue(JSON.stringify({ passed: true, confidence: 100, issues: [] }));
+  it('stopt bij ontbrekende input vóór een API-call', async () => {
     const agent = new QualityGateAgent();
-    const result = await agent.run(
-      path.join(dir, 'ontbreekt.json'),
-      path.join(dir, 'ontbreekt.json'),
-      path.join(dir, 'ontbreekt.json'),
-      outputPath
-    );
-    expect(generateMock).toHaveBeenCalled();
-    expect(result.passed).toBe(true);
+    await expect(agent.run('ontbreekt.json', factCheckPath, techReviewPath, outputPath)).rejects.toThrow('controle-input');
+    expect(generateMock).not.toHaveBeenCalled();
+  });
+
+  it('controleert ook FAQ en metadata', async () => {
+    writeFileSync(articlePath, JSON.stringify({ content: 'Body', faq: [{ question: 'Vraag', answer: 'fout in FAQ' }], title: 'Metadata' }));
+    generateMock.mockResolvedValue(JSON.stringify({ passed: true, confidence: 95, issues: [] }));
+    await new QualityGateAgent().run(articlePath, factCheckPath, techReviewPath, outputPath);
+    expect(generateMock.mock.calls[0][0].userPrompt).toContain('fout in FAQ');
+    expect(generateMock.mock.calls[0][0].userPrompt).toContain('Metadata');
   });
 });

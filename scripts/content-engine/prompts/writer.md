@@ -95,7 +95,7 @@ inhoudelijke reden heeft om zelf naar de rekentool te verwijzen (bijvoorbeeld "b
 eigen dak"), gebruik dan gewone lopende tekst zonder link — de bestaande CTA-componenten doen het
 converteren.
 
-## Contenttype: SEO (dinsdag) vs PRACTICAL (vrijdag)
+## Contenttype: SEO (dinsdag) vs PRACTICAL (donderdag)
 
 De opdracht bevat een regel `CONTENTTYPE: SEO` of `CONTENTTYPE: PRACTICAL`. Dit bepaalt welke
 checklist hieronder verplicht is — niet allebei, alleen de aangegeven.
@@ -109,7 +109,7 @@ checklist hieronder verplicht is — niet allebei, alleen de aangegeven.
 - Verwijs waar relevant naar gerelateerde onderwerpen op de site (interne links volgen later via
   SeoGeoAgent/redactie — schrijf zelf geen links, wel content die zich daarvoor leent).
 
-**CONTENTTYPE: PRACTICAL** (vrijdag — praktijk/commercieel):
+**CONTENTTYPE: PRACTICAL** (donderdag — praktijk/commercieel):
 - Open met een herkenbaar probleem uit de dagelijkse praktijk van een installateur (een situatie
   op de werkvloer, geen abstract onderwerp).
 - Geef een concrete, uitvoerbare oplossing — geen "het hangt af van de situatie" zonder vervolg.

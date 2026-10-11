@@ -17,16 +17,17 @@ export class QualityGateAgent {
     const startTime = Date.now();
     console.log(`[QualityGateAgent] Start eindcontrole...`);
 
-    let content = '';
-    let factCheck = '';
-    let techReview = '';
+    let content: string;
+    let factCheck: string;
+    let techReview: string;
     try {
       const seoJson = JSON.parse(readFileSync(articlePath, 'utf-8'));
-      content = seoJson.content;
+      if (typeof seoJson.content !== 'string' || !seoJson.content.trim()) throw new Error('Leeg artikel');
+      content = JSON.stringify(seoJson, null, 2);
       factCheck = readFileSync(factCheckJsonPath, 'utf-8');
       techReview = readFileSync(techReviewJsonPath, 'utf-8');
     } catch (_e) {
-      console.warn('[QualityGateAgent] Waarschuwing: Niet alle inputbestanden gevonden. Zorg dat de pijplijn volledig is doorlopen.');
+      throw new Error('[QualityGateAgent] Ongeldige of ontbrekende controle-input.', { cause: _e });
     }
 
     const userPrompt = `

@@ -85,6 +85,7 @@ ${researchFacts}
 
 BELANGRIJK:
 - Pas ALLEEN de passages aan die de feedback benoemt.
+- Verwijder expliciet afgekeurde, niet-onderbouwde normnamen en getallen volledig; herformuleren is geen herstel.
 - Als een claim niet onderbouwd kan worden door het bronmateriaal: VERWIJDER de claim.
 - Voeg GEEN nieuwe informatie toe die niet in de bronnen staat.
 - Behoud de structuur en goede delen van het vorige concept.

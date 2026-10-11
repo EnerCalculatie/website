@@ -22,23 +22,23 @@ type PlanItem = {
 };
 
 /**
- * Dinsdag = SEO (kennis/zoekgedrag), vrijdag = PRACTICAL (praktijk/commercieel) — zie
+ * Dinsdag = SEO (kennis/zoekgedrag), donderdag = PRACTICAL (praktijk/commercieel) — zie
  * scripts/content-engine/prompts/writer.md. Europe/Amsterdam, niet UTC/serverlokaal: de
  * GitHub Actions-runner draait in UTC en de workflow heeft al een aparte DST-guard-stap
  * die deze functie pas op het juiste lokale moment laat draaien (zie publish-blog-post.yml).
- * Buiten di/vr (handmatige workflow_dispatch met een expliciet gekozen dag): geen
+ * Buiten di/do (handmatige workflow_dispatch met een expliciet gekozen dag): geen
  * afgedwongen type, WriterAgent krijgt dan geen CONTENTTYPE-instructie.
  */
 export function requiredContentType(date: Date = new Date()): ContentType | undefined {
   const weekday = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Amsterdam', weekday: 'short' }).format(date);
   if (weekday === 'Tue') return 'SEO';
-  if (weekday === 'Fri') return 'PRACTICAL';
+  if (weekday === 'Thu') return 'PRACTICAL';
   return undefined;
 }
 
 /**
  * Kiest het hoogste-prioriteit 'planned' item. Bij een opgegeven `requiredType` (het
- * di/vr-contenttype) heeft een item met matchend `contentType` voorrang boven prioriteit alleen
+ * di/do-contenttype) heeft een item met matchend `contentType` voorrang boven prioriteit alleen
  * — pas als geen enkel gepland item het gevraagde type heeft, valt dit terug op de hoogste
  * prioriteit ongeacht type (met een waarschuwing: dat is een signaal dat de backlog te weinig
  * variatie in contentType heeft, niet een normale situatie).
@@ -70,7 +70,7 @@ export function pickNextPlannedItem(cwd: string, requiredType?: ContentType) {
 /**
  * Definitieve publicatiebeslissing — puur, los testbaar. Drie onafhankelijke, harde gates
  * (BLOG_CONTENT_GUIDELINES.md, "Quality Gate — wat blokkeert, wat niet"):
- * 1. Factual/technical correctness (QualityGateAgent — ongewijzigd, minstens één 'high'-issue blokkeert).
+ * 1. Factual/technical correctness (factcheck + technische review + eindgate; open fouten blokkeren).
  * 2. SEO/GEO (SeoGeoAgent.audit — vaste drempels, zie schemas/seo.ts).
  * 3. Practical usefulness (MarketingGateAgent — enige blokkerende dimensie daar).
  * Overige marketingdimensies zijn nooit blokkerend. De drie gates zijn onafhankelijk: SEO/GEO-falen
@@ -94,12 +94,11 @@ export function evaluateGates(
   return { factualBlocking, seoBlocking, usefulnessBlocking, canPublish: !factualBlocking && !seoBlocking && !usefulnessBlocking };
 }
 
-async function run() {
-  const cwd = process.cwd();
+export const MAX_REPAIR_ATTEMPTS = 3;
 
-  let topic = process.argv[2];
+export async function runPipeline(cwd = process.cwd(), topic = process.argv[2]) {
   // Alleen afdwingen bij automatische backlog-selectie — een expliciet CLI-onderwerp
-  // (handmatige/backfill-run) is een bewuste uitzondering, geen di/vr-scheduler-run.
+  // (handmatige/backfill-run) is een bewuste uitzondering, geen di/do-scheduler-run.
   const contentType = topic ? undefined : requiredContentType();
   let keyword: string | undefined;
   let intent: string | undefined;
@@ -107,7 +106,7 @@ async function run() {
     const item = pickNextPlannedItem(cwd, contentType);
     if (!item) {
       console.log('Geen geplande onderwerpen gevonden in content-plan.json. Stop.');
-      process.exit(0);
+      return;
     }
     topic = item.title;
     keyword = item.keyword;
@@ -149,125 +148,81 @@ async function run() {
     // Stap 3: Eerste draft schrijven (krijgt de brief mee)
     await writerAgent.run(topic, researchPath, draftPath, undefined, contentType, brief);
 
-    // Stap 4: Kwaliteitscontrole-loop — fact check + tech review + SEO/GEO-audit delen dezelfde
-    // retry-teller (max 2 iteraties totaal, niet per check). Volgorde per iteratie: eerst
-    // feitelijke/technische issues oplossen (die veranderen de content het meest ingrijpend); pas
-    // als die schoon zijn, SEO optimaliseren en auditen — een SEO-retry op een nog-foutieve tekst
-    // zou zinloos werk zijn.
+    // Eén gedeeld budget: maximaal drie echte herschrijvingen en vier beoordelingen.
+    // Iedere ronde beoordeelt exact de publicatieversie, inclusief SEO-nevenvelden.
+    // Brief/research blijven gelijk; geen extra calls voor alleen rapportage na uitputting.
     const marketingGate = new MarketingGateAgent();
-
-    let retries = 0;
-    const maxRetries = 2;
-    let seoOptimized: Awaited<ReturnType<typeof seoAgent.run>> | undefined;
-    let auditResult: Awaited<ReturnType<typeof seoAgent.audit>> | undefined;
-    let marketingOut: Awaited<ReturnType<typeof marketingGate.run>> | undefined;
-
-    while (retries < maxRetries) {
-      const factCheckResult = await factChecker.run(draftPath, researchPath, factCheckPath, topic);
-      const techReviewResult = await techReviewer.run(draftPath, techReviewPath);
-
-      const factErrors = factCheckResult.filter((f: { status: string }) => f.status === 'incorrect');
-      const techHighIssues = techReviewResult.filter((t: { severity: string }) => t.severity === 'high');
-      const hasBlockingContentIssues = factErrors.length > 0 || techHighIssues.length > 0;
-
-      if (hasBlockingContentIssues) {
-        retries++;
-        if (retries >= maxRetries) {
-          console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) met nog openstaande feitelijke/technische issues.`);
-          break;
-        }
-        const feedbackLines: string[] = [];
-        for (const f of factErrors) feedbackLines.push(`- [FEITFOUT] "${f.claim}": ${f.reason}. Suggestie: ${f.suggestion}`);
-        for (const t of techHighIssues) feedbackLines.push(`- [TECHNISCH] ${t.issue}. Aanbeveling: ${t.recommendation}`);
-        console.log(`\n⚠️ ${feedbackLines.length} blokkerende issue(s) gevonden, start herschrijven iteratie ${retries}...`);
-        await writerAgent.run(topic, researchPath, draftPath, feedbackLines.join('\n'), contentType, brief);
-        continue; // herstart de loop-iteratie op de herschreven draft, sla SEO nog over
-      }
-
-      console.log(`\n✅ Geen blokkerende feitelijke/technische issues gevonden.`);
-      seoOptimized = await seoAgent.run(draftPath, seoPath);
-      auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
-
-      if (!auditResult.passed) {
-        retries++;
-        if (retries >= maxRetries) {
-          console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) met SEO/GEO nog onder de drempel.`);
-          break;
-        }
-        console.log(`\n⚠️ SEO/GEO-audit onvoldoende, start herschrijven iteratie ${retries}...`);
-        console.log(JSON.stringify(auditResult.blockingIssues, null, 2));
-        await writerAgent.run(topic, researchPath, draftPath, auditResult.feedback, contentType, brief);
-        // volgende iteratie doet fact-check/tech-review opnieuw op de herschreven tekst — noodzakelijk,
-        // een herschrijving kan in theorie een nieuwe feitelijke fout introduceren.
-        continue;
-      }
-
-      console.log(`\n✅ SEO/GEO-audit geslaagd.`);
-
-      // Marketing Gate hier (in de loop, niet pas erna) zodat een gemiste visual-kans nog een
-      // extra herschrijf-iteratie kan triggeren — zelfde gedeelde retry-budget, geen los
-      // mechanisme. practicalUsefulness-ondergrens en overige scores blijven non-blocking (zie
-      // evaluateGates hieronder); alleen de visual-opportunity-mismatch triggert hier een retry,
-      // en ook die blijft uiteindelijk non-blocking (na maxRetries publiceert het gewoon door).
-      marketingOut = await marketingGate.run(seoPath, marketingPath);
-      const missedVisualOpportunity = marketingOut.visualOpportunity && !marketingOut.visualProvided;
-
-      if (!missedVisualOpportunity) break;
-
-      retries++;
-      if (retries >= maxRetries) {
-        console.log(`\n⚠️ Maximaal aantal herschrijf-iteraties bereikt (${maxRetries}) — visual-kans gemist, publicatie gaat non-blocking door zonder visual.`);
-        break;
-      }
-      console.log(`\n⚠️ Visual-opportunity gemist (content leent zich voor een visual, geen visual toegevoegd), start herschrijven iteratie ${retries}...`);
-      await writerAgent.run(
-        topic, researchPath, draftPath,
-        `[VISUAL-KANS] De content bevat duidelijke, vergelijkbare cijfers/categorieën die zich lenen voor een visual (bar_chart of comparison) — voeg een [[VISUAL]]-marker + visual-data toe op de juiste plek in het betoog. ${marketingOut.feedback}`,
-        contentType, brief
-      );
-      // volgende iteratie doet fact-check/tech-review opnieuw — een herschrijving kan in theorie
-      // een nieuwe feitelijke fout introduceren.
-    }
-
-    // Veiligheidsnet: als de loop stopte terwijl er nog feitelijke/technische issues openstonden
-    // (retries op), is er mogelijk nooit een SEO-optimalisatie/audit gedraaid — QualityGateAgent en
-    // PublishAgent hebben seo-optimized.json wel nodig. Genereer 'm dan alsnog, puur voor rapportage
-    // (de factual gate blokkeert toch al, dit voorkomt alleen een crash op een ontbrekend bestand).
-    if (!seoOptimized) seoOptimized = await seoAgent.run(draftPath, seoPath);
-    if (!auditResult) auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
-    // Marketing Gate draait normaliter al ín de loop (stap 4, ná een geslaagde SEO/GEO-audit) —
-    // alleen als de loop daar nooit kwam (bv. factual issues die alle iteraties opsoupeerden)
-    // is hij hier nog nodig. Voorkomt een dubbele LLM-call in het normale pad.
-    if (!marketingOut) marketingOut = await marketingGate.run(seoPath, marketingPath);
-
-    // Stap 5: Quality Gate (factual/technical — ongewijzigd, enige bron voor factualBlocking)
     const qualityGate = new QualityGateAgent();
-    const qualityOut = await qualityGate.run(seoPath, factCheckPath, techReviewPath, qualityPath);
-    const highIssues = qualityOut.issues.filter((i: { severity: string }) => i.severity === 'high');
+    const reviewPath = path.join(cwd, 'review-article.md');
+    let repairs = 0;
+    let visualRepairAttempted = false;
 
-    const gates = evaluateGates(highIssues.length, auditResult.passed, marketingOut.passed);
+    while (true) {
+      const seoOptimized = await seoAgent.run(draftPath, seoPath);
+      writeFileSync(reviewPath, JSON.stringify(seoOptimized, null, 2), 'utf-8');
+      const factCheckResult = await factChecker.run(reviewPath, researchPath, factCheckPath, topic);
+      const techReviewResult = await techReviewer.run(reviewPath, techReviewPath);
+      const auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
+      const marketingOut = await marketingGate.run(seoPath, marketingPath);
+      const qualityOut = await qualityGate.run(seoPath, factCheckPath, techReviewPath, qualityPath);
 
-    if (gates.canPublish) {
-      if (qualityOut.issues.length > 0 || marketingOut.feedback) {
-        console.log(`\n⚠️ Niet-blokkerende suggesties (publicatie gaat door):`);
-        console.log(`Quality: ${JSON.stringify(qualityOut.issues, null, 2)}`);
-        console.log(`Marketing (practicalUsefulness ${marketingOut.scores.practicalUsefulness}/10): ${marketingOut.feedback}`);
+      const factErrors = factCheckResult.filter(f => f.status === 'incorrect');
+      const techHighIssues = techReviewResult.filter(t => t.severity === 'high');
+      const highIssues = qualityOut.issues.filter(i => i.severity === 'high');
+      // Een gunstig eindredacteur-oordeel mag openstaande fouten niet overrulen.
+      const gates = evaluateGates(
+        factErrors.length + techHighIssues.length + highIssues.length,
+        auditResult.passed, marketingOut.passed
+      );
+      const feedbackLines = [
+        ...factErrors.map(f => `- [FEITFOUT] "${f.claim}": ${f.reason}. Suggestie: ${f.suggestion}`),
+        ...techHighIssues.map(t => `- [TECHNISCH] ${t.issue}. Aanbeveling: ${t.recommendation}`),
+        ...highIssues.map(i => `- [EINDCONTROLE HIGH] ${i.issue}`),
+      ];
+      if (!auditResult.passed) feedbackLines.push(`[SEO/GEO] ${auditResult.blockingIssues.join('; ')}. ${auditResult.feedback}`);
+      if (!marketingOut.passed) feedbackLines.push(`[BRUIKBAARHEID] ${marketingOut.feedback}`);
+      const missedVisual = marketingOut.visualOpportunity && !marketingOut.visualProvided;
+      // Een optionele visual krijgt hoogstens één poging, alleen nadat harde gates slagen.
+      const repairVisual = gates.canPublish && missedVisual && !visualRepairAttempted;
+      if (repairs < MAX_REPAIR_ATTEMPTS && (!gates.canPublish || repairVisual)) {
+        if (repairVisual) {
+          visualRepairAttempted = true;
+          feedbackLines.push(`[VISUAL-KANS] Voeg een [[VISUAL]]-marker + onderbouwde visual-data toe. ${marketingOut.feedback}`);
+        }
+        repairs++;
+        console.log(`\nGerichte correctie ${repairs}/${MAX_REPAIR_ATTEMPTS}:\n${feedbackLines.join('\n')}`);
+        // Herstel de versie waarop de feedback betrekking heeft, niet een oudere draft.
+        writeFileSync(draftPath, seoOptimized.content, 'utf-8');
+        writeFileSync(draftPath.replace(/\.md$/, '.extras.json'), JSON.stringify({ visual: seoOptimized.visual }), 'utf-8');
+        await writerAgent.run(topic, researchPath, draftPath,
+          `${feedbackLines.join('\n')}\n\nControleer dezelfde claims ook in deze SEO-nevenvelden; verwerk noodzakelijke correcties in het artikel zodat SEO ze opnieuw kan afleiden:\n${JSON.stringify({ ...seoOptimized, content: undefined })}`,
+          contentType, brief);
+        continue; // alle controles opnieuw; geen rapporten van een eerdere versie hergebruiken
       }
-      console.log(`\n✅ Alle gates geslaagd. Start publicatie...`);
-      const publisher = new PublishAgent();
-      await publisher.run(seoPath, cwd, topic);
-      console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd!`);
-    } else {
-      console.log(`\n❌ PIPELINE GESTOPT — publicatie geblokkeerd:`);
-      if (gates.factualBlocking) console.log(`- Factual/technical: ${highIssues.length} blokkerende fout(en). ${JSON.stringify(highIssues, null, 2)}`);
-      if (gates.seoBlocking) console.log(`- SEO/GEO onvoldoende: ${JSON.stringify(auditResult.blockingIssues, null, 2)}`);
-      if (gates.usefulnessBlocking) console.log(`- Practical usefulness te laag (${marketingOut.scores.practicalUsefulness}/10, minimaal 4 vereist): ${marketingOut.feedback}`);
-      process.exit(1);
-    }
 
+      if (gates.canPublish) {
+        if (qualityOut.issues.length > 0 || marketingOut.feedback) {
+          console.log(`\n⚠️ Niet-blokkerende suggesties (publicatie gaat door):`);
+          console.log(`Quality: ${JSON.stringify(qualityOut.issues, null, 2)}`);
+          console.log(`Marketing (practicalUsefulness ${marketingOut.scores.practicalUsefulness}/10): ${marketingOut.feedback}`);
+        }
+        console.log(`\n✅ Alle gates geslaagd. Start publicatie...`);
+        const publisher = new PublishAgent();
+        await publisher.run(seoPath, cwd, topic);
+        console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd!`);
+      } else {
+        console.log(`\n❌ PIPELINE GESTOPT — publicatie geblokkeerd:`);
+        if (gates.factualBlocking) console.log(`- Factual/technical: ${factErrors.length + techHighIssues.length + highIssues.length} blokkerende fout(en). ${JSON.stringify({ factErrors, techHighIssues, highIssues }, null, 2)}`);
+        if (gates.seoBlocking) console.log(`- SEO/GEO onvoldoende: ${JSON.stringify(auditResult.blockingIssues, null, 2)}`);
+        if (gates.usefulnessBlocking) console.log(`- Practical usefulness te laag (${marketingOut.scores.practicalUsefulness}/10, minimaal 4 vereist): ${marketingOut.feedback}`);
+        throw new Error(`Publicatie geblokkeerd na ${repairs} correctiepogingen.`);
+      }
+
+      return;
+    }
   } catch (err) {
     console.error('\n💥 FATALE FOUT in pipeline:', err);
-    process.exit(1);
+    throw err;
   }
 }
 
@@ -275,5 +230,5 @@ async function run() {
 // niet bij een import — anders triggert bv. een test die pickNextPlannedItem
 // importeert de hele live pipeline als bijwerking van het importeren.
 if (process.argv[1] && process.argv[1].endsWith('run-pipeline.ts')) {
-  run();
+  runPipeline().catch(() => { process.exitCode = 1; });
 }

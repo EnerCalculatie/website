@@ -31,7 +31,7 @@ steekproef-artikel: exact 1 H1, canonical/meta-description aanwezig, `og:image` 
 CTA-link naar `app.enercalculatie.nl/gratis` met `utm_source=blog` + per-slug `utm_content`
 (regressietest op de `blogCtaUrl()`-attributie), en — waar `post.faq` bestaat — dat de zichtbare
 FAQ en het JSON-LD FAQPage-schema exact dezelfde vragen bevatten (geen drift, geen duplicaat-FAQ).
-Los daarvan: een statische check dat `publish-blog-post.yml` op dinsdag+vrijdag (`2,5`) cront, en
+Los daarvan: een statische check dat `publish-blog-post.yml` op dinsdag+donderdag (`2,4`) cront, en
 dat het pilot-artikel zijn tabel/SVG-diagram behoudt.
 
 - **`webServer.port` i.p.v. `url`:** server.ts forceert `https` via `x-forwarded-proto` (Railway's
@@ -113,7 +113,7 @@ Die bestaan nog in de repo maar worden door `publish-blog-post.yml` niet meer aa
 sectie beschreef tot 2026-08-07 nog de oude flow, was niet meegesynct met de vervanging.
 Opruimen van de dode bestanden staat nog open.
 
-De blog-cronjob (`.github/workflows/publish-blog-post.yml`, di+vr 05:00 UTC) draait nu
+De blog-cronjob (`.github/workflows/publish-blog-post.yml`, di+do, meerdere inhaalmomenten vanaf 06:00 Europe/Amsterdam) draait nu
 `npx tsx scripts/content-engine/run-pipeline.ts` (`scripts/content-engine/`, TypeScript,
 `run-pipeline.ts` orkestreert 7 agents onder `agents/`):
 
@@ -123,10 +123,10 @@ De blog-cronjob (`.github/workflows/publish-blog-post.yml`, di+vr 05:00 UTC) dra
    `contentType: 'SEO' | 'PRACTICAL'` per item (gevalideerd, anders `undefined` + waarschuwing) —
    zie punt 3a hieronder voor hoe dit wordt afgedwongen.
 
-### Dinsdag = SEO, vrijdag = PRACTICAL (2026-08-25)
+### Dinsdag = SEO, donderdag = PRACTICAL (2026-08-25)
 
 `run-pipeline.ts` bepaalt via `requiredContentType()` (Europe/Amsterdam-lokale weekdag, niet UTC)
-of de run dinsdag (`SEO`) of vrijdag (`PRACTICAL`) is — alleen bij automatische backlog-selectie,
+of de run dinsdag (`SEO`) of donderdag (`PRACTICAL`) is — alleen bij automatische backlog-selectie,
 niet bij een expliciet CLI-onderwerp (handmatige/backfill-run). `pickNextPlannedItem(cwd,
 requiredType)` geeft dan voorrang aan een `planned`-item met matchend `contentType`, ook als dat
 een lagere prioriteit heeft dan een niet-matchend item; alleen als de backlog géén item van het
@@ -147,18 +147,20 @@ niets — geen `CONTENTTYPE`-regel, gedrag exact zoals vóór 2026-08-25.
    thuisbatterijen, warmtepompen, zonnepanelen; via `services/KnowledgeBase.ts`,
    `getCombinedContext()` leest alle `.md`-bestanden in die map) en de researchfeiten uit stap 2.
    Mag niets verzinnen buiten die twee bronnen.
-4. **Kwaliteitsloop (max 2 herschrijf-iteraties):** `FactCheckerAgent` (checkt de draft tegen
-   kennisbank + researchfeiten, `fact-check.json`) en `TechnicalReviewerAgent`
-   (`technical-review.json`) draaien parallel aan elkaar. Blokkerende issues (`status: 'incorrect'`
-   resp. `severity: 'high'`) gaan als feedback terug naar `WriterAgent` voor een herschrijfronde.
-   Na 2 pogingen gaat de pipeline door met de beste versie, ook als er nog issues open staan.
-5. **`SeoGeoAgent`** — optimaliseert title/meta/slug/FAQ ná de inhoudelijke loop, schrijft
-   `seo-optimized.json`. Genereert hier ook `category` (optioneel veld, vrije modelkeuze — zie
-   `schemas/seo.ts`) en `keyPoints`.
-6. **`QualityGateAgent`** — definitief oordeel (`passed`/`confidence`), leest `seo-optimized.json`
-   + de fact-check/tech-review-uitkomsten, schrijft `quality-report.json`. Alleen high-severity
-   issues blokkeren publicatie na alle iteraties; medium/low publiceert door met een waarschuwing
-   in de workflow-log.
+4. **Begrensde herstelcyclus:** maximaal drie echte correcties, gedeeld door alle gates.
+   Elke ronde begint met `SeoGeoAgent` en schrijft `seo-optimized.json`; factcheck en technische
+   review controleren die volledige publicatieversie via `review-article.md` (ook FAQ, metadata
+   en visual-data). Daarna volgen SEO/GEO-audit, MarketingGate en eind-QualityGate.
+5. **Gericht herstel:** `incorrect`-claims, technische `high`-issues en `high`-issues uit de
+   eindgate gaan samen met falende SEO/bruikbaarheid-feedback terug naar WriterAgent. Na elke
+   correctie draaien alle controles opnieuw, ook na correctie drie. Openstaande fouten blijven
+   zelfstandig blokkeren, ook wanneer de eindgate ze mist. Medium/low blijven non-blocking.
+6. **Kostenbegrenzing:** brief en research eenmaal; maximaal vier versies, elk zes controles/
+   optimalisatiestappen, plus initieel schrijven en drie correcties: maximaal 30 logische
+   LLM-aanroepen vóór PublishAgent. JSON-retries en transport-retries/modelfallback blijven
+   apart begrensd in de bestaande clients; dit is geen euro- of tokenlimiet. Een optionele
+   visual krijgt maximaal één herstelpoging binnen hetzelfde budget, alleen bij geslaagde
+   harde gates. Uitputting leidt tot afwijzing, nooit tot publicatie met blokkerende fouten.
 7. **`PublishAgent`** — schrijft bij een `passed`-oordeel het React-component
    (`src/components/blog/<Naam>Article.tsx`, componentnaam = `pascalCase(slug) + 'Article'`),
    werkt `blogPosts.ts`-entry en `App.tsx`-route bij (`lazyRoute` + `<Route>`, zie checklist
