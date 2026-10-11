@@ -1,10 +1,5 @@
-// Regressietest voor pickNextPlannedItem — bepaalt welk onderwerp de
-// cron-run zonder expliciet argument oppakt. Had 0% dekking. run-pipeline.ts
-// zelf (de orchestratie van alle 7 agents) wordt bewust niet end-to-end
-// unit-getest: elke agent afzonderlijk is al gedekt, en de losse
-// execSync/build/git-onderdelen worden al elke di/vr-run live geverifieerd.
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 // run-pipeline.ts importeert (via elke agent) LLMService.ts, dat op zijn beurt
@@ -13,7 +8,7 @@ import path from 'node:path';
 vi.hoisted(() => {
   process.env.GEMINI_API_KEY_PAID = 'test-key';
 });
-import { pickNextPlannedItem, requiredContentType, evaluateGates } from './run-pipeline';
+import { pickNextPlannedItem, requiredContentType, evaluateGates, runPipeline } from './run-pipeline';
 
 describe('pickNextPlannedItem', () => {
   let dir: string;
@@ -94,12 +89,20 @@ describe('requiredContentType', () => {
     expect(requiredContentType(new Date('2026-08-25T10:00:00Z'))).toBe('SEO'); // dinsdag
   });
 
-  it('geeft PRACTICAL op vrijdag (Europe/Amsterdam)', () => {
-    expect(requiredContentType(new Date('2026-08-28T10:00:00Z'))).toBe('PRACTICAL'); // vrijdag
+  it('geeft PRACTICAL op donderdag (Europe/Amsterdam)', () => {
+    expect(requiredContentType(new Date('2026-08-27T10:00:00Z'))).toBe('PRACTICAL'); // donderdag
   });
 
   it('geeft undefined op een andere dag', () => {
     expect(requiredContentType(new Date('2026-08-26T10:00:00Z'))).toBeUndefined(); // woensdag
+  });
+
+  it('volgt donderdag in zomer- en wintertijd, vrijdag heeft geen verplicht type', () => {
+    expect(requiredContentType(new Date('2026-08-26T22:30:00Z'))).toBe('PRACTICAL');
+    expect(requiredContentType(new Date('2026-01-07T23:30:00Z'))).toBe('PRACTICAL');
+    expect(requiredContentType(new Date('2026-08-28T10:00:00Z'))).toBeUndefined();
+    const workflow = readFileSync(new URL('../../.github/workflows/publish-blog-post.yml', import.meta.url), 'utf8');
+    expect(workflow).toContain("* * 2,4'");
   });
 
   it('rekent in Europe/Amsterdam-lokale tijd, niet UTC (relevant rond middernacht)', () => {
@@ -136,5 +139,106 @@ describe('evaluateGates', () => {
   it('meerdere gates kunnen tegelijk blokkeren', () => {
     const g = evaluateGates(2, false, false);
     expect(g).toEqual({ factualBlocking: true, seoBlocking: true, usefulnessBlocking: true, canPublish: false });
+  });
+});
+
+import { WriterAgent } from './agents/WriterAgent';
+import { ResearchAgent } from './agents/ResearchAgent';
+import { SeoGeoAgent } from './agents/SeoGeoAgent';
+import { FactCheckerAgent } from './agents/FactCheckerAgent';
+import { TechnicalReviewerAgent } from './agents/TechnicalReviewerAgent';
+import { MarketingGateAgent } from './agents/MarketingGateAgent';
+import { QualityGateAgent } from './agents/QualityGateAgent';
+import { PublishAgent } from './agents/PublishAgent';
+
+describe('begrensde herstelcyclus (zonder netwerk of publicatie)', () => {
+  let dir: string;
+  const high = { issue: 'Nulgeleiderstroom laat hoofdzekeringen trippen', severity: 'high' as const };
+  beforeEach(() => {
+    dir = mkdtempSync(path.join(tmpdir(), 'recovery-test-'));
+    vi.spyOn(SeoGeoAgent.prototype, 'brief').mockResolvedValue({ searchIntent: 'info', primaryQuestion: '?', secondaryQuestions: [], audienceContext: '', requiredInformation: [] });
+    vi.spyOn(ResearchAgent.prototype, 'run').mockResolvedValue({ topic: 'test', facts: [] });
+    vi.spyOn(WriterAgent.prototype, 'run').mockImplementation(async (_topic, _research, output) => { writeFileSync(output, 'draft'); return 'draft'; });
+    vi.spyOn(SeoGeoAgent.prototype, 'run').mockImplementation(async (_draft, output) => {
+      const result = { content: 'SEO publicatieversie', slug: 'test', title: 'Test', seoTitle: 'Test', description: '', excerpt: '', tags: [], keyPoints: [], faq: [{ question: 'FAQ?', answer: 'Ook controleren' }] };
+      writeFileSync(output, JSON.stringify(result));
+      return result;
+    });
+    vi.spyOn(FactCheckerAgent.prototype, 'run').mockResolvedValue([]);
+    vi.spyOn(TechnicalReviewerAgent.prototype, 'run').mockResolvedValue([]);
+    vi.spyOn(SeoGeoAgent.prototype, 'audit').mockResolvedValue({ passed: true, scores: {} as never, blockingIssues: [], feedback: '' });
+    vi.spyOn(MarketingGateAgent.prototype, 'run').mockResolvedValue({ passed: true, scores: { practicalUsefulness: 9 } as never, visualOpportunity: false, visualProvided: false, feedback: '' });
+    vi.spyOn(QualityGateAgent.prototype, 'run').mockResolvedValue({ passed: true, confidence: 95, issues: [] });
+    vi.spyOn(PublishAgent.prototype, 'run').mockResolvedValue(undefined);
+  });
+  afterEach(() => { vi.restoreAllMocks(); rmSync(dir, { recursive: true, force: true }); });
+
+  it('controleert de SEO-versie inclusief FAQ en publiceert zonder onnodige retries', async () => {
+    await runPipeline(dir, 'test');
+    const reviewPath = vi.mocked(FactCheckerAgent.prototype.run).mock.calls[0][0];
+    expect(readFileSync(reviewPath, 'utf8')).toContain('SEO publicatieversie');
+    expect(readFileSync(reviewPath, 'utf8')).toContain('Ook controleren');
+    expect(TechnicalReviewerAgent.prototype.run).toHaveBeenCalledWith(reviewPath, expect.any(String));
+    expect(WriterAgent.prototype.run).toHaveBeenCalledTimes(1);
+    expect(QualityGateAgent.prototype.run).toHaveBeenCalledTimes(1);
+    expect(PublishAgent.prototype.run).toHaveBeenCalledTimes(1);
+  });
+
+  it('herstelt een fout uit de eindgate en voert ALLE controles opnieuw uit', async () => {
+    vi.mocked(QualityGateAgent.prototype.run).mockResolvedValueOnce({ passed: false, confidence: 40, issues: [high] });
+    await runPipeline(dir, 'test');
+    expect(vi.mocked(WriterAgent.prototype.run).mock.calls[1][3]).toContain(high.issue);
+    for (const fn of [SeoGeoAgent.prototype.run, FactCheckerAgent.prototype.run, TechnicalReviewerAgent.prototype.run, SeoGeoAgent.prototype.audit, MarketingGateAgent.prototype.run, QualityGateAgent.prototype.run]) expect(fn).toHaveBeenCalledTimes(2);
+    expect(ResearchAgent.prototype.run).toHaveBeenCalledTimes(1);
+    expect(PublishAgent.prototype.run).toHaveBeenCalledTimes(1);
+  });
+
+  it('staat exact drie correcties toe en controleert ook de derde correctie', async () => {
+    vi.mocked(QualityGateAgent.prototype.run).mockResolvedValue({ passed: false, confidence: 40, issues: [high] });
+    await expect(runPipeline(dir, 'test')).rejects.toThrow('3 correctiepogingen');
+    expect(WriterAgent.prototype.run).toHaveBeenCalledTimes(4);
+    expect(QualityGateAgent.prototype.run).toHaveBeenCalledTimes(4);
+    expect(PublishAgent.prototype.run).not.toHaveBeenCalled();
+  });
+
+  it.each(['fact', 'technical', 'seo', 'marketing'])('laat een openstaande %s-fout nooit overrulen door de eindgate', async (gate) => {
+    if (gate === 'fact') vi.mocked(FactCheckerAgent.prototype.run).mockResolvedValue([{ status: 'incorrect', claim: 'fout', reason: 'onjuist', suggestion: 'verwijder' }]);
+    if (gate === 'technical') vi.mocked(TechnicalReviewerAgent.prototype.run).mockResolvedValue([{ ...high, recommendation: 'verwijder' }]);
+    if (gate === 'seo') vi.mocked(SeoGeoAgent.prototype.audit).mockResolvedValue({ passed: false, scores: {} as never, blockingIssues: ['zoekintentie'], feedback: 'herstel' });
+    if (gate === 'marketing') vi.mocked(MarketingGateAgent.prototype.run).mockResolvedValue({ passed: false, scores: { practicalUsefulness: 3 } as never, visualOpportunity: false, visualProvided: false, feedback: 'herstel' });
+    await expect(runPipeline(dir, 'test')).rejects.toThrow();
+    expect(PublishAgent.prototype.run).not.toHaveBeenCalled();
+    expect(WriterAgent.prototype.run).toHaveBeenCalledTimes(4);
+  });
+
+  it('gebruikt één budget voor opeenvolgende verschillende fouten, zonder oude SEO-goedkeuring', async () => {
+    vi.mocked(QualityGateAgent.prototype.run).mockResolvedValueOnce({ passed: false, confidence: 40, issues: [high] });
+    vi.mocked(SeoGeoAgent.prototype.audit).mockResolvedValueOnce({ passed: true, scores: {} as never, blockingIssues: [], feedback: '' }).mockResolvedValue({ passed: false, scores: {} as never, blockingIssues: ['nieuwe fout'], feedback: 'herstel' });
+    await expect(runPipeline(dir, 'test')).rejects.toThrow();
+    expect(WriterAgent.prototype.run).toHaveBeenCalledTimes(4);
+    expect(PublishAgent.prototype.run).not.toHaveBeenCalled();
+  });
+
+  it('kan na de derde correctie alsnog publiceren', async () => {
+    const rejected = { passed: false, confidence: 40, issues: [high] };
+    vi.mocked(QualityGateAgent.prototype.run).mockResolvedValueOnce(rejected).mockResolvedValueOnce(rejected).mockResolvedValueOnce(rejected);
+    await runPipeline(dir, 'test');
+    expect(QualityGateAgent.prototype.run).toHaveBeenCalledTimes(4);
+    expect(PublishAgent.prototype.run).toHaveBeenCalledTimes(1);
+  });
+
+  it('probeert een optionele visual slechts eenmaal en houdt medium/low non-blocking', async () => {
+    vi.mocked(QualityGateAgent.prototype.run).mockResolvedValue({ passed: false, confidence: 80, issues: [{ issue: 'stijl', severity: 'medium' }] });
+    vi.mocked(MarketingGateAgent.prototype.run).mockResolvedValue({ passed: true, scores: { practicalUsefulness: 9 } as never, visualOpportunity: true, visualProvided: false, feedback: '' });
+    await runPipeline(dir, 'test');
+    expect(WriterAgent.prototype.run).toHaveBeenCalledTimes(2);
+    expect(PublishAgent.prototype.run).toHaveBeenCalledTimes(1);
+  });
+
+  it('stopt bij controlefouten zonder publicatie of extra schrijfpoging', async () => {
+    vi.mocked(QualityGateAgent.prototype.run).mockRejectedValue(new Error('ongeldige input'));
+    await expect(runPipeline(dir, 'test')).rejects.toThrow('ongeldige input');
+    expect(PublishAgent.prototype.run).not.toHaveBeenCalled();
+    expect(WriterAgent.prototype.run).toHaveBeenCalledTimes(1);
   });
 });

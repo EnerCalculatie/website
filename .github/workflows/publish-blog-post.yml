@@ -9,12 +9,9 @@ name: Kennisbank-artikel (di/do)
 # 4. ResearchAgent verzamelt feiten, WriterAgent schrijft het artikel — uitsluitend
 #    op basis van de statische kennisbank (scripts/content-engine/knowledge/*.md)
 #    en de researchfeiten; mag niets verzinnen buiten die bronnen
-# 5. Kwaliteitsloop (max 2 herschrijf-iteraties): FactCheckerAgent +
-#    TechnicalReviewerAgent beoordelen het concept, blokkerende issues gaan als
-#    feedback terug naar WriterAgent
-# 6. SeoGeoAgent optimaliseert (title/meta/slug/FAQ), QualityGateAgent geeft het
-#    definitieve oordeel (passed/confidence) — alleen high-severity issues blokkeren
-#    publicatie na alle iteraties
+# 5. Maximaal drie gerichte correcties met één gedeeld budget voor alle gates.
+# 6. Per versie: SEO-optimalisatie, factcheck, technische review, SEO/GEO-audit,
+#    marketinggate en eind-QualityGate. Openstaande fouten blokkeren altijd.
 # 7. PublishAgent schrijft het React-component, werkt blogPosts.ts/App.tsx bij en
 #    verifieert de build (vite build + prerender) vóór er iets gecommit wordt
 # 8. Commit naar main (content-plan/content-log worden altijd gecommit, ook bij
@@ -155,6 +152,7 @@ jobs:
           path: |
             seo-brief.json
             research.json
+            review-article.md
             draft.md
             draft.extras.json
             fact-check.json
@@ -172,7 +170,11 @@ jobs:
         run: |
           git config user.name "enercalculatie-bot"
           git config user.email "bot@enercalculatie.nl"
-          git add src/components/blog src/content/blogPosts.ts src/App.tsx ai-context/content-plan.json ai-context/content-log.json
+          git add ai-context/content-plan.json ai-context/content-log.json
+          # Bij een mislukte pipeline nooit gedeeltelijk geschreven artikelbestanden pushen.
+          if [ "${{ steps.generate.outcome }}" = "success" ]; then
+            git add src/components/blog src/content/blogPosts.ts src/App.tsx
+          fi
           if git diff --cached --quiet; then
             echo "Geen wijzigingen om te committen."
             exit 0
