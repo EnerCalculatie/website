@@ -166,6 +166,7 @@ const Nta8800EnergieIndexRekenmethodiekArticle = lazyRoute('/blog/nta-8800-energ
 const SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle = lazyRoute('/blog/sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing', () => import('./components/blog/SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle').then(m => ({ default: m.SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle })));
 const FaillissementZonnepanelenfabrikantGarantierisicoArticle = lazyRoute('/blog/faillissement-zonnepanelenfabrikant-garantierisico', () => import('./components/blog/FaillissementZonnepanelenfabrikantGarantierisicoArticle').then(m => ({ default: m.FaillissementZonnepanelenfabrikantGarantierisicoArticle })));
 const IsdeSubsidieAircoVerwarmingRvoRegelsArticle = lazyRoute('/blog/isde-subsidie-airco-verwarming-rvo-regels', () => import('./components/blog/IsdeSubsidieAircoVerwarmingRvoRegelsArticle').then(m => ({ default: m.IsdeSubsidieAircoVerwarmingRvoRegelsArticle })));
+const FaseOngelijkheidScheefbelastingVoorkomen3FasenArticle = lazyRoute('/blog/fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen', () => import('./components/blog/FaseOngelijkheidScheefbelastingVoorkomen3FasenArticle').then(m => ({ default: m.FaseOngelijkheidScheefbelastingVoorkomen3FasenArticle })));
 
 // Eén gedeelde module voor de vijf rekentool-landingspagina's; per pad een
 // eigen lazy component die de juiste slug doorgeeft.
@@ -375,6 +376,7 @@ export function AppContent() {
             <Route path="/blog/sg-ready-en-eebus-bij-warmtepompen-slimme-netsturing" element={<SgReadyEnEebusBijWarmtepompenSlimmeNetsturingArticle />} />
             <Route path="/blog/faillissement-zonnepanelenfabrikant-garantierisico" element={<FaillissementZonnepanelenfabrikantGarantierisicoArticle />} />
             <Route path="/blog/isde-subsidie-airco-verwarming-rvo-regels" element={<IsdeSubsidieAircoVerwarmingRvoRegelsArticle />} />
+            <Route path="/blog/fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen" element={<FaseOngelijkheidScheefbelastingVoorkomen3FasenArticle />} />
             <Route path="/rekentool-zonnepanelen" element={<ZonnepanelenLanding />} />
             <Route path="/rekentool-thuisbatterij" element={<ThuisbatterijLanding />} />
             <Route path="/rekentool-warmtepomp" element={<WarmtepompLanding />} />

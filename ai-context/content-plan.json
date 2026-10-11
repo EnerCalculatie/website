@@ -18,8 +18,10 @@
     "contentType": "PRACTICAL",
     "priority": 8,
     "slug": "fase-ongelijkheid-en-scheefbelasting-voorkomen-hoe-verdeelt-u-1-fase-omvormers-en-laadpalen-over-3-fasen",
-    "status": "planned",
-    "createdAt": "2026-10-08T11:06:23.105Z"
+    "status": "generated",
+    "createdAt": "2026-10-08T11:06:23.105Z",
+    "generatedSlug": "fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen",
+    "generatedAt": "2026-10-11T07:20:27.110Z"
   },
   {
     "title": "Peak shaving met laadpalen en zonnepanelen: hoe onderbouwt u het voorkomen van piekvermogen bij zakelijke klanten?",

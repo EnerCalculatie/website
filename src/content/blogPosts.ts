@@ -2422,4 +2422,29 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat moet er verplicht op de installatiefactuur staan voor de ISDE-aanvraag?', answer: 'Op de factuur moeten het merk, het precieze type, de RVO-meldcode, de installatiedatum en het installatieadres vermeld staan.' },
     ],
   },
+  {
+    slug: 'fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen',
+    readingTimeMinutes: 4,
+    title: 'Fase-ongelijkheid en scheefbelasting voorkomen: verdeling over 3 fasen',
+    seoTitle: 'Scheefbelasting voorkomen: 1-fase op 3 fasen',
+    description:
+      'Hoe voorkomt u scheefbelasting bij 1-fase omvormers en laadpalen op een 3x25A aansluiting? Lees de normen volgens NEN 1010 en praktische oplossingen.',
+    date: '2026-10-11',
+    excerpt:
+      'Voorkom overbelasting en uitval van uw 3x25A aansluiting door 1-fase omvormers en laadpalen optimaal te verdelen over L1, L2 en L3 met Dynamic Load Balancing.',
+    tags: ['scheefbelasting', 'fase-ongelijkheid', '3x25A', 'Dynamic Load Balancing', 'NEN 1010', 'laadpalen', 'omvormers'],
+    keyPoints: [
+      'Fysisch roteren van 1-fase apparaten over L1, L2 en L3 voorkomt scheefbelasting.',
+      'Maximale enkelfasige invoeding volgens Netcode is 16A (3,68 kW).',
+      'Dynamic Load Balancing (DLB) meet per fase en voorkomt overbelasting van de hoofdzekering.',
+      'Somstromen op de verdelerrail vereisen aandacht voor kabel- en beveiligingsdimensionering.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is de maximale capaciteit voor 1-fase invoeding volgens de Netcode?', answer: 'Volgens de Netcode Elektriciteit geldt voor 1-fase invoeding door zonnepanelen een maximum van 16 Ampère (circa 3,68 kW / kVA) per fase op kleinverbruikaansluitingen.' },
+      { question: 'Hoe voorkomt u overbelasting bij een 3x25A aansluiting met 1-fase apparaten?', answer: 'Overbelasting voorkomt u door grote 1-fase vermogens fysiek te roteren over L1, L2 en L3, gecombineerd met actieve sturing via Dynamic Load Balancing (DLB).' },
+      { question: 'Wat zijn de risico\'s van langdurige scheefbelasting?', answer: 'Langdurige scheefbelasting leidt tot een hoge nulstroom, onnodige opwarming van schakelapparatuur, het uitschakelen van hoofdzekeringen en risico op overbelasting door somstromen.' },
+      { question: 'Wanneer moet er overgestapt worden op een 3-fase omvormer?', answer: 'Zodra het vermogen van een zonnepaneelinstallatie de 3,68 kW (16A) overstijgt, dient een overstap gemaakt te worden naar een 3-fase omvormer om fase-onbalans te vermijden.' },
+    ],
+  },
 ];
