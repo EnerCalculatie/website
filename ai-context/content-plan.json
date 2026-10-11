@@ -1,33 +1,51 @@
 [
   {
-    "title": "Badkamer verwarmen bij een warmtepomp: elektrische bijverwarming of infrarood?",
-    "keyword": "badkamer verwarmen warmtepomp",
-    "intent": "informatief",
-    "contentType": "PRACTICAL",
-    "priority": 8,
-    "slug": "badkamer-verwarmen-bij-een-warmtepomp-elektrische-bijverwarming-of-infrarood",
-    "status": "planned",
-    "createdAt": "2026-10-11T07:51:01.892Z"
-  },
-  {
-    "title": "Brandveiligheid bij zonnepanelen: risico's van MC4-crossmating en bekabeling",
-    "keyword": "brandveiligheid zonnepanelen",
-    "intent": "informatief",
-    "contentType": "PRACTICAL",
-    "priority": 8,
-    "slug": "brandveiligheid-bij-zonnepanelen-risicos-van-mc4-crossmating-en-bekabeling",
-    "status": "planned",
-    "createdAt": "2026-10-11T07:51:01.894Z"
-  },
-  {
-    "title": "Laadpaal combineren met dynamisch energiecontract: zo werkt laden op goedkope uren",
-    "keyword": "laadpaal dynamisch energiecontract",
+    "title": "ISDE-subsidie en airco als verwarming: hoe legt u de RVO-regels uit aan uw klant?",
+    "keyword": "ISDE subsidie airco",
     "intent": "informatief",
     "contentType": "SEO",
+    "priority": 9,
+    "slug": "isde-subsidie-en-airco-als-verwarming-hoe-legt-u-de-rvo-regels-uit-aan-uw-klant",
+    "status": "generated",
+    "createdAt": "2026-10-08T11:06:23.098Z",
+    "generatedSlug": "isde-subsidie-airco-verwarming-rvo-regels",
+    "generatedAt": "2026-10-08T11:08:09.193Z"
+  },
+  {
+    "title": "Fase-ongelijkheid en scheefbelasting voorkomen: hoe verdeelt u 1-fase omvormers en laadpalen over 3 fasen?",
+    "keyword": "scheefbelasting zonnepanelen laadpaal",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
     "priority": 8,
-    "slug": "laadpaal-combineren-met-dynamisch-energiecontract-zo-werkt-laden-op-goedkope-uren",
-    "status": "planned",
-    "createdAt": "2026-10-11T07:51:01.896Z"
+    "slug": "fase-ongelijkheid-en-scheefbelasting-voorkomen-hoe-verdeelt-u-1-fase-omvormers-en-laadpalen-over-3-fasen",
+    "status": "generated",
+    "createdAt": "2026-10-08T11:06:23.105Z",
+    "generatedSlug": "fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen",
+    "generatedAt": "2026-10-11T07:20:27.110Z"
+  },
+  {
+    "title": "Peak shaving met laadpalen en zonnepanelen: hoe onderbouwt u het voorkomen van piekvermogen bij zakelijke klanten?",
+    "keyword": "peak shaving laadpaal zonnepanelen",
+    "intent": "commercieel",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "peak-shaving-met-laadpalen-en-zonnepanelen-hoe-onderbouwt-u-het-voorkomen-van-piekvermogen-bij-zakelijke-klanten",
+    "status": "generated",
+    "createdAt": "2026-10-08T11:06:23.108Z",
+    "generatedSlug": "peak-shaving-gecontracteerd-vermogen-ems",
+    "generatedAt": "2026-10-11T07:43:47.506Z"
+  },
+  {
+    "title": "Offerte-opvolging voor installateurs: hoe verkort u de beslissingstijd bij verduurzamingsadvies?",
+    "keyword": "offerte opvolging installatiebedrijf",
+    "intent": "informatief",
+    "contentType": "PRACTICAL",
+    "priority": 7,
+    "slug": "offerte-opvolging-voor-installateurs-hoe-verkort-u-de-beslissingstijd-bij-verduurzamingsadvies",
+    "status": "generated",
+    "createdAt": "2026-09-22T10:12:13.367Z",
+    "generatedSlug": "offerte-opvolging-installateurs",
+    "generatedAt": "2026-10-11T07:48:42.219Z"
   },
   {
     "title": "Geluidsomkasting voor de warmtepomp: hoe onderbouwt u de dB(A)-reductie bij de erfgrens?",
@@ -48,16 +66,6 @@
     "slug": "calculatiefouten-in-installatiemateriaal-voorkomen-zo-beschermt-u-de-marges-op-uw-verduurzamingsofferte",
     "status": "planned",
     "createdAt": "2026-10-08T11:06:23.110Z"
-  },
-  {
-    "title": "Onderhoud van een warmtepomp: noodzakelijke checks voor rendement en levensduur",
-    "keyword": "onderhoud warmtepomp noodzakelijk",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 7,
-    "slug": "onderhoud-van-een-warmtepomp-noodzakelijke-checks-voor-rendement-en-levensduur",
-    "status": "planned",
-    "createdAt": "2026-10-11T07:51:01.897Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -122,18 +130,6 @@
     "generatedSlug": "geautomatiseerd-verduurzamingsrapport-software",
     "generatedAt": "2026-07-23T07:36:44.712Z",
     "seoGeoScore": 90
-  },
-  {
-    "title": "ISDE-subsidie en airco als verwarming: hoe legt u de RVO-regels uit aan uw klant?",
-    "keyword": "ISDE subsidie airco",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 9,
-    "slug": "isde-subsidie-en-airco-als-verwarming-hoe-legt-u-de-rvo-regels-uit-aan-uw-klant",
-    "status": "generated",
-    "createdAt": "2026-10-08T11:06:23.098Z",
-    "generatedSlug": "isde-subsidie-airco-verwarming-rvo-regels",
-    "generatedAt": "2026-10-08T11:08:09.193Z"
   },
   {
     "title": "Automatische zakelijke verrekening laadstroom: hoe adviseert u CPO-koppelingen en backoffice-abonnementen?",
@@ -333,30 +329,6 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
-  },
-  {
-    "title": "Fase-ongelijkheid en scheefbelasting voorkomen: hoe verdeelt u 1-fase omvormers en laadpalen over 3 fasen?",
-    "keyword": "scheefbelasting zonnepanelen laadpaal",
-    "intent": "commercieel",
-    "contentType": "PRACTICAL",
-    "priority": 8,
-    "slug": "fase-ongelijkheid-en-scheefbelasting-voorkomen-hoe-verdeelt-u-1-fase-omvormers-en-laadpalen-over-3-fasen",
-    "status": "generated",
-    "createdAt": "2026-10-08T11:06:23.105Z",
-    "generatedSlug": "fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen",
-    "generatedAt": "2026-10-11T07:20:27.110Z"
-  },
-  {
-    "title": "Peak shaving met laadpalen en zonnepanelen: hoe onderbouwt u het voorkomen van piekvermogen bij zakelijke klanten?",
-    "keyword": "peak shaving laadpaal zonnepanelen",
-    "intent": "commercieel",
-    "contentType": "SEO",
-    "priority": 8,
-    "slug": "peak-shaving-met-laadpalen-en-zonnepanelen-hoe-onderbouwt-u-het-voorkomen-van-piekvermogen-bij-zakelijke-klanten",
-    "status": "generated",
-    "createdAt": "2026-10-08T11:06:23.108Z",
-    "generatedSlug": "peak-shaving-gecontracteerd-vermogen-ems",
-    "generatedAt": "2026-10-11T07:43:47.506Z"
   },
   {
     "title": "Kabelberekening voor laadpalen bij lange afstanden: hoe onderbouwt u het spanningsverlies in de offerte?",
@@ -821,18 +793,6 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
-  },
-  {
-    "title": "Offerte-opvolging voor installateurs: hoe verkort u de beslissingstijd bij verduurzamingsadvies?",
-    "keyword": "offerte opvolging installatiebedrijf",
-    "intent": "informatief",
-    "contentType": "PRACTICAL",
-    "priority": 7,
-    "slug": "offerte-opvolging-voor-installateurs-hoe-verkort-u-de-beslissingstijd-bij-verduurzamingsadvies",
-    "status": "generated",
-    "createdAt": "2026-09-22T10:12:13.367Z",
-    "generatedSlug": "offerte-opvolging-installateurs",
-    "generatedAt": "2026-10-11T07:48:42.219Z"
   },
   {
     "title": "SG Ready en EEBUS bij warmtepompen: hoe onderbouwt u slimme netsturing en energiemanagement in uw advies?",
