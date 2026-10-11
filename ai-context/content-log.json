@@ -883,5 +883,13 @@
     "topic": "Fase-ongelijkheid en scheefbelasting voorkomen: verdeling over 3 fasen",
     "slug": "fase-ongelijkheid-scheefbelasting-voorkomen-3-fasen",
     "status": "generated"
+  },
+  {
+    "date": "2026-10-11",
+    "topic": "ACM zet publieke laadpalen achteraan op het stroomnet bij netcongestie",
+    "slug": "publieke-laadpalen-netcongestie-wachtlijst-acm",
+    "status": "generated",
+    "contentType": "NEWS",
+    "category": "Laadpalen"
   }
 ]

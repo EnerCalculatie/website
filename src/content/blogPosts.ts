@@ -2447,4 +2447,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer moet er overgestapt worden op een 3-fase omvormer?', answer: 'Zodra het vermogen van een zonnepaneelinstallatie de 3,68 kW (16A) overstijgt, dient een overstap gemaakt te worden naar een 3-fase omvormer om fase-onbalans te vermijden.' },
     ],
   },
+  {
+    slug: 'publieke-laadpalen-netcongestie-wachtlijst-acm',
+    readingTimeMinutes: 2,
+    title: 'ACM zet publieke laadpalen achteraan op het stroomnet bij netcongestie',
+    seoTitle: 'Publieke laadpalen achteraan op wachtlijst stroomnet',
+    description:
+      'Aanvragen voor publieke laadpalen belanden door netcongestie achteraan de wachtlijst. Lees wat de ACM-regels betekenen en hoe installateurs vertraging…',
+    date: '2026-10-11',
+    excerpt:
+      'Door het stopzetten van automatische reservering van netcapaciteit belanden aanvragen voor publieke laadpalen onderaan de wachtlijst. Lees wat dit betekent voor laadprojecten en installateurs.',
+    tags: ['Nieuws', 'Laadpalen', 'Netcongestie', 'ACM', 'Thuisbatterijen', 'Elektrisch rijden'],
+    keyPoints: [
+      'Geen automatische reservering van netcapaciteit meer sinds 1 juli 2026',
+      'Publieke laadpalen vallen buiten de drie voorrangscategorieën van de ACM',
+      'Combineer laadpalen met een batterijsysteem voor voorrang als congestieverzachter',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Waarom lopen aanvragen voor publieke laadpalen vertraging op?', answer: 'Sinds 1 juli 2026 is de automatische reservering van netcapaciteit voor kleinverbruikers stopgezet. Publieke laadpalen vallen buiten de prioriteitsgroepen van de ACM en sluiten daardoor achteraan aan op de wachtlijst.' },
+      { question: 'Hoe kunnen installateurs sneller capaciteit krijgen op het stroomnet?', answer: 'Door een laadpaalproject uit te rusten met een batterijsysteem voor peak shaving krijgt de installatie de status van congestieverzachter. Hierdoor krijgt de aanvraag de hoogste prioriteit op de wachtlijst.' },
+      { question: 'Wat houdt de procedure \'Eerder Aanvragen\' in?', answer: 'Via \'Eerder Aanvragen\' kunnen gemeenten vanaf 1 oktober 2026 vooraf netcapaciteit reserveren bij de netbeheerder voor specifieke maatschappelijke projecten, zoals nieuwe woningbouw.' },
+    ],
+  },
 ];
