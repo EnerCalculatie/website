@@ -295,4 +295,20 @@ describe('LLMService.generateGrounded', () => {
     expect(result.searchQueries).toEqual([]);
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
+
+  it('generateGroundedJSON: zoekt in vrije tekst en zet die daarna zonder grounding om naar JSON', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({
+        candidates: [{ content: { parts: [{ text: 'Kop: ACM verlaagt tarief' }] }, groundingMetadata: { webSearchQueries: ['acm'] } }],
+      }))
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: '{"headline":"ACM verlaagt tarief"}' }] } }] }));
+    const result = await new LLMService().generateGroundedJSON({ systemPrompt: 'zoek', userPrompt: 'nieuws' }, 'FORMAT');
+    expect(result.json).toEqual({ headline: 'ACM verlaagt tarief' });
+    expect(result.searchQueries).toEqual(['acm']);
+    const step2 = JSON.parse(fetchMock.mock.calls[1][1].body);
+    expect(step2.tools).toBeUndefined();
+    expect(step2.generationConfig.responseMimeType).toBe('application/json');
+    expect(step2.systemInstruction.parts[0].text).toContain('FORMAT');
+    expect(step2.contents[0].parts[0].text).toBe('Kop: ACM verlaagt tarief');
+  });
 });

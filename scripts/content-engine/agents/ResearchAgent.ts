@@ -1,12 +1,13 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { LLMService } from '../services/LLMService';
-import { extractJson } from '../services/extractJson';
 import { ResearchOutputSchema, ResearchOutput } from '../schemas/research';
 
 export class ResearchAgent {
   private llm: LLMService;
   private systemPrompt: string;
+  private newsPrompt: string;
+  private newsFormatPrompt: string;
 
   constructor() {
     this.llm = new LLMService();
@@ -14,6 +15,8 @@ export class ResearchAgent {
     // Lees de prompt file
     const promptPath = path.join(import.meta.dirname, '../prompts/research.md');
     this.systemPrompt = readFileSync(promptPath, 'utf-8');
+    this.newsPrompt = readFileSync(path.join(import.meta.dirname, '../prompts/research-news.md'), 'utf-8');
+    this.newsFormatPrompt = readFileSync(path.join(import.meta.dirname, '../prompts/research-format.md'), 'utf-8');
   }
 
   /**
@@ -28,17 +31,17 @@ export class ResearchAgent {
     try {
       let validatedData: ResearchOutput;
       if (options.news) {
-        const userPrompt = `NIEUWSONDERZOEK\n\nVerzamel met Google Search de feiten over dit actuele nieuws:\n${topic}\n\nVolg de regels onder "Nieuwsonderzoek" in je instructies.`;
-        const { text, sources, searchQueries } = await this.llm.generateGrounded({
-          systemPrompt: this.systemPrompt,
+        const userPrompt = `Verzamel met Google Search de feiten over dit actuele nieuws:\n${topic}`;
+        const { json, sources, searchQueries } = await this.llm.generateGroundedJSON({
+          systemPrompt: this.newsPrompt,
           userPrompt,
           temperature: 0.1,
-        });
+        }, this.newsFormatPrompt);
         // Zonder zoekopdrachten komen de "feiten" uit het modelgeheugen — voor nieuws onbruikbaar.
         if (searchQueries.length === 0) {
           throw new Error('[ResearchAgent] Nieuwsonderzoek zonder Google Search — afgebroken om verzonnen feiten te voorkomen.');
         }
-        validatedData = { ...ResearchOutputSchema.parse(extractJson(text)), sources };
+        validatedData = { ...ResearchOutputSchema.parse(json), sources };
       } else {
         const userPrompt = `Verzamel gedetailleerde, feitelijke informatie over het onderwerp: "${topic}".\nZorg ervoor dat alle beweringen rechtstreeks uit betrouwbare, in de systeeminstructie genoemde bronnen komen. Geef een zo compleet mogelijk overzicht van de feiten.`;
         const rawJson = await this.llm.generateJSON({

@@ -69,8 +69,8 @@ export class LLMService {
       body.tools = [{ google_search: {} }];
     }
 
-    // JSON-modus niet combineren met grounding: niet elk Gemini-model ondersteunt die combinatie.
-    // generateGrounded() laat de caller de JSON zelf uit de tekst halen (extractJson.ts).
+    // JSON-modus niet combineren met grounding: niet elk Gemini-model ondersteunt die combinatie,
+    // en een JSON-eis onderdrukt het zoeken (zie generateGroundedJSON).
     if (request.responseFormat === 'json_object' && !request.googleSearch) {
       (body.generationConfig as Record<string, unknown>).responseMimeType = 'application/json';
     }
@@ -101,6 +101,27 @@ export class LLMService {
       console.warn(`[LLMService] Model gebruikte Google Search niet (poging ${attempt}/${maxAttempts}).`);
     }
     return result as GroundedResponse;
+  }
+
+  /**
+   * Zoeken én gestructureerde output, in twee stappen. Gemini slaat Google Search grotendeels over
+   * zodra de prompt "antwoord alleen in JSON" eist (meting 2026-10-11: 1 van 6 keer gezocht, zonder
+   * JSON-eis 6 van 6). Daarom: stap 1 zoekt en antwoordt in vrije tekst, stap 2 (zonder grounding,
+   * wél JSON-modus) zet die tekst om. `search.systemPrompt` mag dus géén JSON-uitvoer vragen.
+   */
+  async generateGroundedJSON(
+    search: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>,
+    formatPrompt: string
+  ): Promise<GroundedResponse & { json: unknown }> {
+    const grounded = await this.generateGrounded(search);
+    if (process.env.MOCK_LLM === 'true') return { ...grounded, json: JSON.parse(grounded.text) };
+
+    const json = await this.generateJSON({
+      systemPrompt: `Je zet een tekst om naar JSON. Neem uitsluitend informatie over die letterlijk in de tekst staat — verzin niets, vul niets aan. Ontbreekt een veld, laat het weg.\n\n${formatPrompt}`,
+      userPrompt: grounded.text,
+      temperature: 0,
+    });
+    return { ...grounded, json };
   }
 
   private async groundedCall(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {

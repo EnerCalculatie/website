@@ -1,7 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { LLMService } from '../services/LLMService';
-import { extractJson } from '../services/extractJson';
 import { NEWS_CATEGORIES, NewsCategory, NewsStory, NewsStorySchema } from '../schemas/news';
 
 /** Ouder dan dit = geen nieuws meer. Iets ruimer dan de 7 dagen uit de prompt (weekend, late indexering). */
@@ -38,10 +37,12 @@ export function isStale(publishedDate: string | undefined, now: Date = new Date(
 export class NewsScoutAgent {
   private llm: LLMService;
   private systemPrompt: string;
+  private formatPrompt: string;
 
   constructor() {
     this.llm = new LLMService();
     this.systemPrompt = readFileSync(path.join(import.meta.dirname, '../prompts/news-scout.md'), 'utf-8');
+    this.formatPrompt = readFileSync(path.join(import.meta.dirname, '../prompts/news-scout-format.md'), 'utf-8');
   }
 
   async run(rootDir: string, outputPath: string): Promise<NewsStory> {
@@ -61,14 +62,14 @@ ${recent.map((t) => `- ${t}`).join('\n') || '(nog niets)'}
 
 Zoek het beste nieuwsbericht volgens je instructies.`;
 
-    const { text, sources: groundingSources, searchQueries } = await this.llm.generateGrounded({
+    const { json, sources: groundingSources, searchQueries } = await this.llm.generateGroundedJSON({
       systemPrompt: this.systemPrompt,
       userPrompt,
       temperature: 0.2,
-    });
+    }, this.formatPrompt);
 
     console.log(`[NewsScoutAgent] Google Search: ${searchQueries.length} zoekopdracht(en), ${groundingSources.length} grounding-bron(nen).`);
-    const parsed = NewsStorySchema.parse(extractJson(text));
+    const parsed = NewsStorySchema.parse(json);
 
     // Alleen nieuws dat Gemini echt via Google Search vond. Door het model zelf genoemde URL's tellen
     // bewust niet: testrun 2026-10-11 leverde een verzonnen bericht op met een URL die via een soft-404

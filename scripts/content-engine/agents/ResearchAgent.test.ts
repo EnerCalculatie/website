@@ -10,7 +10,7 @@ vi.mock('../services/LLMService', () => ({
   LLMService: class {
     generate = generateMock;
     generateJSON = async (req) => JSON.parse(await generateMock(req));
-    generateGrounded = groundedMock;
+    generateGroundedJSON = groundedMock;
   },
 }));
 
@@ -73,7 +73,8 @@ describe('ResearchAgent.run', () => {
 
   it('nieuwsmodus: gebruikt grounding en voegt de bronnen toe', async () => {
     groundedMock.mockResolvedValue({
-      text: '```json\n{"topic":"nieuws","facts":[{"claim":"c","source":"RVO","confidence":90,"url":"https://rvo.nl/a"}]}\n```',
+      text: '',
+      json: { topic: 'nieuws', facts: [{ claim: 'c', source: 'RVO', confidence: 90, url: 'https://rvo.nl/a' }] },
       sources: [{ title: 'rvo.nl', url: 'https://rvo.nl/a' }],
       searchQueries: ['q'],
     });
@@ -84,7 +85,7 @@ describe('ResearchAgent.run', () => {
   });
 
   it('nieuwsmodus: breekt af als het model niet zocht (feiten zouden uit geheugen komen)', async () => {
-    groundedMock.mockResolvedValue({ text: '{"topic":"n","facts":[]}', sources: [], searchQueries: [] });
+    groundedMock.mockResolvedValue({ text: '', json: { topic: 'n', facts: [] }, sources: [], searchQueries: [] });
     await expect(new ResearchAgent().run('nieuws', outputPath, { news: true })).rejects.toThrow('zonder Google Search');
   });
 });

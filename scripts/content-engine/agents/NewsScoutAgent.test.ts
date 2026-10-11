@@ -8,7 +8,7 @@ import path from 'node:path';
 const { groundedMock } = vi.hoisted(() => ({ groundedMock: vi.fn() }));
 vi.mock('../services/LLMService', () => ({
   LLMService: class {
-    generateGrounded = groundedMock;
+    generateGroundedJSON = groundedMock;
   },
 }));
 
@@ -62,12 +62,12 @@ describe('NewsScoutAgent.run', () => {
   });
   afterEach(() => rmSync(dir, { recursive: true, force: true }));
 
-  const story = (overrides = {}) => '```json\n' + JSON.stringify({
+  const story = (overrides = {}) => ({
     found: true, category: 'Warmtepompen', headline: 'Kop', summary: 'S', publishedDate: today, whyItMatters: 'W', ...overrides,
-  }) + '\n```';
+  });
 
   it('geeft het bericht terug met de grounding-bronnen en schrijft het weg', async () => {
-    groundedMock.mockResolvedValue({ text: story(), sources: [{ title: 'rvo.nl', url: 'https://rvo.nl/a' }], searchQueries: ['q'] });
+    groundedMock.mockResolvedValue({ text: '', json: story(), sources: [{ title: 'rvo.nl', url: 'https://rvo.nl/a' }], searchQueries: ['q'] });
     const out = path.join(dir, 'news-story.json');
     const result = await new NewsScoutAgent().run(dir, out);
     expect(result.found).toBe(true);
@@ -76,7 +76,7 @@ describe('NewsScoutAgent.run', () => {
   });
 
   it('wijst een bericht af als het model niet zocht, ook als het URL\'s noemt', async () => {
-    groundedMock.mockResolvedValue({ text: story(), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: [] });
+    groundedMock.mockResolvedValue({ text: '', json: story(), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: [] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
     expect(result.rejectedReason).toBe('model gebruikte Google Search niet');
@@ -84,19 +84,19 @@ describe('NewsScoutAgent.run', () => {
   });
 
   it('wijst een bericht af als er wel gezocht is maar geen bronnen terugkwamen', async () => {
-    groundedMock.mockResolvedValue({ text: story(), sources: [], searchQueries: ['q'] });
+    groundedMock.mockResolvedValue({ text: '', json: story(), sources: [], searchQueries: ['q'] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.rejectedReason).toBe('geen grounding-bronnen');
   });
 
   it('wijst oud nieuws af', async () => {
-    groundedMock.mockResolvedValue({ text: story({ publishedDate: '2020-01-01' }), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: ['q'] });
+    groundedMock.mockResolvedValue({ text: '', json: story({ publishedDate: '2020-01-01' }), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: ['q'] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
   });
 
   it('geeft found:false door als het model niets vond', async () => {
-    groundedMock.mockResolvedValue({ text: '{"found": false}', sources: [], searchQueries: [] });
+    groundedMock.mockResolvedValue({ text: '', json: { found: false }, sources: [], searchQueries: [] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
   });

@@ -24,15 +24,11 @@ Laadpalen, airco's, zonnepanelen, warmtepompen en thuisbatterijen in Nederland.
 3. Niets bruikbaars in alle vijf? Geef `"found": false` terug. Verzin geen nieuws.
 
 ## Uitvoer
-Alleen JSON, zonder tekst eromheen:
+Beschrijf het gekozen bericht in gewone tekst (geen JSON, een volgende stap zet het om):
+- Categorie (Laadpalen, Airco, Zonnepanelen, Warmtepompen of Thuisbatterijen)
+- Kop: feitelijk, max 90 tekens
+- Wat er gebeurde: 2-3 zinnen met concrete cijfers en data
+- Publicatiedatum van het oorspronkelijke bericht (YYYY-MM-DD)
+- Waarom het ertoe doet voor huiseigenaren en installateurs: 1-2 zinnen
 
-```json
-{
-  "found": true,
-  "category": "Laadpalen | Airco | Zonnepanelen | Warmtepompen | Thuisbatterijen",
-  "headline": "<Feitelijke kop van het nieuws, max 90 tekens>",
-  "summary": "<Wat is er gebeurd, 2-3 zinnen, met concrete cijfers en data>",
-  "publishedDate": "<YYYY-MM-DD van het oorspronkelijke bericht>",
-  "whyItMatters": "<Wat verandert er voor huiseigenaren en installateurs, 1-2 zinnen>"
-}
-```
+Niets bruikbaars gevonden? Schrijf dan alleen: GEEN NIEUWS GEVONDEN.
