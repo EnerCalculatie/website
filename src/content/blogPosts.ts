@@ -2447,4 +2447,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer moet er overgestapt worden op een 3-fase omvormer?', answer: 'Zodra het vermogen van een zonnepaneelinstallatie de 3,68 kW (16A) overstijgt, dient een overstap gemaakt te worden naar een 3-fase omvormer om fase-onbalans te vermijden.' },
     ],
   },
+  {
+    slug: 'peak-shaving-gecontracteerd-vermogen-ems',
+    readingTimeMinutes: 2,
+    title: 'Peak shaving met EMS en laadpalen bij gecontracteerd vermogen',
+    seoTitle: 'Peak shaving bij gecontracteerd vermogen | EMS & laden',
+    description:
+      'Voorkom boetes op gecontracteerd vermogen met peak shaving. Ontdek hoe EMS, laadpalen en zonnepanelen piekbelasting effectief afvlakken.',
+    date: '2026-10-11',
+    excerpt:
+      'Voorkom hoge overschrijdingstarieven en netcongestie bij zakelijke klanten met een grootverbruikaansluiting via slimme peak shaving.',
+    tags: ['Peak shaving', 'EMS', 'Gecontracteerd vermogen', 'Laadpalen', 'Netcongestie'],
+    keyPoints: [
+      'Voorkom dure boetes bij overschrijding van het gecontracteerd vermogen.',
+      'Combineer EMS, zonnepanelen en laadpalen voor Dynamic Load Balancing.',
+      'Zet een batterij-opslagsysteem (BESS) in als flexibele buffer bij piekbelasting.',
+      'Benut fiscale voordelen zoals MIA en VAMIL voor een kortere terugverdientijd.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wat is peak shaving bij gecontracteerd vermogen?', answer: 'Peak shaving is het afvlakken van korte piekbelastingen op de netaansluiting. Hiermee voorkom je dat een bedrijf het gecontracteerd vermogen overschrijdt en boetes van de netbeheerder krijgt.' },
+      { question: 'Hoe voorkomt een EMS boetes voor overschrijding?', answer: 'Een EMS monitort continu het totale energieverbruik en schaalt via Dynamic Load Balancing automatisch het vermogen van laadpalen terug zodra de gecontracteerde grens dreigt te worden overschreden.' },
+      { question: 'Wanneer is een batterij (BESS) nodig voor peak shaving?', answer: 'Een batterijsysteem is nodig als flexibel laadvermogen en zonnestroom samen onvoldoende zijn om een verbruikspiek op te vangen, bijvoorbeeld tijdens het snelladen van voertuigen.' },
+    ],
+  },
 ];
