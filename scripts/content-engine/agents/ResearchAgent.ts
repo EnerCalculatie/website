@@ -41,7 +41,8 @@ export class ResearchAgent {
         if (searchQueries.length === 0) {
           throw new Error('[ResearchAgent] Nieuwsonderzoek zonder Google Search — afgebroken om verzonnen feiten te voorkomen.');
         }
-        validatedData = { ...ResearchOutputSchema.parse(json), sources };
+        // `topic` staat niet in de vrije zoektekst — de eerste regel van de opdracht is de nieuwskop.
+        validatedData = { ...ResearchOutputSchema.parse({ topic: topic.split('\n')[0], ...(json as object) }), sources };
       } else {
         const userPrompt = `Verzamel gedetailleerde, feitelijke informatie over het onderwerp: "${topic}".\nZorg ervoor dat alle beweringen rechtstreeks uit betrouwbare, in de systeeminstructie genoemde bronnen komen. Geef een zo compleet mogelijk overzicht van de feiten.`;
         const rawJson = await this.llm.generateJSON({

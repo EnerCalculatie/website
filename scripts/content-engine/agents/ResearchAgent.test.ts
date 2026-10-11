@@ -84,6 +84,12 @@ describe('ResearchAgent.run', () => {
     expect(result.facts[0].url).toBe('https://rvo.nl/a');
   });
 
+  it('nieuwsmodus: vult topic aan uit de eerste regel van de opdracht als de omzetting het mist', async () => {
+    groundedMock.mockResolvedValue({ text: '', json: { facts: [] }, sources: [], searchQueries: ['q'] });
+    const result = await new ResearchAgent().run('Kop van het nieuws\nmeer context', outputPath, { news: true });
+    expect(result.topic).toBe('Kop van het nieuws');
+  });
+
   it('nieuwsmodus: breekt af als het model niet zocht (feiten zouden uit geheugen komen)', async () => {
     groundedMock.mockResolvedValue({ text: '', json: { topic: 'n', facts: [] }, sources: [], searchQueries: [] });
     await expect(new ResearchAgent().run('nieuws', outputPath, { news: true })).rejects.toThrow('zonder Google Search');
