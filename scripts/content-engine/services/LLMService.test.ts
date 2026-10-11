@@ -245,7 +245,7 @@ describe('LLMService.generateGrounded', () => {
   });
 
   it('zet de google_search-tool aan en géén JSON-modus (niet elk model ondersteunt die combinatie)', async () => {
-    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'x' }] } }] }));
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'x' }] }, groundingMetadata: { webSearchQueries: ['q'] } }] }));
     await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
     const sentBody = JSON.parse(fetchMock.mock.calls[0][1].body);
     expect(sentBody.tools).toEqual([{ google_search: {} }]);
@@ -258,6 +258,7 @@ describe('LLMService.generateGrounded', () => {
         candidates: [{
           content: { parts: [{ text: 'deel 1 ' }, { text: 'deel 2' }] },
           groundingMetadata: {
+            webSearchQueries: ['isde'],
             groundingChunks: [
               { web: { uri: 'https://vertexaisearch.cloud.google.com/grounding-api-redirect/abc', title: 'rvo.nl' } },
               { web: { uri: 'https://nos.nl/artikel/1', title: 'nos.nl' } },
@@ -270,10 +271,28 @@ describe('LLMService.generateGrounded', () => {
 
     const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
     expect(result.text).toBe('deel 1 deel 2');
-    expect(result.searchQueries).toEqual([]);
     expect(result.sources).toEqual([
       { title: 'rvo.nl', url: 'https://www.rvo.nl/nieuws/isde' },
       { title: 'nos.nl', url: 'https://nos.nl/artikel/1' },
     ]);
+  });
+
+  it('probeert opnieuw als het model Google Search niet gebruikte', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: 'uit geheugen' }] } }] }))
+      .mockResolvedValueOnce(jsonResponse({
+        candidates: [{ content: { parts: [{ text: 'gezocht' }] }, groundingMetadata: { webSearchQueries: ['laadpaal nieuws'] } }],
+      }));
+    const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
+    expect(result.text).toBe('gezocht');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(JSON.parse(fetchMock.mock.calls[1][1].body).contents[0].parts[0].text).toContain('Google Search niet');
+  });
+
+  it('geeft na maxAttempts het laatste antwoord terug (caller wijst het dan af)', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'x' }] } }] }));
+    const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' }, 2);
+    expect(result.searchQueries).toEqual([]);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });

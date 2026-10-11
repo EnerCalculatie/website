@@ -83,12 +83,27 @@ export class LLMService {
    * uit zijn trainingsgeheugen te antwoorden. Nodig voor nieuwsartikelen. Geeft ook de bronnen
    * terug die Gemini daadwerkelijk raadpleegde (groundingMetadata.groundingChunks).
    */
-  async generateGrounded(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {
+  async generateGrounded(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>, maxAttempts = 3): Promise<GroundedResponse> {
     if (process.env.MOCK_LLM === 'true') {
       const text = await this.generate(request);
       return { text, sources: [{ title: 'rvo.nl', url: 'https://www.rvo.nl/mock-nieuws' }], searchQueries: ['mock'] };
     }
 
+    // Gemini mag zelf beslissen of het zoekt, en antwoordt soms toch uit zijn geheugen (testrun
+    // 2026-10-11: 0 zoekopdrachten, verzonnen nieuws met een 404-URL). Dan opnieuw, met nadruk.
+    let result: GroundedResponse | undefined;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      const userPrompt = attempt === 1
+        ? request.userPrompt
+        : `${request.userPrompt}\n\nLET OP: je vorige antwoord gebruikte Google Search niet. Voer eerst zoekopdrachten uit en baseer je antwoord uitsluitend op de zoekresultaten.`;
+      result = await this.groundedCall({ ...request, userPrompt });
+      if (result.searchQueries.length > 0) return result;
+      console.warn(`[LLMService] Model gebruikte Google Search niet (poging ${attempt}/${maxAttempts}).`);
+    }
+    return result as GroundedResponse;
+  }
+
+  private async groundedCall(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {
     const { data } = await geminiGenerate(this.buildBody({ ...request, googleSearch: true }));
     const candidate = data.candidates?.[0];
     // Bij grounding kan het antwoord over meerdere parts verdeeld zijn.

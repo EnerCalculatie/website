@@ -29,7 +29,11 @@ export function pickPreferredCategory(log: LogEntry[]): NewsCategory {
 export async function verifyUrl(url: string): Promise<boolean> {
   if (!/^https?:\/\//.test(url)) return false;
   try {
-    const res = await fetch(url, { method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(15000) });
+    // Browser-User-Agent: sommige nieuwssites weigeren de standaard Node-UA, wat een echte bron als 'kapot' zou afwijzen.
+    const res = await fetch(url, {
+      method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(15000),
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EnerCalculatieBot/1.0; +https://www.enercalculatie.nl)' },
+    });
     return res.ok;
   } catch {
     return false;
