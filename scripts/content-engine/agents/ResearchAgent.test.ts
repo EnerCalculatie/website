@@ -5,11 +5,12 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
-const { generateMock } = vi.hoisted(() => ({ generateMock: vi.fn() }));
+const { generateMock, groundedMock } = vi.hoisted(() => ({ generateMock: vi.fn(), groundedMock: vi.fn() }));
 vi.mock('../services/LLMService', () => ({
   LLMService: class {
     generate = generateMock;
     generateJSON = async (req) => JSON.parse(await generateMock(req));
+    generateGrounded = groundedMock;
   },
 }));
 
@@ -21,6 +22,7 @@ describe('ResearchAgent.run', () => {
 
   beforeEach(() => {
     generateMock.mockReset();
+    groundedMock.mockReset();
     dir = mkdtempSync(path.join(tmpdir(), 'research-agent-test-'));
     outputPath = path.join(dir, 'research.json');
   });
@@ -67,5 +69,22 @@ describe('ResearchAgent.run', () => {
     expect(call.userPrompt).toContain('mijn specifieke onderwerp');
     // responseFormat: 'json_object' wordt nu altijd door LLMService.generateJSON zelf afgedwongen
     // (zie LLMService.test.ts) — ResearchAgent geeft het niet meer los mee.
+  });
+
+  it('nieuwsmodus: gebruikt grounding en voegt de bronnen toe', async () => {
+    groundedMock.mockResolvedValue({
+      text: '```json\n{"topic":"nieuws","facts":[{"claim":"c","source":"RVO","confidence":90,"url":"https://rvo.nl/a"}]}\n```',
+      sources: [{ title: 'rvo.nl', url: 'https://rvo.nl/a' }],
+      searchQueries: ['q'],
+    });
+    const result = await new ResearchAgent().run('nieuws', outputPath, { news: true });
+    expect(generateMock).not.toHaveBeenCalled();
+    expect(result.sources).toEqual([{ title: 'rvo.nl', url: 'https://rvo.nl/a' }]);
+    expect(result.facts[0].url).toBe('https://rvo.nl/a');
+  });
+
+  it('nieuwsmodus: breekt af als het model niet zocht (feiten zouden uit geheugen komen)', async () => {
+    groundedMock.mockResolvedValue({ text: '{"topic":"n","facts":[]}', sources: [], searchQueries: [] });
+    await expect(new ResearchAgent().run('nieuws', outputPath, { news: true })).rejects.toThrow('zonder Google Search');
   });
 });

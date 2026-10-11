@@ -10,7 +10,6 @@ export const NewsStorySchema = z.object({
   summary: z.string().optional(),
   publishedDate: z.string().optional().describe("YYYY-MM-DD van het oorspronkelijke bericht."),
   whyItMatters: z.string().optional(),
-  sourceUrls: z.array(z.string()).optional().describe("URL's die het model zelf opgeeft — worden live gecontroleerd."),
 });
 
 export type NewsStory = z.infer<typeof NewsStorySchema> & {

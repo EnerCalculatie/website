@@ -75,28 +75,22 @@ describe('NewsScoutAgent.run', () => {
     expect(JSON.parse(readFileSync(out, 'utf-8')).headline).toBe('Kop');
   });
 
-  it('wijst een bericht zonder bronnen af en bewaart de reden', async () => {
-    groundedMock.mockResolvedValue({ text: story(), sources: [], searchQueries: [] });
+  it('wijst een bericht af als het model niet zocht, ook als het URL\'s noemt', async () => {
+    groundedMock.mockResolvedValue({ text: story(), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: [] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
-    expect(result.rejectedReason).toBe('geen verifieerbare bronnen');
+    expect(result.rejectedReason).toBe('model gebruikte Google Search niet');
     expect(result.headline).toBe('Kop');
   });
 
-  it('zonder grounding-bronnen: accepteert alleen door het model genoemde URL\'s die live bereikbaar zijn', async () => {
-    const fetchMock = vi.fn(async (url: string) => ({ ok: url.includes('echt') }));
-    vi.stubGlobal('fetch', fetchMock);
-    groundedMock.mockResolvedValue({
-      text: story({ sourceUrls: ['https://nos.nl/echt', 'https://verzonnen.nl/nep'] }), sources: [], searchQueries: ['q'],
-    });
+  it('wijst een bericht af als er wel gezocht is maar geen bronnen terugkwamen', async () => {
+    groundedMock.mockResolvedValue({ text: story(), sources: [], searchQueries: ['q'] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
-    vi.unstubAllGlobals();
-    expect(result.found).toBe(true);
-    expect(result.sources).toEqual([{ title: 'nos.nl', url: 'https://nos.nl/echt' }]);
+    expect(result.rejectedReason).toBe('geen grounding-bronnen');
   });
 
   it('wijst oud nieuws af', async () => {
-    groundedMock.mockResolvedValue({ text: story({ publishedDate: '2020-01-01' }), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: [] });
+    groundedMock.mockResolvedValue({ text: story({ publishedDate: '2020-01-01' }), sources: [{ title: 'x', url: 'https://x.nl' }], searchQueries: ['q'] });
     const result = await new NewsScoutAgent().run(dir, path.join(dir, 'n.json'));
     expect(result.found).toBe(false);
   });

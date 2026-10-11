@@ -104,8 +104,12 @@ export class LLMService {
   }
 
   private async groundedCall(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {
-    const { data } = await geminiGenerate(this.buildBody({ ...request, googleSearch: true }));
+    const { data, model } = await geminiGenerate(this.buildBody({ ...request, googleSearch: true }));
     const candidate = data.candidates?.[0];
+    if (!candidate?.groundingMetadata?.webSearchQueries?.length) {
+      // Diagnose: waarom zocht het model niet? Toont model, finishReason en wat er wél aan metadata terugkwam.
+      console.warn(`[LLMService] Geen zoekopdrachten — model ${model}, finishReason ${candidate?.finishReason}, groundingMetadata: ${JSON.stringify(candidate?.groundingMetadata ?? null).slice(0, 300)}, usage: ${JSON.stringify(data.usageMetadata ?? null).slice(0, 300)}`);
+    }
     // Bij grounding kan het antwoord over meerdere parts verdeeld zijn.
     const text = (candidate?.content?.parts ?? []).map((p: { text?: string }) => p.text ?? '').join('');
 

@@ -22,24 +22,6 @@ export function pickPreferredCategory(log: LogEntry[]): NewsCategory {
   return [...NEWS_CATEGORIES].sort((a, b) => (lastSeen.get(a) ?? '').localeCompare(lastSeen.get(b) ?? ''))[0];
 }
 
-/**
- * Controleert of een door het model genoemde URL echt bestaat (2xx/3xx). Vangnet voor als Gemini
- * geen groundingMetadata meestuurt: een verzonnen URL valt hier af.
- */
-export async function verifyUrl(url: string): Promise<boolean> {
-  if (!/^https?:\/\//.test(url)) return false;
-  try {
-    // Browser-User-Agent: sommige nieuwssites weigeren de standaard Node-UA, wat een echte bron als 'kapot' zou afwijzen.
-    const res = await fetch(url, {
-      method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(15000),
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EnerCalculatieBot/1.0; +https://www.enercalculatie.nl)' },
-    });
-    return res.ok;
-  } catch {
-    return false;
-  }
-}
-
 /** Puur. True als publishedDate (YYYY-MM-DD) ontbreekt, onleesbaar is of ouder dan maxAgeDays. */
 export function isStale(publishedDate: string | undefined, now: Date = new Date(), maxAgeDays = MAX_NEWS_AGE_DAYS): boolean {
   if (!publishedDate) return true;
@@ -88,25 +70,21 @@ Zoek het beste nieuwsbericht volgens je instructies.`;
     console.log(`[NewsScoutAgent] Google Search: ${searchQueries.length} zoekopdracht(en), ${groundingSources.length} grounding-bron(nen).`);
     const parsed = NewsStorySchema.parse(extractJson(text));
 
-    // Grounding-bronnen hebben voorrang. Ontbreken die (Gemini stuurt niet altijd groundingMetadata
-    // mee), dan tellen alleen door het model genoemde URL's die live bereikbaar blijken.
-    let sources = groundingSources;
-    if (parsed.found && sources.length === 0 && parsed.sourceUrls?.length) {
-      const checked = await Promise.all(parsed.sourceUrls.map(async (url) => ((await verifyUrl(url)) ? url : null)));
-      sources = checked.filter((u): u is string => !!u).map((url) => ({ title: new URL(url).hostname, url }));
-      console.log(`[NewsScoutAgent] ${sources.length}/${parsed.sourceUrls.length} door het model genoemde URL's bereikbaar.`);
-    }
+    // Alleen nieuws dat Gemini echt via Google Search vond. Door het model zelf genoemde URL's tellen
+    // bewust niet: testrun 2026-10-11 leverde een verzonnen bericht op met een URL die via een soft-404
+    // (redirect naar de homepage, status 200) een "bereikbaarheids"-check doorstond.
+    const sources = searchQueries.length > 0 ? groundingSources : [];
 
     let story: NewsStory = { ...parsed, sources };
     const reject = (reason: string) => {
       console.warn(`[NewsScoutAgent] Afgewezen: ${reason}`);
-      story = { found: false, rejectedReason: reason, headline: parsed.headline, publishedDate: parsed.publishedDate, sourceUrls: parsed.sourceUrls };
+      story = { found: false, rejectedReason: reason, headline: parsed.headline, publishedDate: parsed.publishedDate };
     };
 
     if (story.found && isStale(story.publishedDate)) {
       reject(`te oud of zonder datum (${story.publishedDate ?? 'geen datum'})`);
     } else if (story.found && sources.length === 0) {
-      reject('geen verifieerbare bronnen');
+      reject(searchQueries.length === 0 ? 'model gebruikte Google Search niet' : 'geen grounding-bronnen');
     }
 
     writeFileSync(outputPath, JSON.stringify(story, null, 2), 'utf-8');

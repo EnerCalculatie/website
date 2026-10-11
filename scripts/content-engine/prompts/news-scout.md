@@ -33,7 +33,6 @@ Alleen JSON, zonder tekst eromheen:
   "headline": "<Feitelijke kop van het nieuws, max 90 tekens>",
   "summary": "<Wat is er gebeurd, 2-3 zinnen, met concrete cijfers en data>",
   "publishedDate": "<YYYY-MM-DD van het oorspronkelijke bericht>",
-  "whyItMatters": "<Wat verandert er voor huiseigenaren en installateurs, 1-2 zinnen>",
-  "sourceUrls": ["<volledige URL van het oorspronkelijke bericht>", "<URL van een tweede bron>"]
+  "whyItMatters": "<Wat verandert er voor huiseigenaren en installateurs, 1-2 zinnen>"
 }
 ```

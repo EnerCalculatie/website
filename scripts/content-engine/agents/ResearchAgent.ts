@@ -29,11 +29,15 @@ export class ResearchAgent {
       let validatedData: ResearchOutput;
       if (options.news) {
         const userPrompt = `NIEUWSONDERZOEK\n\nVerzamel met Google Search de feiten over dit actuele nieuws:\n${topic}\n\nVolg de regels onder "Nieuwsonderzoek" in je instructies.`;
-        const { text, sources } = await this.llm.generateGrounded({
+        const { text, sources, searchQueries } = await this.llm.generateGrounded({
           systemPrompt: this.systemPrompt,
           userPrompt,
           temperature: 0.1,
         });
+        // Zonder zoekopdrachten komen de "feiten" uit het modelgeheugen — voor nieuws onbruikbaar.
+        if (searchQueries.length === 0) {
+          throw new Error('[ResearchAgent] Nieuwsonderzoek zonder Google Search — afgebroken om verzonnen feiten te voorkomen.');
+        }
         validatedData = { ...ResearchOutputSchema.parse(extractJson(text)), sources };
       } else {
         const userPrompt = `Verzamel gedetailleerde, feitelijke informatie over het onderwerp: "${topic}".\nZorg ervoor dat alle beweringen rechtstreeks uit betrouwbare, in de systeeminstructie genoemde bronnen komen. Geef een zo compleet mogelijk overzicht van de feiten.`;
