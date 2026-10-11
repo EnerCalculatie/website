@@ -2471,4 +2471,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer is een batterij (BESS) nodig voor peak shaving?', answer: 'Een batterijsysteem is nodig als flexibel laadvermogen en zonnestroom samen onvoldoende zijn om een verbruikspiek op te vangen, bijvoorbeeld tijdens het snelladen van voertuigen.' },
     ],
   },
+  {
+    slug: 'offerte-opvolging-installateurs',
+    readingTimeMinutes: 2,
+    title: 'Offerte-opvolging voor installateurs: hoe verkort je de beslissingstijd?',
+    seoTitle: 'Offerte opvolgen als installateur: sneller scoren',
+    description:
+      'Ontdek hoe je als installateur met gestructureerde offerte-opvolging de beslissingstijd verkort en twijfels over subsidies en rendement wegneemt.',
+    date: '2026-10-11',
+    excerpt:
+      'Met een gestructureerde offerte-opvolging verkorten installateurs de beslissingstijd van klanten aanzienlijk. Lees hoe je twijfels wegneemt en de conversie verhoogt.',
+    tags: ['offerte opvolging', 'installateurs', 'conversie', 'ISDE subsidie', 'CRM'],
+    keyPoints: [
+      'Volg verduurzamingsoffertes voor het eerst binnen 24 tot 48 uur op.',
+      'Hanteer een vast opvolgschema op dag 2, dag 7 en dag 14.',
+      'Neem twijfels over ISDE-subsidie, overlast en rendement actief weg.',
+      'Gebruik CRM-automatisering met triggers voor een hogere conversie.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Wanneer kun je een verduurzamingsofferte het beste opvolgen?', answer: 'Het eerste contact vindt idealiter plaats binnen 24 tot 48 uur na verzending. Vervolgens hanteer je een vast opvolgschema op dag 2, dag 7 en dag 14.' },
+      { question: 'Welke twijfels nemen installateurs tijdens het opvolgen weg?', answer: 'Klanten twijfelen vaak over ISDE-subsidies, overlast tijdens de installatie en het daadwerkelijke rendement. Deze neem je weg met duidelijke uitleg, stappenplannen en onderbouwde cijfers.' },
+      { question: 'Hoe helpt software bij het opvolgen van offertes?', answer: 'Moderne CRM-software geeft meldingen zodra een klant de offerte opent en verstuurt geautomatiseerde herinneringen naar adviseurs. Hierdoor blijven offertes niet liggen en stijgt de conversie.' },
+    ],
+  },
 ];
