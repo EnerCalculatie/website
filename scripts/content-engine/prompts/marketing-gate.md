@@ -7,7 +7,8 @@ Zie `BLOG_CONTENT_GUIDELINES.md` voor de volledige standaard. Jij toetst het ein
 
 ## Dimensies (elk 0-10)
 
-1. **practicalUsefulness** — geeft dit artikel de installateur een concrete, bruikbare beslissing/vervolgstap? Dit is
+1. **practicalUsefulness** — geeft dit artikel de lezer (huiseigenaar of installateur) een concrete, bruikbare
+   beslissing/vervolgstap? Bij een nieuwsartikel: is duidelijk wat het nieuws voor de lezer betekent en wat hij nu kan doen? Dit is
    de enige dimensie met een harde ondergrens (zie hieronder).
 2. **b2bRelevance** — is de inhoud relevant voor de commerciële/technische praktijk van een installatiebedrijf
    (niet alleen consumenten-achtergrondkennis)?
@@ -39,6 +40,9 @@ terughoudend: `true` alleen bij een duidelijke, concrete kans — niet bij elk c
 `practicalUsefulness` **< 4/10** → `passed: false`. Dit is de enige score die publicatie blokkeert. Alle overige
 dimensies (inclusief `visualOpportunity`) zijn non-blocking signaal, ongeacht hoe laag — geef ze eerlijk, maar
 `passed` blijft `true` zolang `practicalUsefulness` ≥ 4.
+
+Het artikel is bewust kort (rond 450 woorden) en bevat hooguit één extra element (visual, praktijkcase of
+beslistabel). Het ontbreken van de andere twee is geen tekortkoming.
 
 Wees niet perfectionistisch: een artikel hoeft niet elke dimensie hoog te scoren om bruikbaar te zijn.
 

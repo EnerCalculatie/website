@@ -7,11 +7,13 @@ import { SeoGeoAgent } from './agents/SeoGeoAgent';
 import { QualityGateAgent } from './agents/QualityGateAgent';
 import { MarketingGateAgent } from './agents/MarketingGateAgent';
 import { PublishAgent } from './agents/PublishAgent';
+import { NewsScoutAgent } from './agents/NewsScoutAgent';
+import { NewsStory } from './schemas/news';
 import { SeoBriefOutput } from './schemas/seo';
 
 import { readFileSync, writeFileSync } from 'node:fs';
 
-type ContentType = 'SEO' | 'PRACTICAL';
+type ContentType = 'NEWS' | 'SEO' | 'PRACTICAL';
 type PlanItem = {
   title?: string;
   status?: string;
@@ -22,16 +24,17 @@ type PlanItem = {
 };
 
 /**
- * Dinsdag = SEO (kennis/zoekgedrag), vrijdag = PRACTICAL (praktijk/commercieel) — zie
- * scripts/content-engine/prompts/writer.md. Europe/Amsterdam, niet UTC/serverlokaal: de
- * GitHub Actions-runner draait in UTC en de workflow heeft al een aparte DST-guard-stap
- * die deze functie pas op het juiste lokale moment laat draaien (zie publish-blog-post.yml).
- * Buiten di/vr (handmatige workflow_dispatch met een expliciet gekozen dag): geen
- * afgedwongen type, WriterAgent krijgt dan geen CONTENTTYPE-instructie.
+ * Dinsdag = NEWS (actueel nieuws via Google Search), donderdag = evergreen uit de backlog (geen
+ * afgedwongen type, hoogste prioriteit), vrijdag = PRACTICAL — zie prompts/writer.md.
+ * Europe/Amsterdam, niet UTC/serverlokaal: de GitHub Actions-runner draait in UTC.
+ * `override` (env CONTENT_TYPE_OVERRIDE, workflow_dispatch-input) wint van de weekdag:
+ * 'NEWS' forceert een nieuwsartikel, 'EVERGREEN' een backlog-artikel zonder afgedwongen type.
  */
-export function requiredContentType(date: Date = new Date()): ContentType | undefined {
+export function requiredContentType(date: Date = new Date(), override?: string): ContentType | undefined {
+  if (override === 'NEWS') return 'NEWS';
+  if (override === 'EVERGREEN') return undefined;
   const weekday = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Amsterdam', weekday: 'short' }).format(date);
-  if (weekday === 'Tue') return 'SEO';
+  if (weekday === 'Tue') return 'NEWS';
   if (weekday === 'Fri') return 'PRACTICAL';
   return undefined;
 }
@@ -83,6 +86,19 @@ export interface PipelineGateResult {
   canPublish: boolean;
 }
 
+/** Puur. Zet de nieuwscategorie en de tag 'Nieuws' vast in de SEO-output — niet aan het model
+ * overgelaten, zodat de categorie-rotatie in NewsScoutAgent klopt. */
+export function applyNewsMetadata<T extends { category?: string; tags: string[] }>(seo: T, category: string): T {
+  const tags = seo.tags.some((t) => t.toLowerCase() === 'nieuws') ? seo.tags : ['Nieuws', ...seo.tags];
+  return { ...seo, category, tags };
+}
+
+/** Puur. Bouwt de onderzoeksopdracht voor een nieuwsartikel uit het gevonden bericht. */
+export function newsResearchTopic(story: NewsStory): string {
+  const sources = (story.sources ?? []).map((s) => `- ${s.title}: ${s.url}`).join('\n');
+  return `${story.headline}\n\nWat er gebeurde: ${story.summary}\nPublicatiedatum: ${story.publishedDate}\nWaarom relevant: ${story.whyItMatters}\n\nGevonden bronnen:\n${sources}`;
+}
+
 export function evaluateGates(
   qualityHighIssueCount: number,
   seoAuditPassed: boolean,
@@ -100,9 +116,23 @@ async function run() {
   let topic = process.argv[2];
   // Alleen afdwingen bij automatische backlog-selectie — een expliciet CLI-onderwerp
   // (handmatige/backfill-run) is een bewuste uitzondering, geen di/vr-scheduler-run.
-  const contentType = topic ? undefined : requiredContentType();
+  let contentType = topic ? undefined : requiredContentType(new Date(), process.env.CONTENT_TYPE_OVERRIDE);
   let keyword: string | undefined;
   let intent: string | undefined;
+  let newsStory: NewsStory | undefined;
+
+  if (contentType === 'NEWS') {
+    const story = await new NewsScoutAgent().run(cwd, path.join(cwd, 'news-story.json'));
+    if (story.found && story.headline) {
+      newsStory = story;
+      topic = story.headline;
+      intent = 'informatief (actueel nieuws)';
+    } else {
+      console.log('Geen bruikbaar nieuws gevonden — val terug op een evergreen-artikel uit de backlog.');
+      contentType = undefined;
+    }
+  }
+
   if (!topic) {
     const item = pickNextPlannedItem(cwd, contentType);
     if (!item) {
@@ -143,8 +173,21 @@ async function run() {
     // de brief wordt hier in die string gevouwen zodat het onderzoek de primaire/secundaire
     // zoekvragen en de vereiste informatie meekrijgt, niet alleen de kale werktitel.
     const researchAgent = new ResearchAgent();
-    const researchTopic = `${topic}\n\nBeantwoord specifiek: ${brief.primaryQuestion}\nGerelateerde vragen: ${brief.secondaryQuestions.join('; ')}\nVerzamel expliciet: ${brief.requiredInformation.join('; ')}`;
-    await researchAgent.run(researchTopic, researchPath);
+    const briefQuestions = `Beantwoord specifiek: ${brief.primaryQuestion}\nGerelateerde vragen: ${brief.secondaryQuestions.join('; ')}\nVerzamel expliciet: ${brief.requiredInformation.join('; ')}`;
+    if (newsStory) {
+      await researchAgent.run(`${newsResearchTopic(newsStory)}\n\n${briefQuestions}`, researchPath, { news: true });
+    } else {
+      await researchAgent.run(`${topic}\n\n${briefQuestions}`, researchPath);
+    }
+
+    // Nieuws: categorie en 'Nieuws'-tag vastzetten na elke SEO-optimalisatie (zie applyNewsMetadata).
+    const optimize = async () => {
+      const out = await seoAgent.run(draftPath, seoPath);
+      if (!newsStory?.category) return out;
+      const withNews = applyNewsMetadata(out, newsStory.category);
+      writeFileSync(seoPath, JSON.stringify(withNews, null, 2), 'utf-8');
+      return withNews;
+    };
 
     // Stap 3: Eerste draft schrijven (krijgt de brief mee)
     await writerAgent.run(topic, researchPath, draftPath, undefined, contentType, brief);
@@ -185,7 +228,7 @@ async function run() {
       }
 
       console.log(`\n✅ Geen blokkerende feitelijke/technische issues gevonden.`);
-      seoOptimized = await seoAgent.run(draftPath, seoPath);
+      seoOptimized = await optimize();
       auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
 
       if (!auditResult.passed) {
@@ -212,7 +255,8 @@ async function run() {
       marketingOut = await marketingGate.run(seoPath, marketingPath);
       const missedVisualOpportunity = marketingOut.visualOpportunity && !marketingOut.visualProvided;
 
-      if (!missedVisualOpportunity) break;
+      // Nieuws krijgt bewust geen visual-herschrijfronde: snelheid en kortheid gaan daar voor.
+      if (!missedVisualOpportunity || contentType === 'NEWS') break;
 
       retries++;
       if (retries >= maxRetries) {
@@ -233,7 +277,7 @@ async function run() {
     // (retries op), is er mogelijk nooit een SEO-optimalisatie/audit gedraaid — QualityGateAgent en
     // PublishAgent hebben seo-optimized.json wel nodig. Genereer 'm dan alsnog, puur voor rapportage
     // (de factual gate blokkeert toch al, dit voorkomt alleen een crash op een ontbrekend bestand).
-    if (!seoOptimized) seoOptimized = await seoAgent.run(draftPath, seoPath);
+    if (!seoOptimized) seoOptimized = await optimize();
     if (!auditResult) auditResult = await seoAgent.audit(seoPath, brief, seoAuditPath);
     // Marketing Gate draait normaliter al ín de loop (stap 4, ná een geslaagde SEO/GEO-audit) —
     // alleen als de loop daar nooit kwam (bv. factual issues die alle iteraties opsoupeerden)
@@ -255,7 +299,7 @@ async function run() {
       }
       console.log(`\n✅ Alle gates geslaagd. Start publicatie...`);
       const publisher = new PublishAgent();
-      await publisher.run(seoPath, cwd, topic);
+      await publisher.run(seoPath, cwd, topic, newsStory ? { contentType: 'NEWS', category: newsStory.category } : { contentType: contentType ?? 'EVERGREEN' });
       console.log(`\n🎉 PIPELINE VOLTOOID. Artikel is gepubliceerd!`);
     } else {
       console.log(`\n❌ PIPELINE GESTOPT — publicatie geblokkeerd:`);

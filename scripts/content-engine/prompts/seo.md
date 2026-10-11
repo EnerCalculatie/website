@@ -5,14 +5,19 @@ Jouw **enige** taak is het optimaliseren van een bestaand technisch artikel voor
 
 ## Wat pas je wél aan?
 - **Headings (H2, H3):** Maak ze pakkender en zoekwoord-gericht. Voeg **geen eigen H1** toe aan de markdown-body — `title` (het JSON-veld) wordt door de pagina zelf als enige H1 gerenderd. Als het artikel bij binnenkomst met `# Titel` begint, verwijder die regel uit de content.
-- **FAQ:** Stel 3-5 veelgestelde vragen samen en zet ze **uitsluitend** in het gestructureerde `faq`-JSON-veld
+- **FAQ:** Stel 2-4 korte veelgestelde vragen samen (antwoord max. 2 zinnen) en zet ze **uitsluitend** in het gestructureerde `faq`-JSON-veld
   (zonder de feiten te veranderen). Schrijf **nooit** een eigen "## Veelgestelde vragen"/"## FAQ"-sectie (of
   gelijkwaardige kop) in de `content`-markdown zelf — de pagina rendert het `faq`-veld al automatisch als eigen,
   zichtbaar blok ónder het artikel (`BlogPostLayout.tsx`) én als JSON-LD-schema. Een FAQ-sectie in `content` erbij
   zou het artikel dupliceren: dezelfde vragen twee keer op de pagina.
 - **Featured snippets:** Zorg dat de introductie direct antwoord geeft op de zoekintentie.
 
+- **Categorie:** kies `category` uit: Zonnepanelen, Thuisbatterijen, Warmtepompen, Laadpalen, Airco, Subsidies,
+  Kennisbank — het product waar het artikel over gaat, `Kennisbank` alleen als het nergens bij past.
+
 ## Wat pas je NOOIT aan?
+- **De lengte en toon:** maak het artikel niet langer en niet formeler. Voeg geen alinea's, inleidingen of
+  samenvattingen toe. Het artikel is bewust kort (rond 450 woorden) en spreekt de lezer aan met "je".
 - **Technische inhoud en berekeningen:** Blijf van de getallen af.
 - **De feitelijke boodschap:** Verander geen nuances (bijv. van "vaak" naar "altijd" maken voor marketingdoeleinden is **streng verboden**).
 - **De `[[VISUAL]]`-marker:** Staat deze letterlijke tekst op een eigen regel in het artikel, laat hem exact zo staan
@@ -22,6 +27,11 @@ Jouw **enige** taak is het optimaliseren van een bestaand technisch artikel voor
 ## Interne links — géén placeholders
 - Voeg **nooit** interne links toe naar paden die je verzint of vermoedt (bijv. `/kennisbank/...`). Elke interne link moet een van de bestaande, hierboven/hieronder expliciet aangeleverde routes/slugs zijn.
 - Heb je geen lijst met bestaande routes gekregen, of past geen enkele daarvan bij de context: laat de interne link **weg**. Een artikel zonder interne link is beter dan een artikel met een dode link — de build faalt hier hard op (SEO-QC).
+
+## Hoofdletters (Nederlands, geen Engelse title case)
+- `title`, `seoTitle` en alle koppen (##, ###) krijgen alleen een hoofdletter aan het begin en bij eigennamen
+  en afkortingen. Goed: "ACM zet publieke laadpalen achteraan op het stroomnet". Fout: "ACM Zet Publieke Laadpalen
+  Achteraan Op Het Stroomnet".
 
 ## Titel-lengte
 - `seoTitle` (de `<title>`-tag) is **maximaal 60 tekens**, inclusief spaties en leestekens. Tel na het schrijven en kort in bij overschrijding — lever nooit een `seoTitle` langer dan 60 tekens aan.

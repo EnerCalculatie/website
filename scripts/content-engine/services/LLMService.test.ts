@@ -232,3 +232,83 @@ describe('LLMService.generateJSON', () => {
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 });
+
+describe('LLMService.generateGrounded', () => {
+  beforeEach(() => {
+    fetchMock.mockReset();
+    vi.stubGlobal('fetch', fetchMock);
+    _resetGeminiClientState();
+    delete process.env.MOCK_LLM;
+  });
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('zet de google_search-tool aan en géén JSON-modus (niet elk model ondersteunt die combinatie)', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'x' }] }, groundingMetadata: { webSearchQueries: ['q'] } }] }));
+    await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
+    const sentBody = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(sentBody.tools).toEqual([{ google_search: {} }]);
+    expect(sentBody.generationConfig.responseMimeType).toBeUndefined();
+  });
+
+  it('plakt alle parts aan elkaar en lost grounding-redirects op naar de echte URL', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({
+        candidates: [{
+          content: { parts: [{ text: 'deel 1 ' }, { text: 'deel 2' }] },
+          groundingMetadata: {
+            webSearchQueries: ['isde'],
+            groundingChunks: [
+              { web: { uri: 'https://vertexaisearch.cloud.google.com/grounding-api-redirect/abc', title: 'rvo.nl' } },
+              { web: { uri: 'https://nos.nl/artikel/1', title: 'nos.nl' } },
+              { web: { uri: 'https://nos.nl/artikel/1', title: 'nos.nl' } },
+            ],
+          },
+        }],
+      }))
+      .mockResolvedValueOnce({ headers: { get: () => 'https://www.rvo.nl/nieuws/isde' } });
+
+    const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
+    expect(result.text).toBe('deel 1 deel 2');
+    expect(result.sources).toEqual([
+      { title: 'rvo.nl', url: 'https://www.rvo.nl/nieuws/isde' },
+      { title: 'nos.nl', url: 'https://nos.nl/artikel/1' },
+    ]);
+  });
+
+  it('probeert opnieuw als het model Google Search niet gebruikte', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: 'uit geheugen' }] } }] }))
+      .mockResolvedValueOnce(jsonResponse({
+        candidates: [{ content: { parts: [{ text: 'gezocht' }] }, groundingMetadata: { webSearchQueries: ['laadpaal nieuws'] } }],
+      }));
+    const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' });
+    expect(result.text).toBe('gezocht');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(JSON.parse(fetchMock.mock.calls[1][1].body).contents[0].parts[0].text).toContain('Google Search niet');
+  });
+
+  it('geeft na maxAttempts het laatste antwoord terug (caller wijst het dan af)', async () => {
+    fetchMock.mockResolvedValue(jsonResponse({ candidates: [{ content: { parts: [{ text: 'x' }] } }] }));
+    const result = await new LLMService().generateGrounded({ userPrompt: 'nieuws' }, 2);
+    expect(result.searchQueries).toEqual([]);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('generateGroundedJSON: zoekt in vrije tekst en zet die daarna zonder grounding om naar JSON', async () => {
+    fetchMock
+      .mockResolvedValueOnce(jsonResponse({
+        candidates: [{ content: { parts: [{ text: 'Kop: ACM verlaagt tarief' }] }, groundingMetadata: { webSearchQueries: ['acm'] } }],
+      }))
+      .mockResolvedValueOnce(jsonResponse({ candidates: [{ content: { parts: [{ text: '{"headline":"ACM verlaagt tarief"}' }] } }] }));
+    const result = await new LLMService().generateGroundedJSON({ systemPrompt: 'zoek', userPrompt: 'nieuws' }, 'FORMAT');
+    expect(result.json).toEqual({ headline: 'ACM verlaagt tarief' });
+    expect(result.searchQueries).toEqual(['acm']);
+    const step2 = JSON.parse(fetchMock.mock.calls[1][1].body);
+    expect(step2.tools).toBeUndefined();
+    expect(step2.generationConfig.responseMimeType).toBe('application/json');
+    expect(step2.systemInstruction.parts[0].text).toContain('FORMAT');
+    expect(step2.contents[0].parts[0].text).toBe('Kop: ACM verlaagt tarief');
+  });
+});

@@ -4,8 +4,10 @@ name: Kennisbank-artikel (di/do)
 # 1. Cronjob start (of handmatig via workflow_dispatch)
 # 2. plan-content.mjs vult ai-context/content-plan.json aan als er te weinig
 #    'planned' items over zijn (via Gemini, apart van de artikel-pipeline zelf)
-# 3. run-pipeline.ts kiest het hoogste-prioriteit 'planned' item uit
-#    ai-context/content-plan.json (of een expliciet meegegeven onderwerp)
+# 3. Dinsdag: NewsScoutAgent zoekt via Google Search-grounding één actueel nieuwsbericht
+#    (laadpalen/airco/zonnepanelen/warmtepompen/thuisbatterijen, categorie rouleert).
+#    Geen bruikbaar nieuws, of donderdag: run-pipeline.ts kiest het hoogste-prioriteit
+#    'planned' item uit ai-context/content-plan.json (of een expliciet meegegeven onderwerp)
 # 4. ResearchAgent verzamelt feiten, WriterAgent schrijft het artikel — uitsluitend
 #    op basis van de statische kennisbank (scripts/content-engine/knowledge/*.md)
 #    en de researchfeiten; mag niets verzinnen buiten die bronnen
@@ -49,6 +51,11 @@ on:
         description: "Publiceer ook buiten dinsdag/donderdag (bv. voor een test-run). Standaard uit — de dag-check geldt anders ook bij handmatige runs."
         type: boolean
         default: false
+      type:
+        description: "Artikeltype: auto (dinsdag nieuws, donderdag evergreen), news of evergreen"
+        type: choice
+        options: [auto, news, evergreen]
+        default: auto
       topic:
         description: "Optioneel: expliciet onderwerp i.p.v. het automatisch gekozen backlog-item (bv. om een bestaand artikel opnieuw te genereren voor handmatige review — de slug-collision-guard in PublishAgent blokkeert de automatische publicatie dan alsnog terecht; gebruik dit om de seo-optimized.json-artifact te produceren en handmatig toe te passen)."
         type: string
@@ -144,6 +151,7 @@ jobs:
           GEMINI_API_KEY_PAID: ${{ secrets.GEMINI_API_KEY_PAID }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           TOPIC_OVERRIDE: ${{ github.event.inputs.topic }}
+          CONTENT_TYPE_OVERRIDE: ${{ github.event.inputs.type == 'news' && 'NEWS' || github.event.inputs.type == 'evergreen' && 'EVERGREEN' || '' }}
         run: npx tsx scripts/content-engine/run-pipeline.ts "$TOPIC_OVERRIDE"
 
       - name: "7b. Pipeline-debugbestanden als CI-artifact bewaren (i.p.v. committen)"
@@ -153,6 +161,7 @@ jobs:
         with:
           name: pipeline-debug-${{ github.run_id }}
           path: |
+            news-story.json
             seo-brief.json
             research.json
             draft.md
@@ -190,7 +199,8 @@ jobs:
           echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: "9. IndexNow — nieuwe URL aanmelden"
-        if: steps.push.outputs.slug != ''
+        # Alleen op main: een testrun op een feature-branch staat niet live.
+        if: steps.push.outputs.slug != '' && github.ref == 'refs/heads/main'
         continue-on-error: true
         run: node scripts/indexnow-submit.mjs "/blog/${{ steps.push.outputs.slug }}"
 

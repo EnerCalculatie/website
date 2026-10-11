@@ -6,6 +6,35 @@ export interface LLMRequest {
   userPrompt: string;
   temperature?: number;
   responseFormat?: 'json_object' | 'text';
+  /** Gemini-grounding met Google Search aan — zie generateGrounded(). */
+  googleSearch?: boolean;
+}
+
+export interface GroundingSource {
+  title: string;
+  url: string;
+}
+
+export interface GroundedResponse {
+  text: string;
+  sources: GroundingSource[];
+  /** Zoekopdrachten die Gemini uitvoerde — leeg betekent: het model heeft niet gezocht. */
+  searchQueries: string[];
+}
+
+/**
+ * Grounding-chunks verwijzen naar een vertexaisearch-redirect, niet naar het artikel zelf.
+ * Volg de redirect één keer voor de echte URL (die hoort in research.json en de bronnenlijst).
+ * Lukt dat niet, dan blijft de redirect-URL staan — beter een omweg dan geen bron.
+ */
+export async function resolveGroundingUrl(uri: string): Promise<string> {
+  if (!uri.includes('grounding-api-redirect')) return uri;
+  try {
+    const res = await fetch(uri, { method: 'HEAD', redirect: 'manual', signal: AbortSignal.timeout(10000) });
+    return res.headers?.get('location') || uri;
+  } catch {
+    return uri;
+  }
 }
 
 export class LLMService {
@@ -16,6 +45,13 @@ export class LLMService {
       return this.getMockResponse(combinedPrompt);
     }
 
+    // Retry/backoff en modelfallback zitten in de gedeelde client — zie gemini-client.mjs
+    // voor de aanleiding (free-tier-503's die de hele pipeline lieten falen).
+    const { data } = await geminiGenerate(this.buildBody(request));
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  }
+
+  private buildBody(request: LLMRequest): Record<string, unknown> {
     const body: Record<string, unknown> = {
       contents: [{ role: 'user', parts: [{ text: request.userPrompt }] }],
       generationConfig: {
@@ -29,14 +65,86 @@ export class LLMService {
       };
     }
 
-    if (request.responseFormat === 'json_object') {
+    if (request.googleSearch) {
+      body.tools = [{ google_search: {} }];
+    }
+
+    // JSON-modus niet combineren met grounding: niet elk Gemini-model ondersteunt die combinatie,
+    // en een JSON-eis onderdrukt het zoeken (zie generateGroundedJSON).
+    if (request.responseFormat === 'json_object' && !request.googleSearch) {
       (body.generationConfig as Record<string, unknown>).responseMimeType = 'application/json';
     }
 
-    // Retry/backoff en modelfallback zitten in de gedeelde client — zie gemini-client.mjs
-    // voor de aanleiding (free-tier-503's die de hele pipeline lieten falen).
-    const { data } = await geminiGenerate(body);
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    return body;
+  }
+
+  /**
+   * Zoals generate(), maar met Google Search-grounding: het model zoekt live op het web i.p.v.
+   * uit zijn trainingsgeheugen te antwoorden. Nodig voor nieuwsartikelen. Geeft ook de bronnen
+   * terug die Gemini daadwerkelijk raadpleegde (groundingMetadata.groundingChunks).
+   */
+  async generateGrounded(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>, maxAttempts = 3): Promise<GroundedResponse> {
+    if (process.env.MOCK_LLM === 'true') {
+      const text = await this.generate(request);
+      return { text, sources: [{ title: 'rvo.nl', url: 'https://www.rvo.nl/mock-nieuws' }], searchQueries: ['mock'] };
+    }
+
+    // Gemini mag zelf beslissen of het zoekt, en antwoordt soms toch uit zijn geheugen (testrun
+    // 2026-10-11: 0 zoekopdrachten, verzonnen nieuws met een 404-URL). Dan opnieuw, met nadruk.
+    let result: GroundedResponse | undefined;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      const userPrompt = attempt === 1
+        ? request.userPrompt
+        : `${request.userPrompt}\n\nLET OP: je vorige antwoord gebruikte Google Search niet. Voer eerst zoekopdrachten uit en baseer je antwoord uitsluitend op de zoekresultaten.`;
+      result = await this.groundedCall({ ...request, userPrompt });
+      if (result.searchQueries.length > 0) return result;
+      console.warn(`[LLMService] Model gebruikte Google Search niet (poging ${attempt}/${maxAttempts}).`);
+    }
+    return result as GroundedResponse;
+  }
+
+  /**
+   * Zoeken én gestructureerde output, in twee stappen. Gemini slaat Google Search grotendeels over
+   * zodra de prompt "antwoord alleen in JSON" eist (meting 2026-10-11: 1 van 6 keer gezocht, zonder
+   * JSON-eis 6 van 6). Daarom: stap 1 zoekt en antwoordt in vrije tekst, stap 2 (zonder grounding,
+   * wél JSON-modus) zet die tekst om. `search.systemPrompt` mag dus géén JSON-uitvoer vragen.
+   */
+  async generateGroundedJSON(
+    search: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>,
+    formatPrompt: string
+  ): Promise<GroundedResponse & { json: unknown }> {
+    const grounded = await this.generateGrounded(search);
+    if (process.env.MOCK_LLM === 'true') return { ...grounded, json: JSON.parse(grounded.text) };
+
+    const json = await this.generateJSON({
+      systemPrompt: `Je zet een tekst om naar JSON. Neem uitsluitend informatie over die letterlijk in de tekst staat — verzin niets, vul niets aan. Ontbreekt een veld, laat het weg.\n\n${formatPrompt}`,
+      userPrompt: grounded.text,
+      temperature: 0,
+    });
+    return { ...grounded, json };
+  }
+
+  private async groundedCall(request: Omit<LLMRequest, 'googleSearch' | 'responseFormat'>): Promise<GroundedResponse> {
+    const { data, model } = await geminiGenerate(this.buildBody({ ...request, googleSearch: true }));
+    const candidate = data.candidates?.[0];
+    if (!candidate?.groundingMetadata?.webSearchQueries?.length) {
+      // Diagnose: waarom zocht het model niet? Toont model, finishReason en wat er wél aan metadata terugkwam.
+      console.warn(`[LLMService] Geen zoekopdrachten — model ${model}, finishReason ${candidate?.finishReason}, groundingMetadata: ${JSON.stringify(candidate?.groundingMetadata ?? null).slice(0, 300)}, usage: ${JSON.stringify(data.usageMetadata ?? null).slice(0, 300)}`);
+    }
+    // Bij grounding kan het antwoord over meerdere parts verdeeld zijn.
+    const text = (candidate?.content?.parts ?? []).map((p: { text?: string }) => p.text ?? '').join('');
+
+    const sources: GroundingSource[] = [];
+    const seen = new Set<string>();
+    const chunks: Array<{ web?: { uri?: string; title?: string } }> = candidate?.groundingMetadata?.groundingChunks ?? [];
+    for (const chunk of chunks) {
+      if (!chunk.web?.uri) continue;
+      const url = await resolveGroundingUrl(chunk.web.uri);
+      if (seen.has(url)) continue;
+      seen.add(url);
+      sources.push({ title: chunk.web.title ?? url, url });
+    }
+    return { text, sources, searchQueries: candidate?.groundingMetadata?.webSearchQueries ?? [] };
   }
 
   /**
@@ -69,6 +177,16 @@ export class LLMService {
   }
 
   private getMockResponse(prompt: string): string {
+    if (prompt.includes('News Scout')) {
+      return JSON.stringify({
+        found: true,
+        category: 'Thuisbatterijen',
+        headline: 'Mock nieuws over thuisbatterijen',
+        summary: 'Mock samenvatting.',
+        publishedDate: new Date().toISOString().slice(0, 10),
+        whyItMatters: 'Mock relevantie.',
+      });
+    }
     if (prompt.includes('Research Agent')) {
       return JSON.stringify({ 
         topic: "mock onderwerp",
