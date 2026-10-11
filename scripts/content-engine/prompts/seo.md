@@ -28,6 +28,11 @@ Jouw **enige** taak is het optimaliseren van een bestaand technisch artikel voor
 - Voeg **nooit** interne links toe naar paden die je verzint of vermoedt (bijv. `/kennisbank/...`). Elke interne link moet een van de bestaande, hierboven/hieronder expliciet aangeleverde routes/slugs zijn.
 - Heb je geen lijst met bestaande routes gekregen, of past geen enkele daarvan bij de context: laat de interne link **weg**. Een artikel zonder interne link is beter dan een artikel met een dode link — de build faalt hier hard op (SEO-QC).
 
+## Hoofdletters (Nederlands, geen Engelse title case)
+- `title`, `seoTitle` en alle koppen (##, ###) krijgen alleen een hoofdletter aan het begin en bij eigennamen
+  en afkortingen. Goed: "ACM zet publieke laadpalen achteraan op het stroomnet". Fout: "ACM Zet Publieke Laadpalen
+  Achteraan Op Het Stroomnet".
+
 ## Titel-lengte
 - `seoTitle` (de `<title>`-tag) is **maximaal 60 tekens**, inclusief spaties en leestekens. Tel na het schrijven en kort in bij overschrijding — lever nooit een `seoTitle` langer dan 60 tekens aan.
 
