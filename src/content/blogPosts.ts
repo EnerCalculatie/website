@@ -2495,4 +2495,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe helpt software bij het opvolgen van offertes?', answer: 'Moderne CRM-software geeft meldingen zodra een klant de offerte opent en verstuurt geautomatiseerde herinneringen naar adviseurs. Hierdoor blijven offertes niet liggen en stijgt de conversie.' },
     ],
   },
+  {
+    slug: 'nationaal-laadonderzoek-2026-ev-rijder-thuis-laden',
+    readingTimeMinutes: 2,
+    title: 'Nationaal Laadonderzoek 2026: EV-rijder laadt massaal thuis en zet in op slim laden',
+    seoTitle: 'Nationaal Laadonderzoek 2026: EV-rijder laadt thuis',
+    description:
+      'Uit het Nationaal Laadonderzoek 2026 blijkt dat 62% van alle kilometers thuis wordt geladen en 90% slim laadt. Bekijk de belangrijkste inzichten.',
+    date: '2026-10-11',
+    excerpt:
+      'Uit het Nationaal Laadonderzoek 2026 blijkt dat 62% van alle elektrisch gereden kilometers thuis plaatsvindt en 90% slim laadt. Bekijk de belangrijkste inzichten.',
+    tags: ['Nieuws', 'laadpaal', 'elektrisch rijden', 'slim laden', 'dynamisch energiecontract', 'thuisbatterij'],
+    keyPoints: [
+      '62% van alle elektrisch geladen kilometers vindt plaats via een thuislaadpunt.',
+      '90% van de EV-rijders met een eigen laadpaal past een vorm van slim laden toe.',
+      '47% van de EV-rijders heeft een dynamisch contract en 26% beschikt over een thuisbatterij.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Hoeveel EV-rijders laden hun auto hoofdzakelijk thuis?', answer: 'Uit het Nationaal Laadonderzoek 2026 blijkt dat 62 procent van alle elektrisch gereden kilometers thuis wordt geladen en 76 procent van de EV-rijders beschikt over een eigen laadpaal.' },
+      { question: 'Waarom kiezen EV-rijders voor slim laden?', answer: 'De belangrijkste redenen voor slim laden zijn het verlagen van energiekosten, het direct benutten van eigen zonnestroom en het vermijden van piekuren op het stroomnet.' },
+      { question: 'Hoeveel EV-rijders maken al gebruik van slim laden?', answer: 'Van de EV-rijders met een eigen laadpunt past 90 procent één of meerdere vormen van slim laden toe, zoals laden op dynamische uurprijzen.' },
+    ],
+  },
 ];
