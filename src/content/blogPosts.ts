@@ -2447,4 +2447,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wanneer moet er overgestapt worden op een 3-fase omvormer?', answer: 'Zodra het vermogen van een zonnepaneelinstallatie de 3,68 kW (16A) overstijgt, dient een overstap gemaakt te worden naar een 3-fase omvormer om fase-onbalans te vermijden.' },
     ],
   },
+  {
+    slug: 'verplichte-registratie-laadpalen-warmtepompen',
+    readingTimeMinutes: 2,
+    title: 'Verplichte registratie van laadpalen en warmtepompen op komst',
+    seoTitle: 'Verplichte registratie laadpaal en warmtepomp op komst',
+    description:
+      'Netbeheer Nederland pleit voor verplichte registratie van laadpalen en warmtepompen. Ontdek wat dit betekent voor huiseigenaren en installateurs.',
+    date: '2026-10-13',
+    excerpt:
+      'Netbeheer Nederland roept op tot een wettelijk verplichte registratie van laadpalen en warmtepompen tot 55 kW om netoverbelasting gericht te voorkomen.',
+    tags: ['Nieuws', 'netbeheer', 'laadpalen', 'warmtepompen', 'netoverbelasting', 'registratie'],
+    keyPoints: [
+      'Netbeheer Nederland pleit voor verplichte registratie van laadpalen en warmtepompen tot 55 kW.',
+      'Aansturing via slimme meters helpt wijkstroomstoringen en netoverbelasting te voorkomen.',
+      'Mijnaansluiting.nl en energieleveren.nl blijven de centrale portalen voor aanvragen en meldingen.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Waarom willen netbeheerders een verplichte registratie?', answer: 'Netbeheerders hebben momenteel onvoldoende inzicht in locaties en vermogens van laadpalen en warmtepompen op adresniveau. Registratie helpt overbelasting van het stroomnet te voorkomen door gericht sturen op afstand.' },
+      { question: 'Wie is verantwoordelijk voor het aanmelden van apparatuur?', answer: 'De juridische verantwoordelijkheid ligt bij de aansluithouder of huiseigenaar. In de praktijk verzorgt de installateur vaak de technische melding bij de oplevering.' },
+      { question: 'Waar meld je aanwezige zonnepanelen of thuisbatterijen aan?', answer: 'Zonnepanelen en thuisbatterijen meld je aan via energieleveren.nl. Het aanvragen of verzwaren van een netaansluiting verloopt via Mijnaansluiting.nl.' },
+    ],
+  },
 ];
