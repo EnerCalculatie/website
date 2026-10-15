@@ -2470,4 +2470,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Waar meld je aanwezige zonnepanelen of thuisbatterijen aan?', answer: 'Zonnepanelen en thuisbatterijen meld je aan via energieleveren.nl. Het aanvragen of verzwaren van een netaansluiting verloopt via Mijnaansluiting.nl.' },
     ],
   },
+  {
+    slug: 'peak-shaving-zakelijke-laadpalen-ems',
+    readingTimeMinutes: 2,
+    title: 'Peak shaving bij zakelijke laadpalen en grootverbruik',
+    seoTitle: 'Peak shaving voor zakelijke laadpalen en EMS',
+    description:
+      'Voorkom piekboetes op de zakelijke grootverbruikaansluiting met peak shaving. Ontdek hoe EMS, laadpalen en opslag netcongestie oplossen.',
+    date: '2026-10-15',
+    excerpt:
+      'Een zakelijke klant met een grootverbruikaansluiting betaalt flink extra door één enkel piekkwartier. Met peak shaving voorkom je vermogenspieken met EMS en batterij-opslag.',
+    tags: ['Peak shaving', 'EMS', 'Laadpalen', 'Grootverbruik', 'Netcongestie'],
+    keyPoints: [
+      'Peak shaving voorkomt overschrijdingsboetes op grootverbruikaansluitingen',
+      'EMS stuurt laadpalen, zonnepanelen en batterijen aan via Modbus en OCPP',
+      'Fail-safe (safe state) voorkomt doorgeslagen zekeringen bij netwerkuitval',
+      'Fiscale stimulering mogelijk via MIA en VAMIL',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Wat is peak shaving bij zakelijke laadpalen?', answer: 'Peak shaving is het opvangen van pieken in het stroomverbruik met slimme sturing en batterij-opslag. Hiermee voorkom je overschrijding van het gecontracteerd vermogen en hoge netboetes.' },
+      { question: 'Wat gebeurt er als de netwerkverbinding of het EMS uitvalt?', answer: 'Bij een storing schakelen de laadpalen via een fail-safe automatisch terug naar een ingesteld minimaal vermogen. Dit voorkomt dat hoofdzekeringen doorslaan of contractgrenzen worden overschreden.' },
+      { question: 'Zijn er fiscale subsidies voor slimme laadsteuring en EMS?', answer: 'Ja, investeringen in een energiemanagementsysteem (EMS), laadinfrastructuur en bijbehorende apparatuur komen vaak in aanmerking voor MIA en VAMIL.' },
+    ],
+  },
 ];

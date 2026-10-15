@@ -891,5 +891,12 @@
     "status": "generated",
     "contentType": "NEWS",
     "category": "Laadpalen"
+  },
+  {
+    "date": "2026-10-15",
+    "topic": "Peak shaving bij zakelijke laadpalen en grootverbruik",
+    "slug": "peak-shaving-zakelijke-laadpalen-ems",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]
