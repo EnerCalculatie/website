@@ -898,5 +898,13 @@
     "slug": "peak-shaving-zakelijke-laadpalen-ems",
     "status": "generated",
     "contentType": "EVERGREEN"
+  },
+  {
+    "date": "2026-10-20",
+    "topic": "Slimme airco-aansturing benut woning als thermische batterij",
+    "slug": "airco-slimme-aansturing-thermische-batterij",
+    "status": "generated",
+    "contentType": "NEWS",
+    "category": "Airco"
   }
 ]

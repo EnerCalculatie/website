@@ -2494,4 +2494,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Zijn er fiscale subsidies voor slimme laadsteuring en EMS?', answer: 'Ja, investeringen in een energiemanagementsysteem (EMS), laadinfrastructuur en bijbehorende apparatuur komen vaak in aanmerking voor MIA en VAMIL.' },
     ],
   },
+  {
+    slug: 'airco-slimme-aansturing-thermische-batterij',
+    readingTimeMinutes: 2,
+    title: 'Slimme airco-aansturing benut woning als thermische batterij',
+    seoTitle: 'Airco als thermische batterij: slim verwarmen met zon',
+    description:
+      'Benut de beton- en steenmassa van je woning als thermische warmtebatterij met slimme airco-aansturing, zonnestroom en dynamische energietarieven.',
+    date: '2026-10-20',
+    excerpt:
+      'Door slimme aansturing van je airco kun je de massa van muren en vloeren inzetten als thermische warmtebatterij. Zo bespaar je op energiekosten met zonnestroom.',
+    tags: ['Nieuws', 'airco', 'thermische batterij', 'zonnepanelen', 'energiebesparing', 'dynamische tarieven'],
+    keyPoints: [
+      'Slimme airco-aansturing via EMS benut muren en vloeren als thermische batterij',
+      'Jaarlijkse besparing van circa 275 euro bij dynamische energietarieven',
+      'Voorverwarmen geeft 20 procent extra energieverlies, maar is voordelig bij grote tariefverschillen',
+      'Eenvoudige aansturing via infrarood en de P1-poort van de slimme meter',
+    ],
+    category: 'Airco',
+    faq: [
+      { question: 'Hoe werkt het inzetten van een woning als thermische batterij?', answer: 'Een Energiemanagementsysteem (EMS) stuurt je airco overdag aan met overtollige zonnestroom om muren en vloeren op te warmen. Deze opgeslagen warmte komt in de avonduren geleidelijk weer vrij.' },
+      { question: 'Hoeveel kun je besparen met slimme airco-aansturing?', answer: 'Voor een gemiddelde tussenwoning met airco, zonnepanelen en een dynamisch stroomtarief bedraagt de berekende besparing circa 275 euro per jaar.' },
+      { question: 'Is het voorverwarmen van muren en vloeren altijd rendabel?', answer: 'Nee, voorverwarmen veroorzaakt gemiddeld 20 procent extra energieverlies. Het levert alleen financieel voordeel op als het prijsverschil tussen middag- en avondtarieven groot genoeg is.' },
+    ],
+  },
 ];
