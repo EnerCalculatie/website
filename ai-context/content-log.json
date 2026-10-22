@@ -906,5 +906,12 @@
     "status": "generated",
     "contentType": "NEWS",
     "category": "Airco"
+  },
+  {
+    "date": "2026-10-22",
+    "topic": "Offerte opvolgen voor hybride warmtepomp: zo versnel je de beslissing",
+    "slug": "offerte-hybride-warmtepomp-opvolgen",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]

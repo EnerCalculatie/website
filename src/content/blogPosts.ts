@@ -2518,4 +2518,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is het voorverwarmen van muren en vloeren altijd rendabel?', answer: 'Nee, voorverwarmen veroorzaakt gemiddeld 20 procent extra energieverlies. Het levert alleen financieel voordeel op als het prijsverschil tussen middag- en avondtarieven groot genoeg is.' },
     ],
   },
+  {
+    slug: 'offerte-hybride-warmtepomp-opvolgen',
+    readingTimeMinutes: 2,
+    title: 'Offerte opvolgen voor hybride warmtepomp: zo versnel je de beslissing',
+    seoTitle: 'Offerte hybride warmtepomp opvolgen: zo doe je dat',
+    description:
+      'Ontdek hoe je als installateur het opvolgproces van warmtepomp-offertes stroomlijnt. Neem technische bezwaren over isolatie en subsidie proactief weg.',
+    date: '2026-10-22',
+    excerpt:
+      'Een offerte voor een hybride warmtepomp blijft vaak weken liggen. Door je opvolgproces strak in te richten en technische drempels proactief weg te nemen, verkort je de beslissingstijd van de klant direct.',
+    tags: ['Warmtepompen', 'Offerte opvolging', 'ISDE-subsidie', 'Netverzwaring', 'CRM'],
+    keyPoints: [
+      'Neem binnen enkele dagen contact op om isolatie en terugverdientijd te bespreken.',
+      'Gebruik CRM-automatisering voor termijnen rond MijnAansluiting.nl en ISDE-subsidie.',
+      'Neem NEN 1010-normen en Dynamic Load Balancing proactief op in het advies.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Wanneer neem je het beste contact op na een offerte?', answer: 'Neem binnen enkele dagen na verzending contact op met de klant. Zo kun je vragen over isolatie, de terugverdientijd en de netverzwaring direct beantwoorden.' },
+      { question: 'Waarom twijfelen klanten over een hybride warmtepomp?', answer: 'Twijfels ontstaan meestal door onzekerheid over de isolatiegraad, de totale investering en de doorlooptijd van een eventuele netverzwaring.' },
+      { question: 'Hoe helpt CRM-software bij het opvolgen van offertes?', answer: 'CRM-software ondersteunt het proces met automatische herinneringen voor opvolgmomenten, de ISDE-subsidietermijn van 24 maanden en aanvragen via MijnAansluiting.nl.' },
+    ],
+  },
 ];
