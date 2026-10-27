@@ -2541,4 +2541,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe helpt CRM-software bij het opvolgen van offertes?', answer: 'CRM-software ondersteunt het proces met automatische herinneringen voor opvolgmomenten, de ISDE-subsidietermijn van 24 maanden en aanvragen via MijnAansluiting.nl.' },
     ],
   },
+  {
+    slug: 'consumentenbond-voorstel-nieuwe-zonnestroomsubsidie',
+    readingTimeMinutes: 2,
+    title: 'Consumentenbond stelt nieuwe zonnestroomsubsidie van 10 cent voor',
+    seoTitle: 'Consumentenbond wil nieuwe subsidie zonnepanelen',
+    description:
+      'De Consumentenbond stelt een subsidie van 10 cent per kWh voor om het verdwijnen van de salderingsregeling na 2027 op te vangen. Lees wat dit betekent.',
+    date: '2026-10-27',
+    excerpt:
+      'De Consumentenbond wil een nieuwe zonnestroomsubsidie van 10 eurocent per teruggeleverde kWh voor 15 jaar om de afschaffing van de salderingsregeling op te vangen.',
+    tags: ['Nieuws', 'Zonnepanelen', 'Salderingsregeling', 'Subsidie', 'Consumentenbond', 'Terugleverkosten'],
+    keyPoints: [
+      'Consumentenbond stelt een subsidie van 10 cent per kWh voor gedurende 15 jaar (max. 3.000 kWh/jaar).',
+      'De wettelijke salderingsregeling voor zonnepanelen stopt definitief op 1 januari 2027.',
+      'Met de nieuwe subsidie kan de gemiddelde terugverdientijd dalen van 25 naar ongeveer 9 jaar.',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Wat houdt het subsidievoorstel van de Consumentenbond in?', answer: 'De Consumentenbond stelt een subsidie van 10 eurocent per kWh teruggeleverde stroom voor gedurende 15 jaar, met een maximum van 3.000 kWh per jaar.' },
+      { question: 'Wanneer stopt de salderingsregeling precies?', answer: 'De wettelijke salderingsregeling voor zonnepanelen stopt definitief op 1 januari 2027. Vanaf dan mag opgewekte stroom niet meer verrekend worden met afgenomen stroom.' },
+      { question: 'Wat betekent deze subsidie voor de terugverdientijd van zonnepanelen?', answer: 'Volgens berekeningen van Bureau Berenschot kan de gemiddelde terugverdientijd met dit subsidievoorstel dalen van 25 jaar naar circa 9 jaar.' },
+    ],
+  },
 ];
