@@ -2564,4 +2564,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat betekent deze subsidie voor de terugverdientijd van zonnepanelen?', answer: 'Volgens berekeningen van Bureau Berenschot kan de gemiddelde terugverdientijd met dit subsidievoorstel dalen van 25 jaar naar circa 9 jaar.' },
     ],
   },
+  {
+    slug: 'warmtepomp-onderhoud-stroomverbruik-rendement',
+    readingTimeMinutes: 2,
+    title: 'Warmtepomp onderhoud: voorkom tot 20% extra stroomverbruik',
+    seoTitle: 'Warmtepomp onderhoud: voorkom 20% extra stroomverbruik',
+    description:
+      'Een vervuilde warmtepomp verbruikt tot 20% meer stroom. Lees hoe regelmatig onderhoud de SCOP behoudt en de energierekening laag houdt.',
+    date: '2026-10-29',
+    excerpt:
+      'Een vervuilde warmtepomp kan tot 20% meer stroom verbruiken. Regelmatig onderhoud voorkomt dit rendementsverlies en houdt de energierekening laag.',
+    tags: ['warmtepomp onderhoud', 'SCOP warmtepomp', 'stroomverbruik warmtepomp', 'F-gassenverordening'],
+    keyPoints: [
+      'Vervuiling kan het stroomverbruik van een warmtepomp met 10% tot 20% verhogen',
+      'Slecht onderhoud verlaagt de Seizoensgebonden Prestatiecoëfficiënt (SCOP)',
+      'Professioneel onderhoud is elke 1 tot 2 jaar nodig, filterreiniging 1 tot 2 keer per jaar',
+      'Lekcontrole is wettelijk verplicht vanaf 5 ton CO2-equivalent (10 ton bij hermetische systemen)',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Hoe vaak heeft een warmtepomp onderhoud nodig?', answer: 'Een warmtepomp heeft doorgaans eens per 1 tot 2 jaar een professionele onderhoudsbeurt nodig. Filters moeten minimaal 1 tot 2 keer per jaar gereinigd of vervangen worden.' },
+      { question: 'Hoeveel meer stroom verbruikt een vervuilde warmtepomp?', answer: 'Achterstallig onderhoud en vervuilde onderdelen kunnen het stroomverbruik met 10% tot 20% verhogen door een verminderde SCOP en doordraaiende compressor.' },
+      { question: 'Is een lekcontrole voor een warmtepomp wettelijk verplicht?', answer: 'Ja, volgens de Europese F-gassenverordening geldt een periodieke lekcontrole bij koudemiddelvullingen vanaf 5 ton CO2-equivalent, of vanaf 10 ton bij hermetisch gesloten systemen.' },
+    ],
+  },
 ];

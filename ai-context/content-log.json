@@ -921,5 +921,12 @@
     "status": "generated",
     "contentType": "NEWS",
     "category": "Zonnepanelen"
+  },
+  {
+    "date": "2026-10-29",
+    "topic": "Warmtepomp onderhoud: voorkom tot 20% extra stroomverbruik",
+    "slug": "warmtepomp-onderhoud-stroomverbruik-rendement",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]
