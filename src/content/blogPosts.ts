@@ -2588,4 +2588,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Is een lekcontrole voor een warmtepomp wettelijk verplicht?', answer: 'Ja, volgens de Europese F-gassenverordening geldt een periodieke lekcontrole bij koudemiddelvullingen vanaf 5 ton CO2-equivalent, of vanaf 10 ton bij hermetisch gesloten systemen.' },
     ],
   },
+  {
+    slug: 'omvormer-begrenzen-overspanning-253v',
+    readingTimeMinutes: 2,
+    title: 'Omvormer begrenzen bij overspanning: voorkomen van 253V-uitval',
+    seoTitle: 'Omvormer begrenzen bij 253V overspanning',
+    description:
+      'Lees hoe je uitschakeling van je omvormer door 253V overspanning voorkomt met statisch of dynamisch begrenzen en juiste kabeldimensionering.',
+    date: '2026-11-05',
+    excerpt:
+      'Bij een netspanning boven 253V schakelt een omvormer automatisch uit. Ontdek hoe kabeldimensionering, statisch aftoppen en dynamisch begrenzen uitval door overspanning voorkomen.',
+    tags: ['omvormer', 'zonnepanelen', 'netcongestie', 'overspanning', '253V'],
+    keyPoints: [
+      'NEN-EN 50549-1 verplicht omvormer-uitschakeling bij meer dan 253V op het net.',
+      'Juiste kabeldimensionering volgens NEN 1010 voorkomt lokale spanningsstijging.',
+      'Statisch en dynamisch begrenzen voorkomen dat de zonne-installatie volledig uitvalt.',
+      'Het opbrengstverlies bij statisch aftoppen op 70% bedraagt slechts 2% tot 5% per jaar.',
+    ],
+    category: 'Zonnepanelen',
+    faq: [
+      { question: 'Waarom schakelt de omvormer uit bij 253 Volt?', answer: 'Volgens de NEN-EN 50549-1 norm schakelt een omvormer bij 253V (110% van 230V) automatisch uit om overbelasting van het elektriciteitsnet te voorkomen.' },
+      { question: 'Wat is het verschil tussen statisch aftoppen en dynamisch begrenzen?', answer: 'Statisch aftoppen stelt een vast maximaal AC-vermogen in, terwijl dynamisch begrenzen het vermogen continu in realtime aanpast aan de actuele netspanning of energievraag.' },
+      { question: 'Hoeveel opbrengstverlies geeft het aftoppen van een omvormer?', answer: 'Het statisch aftoppen op 70% van het piekvermogen leidt in Nederland tot een beperkt opbrengstverlies van gemiddeld 2% tot 5% per jaar.' },
+    ],
+  },
 ];

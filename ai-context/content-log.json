@@ -928,5 +928,12 @@
     "slug": "warmtepomp-onderhoud-stroomverbruik-rendement",
     "status": "generated",
     "contentType": "EVERGREEN"
+  },
+  {
+    "date": "2026-11-05",
+    "topic": "Omvormer begrenzen bij overspanning: voorkomen van 253V-uitval",
+    "slug": "omvormer-begrenzen-overspanning-253v",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]
