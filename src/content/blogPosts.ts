@@ -2612,4 +2612,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoeveel opbrengstverlies geeft het aftoppen van een omvormer?', answer: 'Het statisch aftoppen op 70% van het piekvermogen leidt in Nederland tot een beperkt opbrengstverlies van gemiddeld 2% tot 5% per jaar.' },
     ],
   },
+  {
+    slug: 'warmtepomp-slim-aanstuurbaar-2028-nta-8171',
+    readingTimeMinutes: 2,
+    title: 'Warmtepomp verplicht slim aanstuurbaar vanaf 2028',
+    seoTitle: 'Warmtepomp slim aanstuurbaar vanaf 2028: de regels',
+    description:
+      'Nieuwe warmtepompen moeten vanaf 2028 slim aanstuurbaar zijn via NTA 8171. Ontdek wat de Slimme Warmtepompen-deal betekent voor consumenten en…',
+    date: '2026-11-10',
+    excerpt:
+      'Vanaf 2028 worden nieuw geproduceerde warmtepompen standaard technisch slim aanstuurbaar volgens de NTA 8171-standaard om netoverbelasting te voorkomen.',
+    tags: ['Nieuws', 'warmtepomp', 'slimme sturing', 'NTA 8171', 'energietransitie', 'netbeheer'],
+    keyPoints: [
+      'Nieuwe warmtepompen vanaf 2028 standaard slim aanstuurbaar volgens NTA 8171',
+      'Aansturing vindt plaats binnen de door de gebruiker ingestelde comfortgrenzen',
+      'Geen automatische verplichting voor reeds geïnstalleerde warmtepompen',
+      'Warmtepompen met vermogen boven 5 kW vereisen vaak een 3-fase aansluiting',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Zijn bestaande warmtepompen ook verplicht slim aanstuurbaar?', answer: 'Nee, de afspraak geldt alleen voor nieuw geproduceerde toestellen vanaf 2028. Sommige bestaande warmtepompen kunnen eventueel via een software-update achteraf geschikt worden gemaakt.' },
+      { question: 'Bepaalt de netbeheerder straks de temperatuur in huis?', answer: 'Nee, de automatische sturing vindt altijd plaats binnen de comfortgrenzen die je zelf vooraf instelt. Je behoudt dus altijd de controle over je wooncomfort.' },
+      { question: 'Wat is de NTA 8171-standaard?', answer: 'NTA 8171 is de technische afspraak waarin de eisen en communicatieprotocollen zijn vastgelegd voor het slim aansturen van warmtepompen.' },
+    ],
+  },
 ];
