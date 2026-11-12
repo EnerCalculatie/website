@@ -2636,4 +2636,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Wat is de NTA 8171-standaard?', answer: 'NTA 8171 is de technische afspraak waarin de eisen en communicatieprotocollen zijn vastgelegd voor het slim aansturen van warmtepompen.' },
     ],
   },
+  {
+    slug: 'geluid-warmtepomp-erfgrens-berekenen',
+    readingTimeMinutes: 3,
+    title: 'Geluidsnormen en berekening voor warmtepompen op de erfgrens',
+    seoTitle: 'Warmtepomp geluid op de erfgrens: normen en berekening',
+    description:
+      'Hoeveel geluid mag een warmtepomp maken op de erfgrens? Lees alles over de Bbl-normen van 40 dB(A) en de berekening van geluidsdruk.',
+    date: '2026-11-12',
+    excerpt:
+      '\'s Nachts mag een warmtepomp op de erfgrens maximaal 40 dB(A) geluidsdruk veroorzaken. Ontdek hoe je de geluidsbelasting berekent met afstand en reflecties.',
+    tags: ['warmtepomp', 'geluidsnormen', 'erfgrens', 'Bbl', 'geluidsberekening'],
+    keyPoints: [
+      'Maximale geluidsbelasting \'s nachts is 40 dB(A) op de erfgrens conform het Bbl.',
+      'Overdag tussen 07:00 en 23:00 uur geldt een grens van maximaal 45 dB(A).',
+      'Elk reflecterend hard vlak (richtfactor Q) verhoogt de geluidsdruk met circa 3 dB(A).',
+      'Gemeenten eisen een onderbouwing via de officiële Rekentool Geluid Warmtepompen of NEN 5077.',
+    ],
+    category: 'Warmtepompen',
+    faq: [
+      { question: 'Hoeveel dB(A) mag een warmtepomp \'s nachts maken op de erfgrens?', answer: '\'s Nachts geldt volgens het Besluit bouwwerken leefomgeving (Bbl) een maximale geluidsbelasting van 40 dB(A) op de erfgrens. Overdag tussen 07:00 en 23:00 uur ligt deze grens op 45 dB(A).' },
+      { question: 'Hoe bereken je de geluidsdruk van een warmtepomp?', answer: 'Je berekent het geluidsdrukniveau met de formule Lp = Lw + 10 * log10(Q / (4 * pi * r^2)) - demping. Hierbij houd je rekening met de afstand, richtfactor Q en het invoegverlies van de omkasting.' },
+      { question: 'Welke documentatie accepteert de gemeente voor geluidseisen?', answer: 'Gemeenten accepteren een uitvoer van de officiële Rekentool Geluid Warmtepompen van de Rijksoverheid of een akoestisch rapport conform NEN 5077.' },
+    ],
+  },
 ];

@@ -943,5 +943,12 @@
     "status": "generated",
     "contentType": "NEWS",
     "category": "Warmtepompen"
+  },
+  {
+    "date": "2026-11-12",
+    "topic": "Geluidsnormen en berekening voor warmtepompen op de erfgrens",
+    "slug": "geluid-warmtepomp-erfgrens-berekenen",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]

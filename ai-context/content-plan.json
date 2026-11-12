@@ -30,8 +30,10 @@
     "contentType": "PRACTICAL",
     "priority": 7,
     "slug": "geluidsomkasting-voor-de-warmtepomp-hoe-onderbouwt-u-de-dba-reductie-bij-de-erfgrens",
-    "status": "planned",
-    "createdAt": "2026-09-30T12:31:56.702Z"
+    "status": "generated",
+    "createdAt": "2026-09-30T12:31:56.702Z",
+    "generatedSlug": "geluid-warmtepomp-erfgrens-berekenen",
+    "generatedAt": "2026-11-12T20:39:12.826Z"
   },
   {
     "title": "Calculatiefouten in installatiemateriaal voorkomen: zo beschermt u de marges op uw verduurzamingsofferte",
