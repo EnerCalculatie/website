@@ -950,5 +950,13 @@
     "slug": "geluid-warmtepomp-erfgrens-berekenen",
     "status": "generated",
     "contentType": "EVERGREEN"
+  },
+  {
+    "date": "2026-11-17",
+    "topic": "NCTV waarschuwt voor cyberrisico's bij thuisbatterijen en omvormers",
+    "slug": "nctv-cyberrisicos-thuisbatterijen-omvormers",
+    "status": "generated",
+    "contentType": "NEWS",
+    "category": "Thuisbatterijen"
   }
 ]

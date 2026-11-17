@@ -2660,4 +2660,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Welke documentatie accepteert de gemeente voor geluidseisen?', answer: 'Gemeenten accepteren een uitvoer van de officiële Rekentool Geluid Warmtepompen van de Rijksoverheid of een akoestisch rapport conform NEN 5077.' },
     ],
   },
+  {
+    slug: 'nctv-cyberrisicos-thuisbatterijen-omvormers',
+    readingTimeMinutes: 2,
+    title: 'NCTV waarschuwt voor cyberrisico\'s bij thuisbatterijen en omvormers',
+    seoTitle: 'NCTV waarschuwt voor cyberrisico\'s bij thuisbatterijen',
+    description:
+      'De NCTV waarschuwt voor cyberaanvallen op thuisbatterijen en omvormers. Lees wat de risico\'s zijn voor het stroomnet en hoe je je installatie…',
+    date: '2026-11-17',
+    excerpt:
+      'De NCTV en RDI waarschuwen dat gecoördineerde cyberaanvallen op thuisbatterijen en omvormers netinstabiliteit kunnen veroorzaken. Wat betekent dit voor de beveiliging van je installatie?',
+    tags: ['Nieuws', 'thuisbatterij', 'omvormers', 'cybersecurity', 'NCTV', 'netinstabiliteit'],
+    keyPoints: [
+      'Gecoördineerde hacks op thuisbatterijen kunnen tot 3 GW aan vermogen laten wegvallen.',
+      'Beveiligingsrisico\'s bedreigen de netfrequentie buiten de veilige marge van 49,99 tot 50,01 Hz.',
+      'Nieuwe EU-wetgeving zoals RED 3.3 en de Cyber Resilience Act (CRA) stelt scherpere beveiligingseisen.',
+    ],
+    category: 'Thuisbatterijen',
+    faq: [
+      { question: 'Waarom vormen thuisbatterijen en omvormers een cyberrisico?', answer: 'Thuisbatterijen en omvormers vallen onder \'high-power IoT\' en zijn vaak gekoppeld aan cloudplatforms. Bij een gecoördineerde hack kan een groot vermogen ineens wegvallen of inschakelen, wat het stroomnet ontregelt.' },
+      { question: 'Welke Europese wetgeving geldt er voor de cyberveiligheid van omvormers?', answer: 'Sinds 1 augustus 2025 stelt de RED 3.3-richtlijn eisen aan draadloze omvormers. Daarnaast geldt onder de Cyber Resilience Act (CRA) vanaf september 2026 een meldplicht voor kwetsbaarheden, gevolgd door CE-eisen in december 2027.' },
+      { question: 'Hoe beveiligt u een thuisbatterij tegen hacks?', answer: 'Schakel automatische firmware-updates in, vervang fabriekswachtwoorden door sterke, unieke wachtwoorden en sluit de installatie aan op een gescheiden netwerk zoals een gastnetwerk.' },
+    ],
+  },
 ];

@@ -1,39 +1,13 @@
 [
   {
-    "title": "Onderhoud van de warmtepomp: wat is de invloed op het rendement en stroomverbruik?",
-    "keyword": "warmtepomp onderhoud rendement",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 8,
-    "slug": "onderhoud-van-de-warmtepomp-wat-is-de-invloed-op-het-rendement-en-stroomverbruik",
-    "status": "generated",
-    "createdAt": "2026-10-27T09:32:29.636Z",
-    "generatedSlug": "warmtepomp-onderhoud-stroomverbruik-rendement",
-    "generatedAt": "2026-10-29T10:43:00.075Z"
-  },
-  {
-    "title": "Omvormer vermogen aftoppen: wanneer is begrenzen verstandig bij netcongestie?",
-    "keyword": "omvormer vermogen begrenzen",
-    "intent": "informatief",
-    "contentType": "SEO",
-    "priority": 8,
-    "slug": "omvormer-vermogen-aftoppen-wanneer-is-begrenzen-verstandig-bij-netcongestie",
-    "status": "generated",
-    "createdAt": "2026-10-27T09:32:29.643Z",
-    "generatedSlug": "omvormer-begrenzen-overspanning-253v",
-    "generatedAt": "2026-11-05T11:50:43.657Z"
-  },
-  {
-    "title": "Geluidsomkasting voor de warmtepomp: hoe onderbouwt u de dB(A)-reductie bij de erfgrens?",
-    "keyword": "geluidsomkasting warmtepomp berekenen",
+    "title": "Airco koelen op zonne-energie: hoe onderbouwt u het directe verbruik van de eigen PV-opwek?",
+    "keyword": "airco op zonne-energie laten draaien",
     "intent": "commercieel",
-    "contentType": "PRACTICAL",
-    "priority": 7,
-    "slug": "geluidsomkasting-voor-de-warmtepomp-hoe-onderbouwt-u-de-dba-reductie-bij-de-erfgrens",
-    "status": "generated",
-    "createdAt": "2026-09-30T12:31:56.702Z",
-    "generatedSlug": "geluid-warmtepomp-erfgrens-berekenen",
-    "generatedAt": "2026-11-12T20:39:12.826Z"
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "airco-koelen-op-zonne-energie-hoe-onderbouwt-u-het-directe-verbruik-van-de-eigen-pv-opwek",
+    "status": "planned",
+    "createdAt": "2026-11-17T12:43:25.908Z"
   },
   {
     "title": "Calculatiefouten in installatiemateriaal voorkomen: zo beschermt u de marges op uw verduurzamingsofferte",
@@ -54,6 +28,16 @@
     "slug": "airco-verwarmen-bij-vorst-hoe-daalt-de-cop-en-voorkomt-u-een-hoge-energierekening",
     "status": "planned",
     "createdAt": "2026-10-27T09:32:29.645Z"
+  },
+  {
+    "title": "Geluid van een omvormer voor zonnepanelen: waar op letten bij de plaatsing in de woning?",
+    "keyword": "geluid omvormer zonnepanelen",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 6,
+    "slug": "geluid-van-een-omvormer-voor-zonnepanelen-waar-op-letten-bij-de-plaatsing-in-de-woning",
+    "status": "planned",
+    "createdAt": "2026-11-17T12:43:25.912Z"
   },
   {
     "title": "De impact van het nieuwe Bouwbesluit 2023 op verduurzamingsadvies",
@@ -329,6 +313,30 @@
     "generatedSlug": "verduurzaming-kosten-baten-analyse",
     "generatedAt": "2026-07-13T06:24:02.636Z",
     "seoGeoScore": 83
+  },
+  {
+    "title": "Onderhoud van de warmtepomp: wat is de invloed op het rendement en stroomverbruik?",
+    "keyword": "warmtepomp onderhoud rendement",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "onderhoud-van-de-warmtepomp-wat-is-de-invloed-op-het-rendement-en-stroomverbruik",
+    "status": "generated",
+    "createdAt": "2026-10-27T09:32:29.636Z",
+    "generatedSlug": "warmtepomp-onderhoud-stroomverbruik-rendement",
+    "generatedAt": "2026-10-29T10:43:00.075Z"
+  },
+  {
+    "title": "Omvormer vermogen aftoppen: wanneer is begrenzen verstandig bij netcongestie?",
+    "keyword": "omvormer vermogen begrenzen",
+    "intent": "informatief",
+    "contentType": "SEO",
+    "priority": 8,
+    "slug": "omvormer-vermogen-aftoppen-wanneer-is-begrenzen-verstandig-bij-netcongestie",
+    "status": "generated",
+    "createdAt": "2026-10-27T09:32:29.643Z",
+    "generatedSlug": "omvormer-begrenzen-overspanning-253v",
+    "generatedAt": "2026-11-05T11:50:43.657Z"
   },
   {
     "title": "Fase-ongelijkheid en scheefbelasting voorkomen: hoe verdeelt u 1-fase omvormers en laadpalen over 3 fasen?",
@@ -817,6 +825,18 @@
     "seoGeoScore": 85,
     "abandonReason": "Samengevoegd met /blog/netcongestie-wachtlijst-zakelijk-2026 (301): dun artikel dat op hetzelfde zoekwoord mikte als een bestaand, uitgebreider artikel. De FAQ's bevatten bovendien verzonnen subsidiebedragen.",
     "abandonedAt": "2026-07-15T16:38:54.556Z"
+  },
+  {
+    "title": "Geluidsomkasting voor de warmtepomp: hoe onderbouwt u de dB(A)-reductie bij de erfgrens?",
+    "keyword": "geluidsomkasting warmtepomp berekenen",
+    "intent": "commercieel",
+    "contentType": "PRACTICAL",
+    "priority": 7,
+    "slug": "geluidsomkasting-voor-de-warmtepomp-hoe-onderbouwt-u-de-dba-reductie-bij-de-erfgrens",
+    "status": "generated",
+    "createdAt": "2026-09-30T12:31:56.702Z",
+    "generatedSlug": "geluid-warmtepomp-erfgrens-berekenen",
+    "generatedAt": "2026-11-12T20:39:12.826Z"
   },
   {
     "title": "Offerte-opvolging voor installateurs: hoe verkort u de beslissingstijd bij verduurzamingsadvies?",
