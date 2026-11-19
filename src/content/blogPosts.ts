@@ -2683,4 +2683,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe beveiligt u een thuisbatterij tegen hacks?', answer: 'Schakel automatische firmware-updates in, vervang fabriekswachtwoorden door sterke, unieke wachtwoorden en sluit de installatie aan op een gescheiden netwerk zoals een gastnetwerk.' },
     ],
   },
+  {
+    slug: 'airco-draaien-op-zonnepanelen-eigen-verbruik-verhogen',
+    readingTimeMinutes: 2,
+    title: 'Airco laten draaien op zonnepanelen: verhoog je eigen verbruik',
+    seoTitle: 'Airco op zonnepanelen: verhoog je eigen verbruik',
+    description:
+      'Ontdek hoe een airco op zonnestroom je directe eigen verbruik verhoogt naar 50% tot 70% op zonnige zomerdagen en terugleverkosten helpt voorkomen.',
+    date: '2026-11-19',
+    excerpt:
+      'Door een airco te laten draaien op het piekmoment van je zonnepanelen, stijgt het directe eigen verbruik van zonnestroom fors naar 50% tot 70% op zonnige zomerdagen.',
+    tags: ['airco', 'zonnepanelen', 'eigen verbruik', 'salderingsregeling'],
+    keyPoints: [
+      'Het eigen verbruik van zonnestroom stijgt van gemiddeld 30% naar 50% tot 70% door koelen met een airco op zonnige dagen.',
+      'Zonnepanelen dekken 50% tot meer dan 80% van de totale koellast direct af.',
+      'Na het afschaffen van de salderingsregeling in 2027 voorkomt direct eigen verbruik terugleverheffingen en netkosten.',
+    ],
+    category: 'Airco',
+    faq: [
+      { question: 'Hoeveel van de koellast van een airco dekken zonnepanelen direct?', answer: 'Op zonnige zomerdagen kunnen zonnepanelen 50% tot meer dan 80% van de totale koellast van een inverter-airco direct afdekken.' },
+      { question: 'Hoeveel stijgt het eigen verbruik van zonnestroom met een airco?', answer: 'Het directe eigen verbruik van zonnestroom stijgt van gemiddeld 30% naar 50% tot 70% op zonnige zomerdagen.' },
+      { question: 'Hoe schakelt een airco automatisch in bij een zonne-overschot?', answer: 'Een Energy Management Systeem (EMS) of slimme omvormer stuurt de airco aan via protocollen zoals Modbus, droge contacten of fabrieks-API\'s.' },
+    ],
+  },
 ];

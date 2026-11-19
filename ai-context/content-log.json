@@ -958,5 +958,12 @@
     "status": "generated",
     "contentType": "NEWS",
     "category": "Thuisbatterijen"
+  },
+  {
+    "date": "2026-11-19",
+    "topic": "Airco laten draaien op zonnepanelen: verhoog je eigen verbruik",
+    "slug": "airco-draaien-op-zonnepanelen-eigen-verbruik-verhogen",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]
