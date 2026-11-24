@@ -2706,4 +2706,28 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Hoe schakelt een airco automatisch in bij een zonne-overschot?', answer: 'Een Energy Management Systeem (EMS) of slimme omvormer stuurt de airco aan via protocollen zoals Modbus, droge contacten of fabrieks-API\'s.' },
     ],
   },
+  {
+    slug: 'dynamisch-netbewust-publiek-laden-dnpl',
+    readingTimeMinutes: 2,
+    title: 'Dynamisch netbewust publiek laden gestart in Midden-Nederland',
+    seoTitle: 'Dynamisch netbewust laden (DNPL) uitgelegd',
+    description:
+      'Alles over Dynamisch Netbewust Publiek Laden (DNPL) in Utrecht, Gelderland en Flevoland. Ontdek de invloed op laadtijden en oplossingen voor thuis.',
+    date: '2026-11-24',
+    excerpt:
+      'Sinds 12 november 2026 passen netbeheerders het laadvermogen van openbare laadpalen aan tijdens piekmomenten. Wat betekent DNPL voor jouw elektrische auto?',
+    tags: ['Nieuws', 'DNPL', 'Laadpalen', 'Smart Charging', 'Netcongestie', 'Elektrisch rijden'],
+    keyPoints: [
+      'Netbeheerders knijpen openbare laders tijdens piekuren om overbelasting van het stroomnet te voorkomen.',
+      'Beperkingen gelden tussen 06.00-11.00 uur en 15.00-22.00 uur in Utrecht, Gelderland en Flevoland.',
+      'Gebruikers kunnen de vermogensbeperking handmatig overschrijven via een opt-out in de laad-app.',
+      'Een thuislaadpaal met dynamische load balancing biedt volledige laadzekerheid op eigen terrein.',
+    ],
+    category: 'Laadpalen',
+    faq: [
+      { question: 'Wat is Dynamisch Netbewust Publiek Laden (DNPL)?', answer: 'DNPL is het tijdelijk verlagen of pauzeren van het laadvermogen bij openbare laadpalen tijdens piekmomenten van netdrukte. Zodra de piek voorbij is, laadt de paal automatisch weer op normaal vermogen.' },
+      { question: 'Wanneer worden openbare laadpalen geknepen?', answer: 'Vermogensbeperkingen vinden plaats binnen twee vaste tijdvakken: tussen 06.00 en 11.00 uur (ochtendpiek) en tussen 15.00 en 22.00 uur (avondpiek).' },
+      { question: 'Kan ik een beperkte laadsessie overschrijven?', answer: 'Ja, bij de meeste deelnemende laadpalen kun je de vermogensbeperking handmatig overschrijven via een opt-out functie in je laad-app.' },
+    ],
+  },
 ];
