@@ -2730,4 +2730,27 @@ export const blogPosts: BlogPostMeta[] = [
       { question: 'Kan ik een beperkte laadsessie overschrijven?', answer: 'Ja, bij de meeste deelnemende laadpalen kun je de vermogensbeperking handmatig overschrijven via een opt-out functie in je laad-app.' },
     ],
   },
+  {
+    slug: 'calculatiefouten-voorkomen-duurzame-installaties',
+    readingTimeMinutes: 3,
+    title: 'Calculatiefouten voorkomen bij duurzame installatieprojecten',
+    seoTitle: 'Calculatiefouten voorkomen bij verduurzamingsprojecten',
+    description:
+      'Voorkom kostbare calculatiefouten bij zonnepanelen, warmtepompen en laadpalen. Lees tips over kabeldimensionering, NEN-normen en subsidie-eisen.',
+    date: '2026-11-26',
+    excerpt:
+      'Een vergeten kabel of een te dunne AC-kabel kost direct marge. Ontdek hoe je calculatiefouten bij zonnepanelen, laadpalen en warmtepompen voorkomt.',
+    tags: ['calculatie', 'laadpalen', 'zonnepanelen', 'warmtepompen', 'NEN 1010'],
+    keyPoints: [
+      'Voorkom faalkosten door Load Balancing-componenten en P1-kabels vooraf mee te rekenen.',
+      'Houd rekening met NEN 1010 voor kabeldimensionering en voorkom spanningsval of omvormeruitval bij 253V.',
+      'Borg NEN-EN 12831 warmteverliesberekeningen en RVO-meldcodes voor behoud van de winstmarge en subsidie.',
+    ],
+    category: 'Kennisbank',
+    faq: [
+      { question: 'Hoe voorkom je spanningsval bij lange kabeltrajecten?', answer: 'Door bij afstanden vanaf 35 tot 40 meter te kiezen voor grotere kabeldiameters zoals 4 mm² of 6 mm², voorkom je spanningsverlies en laadstoringen volgens NEN 1010.' },
+      { question: 'Mag een installateur materiaalprijzen achteraf doorberekenen?', answer: 'Volgens de ACM mag dit alleen als er vooraf een uitdrukkelijke en transparante nacalculatieclausule in de voorwaarden is opgenomen.' },
+      { question: 'Waarom is een exacte RVO-meldcode belangrijk bij warmtepomp-offertes?', answer: 'De RVO eist dat de meldcode op de offerte exact overeenkomt met de fysiek geleverde warmtepomp. Bij een afwijking wordt de subsidieaanvraag afgewezen.' },
+    ],
+  },
 ];

@@ -973,5 +973,12 @@
     "status": "generated",
     "contentType": "NEWS",
     "category": "Laadpalen"
+  },
+  {
+    "date": "2026-11-26",
+    "topic": "Calculatiefouten voorkomen bij duurzame installatieprojecten",
+    "slug": "calculatiefouten-voorkomen-duurzame-installaties",
+    "status": "generated",
+    "contentType": "EVERGREEN"
   }
 ]
